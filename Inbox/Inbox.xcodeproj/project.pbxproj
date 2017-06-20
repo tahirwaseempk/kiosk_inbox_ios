@@ -22,6 +22,11 @@
 		1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
 		1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB11EF9A012006C2CAC /* MessageTableViewReceiverCell.swift */; };
 		1ADE9FB41EF9A012006C2CAC /* MessageTableViewReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB21EF9A012006C2CAC /* MessageTableViewReceiverCell.xib */; };
+		1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
+		1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
+		1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
+		1ADE9FC01EF9AADC006C2CAC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +47,13 @@
 		1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxTableViewCell.xib; sourceTree = "<group>"; };
 		1ADE9FB11EF9A012006C2CAC /* MessageTableViewReceiverCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewReceiverCell.swift; sourceTree = "<group>"; };
 		1ADE9FB21EF9A012006C2CAC /* MessageTableViewReceiverCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewReceiverCell.xib; sourceTree = "<group>"; };
+		1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewDataSource.swift; sourceTree = "<group>"; };
+		1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewDataSource.swift; sourceTree = "<group>"; };
+		1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebManager.swift; sourceTree = "<group>"; };
+		1ADE9FBD1EF9AADC006C2CAC /* Inbox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Inbox-Bridging-Header.h"; path = "Inbox/Inbox-Bridging-Header.h"; sourceTree = "<group>"; };
+		1ADE9FBE1EF9AADC006C2CAC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPrinting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +87,10 @@
 		1ADE9F7C1EF98E48006C2CAC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */,
+				1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */,
+				1ADE9FBE1EF9AADC006C2CAC /* Reachability.h */,
+				1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */,
 				1ADE9F961EF98E7F006C2CAC /* App Delegate */,
 			);
 			name = Classes;
@@ -84,6 +100,7 @@
 		1ADE9F921EF98E5E006C2CAC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1ADE9FBD1EF9AADC006C2CAC /* Inbox-Bridging-Header.h */,
 				1ADE9F951EF98E73006C2CAC /* Database */,
 				1ADE9F941EF98E69006C2CAC /* P-List */,
 				1ADE9F931EF98E64006C2CAC /* Images */,
@@ -147,6 +164,8 @@
 		1ADE9FA11EF99688006C2CAC /* Inbox View */ = {
 			isa = PBXGroup;
 			children = (
+				1ADE9FB61EF9A589006C2CAC /* Inbox TableView Data Source */,
+				1ADE9FB51EF9A57B006C2CAC /* Message TableView Data Source */,
 				1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */,
 				1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */,
 				1ADE9FB01EF99FED006C2CAC /* Message Receiver Cell */,
@@ -183,6 +202,22 @@
 			name = "Message Receiver Cell";
 			sourceTree = "<group>";
 		};
+		1ADE9FB51EF9A57B006C2CAC /* Message TableView Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */,
+			);
+			name = "Message TableView Data Source";
+			sourceTree = "<group>";
+		};
+		1ADE9FB61EF9A589006C2CAC /* Inbox TableView Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */,
+			);
+			name = "Inbox TableView Data Source";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,7 +250,8 @@
 				TargetAttributes = {
 					1ADE9F791EF98E48006C2CAC = {
 						CreatedOnToolsVersion = 8.3.1;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -259,14 +295,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */,
 				1ADE9FA31EF996A4006C2CAC /* InboxViewController.swift in Sources */,
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
+				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
 				1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
+				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */,
+				1ADE9FC01EF9AADC006C2CAC /* Reachability.m in Sources */,
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
+				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,10 +413,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Inbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AmirAkram.Inbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -385,10 +431,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Inbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AmirAkram.Inbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -413,6 +463,7 @@
 				1ADE9F911EF98E4A006C2CAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

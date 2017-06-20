@@ -10,8 +10,16 @@ import UIKit
 
 class InboxViewController: UIViewController {
 
+    @IBOutlet weak var inboxTableView: UITableView!
+    @IBOutlet weak var messageTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        
+        messageTableView.dataSource = MessageTableViewDataSource(tableview: messageTableView)
+        
+        inboxTableView.dataSource = InboxTableViewDataSource(tableview: inboxTableView)
 
         // Do any additional setup after loading the view.
     }

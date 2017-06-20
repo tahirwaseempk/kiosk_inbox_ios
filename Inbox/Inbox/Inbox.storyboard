@@ -152,6 +152,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="inboxTableView" destination="Ozc-av-x23" id="g09-kL-f3M"/>
+                        <outlet property="messageTableView" destination="plP-gj-xmj" id="M3s-Hh-O8V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4N-7h-dWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

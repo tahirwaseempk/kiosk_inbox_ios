@@ -10,8 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBAction func loginButton_Tapped(_ sender: Any) {
-    }
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var rememberMeButton: UIButton!
     @IBOutlet weak var udidTextField: UITextField!
@@ -20,6 +18,35 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func loginButton_Tapped(_ sender: Any) {
+        
+        
+        WebManager.requestLogin(params: Dictionary(), completionBlockSuccess: { (response:AnyObject?) -> (Void) in
+            
+            let json = response as! Dictionary<String,Any>
+            
+            json.printJson()
+            
+            let homeStoryboard = UIStoryboard(name:"Inbox", bundle: nil)
+            
+            let homeViewController: UIViewController = homeStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
+            self.navigationController?.setViewControllers([homeViewController], animated: true)
+            
+            
+        }) { (error:Error?) -> (Void) in
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
     }
 
     @IBAction func rememberMeButton_Tapped(_ sender: Any) {

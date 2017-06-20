@@ -13,9 +13,23 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        loadLoginView()
     }
 
+    
+    func loadLoginView()
+    {
+        
+        let dispatchTime = DispatchTime.now() + .seconds(1)
+        
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
+            let homeStoryboard = UIStoryboard(name:"Login", bundle: nil)
+            
+            let homeViewController: UIViewController = homeStoryboard.instantiateViewController(withIdentifier: "LoginViewController")as! LoginViewController
+            self.navigationController?.setViewControllers([homeViewController], animated: true)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
