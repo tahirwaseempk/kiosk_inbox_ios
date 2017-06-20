@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */; };
+		1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
+		1ADE9F881EF98E4A006C2CAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */; };
+		1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
+		1ADE9F9B1EF98ED9006C2CAC /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */; };
+		1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
+		1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */; };
+		1ADE9FA31EF996A4006C2CAC /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */; };
+		1ADE9FA51EF996AB006C2CAC /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */; };
+		1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FA71EF99D01006C2CAC /* MessageTableViewSenderCell.swift */; };
+		1ADE9FAB1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAA1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib */; };
+		1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
+		1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
+		1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB11EF9A012006C2CAC /* MessageTableViewReceiverCell.swift */; };
+		1ADE9FB41EF9A012006C2CAC /* MessageTableViewReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB21EF9A012006C2CAC /* MessageTableViewReceiverCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1ADE9F7A1EF98E48006C2CAC /* Inbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Inbox.xcdatamodel; sourceTree = "<group>"; };
+		1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Inbox/Assets.xcassets; sourceTree = "<group>"; };
+		1ADE9F8C1EF98E4A006C2CAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Inbox/Info.plist; sourceTree = "<group>"; };
+		1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
+		1ADE9FA71EF99D01006C2CAC /* MessageTableViewSenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewSenderCell.swift; sourceTree = "<group>"; };
+		1ADE9FAA1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewSenderCell.xib; sourceTree = "<group>"; };
+		1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
+		1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxTableViewCell.xib; sourceTree = "<group>"; };
+		1ADE9FB11EF9A012006C2CAC /* MessageTableViewReceiverCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewReceiverCell.swift; sourceTree = "<group>"; };
+		1ADE9FB21EF9A012006C2CAC /* MessageTableViewReceiverCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewReceiverCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1ADE9F771EF98E48006C2CAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1ADE9F711EF98E46006C2CAC = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F7C1EF98E48006C2CAC /* Classes */,
+				1ADE9F921EF98E5E006C2CAC /* Resources */,
+				1ADE9F7B1EF98E48006C2CAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1ADE9F7B1EF98E48006C2CAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F7A1EF98E48006C2CAC /* Inbox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1ADE9F7C1EF98E48006C2CAC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F961EF98E7F006C2CAC /* App Delegate */,
+			);
+			name = Classes;
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		1ADE9F921EF98E5E006C2CAC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F951EF98E73006C2CAC /* Database */,
+				1ADE9F941EF98E69006C2CAC /* P-List */,
+				1ADE9F931EF98E64006C2CAC /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1ADE9F931EF98E64006C2CAC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		1ADE9F941EF98E69006C2CAC /* P-List */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F8C1EF98E4A006C2CAC /* Info.plist */,
+			);
+			name = "P-List";
+			sourceTree = "<group>";
+		};
+		1ADE9F951EF98E73006C2CAC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		1ADE9F961EF98E7F006C2CAC /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */,
+				1ADE9F971EF98E90006C2CAC /* Splash View */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		1ADE9F971EF98E90006C2CAC /* Splash View */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */,
+				1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */,
+				1ADE9F9C1EF98F5C006C2CAC /* Login  View */,
+			);
+			name = "Splash View";
+			sourceTree = "<group>";
+		};
+		1ADE9F9C1EF98F5C006C2CAC /* Login  View */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */,
+				1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */,
+				1ADE9FA11EF99688006C2CAC /* Inbox View */,
+			);
+			name = "Login  View";
+			sourceTree = "<group>";
+		};
+		1ADE9FA11EF99688006C2CAC /* Inbox View */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */,
+				1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */,
+				1ADE9FB01EF99FED006C2CAC /* Message Receiver Cell */,
+				1ADE9FA91EF99D08006C2CAC /* Message Sender Cell */,
+				1ADE9FA61EF99BA1006C2CAC /* Inbox Message Sender Cell */,
+			);
+			name = "Inbox View";
+			sourceTree = "<group>";
+		};
+		1ADE9FA61EF99BA1006C2CAC /* Inbox Message Sender Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */,
+				1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */,
+			);
+			name = "Inbox Message Sender Cell";
+			sourceTree = "<group>";
+		};
+		1ADE9FA91EF99D08006C2CAC /* Message Sender Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9FA71EF99D01006C2CAC /* MessageTableViewSenderCell.swift */,
+				1ADE9FAA1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib */,
+			);
+			name = "Message Sender Cell";
+			sourceTree = "<group>";
+		};
+		1ADE9FB01EF99FED006C2CAC /* Message Receiver Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9FB11EF9A012006C2CAC /* MessageTableViewReceiverCell.swift */,
+				1ADE9FB21EF9A012006C2CAC /* MessageTableViewReceiverCell.xib */,
+			);
+			name = "Message Receiver Cell";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1ADE9F791EF98E48006C2CAC /* Inbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ADE9F8F1EF98E4A006C2CAC /* Build configuration list for PBXNativeTarget "Inbox" */;
+			buildPhases = (
+				1ADE9F761EF98E48006C2CAC /* Sources */,
+				1ADE9F771EF98E48006C2CAC /* Frameworks */,
+				1ADE9F781EF98E48006C2CAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Inbox;
+			productName = Inbox;
+			productReference = 1ADE9F7A1EF98E48006C2CAC /* Inbox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1ADE9F721EF98E46006C2CAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Amir Akram";
+				TargetAttributes = {
+					1ADE9F791EF98E48006C2CAC = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1ADE9F751EF98E47006C2CAC /* Build configuration list for PBXProject "Inbox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1ADE9F711EF98E46006C2CAC;
+			productRefGroup = 1ADE9F7B1EF98E48006C2CAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1ADE9F791EF98E48006C2CAC /* Inbox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1ADE9F781EF98E48006C2CAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */,
+				1ADE9F881EF98E4A006C2CAC /* Assets.xcassets in Resources */,
+				1ADE9F9B1EF98ED9006C2CAC /* Splash.storyboard in Resources */,
+				1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */,
+				1ADE9FAB1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib in Resources */,
+				1ADE9FA51EF996AB006C2CAC /* Inbox.storyboard in Resources */,
+				1ADE9FB41EF9A012006C2CAC /* MessageTableViewReceiverCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1ADE9F761EF98E48006C2CAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ADE9FA31EF996A4006C2CAC /* InboxViewController.swift in Sources */,
+				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
+				1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */,
+				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
+				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
+				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
+				1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */,
+				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1ADE9F8D1EF98E4A006C2CAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1ADE9F8E1EF98E4A006C2CAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1ADE9F901EF98E4A006C2CAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Inbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AmirAkram.Inbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1ADE9F911EF98E4A006C2CAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Inbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AmirAkram.Inbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1ADE9F751EF98E47006C2CAC /* Build configuration list for PBXProject "Inbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ADE9F8D1EF98E4A006C2CAC /* Debug */,
+				1ADE9F8E1EF98E4A006C2CAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1ADE9F8F1EF98E4A006C2CAC /* Build configuration list for PBXNativeTarget "Inbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ADE9F901EF98E4A006C2CAC /* Debug */,
+				1ADE9F911EF98E4A006C2CAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */,
+			);
+			currentVersion = 1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */;
+			name = Inbox.xcdatamodeld;
+			path = Inbox/Inbox.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1ADE9F721EF98E46006C2CAC /* Project object */;
+}
