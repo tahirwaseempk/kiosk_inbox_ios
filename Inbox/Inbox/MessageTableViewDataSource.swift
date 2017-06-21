@@ -13,6 +13,8 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
 
     let targetedTableView: UITableView
     
+    var selectedConversation:ConversationDataModel? = nil
+
     init(tableview:UITableView) {
         
         self.targetedTableView = tableview
@@ -39,7 +41,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 10
+        guard (selectedConversation == nil) else {
+             return (selectedConversation?.messages.count)!
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -48,11 +53,25 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         cell.selectionStyle  = .none
         
+        let message:MessagesDataModel = (selectedConversation?.messages[indexPath.row])!
+        
+        cell.numberLabel.text = message.mobile
+        cell.timeLabel.text = message.date
+        cell.messageTextLabel.text = message.message
+        
         return cell
     }
     
     func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
     {
         
+    }
+    
+    func loadConversation(conversation_:ConversationDataModel) -> Bool {
+        
+        self.selectedConversation = conversation_;
+        self.targetedTableView.reloadData()
+        
+        return true
     }
 }

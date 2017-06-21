@@ -8,36 +8,74 @@
 
 import UIKit
 
-class InboxViewController: UIViewController {
-
+class InboxViewController: UIViewController, InboxTableViewCellProtocol {
+    
+    var conversations:Array<ConversationDataModel>? = nil
+    
+    @IBOutlet weak var messageFromLabel: UILabel!
+    
+    @IBOutlet weak var messageNumberLabel: UILabel!
+    
+    @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var messageTableView: UITableView!
+    
+    var messageTableViewDataSource:MessageTableViewDataSource? = nil
+    
+    var inboxTableViewDataSource:InboxTableViewDataSource? = nil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        self.counterLabel.text = "(\( (conversations?.count)!))"
         
-        messageTableView.dataSource = MessageTableViewDataSource(tableview: messageTableView)
+        messageTableViewDataSource = MessageTableViewDataSource(tableview: messageTableView)
+        messageTableView.dataSource = messageTableViewDataSource
         
-        inboxTableView.dataSource = InboxTableViewDataSource(tableview: inboxTableView)
-
+        inboxTableViewDataSource = InboxTableViewDataSource(tableview: inboxTableView, conversations_: self.conversations!, delegate_: (self as? InboxTableViewCellProtocol)!)
+        inboxTableView.dataSource = inboxTableViewDataSource
+        //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func deleteMessage_Tapped(_ sender: Any) {
+        let udid = "323434234"
+        let serial = "test-test"
+        let Ids = "1215317"
+//{"message":"??","id":1215317,"shortcode":"71441","date":"05\/27\/2017 12:46:08 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215316,"shortcode":"71441","date":"05\/27\/2017 12:46:05 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215315,"shortcode":"71441","date":"05\/27\/2017 12:46:03 PM","mobile":"1-910-445-1906"},{"message":"????????????????????????????????????????????????????????","id":1215295,"shortcode":"71441","date":
+        
+        
+        WebManager.deleteMessage(UDID: udid, serial: serial, Ids: Ids, completionBlockSuccess: { (Bool) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            let alert = UIAlertController(title: "Message", message: "Message sucessfully deleted.", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                    }
+            }
+            
+        }) { (error:Error?) -> (Void) in
+            
+            
+        }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func conversationSelected(conversation:ConversationDataModel) -> Bool
+    {
+        self.messageFromLabel.text = ""
+        self.messageNumberLabel.text = conversation.mobile
+        
+        return (messageTableViewDataSource?.loadConversation(conversation_: conversation))!
     }
-    */
-
+    
+    
+    @IBAction func markAllButton_Tapped(_ sender: Any) {
+    }
 }

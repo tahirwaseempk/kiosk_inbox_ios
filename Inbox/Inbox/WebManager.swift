@@ -1,8 +1,10 @@
 import UIKit
 
 let INBOX_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial=test-test&uuid=323434234"
-
-
+let DELETE_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxDelete&json={%22uuid%22:%22"
+let DELETE_URL_BEFORE_SERIAL = "%22,%22serial%22:%22"
+let DELETE_URL_BEFORE_IDS = "%22,%22ids%22:["
+let DELETE_URLEND = "]}"
 
 class WebManager: NSObject
 {
@@ -17,13 +19,31 @@ class WebManager: NSObject
         super.init()
     }
     
-    static func requestLogin(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((AnyObject?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func requestLogin(params: Dictionary<String,Any>,messageParser:MessagesParser, completionBlockSuccess successBlock: @escaping ((Array<ConversationDataModel>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         PostDataWithUrl(urlString:INBOX_URL, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
-                successBlock(response)
+                successBlock(messageParser.parseInboxMessages(json:response as! Dictionary<String, Any>))
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
+    
+    static func deleteMessage(UDID:String, serial:String, Ids:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let finalUrl = DELETE_URL_BEFORE_UDID + UDID + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_IDS + Ids + DELETE_URLEND
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(true)
             }
             else
             {
