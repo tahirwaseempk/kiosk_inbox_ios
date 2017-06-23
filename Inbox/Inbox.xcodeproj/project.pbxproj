@@ -27,6 +27,9 @@
 		1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
 		1ADE9FC01EF9AADC006C2CAC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
+		7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
+		7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
+		7518E3951EFDC37300EF059F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7518E3941EFDC37300EF059F /* Default-568h@2x.png */; };
 		755C66531EF9B2A600A3F74A /* MessagesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */; };
 		755C66581EFA87D700A3F74A /* ConversationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66571EFA87D700A3F74A /* ConversationDataModel.swift */; };
 		755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
@@ -58,6 +61,11 @@
 		1ADE9FBE1EF9AADC006C2CAC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPrinting.swift; sourceTree = "<group>"; };
+		7518E38E1EFDB01A00EF059F /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+		7518E3901EFDB01A00EF059F /* ChatCellSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCellSettings.h; sourceTree = "<group>"; };
+		7518E3911EFDB01A00EF059F /* ChatCellSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCellSettings.m; sourceTree = "<group>"; };
+		7518E3941EFDC37300EF059F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataModel.swift; sourceTree = "<group>"; };
 		755C66571EFA87D700A3F74A /* ConversationDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDataModel.swift; sourceTree = "<group>"; };
 		755C665A1EFA897800A3F74A /* MessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesParser.swift; sourceTree = "<group>"; };
@@ -78,6 +86,7 @@
 		1ADE9F711EF98E46006C2CAC = {
 			isa = PBXGroup;
 			children = (
+				7518E3941EFDC37300EF059F /* Default-568h@2x.png */,
 				1ADE9F7C1EF98E48006C2CAC /* Classes */,
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
@@ -95,6 +104,7 @@
 		1ADE9F7C1EF98E48006C2CAC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7518E38D1EFDAFFA00EF059F /* iBubblesCode */,
 				755C66591EFA896100A3F74A /* Controllers */,
 				755C66541EFA878800A3F74A /* Persistent */,
 				1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */,
@@ -229,6 +239,17 @@
 			name = "Inbox TableView Data Source";
 			sourceTree = "<group>";
 		};
+		7518E38D1EFDAFFA00EF059F /* iBubblesCode */ = {
+			isa = PBXGroup;
+			children = (
+				7518E38E1EFDB01A00EF059F /* ChatTableViewCell.h */,
+				7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */,
+				7518E3901EFDB01A00EF059F /* ChatCellSettings.h */,
+				7518E3911EFDB01A00EF059F /* ChatCellSettings.m */,
+			);
+			name = iBubblesCode;
+			sourceTree = "<group>";
+		};
 		755C66541EFA878800A3F74A /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +356,7 @@
 				1ADE9F9B1EF98ED9006C2CAC /* Splash.storyboard in Resources */,
 				1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */,
 				1ADE9FAB1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib in Resources */,
+				7518E3951EFDC37300EF059F /* Default-568h@2x.png in Resources */,
 				1ADE9FA51EF996AB006C2CAC /* Inbox.storyboard in Resources */,
 				1ADE9FB41EF9A012006C2CAC /* MessageTableViewReceiverCell.xib in Resources */,
 			);
@@ -350,6 +372,7 @@
 				1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */,
 				755C66531EF9B2A600A3F74A /* MessagesDataModel.swift in Sources */,
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
+				7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */,
 				1ADE9FA31EF996A4006C2CAC /* InboxViewController.swift in Sources */,
 				755C66581EFA87D700A3F74A /* ConversationDataModel.swift in Sources */,
 				755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */,
@@ -358,6 +381,7 @@
 				1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
+				7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */,
