@@ -32,6 +32,11 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         //self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
         
+        self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
+        
+        
+        self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
+
         
         //Getting singleton instances of the required classes
         chatCellSettings = ChatCellSettings.getInstance()
