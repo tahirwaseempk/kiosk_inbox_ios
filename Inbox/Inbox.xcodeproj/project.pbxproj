@@ -86,7 +86,6 @@
 		1ADE9F711EF98E46006C2CAC = {
 			isa = PBXGroup;
 			children = (
-				7518E3941EFDC37300EF059F /* Default-568h@2x.png */,
 				1ADE9F7C1EF98E48006C2CAC /* Classes */,
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
@@ -104,6 +103,7 @@
 		1ADE9F7C1EF98E48006C2CAC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1ADE9F961EF98E7F006C2CAC /* App Delegate */,
 				7518E38D1EFDAFFA00EF059F /* iBubblesCode */,
 				755C66591EFA896100A3F74A /* Controllers */,
 				755C66541EFA878800A3F74A /* Persistent */,
@@ -111,7 +111,6 @@
 				1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */,
 				1ADE9FBE1EF9AADC006C2CAC /* Reachability.h */,
 				1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */,
-				1ADE9F961EF98E7F006C2CAC /* App Delegate */,
 			);
 			name = Classes;
 			path = Inbox;
@@ -139,6 +138,7 @@
 		1ADE9F941EF98E69006C2CAC /* P-List */ = {
 			isa = PBXGroup;
 			children = (
+				7518E3941EFDC37300EF059F /* Default-568h@2x.png */,
 				1ADE9F8C1EF98E4A006C2CAC /* Info.plist */,
 			);
 			name = "P-List";
