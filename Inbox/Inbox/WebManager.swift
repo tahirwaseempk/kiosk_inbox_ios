@@ -1,6 +1,8 @@
 import UIKit
 
-let INBOX_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial=test-test&uuid=323434234"
+let INBOX_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
+let INBOX_URL_END = "&uuid="
+//let INBOX_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial=test-test&uuid=323434234"
 let DELETE_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxDelete&json={%22uuid%22:%22"
 let DELETE_URL_BEFORE_SERIAL = "%22,%22serial%22:%22"
 let DELETE_URL_BEFORE_IDS = "%22,%22ids%22:["
@@ -21,7 +23,13 @@ class WebManager: NSObject
     
     static func requestLogin(params: Dictionary<String,Any>,messageParser:MessagesParser, completionBlockSuccess successBlock: @escaping ((Array<ConversationDataModel>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        PostDataWithUrl(urlString:INBOX_URL, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+        
+        let serial:String = params["serial"] as! String
+        let uuid:String = params["uuid"] as! String
+        
+        let finalUrl = INBOX_URL + serial + INBOX_URL_END + uuid
+    
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
