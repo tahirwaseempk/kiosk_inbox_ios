@@ -21,9 +21,20 @@ class LoginViewController: UIViewController {
         
         self.udidTextField.text = "323434234"
         self.serialTextField.text = "test-test"
+        
+        self.udidTextField.isEnabled = false
+        self.serialTextField.isEnabled = false
+        
     }
     
     @IBAction func loginButton_Tapped(_ sender: Any) {
+   
+        if (self.serialTextField.text?.isEmpty)! {
+            let alert = UIAlertController(title: "Warning", message: "Please enter serial.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
         var paramsDic = Dictionary<String, Any>()
         paramsDic["serial"] = self.serialTextField.text

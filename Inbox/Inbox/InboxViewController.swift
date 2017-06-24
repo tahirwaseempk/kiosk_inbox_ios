@@ -41,13 +41,17 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     }
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
-        let udid = "323434234"
-        let serial = "test-test"
-        let Ids = "1215317"
+        
+        let alert = UIAlertController(title: "Message", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        
 //{"message":"??","id":1215317,"shortcode":"71441","date":"05\/27\/2017 12:46:08 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215316,"shortcode":"71441","date":"05\/27\/2017 12:46:05 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215315,"shortcode":"71441","date":"05\/27\/2017 12:46:03 PM","mobile":"1-910-445-1906"},{"message":"????????????????????????????????????????????????????????","id":1215295,"shortcode":"71441","date":
         
         
-        WebManager.deleteMessage(UDID: udid, serial: serial, Ids: Ids, completionBlockSuccess: { (Bool) -> (Void) in
+      /*
+ WebManager.deleteMessage(UDID: udid, serial: serial, Ids: Ids, completionBlockSuccess: { (Bool) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
                 {
@@ -63,7 +67,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
             
             
         }
-        
+        */
     }
     
     
