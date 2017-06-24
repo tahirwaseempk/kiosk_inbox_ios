@@ -23,12 +23,12 @@ class LoginViewController: UIViewController {
         self.serialTextField.text = "test-test"
         
         self.udidTextField.isEnabled = false
-        self.serialTextField.isEnabled = false
+        //        self.serialTextField.isEnabled = false
         
     }
     
     @IBAction func loginButton_Tapped(_ sender: Any) {
-   
+        
         if (self.serialTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "Warning", message: "Please enter serial.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -42,12 +42,20 @@ class LoginViewController: UIViewController {
         
         WebManager.requestLogin(params: paramsDic,messageParser: MessagesParser(), completionBlockSuccess: { (conversations:Array<ConversationDataModel>?) -> (Void) in
             
-       
             
             DispatchQueue.global(qos: .background).async
                 {
                     DispatchQueue.main.async
                         {
+                            
+                            if conversations?.isEmpty == true {
+                                
+                                let alert = UIAlertController(title: "Error", message: "Please provide correct information.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                                return
+                            }
+                            
                             let inboxStoryboard = UIStoryboard(name:"Inbox", bundle: nil)
                             
                             let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController

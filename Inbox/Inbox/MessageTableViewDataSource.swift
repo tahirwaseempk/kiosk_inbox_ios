@@ -45,19 +45,21 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
          *  Set settings for Application
          */
         chatCellSettings?.setSenderBubbleColorHex("007AFF");
-        chatCellSettings?.setReceiverBubbleColorHex("DFDEE5");
         chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
-        chatCellSettings?.setReceiverBubbleNameTextColorHex("000000");
         chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");
-        chatCellSettings?.setReceiverBubbleMessageTextColorHex("000000");
         chatCellSettings?.setSenderBubbleTimeTextColorHex("FFFFFF");
+
+        chatCellSettings?.setReceiverBubbleColorHex("DFDEE5");
+        chatCellSettings?.setReceiverBubbleNameTextColorHex("000000");
+        chatCellSettings?.setReceiverBubbleMessageTextColorHex("000000");
         chatCellSettings?.setReceiverBubbleTimeTextColorHex("000000");
         
-        chatCellSettings?.setSenderBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 11))
-        chatCellSettings.setReceiverBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 11))
+        chatCellSettings?.setSenderBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 9))
         chatCellSettings.setSenderBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
-        chatCellSettings.setReceiverBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
         chatCellSettings.setSenderBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 11))
+
+        chatCellSettings.setReceiverBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 9))
+        chatCellSettings.setReceiverBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
         chatCellSettings.setReceiverBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 11))
         
         chatCellSettings?.senderBubbleTailRequired(true)

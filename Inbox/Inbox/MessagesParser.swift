@@ -14,6 +14,10 @@ class MessagesParser: NSObject {
     {
         var conversations = Array<ConversationDataModel>()
 
+        if let errorString = json["err"] {
+            return Array()
+        }
+        
         let inboxJson = json["inbox"] as! Array<Dictionary<String,Any>>
         
         var messages = Array<MessagesDataModel>()

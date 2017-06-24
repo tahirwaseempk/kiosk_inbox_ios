@@ -323,6 +323,7 @@
 				TargetAttributes = {
 					1ADE9F791EF98E48006C2CAC = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 97VJS2Q232;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
@@ -494,12 +495,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 97VJS2Q232;
 				INFOPLIST_FILE = Inbox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AmirAkram.Inbox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.INBOX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ffde85a5-93b5-4aa2-9e8a-322b26889b0e";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Distribution: Netsol Technologies Inc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -512,12 +516,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 97VJS2Q232;
 				INFOPLIST_FILE = Inbox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AmirAkram.Inbox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.INBOX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ffde85a5-93b5-4aa2-9e8a-322b26889b0e";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Distribution: Netsol Technologies Inc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

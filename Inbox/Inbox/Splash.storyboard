@@ -39,12 +39,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-7y-YJZ">
-                                <rect key="frame" x="311" y="213" width="402" height="342"/>
+                                <rect key="frame" x="20" y="20" width="984" height="680"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inbox Messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcA-a9-mqh">
-                                <rect key="frame" x="311" y="563" width="402" height="50"/>
+                                <rect key="frame" x="311" y="698" width="402" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                 <nil key="textColor"/>
@@ -61,6 +61,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splashImage" width="800" height="800"/>
+        <image name="splashImage" width="455" height="240"/>
     </resources>
 </document>
