@@ -25,11 +25,14 @@
 		1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
 		1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
 		1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
-		1ADE9FC01EF9AADC006C2CAC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
 		7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
 		7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
 		7518E3951EFDC37300EF059F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7518E3941EFDC37300EF059F /* Default-568h@2x.png */; };
+		7536840F1F03F4E400D24264 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7536840E1F03F4E400D24264 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		753684121F03F58A00D24264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
+		753684141F03F59300D24264 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
+		753684161F03F59F00D24264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684151F03F59F00D24264 /* UIKit.framework */; };
 		755C66531EF9B2A600A3F74A /* MessagesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */; };
 		755C66581EFA87D700A3F74A /* ConversationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66571EFA87D700A3F74A /* ConversationDataModel.swift */; };
 		755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
@@ -58,14 +61,17 @@
 		1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewDataSource.swift; sourceTree = "<group>"; };
 		1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebManager.swift; sourceTree = "<group>"; };
 		1ADE9FBD1EF9AADC006C2CAC /* Inbox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Inbox-Bridging-Header.h"; path = "Inbox/Inbox-Bridging-Header.h"; sourceTree = "<group>"; };
-		1ADE9FBE1EF9AADC006C2CAC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPrinting.swift; sourceTree = "<group>"; };
 		7518E38E1EFDB01A00EF059F /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
 		7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
 		7518E3901EFDB01A00EF059F /* ChatCellSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCellSettings.h; sourceTree = "<group>"; };
 		7518E3911EFDB01A00EF059F /* ChatCellSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCellSettings.m; sourceTree = "<group>"; };
 		7518E3941EFDC37300EF059F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7536840D1F03F4E400D24264 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7536840E1F03F4E400D24264 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		753684111F03F58A00D24264 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		753684131F03F59300D24264 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		753684151F03F59F00D24264 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataModel.swift; sourceTree = "<group>"; };
 		755C66571EFA87D700A3F74A /* ConversationDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDataModel.swift; sourceTree = "<group>"; };
 		755C665A1EFA897800A3F74A /* MessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesParser.swift; sourceTree = "<group>"; };
@@ -77,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753684161F03F59F00D24264 /* UIKit.framework in Frameworks */,
+				753684141F03F59300D24264 /* CoreGraphics.framework in Frameworks */,
+				753684121F03F58A00D24264 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +98,7 @@
 				1ADE9F7C1EF98E48006C2CAC /* Classes */,
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
+				753684101F03F58900D24264 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,8 +119,8 @@
 				755C66541EFA878800A3F74A /* Persistent */,
 				1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */,
 				1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */,
-				1ADE9FBE1EF9AADC006C2CAC /* Reachability.h */,
-				1ADE9FBF1EF9AADC006C2CAC /* Reachability.m */,
+				7536840D1F03F4E400D24264 /* Reachability.h */,
+				7536840E1F03F4E400D24264 /* Reachability.m */,
 			);
 			name = Classes;
 			path = Inbox;
@@ -250,6 +260,16 @@
 			name = iBubblesCode;
 			sourceTree = "<group>";
 		};
+		753684101F03F58900D24264 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				753684151F03F59F00D24264 /* UIKit.framework */,
+				753684131F03F59300D24264 /* CoreGraphics.framework */,
+				753684111F03F58A00D24264 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		755C66541EFA878800A3F74A /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,13 +400,13 @@
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
 				1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */,
+				7536840F1F03F4E400D24264 /* Reachability.m in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
 				7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */,
-				1ADE9FC01EF9AADC006C2CAC /* Reachability.m in Sources */,
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 			);
@@ -502,7 +522,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.INBOX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ffde85a5-93b5-4aa2-9e8a-322b26889b0e";
+				PROVISIONING_PROFILE = "0d84f3e8-9e7e-42ff-b5e3-6b394a95f849";
 				PROVISIONING_PROFILE_SPECIFIER = "iOS Distribution: Netsol Technologies Inc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -523,7 +543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.INBOX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ffde85a5-93b5-4aa2-9e8a-322b26889b0e";
+				PROVISIONING_PROFILE = "0d84f3e8-9e7e-42ff-b5e3-6b394a95f849";
 				PROVISIONING_PROFILE_SPECIFIER = "iOS Distribution: Netsol Technologies Inc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
