@@ -14,11 +14,17 @@ class InboxTableViewCell: UITableViewCell
 
     @IBOutlet weak var detailLabel: UILabel!
     
-    
-    
     override func awakeFromNib()
     {
         super.awakeFromNib()
+        
+        let view = UIView()
+        
+        view.backgroundColor = UIColor.red
+        
+        self.selectedBackgroundView = view
+        
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)

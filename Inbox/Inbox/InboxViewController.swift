@@ -20,11 +20,9 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var messageTableView: UITableView!
     
-
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
     
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +33,11 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         messageTableView.dataSource = messageTableViewDataSource
         
         inboxTableViewDataSource = InboxTableViewDataSource(tableview: inboxTableView, conversations_: self.conversations!, delegate_: (self as? InboxTableViewCellProtocol)!)
+        
         inboxTableView.dataSource = inboxTableViewDataSource
         //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
         
-        // Do any additional setup after loading the view.
+        initiateMessageCall()
     }
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
@@ -86,7 +85,56 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         return (messageTableViewDataSource?.loadConversation(conversation_: conversation))!
     }
     
+    @IBAction func markAllButton_Tapped(_ sender: Any)
+    {
+        
+    }
+}
+
+extension InboxViewController
+{
+    func initiateMessageCall()
+    {
+        let dispatchTime = DispatchTime.now() + .seconds(30)
+        
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime)
+        {
+            self.getConversationUpdate()
+        }
+    }
     
-    @IBAction func markAllButton_Tapped(_ sender: Any) {
+    func getConversationUpdate()
+    {
+        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<ConversationDataModel>?) -> (Void) in
+        
+            DispatchQueue.global(qos:.background).async
+            {
+                DispatchQueue.main.async
+                {
+                    self.conversations = conversations
+                    
+                    self.messageTableView.reloadData()
+                    
+                    self.inboxTableView.reloadData()
+                    
+                    let dispatchTime = DispatchTime.now() + .seconds(30)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: dispatchTime)
+                    {
+                        self.getConversationUpdate()
+                    }
+                }
+            }
+
+        }) {(error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+            {
+                DispatchQueue.main.async
+                {
+                    self.getConversationUpdate()
+                }
+            }
+        }
     }
 }

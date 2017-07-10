@@ -13,7 +13,8 @@ class WebManager: NSObject
     static let Check_Internet_Question  = "Please Check your Internet Connection"
     static let Invalid_Json_Format      = "Invalid Json Format"
     static let Server_Not_Responding    = "Server is not responding"
-    
+    static let User_Not_Logined      = "User is not logined"
+
     //static let WebManagerSharedInstance = WebManager.init();
     
     override init()
