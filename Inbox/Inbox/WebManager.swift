@@ -62,7 +62,7 @@ class WebManager: NSObject
     
     internal static func PostDataWithUrl (urlString: String, withParameterDictionary parameters: Dictionary<String,Any>, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void))) {
         
-        if Reachability.is_Network_Reachable()
+        if Reachability.isInternetAvailable()
         {
             let request : NSMutableURLRequest = NSMutableURLRequest.init(url: NSURL.init(string: urlString)! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 9999)
             

@@ -11,7 +11,7 @@ import UIKit
 class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     var conversations:Array<ConversationDataModel>? = nil
-    
+
     @IBOutlet weak var messageFromLabel: UILabel!
     
     @IBOutlet weak var messageNumberLabel: UILabel!
@@ -20,6 +20,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var messageTableView: UITableView!
     
+
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
     
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
@@ -70,6 +71,12 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         */
     }
     
+    @IBAction func sendMessage_Tapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Message", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func conversationSelected(conversation:ConversationDataModel) -> Bool
     {
