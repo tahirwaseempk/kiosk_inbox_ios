@@ -24,7 +24,6 @@ class InboxTableViewCell: UITableViewCell
         
         self.selectedBackgroundView = view
         
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)

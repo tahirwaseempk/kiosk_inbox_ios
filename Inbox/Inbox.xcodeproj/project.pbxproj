@@ -32,6 +32,10 @@
 		753684121F03F58A00D24264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
 		753684141F03F59300D24264 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
 		753684161F03F59F00D24264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684151F03F59F00D24264 /* UIKit.framework */; };
+		754085FB1F1671AF00CDB81F /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
+		754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
+		754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
+		754085FF1F16743000CDB81F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
 		755C66531EF9B2A600A3F74A /* MessagesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */; };
 		755C66581EFA87D700A3F74A /* ConversationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66571EFA87D700A3F74A /* ConversationDataModel.swift */; };
 		755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
@@ -71,6 +75,10 @@
 		753684111F03F58A00D24264 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		753684131F03F59300D24264 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		753684151F03F59F00D24264 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorView.swift; sourceTree = "<group>"; };
+		754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorProtocol.swift; sourceTree = "<group>"; };
+		754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorHandler.swift; sourceTree = "<group>"; };
+		754085FE1F16743000CDB81F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataModel.swift; sourceTree = "<group>"; };
 		755C66571EFA87D700A3F74A /* ConversationDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDataModel.swift; sourceTree = "<group>"; };
 		755C665A1EFA897800A3F74A /* MessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesParser.swift; sourceTree = "<group>"; };
@@ -114,13 +122,12 @@
 		1ADE9F7C1EF98E48006C2CAC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1ADE9F961EF98E7F006C2CAC /* App Delegate */,
 				7518E38D1EFDAFFA00EF059F /* iBubblesCode */,
+				754085F71F16718700CDB81F /* ActivityIndicator */,
+				1ADE9F961EF98E7F006C2CAC /* App Delegate */,
 				755C66591EFA896100A3F74A /* Controllers */,
 				755C66541EFA878800A3F74A /* Persistent */,
-				1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */,
-				1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */,
-				75E35F0F1F05853500B96018 /* Reachability.swift */,
+				754086001F16789500CDB81F /* WebServices */,
 			);
 			name = Classes;
 			path = Inbox;
@@ -165,6 +172,7 @@
 		1ADE9F961EF98E7F006C2CAC /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				754085FE1F16743000CDB81F /* Constants.swift */,
 				1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */,
 				1ADE9F971EF98E90006C2CAC /* Splash View */,
 			);
@@ -268,6 +276,26 @@
 				753684111F03F58A00D24264 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		754085F71F16718700CDB81F /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */,
+				754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */,
+				754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */,
+			);
+			name = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		754086001F16789500CDB81F /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */,
+				1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */,
+				75E35F0F1F05853500B96018 /* Reachability.swift */,
+			);
+			name = WebServices;
 			sourceTree = "<group>";
 		};
 		755C66541EFA878800A3F74A /* Persistent */ = {
@@ -401,6 +429,7 @@
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
 				759374401F13CC830070DA33 /* User.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
+				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
 				1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
@@ -408,9 +437,12 @@
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */,
+				754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */,
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
+				754085FB1F1671AF00CDB81F /* ProcessingIndicatorView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
+				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

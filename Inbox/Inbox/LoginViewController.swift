@@ -21,15 +21,13 @@ class LoginViewController: UIViewController
         
         self.udidTextField.text = "323434234"
         
-        //  self.serialTextField.text = "test-test"
+          self.serialTextField.text = "test-test"
         
         self.udidTextField.isEnabled = false
-        //        self.serialTextField.isEnabled = false
     }
     
     @IBAction func loginButton_Tapped(_ sender: Any)
     {
-        
         
         if (self.serialTextField.text?.isEmpty)!
         {
