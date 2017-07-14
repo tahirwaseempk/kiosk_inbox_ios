@@ -40,9 +40,21 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         initiateMessageCall()
     }
     
+    @IBAction func byFeature_Tapped(_ sender: Any) {
+        let alert = UIAlertController(title: "BY FEATURE", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func mostRecent_Tapped(_ sender: Any) {
+        let alert = UIAlertController(title: "MOST RECENT", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Message", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "DELETE", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
@@ -72,7 +84,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func sendMessage_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Message", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "SEND", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -105,18 +117,24 @@ extension InboxViewController
     
     func getConversationUpdate()
     {
+        ProcessingIndicator.show()
+
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<ConversationDataModel>?) -> (Void) in
         
             DispatchQueue.global(qos:.background).async
             {
                 DispatchQueue.main.async
                 {
+                    ProcessingIndicator.hide()
+
                     self.conversations = conversations
                     
                     self.messageTableView.reloadData()
                     
                     self.inboxTableView.reloadData()
                     
+                    self.counterLabel.text = "(\( (conversations?.count)!))"
+
                     let dispatchTime = DispatchTime.now() + .seconds(30)
                     
                     DispatchQueue.main.asyncAfter(deadline: dispatchTime)
@@ -132,6 +150,7 @@ extension InboxViewController
             {
                 DispatchQueue.main.async
                 {
+                    ProcessingIndicator.hide()
                     self.getConversationUpdate()
                 }
             }

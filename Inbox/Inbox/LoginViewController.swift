@@ -39,13 +39,16 @@ class LoginViewController: UIViewController
             
             return
         }
-        
+        ProcessingIndicator.show()
         User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:false, completionBlockSuccess:{(user:User?) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
                 {
                     DispatchQueue.main.async
                         {
+                            
+                            ProcessingIndicator.hide()
+
                             let inboxStoryboard = UIStoryboard(name:"Inbox", bundle: nil)
                             
                             let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
@@ -62,6 +65,8 @@ class LoginViewController: UIViewController
                 {
                     DispatchQueue.main.async
                         {
+                            ProcessingIndicator.hide()
+
                             let alert = UIAlertController(title:"Error!",message:"Unable to login",preferredStyle: UIAlertControllerStyle.alert)
                             
                             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler: nil))
@@ -74,6 +79,8 @@ class LoginViewController: UIViewController
     
     @IBAction func rememberMeButton_Tapped(_ sender: Any)
     {
+        
+        (sender as! UIButton).setImage(UIImage(named: "check_box"), for: .normal)
         
     }
 }
