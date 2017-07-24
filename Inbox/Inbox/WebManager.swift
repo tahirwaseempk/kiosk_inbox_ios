@@ -8,13 +8,26 @@ let DELETE_URL_BEFORE_SERIAL = "%22,%22serial%22:%22"
 let DELETE_URL_BEFORE_IDS = "%22,%22ids%22:["
 let DELETE_URLEND = "]}"
 
+
+let CHAT_URL = "https://mcpn.us/limeApi?ev=kioskChatMessages&uuid="
+let CHAT_URL_BEFORE_SERIAL = "&serial="
+let CHAT_URL_BEFORE_MOBILE = "&mobile="
+let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
+
+
+let SEND_URL = "https://mcpn.us/limeApi?ev=kioskSendMessage&uuid="
+let SEND_URL_BEFORE_SERIAL = "&serial="
+let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
+let SEND_URL_BEFORE_MOBILE = "&mobile="
+let SEND_URL_BEFORE_MESSAGE_END = "&message="
+
 class WebManager: NSObject
 {
     static let Check_Internet_Question  = "Please Check your Internet Connection"
     static let Invalid_Json_Format      = "Invalid Json Format"
     static let Server_Not_Responding    = "Server is not responding"
-    static let User_Not_Logined      = "User is not logined"
-
+    static let User_Not_Logined         = "User is not logined"
+    
     //static let WebManagerSharedInstance = WebManager.init();
     
     override init()
@@ -29,7 +42,7 @@ class WebManager: NSObject
         let uuid:String = params["uuid"] as! String
         
         let finalUrl = INBOX_URL + serial + INBOX_URL_END + uuid
-    
+        
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
@@ -53,6 +66,51 @@ class WebManager: NSObject
             if (error == nil)
             {
                 successBlock(true)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
+    static func getChatMessage(params: Dictionary<String,Any>,messageParser:MessagesParser,completionBlockSuccess successBlock: @escaping ((Array<ConversationDataModel>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let uuid:String = params["uuid"] as! String
+        let serial:String = params["serial"] as! String
+        let mobile:String = params["mobile"] as! String
+        let shortCode:String = params["shortCode"] as! String
+
+        let finalUrl = CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(messageParser.parseConversation(json:response as! Dictionary<String, Any>))
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
+    static func sendMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let uuid:String = params["uuid"] as! String
+        let serial:String = params["serial"] as! String
+        let mobile:String = params["mobile"] as! String
+        let shortCode:String = params["shortCode"] as! String
+        let message:String = params["message"] as! String
+
+        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE_END + message
+        
+        PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
             }
             else
             {
@@ -88,7 +146,7 @@ class WebManager: NSObject
                 {
                     return
                 }
-       
+                
                 guard let data = data else
                 {
                     return
@@ -98,7 +156,7 @@ class WebManager: NSObject
                 {
                     if let Data = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
                     {
-                     
+                        
                         completion(nil,Data as NSDictionary)
                     }
                     else

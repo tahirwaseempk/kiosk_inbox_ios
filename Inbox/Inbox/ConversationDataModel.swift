@@ -14,12 +14,15 @@ class ConversationDataModel: NSObject {
 
     var mobile:String
     
-    init(mobile_:String) {
+    var shortCode:String
+
+    init(mobile_:String, shortCode_:String) {
         
         self.messages = Array<MessagesDataModel>()
         
         self.mobile = mobile_
-        
+        self.shortCode = shortCode_
+
         super.init()
     }
 
@@ -30,6 +33,7 @@ class ConversationDataModel: NSObject {
         let firstMessage  = messages_[0]
         
         self.mobile = firstMessage.mobile
+        self.shortCode = firstMessage.shortCode
 
         super.init()
     }
@@ -47,4 +51,11 @@ class ConversationDataModel: NSObject {
         
         return true
     }
+
+    func loadMessages(message:MessagesDataModel) -> MessagesDataModel
+    {
+        //Do something here
+        return message
+    }
+    
 }

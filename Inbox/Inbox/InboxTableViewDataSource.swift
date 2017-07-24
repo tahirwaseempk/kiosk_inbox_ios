@@ -78,5 +78,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
 //        if (self.delegate != nil) && self.delegate.responds(to: #selector(InboxTableViewCellProtocol.conversationSelected) {
             self.delegate.conversationSelected(conversation: conversation)
 //        }
+        
+        
     }
 }

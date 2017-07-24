@@ -17,9 +17,10 @@ class User: NSObject
     var isRemember:Bool
     
     var conversations:Array<ConversationDataModel>
+    var currentConversation:Array<ConversationDataModel>
     
     private static var loginedUser:User? = nil
-
+    
     internal init(serial:String,uuid:String,isRemember:Bool)
     {
         self.serial = serial
@@ -29,6 +30,8 @@ class User: NSObject
         self.isRemember = isRemember
         
         self.conversations = Array<ConversationDataModel>()
+        
+        self.currentConversation = Array<ConversationDataModel>()
         
         super.init()
     }
@@ -45,21 +48,21 @@ class User: NSObject
         paramsDic["serial"] = serial
         
         paramsDic["uuid"] = uuid
-
+        
         WebManager.requestLogin(params: paramsDic,messageParser: MessagesParser(), completionBlockSuccess: { (conversations:Array<ConversationDataModel>?) -> (Void) in
-
+            
             DispatchQueue.global(qos: .background).async
-            {
-                DispatchQueue.main.async
                 {
-                    let user = User(serial:serial,uuid:uuid,isRemember:isRemember)
-                    
-                    user.conversations += conversations!
-                    
-                    User.loginedUser = user
-                    
-                    successBlock(user)
-                }
+                    DispatchQueue.main.async
+                        {
+                            let user = User(serial:serial,uuid:uuid,isRemember:isRemember)
+                            
+                            user.conversations += conversations!
+                            
+                            User.loginedUser = user
+                            
+                            successBlock(user)
+                    }
             }
             
         }){(error:Error?) -> (Void) in
@@ -67,7 +70,7 @@ class User: NSObject
             failureBlock(error)
         }
     }
-
+    
     static func getLatestConversations(completionBlockSuccess successBlock: @escaping ((Array<ConversationDataModel>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
@@ -81,20 +84,102 @@ class User: NSObject
             WebManager.requestLogin(params:paramsDic,messageParser:MessagesParser(),completionBlockSuccess:{(conversations:Array<ConversationDataModel>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        user.conversations.removeAll()
-
-                        user.conversations += conversations!
-                        
-                        successBlock(user.conversations)
-                    }
+                        DispatchQueue.main.async
+                            {
+                                user.conversations.removeAll()
+                                
+                                user.conversations += conversations!
+                                
+                                successBlock(user.conversations)
+                        }
                 }
                 
             }){(error:Error?) -> (Void) in
                 
                 failureBlock(error)
+            }
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    
+    
+    static func getCurrentConversation(mobile: String, shortcode: String, completionBlockSuccess successBlock: @escaping ((Array<ConversationDataModel>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["serial"] = user.serial
+            paramsDic["uuid"] = user.uuid
+            paramsDic["mobile"] = mobile //"17326188328"
+            paramsDic["shortCode"] = shortcode //"71441-US"
+            
+            WebManager.getChatMessage(params:paramsDic,messageParser:MessagesParser(),completionBlockSuccess:{(conversations:Array<ConversationDataModel>?) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                user.conversations.removeAll()
+                                user.conversations += conversations!
+                                successBlock(user.conversations)
+                        }
+                }
+                
+            }){(error:Error?) -> (Void) in
+                
+                failureBlock(error)
+            }
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    
+    
+    static func sendUserMessage(mobile: String, shortcode: String, completionBlockSuccess successBlock: @escaping ((_ messageNew: MessagesDataModel) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["serial"] = user.serial
+            paramsDic["uuid"] = user.uuid
+            paramsDic["mobile"] = mobile //"17326188328"
+            paramsDic["shortCode"] = shortcode //"71441-US"
+            
+            WebManager.sendMessage(params: paramsDic, completionBlockSuccess:{(response: Dictionary<String, Any>) -> (Void) in
+                
+                if let isSucceeded = response["result"] as? String
+                {
+                    
+                    if (isSucceeded == "OK") {
+                        let message = MessagesDataModel(date_: "", message_: "", id_:0, mobile_: "", shortCode_: "", isSender_: true)
+                        successBlock(message)
+                    } else {
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:isSucceeded]))
+                    }
+                    
+                }
+                else if let isSucceeded = response["err"] as? String
+                {
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:isSucceeded]))
+                    
+                } else {
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
+                }
+                
+                
+                } as! ((Dictionary<String, Any>?) -> (Void))){(error:Error?) -> (Void) in
+                    
+                    failureBlock(error)
             }
         }
         else

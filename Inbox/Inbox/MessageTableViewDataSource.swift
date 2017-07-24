@@ -36,7 +36,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
-
+        
         
         //Getting singleton instances of the required classes
         chatCellSettings = ChatCellSettings.getInstance()
@@ -48,7 +48,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleTimeTextColorHex("FFFFFF");
-
+        
         chatCellSettings?.setReceiverBubbleColorHex("DFDEE5");
         chatCellSettings?.setReceiverBubbleNameTextColorHex("000000");
         chatCellSettings?.setReceiverBubbleMessageTextColorHex("000000");
@@ -57,7 +57,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         chatCellSettings?.setSenderBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 9))
         chatCellSettings.setSenderBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
         chatCellSettings.setSenderBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 11))
-
+        
         chatCellSettings.setReceiverBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 9))
         chatCellSettings.setReceiverBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
         chatCellSettings.setReceiverBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 11))
@@ -99,15 +99,23 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         /*Uncomment second line and comment first to use XIB instead of code*/
         chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend") as? ChatTableViewCell
         
-        chatCell.chatMessageLabel.text = message.message
         
-        chatCell.chatNameLabel.text = message.mobile
-        
-        chatCell.chatTimeLabel.text = message.date
-        
-        chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
-        
-        chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
+        if (message.isSender == false) {
+            
+            chatCell.chatMessageLabel.text = message.message
+            chatCell.chatNameLabel.text = message.mobile
+            chatCell.chatTimeLabel.text = message.date
+            chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
+            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
+       
+        } else {
+            
+            chatCell.chatMessageLabel.text = message.message
+            chatCell.chatNameLabel.text = "Me"
+            chatCell.chatTimeLabel.text = message.date
+            chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
+            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeSender
+        }
         
         return chatCell
     }
@@ -127,14 +135,16 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         //Get the chal cell font settings. This is to correctly find out the height of each of the cell according to the text written in those cells which change according to their fonts and sizes.
         //If you want to keep the same font sizes for both sender and receiver cells then remove this code and manually enter the font name with size in Namesize, Messagesize and Timesize.
-        //        if((message.getFromId() as NSString).isEqualToString(appData.loggedUser.getId()))
-        //        {
-        fontArray = chatCellSettings.getSenderBubbleFontWithSize()! as NSArray;
-        //        }
-        //        else
-        //        {
-        //            fontArray = chatCellSettings.getReceiverBubbleFontWithSize();
-        //        }
+        
+        
+        if(message.isSender == false)
+        {
+            fontArray = chatCellSettings.getReceiverBubbleFontWithSize()! as NSArray;
+        }
+        else
+        {
+            fontArray = chatCellSettings.getSenderBubbleFontWithSize()! as NSArray;
+        }
         
         let nameSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
         Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : fontArray[0]], context: nil).size
@@ -161,5 +171,18 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         self.targetedTableView.reloadData()
         
         return true
+    }
+    
+    func addNewMessage(_ message:MessagesDataModel) -> Bool {
+        
+        if self.selectedConversation != nil{
+            message.mobile = (self.selectedConversation?.mobile)!
+            
+            self.selectedConversation?.messages.append(message);
+            self.targetedTableView.reloadData()
+            
+            return true
+        }
+        return false
     }
 }

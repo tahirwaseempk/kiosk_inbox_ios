@@ -15,9 +15,9 @@ class MessagesDataModel: NSObject {
     var id:Int32
     var mobile:String
     let shortCode:String
+    var isSender: Bool
     
-    
-    init(date_:String,message_:String, id_:Int32, mobile_:String, shortCode_:String) {
+    init(date_:String,message_:String, id_:Int32, mobile_:String, shortCode_:String, isSender_:Bool) {
         
         self.date = date_
         self.message = message_
@@ -25,7 +25,7 @@ class MessagesDataModel: NSObject {
         self.mobile = mobile_
         self.shortCode = shortCode_
         
-       // MessagesDataModel(date_:asdasd, message_:asdasdsa)
+        self.isSender = isSender_
         
         super.init()
         
