@@ -104,7 +104,10 @@ class WebManager: NSObject
         let shortCode:String = params["shortCode"] as! String
         let message:String = params["message"] as! String
 
-        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE_END + message
+        
+        let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+
+        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE_END + escapedString
         
         PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -123,7 +126,8 @@ class WebManager: NSObject
         
         if Reachability.isInternetAvailable()
         {
-            let request : NSMutableURLRequest = NSMutableURLRequest.init(url: NSURL.init(string: urlString)! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 9999)
+
+            let request : NSMutableURLRequest = NSMutableURLRequest.init(url: NSURL.init(string: urlString)! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 12)
             
             request.httpMethod = "POST"
             

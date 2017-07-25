@@ -142,7 +142,7 @@ class User: NSObject
     }
     
     
-    static func sendUserMessage(mobile: String, shortcode: String, completionBlockSuccess successBlock: @escaping ((_ messageNew: MessagesDataModel) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func sendUserMessage(mobile: String, shortcode: String, message: String, completionBlockSuccess successBlock: @escaping ((_ messageNew: MessagesDataModel) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
@@ -150,23 +150,31 @@ class User: NSObject
             
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = mobile //"17326188328"
-            paramsDic["shortCode"] = shortcode //"71441-US"
+            paramsDic["mobile"] = mobile 
+            paramsDic["shortCode"] = shortcode
+            paramsDic["message"] = message
             
-            WebManager.sendMessage(params: paramsDic, completionBlockSuccess:{(response: Dictionary<String, Any>) -> (Void) in
-                
-                if let isSucceeded = response["result"] as? String
+            WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                if let isSucceeded = response?["result"] as? String
                 {
                     
                     if (isSucceeded == "OK") {
-                        let message = MessagesDataModel(date_: "", message_: "", id_:0, mobile_: "", shortCode_: "", isSender_: true)
+                        
+                        let date = Date()
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
+                        let dateString = formatter.string(from: date)
+
+                        let message = MessagesDataModel(date_: dateString, message_: message, id_:0, mobile_: mobile, shortCode_: shortcode, isSender_: true)
+                        
                         successBlock(message)
+                    
                     } else {
                         failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:isSucceeded]))
                     }
                     
                 }
-                else if let isSucceeded = response["err"] as? String
+                else if let isSucceeded = response?["err"] as? String
                 {
                     
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:isSucceeded]))
@@ -175,15 +183,12 @@ class User: NSObject
                     
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
                 }
-                
-                
-                } as! ((Dictionary<String, Any>?) -> (Void))){(error:Error?) -> (Void) in
-                    
-                    failureBlock(error)
-            }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
         }
-        else
-        {
+        else {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
