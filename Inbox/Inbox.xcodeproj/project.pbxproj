@@ -254,10 +254,10 @@
 				1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */,
 				1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */,
 				1ADE9FB61EF9A589006C2CAC /* Inbox TableView Data Source */,
+				1ADE9FA61EF99BA1006C2CAC /* Inbox Message Sender Cell */,
 				1ADE9FB51EF9A57B006C2CAC /* Message TableView Data Source */,
 				1ADE9FB01EF99FED006C2CAC /* Message Receiver Cell */,
 				1ADE9FA91EF99D08006C2CAC /* Message Sender Cell */,
-				1ADE9FA61EF99BA1006C2CAC /* Inbox Message Sender Cell */,
 			);
 			name = "Inbox View";
 			sourceTree = "<group>";

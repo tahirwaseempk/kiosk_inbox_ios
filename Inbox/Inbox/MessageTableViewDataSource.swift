@@ -23,7 +23,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView = tableview
         
-        chatCellSettings = ChatCellSettings.getInstance()
+//        chatCellSettings = ChatCellSettings.getInstance()
         
         
         //self.targetedTableView.estimatedRowHeight = 40.0
@@ -34,9 +34,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
         
-        
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
-        
         
         //Getting singleton instances of the required classes
         chatCellSettings = ChatCellSettings.getInstance()
@@ -97,8 +95,9 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         //        cell.messageTextLabel.text = message.message
         
         /*Uncomment second line and comment first to use XIB instead of code*/
-        chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend") as? ChatTableViewCell
+        //chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend") as? ChatTableViewCell
         
+        chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
         
         if (message.isSender == false) {
             

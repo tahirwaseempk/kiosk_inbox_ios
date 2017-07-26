@@ -1,43 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MessageTableViewReceiverCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableViewReceiverCell" id="Fdq-Y7-lXY" customClass="MessageTableViewReceiverCell" customModule="Inbox" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MessageTableViewSenderCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableViewReceiverCell" rowHeight="100" id="ELY-yQ-A8J" customClass="MessageTableViewReceiverCell" customModule="Inbox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="703" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fdq-Y7-lXY" id="4OU-Gv-2Py">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ELY-yQ-A8J" id="47l-ND-R44">
+                <rect key="frame" x="0.0" y="0.0" width="703" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PvK-UR-Bti" userLabel="BG">
-                        <rect key="frame" x="0.0" y="0.0" width="330" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(290) 009 - 21321" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10Q-Lp-9Wv">
+                        <rect key="frame" x="8" y="8" width="160" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(290) 009 - 21321" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4E-XP-7zY">
-                        <rect key="frame" x="12" y="6" width="315" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.22690975669999999" green="0.59508335590000005" blue="0.98534184690000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGz-x6-Nfn" userLabel="Logo Image">
-                        <rect key="frame" x="331" y="0.0" width="44" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(290) 009 - 21321" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jA-6J-yYS">
+                        <rect key="frame" x="8" y="37" width="687" height="55"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.1113279689" green="0.65042130239999996" blue="0.032475642950000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </imageView>
+                        <color key="backgroundColor" red="0.22690975669999999" green="0.59508335590000005" blue="0.98534184690000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10:00AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xc-QX-Imb">
+                        <rect key="frame" x="171" y="8" width="160" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.22690975669999999" green="0.59508335590000005" blue="0.98534184690000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <color key="backgroundColor" red="0.98823529409999999" green="0.68235294120000001" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-1" y="-294"/>
+            <connections>
+                <outlet property="messageTextLabel" destination="9jA-6J-yYS" id="2Ue-Fp-DUN"/>
+                <outlet property="numberLabel" destination="10Q-Lp-9Wv" id="Y4e-gy-gTM"/>
+                <outlet property="timeLabel" destination="3xc-QX-Imb" id="Mt3-CA-QDu"/>
+            </connections>
+            <point key="canvasLocation" x="-582.5" y="-265"/>
         </tableViewCell>
     </objects>
 </document>
