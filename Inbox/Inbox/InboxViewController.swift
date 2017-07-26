@@ -130,6 +130,8 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                     {
                         DispatchQueue.main.async
                             {
+                                self.sendTextField.text = ""
+
                                 let alert = UIAlertController(title: "Error", message: "Unable to send message at the moment.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
@@ -153,6 +155,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         /****************************************************************/
         self.messageFromLabel.text = conversation.shortCode
         self.messageNumberLabel.text = conversation.mobile
+        self.sendTextField.text = ""
         /****************************************************************/
         
         ProcessingIndicator.show()
@@ -208,7 +211,6 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         }
         
         return true
-        //        return (messageTableViewDataSource?.loadConversation(conversation_: self.currentConversations![0]))!
     }
     
     @IBAction func markAllButton_Tapped(_ sender: Any)

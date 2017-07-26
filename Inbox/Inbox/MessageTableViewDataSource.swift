@@ -89,7 +89,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         //let cell = tableView.dequeueReusableCell(withIdentifier:"MessageTableViewSenderCell",for:indexPath) as! MessageTableViewSenderCell
         
         // cell.selectionStyle  = .none
-        
+
         let message:MessagesDataModel = (selectedConversation?.messages[indexPath.row])!
         
         //        cell.numberLabel.text = message.mobile
