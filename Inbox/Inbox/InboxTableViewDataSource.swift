@@ -59,13 +59,13 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         {
             cell.titleLabel.text = message.mobile
             cell.detailLabel.text = message.message
+            cell.dateLabel.text = message.date
         }
         else
         {
             cell.titleLabel.text = conversation.mobile
             cell.detailLabel.text = "no message"
-
-            // for blacnk conversationwith no message
+            cell.dateLabel.text = ""
         }
         
         return cell

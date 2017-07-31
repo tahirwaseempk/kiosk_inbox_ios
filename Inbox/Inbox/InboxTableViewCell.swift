@@ -14,15 +14,15 @@ class InboxTableViewCell: UITableViewCell
 
     @IBOutlet weak var detailLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
         
-        let view = UIView()
-        
-        view.backgroundColor = UIColor.red
-        
-        self.selectedBackgroundView = view
+//        let view = UIView()
+//        view.backgroundColor = UIColor.red        
+//        self.selectedBackgroundView = view
         
     }
 

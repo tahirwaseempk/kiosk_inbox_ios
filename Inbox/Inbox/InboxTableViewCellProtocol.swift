@@ -10,7 +10,6 @@ import UIKit
 
 protocol InboxTableViewCellProtocol {
    
-    
     func conversationSelected(conversation:ConversationDataModel) -> Bool
     
 }

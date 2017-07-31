@@ -16,8 +16,10 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
-    
     @IBOutlet weak var messageNumberLabel: UILabel!
+    @IBOutlet weak var shortCodeLabel: UILabel!
+    
+    
     
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var inboxTableView: UITableView!
@@ -43,18 +45,24 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         initiateMessageCall()
     }
     
-    @IBAction func byFeature_Tapped(_ sender: Any) {
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBAction func signOut_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "BY FEATURE", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Sign Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        
+        return
     }
     
-    @IBAction func mostRecent_Tapped(_ sender: Any) {
+    @IBAction func editMessage_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "MOST RECENT", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Edit", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        
+        return
     }
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
@@ -66,7 +74,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         return
             
             //{"message":"??","id":1215317,"shortcode":"71441","date":"05\/27\/2017 12:46:08 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215316,"shortcode":"71441","date":"05\/27\/2017 12:46:05 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215315,"shortcode":"71441","date":"05\/27\/2017 12:46:03 PM","mobile":"1-910-445-1906"},{"message":"????????????????????????????????????????????????????????","id":1215295,"shortcode":"71441","date":
-            
+      /*
             WebManager.deleteMessage(UDID: "", serial: "", Ids: "", completionBlockSuccess: { (Bool) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -85,7 +93,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
         }
-        
+        */
     }
     
     func removeSpecialCharsFromString(text: String) -> String {
@@ -153,8 +161,9 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     {
         
         /****************************************************************/
-        self.messageFromLabel.text = conversation.shortCode
+        self.messageFromLabel.text = ""
         self.messageNumberLabel.text = conversation.mobile
+        self.shortCodeLabel.text = conversation.shortCode
         self.sendTextField.text = ""
         /****************************************************************/
         
