@@ -20,10 +20,11 @@ class InboxTableViewCell: UITableViewCell
     {
         super.awakeFromNib()
         
-//        let view = UIView()
-//        view.backgroundColor = UIColor.red        
-//        self.selectedBackgroundView = view
+        let bgColorView = UIView()
         
+        bgColorView.backgroundColor = UIColor.blue
+        
+        self.selectedBackgroundView = bgColorView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)

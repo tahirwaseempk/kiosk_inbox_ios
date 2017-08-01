@@ -30,8 +30,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         //self.targetedTableView.rowHeight = UITableViewAutomaticDimension
         
-        //self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
-        
+//        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
+//        
+//        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
+
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
         
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
@@ -97,22 +99,25 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         /*Uncomment second line and comment first to use XIB instead of code*/
         //chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend") as? ChatTableViewCell
         
-        chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
         
         if (message.isSender == false) {
             
+            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
+
             chatCell.chatMessageLabel.text = message.message
             chatCell.chatNameLabel.text = message.mobile
             chatCell.chatTimeLabel.text = message.date
-            chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
+            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
             chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
        
         } else {
             
+            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatReceive", for: indexPath)as? ChatTableViewCell
+
             chatCell.chatMessageLabel.text = message.message
             chatCell.chatNameLabel.text = "Me"
             chatCell.chatTimeLabel.text = message.date
-            chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
+            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
             chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeSender
         }
         
@@ -173,7 +178,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
 //
 //        [self.targetedTableView .setContentOffset(offset, animated: true)]
     
+        let indexPath = IndexPath(row:(selectedConversation?.messages.count)! - 1, section: 0)
         
+        self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+
         return true
     }
     

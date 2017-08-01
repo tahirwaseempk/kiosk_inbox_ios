@@ -76,7 +76,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         let conversation:ConversationDataModel = conversations![indexPath.row]
 
 //        if (self.delegate != nil) && self.delegate.responds(to: #selector(InboxTableViewCellProtocol.conversationSelected) {
-            self.delegate.conversationSelected(conversation: conversation)
+            _ = self.delegate.conversationSelected(conversation: conversation)
 //        }
         
         

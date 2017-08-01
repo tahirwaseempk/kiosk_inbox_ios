@@ -195,8 +195,6 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                                 let emptyConversation  = ConversationDataModel(mobile_: "", shortCode_: "")
                                 // let message = MessagesDataModel(date_: "", message_: "", id_:0, mobile_: "", shortCode_: "", isSender_: true)
                                 _ = (self.messageTableViewDataSource?.loadConversation(conversation_: emptyConversation))!
-                                
-                                self.messageTableView.reloadData()
                             }
                     }
             }
@@ -211,7 +209,6 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                             
                             self.currentConversations?.removeAll()
                             _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversations![0]))!
-                            self.messageTableView.reloadData()
                             
                             let alert = UIAlertController(title: "ERROR", message: "Could not load conversation.", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
