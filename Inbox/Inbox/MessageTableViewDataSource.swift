@@ -168,6 +168,11 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.selectedConversation = conversation_;
         self.targetedTableView.reloadData()
+
+//        var offset = CGPointMake(0, self.targetedTableView.contentSize.height - self.targetedTableView.frame.size.height);
+//
+//        [self.targetedTableView .setContentOffset(offset, animated: true)]
+    
         
         return true
     }

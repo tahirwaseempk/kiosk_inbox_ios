@@ -54,6 +54,7 @@ class LoginViewController: UIViewController
                             let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
                             
                             inboxViewController.conversations = user?.conversations
+                            //inboxViewController.userNameLabel.text = self.serialTextField.text
                             
                             self.navigationController?.setViewControllers([inboxViewController], animated: true)
                     }

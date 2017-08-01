@@ -42,6 +42,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         inboxTableView.dataSource = inboxTableViewDataSource
         //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
         
+        self.userNameLabel.text = "test-test"
         initiateMessageCall()
     }
     
