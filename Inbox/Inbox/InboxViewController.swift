@@ -162,7 +162,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     {
         
         /****************************************************************/
-        self.messageFromLabel.text = ""
+        self.messageFromLabel.text = "Message From"
         self.messageNumberLabel.text = conversation.mobile
         self.shortCodeLabel.text = conversation.shortCode
         self.sendTextField.text = ""

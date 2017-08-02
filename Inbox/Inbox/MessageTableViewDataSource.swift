@@ -23,19 +23,17 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView = tableview
         
-        //        chatCellSettings = ChatCellSettings.getInstance()
-        
+        //chatCellSettings = ChatCellSettings.getInstance()
         
         //self.targetedTableView.estimatedRowHeight = 40.0
         
         //self.targetedTableView.rowHeight = UITableViewAutomaticDimension
         
         //        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
-        //
-        //        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
+
+        //                self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
         
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
-        
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
         
         //Getting singleton instances of the required classes
@@ -54,16 +52,16 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         chatCellSettings?.setReceiverBubbleMessageTextColorHex("000000");
         chatCellSettings?.setReceiverBubbleTimeTextColorHex("000000");
         
-        chatCellSettings?.setSenderBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 9))
+        chatCellSettings?.setSenderBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 10))
         chatCellSettings.setSenderBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
-        chatCellSettings.setSenderBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 11))
+        chatCellSettings.setSenderBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 10))
         
-        chatCellSettings.setReceiverBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 9))
+        chatCellSettings.setReceiverBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 10))
         chatCellSettings.setReceiverBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
-        chatCellSettings.setReceiverBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 11))
+        chatCellSettings.setReceiverBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 10))
         
-        chatCellSettings?.senderBubbleTailRequired(true)
-        chatCellSettings?.receiverBubbleTailRequired(true)
+        chatCellSettings?.senderBubbleTailRequired(false)
+        chatCellSettings?.receiverBubbleTailRequired(false)
         
         super.init()
         
@@ -112,24 +110,22 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         // dateFormatter.dateFormat = "dd-MM-yyy hh:mm:ss" //Specify your format that you want
         // let strDate = dateFormatter.string(from: date)
         
-//        let inFormatter = DateFormatter()
-////        inFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
-//        inFormatter.dateFormat = "HH:mm"
-//        
-//        let outFormatter = DateFormatter()
-////        outFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
-//        outFormatter.dateFormat = "hh:mm"
-//        
-//        let date = outFormatter.date(from: message.date)
-//        let outStr = outFormatter.string(from: date!)
-//        
+        let inFormatter = DateFormatter()
+        inFormatter.dateFormat = "mm/dd/yyy hh:mm:ss a"
+    
+        let outFormatter = DateFormatter()
+        outFormatter.dateFormat = "hh:mm"
+
+        let date = inFormatter.date(from: message.date)
+        let outStr = outFormatter.string(from: date!)
+        
         if (message.isSender == false) {
             
             chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
             
             chatCell.chatMessageLabel.text = message.message
             chatCell.chatNameLabel.text = message.mobile
-            chatCell.chatTimeLabel.text = message.date
+            chatCell.chatTimeLabel.text = outStr
             //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
             chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
             
@@ -139,7 +135,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             
             chatCell.chatMessageLabel.text = message.message
             chatCell.chatNameLabel.text = "Me"
-            chatCell.chatTimeLabel.text = message.date
+            chatCell.chatTimeLabel.text = outStr
             //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
             chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeSender
         }

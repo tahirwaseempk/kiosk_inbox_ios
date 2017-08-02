@@ -111,7 +111,7 @@ static ChatCellSettings *chatCellSettings = nil;
     [Main addSubview:chatTimeLabel];
     [Main addSubview:chatMessageLabel];
     
-    chatUserImage.image = [UIImage imageNamed:@"defaultUser.png"];
+//    chatUserImage.image = [UIImage imageNamed:@"defaultUser.png"];
     
     chatNameLabel.text = @"chatNameLabel";
     
@@ -491,7 +491,7 @@ static ChatCellSettings *chatCellSettings = nil;
         
         //Setting the constraints for chatTimeLabel. It should be 16 distance from right and left of superview, i.e., Main.
         
-        horizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-16-[chatTimeLabel]-16-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:NSDictionaryOfVariableBindings(chatTimeLabel)];
+        horizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-120-[chatTimeLabel]-16-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:NSDictionaryOfVariableBindings(chatTimeLabel)];
         
         [Main addConstraints:horizontal];
         

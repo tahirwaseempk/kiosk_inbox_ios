@@ -34,11 +34,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGz-x6-Nfn">
-                        <rect key="frame" x="0.0" y="0.0" width="24" height="68"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(290) 009 - 21321" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4E-XP-7zY">
                         <rect key="frame" x="32" y="2" width="275" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,6 +42,11 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redCircle" translatesAutoresizingMaskIntoConstraints="NO" id="gGz-x6-Nfn">
+                        <rect key="frame" x="12" y="10" width="12" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.039215686270000001" green="0.14117647059999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             </tableViewCellContentView>
@@ -54,9 +54,13 @@
             <connections>
                 <outlet property="dateLabel" destination="DFW-8F-pc4" id="zlc-37-RJr"/>
                 <outlet property="detailLabel" destination="ms2-XB-BB8" id="yDg-Tg-BdO"/>
+                <outlet property="dotImageView" destination="gGz-x6-Nfn" id="zPx-Ww-Nez"/>
                 <outlet property="titleLabel" destination="e4E-XP-7zY" id="5tA-lD-Kf3"/>
             </connections>
             <point key="canvasLocation" x="-196" y="-282"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="redCircle" width="12" height="12"/>
+    </resources>
 </document>

@@ -16,15 +16,17 @@ class InboxTableViewCell: UITableViewCell
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var dotImageView: UIImageView!
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
         
         let bgColorView = UIView()
-        
         bgColorView.backgroundColor = UIColor.blue
-        
+        bgColorView.layer.cornerRadius = 15;
         self.selectedBackgroundView = bgColorView
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)

@@ -162,7 +162,7 @@ class User: NSObject
                         
                         let date = Date()
                         let formatter = DateFormatter()
-                        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
+                        formatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
                         let dateString = formatter.string(from: date)
 
                         let message = MessagesDataModel(date_: dateString, message_: message, id_:0, mobile_: mobile, shortCode_: shortcode, isSender_: true)

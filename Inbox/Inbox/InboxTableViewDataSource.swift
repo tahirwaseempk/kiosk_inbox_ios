@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSource {
-
+    
     let targetedTableView: UITableView
     
     var conversations:Array<ConversationDataModel>? = nil
-
+    
     var delegate:InboxTableViewCellProtocol
     
     init(tableview:UITableView, conversations_:Array<ConversationDataModel>, delegate_:InboxTableViewCellProtocol) {
@@ -23,7 +23,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         self.conversations = conversations_
         self.delegate = delegate_
-
+        
         super.init()
         
         self.targetedTableView.dataSource = self
@@ -34,9 +34,9 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         //self.targetedTableView.rowHeight = UITableViewAutomaticDimension
         //self.targetedTableView.estimatedSectionHeaderHeight = 2.0
         
-    self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
+        self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -53,8 +53,9 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         let conversation:ConversationDataModel = conversations![indexPath.row]
         
-        cell.selectionStyle  = .none
-        
+//        cell.selectionStyle  = .none
+        cell.selectionStyle = .blue;
+
         if let message = conversation.messages.last
         {
             cell.titleLabel.text = message.mobile
@@ -74,10 +75,10 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
     {
         let conversation:ConversationDataModel = conversations![indexPath.row]
-
-//        if (self.delegate != nil) && self.delegate.responds(to: #selector(InboxTableViewCellProtocol.conversationSelected) {
-            _ = self.delegate.conversationSelected(conversation: conversation)
-//        }
+        
+        //        if (self.delegate != nil) && self.delegate.responds(to: #selector(InboxTableViewCellProtocol.conversationSelected) {
+        _ = self.delegate.conversationSelected(conversation: conversation)
+        //        }
         
         
     }
