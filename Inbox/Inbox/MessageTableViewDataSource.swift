@@ -23,17 +23,17 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView = tableview
         
-//        chatCellSettings = ChatCellSettings.getInstance()
+        //        chatCellSettings = ChatCellSettings.getInstance()
         
         
         //self.targetedTableView.estimatedRowHeight = 40.0
         
         //self.targetedTableView.rowHeight = UITableViewAutomaticDimension
         
-//        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
-//        
-//        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
-
+        //        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
+        //
+        //        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
+        
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
         
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
@@ -89,7 +89,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         //let cell = tableView.dequeueReusableCell(withIdentifier:"MessageTableViewSenderCell",for:indexPath) as! MessageTableViewSenderCell
         
         // cell.selectionStyle  = .none
-
+        
         let message:MessagesDataModel = (selectedConversation?.messages[indexPath.row])!
         
         //        cell.numberLabel.text = message.mobile
@@ -99,21 +99,44 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         /*Uncomment second line and comment first to use XIB instead of code*/
         //chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend") as? ChatTableViewCell
         
+        //        let date = Date()
+        //        let formatter = DateFormatter()
+        //        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
+        //        let result = formatter.string(from: date)
         
+        // let timestamp = NSDate().timeIntervalSince1970
+        // let date = Date(timeIntervalSince1970: timestamp)
+        // let dateFormatter = DateFormatter()
+        // dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        // dateFormatter.locale = NSLocale.current
+        // dateFormatter.dateFormat = "dd-MM-yyy hh:mm:ss" //Specify your format that you want
+        // let strDate = dateFormatter.string(from: date)
+        
+//        let inFormatter = DateFormatter()
+////        inFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+//        inFormatter.dateFormat = "HH:mm"
+//        
+//        let outFormatter = DateFormatter()
+////        outFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+//        outFormatter.dateFormat = "hh:mm"
+//        
+//        let date = outFormatter.date(from: message.date)
+//        let outStr = outFormatter.string(from: date!)
+//        
         if (message.isSender == false) {
             
             chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
-
+            
             chatCell.chatMessageLabel.text = message.message
             chatCell.chatNameLabel.text = message.mobile
             chatCell.chatTimeLabel.text = message.date
             //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
             chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
-       
+            
         } else {
             
             chatCell = tableView.dequeueReusableCell(withIdentifier: "chatReceive", for: indexPath)as? ChatTableViewCell
-
+            
             chatCell.chatMessageLabel.text = message.message
             chatCell.chatNameLabel.text = "Me"
             chatCell.chatTimeLabel.text = message.date
@@ -173,15 +196,15 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.selectedConversation = conversation_;
         self.targetedTableView.reloadData()
-
-//        var offset = CGPointMake(0, self.targetedTableView.contentSize.height - self.targetedTableView.frame.size.height);
-//
-//        [self.targetedTableView .setContentOffset(offset, animated: true)]
-    
+        
+        //        var offset = CGPointMake(0, self.targetedTableView.contentSize.height - self.targetedTableView.frame.size.height);
+        //
+        //        [self.targetedTableView .setContentOffset(offset, animated: true)]
+        
         let indexPath = IndexPath(row:(selectedConversation?.messages.count)! - 1, section: 0)
         
         self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-
+        
         return true
     }
     

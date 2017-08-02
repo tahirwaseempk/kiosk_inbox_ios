@@ -21,7 +21,11 @@ class LoginViewController: UIViewController
         
         self.udidTextField.text = "323434234"
         
-          self.serialTextField.text = "test-test"
+        self.serialTextField.text = "test-test"
+        
+        self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        
+        self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
         self.udidTextField.isEnabled = false
     }
@@ -48,7 +52,7 @@ class LoginViewController: UIViewController
                         {
                             
                             ProcessingIndicator.hide()
-
+                            
                             let inboxStoryboard = UIStoryboard(name:"Inbox", bundle: nil)
                             
                             let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
@@ -67,7 +71,7 @@ class LoginViewController: UIViewController
                     DispatchQueue.main.async
                         {
                             ProcessingIndicator.hide()
-
+                            
                             let alert = UIAlertController(title:"Error!",message:"Unable to login",preferredStyle: UIAlertControllerStyle.alert)
                             
                             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler: nil))
