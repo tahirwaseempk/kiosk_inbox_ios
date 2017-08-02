@@ -68,7 +68,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "DELETE", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Opt Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
