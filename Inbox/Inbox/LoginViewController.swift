@@ -60,7 +60,7 @@ class LoginViewController: UIViewController
                             inboxViewController.conversations = user?.conversations
                             //inboxViewController.userNameLabel.text = self.serialTextField.text
                             
-                            self.navigationController?.setViewControllers([inboxViewController], animated: true)
+                            self.navigationController?.pushViewController(inboxViewController, animated: true)
                     }
             }
             
