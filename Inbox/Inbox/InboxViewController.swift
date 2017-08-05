@@ -50,11 +50,14 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func signOut_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Sign Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+        
+/*        let alert = UIAlertController(title: "Sign Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
-        return
+        return */
     }
     
     @IBAction func editMessage_Tapped(_ sender: Any) {
