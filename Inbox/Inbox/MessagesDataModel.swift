@@ -12,12 +12,12 @@ class MessagesDataModel: NSObject {
     
     var date:String
     var message:String
-    var id:Int32
+    var id:Int
     var mobile:String
     let shortCode:String
     var isSender: Bool
     
-    init(date_:String,message_:String, id_:Int32, mobile_:String, shortCode_:String, isSender_:Bool) {
+    init(date_:String,message_:String, id_:Int, mobile_:String, shortCode_:String, isSender_:Bool) {
         
         self.date = date_
         self.message = message_

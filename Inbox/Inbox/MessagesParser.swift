@@ -21,15 +21,15 @@ class MessagesParser: NSObject {
         
         let inboxJson = json["inbox"] as! Array<Dictionary<String,Any>>
         
-        var messages = Array<MessagesDataModel>()
+//        var messages = Array<MessagesDataModel>()
         
         if inboxJson != nil
         {
             for dic in inboxJson
             {
-                var message = MessagesDataModel(date_: dic["date"] as! String, message_: dic["message"] as! String, id_: dic["id"] as! Int32, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: false)
+                let message = MessagesDataModel(date_: dic["date"] as! String, message_: dic["message"] as! String, id_: Int(dic["id"] as! Int32), mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: false)
                 
-                let mobile = dic["mobile"] as! String 
+                let mobile = dic["mobile"] as! String
                 let shortCode = dic["shortcode"] as! String
                 
                 var targetedConversation:ConversationDataModel? = nil
@@ -68,7 +68,7 @@ class MessagesParser: NSObject {
         
         let inboxJson = json["chat"] as! Array<Dictionary<String,Any>>
         
-        var messages = Array<MessagesDataModel>()
+       // var messages = Array<MessagesDataModel>()
         
         if inboxJson != nil
         {
@@ -82,7 +82,7 @@ class MessagesParser: NSObject {
                     check = true
                 }
                 
-                var message = MessagesDataModel(date_: dic["date"] as! String, message_: dic["message"] as! String, id_: dic["id"] as! Int32, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check)
+                let message = MessagesDataModel(date_: dic["date"] as! String, message_: dic["message"] as! String, id_: Int(dic["id"] as! Int32), mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check)
                 
                 let mobile = dic["mobile"] as! String
                 let shortCode = dic["shortcode"] as! String
