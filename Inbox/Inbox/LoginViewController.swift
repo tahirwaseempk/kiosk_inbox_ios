@@ -61,7 +61,7 @@ class LoginViewController: UIViewController
                             
                             let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
                             
-                            inboxViewController.userNameLabel.text = self.serialTextField.text
+                           // inboxViewController.userNameLabel.text = self.serialTextField.text
 
                             self.navigationController?.pushViewController(inboxViewController, animated: true)
                     }
