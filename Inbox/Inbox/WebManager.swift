@@ -1,25 +1,26 @@
 import UIKit
 
-let INBOX_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
-let INBOX_URL_END = "&uuid="
-//let INBOX_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial=test-test&uuid=323434234"
+let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
+let LOGIN_URL_END = "&uuid="
+
 let DELETE_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxDelete&json={%22uuid%22:%22"
 let DELETE_URL_BEFORE_SERIAL = "%22,%22serial%22:%22"
 let DELETE_URL_BEFORE_IDS = "%22,%22ids%22:["
 let DELETE_URLEND = "]}"
-
 
 let CHAT_URL = "https://mcpn.us/limeApi?ev=kioskChatMessages&uuid="
 let CHAT_URL_BEFORE_SERIAL = "&serial="
 let CHAT_URL_BEFORE_MOBILE = "&mobile="
 let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
 
-
 let SEND_URL = "https://mcpn.us/limeApi?ev=kioskSendMessage&uuid="
 let SEND_URL_BEFORE_SERIAL = "&serial="
 let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
 let SEND_URL_BEFORE_MOBILE = "&mobile="
 let SEND_URL_BEFORE_MESSAGE_END = "&message="
+
+let CONVERSATION_URL = "https://mcpn.us/limeApi?ev=kioskInboxWithDetails&uuid="
+let CONVERSATION_URL_END = "&serial="
 
 class WebManager: NSObject
 {
@@ -35,19 +36,19 @@ class WebManager: NSObject
         super.init()
     }
     
-    static func requestLogin(params: Dictionary<String,Any>,messageParser:MessagesParser, completionBlockSuccess successBlock: @escaping ((Array<ConversationDataModel>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func requestLogin(params: Dictionary<String,Any>,loginParser:LoginParser, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
         let serial:String = params["serial"] as! String
         let uuid:String = params["uuid"] as! String
         
-        let finalUrl = INBOX_URL + serial + INBOX_URL_END + uuid
+        let finalUrl = LOGIN_URL + serial + LOGIN_URL_END + uuid
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
-                successBlock(messageParser.parseInboxMessages(json:response as! Dictionary<String, Any>))
+                successBlock(loginParser.parseUser(json:response as! Dictionary<String, Any>))
             }
             else
             {
@@ -56,7 +57,27 @@ class WebManager: NSObject
         })
     }
     
-    
+    static func requestConversations(params: Dictionary<String,Any>,conversationParser:ConversationParser, completionBlockSuccess successBlock: @escaping ((Array<Conversation>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let serial:String = params["serial"] as! String
+        let uuid:String = params["uuid"] as! String
+        
+        let finalUrl = CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+ 
     static func deleteMessage(UDID:String, serial:String, Ids:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         let finalUrl = DELETE_URL_BEFORE_UDID + UDID + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_IDS + Ids + DELETE_URLEND
@@ -74,7 +95,7 @@ class WebManager: NSObject
         })
     }
     
-    static func getChatMessage(params: Dictionary<String,Any>,messageParser:MessagesParser,completionBlockSuccess successBlock: @escaping ((Array<ConversationDataModel>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func getMessages(params: Dictionary<String,Any>,messageParser:MessagesParser,completionBlockSuccess successBlock: @escaping ((Array<Message>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         let uuid:String = params["uuid"] as! String
         let serial:String = params["serial"] as! String
@@ -87,7 +108,7 @@ class WebManager: NSObject
             
             if (error == nil)
             {
-                successBlock(messageParser.parseConversation(json:response as! Dictionary<String, Any>))
+                successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
             }
             else
             {
@@ -96,14 +117,21 @@ class WebManager: NSObject
         })
     }
     
+    static func removeSpecialCharsFromString(_ text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("1234567890".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
+    }
+    
     static func sendMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         let uuid:String = params["uuid"] as! String
         let serial:String = params["serial"] as! String
-        let mobile:String = params["mobile"] as! String
+        var mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         let message:String = params["message"] as! String
 
+       mobile = removeSpecialCharsFromString(mobile)
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
 

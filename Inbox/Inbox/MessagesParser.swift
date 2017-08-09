@@ -6,69 +6,26 @@
 //  Copyright © 2017 Amir Akram. All rights reserved.
 //
 
-import UIKit
-
+import Foundation
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//
 class MessagesParser: NSObject {
-
-    func parseInboxMessages(json:Dictionary<String,Any>) -> Array<ConversationDataModel>
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    func parseMessages(json:Dictionary<String,Any>) -> Array<Message>
     {
-        var conversations = Array<ConversationDataModel>()
+        var messages = Array<Message>()
 
-        if let errorString = json["err"] {
+        if (json["err"] as? String) != nil
+        {
             return Array()
         }
-        
         
         let inboxJson = json["inbox"] as! Array<Dictionary<String,Any>>
-        
-//        var messages = Array<MessagesDataModel>()
-        
-        if inboxJson != nil
-        {
-            for dic in inboxJson
-            {
-                let message = MessagesDataModel(date_: dic["date"] as! String, message_: dic["message"] as! String, id_: Int(dic["id"] as! Int32), mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: false)
-                
-                let mobile = dic["mobile"] as! String
-                let shortCode = dic["shortcode"] as! String
-                
-                var targetedConversation:ConversationDataModel? = nil
-                
-                for conversation in conversations
-                {
-                    if conversation.mobile == mobile
-                    {
-                        targetedConversation = conversation
-                    }
-                }
-                
-                if targetedConversation == nil
-                {
-                    targetedConversation = ConversationDataModel(mobile_:mobile, shortCode_:shortCode)
-                    
-                    conversations.append(targetedConversation!)
-                }
-                
-                targetedConversation?.addMessage(message: message)
-            }
-        }
-
-        return conversations
-    }
-    
-    
-    func parseConversation(json:Dictionary<String,Any>) -> Array<ConversationDataModel>
-    {
-        var conversations = Array<ConversationDataModel>()
-        
-        if let errorString = json["err"] {
-            return Array()
-        }
-        
-        
-        let inboxJson = json["chat"] as! Array<Dictionary<String,Any>>
-        
-       // var messages = Array<MessagesDataModel>()
         
         if inboxJson != nil
         {
@@ -82,33 +39,21 @@ class MessagesParser: NSObject {
                     check = true
                 }
                 
-                let message = MessagesDataModel(date_: dic["date"] as! String, message_: dic["message"] as! String, id_: Int(dic["id"] as! Int32), mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check)
+            let message = Message.create(context: DEFAULT_CONTEXT, date_: dic["date"] as! String, message_: dic["message"] as! String, messageId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check, isRead_: false, updatedOn_: 0, createdOn_: 0)
                 
-                let mobile = dic["mobile"] as! String
-                let shortCode = dic["shortcode"] as! String
-
-                var targetedConversation:ConversationDataModel? = nil
-                
-                for conversation in conversations
-                {
-                    if conversation.mobile == mobile
-                    {
-                        targetedConversation = conversation
-                    }
-                }
-                
-                if targetedConversation == nil
-                {
-                    targetedConversation = ConversationDataModel(mobile_:mobile, shortCode_:shortCode)
-                    
-                    conversations.append(targetedConversation!)
-                }
-                
-                targetedConversation?.addMessage(message: message)
+                messages.append(message)
+    
             }
         }
-        
-        return conversations
-    }
 
+        return messages
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
 }
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//

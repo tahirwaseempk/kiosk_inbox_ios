@@ -60,12 +60,18 @@
 		754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
 		754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
 		754085FF1F16743000CDB81F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
-		755C66531EF9B2A600A3F74A /* MessagesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */; };
-		755C66581EFA87D700A3F74A /* ConversationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C66571EFA87D700A3F74A /* ConversationDataModel.swift */; };
 		755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
 		755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */; };
-		759374401F13CC830070DA33 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593743F1F13CC830070DA33 /* User.swift */; };
+		75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
+		75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
 		75E35F101F05853500B96018 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
+		75F731DF1F3899CD00DBDA84 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731D91F3899CD00DBDA84 /* Conversation+CoreDataClass.swift */; };
+		75F731E01F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731DA1F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift */; };
+		75F731E11F3899CD00DBDA84 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731DB1F3899CD00DBDA84 /* User+CoreDataClass.swift */; };
+		75F731E21F3899CD00DBDA84 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731DC1F3899CD00DBDA84 /* User+CoreDataProperties.swift */; };
+		75F731E31F3899CD00DBDA84 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731DD1F3899CD00DBDA84 /* Message+CoreDataClass.swift */; };
+		75F731E41F3899CD00DBDA84 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731DE1F3899CD00DBDA84 /* Message+CoreDataProperties.swift */; };
+		75F731E61F389B3D00DBDA84 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,12 +133,18 @@
 		754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorProtocol.swift; sourceTree = "<group>"; };
 		754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorHandler.swift; sourceTree = "<group>"; };
 		754085FE1F16743000CDB81F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataModel.swift; sourceTree = "<group>"; };
-		755C66571EFA87D700A3F74A /* ConversationDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDataModel.swift; sourceTree = "<group>"; };
 		755C665A1EFA897800A3F74A /* MessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesParser.swift; sourceTree = "<group>"; };
 		755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCellProtocol.swift; sourceTree = "<group>"; };
-		7593743F1F13CC830070DA33 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationParser.swift; sourceTree = "<group>"; };
+		75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginParser.swift; sourceTree = "<group>"; };
 		75E35F0F1F05853500B96018 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		75F731D91F3899CD00DBDA84 /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataClass.swift"; path = "../Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		75F731DA1F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataProperties.swift"; path = "../Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		75F731DB1F3899CD00DBDA84 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "../User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		75F731DC1F3899CD00DBDA84 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "../User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		75F731DD1F3899CD00DBDA84 /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Message+CoreDataClass.swift"; path = "../Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		75F731DE1F3899CD00DBDA84 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Message+CoreDataProperties.swift"; path = "../Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,33 +393,23 @@
 		755C66541EFA878800A3F74A /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
-				7593743F1F13CC830070DA33 /* User.swift */,
-				755C66551EFA879300A3F74A /* Conversation */,
+				75F731DB1F3899CD00DBDA84 /* User+CoreDataClass.swift */,
+				75F731DC1F3899CD00DBDA84 /* User+CoreDataProperties.swift */,
+				75F731D91F3899CD00DBDA84 /* Conversation+CoreDataClass.swift */,
+				75F731DA1F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift */,
+				75F731DD1F3899CD00DBDA84 /* Message+CoreDataClass.swift */,
+				75F731DE1F3899CD00DBDA84 /* Message+CoreDataProperties.swift */,
 			);
 			name = Persistent;
-			sourceTree = "<group>";
-		};
-		755C66551EFA879300A3F74A /* Conversation */ = {
-			isa = PBXGroup;
-			children = (
-				755C66571EFA87D700A3F74A /* ConversationDataModel.swift */,
-				755C66561EFA87AB00A3F74A /* Messages */,
-			);
-			name = Conversation;
-			sourceTree = "<group>";
-		};
-		755C66561EFA87AB00A3F74A /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-				755C66521EF9B2A600A3F74A /* MessagesDataModel.swift */,
-			);
-			name = Messages;
 			sourceTree = "<group>";
 		};
 		755C66591EFA896100A3F74A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */,
+				75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */,
 				755C665A1EFA897800A3F74A /* MessagesParser.swift */,
+				75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -509,27 +511,31 @@
 			files = (
 				1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */,
 				752CE4441F27E24900FCC976 /* IQKeyboardManagerConstants.swift in Sources */,
-				755C66531EF9B2A600A3F74A /* MessagesDataModel.swift in Sources */,
 				752CE44A1F27E24900FCC976 /* IQTitleBarButtonItem.swift in Sources */,
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
 				752CE4461F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
 				752CE4491F27E24900FCC976 /* IQTextView.swift in Sources */,
 				7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */,
+				75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */,
+				75F731E31F3899CD00DBDA84 /* Message+CoreDataClass.swift in Sources */,
+				75F731DF1F3899CD00DBDA84 /* Conversation+CoreDataClass.swift in Sources */,
 				752CE44F1F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				752CE4431F27E24900FCC976 /* IQKeyboardManager.swift in Sources */,
 				1ADE9FA31EF996A4006C2CAC /* InboxViewController.swift in Sources */,
-				755C66581EFA87D700A3F74A /* ConversationDataModel.swift in Sources */,
 				752CE44E1F27E24900FCC976 /* IQUIView+Hierarchy.swift in Sources */,
+				75F731E61F389B3D00DBDA84 /* CoreDataManager.swift in Sources */,
 				755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
-				759374401F13CC830070DA33 /* User.swift in Sources */,
+				75F731E21F3899CD00DBDA84 /* User+CoreDataProperties.swift in Sources */,
 				752CE44D1F27E24900FCC976 /* IQUITextFieldView+Additions.swift in Sources */,
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
+				75F731E01F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift in Sources */,
 				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
 				1ADE9FB31EF9A012006C2CAC /* MessageTableViewReceiverCell.swift in Sources */,
+				75F731E11F3899CD00DBDA84 /* User+CoreDataClass.swift in Sources */,
 				752CE4451F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
@@ -545,7 +551,9 @@
 				752CE4471F27E24900FCC976 /* IQNSArray+Sort.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
+				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
+				75F731E41F3899CD00DBDA84 /* Message+CoreDataProperties.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

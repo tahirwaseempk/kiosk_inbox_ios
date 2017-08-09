@@ -13,7 +13,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     let targetedTableView: UITableView
     
-    var selectedConversation:ConversationDataModel? = nil
+    var selectedConversation:Conversation! = nil
     
     var chatCell:ChatTableViewCell!
     
@@ -23,25 +23,16 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView = tableview
         
-        //chatCellSettings = ChatCellSettings.getInstance()
-        
-        //self.targetedTableView.estimatedRowHeight = 40.0
-        
-        //self.targetedTableView.rowHeight = UITableViewAutomaticDimension
-        
-        //        self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
-
-        //                self.targetedTableView.register(UINib(nibName:"MessageTableViewSenderCell",bundle:nil),forCellReuseIdentifier:"MessageTableViewSenderCell")
-        
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
         
         //Getting singleton instances of the required classes
         chatCellSettings = ChatCellSettings.getInstance()
         
-        /**
-         *  Set settings for Application
-         */
+        /* ///////////////////////////////
+        Set settings for Application
+        /////////////////////////////// */
+ 
         chatCellSettings?.setSenderBubbleColorHex("007AFF");
         chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");
@@ -77,26 +68,16 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         guard (selectedConversation == nil) else {
-            return (selectedConversation?.messages.count)!
+            return (selectedConversation.messages!.count)
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        //let cell = tableView.dequeueReusableCell(withIdentifier:"MessageTableViewSenderCell",for:indexPath) as! MessageTableViewSenderCell
         
-        // cell.selectionStyle  = .none
-        
-        let message:MessagesDataModel = (selectedConversation?.messages[indexPath.row])!
-        
-        //        cell.numberLabel.text = message.mobile
-        //        cell.timeLabel.text = message.date
-        //        cell.messageTextLabel.text = message.message
-        
-        /*Uncomment second line and comment first to use XIB instead of code*/
-        //chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend") as? ChatTableViewCell
-        
+        let message:Message = (self.selectedConversation.messages?.allObjects[indexPath.row] as! Message)
+    
         //        let date = Date()
         //        let formatter = DateFormatter()
         //        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
@@ -116,7 +97,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         let outFormatter = DateFormatter()
         outFormatter.dateFormat = "hh:mm"
 
-        let date = inFormatter.date(from: message.date)
+        let date = inFormatter.date(from: message.date!)
         let outStr = outFormatter.string(from: date!)
         
         if (message.isSender == false) {
@@ -147,7 +128,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         
-        let message:MessagesDataModel = (selectedConversation?.messages[indexPath.row])!
+        let message:Message = (self.selectedConversation.messages?.allObjects[indexPath.row] as! Message)
         
         var size = CGSize(width: 0, height: 0)
         var Namesize:CGSize
@@ -173,7 +154,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : fontArray[0]], context: nil).size
         
         let messageSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Messagesize = (message.message as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:fontArray[1]], context: nil).size
+        Messagesize = (message.message! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:fontArray[1]], context: nil).size
         
         let timeSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
         Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : fontArray[2]], context: nil).size
@@ -185,35 +166,36 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
     {
-        
+
     }
     
-    func loadConversation(conversation_:ConversationDataModel) -> Bool {
+    func loadConversation(conversation_: Conversation) -> Bool {
         
         self.selectedConversation = conversation_;
+//        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
         self.targetedTableView.reloadData()
         
-        //        var offset = CGPointMake(0, self.targetedTableView.contentSize.height - self.targetedTableView.frame.size.height);
-        //
-        //        [self.targetedTableView .setContentOffset(offset, animated: true)]
-        
-        let indexPath = IndexPath(row:(selectedConversation?.messages.count)! - 1, section: 0)
+        let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
         
         self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         
         return true
     }
     
-    func addNewMessage(_ message:MessagesDataModel) -> Bool {
+    func addNewMessage(_ message:Message) -> Bool {
         
-        if self.selectedConversation != nil{
-            message.mobile = (self.selectedConversation?.mobile)!
-            
-            self.selectedConversation?.messages.append(message);
-            self.targetedTableView.reloadData()
-            
-            return true
-        }
+        // show latest message in Left conversations
+        self.targetedTableView.reloadData()
+
+//        if self.selectedConversation != nil
+//        {
+////            message.mobile = (self.selectedConversation?.mobile)!
+////            
+////            self.selectedConversation.messages?.adding(message);
+//            self.targetedTableView.reloadData()
+//            
+//            return true
+//        }
         return false
     }
 }

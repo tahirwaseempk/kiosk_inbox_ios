@@ -29,7 +29,10 @@ class LoginViewController: UIViewController
         
         self.udidTextField.isEnabled = false
     }
-    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     @IBAction func loginButton_Tapped(_ sender: Any)
     {
         
@@ -44,6 +47,7 @@ class LoginViewController: UIViewController
             return
         }
         ProcessingIndicator.show()
+        
         User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:false, completionBlockSuccess:{(user:User?) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
@@ -57,9 +61,8 @@ class LoginViewController: UIViewController
                             
                             let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
                             
-                            inboxViewController.conversations = user?.conversations
-                            //inboxViewController.userNameLabel.text = self.serialTextField.text
-                            
+                            inboxViewController.userNameLabel.text = self.serialTextField.text
+
                             self.navigationController?.pushViewController(inboxViewController, animated: true)
                     }
             }
@@ -81,11 +84,18 @@ class LoginViewController: UIViewController
             }
         }
     }
-    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     @IBAction func rememberMeButton_Tapped(_ sender: Any)
     {
         
         (sender as! UIButton).setImage(UIImage(named: "check_box"), for: .normal)
         
     }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
 }

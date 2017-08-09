@@ -13,15 +13,13 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     let targetedTableView: UITableView
     
-    var conversations:Array<ConversationDataModel>? = nil
-    
+//    var conversations:Array<Conversation>? = nil
+
     var delegate:InboxTableViewCellProtocol
     
-    init(tableview:UITableView, conversations_:Array<ConversationDataModel>, delegate_:InboxTableViewCellProtocol) {
+    init(tableview:UITableView, delegate_:InboxTableViewCellProtocol) {
         
         self.targetedTableView = tableview
-        
-        self.conversations = conversations_
         self.delegate = delegate_
         
         super.init()
@@ -30,11 +28,8 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         self.targetedTableView.delegate = self
         
-        //self.targetedTableView.estimatedRowHeight = 40.0
-        //self.targetedTableView.rowHeight = UITableViewAutomaticDimension
-        //self.targetedTableView.estimatedSectionHeaderHeight = 2.0
+    self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
         
-        self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -44,23 +39,22 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return (conversations!.count)
+        return (User.getLoginedUser()?.conversations?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier:"InboxTableViewCell",for:indexPath) as! InboxTableViewCell
         
-        let conversation:ConversationDataModel = conversations![indexPath.row]
+        let conversation:Conversation = User.getLoginedUser()?.conversations?.allObjects [indexPath.row] as! Conversation
         
-//        cell.selectionStyle  = .none
         cell.selectionStyle = .blue;
-
-        if let message = conversation.messages.last
+        
+        if conversation.lastMessage != nil
         {
-            cell.titleLabel.text = message.mobile
-            cell.detailLabel.text = message.message
-            cell.dateLabel.text = message.date
+            cell.titleLabel.text = conversation.mobile
+            cell.detailLabel.text = conversation.lastMessage
+            cell.dateLabel.text = conversation.conversationDate
         }
         else
         {
@@ -74,12 +68,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
     {
-        let conversation:ConversationDataModel = conversations![indexPath.row]
-        
-        //        if (self.delegate != nil) && self.delegate.responds(to: #selector(InboxTableViewCellProtocol.conversationSelected) {
+        let conversation:Conversation = User.getLoginedUser()?.conversations?.allObjects [indexPath.row] as! Conversation
         _ = self.delegate.conversationSelected(conversation: conversation)
-        //        }
-        
-        
     }
 }

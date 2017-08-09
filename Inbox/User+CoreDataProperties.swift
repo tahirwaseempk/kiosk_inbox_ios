@@ -19,6 +19,10 @@ extension User {
     @NSManaged public var uuid: String?
     @NSManaged public var serial: String?
     @NSManaged public var conversations: NSSet?
+  
+    @NSManaged public var isRemember: Bool
+    
+    @nonobjc static var loginedUser:User? = nil
 
 }
 

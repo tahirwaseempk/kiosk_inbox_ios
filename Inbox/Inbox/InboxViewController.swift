@@ -10,9 +10,8 @@ import UIKit
 
 class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
-    var conversations:Array<ConversationDataModel>? = nil
-    
-    var currentConversations:Array<ConversationDataModel>? = nil
+//    var conversations : Array<Conversation>? = nil
+    var currentConversation:Conversation! = nil
     
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
@@ -30,14 +29,15 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
     
     override func viewDidLoad() {
+    
         super.viewDidLoad()
         
-        self.counterLabel.text = "(\( (conversations?.count)!))"
+        self.counterLabel.text = "(\(String(describing:  (User.getLoginedUser()?.conversations?.count))))"
         
         messageTableViewDataSource = MessageTableViewDataSource(tableview: messageTableView)
         messageTableView.dataSource = messageTableViewDataSource
         
-        inboxTableViewDataSource = InboxTableViewDataSource(tableview: inboxTableView, conversations_: self.conversations!, delegate_: self)
+        inboxTableViewDataSource = InboxTableViewDataSource(tableview: inboxTableView, delegate_: self)
         
         inboxTableView.dataSource = inboxTableViewDataSource
         //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
@@ -50,23 +50,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func signOut_Tapped(_ sender: Any) {
         
-        
         self.navigationController?.popToRootViewController(animated: true)
-        
-/*        let alert = UIAlertController(title: "Sign Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
-        return */
-    }
-    
-    @IBAction func editMessage_Tapped(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Edit", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
-        return
     }
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
@@ -76,57 +60,45 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         self.present(alert, animated: true, completion: nil)
         
         return
-            
-            //{"message":"??","id":1215317,"shortcode":"71441","date":"05\/27\/2017 12:46:08 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215316,"shortcode":"71441","date":"05\/27\/2017 12:46:05 PM","mobile":"1-910-445-1906"},{"message":"??","id":1215315,"shortcode":"71441","date":"05\/27\/2017 12:46:03 PM","mobile":"1-910-445-1906"},{"message":"????????????????????????????????????????????????????????","id":1215295,"shortcode":"71441","date":
-      /*
-            WebManager.deleteMessage(UDID: "", serial: "", Ids: "", completionBlockSuccess: { (Bool) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                let alert = UIAlertController(title: "Message", message: "Message sucessfully deleted.", preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                        }
-                }
-                
-            }) { (error:Error?) -> (Void) in
-                
-                let alert = UIAlertController(title: "Error", message: "Unable to delete message at the moment.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-        }
-        */
+        
+        /*
+         WebManager.deleteMessage(UDID: "", serial: "", Ids: "", completionBlockSuccess: { (Bool) -> (Void) in
+         
+         DispatchQueue.global(qos: .background).async
+         {
+         DispatchQueue.main.async
+         {
+         let alert = UIAlertController(title: "Message", message: "Message sucessfully deleted.", preferredStyle: UIAlertControllerStyle.alert)
+         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+         self.present(alert, animated: true, completion: nil)
+         }
+         }
+         
+         }) { (error:Error?) -> (Void) in
+         
+         let alert = UIAlertController(title: "Error", message: "Unable to delete message at the moment.", preferredStyle: UIAlertControllerStyle.alert)
+         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+         self.present(alert, animated: true, completion: nil)
+         }
+         */
     }
     
-    func removeSpecialCharsFromString(text: String) -> String {
-        let okayChars : Set<Character> =
-            Set("1234567890".characters)
-        return String(text.characters.filter {okayChars.contains($0) })
-    }
     
     @IBAction func sendMessage_Tapped(_ sender: Any) {
         
         if !((self.sendTextField.text?.isEmpty)!) {
             
-            var mobile = String ()
-            var shortCode = String ()
             
-            if (self.currentConversations != nil) {
-                mobile     = self.currentConversations![0].mobile
-                shortCode  = "71441-US"//self.currentConversations![0].shortCode
-            } else {
+            if (self.currentConversation == nil) {
                 
                 let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                
                 return
             }
             
-            mobile = removeSpecialCharsFromString(text: mobile)
-            
-            User.sendUserMessage(mobile: mobile, shortcode: shortCode, message: self.sendTextField.text!, completionBlockSuccess: { (sendMessaage:MessagesDataModel) -> (Void) in
+            User.sendUserMessage(conversation: self.currentConversation, message: self.sendTextField.text!, completionBlockSuccess: { (sendMessaage:Message) -> (Void) in
                 
                 DispatchQueue.global(qos:.background).async
                     {
@@ -143,7 +115,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                         DispatchQueue.main.async
                             {
                                 self.sendTextField.text = ""
-
+                                
                                 let alert = UIAlertController(title: "Error", message: "Unable to send message at the moment.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
@@ -157,15 +129,17 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
+            return
         }
         
     }
     
-    func conversationSelected(conversation:ConversationDataModel) -> Bool
+    func conversationSelected(conversation:Conversation) -> Bool
     {
         
+        self.currentConversation = conversation
         /****************************************************************/
-        self.messageFromLabel.text = "Message From"
+        self.messageFromLabel.text = (currentConversation.firstName)! + (currentConversation.lastName)!
         self.messageNumberLabel.text = conversation.mobile
         self.shortCodeLabel.text = conversation.shortCode
         self.sendTextField.text = ""
@@ -173,10 +147,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         
         ProcessingIndicator.show()
         
-        let mobile     =  conversation.mobile // "17326188328"
-        let shortCode  =  conversation.shortCode // "71441-US"
-        
-        User.getCurrentConversation(mobile: mobile, shortcode: shortCode, completionBlockSuccess: {(conversations:Array<ConversationDataModel>?) -> (Void) in
+        User.getMessageForConversation(self.currentConversation, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
             
             
             DispatchQueue.global(qos:.background).async
@@ -184,20 +155,11 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                     DispatchQueue.main.async
                         {
                             ProcessingIndicator.hide()
-                            self.currentConversations?.removeAll()
                             
-                            if (conversations!.count > 0) {
+                            if ((self.currentConversation.messages?.count)! > 0) {
                                 
-                                self.currentConversations = conversations
-                                
-                                _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversations![0]))!
-                            } else {
-                                
-                                self.currentConversations?.removeAll()
-                                
-                                let emptyConversation  = ConversationDataModel(mobile_: "", shortCode_: "")
-                                // let message = MessagesDataModel(date_: "", message_: "", id_:0, mobile_: "", shortCode_: "", isSender_: true)
-                                _ = (self.messageTableViewDataSource?.loadConversation(conversation_: emptyConversation))!
+                                _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversation))!
+                            
                             }
                     }
             }
@@ -210,8 +172,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                         {
                             ProcessingIndicator.hide()
                             
-                            self.currentConversations?.removeAll()
-                            _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversations![0]))!
+                            _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversation))!
                             
                             let alert = UIAlertController(title: "ERROR", message: "Could not load conversation.", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -243,23 +204,16 @@ extension InboxViewController
     
     func getConversationUpdate()
     {
-        // ProcessingIndicator.show()
-        
-        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<ConversationDataModel>?) -> (Void) in
+        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
                 {
                     DispatchQueue.main.async
                         {
-                            //  ProcessingIndicator.hide()
-                            
-                            self.conversations = conversations
-                            
-                          //  self.messageTableView.reloadData()
                             
                             self.inboxTableView.reloadData()
                             
-                            self.counterLabel.text = "(\( (conversations?.count)!))"
+                            self.counterLabel.text = "(\(String(describing:  (User.getLoginedUser()?.conversations?.count))))"
                             
                             let dispatchTime = DispatchTime.now() + .seconds(30)
                             
@@ -276,7 +230,6 @@ extension InboxViewController
                 {
                     DispatchQueue.main.async
                         {
-                            //ProcessingIndicator.hide()
                             self.getConversationUpdate()
                     }
             }

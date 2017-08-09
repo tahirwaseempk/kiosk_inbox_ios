@@ -16,11 +16,18 @@ extension Conversation {
         return NSFetchRequest<Conversation>(entityName: "Conversation")
     }
 
+    @NSManaged public var conversationId: Int64
+    @NSManaged public var messages: NSSet?
     @NSManaged public var mobile: String?
     @NSManaged public var shortCode: String?
-    @NSManaged public var messages: NSSet?
-    @NSManaged public var user: User?
+    @NSManaged public var firstName: String?
+    @NSManaged public var lastName: String?
+    @NSManaged public var conversationDate: String?
+    @NSManaged public var isRead: Bool
+    @NSManaged public var lastMessage: String?
 
+    @NSManaged public var user: User?
+    
 }
 
 // MARK: Generated accessors for messages
@@ -39,3 +46,11 @@ extension Conversation {
     @NSManaged public func removeFromMessages(_ values: NSSet)
 
 }
+
+
+
+
+
+
+
+
