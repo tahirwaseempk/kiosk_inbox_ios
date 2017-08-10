@@ -10,7 +10,7 @@ import UIKit
 
 class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
-//    var conversations : Array<Conversation>? = nil
+    //    var conversations : Array<Conversation>? = nil
     var currentConversation:Conversation! = nil
     
     @IBOutlet weak var sendTextField: UITextField!
@@ -29,15 +29,18 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
     
     override func viewDidLoad() {
-    
+        
         super.viewDidLoad()
         
-        self.counterLabel.text = "(\(String(describing:  (User.getLoginedUser()?.conversations?.count))))"
+        
+        var count: String = String(describing: (User.getLoginedUser()?.conversations?.count))
+        count = WebManager.removeSpecialCharsFromString(count)
+        self.counterLabel.text = "(\(count))"
         
         messageTableViewDataSource = MessageTableViewDataSource(tableview: messageTableView)
         messageTableView.dataSource = messageTableViewDataSource
         
-        inboxTableViewDataSource = InboxTableViewDataSource(tableview: inboxTableView, delegate_: self)
+        inboxTableViewDataSource = InboxTableViewDataSource(tableview: inboxTableView, conversation: (User.getLoginedUser()?.conversations)!, delegate_: self)
         
         inboxTableView.dataSource = inboxTableViewDataSource
         //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
@@ -55,39 +58,53 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Opt Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        //        let alert = UIAlertController(title: "Opt Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
+        //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        //        self.present(alert, animated: true, completion: nil)
+        //
+        //        return
+        //
+        if (self.currentConversation == nil) {
+            
+            let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
         
         return
         
-        /*
-         WebManager.deleteMessage(UDID: "", serial: "", Ids: "", completionBlockSuccess: { (Bool) -> (Void) in
-         
-         DispatchQueue.global(qos: .background).async
-         {
-         DispatchQueue.main.async
-         {
-         let alert = UIAlertController(title: "Message", message: "Message sucessfully deleted.", preferredStyle: UIAlertControllerStyle.alert)
-         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-         self.present(alert, animated: true, completion: nil)
-         }
-         }
-         
-         }) { (error:Error?) -> (Void) in
-         
-         let alert = UIAlertController(title: "Error", message: "Unable to delete message at the moment.", preferredStyle: UIAlertControllerStyle.alert)
-         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-         self.present(alert, animated: true, completion: nil)
-         }
-         */
+        if let user = User.getLoginedUser()
+        {
+            let uuid = user.uuid!
+            let serial = user.serial!
+
+            WebManager.deleteMessage(UDID: uuid, serial: serial, mobile:self.currentConversation.mobile!, completionBlockSuccess: { (Bool) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                let alert = UIAlertController(title: "Message", message: "Sucessfully Opt Out.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                        }
+                }
+                
+            }) { (error:Error?) -> (Void) in
+                
+                let alert = UIAlertController(title: "Error", message: "Unable to perform action at the moment.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     
     @IBAction func sendMessage_Tapped(_ sender: Any) {
         
         if !((self.sendTextField.text?.isEmpty)!) {
-            
             
             if (self.currentConversation == nil) {
                 
@@ -139,7 +156,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         
         self.currentConversation = conversation
         /****************************************************************/
-        self.messageFromLabel.text = (currentConversation.firstName)! + (currentConversation.lastName)!
+        self.messageFromLabel.text =  (currentConversation.firstName)! + " " + (currentConversation.lastName)!
         self.messageNumberLabel.text = conversation.mobile
         self.shortCodeLabel.text = conversation.shortCode
         self.sendTextField.text = ""
@@ -159,7 +176,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                             if ((self.currentConversation.messages?.count)! > 0) {
                                 
                                 _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversation))!
-                            
+                                
                             }
                     }
             }
@@ -184,10 +201,6 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         return true
     }
     
-    @IBAction func markAllButton_Tapped(_ sender: Any)
-    {
-        
-    }
 }
 
 extension InboxViewController
@@ -213,7 +226,9 @@ extension InboxViewController
                             
                             self.inboxTableView.reloadData()
                             
-                            self.counterLabel.text = "(\(String(describing:  (User.getLoginedUser()?.conversations?.count))))"
+                            var count: String = String(describing: (User.getLoginedUser()?.conversations?.count))
+                            count = WebManager.removeSpecialCharsFromString(count)
+                            self.counterLabel.text = "(\(count))"
                             
                             let dispatchTime = DispatchTime.now() + .seconds(30)
                             

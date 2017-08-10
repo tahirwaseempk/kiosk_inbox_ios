@@ -25,7 +25,7 @@ class MessagesParser: NSObject {
             return Array()
         }
         
-        let inboxJson = json["inbox"] as! Array<Dictionary<String,Any>>
+        let inboxJson = json["chat"] as! Array<Dictionary<String,Any>>
         
         if inboxJson != nil
         {

@@ -408,8 +408,8 @@
 			children = (
 				75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */,
 				75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */,
-				755C665A1EFA897800A3F74A /* MessagesParser.swift */,
 				75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */,
+				755C665A1EFA897800A3F74A /* MessagesParser.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

@@ -28,10 +28,20 @@ class ConversationParser: NSObject {
         
         if inboxJson != nil
         {
+            
             for dic in inboxJson
             {
                 
-                let conversation = Conversation.create(context: DEFAULT_CONTEXT, conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_: dic["date"] as! String, isRead_: (dic["unread"] != nil), lastMessage_: dic["message"] as! String)
+                let unread : Bool
+              
+                if (dic["unread"] as! Int == 1)
+                {
+                    unread = true
+                } else {
+                    unread = false
+                }
+
+                let conversation = Conversation.create(context: DEFAULT_CONTEXT, conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_: dic["date"] as! String, isRead_: unread, lastMessage_: dic["message"] as! String)
                 
                 conversations.append(conversation)
             }

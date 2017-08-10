@@ -13,22 +13,21 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     let targetedTableView: UITableView
     
-//    var conversations:Array<Conversation>? = nil
-
+    var conversations:Array<Conversation>? = nil
+    
     var delegate:InboxTableViewCellProtocol
     
-    init(tableview:UITableView, delegate_:InboxTableViewCellProtocol) {
+    init(tableview:UITableView, conversation: NSSet, delegate_:InboxTableViewCellProtocol) {
         
         self.targetedTableView = tableview
+        self.conversations = conversation.allObjects as? Array<Conversation>
         self.delegate = delegate_
         
         super.init()
         
         self.targetedTableView.dataSource = self
-        
         self.targetedTableView.delegate = self
-        
-    self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
+        self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
         
     }
     
@@ -61,6 +60,14 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             cell.titleLabel.text = conversation.mobile
             cell.detailLabel.text = "no message"
             cell.dateLabel.text = ""
+        }
+        
+        if conversation.isRead == true
+        {
+            cell.dotImageView.image = UIImage(named: "redCircle.png")
+        } else {
+            cell.dotImageView.image = nil
+            
         }
         
         return cell

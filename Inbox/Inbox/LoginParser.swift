@@ -18,6 +18,7 @@ class LoginParser: NSObject {
     //************************************************************************************************//
     func parseUser(json:Dictionary<String,Any>) -> Dictionary<String,Any>
     {
+        
         if (json["err"] as? String) != nil
         {
             return json

@@ -18,7 +18,6 @@ public class User: NSManagedObject {
         user.serial = serial
         user.uuid = uuid
         user.isRemember = isRemember
-        
         return user
     }
     
@@ -26,7 +25,6 @@ public class User: NSManagedObject {
     {
         return loginedUser
     }
-    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -51,11 +49,9 @@ public class User: NSManagedObject {
                             
                             User.loginedUser = user
                             
-                            
                             self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
                                 
-                                user.conversations?.addingObjects(from:conversations!)
-                                
+                                //user.conversations?.addingObjects(from:conversations!)
                                 successBlock(user)
                                 
                             }, andFailureBlock: { (error: Error?) -> (Void) in
@@ -68,7 +64,6 @@ public class User: NSManagedObject {
             failureBlock(error)
             
         }
-        
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -91,7 +86,21 @@ public class User: NSManagedObject {
                     {
                         DispatchQueue.main.async
                             {
-                                user.conversations?.addingObjects(from:conversations!)
+                                //user.conversations?.addingObjects(from:conversations!)
+                                
+                                for conversation in conversations!
+                                {
+                                    conversation.user = user
+                                }
+                                
+                                do {
+                                    
+                                    try user.managedObjectContext?.save()
+                                }
+                                catch {
+                                    
+                                }
+                                
                                 successBlock(user.conversations?.allObjects as? Array<Conversation>)
                         }
                 }
@@ -111,7 +120,6 @@ public class User: NSManagedObject {
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    
     static func getMessageForConversation(_ conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Array<Message>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
@@ -130,7 +138,20 @@ public class User: NSManagedObject {
                         DispatchQueue.main.async
                             {
                                 
-                                conversation.messages?.addingObjects(from: messages!)
+                                for message in messages!
+                                {
+                                    message.conversation = conversation
+                                }
+                                
+                                do {
+                                    
+                                    try user.managedObjectContext?.save()
+                                }
+                                catch {
+                                    
+                                }
+                                
+                               // conversation.messages?.addingObjects(from: messages!)
                                 successBlock(messages)
                         }
                 }
@@ -145,7 +166,6 @@ public class User: NSManagedObject {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -164,6 +184,7 @@ public class User: NSManagedObject {
             paramsDic["message"] = message
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
                 if let isSucceeded = response?["result"] as? String
                 {
                     
@@ -174,12 +195,16 @@ public class User: NSManagedObject {
                         formatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
                         let dateString = formatter.string(from: date)
                         
-                        
-                        let message = Message.create(context: DEFAULT_CONTEXT, date_: dateString, message_: message, messageId_:0, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
-                        
-                        conversation.messages?.adding(message)
-                        
-                        successBlock(message)
+                        DispatchQueue.global(qos: .background).async
+                            {
+                                DispatchQueue.main.async
+                                    {
+                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: dateString, message_: message, messageId_:0, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        
+                                        conversation.messages?.adding(message)
+                                        successBlock(message)
+                                }
+                        }
                         
                     } else {
                         failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:isSucceeded]))
