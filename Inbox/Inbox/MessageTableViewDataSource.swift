@@ -30,9 +30,9 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         chatCellSettings = ChatCellSettings.getInstance()
         
         /* ///////////////////////////////
-        Set settings for Application
-        /////////////////////////////// */
- 
+         Set settings for Application
+         /////////////////////////////// */
+        
         chatCellSettings?.setSenderBubbleColorHex("007AFF");
         chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");
@@ -67,8 +67,8 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        guard (selectedConversation == nil) else {
-            return (selectedConversation.messages!.count)
+        guard (self.selectedConversation == nil) else {
+            return (self.selectedConversation.messages!.count)
         }
         return 0
     }
@@ -77,7 +77,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     {
         
         let message:Message = (self.selectedConversation.messages?.allObjects[indexPath.row] as! Message)
-    
+        
         //        let date = Date()
         //        let formatter = DateFormatter()
         //        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
@@ -93,10 +93,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         let inFormatter = DateFormatter()
         inFormatter.dateFormat = "mm/dd/yyy hh:mm:ss a"
-    
+        
         let outFormatter = DateFormatter()
         outFormatter.dateFormat = "hh:mm"
-
+        
         let date = inFormatter.date(from: message.date!)
         let outStr = outFormatter.string(from: date!)
         
@@ -166,13 +166,13 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
     {
-
+        
     }
     
     func loadConversation(conversation_: Conversation) -> Bool {
         
         self.selectedConversation = conversation_;
-//        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
+        //        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
         self.targetedTableView.reloadData()
         
         let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
@@ -185,17 +185,22 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     func addNewMessage(_ message:Message) -> Bool {
         
         // show latest message in Left conversations
+        
+        //        let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
+        //        self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        
         self.targetedTableView.reloadData()
-
-//        if self.selectedConversation != nil
-//        {
-////            message.mobile = (self.selectedConversation?.mobile)!
-////            
-////            self.selectedConversation.messages?.adding(message);
-//            self.targetedTableView.reloadData()
-//            
-//            return true
-//        }
+        
+        //        if self.selectedConversation != nil
+        //        {
+        ////            message.mobile = (self.selectedConversation?.mobile)!
+        ////
+        ////            self.selectedConversation.messages?.adding(message);
+        //            self.targetedTableView.reloadData()
+        //            
+        //            return true
+        //        }
+        
         return false
     }
 }

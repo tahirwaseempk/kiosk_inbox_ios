@@ -13,6 +13,15 @@ import Foundation
 //------------------------------------------------------------------------------------------------//
 //************************************************************************************************//
 class MessagesParser: NSObject {
+    
+    var conversation : Conversation!
+    
+    init(_ conversation_: Conversation) {
+        
+        self.conversation = conversation_
+        super.init()
+    }
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
@@ -31,6 +40,7 @@ class MessagesParser: NSObject {
         {
             for dic in inboxJson
             {
+              
                 let check : Bool
                 if (dic["direction"] as! String == "In")
                 {
@@ -39,9 +49,20 @@ class MessagesParser: NSObject {
                     check = true
                 }
                 
-            let message = Message.create(context: DEFAULT_CONTEXT, date_: dic["date"] as! String, message_: dic["message"] as! String, messageId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                var message: Message? = conversation.getMessageFromID(messID: dic["id"] as! Int64);
                 
-                messages.append(message)
+                if message == nil {
+                    
+                    message = Message.create(context: DEFAULT_CONTEXT, date_: dic["date"] as! String, message_: dic["message"] as! String, messageId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                    
+                    messages.append(message!)
+
+                }
+                else
+                {
+                    
+                    message?.update(date_: dic["date"] as! String, message_: dic["message"] as! String, messageId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                }
     
             }
         }

@@ -27,7 +27,6 @@ extension Conversation {
     @NSManaged public var lastMessage: String?
 
     @NSManaged public var user: User?
-    
 }
 
 // MARK: Generated accessors for messages

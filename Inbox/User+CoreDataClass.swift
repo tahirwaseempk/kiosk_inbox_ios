@@ -25,6 +25,21 @@ public class User: NSManagedObject {
     {
         return loginedUser
     }
+    
+    func getConverstaionFromID(conID: Int64) -> Conversation? {
+    
+        let filteredConversations = self.conversations?.allObjects.filter { ($0 as! Conversation).conversationId == conID }
+        
+        if (filteredConversations?.count)! > 0 {
+            return filteredConversations?.first as? Conversation
+        }
+        
+        return nil;
+    }
+}
+
+
+extension User {
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -131,7 +146,7 @@ public class User: NSManagedObject {
             paramsDic["mobile"] = conversation.mobile
             paramsDic["shortCode"] = conversation.mobile
             
-            WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
+            WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
                     {
