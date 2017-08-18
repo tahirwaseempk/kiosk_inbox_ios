@@ -90,15 +90,20 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         // dateFormatter.locale = NSLocale.current
         // dateFormatter.dateFormat = "dd-MM-yyy hh:mm:ss" //Specify your format that you want
         // let strDate = dateFormatter.string(from: date)
+        //
+        //        let inFormatter = DateFormatter()
+        //        inFormatter.dateFormat = "mm/dd/yyy hh:mm:ss a"
+        //
+        //        let outFormatter = DateFormatter()
+        //        outFormatter.dateFormat = "hh:mm"
+        //
+        //        let date = inFormatter.date(from: message.date!)
+        //        let outStr = outFormatter.string(from: date!)
         
-        let inFormatter = DateFormatter()
-        inFormatter.dateFormat = "mm/dd/yyy hh:mm:ss a"
         
-        let outFormatter = DateFormatter()
-        outFormatter.dateFormat = "hh:mm"
-        
-        let date = inFormatter.date(from: message.date!)
-        let outStr = outFormatter.string(from: date!)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm"
+        let outStr = formatter.string(from: message.messageDate)
         
         if (message.isSender == false) {
             
@@ -175,9 +180,12 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         //        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
         self.targetedTableView.reloadData()
         
-        let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
+        let rowCount = self.selectedConversation?.messages?.count
         
-        self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        if rowCount!>0 {
+            let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
+            self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        }
         
         return true
     }
@@ -197,7 +205,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         ////
         ////            self.selectedConversation.messages?.adding(message);
         //            self.targetedTableView.reloadData()
-        //            
+        //
         //            return true
         //        }
         

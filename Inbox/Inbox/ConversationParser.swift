@@ -43,16 +43,26 @@ class ConversationParser: NSObject {
                 
                 var conversation: Conversation? = User.getLoginedUser()?.getConverstaionFromID(conID: dic["id"] as! Int64);
                 
+                var msgDate = Date()
+                
+                if let dateStr:String = dic["date"] as? String {
+                    if dateStr.characters.count > 0 {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy hh:mm:ss a"
+                        msgDate = dateFormatter.date(from: dateStr)!
+                    }
+                }
+                
                 if conversation == nil {
                     
-                    conversation = Conversation.create(context: DEFAULT_CONTEXT, conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_: dic["date"] as! String, isRead_: unread, lastMessage_: dic["message"] as! String)
+                    conversation = Conversation.create(context: DEFAULT_CONTEXT, conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_:msgDate, isRead_: unread, lastMessage_: dic["message"] as! String)
                     
                     conversations.append(conversation!)
                 }
                 else
                 {
                     
-                    conversation?.update(conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_: dic["date"] as! String, isRead_: unread, lastMessage_: dic["message"] as! String)
+                    conversation?.update(conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_: msgDate, isRead_: unread, lastMessage_: dic["message"] as! String)
                 }
             }
         }

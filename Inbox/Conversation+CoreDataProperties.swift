@@ -22,7 +22,7 @@ extension Conversation {
     @NSManaged public var shortCode: String?
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
-    @NSManaged public var conversationDate: String?
+    @NSManaged public var conversationDate: Date
     @NSManaged public var isRead: Bool
     @NSManaged public var lastMessage: String?
 

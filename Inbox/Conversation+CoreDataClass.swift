@@ -25,9 +25,19 @@ public class Conversation: NSManagedObject {
 
 }
 
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//
+
 extension Conversation {
-        
-    static func create(context: NSManagedObjectContext, conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:String, isRead_:Bool, lastMessage_:String) ->Conversation{
+    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    
+    static func create(context: NSManagedObjectContext, conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String) ->Conversation{
         
         let conversation = Conversation(context: context)
         
@@ -43,7 +53,11 @@ extension Conversation {
         return conversation
     }
     
-    func update(conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:String, isRead_:Bool, lastMessage_:String) {
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    
+    func update(conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String) {
         
         
         self.conversationId = conversationId_
@@ -58,46 +72,10 @@ extension Conversation {
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    
-//    static func create(context: NSManagedObjectContext, messages_:Message) {
-//        
-//        let conversation = Conversation(context: context)
-//
-//        conversation.messages = messages_
-//        
-//        let firstMessage  = messages_[0]
-//        
-//        conversation.mobile = firstMessage.mobile
-//        conversation.shortCode = firstMessage.shortCode
-//    }
-//    
-//    static func addMessage(context: NSManagedObjectContext, message:Message) -> Bool
-//    {
-//        
-//        let conversation = Conversation(context: context)
-//        conversation.messages.append(message)
-//        return true
-//    }
-
-    
-//    static func removeMessage(context: NSManagedObjectContext, message:Message) -> Bool
-//    {
-//        
-//        let conversation = Conversation(context: context)
-//        conversation.messages.append(message)
-//        return true
-//    }
-//
-//    
-//    static func loadMessages(context: NSManagedObjectContext, message:Message) -> Message
-//    {
-//        
-//        let conversation = Conversation(context: context)
-//
-//        return conversation.messages
-//    }
-
 }
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//

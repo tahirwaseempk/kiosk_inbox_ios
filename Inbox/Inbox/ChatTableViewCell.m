@@ -491,7 +491,7 @@ static ChatCellSettings *chatCellSettings = nil;
         
         //Setting the constraints for chatTimeLabel. It should be 16 distance from right and left of superview, i.e., Main.
         
-        horizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-120-[chatTimeLabel]-16-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:NSDictionaryOfVariableBindings(chatTimeLabel)];
+        horizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-160-[chatTimeLabel]-16-|" options:NSLayoutFormatDirectionLeftToRight metrics:nil views:NSDictionaryOfVariableBindings(chatTimeLabel)];
         
         [Main addConstraints:horizontal];
         

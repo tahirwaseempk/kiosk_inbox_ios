@@ -58,12 +58,12 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
         
-        //        let alert = UIAlertController(title: "Opt Out", message: "This functionality is underdevelopment.", preferredStyle: UIAlertControllerStyle.alert)
-        //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        //        self.present(alert, animated: true, completion: nil)
-        //
-        //        return
-        //
+        let alert = UIAlertController(title: "Error", message: "Function is not avaliable.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        return
+        
         if (self.currentConversation == nil) {
             
             let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
@@ -71,36 +71,40 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
             self.present(alert, animated: true, completion: nil)
             
             return
-        }
-        
-        return
-        
-        if let user = User.getLoginedUser()
-        {
-            let uuid = user.uuid!
-            let serial = user.serial!
-
-            WebManager.deleteMessage(UDID: uuid, serial: serial, mobile:self.currentConversation.mobile!, completionBlockSuccess: { (Bool) -> (Void) in
-                
+            
+        } else {
+            
+            User.optOutFromConversation(conversation: self.currentConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
                             {
-                                let alert = UIAlertController(title: "Message", message: "Sucessfully Opt Out.", preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
+                                
+                                if status == true {
+                                    self.initiateMessageCall()
+                                    let alert = UIAlertController(title: "Message", message: "Sucessfully Opt Out from conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
+                                    
+                                }
+                                else
+                                {
+                                    
+                                    let alert = UIAlertController(title: "Error", message: "Some error occured at server end. Please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                         }
                 }
-                
-            }) { (error:Error?) -> (Void) in
+            }, andFailureBlock: { (error: Error?) -> (Void) in
                 
                 let alert = UIAlertController(title: "Error", message: "Unable to perform action at the moment.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-            }
+            })
+            
         }
     }
-    
     
     @IBAction func sendMessage_Tapped(_ sender: Any) {
         
@@ -203,6 +207,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
 }
 
+
 extension InboxViewController
 {
     func initiateMessageCall()
@@ -223,8 +228,7 @@ extension InboxViewController
                 {
                     DispatchQueue.main.async
                         {
-                            
-                            self.inboxTableView.reloadData()
+                            self.inboxTableViewDataSource?.reloadControls()
                             
                             var count: String = String(describing: (User.getLoginedUser()?.conversations?.count))
                             count = WebManager.removeSpecialCharsFromString(count)

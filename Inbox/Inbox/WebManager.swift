@@ -3,12 +3,8 @@ import UIKit
 let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
-//let DELETE_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxDelete&json={%22uuid%22:%22"
-//let DELETE_URL_BEFORE_SERIAL = "%22,%22serial%22:%22"
-//let DELETE_URL_BEFORE_IDS = "%22,%22ids%22:["
-//let DELETE_URLEND = "]}"
-
-let OPTOUT_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json={%22uuid%22:%22"
+//let OPTOUT_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json={%22uuid%22:%22"
+let OPTOUT_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json="
 let OPTOUT_URL_BEFORE_SERIAL = "%22,%22serial%22:%22"
 let OPTOUT_URL_BEFORE_IDS = "%22,%22mobile%22:%22"
 let OPTOUT_URLEND = "%22}"
@@ -76,6 +72,7 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func requestConversations(params: Dictionary<String,Any>,conversationParser:ConversationParser, completionBlockSuccess successBlock: @escaping ((Array<Conversation>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
+        
         let serial:String = params["serial"] as! String
         let uuid:String = params["uuid"] as! String
         
@@ -104,22 +101,56 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func deleteMessage(UDID:String, serial:String, mobile:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func optOutMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
     {
         
+        let uuid:String = params["uuid"] as! String
+        let serial:String = params["serial"] as! String
+        let mobile:String = params["mobile"] as! String
         let mobile_ = removeSpecialCharsFromString(mobile)
 
-        let finalUrl = OPTOUT_URL_BEFORE_UDID + UDID + OPTOUT_URL_BEFORE_SERIAL + serial + OPTOUT_URL_BEFORE_IDS + mobile_ + OPTOUT_URLEND
+        let keys: [Any] = ["uuid", "serial", "mobile"]
+        let values: [String] = [uuid, serial, mobile_]
+        let dict = NSDictionary.init(objects: values, forKeys: keys as! [NSCopying])
+       
+        var dictFromJSON = Dictionary<String, Any>()
         
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+            
+            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            // here "decoded" is of type `Any`, decoded from JSON data
+            
+            // you can now cast it with the right type
+             dictFromJSON = (decoded as? [String:String])!
+
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        print(dictFromJSON.description)
+        
+        
+        
+        
+        
+        
+//        let str = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json={\"serial\": \"test-test\", \"mobile\": \"13234593264\", \"uuid\": \"323434234\"}"
+
+        let finalU =  OPTOUT_URL_BEFORE_UDID  + dictFromJSON.description //+ uuid + OPTOUT_URL_BEFORE_SERIAL + serial + OPTOUT_URL_BEFORE_IDS + mobile_ + OPTOUT_URLEND
+        
+        let finalUrl :String = finalU.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)!
+
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
-                successBlock(true)
+                successBlock(response as? Dictionary<String, Any>)
             }
             else
             {
-                failureBlock(error)
+                andFailureBlock(error)
             }
         })
     }

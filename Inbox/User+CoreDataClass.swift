@@ -27,7 +27,7 @@ public class User: NSManagedObject {
     }
     
     func getConverstaionFromID(conID: Int64) -> Conversation? {
-    
+        
         let filteredConversations = self.conversations?.allObjects.filter { ($0 as! Conversation).conversationId == conID }
         
         if (filteredConversations?.count)! > 0 {
@@ -38,13 +38,14 @@ public class User: NSManagedObject {
     }
 }
 
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//
 
 extension User {
-    //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //************************************************************************************************//
+    
     static func loginWithUser(serial:String, uuid:String, isRemember:Bool, completionBlockSuccess successBlock: @escaping ((User?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         var paramsDic = Dictionary<String, Any>()
@@ -81,8 +82,6 @@ extension User {
         }
     }
     //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     static func getLatestConversations(completionBlockSuccess successBlock: @escaping ((Array<Conversation>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
@@ -132,8 +131,6 @@ extension User {
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     static func getMessageForConversation(_ conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Array<Message>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
@@ -166,7 +163,7 @@ extension User {
                                     
                                 }
                                 
-                               // conversation.messages?.addingObjects(from: messages!)
+                                // conversation.messages?.addingObjects(from: messages!)
                                 successBlock(messages)
                         }
                 }
@@ -183,7 +180,59 @@ extension User {
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func optOutFromConversation(conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["serial"] = user.serial
+            paramsDic["uuid"] = user.uuid
+            paramsDic["mobile"] = conversation.mobile
+            
+            WebManager.optOutMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                
+                                if let isSucceeded = response?["status"] as? String
+                                {
+                                    if (isSucceeded == "OK") {
+                                        
+                                        //User.getLoginedUser()?.removeFromConversations(conversation)
+                                        successBlock(true)
+                                        
+                                    } else {
+                                        
+                                        successBlock(false)
+                                    }
+                                } else if (response?["err"] as? String) != nil {
+                                    
+                                    successBlock(false)
+                                    
+                                }else {
+
+                                    successBlock(false)
+                                }
+                                
+                        }
+                }
+                
+            }, andFailureBlock: { (error:Error?) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     static func sendUserMessage(conversation: Conversation, message: String, completionBlockSuccess successBlock: @escaping ((_ messageNew: Message) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
@@ -205,16 +254,17 @@ extension User {
                     
                     if (isSucceeded == "OK") {
                         
-                        let date = Date()
-                        let formatter = DateFormatter()
-                        formatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
-                        let dateString = formatter.string(from: date)
+                        var msgDate = Date()
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy hh:mm:ss a"
+                        let dateString = dateFormatter.string(from: msgDate)
+                        msgDate = dateFormatter.date(from: dateString)!
                         
                         DispatchQueue.global(qos: .background).async
                             {
                                 DispatchQueue.main.async
                                     {
-                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: dateString, message_: message, messageId_:0, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_:0, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
                                         conversation.messages?.adding(message)
                                         successBlock(message)
@@ -246,8 +296,12 @@ extension User {
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    
 }
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//
 
