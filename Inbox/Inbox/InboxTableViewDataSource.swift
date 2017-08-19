@@ -40,17 +40,6 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         //************************************************************************************************//
         //------------------------------------------------------------------------------------------------//
         //************************************************************************************************//
-        //        conversations = conversations.sorted(by: { (conversation1, conversation2) -> Bool in
-        //            
-        //               conversation1.conversationDate.compare(conversation2.conversationDate) == .orderedDescending
-        //        })
-        //************************************************************************************************//
-        //------------------------------------------------------------------------------------------------//
-        //************************************************************************************************//
-        
-        //************************************************************************************************//
-        //------------------------------------------------------------------------------------------------//
-        //************************************************************************************************//
         conversations = conversations.sorted(by: { (conversation1, conversation2) -> Bool in
             
             if conversation1.isRead == conversation2.isRead {
@@ -80,11 +69,10 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         if selectedConversation != nil {
             
-            let index = 0 //= conversations.in(selectedConversation)
-          
-            let indexPath = IndexPath(row:index, section: 0)
+            let index = conversations.index(of: selectedConversation)
+            let indexPath = IndexPath(row:index!, section: 0)
    
-           _ =  targetedTableView (tableView: targetedTableView, didSelectRowAtIndexPath indexPath: indexPath)
+            targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.middle)
 
         }
     }
