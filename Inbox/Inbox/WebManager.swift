@@ -3,7 +3,6 @@ import UIKit
 let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
-//let OPTOUT_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json={%22uuid%22:%22"
 let OPTOUT_URL_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&serial="
 let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
 let OPTOUT_URL_UUID = "&uuid="
@@ -21,6 +20,12 @@ let SEND_URL_BEFORE_MESSAGE_END = "&message="
 
 let CONVERSATION_URL = "https://mcpn.us/limeApi?ev=kioskInboxWithDetails&uuid="
 let CONVERSATION_URL_END = "&serial="
+
+let READ_URL = "https://mcpn.us/limeApi?ev=kioskInboxSetRead&"
+let READ_URL_UUID = "uuid="
+let READ_URL_SERIAL = "serial"
+let READ_URL_IDS = "ids"
+let READ_URL_ISREAD = "isRead"
 
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
@@ -144,6 +149,56 @@ class WebManager: NSObject
             }
         })
     }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func setMessageRead(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+//        let uuid:String = params["uuid"] as! String
+//        let serial:String = params["serial"] as! String
+//        let ids:Array<Int> = params["id"] as! Array
+//        let isRead:Bool = params["isRead"] as! Bool
+//
+//        let keys: [Any] = ["uuid", "serial", "id", "isRead"]
+//        let values: [Any] = [uuid, serial, ids, isRead]
+        //let jsonDict = NSDictionary.init(objects: values, forKeys: keys as! [NSCopying])
+        
+        //        var dictFromJSON = Dictionary<String, Any>()
+        //
+        //        do {
+        //            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+        //            // here "jsonData" is the dictionary encoded in JSON data
+        //
+        //            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+        //            // here "decoded" is of type `Any`, decoded from JSON data
+        //
+        //            // you can now cast it with the right type
+        //             dictFromJSON = (decoded as? [String:String])!
+        //
+        //        } catch {
+        //            print(error.localizedDescription)
+        //        }
+        //
+        //        print(dictFromJSON.description)
+        
+        let finalUrl =  READ_URL  //+ serial + OPTOUT_URL_BEFORE_MOBILE + mobile_ + OPTOUT_URL_UUID + uuid
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary<String, Any>)
+            }
+            else
+            {
+                andFailureBlock(error)
+            }
+        })
+    }
+
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -277,7 +332,7 @@ class WebManager: NSObject
                     
                     if(code == 3840)
                     {
-                        completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+                        completion(NSError(domain: "com.mpos.tlt", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
                     }
                     else
                     {

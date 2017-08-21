@@ -87,16 +87,19 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                                 
                                 if status == true {
                                   
-                                    self.initiateMessageCall()
+                                  //  self.initiateMessageCall()
                                     
-                                    let alert = UIAlertController(title: "Message", message: "Sucessfully Opt Out from conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
                                     
                                 }
                                 else
                                 {
-                                    let alert = UIAlertController(title: "Error", message: "Some error occured at server end. Please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+//                                    let alert = UIAlertController(title: "Error", message: "Some error occured at server end. Please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+//                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                                    self.present(alert, animated: true, completion: nil)
+                                    let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
                                 }
@@ -108,7 +111,11 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                     {
                         DispatchQueue.main.async
                             {
-                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                
+//                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+//                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                                self.present(alert, animated: true, completion: nil)
+                                let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
                         }
