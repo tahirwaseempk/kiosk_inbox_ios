@@ -14,13 +14,24 @@ public class User: NSManagedObject {
     
     static func create(context: NSManagedObjectContext, serial:String,uuid:String,isRemember:Bool) -> User
     {
-        let user = User(context: context)
-        user.serial = serial
-        user.uuid = uuid
-        user.isRemember = isRemember
-        return user
+        var targettedUser:User? = nil
+        
+        if let user = User.getUserFromID(serial_: serial)
+        {
+        targettedUser = user
+        
+        } else {
+        
+            targettedUser = User(context: context)
+        }
+        
+        targettedUser?.serial = serial
+        targettedUser?.uuid = uuid
+        targettedUser?.isRemember = isRemember
+
+        return targettedUser!
     }
-    
+
     static func getLoginedUser()-> User?
     {
         return loginedUser
@@ -32,6 +43,28 @@ public class User: NSManagedObject {
         
         if (filteredConversations?.count)! > 0 {
             return filteredConversations?.first as? Conversation
+        }
+        
+        return nil;
+    }
+    
+    static func getUserFromID(serial_: String) -> User? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        let predicate = NSPredicate(format: "serial == %@", serial_)
+        request.predicate = predicate
+        request.fetchLimit = 1
+        
+        do{
+            let result = try DEFAULT_CONTEXT.fetch(request) as! Array<User>
+
+            if(result.count > 0)
+            {
+                return result.first
+            }
+        }
+        catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
         }
         
         return nil;
@@ -61,10 +94,13 @@ extension User {
                 {
                     DispatchQueue.main.async
                         {
-                            let user = User.create(context: DEFAULT_CONTEXT ,serial:serial,uuid:uuid,isRemember:isRemember)
                             
+         
+                            
+                                let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
+
                             User.loginedUser = user
-                            
+
                             self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
                                 
                                 //user.conversations?.addingObjects(from:conversations!)
@@ -215,7 +251,7 @@ extension User {
                                     successBlock(false)
                                     
                                 }else {
-
+                                    
                                     successBlock(false)
                                 }
                                 

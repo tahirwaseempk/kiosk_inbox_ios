@@ -17,15 +17,12 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var messageFromLabel: UILabel!
     @IBOutlet weak var messageNumberLabel: UILabel!
     @IBOutlet weak var shortCodeLabel: UILabel!
-    
-    
-    
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var messageTableView: UITableView!
-    
+    @IBOutlet weak var userNameLabel: UILabel!
+
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
-    
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
     
     override func viewDidLoad() {
@@ -49,15 +46,21 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         initiateMessageCall()
     }
     
-    @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBAction func signOut_Tapped(_ sender: Any) {
         
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    @IBAction func markAllRead_Tapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Error", message: "Function is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func createMessage_Tapped(_ sender: Any) {
-     
+        
         let alert = UIAlertController(title: "Error", message: "Function is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -65,12 +68,6 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     }
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Error", message: "Function is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
-        return
         
         if (self.currentConversation == nil) {
             
@@ -89,7 +86,9 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                             {
                                 
                                 if status == true {
+                                  
                                     self.initiateMessageCall()
+                                    
                                     let alert = UIAlertController(title: "Message", message: "Sucessfully Opt Out from conversation.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
@@ -97,7 +96,6 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                                 }
                                 else
                                 {
-                                    
                                     let alert = UIAlertController(title: "Error", message: "Some error occured at server end. Please try again later.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
@@ -106,9 +104,15 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                 }
             }, andFailureBlock: { (error: Error?) -> (Void) in
                 
-                let alert = UIAlertController(title: "Error", message: "Unable to perform action at the moment.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                        }
+                }
             })
             
         }
@@ -145,7 +149,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                             {
                                 self.sendTextField.text = ""
                                 
-                                let alert = UIAlertController(title: "Error", message: "Unable to send message at the moment.", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
                         }

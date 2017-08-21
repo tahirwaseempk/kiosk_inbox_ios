@@ -4,10 +4,9 @@ let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
 //let OPTOUT_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json={%22uuid%22:%22"
-let OPTOUT_URL_BEFORE_UDID = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json="
-let OPTOUT_URL_BEFORE_SERIAL = "%22,%22serial%22:%22"
-let OPTOUT_URL_BEFORE_IDS = "%22,%22mobile%22:%22"
-let OPTOUT_URLEND = "%22}"
+let OPTOUT_URL_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&serial="
+let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
+let OPTOUT_URL_UUID = "&uuid="
 
 let CHAT_URL = "https://mcpn.us/limeApi?ev=kioskChatMessages&uuid="
 let CHAT_URL_BEFORE_SERIAL = "&serial="
@@ -109,39 +108,30 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         let mobile_ = removeSpecialCharsFromString(mobile)
 
-        let keys: [Any] = ["uuid", "serial", "mobile"]
-        let values: [String] = [uuid, serial, mobile_]
-        let dict = NSDictionary.init(objects: values, forKeys: keys as! [NSCopying])
-       
-        var dictFromJSON = Dictionary<String, Any>()
+//        let keys: [Any] = ["uuid", "serial", "mobile"]
+//        let values: [String] = [uuid, serial, mobile_]
+//        let dict = NSDictionary.init(objects: values, forKeys: keys as! [NSCopying])
+//       
+//        var dictFromJSON = Dictionary<String, Any>()
+//        
+//        do {
+//            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+//            // here "jsonData" is the dictionary encoded in JSON data
+//            
+//            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+//            // here "decoded" is of type `Any`, decoded from JSON data
+//            
+//            // you can now cast it with the right type
+//             dictFromJSON = (decoded as? [String:String])!
+//
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//        
+//        print(dictFromJSON.description)
         
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
-            // here "jsonData" is the dictionary encoded in JSON data
-            
-            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-            // here "decoded" is of type `Any`, decoded from JSON data
-            
-            // you can now cast it with the right type
-             dictFromJSON = (decoded as? [String:String])!
-
-        } catch {
-            print(error.localizedDescription)
-        }
+        let finalUrl =  OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile_ + OPTOUT_URL_UUID + uuid
         
-        print(dictFromJSON.description)
-        
-        
-        
-        
-        
-        
-//        let str = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&json={\"serial\": \"test-test\", \"mobile\": \"13234593264\", \"uuid\": \"323434234\"}"
-
-        let finalU =  OPTOUT_URL_BEFORE_UDID  + dictFromJSON.description //+ uuid + OPTOUT_URL_BEFORE_SERIAL + serial + OPTOUT_URL_BEFORE_IDS + mobile_ + OPTOUT_URLEND
-        
-        let finalUrl :String = finalU.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)!
-
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
@@ -214,7 +204,7 @@ class WebManager: NSObject
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
 
-        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + "71441-US" + SEND_URL_BEFORE_MESSAGE_END + escapedString
+        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE_END + escapedString
         
         PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             

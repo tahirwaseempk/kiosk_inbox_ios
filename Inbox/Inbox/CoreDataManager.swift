@@ -16,7 +16,7 @@ class CoreDataManager: NSObject
     lazy var applicationDocumentsDirectory: URL =
     {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            
+        print(urls)
         return urls[urls.count-1]
     }()
     
