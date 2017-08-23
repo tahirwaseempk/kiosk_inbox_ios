@@ -12,11 +12,8 @@ import UIKit
 class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSource {
     
     let targetedTableView: UITableView
-    
     var selectedConversation:Conversation! = nil
-    
     var chatCell:ChatTableViewCell!
-    
     var chatCellSettings:ChatCellSettings!
     
     init(tableview:UITableView) {
@@ -192,23 +189,15 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func addNewMessage(_ message:Message) -> Bool {
         
-        // show latest message in Left conversations
-        
-        //        let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
-        //        self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        
         self.targetedTableView.reloadData()
-        
-        //        if self.selectedConversation != nil
-        //        {
-        ////            message.mobile = (self.selectedConversation?.mobile)!
-        ////
-        ////            self.selectedConversation.messages?.adding(message);
-        //            self.targetedTableView.reloadData()
-        //
-        //            return true
-        //        }
-        
+
         return false
     }
+    
+    func clearMessages(_ conversation:Conversation?)
+    {
+        self.selectedConversation = conversation
+        self.targetedTableView.reloadData()
+    }
 }
+

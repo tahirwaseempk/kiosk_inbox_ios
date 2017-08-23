@@ -56,6 +56,7 @@
 		753684121F03F58A00D24264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
 		753684141F03F59300D24264 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
 		753684161F03F59F00D24264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684151F03F59F00D24264 /* UIKit.framework */; };
+		753CB5B31F4DE21900B73124 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753CB5B21F4DE21900B73124 /* Checkbox.swift */; };
 		754085FB1F1671AF00CDB81F /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
 		754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
 		754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
@@ -129,6 +130,7 @@
 		753684111F03F58A00D24264 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		753684131F03F59300D24264 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		753684151F03F59F00D24264 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		753CB5B21F4DE21900B73124 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorView.swift; sourceTree = "<group>"; };
 		754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorProtocol.swift; sourceTree = "<group>"; };
 		754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingIndicatorHandler.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		1ADE9F7C1EF98E48006C2CAC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				753CB5B11F4DE20A00B73124 /* CheckBox */,
 				752CE4231F27E23300FCC976 /* KeyBoard */,
 				7518E38D1EFDAFFA00EF059F /* iBubblesCode */,
 				754085F71F16718700CDB81F /* ActivityIndicator */,
@@ -370,6 +373,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		753CB5B11F4DE20A00B73124 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				753CB5B21F4DE21900B73124 /* Checkbox.swift */,
+			);
+			name = CheckBox;
+			sourceTree = "<group>";
+		};
 		754085F71F16718700CDB81F /* ActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +553,7 @@
 				752CE4481F27E24900FCC976 /* IQPreviousNextView.swift in Sources */,
 				7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
+				753CB5B31F4DE21900B73124 /* Checkbox.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */,
 				754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */,

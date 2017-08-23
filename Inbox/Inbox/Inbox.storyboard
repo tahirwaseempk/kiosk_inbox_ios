@@ -222,6 +222,7 @@
                         <outlet property="messageFromLabel" destination="1Ig-kI-agZ" id="osp-QI-ldO"/>
                         <outlet property="messageNumberLabel" destination="WHm-I0-aNR" id="hPy-Aj-YFb"/>
                         <outlet property="messageTableView" destination="plP-gj-xmj" id="M3s-Hh-O8V"/>
+                        <outlet property="searchBar" destination="mhk-SZ-8Ih" id="3X6-t2-Cvr"/>
                         <outlet property="sendTextField" destination="qyM-W9-oZ4" id="eBC-uJ-Qxb"/>
                         <outlet property="shortCodeLabel" destination="Epe-R3-Gln" id="86W-pb-fKw"/>
                         <outlet property="userNameLabel" destination="Q4j-nY-myW" id="UkI-uI-1HB"/>

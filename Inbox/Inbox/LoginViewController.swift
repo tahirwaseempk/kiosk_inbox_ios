@@ -14,6 +14,8 @@ class LoginViewController: UIViewController
     @IBOutlet weak var rememberMeButton: UIButton!
     @IBOutlet weak var udidTextField: UITextField!
     @IBOutlet weak var serialTextField: UITextField!
+
+    var isAutoLogin:Bool = false
     
     override func viewDidLoad()
     {
@@ -28,13 +30,89 @@ class LoginViewController: UIViewController
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
         self.udidTextField.isEnabled = false
+
+        self.rememberMeButton.setImage(UIImage(named: "check-box"), for: .selected)
+        self.rememberMeButton.setImage(UIImage(named: "check-box-outline"), for: .normal)
+        
+
+        let user :User?  = User.getUserFromID(serial_: self.serialTextField.text!)
+        
+        if user?.isRemember == true
+        {
+            isAutoLogin = true
+            //self.rememberMeButton.isSelected = true
+            login()
+        }
+        else {
+            //self.rememberMeButton.isSelected = false
+            isAutoLogin = false
+        }
+        self.addCheckboxSubviews()
+
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    func addCheckboxSubviews() {
+        
+        // tick
+        let tickBox = Checkbox(frame: CGRect(x: 414, y: 228, width: 25, height: 25))
+        tickBox.borderStyle = .square
+        tickBox.checkmarkStyle = .tick
+        tickBox.checkmarkSize = 0.8
+        if isAutoLogin == true {
+            tickBox.isChecked = true
+        } else {
+            tickBox.isChecked = false
+        }
+        tickBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
+        view.addSubview(tickBox)
+    }
+    
+    // target action example
+     @objc func circleBoxValueChanged(sender: Checkbox) {
+        
+        
+        if sender.isChecked == true {
+           isAutoLogin = true
+        } else {
+            isAutoLogin = false
+        }
+        
+        print("circle box value change: \(sender.isChecked)")
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    @IBAction func loginButton_Tapped(_ sender: Any)
+    {
+        self.login()
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    @IBAction func rememberMeButton_Tapped(_ sender: Any)
+    {
+        
+//        if isAutoLogin == false
+//        {
+            self.rememberMeButton.isSelected = true
+//            isAutoLogin = true
+//        }
+//        else {
+//            self.rememberMeButton.isSelected = false
+//            isAutoLogin = false
+//        }
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    @IBAction func loginButton_Tapped(_ sender: Any)
-    {
+}
+
+extension LoginViewController {
+    
+    func login() {
         
         if (self.serialTextField.text?.isEmpty)!
         {
@@ -48,7 +126,7 @@ class LoginViewController: UIViewController
         }
         ProcessingIndicator.show()
         
-        User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:false, completionBlockSuccess:{(user:User?) -> (Void) in
+        User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
                 {
@@ -61,8 +139,8 @@ class LoginViewController: UIViewController
                             
                             let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
                             
-                           // inboxViewController.userNameLabel.text = self.serialTextField.text
-
+                            // inboxViewController.userNameLabel.text = self.serialTextField.text
+                            
                             self.navigationController?.pushViewController(inboxViewController, animated: true)
                     }
             }
@@ -84,18 +162,4 @@ class LoginViewController: UIViewController
             }
         }
     }
-    //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //************************************************************************************************//
-    @IBAction func rememberMeButton_Tapped(_ sender: Any)
-    {
-        
-        (sender as! UIButton).setImage(UIImage(named: "check_box"), for: .normal)
-        
-    }
-    //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //************************************************************************************************//
 }

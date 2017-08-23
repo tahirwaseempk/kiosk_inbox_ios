@@ -10,7 +10,6 @@ import UIKit
 
 class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
-    //    var conversations : Array<Conversation>? = nil
     var currentConversation:Conversation! = nil
     
     @IBOutlet weak var sendTextField: UITextField!
@@ -22,6 +21,8 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var userNameLabel: UILabel!
 
+    @IBOutlet weak var searchBar: UISearchBar!
+
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
     
@@ -29,6 +30,9 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         
         super.viewDidLoad()
         
+        self.searchBar.delegate = self
+        self.searchBar.enablesReturnKeyAutomatically = false
+        self.searchBar.returnKeyType = .done
         
         var count: String = String(describing: (User.getLoginedUser()?.conversations?.count))
         count = WebManager.removeSpecialCharsFromString(count)
@@ -42,7 +46,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         inboxTableView.dataSource = inboxTableViewDataSource
         //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
         
-        self.userNameLabel.text = "test-test"
+        self.userNameLabel.text = User.getLoginedUser()?.serial
         initiateMessageCall()
     }
     
@@ -53,7 +57,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func markAllRead_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Error", message: "Function is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Mark all as Read", message: "This feature is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
@@ -61,7 +65,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func createMessage_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Error", message: "Function is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Compose new message", message: "This feature is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
@@ -127,16 +131,16 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func sendMessage_Tapped(_ sender: Any) {
         
-        if !((self.sendTextField.text?.isEmpty)!) {
+        if (currentConversation == nil) {
             
-            if (self.currentConversation == nil) {
-                
-                let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
-                return
-            }
+            let alert = UIAlertController(title: "Send Message", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+
+        if !((self.sendTextField.text?.isEmpty)!) {
             
             User.sendUserMessage(conversation: self.currentConversation, message: self.sendTextField.text!, completionBlockSuccess: { (sendMessaage:Message) -> (Void) in
                 
@@ -165,17 +169,15 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
             
         } else {
             
-            let alert = UIAlertController(title: "Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Send Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
             return
         }
         
     }
     
-    func conversationSelected(conversation:Conversation) -> Bool
-    {
+    func conversationSelected(conversation:Conversation) -> Bool {
         
         self.currentConversation = conversation
         /****************************************************************/
@@ -226,11 +228,9 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
 }
 
-
 extension InboxViewController
 {
-    func initiateMessageCall()
-    {
+    func initiateMessageCall() {
         let dispatchTime = DispatchTime.now() + .seconds(30)
         
         DispatchQueue.main.asyncAfter(deadline: dispatchTime)
@@ -239,8 +239,7 @@ extension InboxViewController
         }
     }
     
-    func getConversationUpdate()
-    {
+    func getConversationUpdate() {
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
@@ -273,4 +272,28 @@ extension InboxViewController
             }
         }
     }
+}
+
+extension InboxViewController:UISearchBarDelegate
+{
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+       // messageTableViewDataSource?.clearMessages(nil)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String) {
+        inboxTableViewDataSource?.applySearchFiltersForSearchText(searchText)
+    }
+    
 }
