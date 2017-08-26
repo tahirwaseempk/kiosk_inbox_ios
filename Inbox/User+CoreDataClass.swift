@@ -18,20 +18,20 @@ public class User: NSManagedObject {
         
         if let user = User.getUserFromID(serial_: serial)
         {
-        targettedUser = user
-        
+            targettedUser = user
+            
         } else {
-        
+            
             targettedUser = User(context: context)
         }
         
         targettedUser?.serial = serial
         targettedUser?.uuid = uuid
         targettedUser?.isRemember = isRemember
-
+        
         return targettedUser!
     }
-
+    
     static func getLoginedUser()-> User?
     {
         return loginedUser
@@ -57,7 +57,7 @@ public class User: NSManagedObject {
         
         do{
             let result = try DEFAULT_CONTEXT.fetch(request) as! Array<User>
-
+            
             if(result.count > 0)
             {
                 return result.first
@@ -95,12 +95,12 @@ extension User {
                     DispatchQueue.main.async
                         {
                             
-         
                             
-                                let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
-
+                            
+                            let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
+                            
                             User.loginedUser = user
-
+                            
                             self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
                                 
                                 //user.conversations?.addingObjects(from:conversations!)
@@ -235,14 +235,17 @@ extension User {
                         DispatchQueue.main.async
                             {
                                 
-                                if let isSucceeded = response?["status"] as? String
+                                if let status = response?["status"] as? String
                                 {
-                                    if (isSucceeded == "OK") {
-                                        
-                                        //User.getLoginedUser()?.removeFromConversations(conversation)
-                                        successBlock(true)
-                                        
-                                    } else {
+                                    
+                                    if status == "status" {
+                                        if let responseMessage = response?["message"] as? String {
+                                            
+                                            if responseMessage == "OK" {
+                                                successBlock(true)
+                                            }
+                                        }
+                                    } else if (status == "err") {
                                         
                                         successBlock(false)
                                     }
@@ -285,10 +288,10 @@ extension User {
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
-                if let isSucceeded = response?["result"] as? String
+                if let status = response?["result"] as? String
                 {
                     
-                    if (isSucceeded == "OK") {
+                    if (status == "OK") {
                         
                         var msgDate = Date()
                         let dateFormatter = DateFormatter()
@@ -308,14 +311,66 @@ extension User {
                         }
                         
                     } else {
-                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:isSucceeded]))
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
                     }
                     
                 }
-                else if let isSucceeded = response?["err"] as? String
+                else if let status = response?["err"] as? String
                 {
                     
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:isSucceeded]))
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                    
+                } else {
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func composeNewMessage(mobile: String, message: String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["serial"] = user.serial
+            paramsDic["uuid"] = user.uuid
+            paramsDic["mobile"] = mobile
+            paramsDic["message"] = message
+            
+            WebManager.composeMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                if let status = response?["result"] as? String
+                {
+                    
+                    if (status == "OK") {
+                        
+                        DispatchQueue.global(qos: .background).async
+                            {
+                                DispatchQueue.main.async
+                                    {
+                                        successBlock(true)
+                                }
+                        }
+                        
+                    } else {
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                    }
+                    
+                }
+                else if let status = response?["err"] as? String
+                {
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
                     
                 } else {
                     
@@ -334,6 +389,9 @@ extension User {
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
 }
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

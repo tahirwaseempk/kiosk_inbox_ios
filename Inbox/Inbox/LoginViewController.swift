@@ -57,6 +57,8 @@ class LoginViewController: UIViewController
         
         // tick
         let tickBox = Checkbox(frame: CGRect(x: 414, y: 228, width: 25, height: 25))
+        tickBox.borderColor = UIColor.black
+        tickBox.checkmarkColor = UIColor.black
         tickBox.borderStyle = .square
         tickBox.checkmarkStyle = .tick
         tickBox.checkmarkSize = 0.8

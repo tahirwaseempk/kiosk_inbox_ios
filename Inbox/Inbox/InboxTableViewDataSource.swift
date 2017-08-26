@@ -71,12 +71,11 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             let index = filteredConversations.index(of: selectedConversation)
             let indexPath = IndexPath(row:index!, section: 0)
    
-            targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.middle)
+            targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
         else {
           
             let indexPath = IndexPath(row:-1, section: 0)
-            
             targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
     }

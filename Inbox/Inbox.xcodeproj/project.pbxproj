@@ -66,6 +66,8 @@
 		75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
 		75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
 		75E35F101F05853500B96018 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
+		75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
+		75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
 		75F731DF1F3899CD00DBDA84 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731D91F3899CD00DBDA84 /* Conversation+CoreDataClass.swift */; };
 		75F731E01F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731DA1F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift */; };
 		75F731E11F3899CD00DBDA84 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731DB1F3899CD00DBDA84 /* User+CoreDataClass.swift */; };
@@ -140,6 +142,8 @@
 		75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationParser.swift; sourceTree = "<group>"; };
 		75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginParser.swift; sourceTree = "<group>"; };
 		75E35F0F1F05853500B96018 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeMessageViewController.swift; sourceTree = "<group>"; };
+		75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ComposeMessage.storyboard; sourceTree = "<group>"; };
 		75F731D91F3899CD00DBDA84 /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataClass.swift"; path = "../Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		75F731DA1F3899CD00DBDA84 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataProperties.swift"; path = "../Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		75F731DB1F3899CD00DBDA84 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "../User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 			children = (
 				1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */,
 				1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */,
+				75E7A83F1F4F2E9100E9764C /* ComposeMessage */,
 				1ADE9FB61EF9A589006C2CAC /* Inbox TableView Data Source */,
 				1ADE9FA61EF99BA1006C2CAC /* Inbox Cell */,
 				1ADE9FB51EF9A57B006C2CAC /* Message TableView Data Source */,
@@ -433,6 +438,15 @@
 			name = InboxCellProtocol;
 			sourceTree = "<group>";
 		};
+		75E7A83F1F4F2E9100E9764C /* ComposeMessage */ = {
+			isa = PBXGroup;
+			children = (
+				75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */,
+				75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */,
+			);
+			name = ComposeMessage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -503,6 +517,7 @@
 				1ADE9FAB1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib in Resources */,
 				752CE43F1F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				7518E3951EFDC37300EF059F /* Default-568h@2x.png in Resources */,
+				75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */,
 				752CE4401F27E24900FCC976 /* IQButtonBarArrowRight@3x.png in Resources */,
 				752CE43E1F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				752CE43D1F27E24900FCC976 /* IQButtonBarArrowDown@3x.png in Resources */,
@@ -530,6 +545,7 @@
 				7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */,
 				75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */,
 				75F731E31F3899CD00DBDA84 /* Message+CoreDataClass.swift in Sources */,
+				75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */,
 				75F731DF1F3899CD00DBDA84 /* Conversation+CoreDataClass.swift in Sources */,
 				752CE44F1F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				752CE4431F27E24900FCC976 /* IQKeyboardManager.swift in Sources */,

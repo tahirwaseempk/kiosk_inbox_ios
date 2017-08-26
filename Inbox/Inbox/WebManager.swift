@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
@@ -89,8 +90,8 @@ class WebManager: NSObject
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
-                        {
-                            successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
+                            {
+                                successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
                         }
                 }
             }
@@ -112,28 +113,28 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let mobile:String = params["mobile"] as! String
         let mobile_ = removeSpecialCharsFromString(mobile)
-
-//        let keys: [Any] = ["uuid", "serial", "mobile"]
-//        let values: [String] = [uuid, serial, mobile_]
-//        let dict = NSDictionary.init(objects: values, forKeys: keys as! [NSCopying])
-//       
-//        var dictFromJSON = Dictionary<String, Any>()
-//        
-//        do {
-//            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
-//            // here "jsonData" is the dictionary encoded in JSON data
-//            
-//            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-//            // here "decoded" is of type `Any`, decoded from JSON data
-//            
-//            // you can now cast it with the right type
-//             dictFromJSON = (decoded as? [String:String])!
-//
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//        
-//        print(dictFromJSON.description)
+        
+        //        let keys: [Any] = ["uuid", "serial", "mobile"]
+        //        let values: [String] = [uuid, serial, mobile_]
+        //        let dict = NSDictionary.init(objects: values, forKeys: keys as! [NSCopying])
+        //
+        //        var dictFromJSON = Dictionary<String, Any>()
+        //
+        //        do {
+        //            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+        //            // here "jsonData" is the dictionary encoded in JSON data
+        //
+        //            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+        //            // here "decoded" is of type `Any`, decoded from JSON data
+        //
+        //            // you can now cast it with the right type
+        //             dictFromJSON = (decoded as? [String:String])!
+        //
+        //        } catch {
+        //            print(error.localizedDescription)
+        //        }
+        //
+        //        print(dictFromJSON.description)
         
         let finalUrl =  OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile_ + OPTOUT_URL_UUID + uuid
         
@@ -157,13 +158,13 @@ class WebManager: NSObject
     static func setMessageRead(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
     {
         
-//        let uuid:String = params["uuid"] as! String
-//        let serial:String = params["serial"] as! String
-//        let ids:Array<Int> = params["id"] as! Array
-//        let isRead:Bool = params["isRead"] as! Bool
-//
-//        let keys: [Any] = ["uuid", "serial", "id", "isRead"]
-//        let values: [Any] = [uuid, serial, ids, isRead]
+        //        let uuid:String = params["uuid"] as! String
+        //        let serial:String = params["serial"] as! String
+        //        let ids:Array<Int> = params["id"] as! Array
+        //        let isRead:Bool = params["isRead"] as! Bool
+        //
+        //        let keys: [Any] = ["uuid", "serial", "id", "isRead"]
+        //        let values: [Any] = [uuid, serial, ids, isRead]
         //let jsonDict = NSDictionary.init(objects: values, forKeys: keys as! [NSCopying])
         
         //        var dictFromJSON = Dictionary<String, Any>()
@@ -198,7 +199,6 @@ class WebManager: NSObject
             }
         })
     }
-
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -210,7 +210,7 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
-
+        
         let finalUrl = CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
@@ -254,12 +254,43 @@ class WebManager: NSObject
         var mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         let message:String = params["message"] as! String
-
-       mobile = removeSpecialCharsFromString(mobile)
+        
+        mobile = removeSpecialCharsFromString(mobile)
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-
+        
         let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE_END + escapedString
+        
+        PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func composeMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let uuid:String = params["uuid"] as! String
+        let serial:String = params["serial"] as! String
+        var mobile:String = params["mobile"] as! String
+        let message:String = params["message"] as! String
+        
+        mobile = removeSpecialCharsFromString(mobile)
+        
+        let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+        
+        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE_END + escapedString
         
         PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -282,7 +313,7 @@ class WebManager: NSObject
         
         if Reachability.isInternetAvailable()
         {
-
+            
             let request : NSMutableURLRequest = NSMutableURLRequest.init(url: NSURL.init(string: urlString)! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 12)
             
             request.httpMethod = "POST"
@@ -311,6 +342,38 @@ class WebManager: NSObject
                 {
                     return
                 }
+                
+                if response?.mimeType == "text/plain"
+                {
+                    
+                    if ((response?.url?.absoluteString.range(of: "kioskInboxOptOut")) != nil) {
+                        
+                        let responseData : String = String(data: data, encoding: String.Encoding.utf8)!
+                        
+                        let statusArr = responseData.components(separatedBy: ":")
+                        let statusStr : String = statusArr[0]
+                        var messageStr : String = statusArr[1]
+                        
+                        messageStr = String(messageStr.characters.filter { !" \n".characters.contains($0) })
+
+                        
+                        var paramsDic = Dictionary<String, Any>()
+                        paramsDic["status"] = statusStr
+                        paramsDic["message"] = messageStr
+                        
+                        completion(nil, paramsDic as NSDictionary)
+                    }
+                    
+                }
+                //                if let httpResponse:HTTPURLResponse = response as? HTTPURLResponse
+                //                {
+                //                    let headers = httpResponse.allHeaderFields
+                //
+                //                    if let sessionString = headers["HTTP"]
+                //                    {
+                //                        User.sessionHeaderValue = sessionString
+                //                    }
+                //                }
                 
                 do
                 {

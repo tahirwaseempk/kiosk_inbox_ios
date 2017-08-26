@@ -99,7 +99,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm"
+        formatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
         let outStr = formatter.string(from: message.messageDate)
         
         if (message.isSender == false) {

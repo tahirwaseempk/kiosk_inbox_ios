@@ -20,11 +20,13 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var userNameLabel: UILabel!
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
-
+    
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
+    
+    var composeMessageViewController:ComposeMessageViewController!
     
     override func viewDidLoad() {
         
@@ -34,9 +36,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         self.searchBar.enablesReturnKeyAutomatically = false
         self.searchBar.returnKeyType = .done
         
-        var count: String = String(describing: (User.getLoginedUser()?.conversations?.count))
-        count = WebManager.removeSpecialCharsFromString(count)
-        self.counterLabel.text = "(\(count))"
+        self.refreshUnReadCount()
         
         messageTableViewDataSource = MessageTableViewDataSource(tableview: messageTableView)
         messageTableView.dataSource = messageTableViewDataSource
@@ -65,9 +65,10 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     @IBAction func createMessage_Tapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Compose new message", message: "This feature is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        let storyboard = UIStoryboard.init(name: "ComposeMessage", bundle: nil)
+        self.composeMessageViewController = storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController
+        
+        self.view.addSubview(self.composeMessageViewController.view)
         
     }
     
@@ -90,8 +91,8 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                             {
                                 
                                 if status == true {
-                                  
-                                  //  self.initiateMessageCall()
+                                    
+                                    //  self.initiateMessageCall()
                                     
                                     let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -100,12 +101,12 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                                 }
                                 else
                                 {
-//                                    let alert = UIAlertController(title: "Error", message: "Some error occured at server end. Please try again later.", preferredStyle: UIAlertControllerStyle.alert)
-//                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                                    self.present(alert, animated: true, completion: nil)
-                                    let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Error", message: "Some error occured at server end. Please try again later.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
+                                    //                                    let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                                    //                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    //                                    self.present(alert, animated: true, completion: nil)
                                 }
                         }
                 }
@@ -116,12 +117,12 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                         DispatchQueue.main.async
                             {
                                 
-//                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-//                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                                self.present(alert, animated: true, completion: nil)
-                                let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
+                                //                                let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                                //                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                //                                self.present(alert, animated: true, completion: nil)
                         }
                 }
             })
@@ -139,40 +140,16 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
             
             return
         }
-
+        
         if !((self.sendTextField.text?.isEmpty)!) {
             
-            User.sendUserMessage(conversation: self.currentConversation, message: self.sendTextField.text!, completionBlockSuccess: { (sendMessaage:Message) -> (Void) in
-                
-                DispatchQueue.global(qos:.background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                self.sendTextField.text = ""
-                        }
-                }
-                _ = self.messageTableViewDataSource?.addNewMessage(sendMessaage)
-                
-            }) { (error:Error?) -> (Void) in
-                DispatchQueue.global(qos:.background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                self.sendTextField.text = ""
-                                
-                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                        }
-                }
-            }
+            _ = self.sendMessageToConversation(conversation: self.currentConversation, message: self.sendTextField.text!)
             
         } else {
             
             let alert = UIAlertController(title: "Send Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            return
         }
         
     }
@@ -185,6 +162,22 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         self.messageNumberLabel.text = conversation.mobile
         self.shortCodeLabel.text = conversation.shortCode
         self.sendTextField.text = ""
+        
+        if conversation.isRead == true {
+            
+            conversation.isRead = false
+            self.inboxTableViewDataSource?.reloadControls()
+            self.refreshUnReadCount()
+            
+            do {
+                
+                try conversation.managedObjectContext?.save()
+            }
+            catch let error as NSError {
+                print("Could not fetch \(error), \(error.userInfo)")
+            }
+            
+        }
         /****************************************************************/
         
         ProcessingIndicator.show()
@@ -198,11 +191,13 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                         {
                             ProcessingIndicator.hide()
                             
-                            if ((self.currentConversation.messages?.count)! > 0) {
-                                
+//                            if ((self.currentConversation.messages?.count)! > 0) {
+                            
                                 _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversation))!
                                 
-                            }
+//                            } else {
+                            //clear previous messages
+//                            }
                     }
             }
             
@@ -226,6 +221,38 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         return true
     }
     
+    
+    func showUnReadConversationCount(_ conversations: NSSet?) -> Int
+    {
+        
+        if conversations == nil
+        {
+            return 0
+        }
+        
+        var arrConversations = conversations?.allObjects as! Array<Conversation>
+        
+        arrConversations = arrConversations.filter({ (conversation1) -> Bool in
+            
+            if (conversation1.isRead == true)
+            {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        })
+        
+        return arrConversations.count
+    }
+    
+    
+    func refreshUnReadCount () {
+        
+        self.counterLabel.text = "(" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+        
+    }
 }
 
 extension InboxViewController
@@ -248,9 +275,7 @@ extension InboxViewController
                         {
                             self.inboxTableViewDataSource?.reloadControls()
                             
-                            var count: String = String(describing: (User.getLoginedUser()?.conversations?.count))
-                            count = WebManager.removeSpecialCharsFromString(count)
-                            self.counterLabel.text = "(\(count))"
+                            self.refreshUnReadCount()
                             
                             let dispatchTime = DispatchTime.now() + .seconds(30)
                             
@@ -272,6 +297,35 @@ extension InboxViewController
             }
         }
     }
+    
+    func sendMessageToConversation(conversation: Conversation, message: String) -> Bool {
+        
+        User.sendUserMessage(conversation: conversation, message: message, completionBlockSuccess: { (sendMessaage:Message) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            self.sendTextField.text = ""
+                    }
+            }
+            _ = self.messageTableViewDataSource?.addNewMessage(sendMessaage)
+            
+        }) { (error:Error?) -> (Void) in
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            self.sendTextField.text = ""
+                            
+                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                    }
+            }
+        }
+        return true
+    }
 }
 
 extension InboxViewController:UISearchBarDelegate
@@ -285,7 +339,7 @@ extension InboxViewController:UISearchBarDelegate
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-       // messageTableViewDataSource?.clearMessages(nil)
+        // messageTableViewDataSource?.clearMessages(nil)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
