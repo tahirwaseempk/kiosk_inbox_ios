@@ -103,13 +103,13 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             cell.titleLabel.text = conversation.mobile
             cell.detailLabel.text = conversation.lastMessage
             
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
-            cell.dateLabel.text =  formatter.string(from: conversation.conversationDate)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/YYYY hh:mm:ss a"
+            cell.dateLabel.text =  dateFormatter.string(from: conversation.conversationDate)
         }
         else
         {
-            cell.titleLabel.text = conversation.mobile
+            cell.titleLabel.text = conversation.mobileNumber
             cell.detailLabel.text = "no message"
             cell.dateLabel.text = ""
         }

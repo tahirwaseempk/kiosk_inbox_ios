@@ -25,6 +25,9 @@ extension Conversation {
     @NSManaged public var conversationDate: Date
     @NSManaged public var isRead: Bool
     @NSManaged public var lastMessage: String?
+    
+    @NSManaged public var mobileNumber: String?
+    @NSManaged public var shortcodeDisplay: String?
 
     @NSManaged public var user: User?
 }

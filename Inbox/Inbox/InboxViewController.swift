@@ -12,6 +12,9 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     var currentConversation:Conversation! = nil
     
+    var isShowActivityIndicator:Bool = false
+
+    
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
     @IBOutlet weak var messageNumberLabel: UILabel!
@@ -20,6 +23,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var inboxTableView: UITableView!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var markAllAsRead_Btn: UIButton!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -36,6 +40,8 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         self.searchBar.enablesReturnKeyAutomatically = false
         self.searchBar.returnKeyType = .done
         
+        self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+
         self.refreshUnReadCount()
         
         messageTableViewDataSource = MessageTableViewDataSource(tableview: messageTableView)
@@ -53,6 +59,14 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBAction func signOut_Tapped(_ sender: Any) {
         
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    @IBAction func refresh_Tapped(_ sender: Any) {
+        
+        isShowActivityIndicator = true
+        
+        self.getConversationUpdate()
     }
     
     @IBAction func markAllRead_Tapped(_ sender: Any) {
@@ -83,30 +97,28 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
             return
             
         } else {
-            
+            ProcessingIndicator.show()
+
             User.optOutFromConversation(conversation: self.currentConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
                             {
                                 
+                                ProcessingIndicator.hide()
+
                                 if status == true {
                                     
-                                    //  self.initiateMessageCall()
-                                    
-                                    let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Message", message: "Number has been successfully been opted out", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
                                     
                                 }
-                                else
+                                else if status == false
                                 {
-                                    let alert = UIAlertController(title: "Error", message: "Some error occured at server end. Please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Error", message: "Number failed to opt out from list.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
-                                    //                                    let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
-                                    //                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    //                                    self.present(alert, animated: true, completion: nil)
                                 }
                         }
                 }
@@ -116,13 +128,11 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                     {
                         DispatchQueue.main.async
                             {
-                                
+                                ProcessingIndicator.hide()
+
                                 let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
-                                //                                let alert = UIAlertController(title: "Message", message: "Sucessfully unsubscribed from conversation.", preferredStyle: UIAlertControllerStyle.alert)
-                                //                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                //                                self.present(alert, animated: true, completion: nil)
                         }
                 }
             })
@@ -142,7 +152,8 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         }
         
         if !((self.sendTextField.text?.isEmpty)!) {
-            
+            ProcessingIndicator.show()
+
             _ = self.sendMessageToConversation(conversation: self.currentConversation, message: self.sendTextField.text!)
             
         } else {
@@ -162,22 +173,6 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         self.messageNumberLabel.text = conversation.mobile
         self.shortCodeLabel.text = conversation.shortCode
         self.sendTextField.text = ""
-        
-        if conversation.isRead == true {
-            
-            conversation.isRead = false
-            self.inboxTableViewDataSource?.reloadControls()
-            self.refreshUnReadCount()
-            
-            do {
-                
-                try conversation.managedObjectContext?.save()
-            }
-            catch let error as NSError {
-                print("Could not fetch \(error), \(error.userInfo)")
-            }
-            
-        }
         /****************************************************************/
         
         ProcessingIndicator.show()
@@ -189,10 +184,48 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                 {
                     DispatchQueue.main.async
                         {
-                            ProcessingIndicator.hide()
+                            
+                            User.setReadConversation(conversation: self.currentConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+                                
+                                ProcessingIndicator.hide()
+                                if conversation.isRead == true {
+                                    
+                                    conversation.isRead = false
+                                    self.inboxTableViewDataSource?.reloadControls()
+                                    self.refreshUnReadCount()
+                                    
+                                    //            do {
+                                    //
+                                    //                try conversation.managedObjectContext?.save()
+                                    //            }
+                                    //            catch let error as NSError {
+                                    //                print("Could not fetch \(error), \(error.userInfo)")
+                                    //            }
+                                    
+                                }
+                                
+                            }, andFailureBlock: { (error:Error?) -> (Void) in
+                                ProcessingIndicator.hide()
+                                if conversation.isRead == true {
+                                    
+                                    conversation.isRead = false
+                                    self.inboxTableViewDataSource?.reloadControls()
+                                    self.refreshUnReadCount()
+                                    
+                                    //            do {
+                                    //
+                                    //                try conversation.managedObjectContext?.save()
+                                    //            }
+                                    //            catch let error as NSError {
+                                    //                print("Could not fetch \(error), \(error.userInfo)")
+                                    //            }
+                                    
+                                }
+                                //Error
+                            })
                             
 //                            if ((self.currentConversation.messages?.count)! > 0) {
-                            
+
                                 _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversation))!
                                 
 //                            } else {
@@ -262,17 +295,31 @@ extension InboxViewController
         
         DispatchQueue.main.asyncAfter(deadline: dispatchTime)
         {
+            
+            if self.isShowActivityIndicator == true{
+            ProcessingIndicator.show()
+            }
             self.getConversationUpdate()
         }
     }
     
     func getConversationUpdate() {
+        
+        if self.isShowActivityIndicator == true{
+            ProcessingIndicator.show()
+        }
+
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
                 {
                     DispatchQueue.main.async
                         {
+                            
+                            if self.isShowActivityIndicator == true{
+                                ProcessingIndicator.hide()
+                                self.isShowActivityIndicator = false
+                            }
                             self.inboxTableViewDataSource?.reloadControls()
                             
                             self.refreshUnReadCount()
@@ -292,6 +339,11 @@ extension InboxViewController
                 {
                     DispatchQueue.main.async
                         {
+                            if self.isShowActivityIndicator == true{
+                                ProcessingIndicator.hide()
+                                self.isShowActivityIndicator = false
+                            }
+
                             self.getConversationUpdate()
                     }
             }
@@ -306,6 +358,8 @@ extension InboxViewController
                 {
                     DispatchQueue.main.async
                         {
+                            ProcessingIndicator.hide()
+
                             self.sendTextField.text = ""
                     }
             }
@@ -316,6 +370,8 @@ extension InboxViewController
                 {
                     DispatchQueue.main.async
                         {
+                            ProcessingIndicator.hide()
+
                             self.sendTextField.text = ""
                             
                             let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)

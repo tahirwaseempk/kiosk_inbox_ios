@@ -185,7 +185,6 @@ extension User {
                     {
                         DispatchQueue.main.async
                             {
-                                
                                 for message in messages!
                                 {
                                     message.conversation = conversation
@@ -226,7 +225,7 @@ extension User {
             
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = conversation.mobile
+            paramsDic["mobile"] = conversation.mobileNumber
             
             WebManager.optOutMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -237,27 +236,20 @@ extension User {
                                 
                                 if let status = response?["status"] as? String
                                 {
-                                    
-                                    if status == "status" {
-                                        if let responseMessage = response?["message"] as? String {
-                                            
-                                            if responseMessage == "OK" {
-                                                successBlock(true)
-                                            }
-                                        }
-                                    } else if (status == "err") {
+                                    if (status == "OK")
+                                    {
+                                        successBlock(true)
                                         
-                                        successBlock(false)
+                                    } else  {
+                                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
                                     }
-                                } else if (response?["err"] as? String) != nil {
+                                
+                                } else if let status = response?["err"] as? String{
                                     
-                                    successBlock(false)
-                                    
-                                }else {
-                                    
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                } else {
                                     successBlock(false)
                                 }
-                                
                         }
                 }
                 
@@ -282,8 +274,8 @@ extension User {
             
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = conversation.mobile
-            paramsDic["shortCode"] = conversation.shortCode
+            paramsDic["mobile"] = conversation.mobileNumber
+            paramsDic["shortCode"] = conversation.shortcodeDisplay
             paramsDic["message"] = message
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
@@ -295,7 +287,7 @@ extension User {
                         
                         var msgDate = Date()
                         let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "MM/dd/yyyy hh:mm:ss a"
+                        dateFormatter.dateFormat = "MM/dd/YYYY hh:mm:ss a"
                         let dateString = dateFormatter.string(from: msgDate)
                         msgDate = dateFormatter.date(from: dateString)!
                         
@@ -388,7 +380,57 @@ extension User {
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    
+    static func setReadConversation(conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["serial"] = user.serial
+            paramsDic["uuid"] = user.uuid
+            paramsDic["mobile"] = conversation.mobile
+            paramsDic["shortCode"] = conversation.shortCode
+
+            WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                
+                                if let status = response?["status"] as? String
+                                {
+                                    if (status == "OK")
+                                    {
+                                        successBlock(true)
+                                        
+                                    } else  {
+                                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                    }
+                                    
+                                } else if let status = response?["err"] as? String{
+                                    
+                                    print(status)
+                                    
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                } else {
+                                    successBlock(false)
+                                }
+                        }
+                }
+                
+            }, andFailureBlock: { (error:Error?) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//

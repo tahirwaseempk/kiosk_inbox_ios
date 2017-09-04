@@ -50,7 +50,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-TJ-d6L">
-                                        <rect key="frame" x="957" y="28" width="40" height="40"/>
+                                        <rect key="frame" x="957" y="29" width="42" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" backgroundImage="compose">
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nOR-GB-SQM" userLabel="MainView">
                                 <rect key="frame" x="0.0" y="67" width="1024" height="701"/>
@@ -105,6 +105,22 @@
                                                             <action selector="markAllRead_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="Jhn-Fg-kJR"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHh-GG-pWk">
+                                                        <rect key="frame" x="251" y="11" width="36" height="36"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" backgroundImage="ic_refresh_white"/>
+                                                        <connections>
+                                                            <action selector="refresh_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="jTg-xp-0xR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Refresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-vc-aIb">
+                                                        <rect key="frame" x="247" y="45" width="45" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.039215686274509803" green="0.14117647058823529" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
@@ -127,10 +143,10 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1S-EI-MTw">
-                                                        <rect key="frame" x="643" y="20" width="65" height="30"/>
+                                                        <rect key="frame" x="630" y="15" width="85" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.035294117647058823" green="0.40392156862745099" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="Send">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -191,10 +207,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKw-FR-71Q">
-                                                        <rect key="frame" x="655" y="29" width="45" height="45"/>
+                                                        <rect key="frame" x="658" y="38" width="38" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <state key="normal" backgroundImage="PersonImage"/>
+                                                        <state key="normal" backgroundImage="optOut"/>
                                                         <connections>
                                                             <action selector="deleteMessage_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="zPZ-lQ-7ig"/>
                                                         </connections>
@@ -207,7 +223,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.94499540328979492" green="0.94515722990036011" blue="0.94498521089553833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
                                     </view>
@@ -219,6 +235,7 @@
                     <connections>
                         <outlet property="counterLabel" destination="GBF-ZM-CeQ" id="KT6-eL-Fps"/>
                         <outlet property="inboxTableView" destination="Ozc-av-x23" id="g09-kL-f3M"/>
+                        <outlet property="markAllAsRead_Btn" destination="geE-ld-Bfq" id="9bY-Xc-GBs"/>
                         <outlet property="messageFromLabel" destination="1Ig-kI-agZ" id="osp-QI-ldO"/>
                         <outlet property="messageNumberLabel" destination="WHm-I0-aNR" id="hPy-Aj-YFb"/>
                         <outlet property="messageTableView" destination="plP-gj-xmj" id="M3s-Hh-O8V"/>
@@ -234,7 +251,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PersonImage" width="24" height="24"/>
-        <image name="compose" width="32" height="32"/>
+        <image name="compose" width="40" height="40"/>
+        <image name="ic_refresh_white" width="24" height="24"/>
+        <image name="optOut" width="39" height="39"/>
     </resources>
 </document>

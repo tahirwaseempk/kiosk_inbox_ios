@@ -75,31 +75,8 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         let message:Message = (self.selectedConversation.messages?.allObjects[indexPath.row] as! Message)
         
-        //        let date = Date()
-        //        let formatter = DateFormatter()
-        //        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
-        //        let result = formatter.string(from: date)
-        
-        // let timestamp = NSDate().timeIntervalSince1970
-        // let date = Date(timeIntervalSince1970: timestamp)
-        // let dateFormatter = DateFormatter()
-        // dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
-        // dateFormatter.locale = NSLocale.current
-        // dateFormatter.dateFormat = "dd-MM-yyy hh:mm:ss" //Specify your format that you want
-        // let strDate = dateFormatter.string(from: date)
-        //
-        //        let inFormatter = DateFormatter()
-        //        inFormatter.dateFormat = "mm/dd/yyy hh:mm:ss a"
-        //
-        //        let outFormatter = DateFormatter()
-        //        outFormatter.dateFormat = "hh:mm"
-        //
-        //        let date = inFormatter.date(from: message.date!)
-        //        let outStr = outFormatter.string(from: date!)
-        
-        
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
+        formatter.dateFormat = "MM/dd/YYYY hh:mm:ss a"
         let outStr = formatter.string(from: message.messageDate)
         
         if (message.isSender == false) {
