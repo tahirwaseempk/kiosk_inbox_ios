@@ -28,6 +28,10 @@ let READ_URL_BEFORE_ISREAD = "&isRead="
 let READ_URL_BEFORE_MOBILE = "&mobile="
 let READ_URL_BEFORE_SHORTCODE_END = "&shortcode="
 
+let DELETE_URL = "https://mcpn.us/limeApi?ev=kioskInboxDeleteForNumber&uuid="
+let DELETE_URL_BEFORE_SERIAL = "&serial="
+let DELETE_URL_BEFORE_MOBILE = "&mobile="
+let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
 
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
@@ -134,6 +138,33 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func deleteConversation(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let uuid:String = params["uuid"] as! String
+        let serial:String = params["serial"] as! String
+        let mobile:String = params["mobile"] as! String
+        let shortCode:String = params["shortCode"] as! String
+
+        let finalUrl =  DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary<String, Any>)
+            }
+            else
+            {
+                andFailureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     static func setReadReceipt(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
     {
         let uuid:String = params["uuid"] as! String
@@ -211,8 +242,6 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         let message:String = params["message"] as! String
-        
-        //mobile = removeSpecialCharsFromString(mobile)
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         

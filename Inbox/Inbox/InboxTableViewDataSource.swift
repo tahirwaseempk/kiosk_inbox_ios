@@ -71,7 +71,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             let index = filteredConversations.index(of: selectedConversation)
             let indexPath = IndexPath(row:index!, section: 0)
    
-            targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
+            targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.middle)
         }
         else {
           
@@ -105,7 +105,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/YYYY hh:mm:ss a"
-            cell.dateLabel.text =  dateFormatter.string(from: conversation.conversationDate)
+            cell.dateLabel.text = "Sent" + " " + dateFormatter.string(from: conversation.conversationDate)
         }
         else
         {

@@ -275,8 +275,13 @@ extension User {
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobileNumber
-            paramsDic["shortCode"] = conversation.shortcodeDisplay
             paramsDic["message"] = message
+            
+            if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
+                paramsDic["shortCode"] = conversation.tollFree
+            } else {
+                paramsDic["shortCode"] = conversation.shortcodeDisplay
+            }
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -390,7 +395,7 @@ extension User {
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobile
-            paramsDic["shortCode"] = conversation.shortCode
+            paramsDic["shortCode"] = conversation.shortcodeDisplay
 
             WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -431,6 +436,60 @@ extension User {
         }
     }
 
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func deleteLocalConversation(conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["serial"] = user.serial
+            paramsDic["uuid"] = user.uuid
+            paramsDic["mobile"] = conversation.mobile
+            paramsDic["shortCode"] = conversation.shortCode
+            
+            WebManager.deleteConversation(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                if let status = response?["status"] as? String
+                                {
+                                    if (status == "OK")
+                                    {
+                                        User.getLoginedUser()?.removeFromConversations(conversation)
+                                        successBlock(true)
+                                        
+                                    } else  {
+                                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                    }
+                                    
+                                } else if let status = response?["err"] as? String {
+                                    
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                } else {
+                                    successBlock(false)
+                                }
+                        }
+                }
+                
+            }, andFailureBlock: { (error:Error?) -> (Void) in
+                failureBlock(error)
+            })
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//

@@ -212,11 +212,27 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <state key="normal" backgroundImage="optOut"/>
                                                         <connections>
-                                                            <action selector="deleteMessage_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="zPZ-lQ-7ig"/>
+                                                            <action selector="optOut_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="ahP-pr-Bnc"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opt Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pS4-jj-X0a">
                                                         <rect key="frame" x="655" y="71" width="45" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns4-Tv-Vnt">
+                                                        <rect key="frame" x="597" y="38" width="38" height="38"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" backgroundImage="ic_delete_forever"/>
+                                                        <connections>
+                                                            <action selector="deleteMessage_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="VQj-Lq-4qz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtW-NY-fkJ">
+                                                        <rect key="frame" x="594" y="71" width="45" height="24"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -252,6 +268,7 @@
     </scenes>
     <resources>
         <image name="compose" width="40" height="40"/>
+        <image name="ic_delete_forever" width="24" height="24"/>
         <image name="ic_refresh_white" width="24" height="24"/>
         <image name="optOut" width="39" height="39"/>
     </resources>

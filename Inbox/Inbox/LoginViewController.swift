@@ -21,9 +21,11 @@ class LoginViewController: UIViewController
     {
         super.viewDidLoad()
         
-        self.udidTextField.text = "323434234"
+        let deviceID = UIDevice.current.identifierForVendor!.uuidString
         
-        self.serialTextField.text = "test-test"
+        self.udidTextField.text = deviceID //"323434234"
+        
+        self.serialTextField.text = "test-1234"
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
@@ -56,7 +58,7 @@ class LoginViewController: UIViewController
     func addCheckboxSubviews() {
         
         // tick
-        let tickBox = Checkbox(frame: CGRect(x: 414, y: 228, width: 25, height: 25))
+        let tickBox = Checkbox(frame: CGRect(x: 351, y: 242, width: 25, height: 25))
         tickBox.borderColor = UIColor.black
         tickBox.checkmarkColor = UIColor.black
         tickBox.borderStyle = .square

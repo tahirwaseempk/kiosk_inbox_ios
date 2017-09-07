@@ -55,14 +55,13 @@ class ConversationParser: NSObject {
                 
                 if conversation == nil {
                     
-                    conversation = Conversation.create(context: DEFAULT_CONTEXT, conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_:msgDate, isRead_: unread, lastMessage_: dic["message"] as! String, shortcodeDisplay_: dic["shortcodeDisplay"] as! String, mobileNumber_: dic["mobileNumber"] as! String )
+                    conversation = Conversation.create(context: DEFAULT_CONTEXT, conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_:msgDate, isRead_: unread, lastMessage_: dic["message"] as! String, shortcodeDisplay_: dic["shortcodeDisplay"] as! String, mobileNumber_: dic["mobileNumber"] as! String, tollFree_: dic["tollFree"] as! String)
                     
                     conversations.append(conversation!)
                 }
                 else
                 {
-                    
-                    conversation?.update(conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_: msgDate, isRead_: unread, lastMessage_: dic["message"] as! String, shortcodeDisplay_: dic["shortcodeDisplay"] as! String, mobileNumber_: dic["mobileNumber"] as! String)
+                    conversation?.update(conversationId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, firstName_: dic["first"] as! String, lastName_: dic["last"] as! String, conversationDate_: msgDate, isRead_: unread, lastMessage_: dic["message"] as! String, shortcodeDisplay_: dic["shortcodeDisplay"] as! String, mobileNumber_: dic["mobileNumber"] as! String, tollFree_: dic["tollFree"] as! String)
                 }
             }
         }

@@ -28,6 +28,7 @@ extension Conversation {
     
     @NSManaged public var mobileNumber: String?
     @NSManaged public var shortcodeDisplay: String?
+    @NSManaged public var tollFree: String?
 
     @NSManaged public var user: User?
 }

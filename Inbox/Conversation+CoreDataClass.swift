@@ -37,7 +37,7 @@ extension Conversation {
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     
-    static func create(context: NSManagedObjectContext, conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String, shortcodeDisplay_: String, mobileNumber_: String) ->Conversation{
+    static func create(context: NSManagedObjectContext, conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String, shortcodeDisplay_: String, mobileNumber_: String, tollFree_: String) ->Conversation{
         
         let conversation = Conversation(context: context)
         
@@ -52,6 +52,7 @@ extension Conversation {
 
         conversation.shortcodeDisplay = shortcodeDisplay_
         conversation.mobileNumber = mobileNumber_
+        conversation.tollFree = tollFree_
 
         return conversation
     }
@@ -60,8 +61,7 @@ extension Conversation {
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     
-    func update(conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String, shortcodeDisplay_: String, mobileNumber_: String) {
-        
+    func update(conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String, shortcodeDisplay_: String, mobileNumber_: String, tollFree_: String) {
         
         self.conversationId = conversationId_
         self.mobile = mobile_
@@ -74,6 +74,7 @@ extension Conversation {
         
         self.shortcodeDisplay = shortcodeDisplay_
         self.mobileNumber = mobileNumber_
+        self.tollFree = tollFree_
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
