@@ -41,8 +41,8 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         filteredConversations = filteredConversations.sorted(by: { (conversation1, conversation2) -> Bool in
 
             //print(conversation1.isRead, conversation2.isRead)
-            if conversation1.isRead == conversation2.isRead {
-                                
+//            if conversation1.isRead == conversation2.isRead {
+            
                 if conversation1.conversationDate.compare(conversation2.conversationDate) == .orderedDescending
                 {
                     return true
@@ -50,11 +50,11 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
                 else if conversation1.conversationDate.compare(conversation2.conversationDate) == .orderedAscending
                 {
                     return false
-                }
-                else
-                {
-                    return false
-                }
+//                }
+//                else
+//                {
+//                    return false
+//                }
             }
             else  {
                 return conversation1.isRead
@@ -160,6 +160,14 @@ extension InboxTableViewDataSource {
         }
         
         self.reloadControls()
+    }
+    
+    func loadAfterRemoveConversation () {
+        
+        self.applySearchFiltersForSearchText("")
+        self.selectedConversation = nil
+        self.reloadControls()
+        
     }
 
 }

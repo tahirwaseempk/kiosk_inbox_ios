@@ -26,7 +26,7 @@ class ConversationParser: NSObject {
         }
         let inboxJson = json["inbox"] as! Array<Dictionary<String,Any>>
         
-        if inboxJson != nil
+        if inboxJson.count > 0
         {
             
             for dic in inboxJson

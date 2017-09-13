@@ -36,7 +36,7 @@ class MessagesParser: NSObject {
         
         let inboxJson = json["chat"] as! Array<Dictionary<String,Any>>
         
-        if inboxJson != nil
+        if inboxJson.count > 0
         {
             for dic in inboxJson
             {

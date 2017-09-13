@@ -465,6 +465,16 @@ extension User {
                                     if (status == "OK")
                                     {
                                         User.getLoginedUser()?.removeFromConversations(conversation)
+                                       
+                                        do {
+                                            
+                                            try user.managedObjectContext?.save()
+                                        }
+                                        catch {
+                                            
+                                        }
+
+                                        
                                         successBlock(true)
                                         
                                     } else  {

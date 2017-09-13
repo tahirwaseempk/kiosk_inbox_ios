@@ -164,13 +164,12 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                                 
                                 if status == true {
                                     
-                                    self.inboxTableViewDataSource?.reloadControls()
                                     
-                                    self.refreshUnReadCount()
-                                    
-                                    let alert = UIAlertController(title: "Message", message: "Conversation has been successfully been deleted.", preferredStyle: UIAlertControllerStyle.alert)
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    self.present(alert, animated: true, completion: nil)
+                                    self.inboxTableViewDataSource?.loadAfterRemoveConversation()
+
+//                                    let alert = UIAlertController(title: "Message", message: "Conversation has been successfully been deleted.", preferredStyle: UIAlertControllerStyle.alert)
+//                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                                    self.present(alert, animated: true, completion: nil)
                                     
                                 }
                                 else if status == false
@@ -287,7 +286,8 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
                                 })
                             }
                             //                            if ((self.currentConversation.messages?.count)! > 0) {
-                            
+                            ProcessingIndicator.hide()
+
                             _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversation))!
                             
                             //                            } else {
