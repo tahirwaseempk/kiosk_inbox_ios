@@ -15,6 +15,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     var selectedConversation:Conversation! = nil
     var chatCell:ChatTableViewCell!
     var chatCellSettings:ChatCellSettings!
+    var messages:Array<Message> = Array<Message>()
     
     init(tableview:UITableView) {
         
@@ -55,6 +56,34 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView.dataSource = self
         self.targetedTableView.delegate = self
+        
+        self.reloadControls()
+    }
+    
+    func reloadControls() {
+        
+        if self.selectedConversation != nil{
+            
+            messages = selectedConversation.messages?.allObjects as! Array<Message>
+            
+            messages = messages.sorted(by: { (mesage1, message2) -> Bool in
+                
+                if mesage1.messageDate.compare(message2.messageDate) == .orderedAscending
+                {
+                    return true
+                }
+                else if mesage1.messageDate.compare(message2.messageDate) == .orderedDescending
+                {
+                    return false
+                }
+                else
+                {
+                    return false
+                }
+            })
+            
+            self.targetedTableView.reloadData()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -73,10 +102,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        let message:Message = (self.selectedConversation.messages?.allObjects[indexPath.row] as! Message)
+        let message:Message = messages[indexPath.row]
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/YYYY hh:mm:ss a"
+        formatter.dateFormat = DATE_FORMATE_STRING
         let outStr = formatter.string(from: message.messageDate)
         
         if (message.isSender == false) {
@@ -107,7 +136,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         
-        let message:Message = (self.selectedConversation.messages?.allObjects[indexPath.row] as! Message)
+        let message:Message = messages[indexPath.row]
         
         var size = CGSize(width: 0, height: 0)
         var Namesize:CGSize
@@ -130,13 +159,13 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         }
         
         let nameSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : fontArray[0]], context: nil).size
+        Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[0]], context: nil).size
         
         let messageSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Messagesize = (message.message! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:fontArray[1]], context: nil).size
+        Messagesize = (message.message! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:fontArray[1]], context: nil).size
         
         let timeSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : fontArray[2]], context: nil).size
+        Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[2]], context: nil).size
         
         size.height = Messagesize.height + Namesize.height + Timesize.height + 48.0
         
@@ -152,8 +181,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.selectedConversation = conversation_;
         //        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
-        self.targetedTableView.reloadData()
-        
+        self.reloadControls()
         let rowCount = self.selectedConversation?.messages?.count
         
         if rowCount!>0 {
@@ -166,9 +194,8 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func addNewMessage(_ message:Message) -> Bool {
         
-        self.targetedTableView.reloadData()
-
-        return false
+        self.reloadControls()
+        return true
     }
     
     func clearMessages(_ conversation:Conversation?)

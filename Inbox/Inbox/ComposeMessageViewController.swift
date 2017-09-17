@@ -26,7 +26,7 @@ class ComposeMessageViewController: UIViewController {
         mobileTextField.text = ""
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        mobileTextField.attributedPlaceholder = NSAttributedString(string:"Mobile Number", attributes: [NSForegroundColorAttributeName: UIColor.lightGray])
+        mobileTextField.attributedPlaceholder = NSAttributedString(string:"Mobile Number", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
         
         backView.layer.cornerRadius = 15;

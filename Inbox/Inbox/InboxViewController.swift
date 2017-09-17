@@ -421,11 +421,10 @@ extension InboxViewController
                     DispatchQueue.main.async
                         {
                             ProcessingIndicator.hide()
-                            
                             self.sendTextField.text = ""
+                            _ = self.messageTableViewDataSource?.reloadControls() //addNewMessage(sendMessaage)
                     }
             }
-            _ = self.messageTableViewDataSource?.addNewMessage(sendMessaage)
             
         }) { (error:Error?) -> (Void) in
             DispatchQueue.global(qos:.background).async

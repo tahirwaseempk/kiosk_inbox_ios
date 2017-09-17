@@ -16,7 +16,7 @@ class ProcessingIndicator : NSObject, ProcessingIndicatorProtocol
         self.perform(#selector(hide), with: nil, afterDelay: duration)
     }
     
-    static func hide()
+    @objc static func hide()
     {
         activity.removeActivity()
     }

@@ -292,7 +292,7 @@ extension User {
                         
                         var msgDate = Date()
                         let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "MM/dd/YYYY hh:mm:ss a"
+                        dateFormatter.dateFormat = DATE_FORMATE_STRING
                         let dateString = dateFormatter.string(from: msgDate)
                         msgDate = dateFormatter.date(from: dateString)!
                         
@@ -302,7 +302,15 @@ extension User {
                                     {
                                         let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_:0, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
-                                        conversation.messages?.adding(message)
+                                        do {
+                                            
+                                            try user.managedObjectContext?.save()
+                                        }
+                                        catch {
+                                            
+                                        }
+                                        
+                                        //User.getLoginedUser()?.conversations.messages adding(message)
                                         successBlock(message)
                                 }
                         }
@@ -395,7 +403,7 @@ extension User {
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobile
-            paramsDic["shortCode"] = conversation.shortcodeDisplay
+            paramsDic["shortCode"] = conversation.shortCode
 
             WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 

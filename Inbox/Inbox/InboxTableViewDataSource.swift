@@ -50,15 +50,15 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
                 else if conversation1.conversationDate.compare(conversation2.conversationDate) == .orderedAscending
                 {
                     return false
-//                }
-//                else
-//                {
-//                    return false
-//                }
-            }
-            else  {
-                return conversation1.isRead
-            }
+                }
+                else
+                {
+                    return false
+                }
+//            }
+//            else  {
+//                return conversation1.isRead
+//            }
         })
         //************************************************************************************************//
         //------------------------------------------------------------------------------------------------//
@@ -71,7 +71,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             let index = filteredConversations.index(of: selectedConversation)
             let indexPath = IndexPath(row:index!, section: 0)
    
-            targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.middle)
+            targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
         else {
           
@@ -104,7 +104,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             cell.detailLabel.text = conversation.lastMessage
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/YYYY hh:mm:ss a"
+            dateFormatter.dateFormat = DATE_FORMATE_STRING
             cell.dateLabel.text = "Sent" + " " + dateFormatter.string(from: conversation.conversationDate)
         }
         else
