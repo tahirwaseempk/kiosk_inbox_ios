@@ -67,7 +67,13 @@ class WebManager: NSObject
             if (error == nil)
             {
                 let dictionary = loginParser.parseUser(json:response as! Dictionary<String, Any>)
-                successBlock(dictionary)
+            
+                if (response?["err"] as? String) != nil
+                {
+                    failureBlock(error)
+                } else {
+                    successBlock(dictionary)
+                }
             }
             else
             {

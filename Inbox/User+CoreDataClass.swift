@@ -95,9 +95,7 @@ extension User {
                     DispatchQueue.main.async
                         {
                             
-                            
-                            
-                            let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
+                        let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
                             
                             User.loginedUser = user
                             
@@ -113,8 +111,14 @@ extension User {
             }
             
         }) { (error: Error?) -> (Void) in
-            failureBlock(error)
             
+//            if let status = response?["err"] as? String
+//            {
+//                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+//
+//            }
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+
         }
     }
     //************************************************************************************************//
@@ -243,7 +247,7 @@ extension User {
                                     } else  {
                                         failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
                                     }
-                                
+                                    
                                 } else if let status = response?["err"] as? String{
                                     
                                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
@@ -300,17 +304,9 @@ extension User {
                             {
                                 DispatchQueue.main.async
                                     {
-                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_:0, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: -1, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
-                                        do {
-                                            
-                                            try user.managedObjectContext?.save()
-                                        }
-                                        catch {
-                                            
-                                        }
-                                        
-                                        //User.getLoginedUser()?.conversations.messages adding(message)
+                                        conversation.addToMessages(message)
                                         successBlock(message)
                                 }
                         }
@@ -404,7 +400,7 @@ extension User {
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobile
             paramsDic["shortCode"] = conversation.shortCode
-
+            
             WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -443,7 +439,7 @@ extension User {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
@@ -473,7 +469,7 @@ extension User {
                                     if (status == "OK")
                                     {
                                         User.getLoginedUser()?.removeFromConversations(conversation)
-                                       
+                                        
                                         do {
                                             
                                             try user.managedObjectContext?.save()
@@ -481,7 +477,7 @@ extension User {
                                         catch {
                                             
                                         }
-
+                                        
                                         
                                         successBlock(true)
                                         
@@ -511,10 +507,4 @@ extension User {
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-}
-//************************************************************************************************//
-//------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------//
-//************************************************************************************************//
-
+} 
