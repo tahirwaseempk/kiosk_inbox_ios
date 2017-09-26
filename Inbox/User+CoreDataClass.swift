@@ -291,8 +291,11 @@ extension User {
                 
                 if let status = response?["result"] as? String
                 {
-                    
-                    if (status == "OK") {
+                    //split status into two parts. OK,1761705481
+                    let splitString = status.components(separatedBy: ",")
+
+
+                    if (String(splitString[0]) == "OK") {
                         
                         var msgDate = Date()
                         let dateFormatter = DateFormatter()
@@ -304,7 +307,9 @@ extension User {
                             {
                                 DispatchQueue.main.async
                                     {
-                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: -1, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        let msgID: Int64 = Int64(splitString[1])!
+
+                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
                                         conversation.addToMessages(message)
                                         successBlock(message)

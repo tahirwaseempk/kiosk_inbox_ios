@@ -195,6 +195,14 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     func addNewMessage(_ message:Message) -> Bool {
         
         self.reloadControls()
+        
+        let rowCount = self.selectedConversation?.messages?.count
+        
+        if rowCount!>0 {
+            let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
+            self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        }
+        
         return true
     }
     
