@@ -55,8 +55,11 @@ class MessagesParser: NSObject {
                 
                 if let dateStr:String = dic["date"] as? String {
                     if dateStr.characters.count > 0 {
+                        
                         let dateFormatter = DateFormatter()
+                        
                         dateFormatter.dateFormat = DATE_FORMATE_STRING
+                        
                         msgDate = dateFormatter.date(from: dateStr)!
                     }
                 }

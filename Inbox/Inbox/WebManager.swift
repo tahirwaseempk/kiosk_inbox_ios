@@ -214,8 +214,8 @@ class WebManager: NSObject
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
-                            {
-                                successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
+                        {
+                            successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
                         }
                 }
                 
