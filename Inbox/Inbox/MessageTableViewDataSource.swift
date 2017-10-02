@@ -159,13 +159,13 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         }
         
         let nameSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[0]], context: nil).size
+        Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : fontArray[0]], context: nil).size
         
         let messageSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Messagesize = (message.message! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:fontArray[1]], context: nil).size
+        Messagesize = (message.message! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:fontArray[1]], context: nil).size
         
         let timeSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[2]], context: nil).size
+        Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : fontArray[2]], context: nil).size
         
         size.height = Messagesize.height + Namesize.height + Timesize.height + 48.0
         

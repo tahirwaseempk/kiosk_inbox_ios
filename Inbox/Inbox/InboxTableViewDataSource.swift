@@ -42,7 +42,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
 
             //print(conversation1.isRead, conversation2.isRead)
 //            if conversation1.isRead == conversation2.isRead {
-            
+                        
                 if conversation1.conversationDate.compare(conversation2.conversationDate) == .orderedDescending
                 {
                     return true

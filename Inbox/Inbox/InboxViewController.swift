@@ -52,6 +52,8 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         inboxTableView.dataSource = inboxTableViewDataSource
         //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
         
+        inboxTableView.tableFooterView = UIView()
+
         self.userNameLabel.text = User.getLoginedUser()?.serial
         initiateMessageCall()
     }
@@ -69,12 +71,40 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         self.getConversationUpdate()
     }
     
-    @IBAction func markAllRead_Tapped(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Mark all as Read", message: "This feature is under developnment.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
+    @IBAction func markAllRead_Tapped(_ sender: Any)
+    {
+        ProcessingIndicator.show()
+
+        User.setReadAllConversations(conversations: (User.getLoginedUser()?.conversations)!, index: 0, completionBlockSuccess: { (status:Bool) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    self.inboxTableViewDataSource?.reloadControls()
+                    
+                    self.refreshUnReadCount()
+                    
+                    ProcessingIndicator.hide()
+                }
+            }
+            
+        }) { (error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    ProcessingIndicator.hide()
+                    
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     @IBAction func createMessage_Tapped(_ sender: Any) {

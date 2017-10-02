@@ -147,14 +147,44 @@ extension User {
                                     conversation.user = user
                                 }
                                 
+                                print(user.conversations!)
+                                
+                                print("SERVER = ",conversations!)
+
+                                for case let savedConversation as Conversation in user.conversations!
+                                {
+                                    var isFound = false
+                                    
+                                    for conversation in conversations!
+                                    {
+                                        if conversation.conversationId == savedConversation.conversationId
+                                        {
+                                            isFound = true
+                                            
+                                            break
+                                        }
+                                    }
+                                    
+                                    if isFound == false
+                                    {
+                                        savedConversation.user = nil
+
+                                        //user.removeFromConversations(savedConversation)
+                                        
+                                        //savedConversation.managedObjectContext?.delete(savedConversation)
+                                    }
+                                }
+                                
                                 do {
                                     
                                     try user.managedObjectContext?.save()
-                                }
-                                catch {
                                     
                                 }
-                                
+                                catch{
+                                    
+                                    //failureBlock(error)
+                                }
+
                                 successBlock(user.conversations?.allObjects as? Array<Conversation>)
                         }
                 }
@@ -445,6 +475,74 @@ extension User {
         }
     }
     
+    
+    static func setReadAllConversations(conversations: NSSet,index:Int, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            if index >= 0 && index < conversations.count
+            {
+                let conversation = conversations.allObjects[index] as! Conversation
+                
+                if conversation.isRead == false
+                {
+                    User.setReadAllConversations(conversations: conversations, index: index + 1, completionBlockSuccess: successBlock, andFailureBlock: failureBlock)
+                }
+                else
+                {
+                    var paramsDic = Dictionary<String, Any>()
+                    
+                    paramsDic["serial"] = user.serial
+                    paramsDic["uuid"] = user.uuid
+                    paramsDic["mobile"] = conversation.mobile
+                    paramsDic["shortCode"] = conversation.shortCode
+                    
+                    WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                        
+                        DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                            {
+                                if let status = response?["status"] as? String
+                                {
+                                    if (status == "OK")
+                                    {
+                                        conversation.isRead = false
+
+                                        User.setReadAllConversations(conversations: conversations, index: index + 1, completionBlockSuccess: successBlock, andFailureBlock: failureBlock)
+                                    }
+                                    else
+                                    {
+                                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                    }
+                                    
+                                } else if let status = response?["err"] as? String
+                                {
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                }
+                                else
+                                {
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:"Unable to mark all conversations as read due connectivity issue"]))
+                                }
+                            }
+                        }
+                        
+                    }, andFailureBlock: { (error:Error?) -> (Void) in
+                        failureBlock(error)
+                    })
+                }
+            }
+            else
+            {
+                successBlock(true)
+            }
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
