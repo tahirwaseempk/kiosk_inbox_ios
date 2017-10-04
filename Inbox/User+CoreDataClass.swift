@@ -211,7 +211,7 @@ extension User {
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobile
-            paramsDic["shortCode"] = conversation.mobile
+            paramsDic["shortCode"] = conversation.shortCode
             
             WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
                 
