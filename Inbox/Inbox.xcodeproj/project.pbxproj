@@ -479,7 +479,7 @@
 				TargetAttributes = {
 					1ADE9F791EF98E48006C2CAC = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 97VJS2Q232;
+						DevelopmentTeam = QVXCPBF3VF;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
@@ -617,9 +617,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QVXCPBF3VF;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -639,6 +641,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "7636fdae-3935-477a-8fd9-96143596337b";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -675,9 +678,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = QVXCPBF3VF;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -690,6 +695,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "7636fdae-3935-477a-8fd9-96143596337b";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -703,16 +709,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Netsol Technologies Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Netsol Technologies Inc";
-				DEVELOPMENT_TEAM = 97VJS2Q232;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
+				DEVELOPMENT_TEAM = QVXCPBF3VF;
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.INBOX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4043a769-8746-402a-af15-b2cec314c161";
-				PROVISIONING_PROFILE_SPECIFIER = Isuzu_Netsol_Enterprise_Distribution_Profile;
+				PROVISIONING_PROFILE = "7636fdae-3935-477a-8fd9-96143596337b";
+				PROVISIONING_PROFILE_SPECIFIER = Inbox_Appstore_Adhoc_Distribution_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -726,16 +732,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Netsol Technologies Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Netsol Technologies Inc";
-				DEVELOPMENT_TEAM = 97VJS2Q232;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = QVXCPBF3VF;
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.INBOX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4043a769-8746-402a-af15-b2cec314c161";
-				PROVISIONING_PROFILE_SPECIFIER = Isuzu_Netsol_Enterprise_Distribution_Profile;
+				PROVISIONING_PROFILE = "7636fdae-3935-477a-8fd9-96143596337b";
+				PROVISIONING_PROFILE_SPECIFIER = Inbox_Appstore_Adhoc_Distribution_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;
