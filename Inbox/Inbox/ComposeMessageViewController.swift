@@ -32,12 +32,14 @@ class ComposeMessageViewController: UIViewController {
         backView.layer.cornerRadius = 15;
         self.view.addSubview(backView)
         
-        sendButton.layer.cornerRadius = 5
+        //sendButton.layer.cornerRadius = 5
         sendButton.layer.borderWidth = 1
         //sendButton.layer.borderColor = UIColor.black.cgColor
         
-        cancelButton.layer.cornerRadius = 5
+        //cancelButton.layer.cornerRadius = 5
         cancelButton.layer.borderWidth = 1
+        cancelButton.backgroundColor = UIColor.white
+
         cancelButton.layer.borderColor = UIColor.black.cgColor
         
         messageTextView.delegate = self

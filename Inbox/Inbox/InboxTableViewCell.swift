@@ -22,10 +22,10 @@ class InboxTableViewCell: UITableViewCell
     {
         super.awakeFromNib()
         
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.blue
-        bgColorView.layer.cornerRadius = 15;
-        self.selectedBackgroundView = bgColorView
+//        let bgColorView = UIView()
+//        bgColorView.backgroundColor = UIColor(red: 81, green: 186, blue: 51, alpha: 1.0)
+//        bgColorView.layer.cornerRadius = 15;
+//        self.selectedBackgroundView = bgColorView
         
     }
 

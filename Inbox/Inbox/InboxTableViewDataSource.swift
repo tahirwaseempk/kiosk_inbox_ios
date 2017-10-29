@@ -96,7 +96,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         let conversation:Conversation = filteredConversations [indexPath.row]
         
-        cell.selectionStyle = .blue;
+        cell.selectionStyle = .blue
         
         if conversation.lastMessage != nil
         {

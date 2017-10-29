@@ -15,6 +15,7 @@ class LoginViewController: UIViewController
     @IBOutlet weak var udidTextField: UITextField!
     @IBOutlet weak var serialTextField: UITextField!
 
+    @IBOutlet weak var fieldsView: UIView!
     var isAutoLogin:Bool = false
     
     override func viewDidLoad()
@@ -58,7 +59,7 @@ class LoginViewController: UIViewController
     func addCheckboxSubviews() {
         
         // tick
-        let tickBox = Checkbox(frame: CGRect(x: 351, y: 242, width: 25, height: 25))
+        let tickBox = Checkbox(frame: CGRect(x: 81 , y: 142, width: 25, height: 25))
         tickBox.borderColor = UIColor.black
         tickBox.checkmarkColor = UIColor.black
         tickBox.borderStyle = .square
@@ -70,7 +71,7 @@ class LoginViewController: UIViewController
             tickBox.isChecked = false
         }
         tickBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
-        view.addSubview(tickBox)
+        self.fieldsView.addSubview(tickBox)
     }
     
     // target action example
