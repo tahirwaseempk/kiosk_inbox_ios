@@ -14,6 +14,7 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     var isShowActivityIndicator:Bool = false
     
+    @IBOutlet weak var signOutButton: UIButton!
     
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
@@ -55,6 +56,13 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         inboxTableView.tableFooterView = UIView()
 
         self.userNameLabel.text = User.getLoginedUser()?.serial
+        
+        //signOutButton.layer.cornerRadius = 5
+        signOutButton.layer.borderWidth = 1
+        signOutButton.backgroundColor = UIColor.white
+        signOutButton.layer.borderColor = UIColor.black.cgColor
+        
+        
         initiateMessageCall()
     }
     

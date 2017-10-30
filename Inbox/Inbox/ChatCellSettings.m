@@ -103,9 +103,11 @@ static ChatCellSettings *instance = nil;
         instance = [[self alloc] init];
         
         senderBubbleColor = [UIColor colorWithRed:0 green:(122.0f/255.0f) blue:1.0f alpha:1.0f];
-        
+//        senderBubbleColor = [UIColor colorWithRed:(81.0f/255.0f) green:(186/255.0f) blue:(251.0f/255.0f) alpha:1.0f];
+
         receiverBubbleColor = [UIColor colorWithRed:(223.0f/255.0f) green:(222.0f/255.0f) blue:(229.0f/255.0f) alpha:1.0f];
-        
+
+
         senderBubbleNameTextColor = [UIColor colorWithRed:(255.0f/255.0f) green:(255.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0f];
         
         receiverBubbleNameTextColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f];

@@ -23,14 +23,20 @@ class InboxTableViewCell: UITableViewCell
         super.awakeFromNib()
         
 //        let bgColorView = UIView()
-//        bgColorView.backgroundColor = UIColor(red: 81, green: 186, blue: 51, alpha: 1.0)
+//        bgColorView.backgroundColor = UIColor(red: 81.0, green: 186.0, blue: 251.0, alpha: 1.0)
 //        bgColorView.layer.cornerRadius = 15;
-//        self.selectedBackgroundView = bgColorView
+        //self.selectedBackgroundView = bgColorView
         
+//        self.backgroundView = bgColorView
+        
+        self.selectedBackgroundView = UIView()
+        self.selectionStyle = .default // you can also take this line out
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)
+        self.selectedBackgroundView!.backgroundColor = selected ? UIColor(red: 81.0/255.0, green: 186.0/255.0, blue: 251.0/255.0, alpha: 1.0) : nil
+
     }
 }
