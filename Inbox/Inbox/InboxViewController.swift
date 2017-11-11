@@ -26,10 +26,10 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var openMessageListingButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var leadingSpaceConstraintOfRightContainer: NSLayoutConstraint!
-    
+    @IBOutlet weak var messageViewContainer: UIView!
+
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
-    
     var composeMessageViewController:ComposeMessageViewController!
     
     override func viewDidLoad() {
@@ -61,23 +61,30 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         signOutButton.backgroundColor = UIColor.white
         signOutButton.layer.borderColor = UIColor.black.cgColor
         
-        
         initiateMessageCall()
     }
     
     @IBAction func openMessageListingButton_Tapped(_ sender: Any)
     {
-        if openMessageListingButton.isSelected == false
+        var constraintConstant:CGFloat = 0.0
+        
+        if self.openMessageListingButton.isSelected == false
         {
-            leadingSpaceConstraintOfRightContainer.constant = 300
-            
-            openMessageListingButton.isSelected = true
+            constraintConstant = 300.0
         }
-        else
+        
+        UIView.animate(withDuration: 0.35, animations:
         {
-            leadingSpaceConstraintOfRightContainer.constant = 0
+            self.leadingSpaceConstraintOfRightContainer.constant = constraintConstant
+
+            self.openMessageListingButton.isSelected = !self.openMessageListingButton.isSelected
             
-            openMessageListingButton.isSelected = false
+            //self.messageViewContainer.setNeedsLayout()
+            
+            //self.messageViewContainer.layoutIfNeeded()
+
+        }) { (completed:Bool) in
+            
         }
     }
 

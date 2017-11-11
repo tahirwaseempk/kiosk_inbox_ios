@@ -34,10 +34,8 @@ class LoginViewController: UIViewController
         
         self.udidTextField.isEnabled = false
 
-        self.rememberMeButton.setImage(UIImage(named: "check-box"), for: .selected)
-        self.rememberMeButton.setImage(UIImage(named: "check-box-outline"), for: .normal)
+        self.rememberMeButton.backgroundColor = UIColor.clear
         
-
         let user :User?  = User.getUserFromID(serial_: self.serialTextField.text!)
         
         if user?.isRemember == true
@@ -59,7 +57,7 @@ class LoginViewController: UIViewController
     func addCheckboxSubviews() {
         
         // tick
-        let tickBox = Checkbox(frame: CGRect(x: 81 , y: 142, width: 25, height: 25))
+        let tickBox = Checkbox(frame: self.rememberMeButton.bounds)
         tickBox.borderColor = UIColor.black
         tickBox.checkmarkColor = UIColor.black
         tickBox.borderStyle = .square
@@ -71,7 +69,7 @@ class LoginViewController: UIViewController
             tickBox.isChecked = false
         }
         tickBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
-        self.fieldsView.addSubview(tickBox)
+        self.rememberMeButton.addSubview(tickBox)
     }
     
     // target action example
@@ -101,7 +99,7 @@ class LoginViewController: UIViewController
         
 //        if isAutoLogin == false
 //        {
-            self.rememberMeButton.isSelected = true
+            //self.rememberMeButton.isSelected = true
 //            isAutoLogin = true
 //        }
 //        else {
