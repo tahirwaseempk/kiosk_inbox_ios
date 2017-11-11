@@ -25,17 +25,15 @@ class LoginViewController: UIViewController
         let deviceID = UIDevice.current.identifierForVendor!.uuidString
         
         self.udidTextField.text = deviceID //"323434234"
-        
-        self.serialTextField.text = "test-1234"
+//        self.serialTextField.text = "abfc-4f2b"
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
         self.udidTextField.isEnabled = false
 
-        self.rememberMeButton.setImage(UIImage(named: "check-box"), for: .selected)
-        self.rememberMeButton.setImage(UIImage(named: "check-box-outline"), for: .normal)
+//        self.rememberMeButton.setImage(UIImage(named: "check-box"), for: .selected)
+//        self.rememberMeButton.setImage(UIImage(named: "check-box-outline"), for: .normal)
         
 
         let user :User?  = User.getUserFromID(serial_: self.serialTextField.text!)
