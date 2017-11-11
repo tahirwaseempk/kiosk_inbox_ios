@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,19 +37,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-7y-YJZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-7y-YJZ">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VBw-MV-dU3" firstAttribute="top" secondItem="OZq-7y-YJZ" secondAttribute="bottom" id="Tcf-As-pPG"/>
+                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="top" secondItem="rGN-ho-uVo" secondAttribute="top" id="iRa-1k-9W0"/>
+                            <constraint firstAttribute="trailing" secondItem="OZq-7y-YJZ" secondAttribute="trailing" id="j3v-2Z-FrE"/>
+                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="leading" secondItem="rGN-ho-uVo" secondAttribute="leading" id="lUX-lY-RUq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SgO-Yx-vam"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0W-e7-YoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="522.65625" y="-320.3125"/>
+            <point key="canvasLocation" x="-39" y="541"/>
         </scene>
     </scenes>
     <resources>

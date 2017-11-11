@@ -11,11 +11,9 @@ import UIKit
 class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     var currentConversation:Conversation! = nil
-    
     var isShowActivityIndicator:Bool = false
     
     @IBOutlet weak var signOutButton: UIButton!
-    
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
     @IBOutlet weak var messageNumberLabel: UILabel!
@@ -25,12 +23,13 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var markAllAsRead_Btn: UIButton!
-    
+    @IBOutlet weak var openMessageListingButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var leadingSpaceConstraintOfRightContainer: NSLayoutConstraint!
+    @IBOutlet weak var messageViewContainer: UIView!
+
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
-    
     var composeMessageViewController:ComposeMessageViewController!
     
     override func viewDidLoad() {
@@ -62,15 +61,37 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         signOutButton.backgroundColor = UIColor.white
         signOutButton.layer.borderColor = UIColor.black.cgColor
         
-        
         initiateMessageCall()
     }
     
+    @IBAction func openMessageListingButton_Tapped(_ sender: Any)
+    {
+        var constraintConstant:CGFloat = 0.0
+        
+        if self.openMessageListingButton.isSelected == false
+        {
+            constraintConstant = 300.0
+        }
+        
+        UIView.animate(withDuration: 0.35, animations:
+        {
+            self.leadingSpaceConstraintOfRightContainer.constant = constraintConstant
+
+            self.openMessageListingButton.isSelected = !self.openMessageListingButton.isSelected
+            
+            //self.messageViewContainer.setNeedsLayout()
+            
+            //self.messageViewContainer.layoutIfNeeded()
+
+        }) { (completed:Bool) in
+            
+        }
+    }
+
     @IBAction func signOut_Tapped(_ sender: Any) {
         
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
     
     @IBAction func refresh_Tapped(_ sender: Any) {
         
