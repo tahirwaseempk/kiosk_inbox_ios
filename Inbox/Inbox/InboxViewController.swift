@@ -11,11 +11,9 @@ import UIKit
 class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     
     var currentConversation:Conversation! = nil
-    
     var isShowActivityIndicator:Bool = false
     
     @IBOutlet weak var signOutButton: UIButton!
-    
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
     @IBOutlet weak var messageNumberLabel: UILabel!
@@ -25,8 +23,9 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var markAllAsRead_Btn: UIButton!
-    
+    @IBOutlet weak var openMessageListingButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var leadingSpaceConstraintOfRightContainer: NSLayoutConstraint!
     
     var messageTableViewDataSource:MessageTableViewDataSource? = nil
     var inboxTableViewDataSource:InboxTableViewDataSource? = nil
@@ -66,11 +65,26 @@ class InboxViewController: UIViewController, InboxTableViewCellProtocol {
         initiateMessageCall()
     }
     
+    @IBAction func openMessageListingButton_Tapped(_ sender: Any)
+    {
+        if openMessageListingButton.isSelected == false
+        {
+            leadingSpaceConstraintOfRightContainer.constant = 300
+            
+            openMessageListingButton.isSelected = true
+        }
+        else
+        {
+            leadingSpaceConstraintOfRightContainer.constant = 0
+            
+            openMessageListingButton.isSelected = false
+        }
+    }
+
     @IBAction func signOut_Tapped(_ sender: Any) {
         
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
     
     @IBAction func refresh_Tapped(_ sender: Any) {
         
