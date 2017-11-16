@@ -8,14 +8,14 @@
 
 import UIKit
 
-class LoginViewController: UIViewController
+class LoginViewController: UIViewController,UITextFieldDelegate
 {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var rememberMeButton: UIButton!
     @IBOutlet weak var udidTextField: UITextField!
     @IBOutlet weak var serialTextField: UITextField!
-
     @IBOutlet weak var fieldsView: UIView!
+    
     var isAutoLogin:Bool = false
     
     override func viewDidLoad()
@@ -23,9 +23,9 @@ class LoginViewController: UIViewController
         super.viewDidLoad()
         
         let deviceID = UIDevice.current.identifierForVendor!.uuidString
-        
         self.udidTextField.text = deviceID //"323434234"
-//        self.serialTextField.text = "abfc-4f2b"
+
+        self.serialTextField.text = "abfc-4f2b"
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -116,8 +116,8 @@ class LoginViewController: UIViewController
 
 extension LoginViewController {
     
-    func login() {
-        
+    func login()
+    {
         if (self.serialTextField.text?.isEmpty)!
         {
             let alert = UIAlertController(title:"Warning",message:"Please enter serial!",preferredStyle:UIAlertControllerStyle.alert)
@@ -128,6 +128,7 @@ extension LoginViewController {
             
             return
         }
+        
         ProcessingIndicator.show()
         
         User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
@@ -165,5 +166,14 @@ extension LoginViewController {
                     }
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        udidTextField.resignFirstResponder()
+        
+        serialTextField.resignFirstResponder()
+        
+        return true;
     }
 }

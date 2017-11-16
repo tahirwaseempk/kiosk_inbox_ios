@@ -504,7 +504,7 @@ extension InboxViewController
     }
 }
 
-extension InboxViewController:UISearchBarDelegate
+extension InboxViewController:UISearchBarDelegate,UITextFieldDelegate
 {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
@@ -526,4 +526,10 @@ extension InboxViewController:UISearchBarDelegate
         inboxTableViewDataSource?.applySearchFiltersForSearchText(searchText)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        sendTextField.resignFirstResponder()
+        
+        return true;
+    }
 }

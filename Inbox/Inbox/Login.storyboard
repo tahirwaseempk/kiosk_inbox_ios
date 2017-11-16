@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="ipad9_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,31 +20,38 @@
                         <viewControllerLayoutGuide type="bottom" id="rlQ-wI-3gu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1KR-Kx-rii">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2q1-HO-CtZ" userLabel="HeaderView">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="61.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNI-e5-v2F">
-                                        <rect key="frame" x="482" y="0.0" width="60" height="61.5"/>
+                                        <rect key="frame" x="355" y="16" width="59.5" height="66"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="jNI-e5-v2F" firstAttribute="top" secondItem="2q1-HO-CtZ" secondAttribute="top" id="KSR-tp-rvh"/>
+                                    <constraint firstItem="jNI-e5-v2F" firstAttribute="top" secondItem="2q1-HO-CtZ" secondAttribute="top" constant="16" id="KSR-tp-rvh"/>
                                     <constraint firstAttribute="bottom" secondItem="jNI-e5-v2F" secondAttribute="bottom" id="bUe-9e-caH"/>
                                     <constraint firstItem="jNI-e5-v2F" firstAttribute="centerX" secondItem="2q1-HO-CtZ" secondAttribute="centerX" id="nF9-DK-Oed"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqc-HG-a3d" userLabel="ImageHolderView">
-                                <rect key="frame" x="286.5" y="76.5" width="451" height="300.5"/>
+                                <rect key="frame" x="215" y="97" width="338" height="225.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginImage" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-sZ-9AO">
-                                        <rect key="frame" x="0.0" y="0.0" width="451" height="300.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="338" height="225.5"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                     </imageView>
                                 </subviews>
@@ -58,10 +65,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSW-86-ooT" userLabel="FieldsView">
-                                <rect key="frame" x="225.5" y="392" width="573" height="291"/>
+                                <rect key="frame" x="169" y="337.5" width="430" height="273.5"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXS-Mc-sHm">
-                                        <rect key="frame" x="80.5" y="80" width="493" height="59.5"/>
+                                        <rect key="frame" x="80.5" y="80" width="350" height="59.5"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -89,7 +96,7 @@
                                         </variation>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-1D-Vdu">
-                                        <rect key="frame" x="80.5" y="0.0" width="493" height="60"/>
+                                        <rect key="frame" x="80.5" y="0.0" width="350" height="60"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9aq-cJ-uan"/>
@@ -97,7 +104,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="9aq-cJ-uan"/>
@@ -121,22 +128,25 @@
                                                 <include reference="QCh-Qu-oXR"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outlet property="delegate" destination="cFw-t2-fhl" id="aAC-Mz-HEa"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fiv-JL-FTC">
-                                        <rect key="frame" x="80.5" y="159.5" width="41" height="41.5"/>
+                                        <rect key="frame" x="80.5" y="159.5" width="23.5" height="24"/>
                                         <color key="backgroundColor" red="1" green="0.12928691940000001" blue="0.12707211409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Fiv-JL-FTC" secondAttribute="height" multiplier="1:1" id="THW-xm-zgK"/>
                                         </constraints>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T52-Mp-ar0">
-                                        <rect key="frame" x="136.5" y="171.5" width="74" height="18"/>
+                                        <rect key="frame" x="119" y="162.5" width="74" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8K-87-jsy">
-                                        <rect key="frame" x="80.5" y="221" width="493" height="60"/>
+                                        <rect key="frame" x="80.5" y="203.5" width="350" height="60"/>
                                         <color key="backgroundColor" red="0.1450980392" green="0.33333333329999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Login">
@@ -190,7 +200,7 @@
                                     <constraint firstAttribute="bottom" secondItem="x8K-87-jsy" secondAttribute="bottom" constant="10" id="ntZ-Y8-9km"/>
                                     <constraint firstItem="Fiv-JL-FTC" firstAttribute="top" secondItem="KXS-Mc-sHm" secondAttribute="bottom" constant="20" id="qOZ-JP-qNj"/>
                                     <constraint firstItem="x8K-87-jsy" firstAttribute="top" secondItem="Fiv-JL-FTC" secondAttribute="bottom" constant="20" id="uYO-ZL-tC1"/>
-                                    <constraint firstItem="Fiv-JL-FTC" firstAttribute="height" secondItem="KXS-Mc-sHm" secondAttribute="height" multiplier="70%" id="vbu-gr-5Td"/>
+                                    <constraint firstItem="Fiv-JL-FTC" firstAttribute="height" secondItem="KXS-Mc-sHm" secondAttribute="height" multiplier="40%" id="vbu-gr-5Td"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -206,7 +216,7 @@
                             <constraint firstItem="HSW-86-ooT" firstAttribute="top" secondItem="Lqc-HG-a3d" secondAttribute="bottom" constant="15" id="s56-o3-IWW"/>
                             <constraint firstItem="2q1-HO-CtZ" firstAttribute="height" secondItem="1KR-Kx-rii" secondAttribute="height" multiplier="8%" id="uxv-4f-8lw"/>
                             <constraint firstItem="Lqc-HG-a3d" firstAttribute="centerX" secondItem="1KR-Kx-rii" secondAttribute="centerX" id="wFA-IL-HdW"/>
-                            <constraint firstItem="HSW-86-ooT" firstAttribute="width" secondItem="1KR-Kx-rii" secondAttribute="width" multiplier="80%" id="zLf-to-Pha"/>
+                            <constraint firstItem="HSW-86-ooT" firstAttribute="width" secondItem="1KR-Kx-rii" secondAttribute="width" multiplier="90%" id="zLf-to-Pha"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -240,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaO-by-dQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-705.46875" y="-784.5703125"/>
+            <point key="canvasLocation" x="-870" y="-945"/>
         </scene>
     </scenes>
     <resources>
