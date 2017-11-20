@@ -15,9 +15,9 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     var conversations:Array<Conversation> = Array<Conversation>()
     var filteredConversations:Array<Conversation> = Array<Conversation>()
     var selectedConversation:Conversation! = nil
-    var delegate:InboxTableViewCellProtocol
+    var delegate:ConversationListingTableCellProtocol
     
-    init(tableview:UITableView, conversation: NSSet, delegate_:InboxTableViewCellProtocol) {
+    init(tableview:UITableView, conversation: NSSet, delegate_:ConversationListingTableCellProtocol) {
         
         self.targetedTableView = tableview
         

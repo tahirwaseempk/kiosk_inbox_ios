@@ -1,5 +1,5 @@
 //
-//  InboxTableViewCellProtocol.swift
+//  ConversationListingTableCellProtocol.swift
 //  Inbox
 //
 //  Created by Amir Akram on 21/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol InboxTableViewCellProtocol {
+protocol ConversationListingTableCellProtocol {
    
     func conversationSelected(conversation:Conversation) -> Bool
     

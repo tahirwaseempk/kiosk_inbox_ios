@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversationDetailViewController: UIViewController, InboxTableViewCellProtocol {
+class ConversationDetailViewController: UIViewController, ConversationListingTableCellProtocol {
     
     var currentConversation:Conversation! = nil
     var isShowActivityIndicator:Bool = false
@@ -50,7 +50,7 @@ class ConversationDetailViewController: UIViewController, InboxTableViewCellProt
         inboxTableViewDataSource = InboxTableViewDataSource(tableview: inboxTableView, conversation: (User.getLoginedUser()?.conversations)!, delegate_: self)
         
         inboxTableView.dataSource = inboxTableViewDataSource
-        //        inboxTableViewDataSource?.delegate = self as? InboxTableViewCellProtocol
+        //        inboxTableViewDataSource?.delegate = self as? ConversationListingTableCellProtocol
         
         inboxTableView.tableFooterView = UIView()
 

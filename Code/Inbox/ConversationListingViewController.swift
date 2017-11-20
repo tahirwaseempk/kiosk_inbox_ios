@@ -1,82 +1,45 @@
-//
-//  InboxViewController.swift
-//  Inbox
-//
-//  Created by Amir Akram on 21/06/2017.
-//  Copyright © 2017 Amir Akram. All rights reserved.
-//
-
 import UIKit
 
-class HomeViewController: UIViewController, InboxTableViewCellProtocol
+class ConversationListingViewController: UIViewController, ConversationListingTableCellProtocol
 {
-    var currentConversation:Conversation! = nil
-    var isShowActivityIndicator:Bool = false
+    @IBOutlet weak var counterLabel: UILabel!
     
-    @IBOutlet weak var signOutButton: UIButton!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var markAllAsRead_Btn: UIButton!
 
-    var messageTableViewDataSource:MessageTableViewDataSource? = nil
-    var inboxTableViewDataSource:InboxTableViewDataSource? = nil
-    var composeMessageViewController:ComposeMessageViewController!
+    var selectedConversation:Conversation! = nil
+
+    var tableViewDataSource:InboxTableViewDataSource? = nil
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        
+ 
+        self.setupControls()
         
         self.refreshUnReadCount()
         
-        self.userNameLabel.text = User.getLoginedUser()?.serial
-        
-        signOutButton.layer.borderWidth = 1
-        signOutButton.backgroundColor = UIColor.white
-        signOutButton.layer.borderColor = UIColor.black.cgColor
         
         initiateMessageCall()
     }
     
-    
-    func <#name#>(<#parameters#>) -> <#return type#>
+    func setupControls()
     {
-        <#function body#>
+        self.setupTableView()
     }
-    
-    @IBAction func openMessageListingButton_Tapped(_ sender: Any)
+
+    func setupTableView()
     {
-        var constraintConstant:CGFloat = 0.0
+        self.tableViewDataSource = InboxTableViewDataSource(tableview: tableView, conversation: (User.getLoginedUser()?.conversations)!, delegate_: self)
         
-        if self.openMessageListingButton.isSelected == false
-        {
-            constraintConstant = 300.0
-        }
+        self.tableView.dataSource = tableViewDataSource
         
-        UIView.animate(withDuration: 0.35, animations:
-        {
-            self.leadingSpaceConstraintOfRightContainer.constant = constraintConstant
-
-            self.openMessageListingButton.isSelected = !self.openMessageListingButton.isSelected
-            
-            //self.messageViewContainer.setNeedsLayout()
-            
-            //self.messageViewContainer.layoutIfNeeded()
-
-        }) { (completed:Bool) in
-            
-        }
-    }
-
-    @IBAction func signOut_Tapped(_ sender: Any) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
+        self.tableView.tableFooterView = UIView()
     }
     
-    @IBAction func refresh_Tapped(_ sender: Any) {
-        
-        isShowActivityIndicator = true
-        
+    @IBAction func refresh_Tapped(_ sender: Any)
+    {
         self.getConversationUpdate()
     }
     
@@ -90,7 +53,7 @@ class HomeViewController: UIViewController, InboxTableViewCellProtocol
             {
                 DispatchQueue.main.async
                 {
-                    self.inboxTableViewDataSource?.reloadControls()
+                    self.tableViewDataSource?.reloadControls()
                     
                     self.refreshUnReadCount()
                     
@@ -114,153 +77,6 @@ class HomeViewController: UIViewController, InboxTableViewCellProtocol
                 }
             }
         }
-    }
-    
-    @IBAction func createMessage_Tapped(_ sender: Any) {
-        
-        let storyboard = UIStoryboard.init(name: "ComposeMessage", bundle: nil)
-        self.composeMessageViewController = storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController
-        
-        self.view.addSubview(self.composeMessageViewController.view)
-        
-    }
-    
-    @IBAction func optOut_Tapped(_ sender: Any) {
-        
-        if (self.currentConversation == nil) {
-            
-            let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-            
-        } else {
-            ProcessingIndicator.show()
-            
-            User.optOutFromConversation(conversation: self.currentConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                
-                                ProcessingIndicator.hide()
-                                
-                                if status == true {
-                                    
-                                    let alert = UIAlertController(title: "Message", message: "Number has been successfully been opted out.", preferredStyle: UIAlertControllerStyle.alert)
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    self.present(alert, animated: true, completion: nil)
-                                    
-                                }
-                                else if status == false
-                                {
-                                    let alert = UIAlertController(title: "Error", message: "Number failed to opt out from list.", preferredStyle: UIAlertControllerStyle.alert)
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    self.present(alert, animated: true, completion: nil)
-                                }
-                        }
-                }
-            }, andFailureBlock: { (error: Error?) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                ProcessingIndicator.hide()
-                                
-                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                        }
-                }
-            })
-            
-        }
-        
-    }
-    
-    @IBAction func deleteMessage_Tapped(_ sender: Any) {
-        
-        if (self.currentConversation == nil) {
-            
-            let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-            
-        } else {
-            ProcessingIndicator.show()
-            
-            User.deleteLocalConversation(conversation: self.currentConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                
-                                ProcessingIndicator.hide()
-                                
-                                if status == true {
-                                    
-                                    
-                                    self.inboxTableViewDataSource?.loadAfterRemoveConversation()
-
-//                                    let alert = UIAlertController(title: "Message", message: "Conversation has been successfully been deleted.", preferredStyle: UIAlertControllerStyle.alert)
-//                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                                    self.present(alert, animated: true, completion: nil)
-                                    
-                                }
-                                else if status == false
-                                {
-                                    let alert = UIAlertController(title: "Error", message: "Conversation has been failed to be deleted.", preferredStyle: UIAlertControllerStyle.alert)
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    self.present(alert, animated: true, completion: nil)
-                                }
-                        }
-                }
-            }, andFailureBlock: { (error: Error?) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                ProcessingIndicator.hide()
-                                
-                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                        }
-                }
-            })
-            
-        }
-        
-    }
-    
-    @IBAction func sendMessage_Tapped(_ sender: Any) {
-        
-        if (currentConversation == nil) {
-            
-            let alert = UIAlertController(title: "Send Message", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-        }
-        
-        if !((self.sendTextField.text?.isEmpty)!) {
-            ProcessingIndicator.show()
-            
-            _ = self.sendMessageToConversation(conversation: self.currentConversation, message: self.sendTextField.text!)
-            
-        } else {
-            
-            let alert = UIAlertController(title: "Send Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        
     }
     
     func conversationSelected(conversation:Conversation) -> Bool {
@@ -389,7 +205,7 @@ class HomeViewController: UIViewController, InboxTableViewCellProtocol
     }
 }
 
-extension InboxViewController
+extension ConversationListingViewController
 {
     func initiateMessageCall() {
         let dispatchTime = DispatchTime.now() + .seconds(30)
@@ -484,36 +300,10 @@ extension InboxViewController
     }
 }
 
-extension InboxViewController:UISearchBarDelegate,UITextFieldDelegate
+extension ConversationListingViewController
 {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
+    func applySearchFiltersForSearchText(_ text:String)
     {
         
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
-    {
-        
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
-    {
-        // messageTableViewDataSource?.clearMessages(nil)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String)
-    {
-        inboxTableViewDataSource?.applySearchFiltersForSearchText(searchText)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        sendTextField.resignFirstResponder()
-        
-        return true;
     }
 }
