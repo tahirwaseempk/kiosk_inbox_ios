@@ -14,8 +14,6 @@
 		1ADE9F9B1EF98ED9006C2CAC /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */; };
 		1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
 		1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */; };
-		1ADE9FA31EF996A4006C2CAC /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */; };
-		1ADE9FA51EF996AB006C2CAC /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */; };
 		1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FA71EF99D01006C2CAC /* MessageTableViewSenderCell.swift */; };
 		1ADE9FAB1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAA1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib */; };
 		1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
@@ -26,6 +24,12 @@
 		1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
 		1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
 		1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
+		1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
+		1AFB4A581FC32F1E001EC4D5 /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
+		1AFB4A5B1FC32FD1001EC4D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
+		1AFB4A5D1FC32FFD001EC4D5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
+		1AFB4A5F1FC33026001EC4D5 /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
+		1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
 		750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
 		7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
@@ -87,8 +91,6 @@
 		1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
-		1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
 		1ADE9FA71EF99D01006C2CAC /* MessageTableViewSenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewSenderCell.swift; sourceTree = "<group>"; };
 		1ADE9FAA1EF99D5A006C2CAC /* MessageTableViewSenderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewSenderCell.xib; sourceTree = "<group>"; };
 		1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +102,12 @@
 		1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebManager.swift; sourceTree = "<group>"; };
 		1ADE9FBD1EF9AADC006C2CAC /* Inbox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Inbox-Bridging-Header.h"; path = "Inbox/Inbox-Bridging-Header.h"; sourceTree = "<group>"; };
 		1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPrinting.swift; sourceTree = "<group>"; };
+		1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListingViewController.swift; sourceTree = "<group>"; };
+		1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDetailViewController.swift; sourceTree = "<group>"; };
+		1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationListing.storyboard; sourceTree = "<group>"; };
+		1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
 		750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IQButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
 		7518E38E1EFDB01A00EF059F /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
 		7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
@@ -262,16 +270,18 @@
 			children = (
 				1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */,
 				1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */,
-				1ADE9FA11EF99688006C2CAC /* Inbox View */,
+				1AFB4A591FC32FB4001EC4D5 /* Home View */,
+				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
 			);
 			name = "Login  View";
 			sourceTree = "<group>";
 		};
-		1ADE9FA11EF99688006C2CAC /* Inbox View */ = {
+		1ADE9FA11EF99688006C2CAC /* Conversation Listing View */ = {
 			isa = PBXGroup;
 			children = (
-				1ADE9FA21EF996A4006C2CAC /* InboxViewController.swift */,
-				1ADE9FA41EF996AB006C2CAC /* Inbox.storyboard */,
+				1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */,
+				1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */,
+				1AFB4A561FC32EFA001EC4D5 /* Conversation Detail View */,
 				75E7A83F1F4F2E9100E9764C /* ComposeMessage */,
 				1ADE9FB61EF9A589006C2CAC /* Inbox TableView Data Source */,
 				1ADE9FA61EF99BA1006C2CAC /* Inbox Cell */,
@@ -279,7 +289,7 @@
 				1ADE9FB01EF99FED006C2CAC /* Message Receiver Cell */,
 				1ADE9FA91EF99D08006C2CAC /* Message Sender Cell */,
 			);
-			name = "Inbox View";
+			name = "Conversation Listing View";
 			sourceTree = "<group>";
 		};
 		1ADE9FA61EF99BA1006C2CAC /* Inbox Cell */ = {
@@ -324,6 +334,24 @@
 				755C665C1EFADE3200A3F74A /* InboxCellProtocol */,
 			);
 			name = "Inbox TableView Data Source";
+			sourceTree = "<group>";
+		};
+		1AFB4A561FC32EFA001EC4D5 /* Conversation Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */,
+				1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */,
+			);
+			name = "Conversation Detail View";
+			sourceTree = "<group>";
+		};
+		1AFB4A591FC32FB4001EC4D5 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */,
+				1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */,
+			);
+			name = "Home View";
 			sourceTree = "<group>";
 		};
 		7518E38D1EFDAFFA00EF059F /* iBubblesCode */ = {
@@ -509,8 +537,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */,
+				1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */,
 				1ADE9F881EF98E4A006C2CAC /* Assets.xcassets in Resources */,
 				752CE4421F27E24900FCC976 /* IQButtonBarArrowUp@3x.png in Resources */,
+				1AFB4A5D1FC32FFD001EC4D5 /* Home.storyboard in Resources */,
+				1AFB4A5F1FC33026001EC4D5 /* ConversationListing.storyboard in Resources */,
 				752CE43C1F27E24900FCC976 /* IQButtonBarArrowDown@2x.png in Resources */,
 				1ADE9F9B1EF98ED9006C2CAC /* Splash.storyboard in Resources */,
 				1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */,
@@ -523,7 +554,6 @@
 				752CE43D1F27E24900FCC976 /* IQButtonBarArrowDown@3x.png in Resources */,
 				752CE4411F27E24900FCC976 /* IQButtonBarArrowUp@2x.png in Resources */,
 				750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */,
-				1ADE9FA51EF996AB006C2CAC /* Inbox.storyboard in Resources */,
 				1ADE9FB41EF9A012006C2CAC /* MessageTableViewReceiverCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,13 +577,14 @@
 				75F731E31F3899CD00DBDA84 /* Message+CoreDataClass.swift in Sources */,
 				75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */,
 				75F731DF1F3899CD00DBDA84 /* Conversation+CoreDataClass.swift in Sources */,
+				1AFB4A581FC32F1E001EC4D5 /* ConversationDetailViewController.swift in Sources */,
 				752CE44F1F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				752CE4431F27E24900FCC976 /* IQKeyboardManager.swift in Sources */,
-				1ADE9FA31EF996A4006C2CAC /* InboxViewController.swift in Sources */,
 				752CE44E1F27E24900FCC976 /* IQUIView+Hierarchy.swift in Sources */,
 				75F731E61F389B3D00DBDA84 /* CoreDataManager.swift in Sources */,
 				755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
+				1AFB4A5B1FC32FD1001EC4D5 /* HomeViewController.swift in Sources */,
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
 				75F731E21F3899CD00DBDA84 /* User+CoreDataProperties.swift in Sources */,
 				752CE44D1F27E24900FCC976 /* IQUITextFieldView+Additions.swift in Sources */,
@@ -569,6 +600,7 @@
 				752CE4481F27E24900FCC976 /* IQPreviousNextView.swift in Sources */,
 				7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
+				1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */,
 				753CB5B31F4DE21900B73124 /* Checkbox.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				1ADE9FA81EF99D01006C2CAC /* MessageTableViewSenderCell.swift in Sources */,

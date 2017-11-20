@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InboxViewController: UIViewController, InboxTableViewCellProtocol {
+class ConversationDetailViewController: UIViewController, InboxTableViewCellProtocol {
     
     var currentConversation:Conversation! = nil
     var isShowActivityIndicator:Bool = false
