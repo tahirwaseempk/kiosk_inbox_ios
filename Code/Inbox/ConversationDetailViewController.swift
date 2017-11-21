@@ -190,10 +190,28 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         if self.selectedConversation != nil
         {
-            self.messageFromLabel.text =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
-            
-            self.messageNumberLabel.text = self.selectedConversation.mobile
-            
+            if UIDevice.current.userInterfaceIdiom == .pad
+            {
+                self.messageFromLabel.text =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+                
+                self.messageNumberLabel.text = self.selectedConversation.mobile
+            }
+            else
+            {
+                if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
+                {
+                    self.messageFromLabel.text =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+                    
+                    self.messageNumberLabel.text = self.selectedConversation.mobile
+                }
+                else
+                {
+                    self.messageFromLabel.text =   self.selectedConversation.mobile
+                    
+                    self.messageNumberLabel.text = ""
+                }
+            }
+                        
             self.shortCodeLabel.text = self.selectedConversation.shortcodeDisplay
         }
         else

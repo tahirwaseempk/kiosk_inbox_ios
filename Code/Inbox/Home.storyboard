@@ -66,7 +66,7 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-TJ-d6L">
-                                        <rect key="frame" x="291.5" y="22" width="20" height="19.5"/>
+                                        <rect key="frame" x="292" y="22" width="19.5" height="19.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aWK-TJ-d6L" secondAttribute="height" multiplier="1:1" id="5hm-8V-Ud2"/>
@@ -95,7 +95,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7y-PG-Sxx">
-                                        <rect key="frame" x="283" y="0.0" width="8" height="43"/>
+                                        <rect key="frame" x="283" y="0.0" width="8.5" height="43"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
