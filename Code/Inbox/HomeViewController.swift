@@ -55,6 +55,8 @@ class HomeViewController: UIViewController
         
         self.conversationListingViewController = storyboard.instantiateViewController(withIdentifier: "ConversationListingViewController") as! ConversationListingViewController
         
+        self.conversationListingViewController.delegate = self
+        
         self.conversationListingContainer.addSubview(self.conversationListingViewController.view)
         
         self.conversationListingViewController.view.frame = self.conversationListingContainer.bounds
@@ -70,6 +72,8 @@ class HomeViewController: UIViewController
             
             self.conversationDetailViewController = storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as! ConversationDetailViewController
             
+            self.conversationDetailViewController.delegate = self
+
             self.conversationDetailContainer.addSubview(self.conversationDetailViewController.view)
             
             self.conversationDetailViewController.view.frame = self.conversationDetailContainer.bounds
@@ -125,5 +129,45 @@ extension HomeViewController:UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String)
     {
         self.conversationListingViewController.applySearchFiltersForSearchText(searchText)
+    }
+}
+
+
+extension HomeViewController:ConversationListingViewControllerProtocol
+{
+    func conversationSelected(conversation:Conversation?) -> Bool
+    {
+        self.selectedConversation = conversation
+        
+        if UIDevice.current.userInterfaceIdiom == .pad
+        {
+            _ = self.conversationDetailViewController.conversationSelected(conversation: self.selectedConversation)
+        }
+        else
+        {
+            if conversation != nil
+            {
+                let storyboard = UIStoryboard.init(name: "ConversationDetail", bundle: nil)
+                
+                self.conversationDetailViewController = storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as! ConversationDetailViewController
+                
+                self.conversationDetailViewController.delegate = self
+               
+               
+                self.conversationDetailViewController.selectedConversation = conversation
+           
+                self.conversationListingViewController.navigationController?.pushViewController(self.conversationDetailViewController, animated: true)
+            }
+        }
+        
+        return true
+    }
+}
+
+extension HomeViewController:ConversationDetailViewControllerProtocol
+{
+    func conversationRemoved()
+    {
+        self.conversationListingViewController.conversartionRemoved()
     }
 }

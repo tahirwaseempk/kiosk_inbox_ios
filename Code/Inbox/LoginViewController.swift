@@ -136,17 +136,17 @@ extension LoginViewController {
             DispatchQueue.global(qos: .background).async
                 {
                     DispatchQueue.main.async
-                        {
+                    {
                             
                             ProcessingIndicator.hide()
                             
-                            let inboxStoryboard = UIStoryboard(name:"Inbox", bundle: nil)
+                            let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
                             
-                            let inboxViewController: InboxViewController = inboxStoryboard.instantiateViewController(withIdentifier: "InboxViewController")as! InboxViewController
+                            let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
                             
                             // inboxViewController.userNameLabel.text = self.serialTextField.text
                             
-                            self.navigationController?.pushViewController(inboxViewController, animated: true)
+                            self.navigationController?.pushViewController(homeViewController, animated: true)
                     }
             }
             

@@ -1,6 +1,6 @@
-import UIKit
+import Foundation
 
-protocol ConversationListingTableCellProtocol
+protocol ConversationListingViewControllerProtocol
 {
     func conversationSelected(conversation:Conversation?) -> Bool
 }

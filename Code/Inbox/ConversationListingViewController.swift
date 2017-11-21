@@ -12,6 +12,8 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
 
     var tableViewDataSource:InboxTableViewDataSource? = nil
     
+    var delegate:ConversationListingViewControllerProtocol? = nil
+    
     let shouldShowSpinnyForAutoRefreshCall = false
     
     override func viewDidLoad()
@@ -22,7 +24,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
         self.refreshUnReadCount()
         
-        initiateMessageCall()
+        self.initiateMessageCall()
     }
     
     func setupControls()
@@ -80,7 +82,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         }
     }
     
-    func conversationSelected(conversation:Conversation) -> Bool
+    func conversationSelected(conversation:Conversation?) -> Bool
     {
         self.selectedConversation = conversation
 
@@ -102,12 +104,14 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                                 {
                                     ProcessingIndicator.hide()
                                     
-                                    if conversation.isRead == true
+                                    if conversation?.isRead == true
                                     {
-                                        conversation.isRead = false
+                                        conversation?.isRead = false
                                         
                                         self.conversationListUpdated()
                                     }
+                                    
+                                    self.selectedConversationUpdated()
                                 }
                             }
                             
@@ -119,15 +123,23 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                                 {
                                     ProcessingIndicator.hide()
                                     
-                                    if conversation.isRead == true
+                                    if conversation?.isRead == true
                                     {
-                                        conversation.isRead = false
+                                        conversation?.isRead = false
                                         
                                         self.conversationListUpdated()
                                     }
+                                    
+                                    self.selectedConversationUpdated()
                                 }
                             }
                         })
+                    }
+                    else
+                    {
+                        ProcessingIndicator.hide()
+                        
+                        self.selectedConversationUpdated()
                     }
                 }
             }
@@ -138,13 +150,17 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
             {
                 DispatchQueue.main.async
                 {
-                        ProcessingIndicator.hide()
-                        
-                        _ = (self.messageTableViewDataSource?.loadConversation(conversation_: self.currentConversation))!
-                        
-                        let alert = UIAlertController(title: "ERROR", message: "Could not load conversation.", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+                    ProcessingIndicator.hide()
+
+                    self.selectedConversation = nil
+                    
+                    self.selectedConversationUpdated()
+
+                    let alert = UIAlertController(title: "ERROR", message: "Could not load conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
@@ -237,22 +253,32 @@ extension ConversationListingViewController
 {
     func conversationListUpdated()
     {
-        //self.inboxTableViewDataSource?.reloadControls()
-
-        self.selectedConversationUpdated()
+        self.tableViewDataSource?.reloadControls()
         
         self.refreshUnReadCount()
     }
     
     func selectedConversationUpdated()
     {
-        //self.inboxTableViewDataSource?.reloadControls()
+        self.conversationListUpdated()
+        
+        if let delegate = self.delegate
+        {
+            _ = delegate.conversationSelected(conversation: self.selectedConversation)
+        }
+    }
+
+    func conversartionRemoved()
+    {
+        self.tableViewDataSource?.loadAfterRemoveConversation()
         
         self.refreshUnReadCount()
     }
-
+    
     func applySearchFiltersForSearchText(_ text:String)
     {
+        self.tableViewDataSource?.applySearchFiltersForSearchText(text)
         
+        self.refreshUnReadCount()
     }
 }

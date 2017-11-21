@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
+		046560BF1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
 		04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
 		04EC9FBA1FC373C500F3C42A /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
 		04EC9FBB1FC373C500F3C42A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
@@ -78,6 +80,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailViewControllerProtocol.swift; sourceTree = "<group>"; };
+		046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListingViewControllerProtocol.swift; sourceTree = "<group>"; };
 		04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -167,6 +171,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046560BA1FC4B1AD0010B037 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		046560BD1FC4B3CD0010B037 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +309,7 @@
 			children = (
 				1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */,
 				1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */,
+				046560BD1FC4B3CD0010B037 /* Protocol */,
 				1ADE9FB61EF9A589006C2CAC /* TableView Data Source */,
 				1AFB4A561FC32EFA001EC4D5 /* Conversation Detail View */,
 				75E7A83F1F4F2E9100E9764C /* ComposeMessage */,
@@ -328,6 +349,7 @@
 			children = (
 				1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */,
 				1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */,
+				046560BA1FC4B1AD0010B037 /* Protocol */,
 				1ADE9FB51EF9A57B006C2CAC /* TableView Data Source */,
 			);
 			name = "Conversation Detail View";
@@ -566,6 +588,7 @@
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AFB4A5B1FC32FD1001EC4D5 /* HomeViewController.swift in Sources */,
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
+				046560BF1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift in Sources */,
 				752CE44D1F27E24900FCC976 /* IQUITextFieldView+Additions.swift in Sources */,
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
@@ -579,6 +602,7 @@
 				04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */,
 				7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */,
 				04EC9FC01FC373D200F3C42A /* Checkbox.swift in Sources */,
+				046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
 				04EC9FBB1FC373C500F3C42A /* User+CoreDataClass.swift in Sources */,
 				1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */,
