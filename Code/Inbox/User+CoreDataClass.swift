@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 public class User: NSManagedObject {
     
     static func create(context: NSManagedObjectContext, serial:String,uuid:String,isRemember:Bool) -> User
@@ -84,7 +83,6 @@ extension User {
         var paramsDic = Dictionary<String, Any>()
         
         paramsDic["serial"] = serial
-        
         paramsDic["uuid"] = uuid
         
         WebManager.requestLogin(params: paramsDic, loginParser: LoginParser(), completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
@@ -95,7 +93,7 @@ extension User {
                     DispatchQueue.main.async
                         {
                             
-                        let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
+                            let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
                             
                             User.loginedUser = user
                             
@@ -112,13 +110,39 @@ extension User {
             
         }) { (error: Error?) -> (Void) in
             
-//            if let status = response?["err"] as? String
-//            {
-//                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-//
-//            }
+            //            if let status = response?["err"] as? String
+            //            {
+            //                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+            //
+            //            }
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
-
+            
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func registerUserAPNS(serial:String, uuid:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        var paramsDic = Dictionary<String, Any>()
+        let defaults = UserDefaults.standard
+        paramsDic["serial"] = serial
+        paramsDic["uuid"] = uuid
+        paramsDic["token"] = defaults.string(forKey: "DeviceToken")
+        paramsDic["type"] = "Inbox"
+        
+        WebManager.registerAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            successBlock(true)
+                    }
+            }
+            
+        }) { (error: Error?) -> (Void) in
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+            
         }
     }
     //************************************************************************************************//
@@ -150,7 +174,7 @@ extension User {
                                 print(user.conversations!)
                                 
                                 print("SERVER = ",conversations!)
-
+                                
                                 for case let savedConversation as Conversation in user.conversations!
                                 {
                                     var isFound = false
@@ -168,7 +192,7 @@ extension User {
                                     if isFound == false
                                     {
                                         savedConversation.user = nil
-
+                                        
                                         //user.removeFromConversations(savedConversation)
                                         
                                         //savedConversation.managedObjectContext?.delete(savedConversation)
@@ -184,7 +208,7 @@ extension User {
                                     
                                     //failureBlock(error)
                                 }
-
+                                
                                 successBlock(user.conversations?.allObjects as? Array<Conversation>)
                         }
                 }
@@ -323,8 +347,8 @@ extension User {
                 {
                     //split status into two parts. OK,1761705481
                     let splitString = status.components(separatedBy: ",")
-
-
+                    
+                    
                     if (String(splitString[0]) == "OK") {
                         
                         var msgDate = Date()
@@ -338,7 +362,7 @@ extension User {
                                 DispatchQueue.main.async
                                     {
                                         let msgID: Int64 = Int64(splitString[1])!
-
+                                        
                                         let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
                                         conversation.addToMessages(message)
@@ -406,11 +430,11 @@ extension User {
                     } else {
                         failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
                     }
-                        /////////////////////////////////////////////////////////////////////////////
-                        /////////////////////////////////////////////////////////////////////////////
-                        /////////////////////////////////////////////////////////////////////////////
-                        /////////////////////////////////////////////////////////////////////////////
-                        /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
                     
                 }
                 else if let status = response?["err"] as? String
@@ -510,31 +534,31 @@ extension User {
                     WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                         
                         DispatchQueue.global(qos: .background).async
-                        {
-                            DispatchQueue.main.async
                             {
-                                if let status = response?["status"] as? String
-                                {
-                                    if (status == "OK")
+                                DispatchQueue.main.async
                                     {
-                                        conversation.isRead = false
-
-                                        User.setReadAllConversations(conversations: conversations, index: index + 1, completionBlockSuccess: successBlock, andFailureBlock: failureBlock)
-                                    }
-                                    else
-                                    {
-                                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-                                    }
-                                    
-                                } else if let status = response?["err"] as? String
-                                {
-                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                        if let status = response?["status"] as? String
+                                        {
+                                            if (status == "OK")
+                                            {
+                                                conversation.isRead = false
+                                                
+                                                User.setReadAllConversations(conversations: conversations, index: index + 1, completionBlockSuccess: successBlock, andFailureBlock: failureBlock)
+                                            }
+                                            else
+                                            {
+                                                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                            }
+                                            
+                                        } else if let status = response?["err"] as? String
+                                        {
+                                            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                        }
+                                        else
+                                        {
+                                            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:"Unable to mark all conversations as read due connectivity issue"]))
+                                        }
                                 }
-                                else
-                                {
-                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:"Unable to mark all conversations as read due connectivity issue"]))
-                                }
-                            }
                         }
                         
                     }, andFailureBlock: { (error:Error?) -> (Void) in
@@ -552,7 +576,7 @@ extension User {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
@@ -620,4 +644,4 @@ extension User {
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-} 
+}

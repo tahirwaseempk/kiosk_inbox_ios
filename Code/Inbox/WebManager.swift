@@ -4,6 +4,11 @@ import Foundation
 let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
+let APNS_URL = "https://mcpn.us/limeApi?ev=kioskAddToken&serial="
+let APNS_URL_UDID = "&uuid="
+let APNS_URL_TYPE = "&type="
+let APNS_URL_TOKEN = "&token="
+
 let OPTOUT_URL_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&serial="
 let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
 let OPTOUT_URL_UUID = "&uuid="
@@ -67,7 +72,7 @@ class WebManager: NSObject
             if (error == nil)
             {
                 let dictionary = loginParser.parseUser(json:response as! Dictionary<String, Any>)
-            
+                
                 if (response?["err"] as? String) != nil
                 {
                     failureBlock(error)
@@ -79,6 +84,34 @@ class WebManager: NSObject
             {
                 failureBlock(error)
             }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func registerAPNS(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let serial:String = params["serial"] as! String
+        let uuid:String   = params["uuid"] as! String
+        let token:String  = params["token"] as! String
+        let type:String   = params["type"] as! String
+        
+        let finalUrl = APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + token
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary<String, Any>)
+                
+            } else {
+                
+                failureBlock(error)
+            }
+            
         })
     }
     //************************************************************************************************//
@@ -124,7 +157,7 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let mobile:String = params["mobile"] as! String
         //let mobile_ = removeSpecialCharsFromString(mobile)
-    
+        
         let finalUrl =  OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
@@ -151,7 +184,7 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
-
+        
         let finalUrl =  DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
@@ -178,7 +211,7 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         let mobile_ = removeSpecialCharsFromString(mobile)
-
+        
         let finalUrl = READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
@@ -214,8 +247,8 @@ class WebManager: NSObject
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
-                        {
-                            successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
+                            {
+                                successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
                         }
                 }
                 
@@ -414,3 +447,4 @@ class WebManager: NSObject
 //------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------//
 //************************************************************************************************//
+

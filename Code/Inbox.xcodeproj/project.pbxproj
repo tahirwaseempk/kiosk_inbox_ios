@@ -149,6 +149,7 @@
 		754085FE1F16743000CDB81F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		755C665A1EFA897800A3F74A /* MessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesParser.swift; sourceTree = "<group>"; };
 		755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCellProtocol.swift; sourceTree = "<group>"; };
+		759C5BCE1FC5F1F4007889E7 /* Inbox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Inbox.entitlements; path = Inbox/Inbox.entitlements; sourceTree = "<group>"; };
 		75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationParser.swift; sourceTree = "<group>"; };
 		75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginParser.swift; sourceTree = "<group>"; };
 		75E35F0F1F05853500B96018 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		1ADE9F711EF98E46006C2CAC = {
 			isa = PBXGroup;
 			children = (
+				759C5BCE1FC5F1F4007889E7 /* Inbox.entitlements */,
 				1ADE9F7C1EF98E48006C2CAC /* Classes */,
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
@@ -513,8 +515,14 @@
 				TargetAttributes = {
 					1ADE9F791EF98E48006C2CAC = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = QVXCPBF3VF;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -744,17 +752,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QVXCPBF3VF;
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netsol.amir;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5941e010-b417-4b57-be04-2231c698fb06";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -768,17 +777,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MBBA, LLC (QVXCPBF3VF)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QVXCPBF3VF;
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netsol.amir;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5941e010-b417-4b57-be04-2231c698fb06";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;
