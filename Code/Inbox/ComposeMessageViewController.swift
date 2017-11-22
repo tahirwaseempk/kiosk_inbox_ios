@@ -19,6 +19,8 @@ class ComposeMessageViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    var delegate : ComposeMessageProtocol? = nil
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -175,11 +177,15 @@ extension ComposeMessageViewController {
                         {
                             if status == true {
                                 
-                                ProcessingIndicator.hide()
                                 self.hideComposeMessageView()
                                 
                                 self.mobileTextField.text = ""
                                 self.messageTextView.text = ""
+                                
+                                if let delegate = self.delegate
+                                {
+                                    delegate.newMessageAdded()
+                                }
                             }
                             else
                             {

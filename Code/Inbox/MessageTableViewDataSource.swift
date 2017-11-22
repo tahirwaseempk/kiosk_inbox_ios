@@ -12,7 +12,7 @@ import UIKit
 class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSource {
     
     let targetedTableView: UITableView
-    var selectedConversation:Conversation! = nil
+    var selectedConversation:Conversation? = nil
     var chatCell:ChatTableViewCell!
     var chatCellSettings:ChatCellSettings!
     var messages:Array<Message> = Array<Message>()
@@ -64,7 +64,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         if self.selectedConversation != nil{
             
-            messages = selectedConversation.messages?.allObjects as! Array<Message>
+            messages = selectedConversation?.messages?.allObjects as! Array<Message>
             
             messages = messages.sorted(by: { (mesage1, message2) -> Bool in
                 
@@ -81,9 +81,13 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
                     return false
                 }
             })
-            
-            self.targetedTableView.reloadData()
         }
+        else
+        {
+            messages.removeAll()
+        }
+        
+        self.targetedTableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -94,7 +98,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         guard (self.selectedConversation == nil) else {
-            return (self.selectedConversation.messages!.count)
+            return (self.selectedConversation!.messages!.count)
         }
         return 0
     }
@@ -177,14 +181,20 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
     }
     
-    func loadConversation(conversation_: Conversation) -> Bool {
+    func loadConversation(conversation_: Conversation?) -> Bool {
         
         self.selectedConversation = conversation_;
         //        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
         self.reloadControls()
-        let rowCount = self.selectedConversation?.messages?.count
         
-        if rowCount!>0 {
+        var rowCount = 0
+        
+        if self.selectedConversation != nil
+        {
+            rowCount = (self.selectedConversation?.messages?.count)!
+        }
+        
+        if rowCount > 0 {
             let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
             self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         }

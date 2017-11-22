@@ -91,6 +91,8 @@ class HomeViewController: UIViewController
         
         self.composeMessageViewController = storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController
         
+        self.composeMessageViewController.delegate  = self
+        
         self.view.addSubview(self.composeMessageViewController.view)
     }
 }
@@ -169,5 +171,13 @@ extension HomeViewController:ConversationDetailViewControllerProtocol
     func conversationRemoved()
     {
         self.conversationListingViewController.conversartionRemoved()
+    }
+}
+
+extension HomeViewController: ComposeMessageProtocol
+{
+    func newMessageAdded()
+    {
+        self.conversationListingViewController.getConversationUpdate()
     }
 }

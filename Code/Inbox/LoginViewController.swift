@@ -31,7 +31,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
         self.udidTextField.isEnabled = false
-
+        self.serialTextField.delegate = self
+        
 //        self.rememberMeButton.setImage(UIImage(named: "check-box"), for: .selected)
 //        self.rememberMeButton.setImage(UIImage(named: "check-box-outline"), for: .normal)
    
@@ -177,3 +178,45 @@ extension LoginViewController {
         return true;
     }
 }
+
+
+extension LoginViewController {
+    
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        if textField == serialTextField{
+            
+            return checkEnglishPhoneNumberFormat(string: string, str: str)
+            
+        } else {
+            
+            return true
+        }
+    }
+    
+    func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
+        
+        if string == ""{ //BackSpace
+            
+            return true
+            
+        }else if str!.characters.count == 5 {
+            
+//            if str!.characters.count == 1{
+            
+                serialTextField.text = serialTextField.text! + "-"
+//            }
+            
+        }else if str!.characters.count > 9{
+            
+            return false
+
+        }
+        
+        return true
+    }
+}
+

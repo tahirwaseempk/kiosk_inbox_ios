@@ -270,10 +270,43 @@ extension ConversationListingViewController
 
     func conversartionRemoved()
     {
-        self.tableViewDataSource?.loadAfterRemoveConversation()
-        
-        self.refreshUnReadCount()
-    }
+      //BLOCK TO GET THE CONVERSATIONS AGAIN
+        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            self.conversationListUpdated()
+                            self.tableViewDataSource?.loadAfterRemoveConversation()
+                            self.refreshUnReadCount()
+                            
+                            self.selectedConversation = nil
+                            
+                            if let delegate = self.delegate
+                            {
+                                _ = delegate.conversationSelected(conversation: self.selectedConversation)
+                            }
+
+                            ProcessingIndicator.hide()
+                    }
+            }
+            
+        }) {(error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                    {
+                        self.tableViewDataSource?.loadAfterRemoveConversation()
+                        
+                        self.refreshUnReadCount()
+
+                        ProcessingIndicator.hide()
+                    }
+            }
+        }
+     }
     
     func applySearchFiltersForSearchText(_ text:String)
     {
@@ -282,3 +315,5 @@ extension ConversationListingViewController
         self.refreshUnReadCount()
     }
 }
+
+

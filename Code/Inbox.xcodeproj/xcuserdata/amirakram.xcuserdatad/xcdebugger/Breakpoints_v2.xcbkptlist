@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Inbox/ConversationDetailViewController.swift"
-            timestampString = "533068910.172686"
+            filePath = "Inbox/HomeViewController.swift"
+            timestampString = "533071732.630934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "conversationSelected(conversation:)"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "newMessageAdded()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

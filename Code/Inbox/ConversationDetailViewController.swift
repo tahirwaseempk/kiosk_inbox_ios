@@ -116,10 +116,12 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                 {
                     DispatchQueue.main.async
                     {
-                        ProcessingIndicator.hide()
+                        
+                        //ProcessingIndicator.hide()
                         
                         if status == true
                         {
+                            
                             if let delegate = self.delegate
                             {
                                 delegate.conversationRemoved()

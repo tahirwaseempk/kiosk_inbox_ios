@@ -71,6 +71,7 @@
 		754085FF1F16743000CDB81F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
 		755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
 		755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */; };
+		759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */; };
 		75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
 		75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
 		75E35F101F05853500B96018 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
@@ -150,6 +151,7 @@
 		755C665A1EFA897800A3F74A /* MessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesParser.swift; sourceTree = "<group>"; };
 		755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCellProtocol.swift; sourceTree = "<group>"; };
 		759C5BCE1FC5F1F4007889E7 /* Inbox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Inbox.entitlements; path = Inbox/Inbox.entitlements; sourceTree = "<group>"; };
+		759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMessageProtocol.swift; sourceTree = "<group>"; };
 		75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationParser.swift; sourceTree = "<group>"; };
 		75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginParser.swift; sourceTree = "<group>"; };
 		75E35F0F1F05853500B96018 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -474,9 +476,18 @@
 			name = InboxCellProtocol;
 			sourceTree = "<group>";
 		};
+		759C5BCF1FC605C7007889E7 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		75E7A83F1F4F2E9100E9764C /* ComposeMessage */ = {
 			isa = PBXGroup;
 			children = (
+				759C5BCF1FC605C7007889E7 /* Protocol */,
 				75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */,
 				75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */,
 			);
@@ -580,6 +591,7 @@
 				752CE4441F27E24900FCC976 /* IQKeyboardManagerConstants.swift in Sources */,
 				752CE44A1F27E24900FCC976 /* IQTitleBarButtonItem.swift in Sources */,
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
+				759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */,
 				752CE4461F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
 				752CE4491F27E24900FCC976 /* IQTextView.swift in Sources */,
