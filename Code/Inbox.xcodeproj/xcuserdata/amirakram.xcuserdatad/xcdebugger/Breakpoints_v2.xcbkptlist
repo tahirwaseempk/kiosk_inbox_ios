@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Inbox/HomeViewController.swift"
-            timestampString = "533071732.630934"
+            filePath = "Inbox/WebManager.swift"
+            timestampString = "533073437.796392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "newMessageAdded()"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "registerAPNS(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

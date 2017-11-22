@@ -128,7 +128,9 @@ extension User {
         let defaults = UserDefaults.standard
         paramsDic["serial"] = serial
         paramsDic["uuid"] = uuid
-        paramsDic["token"] = defaults.string(forKey: "DeviceToken")
+        if let token = defaults.string(forKey: "pushyToken") {
+        paramsDic["token"] = token
+        }
         paramsDic["type"] = "Inbox"
         
         WebManager.registerAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in

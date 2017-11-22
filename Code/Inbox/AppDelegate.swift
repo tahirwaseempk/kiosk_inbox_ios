@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 //import UserNotifications
 
-//import PushySDK
 
 @UIApplicationMain
 
@@ -27,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         //registerForPushNotifications()
         
         IQKeyboardManager.sharedManager().enable = true
-        /*
+        /**/
          // Initialize Pushy SDK
          let pushy = Pushy(UIApplication.shared)
          
@@ -43,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          
          // Persist the device token locally and send it to your backend later
          UserDefaults.standard.set(deviceToken, forKey: "pushyToken")
-         
+         UserDefaults.standard.synchronize()
          // Subscribe the device for PubSub topic(s)
          pushy.subscribe(topic: "news", handler: { (error) in
          // Handle errors
@@ -64,7 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          // You must call this completion handler when you finish processing
          // the notification (after fetching background data, if applicable)
          completionHandler(UIBackgroundFetchResult.newData)
-         })*/
+         })
+         /**/
         return true
     }
     

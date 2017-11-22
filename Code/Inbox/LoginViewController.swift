@@ -134,22 +134,45 @@ extension LoginViewController {
         
         User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
             
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
+            
+            User.registerUserAPNS(serial: self.serialTextField.text!, uuid: self.udidTextField.text!, completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
                     {
-                            
-                            ProcessingIndicator.hide()
-                            
-                            let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
-                            
-                            let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                            
-                            // inboxViewController.userNameLabel.text = self.serialTextField.text
-                            
-                            self.navigationController?.pushViewController(homeViewController, animated: true)
-                    }
-            }
+                        DispatchQueue.main.async
+                            {
+                                //ProcessingIndicator.hide()
+                                
+                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
+                                
+                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
+                                
+                                // inboxViewController.userNameLabel.text = self.serialTextField.text
+                                
+                                self.navigationController?.pushViewController(homeViewController, animated: true)
+                        }
+                }
+                
+            }, andFailureBlock: { (error:Error?) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                //ProcessingIndicator.hide()
+                                
+                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
+                                
+                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
+                                
+                                // inboxViewController.userNameLabel.text = self.serialTextField.text
+                                
+                                self.navigationController?.pushViewController(homeViewController, animated: true)
+                        }
+                }
+
+            })
+
             
         }) { (error:Error?) -> (Void) in
             
