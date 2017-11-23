@@ -97,8 +97,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     @IBAction func rememberMeButton_Tapped(_ sender: Any)
-    {
-        
+    {        
 //        if isAutoLogin == false
 //        {
 //            self.rememberMeButton.isSelected = true

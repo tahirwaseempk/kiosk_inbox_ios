@@ -227,9 +227,7 @@ extension ConversationListingViewController
                 DispatchQueue.main.async
                 {
                     self.conversationListUpdated()
-
                     ProcessingIndicator.hide()
-
                     self.initiateMessageCall()
                 }
             }

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 //import UserNotifications
 
+let PushNotificationName = Notification.Name("PushNotificationRecieved")
 
 @UIApplicationMain
 
@@ -60,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          // Print notification payload data
          print("Received notification: \(data)")
          
+            NotificationCenter.default.post(name: PushNotificationName, object: nil)
          // You must call this completion handler when you finish processing
          // the notification (after fetching background data, if applicable)
          completionHandler(UIBackgroundFetchResult.newData)
@@ -132,5 +134,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     //                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
     //        print("Failed to register: \(error)")
     //    }
+    
+//    func application(
+//        _ application: UIApplication,
+//        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+//        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//
+//
+//    }
 }
 
