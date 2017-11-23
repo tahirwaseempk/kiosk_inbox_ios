@@ -96,10 +96,19 @@ class WebManager: NSObject
         
         let serial:String = params["serial"] as! String
         let uuid:String   = params["uuid"] as! String
-        let token:String  = params["token"] as! String
         let type:String   = params["type"] as! String
+
+        let keyExists = params["token"] != nil
+        var tokenKey:String
+        if keyExists {
+           tokenKey = params["token"] as! String
+        } else {
+            tokenKey = ""
+        }
+
         
-        let finalUrl = APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + token
+        
+        let finalUrl = APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
