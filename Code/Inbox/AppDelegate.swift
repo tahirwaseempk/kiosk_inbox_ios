@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         //registerForPushNotifications()
         
+        application.applicationIconBadgeNumber = 0
+        
         IQKeyboardManager.sharedManager().enable = true
         /**/
          // Initialize Pushy SDK
@@ -33,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          
          // Register the device for push notifications
          pushy.register({ (error, deviceToken) in
+            
+            application.applicationIconBadgeNumber = 0
+
          // Handle registration errors
          if error != nil {
          return print ("Registration failed: \(error!)")
@@ -61,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          // Print notification payload data
          print("Received notification: \(data)")
          
-            NotificationCenter.default.post(name: PushNotificationName, object: nil)
+        NotificationCenter.default.post(name: PushNotificationName, object: nil)
          // You must call this completion handler when you finish processing
          // the notification (after fetching background data, if applicable)
          completionHandler(UIBackgroundFetchResult.newData)
@@ -93,54 +98,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // Saves changes in the application's managed object context before the application terminates.
         CoreDataManager.coreDataManagerSharedInstance.saveContext()
     }
-    
-    //    func registerForPushNotifications() {
-    //        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-    //            (granted, error) in
-    //            print("Permission granted: \(granted)")
-    //
-    //            guard granted else { return }
-    //            self.getNotificationSettings()
-    //        }
-    //    }
-    //
-    //    func getNotificationSettings() {
-    //        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-    //            print("Notification settings: \(settings)")
-    //            guard settings.authorizationStatus == .authorized else { return }
-    //            UIApplication.shared.registerForRemoteNotifications()
-    //        }
-    //    }
-    //
-    //
-    //    func application(_ application: UIApplication,
-    //                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    //        let tokenParts = deviceToken.map { data -> String in
-    //            return String(format: "%02.2hhx", data)
-    //        }
-    //
-    //        let token = tokenParts.joined()
-    //        print("Device Token: \(token)")
-    //
-    //        if token.characters.count>0 {
-    //            let defaults = UserDefaults.standard
-    //            defaults.set(token, forKey: "DeviceToken")
-    //            defaults.synchronize()
-    //        }
-    //
-    //    }
-    //
-    //    func application(_ application: UIApplication,
-    //                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
-    //        print("Failed to register: \(error)")
-    //    }
-    
-//    func application(
-//        _ application: UIApplication,
-//        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-//        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//
-//
-//    }
+    /*
+        func registerForPushNotifications() {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+                (granted, error) in
+                print("Permission granted: \(granted)")
+ 
+                guard granted else { return }
+                self.getNotificationSettings()
+            }
+        }
+ 
+        func getNotificationSettings() {
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                print("Notification settings: \(settings)")
+                guard settings.authorizationStatus == .authorized else { return }
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+ 
+ 
+        func application(_ application: UIApplication,
+                         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+            let tokenParts = deviceToken.map { data -> String in
+                return String(format: "%02.2hhx", data)
+            }
+ 
+            let token = tokenParts.joined()
+            print("Device Token: \(token)")
+ 
+            if token.characters.count>0 {
+                let defaults = UserDefaults.standard
+                defaults.set(token, forKey: "DeviceToken")
+                defaults.synchronize()
+            }
+ 
+        }
+ 
+        func application(_ application: UIApplication,
+                         didFailToRegisterForRemoteNotificationsWithError error: Error) {
+            print("Failed to register: \(error)")
+        }
+ 
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
+
+    }
+ */
 }
 

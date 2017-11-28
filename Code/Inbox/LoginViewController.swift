@@ -140,12 +140,12 @@ extension LoginViewController {
                     {
                         DispatchQueue.main.async
                             {
-                                //ProcessingIndicator.hide()
+                                ProcessingIndicator.hide()
                                 
                                 let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
                                 
                                 let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                                
+
                                 // inboxViewController.userNameLabel.text = self.serialTextField.text
                                 
                                 self.navigationController?.pushViewController(homeViewController, animated: true)
@@ -158,7 +158,7 @@ extension LoginViewController {
                     {
                         DispatchQueue.main.async
                             {
-                                //ProcessingIndicator.hide()
+                                ProcessingIndicator.hide()
                                 
                                 let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
                                 

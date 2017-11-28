@@ -31,7 +31,13 @@ class HomeViewController: UIViewController
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.pushNotificationRecieved), name: PushNotificationName, object: nil)
 
-        self.userNameLabel.text = User.getLoginedUser()?.serial
+        if UIDevice.current.userInterfaceIdiom == .pad        {
+            self.userNameLabel.text = User.getLoginedUser()?.serial
+        }
+        else
+        {
+             self.userNameLabel.text = ""
+        }
 
         self.setupSignoutButton()
         
