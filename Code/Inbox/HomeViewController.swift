@@ -59,11 +59,11 @@ class HomeViewController: UIViewController
     
     func setupSignoutButton()
     {
-        signOutButton.layer.borderWidth = 1
+//        signOutButton.layer.borderWidth = 1
         
         signOutButton.backgroundColor = UIColor.white
         
-        signOutButton.layer.borderColor = UIColor.black.cgColor
+//        signOutButton.layer.borderColor = UIColor.black.cgColor
     }
     
     func setupConversationListingView()
