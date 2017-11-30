@@ -23,9 +23,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         super.viewDidLoad()
         
         let deviceID = UIDevice.current.identifierForVendor!.uuidString
-        self.udidTextField.text = deviceID //"323434234"
-
-        self.serialTextField.text = "abfc-4f2b"
+        self.udidTextField.text = deviceID
+        
+        //        self.serialTextField.text = "abfc-4f2b"
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -33,25 +33,19 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.udidTextField.isEnabled = false
         self.serialTextField.delegate = self
         
-//        self.rememberMeButton.setImage(UIImage(named: "check-box"), for: .selected)
-//        self.rememberMeButton.setImage(UIImage(named: "check-box-outline"), for: .normal)
-   
-     self.rememberMeButton.backgroundColor = UIColor.clear
+        self.rememberMeButton.backgroundColor = UIColor.clear
         
-        let user :User?  = User.getUserFromID(serial_: self.serialTextField.text!)
+        if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
+            print("Auto Login Enabled")
+            if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
+                self.serialTextField.text = (UserDefaults.standard.object(forKey:"serialKey") as? String)
+                login()
+            } else {
+                print("Auto Login not Enabled")
+            }
+        }
         
-        if user?.isRemember == true
-        {
-            isAutoLogin = true
-            //self.rememberMeButton.isSelected = true
-            login()
-        }
-        else {
-            //self.rememberMeButton.isSelected = false
-            isAutoLogin = false
-        }
         self.addCheckboxSubviews()
-
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -65,26 +59,36 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         tickBox.borderStyle = .square
         tickBox.checkmarkStyle = .tick
         tickBox.checkmarkSize = 0.8
-        if isAutoLogin == true {
-            tickBox.isChecked = true
-        } else {
+        
+        if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
+            if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
+                tickBox.isChecked = true
+            } else {
+                tickBox.isChecked = false
+            }
+        }else {
             tickBox.isChecked = false
         }
+        
+        
         tickBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
         self.rememberMeButton.addSubview(tickBox)
     }
     
     // target action example
-     @objc func circleBoxValueChanged(sender: Checkbox) {
+    @objc func circleBoxValueChanged(sender: Checkbox) {
         
         
         if sender.isChecked == true {
-           isAutoLogin = true
+            isAutoLogin = true
         } else {
             isAutoLogin = false
+            UserDefaults.standard.set("", forKey: "serialNumber")
+            UserDefaults.standard.set(false, forKey: "isAutoLogin")
+            UserDefaults.standard.synchronize()
         }
         
-        print("circle box value change: \(sender.isChecked)")
+        //print("circle box value change: \(sender.isChecked)")
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -96,23 +100,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    @IBAction func rememberMeButton_Tapped(_ sender: Any)
-    {        
-//        if isAutoLogin == false
-//        {
-//            self.rememberMeButton.isSelected = true
-//            isAutoLogin = true
-//        }
-//        else {
-//            self.rememberMeButton.isSelected = false
-//            isAutoLogin = false
-//        }
-    }
-    //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //************************************************************************************************//
 }
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//
 
 extension LoginViewController {
     
@@ -140,12 +132,28 @@ extension LoginViewController {
                     {
                         DispatchQueue.main.async
                             {
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                if self.isAutoLogin == true {
+                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "serialKey")
+                                    UserDefaults.standard.set(true, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                    
+                                } else {
+                                    UserDefaults.standard.set("", forKey: "serialKey")
+                                    UserDefaults.standard.set(false, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                }
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
                                 ProcessingIndicator.hide()
                                 
                                 let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
                                 
                                 let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-
+                                
                                 // inboxViewController.userNameLabel.text = self.serialTextField.text
                                 
                                 self.navigationController?.pushViewController(homeViewController, animated: true)
@@ -169,9 +177,9 @@ extension LoginViewController {
                                 self.navigationController?.pushViewController(homeViewController, animated: true)
                         }
                 }
-
+                
             })
-
+            
             
         }) { (error:Error?) -> (Void) in
             
@@ -204,7 +212,7 @@ extension LoginViewController {
 
 extension LoginViewController {
     
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
@@ -227,15 +235,15 @@ extension LoginViewController {
             
         }else if str!.characters.count == 5 {
             
-//            if str!.characters.count == 1{
+            //            if str!.characters.count == 1{
             
-                serialTextField.text = serialTextField.text! + "-"
-//            }
+            serialTextField.text = serialTextField.text! + "-"
+            //            }
             
         }else if str!.characters.count > 9{
             
             return false
-
+            
         }
         
         return true

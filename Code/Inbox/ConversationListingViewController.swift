@@ -14,7 +14,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     var delegate:ConversationListingViewControllerProtocol? = nil
     
-    let shouldShowSpinnyForAutoRefreshCall = false
+    var shouldShowSpinnyForAutoRefreshCall = false
     
     override func viewDidLoad()
     {
@@ -43,6 +43,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     @IBAction func refresh_Tapped(_ sender: Any)
     {
+        shouldShowSpinnyForAutoRefreshCall = true
         self.getConversationUpdate()
     }
     
@@ -215,8 +216,9 @@ extension ConversationListingViewController
     
     func getConversationUpdate()
     {
-        if self.shouldShowSpinnyForAutoRefreshCall == true
+        if shouldShowSpinnyForAutoRefreshCall == true
         {
+            shouldShowSpinnyForAutoRefreshCall = false
             ProcessingIndicator.show()
         }
         

@@ -36,6 +36,9 @@
 		1AFB4A5D1FC32FFD001EC4D5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
 		1AFB4A5F1FC33026001EC4D5 /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
 		1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
+		750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
+		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
+		750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
 		750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
 		7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
@@ -137,6 +140,9 @@
 		1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationListing.storyboard; sourceTree = "<group>"; };
 		1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
+		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewProtocol.swift; sourceTree = "<group>"; };
 		750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IQButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
 		7518E38E1EFDB01A00EF059F /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
 		7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
@@ -349,6 +355,7 @@
 			children = (
 				1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */,
 				1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */,
+				750EFFE31FCF05AE00B38AA5 /* Header View */,
 				046560BD1FC4B3CD0010B037 /* Protocol */,
 				1ADE9FB61EF9A589006C2CAC /* TableView Data Source */,
 				1AFB4A561FC32EFA001EC4D5 /* Conversation Detail View */,
@@ -403,6 +410,24 @@
 				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		750EFFE31FCF05AE00B38AA5 /* Header View */ = {
+			isa = PBXGroup;
+			children = (
+				750EFFE41FCF05E600B38AA5 /* SearchView.swift */,
+				750EFFE61FCF05F200B38AA5 /* SearchView.xib */,
+				750EFFE81FCF07A200B38AA5 /* Protocol */,
+			);
+			path = "Header View";
+			sourceTree = "<group>";
+		};
+		750EFFE81FCF07A200B38AA5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		7518E38D1EFDAFFA00EF059F /* iBubblesCode */ = {
@@ -629,6 +654,7 @@
 				75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */,
 				752CE4401F27E24900FCC976 /* IQButtonBarArrowRight@3x.png in Resources */,
 				752CE43E1F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png in Resources */,
+				750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */,
 				752CE43D1F27E24900FCC976 /* IQButtonBarArrowDown@3x.png in Resources */,
 				752CE4411F27E24900FCC976 /* IQButtonBarArrowUp@2x.png in Resources */,
 				750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */,
@@ -699,11 +725,13 @@
 				759C5BE51FC60C08007889E7 /* PushyKeychain.swift in Sources */,
 				752CE4471F27E24900FCC976 /* IQNSArray+Sort.swift in Sources */,
 				759C5BE91FC60C08007889E7 /* PushyConfig.swift in Sources */,
+				750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
+				750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,8 +872,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "38315649-b2ad-4a53-b60d-7357e83a6054";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
+				PROVISIONING_PROFILE = "03dd1b1b-b60c-4a44-b1fc-fc74f74e5962";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdHocProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -873,8 +901,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "38315649-b2ad-4a53-b60d-7357e83a6054";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
+				PROVISIONING_PROFILE = "03dd1b1b-b60c-4a44-b1fc-fc74f74e5962";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdHocProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;

@@ -29,6 +29,8 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         self.targetedTableView.delegate = self
         self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
         
+        self.targetedTableView.register(UINib(nibName: "SearchView", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchView")
+
         self.applySearchFiltersForSearchText("")
         //self.reloadControls()
     }
@@ -90,6 +92,20 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         return filteredConversations.count
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return 50.0;
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView:SearchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as! SearchView
+        
+        headerView.delegate = self
+        
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier:"InboxTableViewCell",for:indexPath) as! InboxTableViewCell
@@ -133,8 +149,8 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     }
 }
 
-extension InboxTableViewDataSource {
-    
+extension InboxTableViewDataSource:SearchViewProtocol
+{    
     func applySearchFiltersForSearchText(_ text:String)
     {
         conversations = (User.getLoginedUser()?.conversations?.allObjects as? Array<Conversation>)!

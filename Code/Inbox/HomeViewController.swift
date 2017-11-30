@@ -7,17 +7,17 @@ class HomeViewController: UIViewController
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var searchBar: UISearchBar!
-
+    
     @IBOutlet weak var conversationListingContainer: UIView!
     
     @IBOutlet weak var conversationDetailContainer: UIView!
-
+    
     var composeMessageViewController:ComposeMessageViewController!
     
     var conversationListingViewController:ConversationListingViewController!
     
     var conversationDetailViewController:ConversationDetailViewController!
-
+    
     var selectedConversation:Conversation? = nil
     
     override func viewDidLoad()
@@ -30,15 +30,15 @@ class HomeViewController: UIViewController
     func setupControls()
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.pushNotificationRecieved), name: PushNotificationName, object: nil)
-
-        if UIDevice.current.userInterfaceIdiom == .pad        {
+        
+        //if UIDevice.current.userInterfaceIdiom == .pad        {
             self.userNameLabel.text = User.getLoginedUser()?.serial
-        }
-        else
-        {
-             self.userNameLabel.text = ""
-        }
-
+        //}
+        //else
+        //{
+           // self.userNameLabel.text = ""
+        //}
+        
         self.setupSignoutButton()
         
         self.setupSearchbar()
@@ -52,18 +52,16 @@ class HomeViewController: UIViewController
     {
         self.conversationListingViewController.getConversationUpdate()
         
-//        let alert = UIAlertController(title: "Noedtification Receiv", message: "Updaging Inbox List.", preferredStyle: UIAlertControllerStyle.alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
+        //        let alert = UIAlertController(title: "Noedtification Receiv", message: "Updaging Inbox List.", preferredStyle: UIAlertControllerStyle.alert)
+        //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        //        self.present(alert, animated: true, completion: nil)
     }
     
     func setupSignoutButton()
     {
-//        signOutButton.layer.borderWidth = 1
-        
+        //        signOutButton.layer.borderWidth = 1
         signOutButton.backgroundColor = UIColor.white
-        
-//        signOutButton.layer.borderColor = UIColor.black.cgColor
+        //        signOutButton.layer.borderColor = UIColor.black.cgColor
     }
     
     func setupConversationListingView()
@@ -80,7 +78,7 @@ class HomeViewController: UIViewController
         
         self.addChildViewController(self.conversationListingViewController)
     }
-
+    
     func setupConversationDetailView()
     {
         if UIDevice.current.userInterfaceIdiom == .pad
@@ -90,17 +88,17 @@ class HomeViewController: UIViewController
             self.conversationDetailViewController = storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as! ConversationDetailViewController
             
             self.conversationDetailViewController.delegate = self
-
+            
             self.conversationDetailContainer.addSubview(self.conversationDetailViewController.view)
             
             self.conversationDetailViewController.view.frame = self.conversationDetailContainer.bounds
         }
-     }
-
+    }
+    
     @IBAction func signOut_Tapped(_ sender: Any)
     {
         NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
-
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -126,7 +124,7 @@ extension HomeViewController:UISearchBarDelegate
         
         self.searchBar.returnKeyType = .done
     }
-
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
     {
         
@@ -173,10 +171,10 @@ extension HomeViewController:ConversationListingViewControllerProtocol
                 self.conversationDetailViewController = storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as! ConversationDetailViewController
                 
                 self.conversationDetailViewController.delegate = self
-               
-               
+                
+                
                 self.conversationDetailViewController.selectedConversation = conversation
-           
+                
                 self.conversationListingViewController.navigationController?.pushViewController(self.conversationDetailViewController, animated: true)
             }
         }

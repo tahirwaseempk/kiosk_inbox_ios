@@ -26,8 +26,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-EV-VEn" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="mhk-SZ-8Ih">
-                                        <rect key="frame" x="139.5" y="20.5" width="144" height="21.5"/>
+                                    <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="mhk-SZ-8Ih">
+                                        <rect key="frame" x="203.5" y="20.5" width="80" height="21.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="qOf-6H-hLD"/>
                                         </constraints>
@@ -121,7 +121,7 @@
                                     <constraint firstItem="foU-ju-hvW" firstAttribute="width" secondItem="UY8-t8-hK5" secondAttribute="width" id="Yme-94-tSo"/>
                                     <constraint firstItem="Q4j-nY-myW" firstAttribute="height" secondItem="aWK-TJ-d6L" secondAttribute="height" multiplier="1.15" id="be3-Ct-D2P"/>
                                     <constraint firstItem="foU-ju-hvW" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="top" id="daU-Xt-bRi"/>
-                                    <constraint firstItem="mhk-SZ-8Ih" firstAttribute="width" secondItem="aaL-EV-VEn" secondAttribute="width" multiplier="45%" id="f6v-Eh-sq8"/>
+                                    <constraint firstItem="mhk-SZ-8Ih" firstAttribute="width" secondItem="aaL-EV-VEn" secondAttribute="width" multiplier="25%" id="f6v-Eh-sq8"/>
                                     <constraint firstAttribute="trailing" secondItem="UY8-t8-hK5" secondAttribute="trailing" id="feH-96-24K"/>
                                     <constraint firstItem="UY8-t8-hK5" firstAttribute="width" secondItem="aaL-EV-VEn" secondAttribute="height" multiplier="20%" id="goG-eK-yhN"/>
                                     <constraint firstItem="Q4j-nY-myW" firstAttribute="leading" secondItem="foU-ju-hvW" secondAttribute="trailing" id="gxv-EV-Yl4"/>
