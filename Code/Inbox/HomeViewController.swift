@@ -32,11 +32,11 @@ class HomeViewController: UIViewController
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.pushNotificationRecieved), name: PushNotificationName, object: nil)
         
         //if UIDevice.current.userInterfaceIdiom == .pad        {
-            self.userNameLabel.text = User.getLoginedUser()?.serial
+        self.userNameLabel.text = User.getLoginedUser()?.serial
         //}
         //else
         //{
-           // self.userNameLabel.text = ""
+        // self.userNameLabel.text = ""
         //}
         
         self.setupSignoutButton()
@@ -51,10 +51,6 @@ class HomeViewController: UIViewController
     @objc func pushNotificationRecieved()
     {
         self.conversationListingViewController.getConversationUpdate()
-        
-        //        let alert = UIAlertController(title: "Noedtification Receiv", message: "Updaging Inbox List.", preferredStyle: UIAlertControllerStyle.alert)
-        //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        //        self.present(alert, animated: true, completion: nil)
     }
     
     func setupSignoutButton()
@@ -98,7 +94,6 @@ class HomeViewController: UIViewController
     @IBAction func signOut_Tapped(_ sender: Any)
     {
         NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
-        
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -151,7 +146,6 @@ extension HomeViewController:UISearchBarDelegate
     }
 }
 
-
 extension HomeViewController:ConversationListingViewControllerProtocol
 {
     func conversationSelected(conversation:Conversation?) -> Bool
@@ -172,9 +166,7 @@ extension HomeViewController:ConversationListingViewControllerProtocol
                 
                 self.conversationDetailViewController.delegate = self
                 
-                
                 self.conversationDetailViewController.selectedConversation = conversation
-                
                 self.conversationListingViewController.navigationController?.pushViewController(self.conversationDetailViewController, animated: true)
             }
         }

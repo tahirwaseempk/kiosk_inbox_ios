@@ -21,10 +21,12 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         super.viewDidLoad()
  
         self.setupControls()
-        
+
         self.refreshUnReadCount()
         
         self.initiateMessageCall()
+
+
     }
     
     func setupControls()

@@ -155,7 +155,7 @@ extension InboxTableViewDataSource:SearchViewProtocol
     {
         conversations = (User.getLoginedUser()?.conversations?.allObjects as? Array<Conversation>)!
         
-        if text.characters.count > 0
+        if text.count > 0
         {
             filteredConversations = conversations.filter({ (conversation1) -> Bool in
                 

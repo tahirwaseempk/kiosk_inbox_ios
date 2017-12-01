@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  Inbox
-//
-//  Created by Amir Akram on 21/06/2017.
-//  Copyright © 2017 Amir Akram. All rights reserved.
-//
-
 import UIKit
 
 class LoginViewController: UIViewController,UITextFieldDelegate
@@ -25,7 +17,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         let deviceID = UIDevice.current.identifierForVendor!.uuidString
         self.udidTextField.text = deviceID
         
-        //        self.serialTextField.text = "abfc-4f2b"
+        // TEST Accounts 'abfc-4f2b' 'test-1234'
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -75,9 +67,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.rememberMeButton.addSubview(tickBox)
     }
     
-    // target action example
     @objc func circleBoxValueChanged(sender: Checkbox) {
-        
         
         if sender.isChecked == true {
             isAutoLogin = true
@@ -88,7 +78,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             UserDefaults.standard.synchronize()
         }
         
-        //print("circle box value change: \(sender.isChecked)")
+        print("circle box value change: \(sender.isChecked)")
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -151,11 +141,7 @@ extension LoginViewController {
                                 ProcessingIndicator.hide()
                                 
                                 let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
-                                
                                 let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                                
-                                // inboxViewController.userNameLabel.text = self.serialTextField.text
-                                
                                 self.navigationController?.pushViewController(homeViewController, animated: true)
                         }
                 }
@@ -169,11 +155,7 @@ extension LoginViewController {
                                 ProcessingIndicator.hide()
                                 
                                 let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
-                                
                                 let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                                
-                                // inboxViewController.userNameLabel.text = self.serialTextField.text
-                                
                                 self.navigationController?.pushViewController(homeViewController, animated: true)
                         }
                 }
@@ -233,14 +215,11 @@ extension LoginViewController {
             
             return true
             
-        }else if str!.characters.count == 5 {
-            
-            //            if str!.characters.count == 1{
+        }else if str!.count == 5 {
             
             serialTextField.text = serialTextField.text! + "-"
-            //            }
-            
-        }else if str!.characters.count > 9{
+       
+        }else if str!.count > 9 {
             
             return false
             
