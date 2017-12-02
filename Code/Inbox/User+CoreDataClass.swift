@@ -99,6 +99,13 @@ extension User {
                             
                             self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
                                 
+                                DispatchQueue.global(qos: .background).async
+                                {
+                                    DispatchQueue.main.async
+                                    {
+                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                    }
+                                }
                                 //user.conversations?.addingObjects(from:conversations!)
                                 successBlock(user)
                                 
@@ -211,6 +218,9 @@ extension User {
                                     //failureBlock(error)
                                 }
                                 
+                                
+                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
                                 successBlock(user.conversations?.allObjects as? Array<Conversation>)
                         }
                 }
@@ -258,6 +268,8 @@ extension User {
                                     
                                 }
                                 
+                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
                                 // conversation.messages?.addingObjects(from: messages!)
                                 successBlock(messages)
                         }
@@ -368,6 +380,9 @@ extension User {
                                         let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
                                         conversation.addToMessages(message)
+                                        
+                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
                                         successBlock(message)
                                 }
                         }
@@ -570,6 +585,8 @@ extension User {
             }
             else
             {
+                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
                 successBlock(true)
             }
         }
@@ -617,7 +634,8 @@ extension User {
                                             
                                         }
                                         
-                                        
+                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
                                         successBlock(true)
                                         
                                     } else  {
