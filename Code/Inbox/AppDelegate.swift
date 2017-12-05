@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          // Register the device for push notifications
          pushy.register({ (error, deviceToken) in
             
-            application.applicationIconBadgeNumber = 0
+//            application.applicationIconBadgeNumber = 0
 
          // Handle registration errors
          if error != nil {

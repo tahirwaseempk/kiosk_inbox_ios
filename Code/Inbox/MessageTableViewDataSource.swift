@@ -180,23 +180,26 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     {
         
     }
-    
+
     func loadConversation(conversation_: Conversation?) -> Bool {
         
         self.selectedConversation = conversation_;
         //        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
         self.reloadControls()
         
-        var rowCount = 0
+        var rowsCount = 0
         
         if self.selectedConversation != nil
         {
-            rowCount = (self.selectedConversation?.messages?.count)!
+            rowsCount = (self.selectedConversation?.messages?.count)!
         }
         
-        if rowCount > 0 {
-            let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
+        if rowsCount > 0 {
+            let indexPath = IndexPath(row:(rowsCount-1), section: 0)
             self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+//
+//            let scrollPoint = CGPoint(x: 0, y: self.targetedTableView.contentSize.height - self.targetedTableView.frame.size.height)
+//            self.targetedTableView.setContentOffset(scrollPoint, animated: true)
         }
         
         return true
