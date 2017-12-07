@@ -141,11 +141,11 @@ class WebManager: NSObject
             if (error == nil)
             {
                 DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
                     {
-                        DispatchQueue.main.async
-                            {
-                                successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
-                        }
+                        successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
+                    }
                 }
             }
             else

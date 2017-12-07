@@ -76,43 +76,41 @@ public class User: NSManagedObject {
 //------------------------------------------------------------------------------------------------//
 //************************************************************************************************//
 
-extension User {
-    
+extension User
+{
     static func loginWithUser(serial:String, uuid:String, isRemember:Bool, completionBlockSuccess successBlock: @escaping ((User?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         var paramsDic = Dictionary<String, Any>()
-        
         paramsDic["serial"] = serial
         paramsDic["uuid"] = uuid
         
         WebManager.requestLogin(params: paramsDic, loginParser: LoginParser(), completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
             
-            
             DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
                 {
-                    DispatchQueue.main.async
+                    let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
+                    
+                    User.loginedUser = user
+                    
+                    self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
+                        
+                        DispatchQueue.global(qos: .background).async
                         {
-                            
-                            let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
-                            
-                            User.loginedUser = user
-                            
-                            self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
+                            DispatchQueue.main.async
+                            {
+                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
                                 
-                                DispatchQueue.global(qos: .background).async
-                                {
-                                    DispatchQueue.main.async
-                                    {
-                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                    }
-                                }
-                                //user.conversations?.addingObjects(from:conversations!)
                                 successBlock(user)
-                                
-                            }, andFailureBlock: { (error: Error?) -> (Void) in
-                                //
-                            })
-                    }
+                            }
+                        }
+                        
+                    }, andFailureBlock: { (error: Error?) -> (Void) in
+
+                        failureBlock(error)
+                    })
+                }
             }
             
         }) { (error: Error?) -> (Void) in
@@ -170,59 +168,18 @@ extension User {
             WebManager.requestConversations(params:paramsDic, conversationParser: ConversationParser(),completionBlockSuccess:{(conversations:Array<Conversation>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
                     {
-                        DispatchQueue.main.async
-                            {
-                                //user.conversations?.addingObjects(from:conversations!)
-                                
-                                for conversation in conversations!
-                                {
-                                    conversation.user = user
-                                }
-                                
-                                print(user.conversations!)
-                                
-                                print("SERVER = ",conversations!)
-                                
-                                for case let savedConversation as Conversation in user.conversations!
-                                {
-                                    var isFound = false
-                                    
-                                    for conversation in conversations!
-                                    {
-                                        if conversation.conversationId == savedConversation.conversationId
-                                        {
-                                            isFound = true
-                                            
-                                            break
-                                        }
-                                    }
-                                    
-                                    if isFound == false
-                                    {
-                                        savedConversation.user = nil
-                                        
-                                        //user.removeFromConversations(savedConversation)
-                                        
-                                        //savedConversation.managedObjectContext?.delete(savedConversation)
-                                    }
-                                }
-                                
-                                do {
-                                    
-                                    try user.managedObjectContext?.save()
-                                    
-                                }
-                                catch{
-                                    
-                                    //failureBlock(error)
-                                }
-                                
-                                
-                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-
-                                successBlock(user.conversations?.allObjects as? Array<Conversation>)
+                        for conversation in conversations!
+                        {
+                            conversation.user = user
                         }
+                    
+                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
+                        successBlock(user.conversations?.allObjects as? Array<Conversation>)
+                    }
                 }
                 
             }){(error:Error?) -> (Void) in
