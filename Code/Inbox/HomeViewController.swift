@@ -50,7 +50,7 @@ class HomeViewController: UIViewController
     
     @objc func pushNotificationRecieved()
     {
-        self.conversationListingViewController.getConversationUpdate()
+        self.conversationListingViewController.callLastConversationsUpdate()
     }
     
     func setupSignoutButton()
@@ -187,6 +187,6 @@ extension HomeViewController: ComposeMessageProtocol
 {
     func newMessageAdded()
     {
-        self.conversationListingViewController.getConversationUpdate()
+        self.conversationListingViewController.callLastConversationsUpdate()
     }
 }

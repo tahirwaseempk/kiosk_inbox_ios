@@ -14,8 +14,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     var delegate:ConversationListingViewControllerProtocol? = nil
     
-    var shouldShowSpinnyForAutoRefreshCall = false
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -25,8 +23,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         self.refreshUnReadCount()
         
         self.initiateMessageCall()
-
-
     }
     
     func setupControls()
@@ -45,8 +41,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     @IBAction func refresh_Tapped(_ sender: Any)
     {
-        shouldShowSpinnyForAutoRefreshCall = true
-        self.getConversationUpdate()
+        self.callLastConversationsUpdate()
     }
     
     @IBAction func markAllRead_Tapped(_ sender: Any)
@@ -218,12 +213,6 @@ extension ConversationListingViewController
     
     func getConversationUpdate()
     {
-        if shouldShowSpinnyForAutoRefreshCall == true
-        {
-            shouldShowSpinnyForAutoRefreshCall = false
-            ProcessingIndicator.show()
-        }
-        
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
@@ -249,13 +238,47 @@ extension ConversationListingViewController
             }
         }
     }
+    
+    func callLastConversationsUpdate()
+    {
+        ProcessingIndicator.show()
+        
+        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            self.conversationListUpdated()
+                            ProcessingIndicator.hide()
+                    }
+            }
+            
+        }) {(error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                    }
+            }
+        }
+    }
 }
 
 extension ConversationListingViewController
 {
     func conversationListUpdated()
     {
-        self.tableViewDataSource?.reloadControls()
+        if self.tableViewDataSource?.searchView != nil
+        {
+            self.tableViewDataSource?.applySearchFiltersForSearchText((self.tableViewDataSource?.searchView.searchBar.text)!)
+        }
+        else
+        {
+            self.tableViewDataSource?.applySearchFiltersForSearchText("")
+        }
         
         self.refreshUnReadCount()
     }
@@ -313,7 +336,6 @@ extension ConversationListingViewController
     func applySearchFiltersForSearchText(_ text:String)
     {
         self.tableViewDataSource?.applySearchFiltersForSearchText(text)
-        
         self.refreshUnReadCount()
     }
 }

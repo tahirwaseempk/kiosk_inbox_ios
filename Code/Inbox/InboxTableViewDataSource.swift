@@ -16,6 +16,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     var filteredConversations:Array<Conversation> = Array<Conversation>()
     var selectedConversation:Conversation! = nil
     var delegate:ConversationListingTableCellProtocol
+    var searchView:SearchView!
     
     init(tableview:UITableView, conversation: NSSet, delegate_:ConversationListingTableCellProtocol) {
         
@@ -99,11 +100,11 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let headerView:SearchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as! SearchView
+        self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as! SearchView
         
-        headerView.delegate = self
+        self.searchView.delegate = self
         
-        return headerView
+        return self.searchView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
