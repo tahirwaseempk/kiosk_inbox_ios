@@ -4,8 +4,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
 {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var rememberMeButton: UIButton!
-    @IBOutlet weak var udidTextField: UITextField!
-    @IBOutlet weak var serialTextField: UITextField!
+    @IBOutlet weak var udidTextField: UnderlinedTextField!
+    @IBOutlet weak var serialTextField: UnderlinedTextField!
     @IBOutlet weak var fieldsView: UIView!
     
     var isAutoLogin:Bool = false

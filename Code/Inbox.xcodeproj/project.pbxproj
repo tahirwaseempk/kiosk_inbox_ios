@@ -30,6 +30,7 @@
 		1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
 		1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
 		1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
+		1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
 		1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
 		1AFB4A581FC32F1E001EC4D5 /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
 		1AFB4A5B1FC32FD1001EC4D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
@@ -134,6 +135,7 @@
 		1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebManager.swift; sourceTree = "<group>"; };
 		1ADE9FBD1EF9AADC006C2CAC /* Inbox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Inbox-Bridging-Header.h"; path = "Inbox/Inbox-Bridging-Header.h"; sourceTree = "<group>"; };
 		1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPrinting.swift; sourceTree = "<group>"; };
+		1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListingViewController.swift; sourceTree = "<group>"; };
 		1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDetailViewController.swift; sourceTree = "<group>"; };
 		1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				1AF3E5B92018D79D00A5A35F /* Underlined Text Field */,
 				759C5BED1FC60C96007889E7 /* Pushy */,
 				04EC9FB61FC3723700F3C42A /* Checkbox */,
 				752CE4231F27E23300FCC976 /* KeyBoard */,
@@ -389,6 +392,14 @@
 				1ADE9FA61EF99BA1006C2CAC /* Inbox Cell */,
 			);
 			name = "TableView Data Source";
+			sourceTree = "<group>";
+		};
+		1AF3E5B92018D79D00A5A35F /* Underlined Text Field */ = {
+			isa = PBXGroup;
+			children = (
+				1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */,
+			);
+			path = "Underlined Text Field";
 			sourceTree = "<group>";
 		};
 		1AFB4A561FC32EFA001EC4D5 /* Conversation Detail View */ = {
@@ -688,6 +699,7 @@
 				75F731E61F389B3D00DBDA84 /* CoreDataManager.swift in Sources */,
 				755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
+				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
 				759C5BEA1FC60C08007889E7 /* PushyNetworkException.swift in Sources */,
 				1AFB4A5B1FC32FD1001EC4D5 /* HomeViewController.swift in Sources */,
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
