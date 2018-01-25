@@ -213,12 +213,14 @@ extension ConversationListingViewController
     
     func getConversationUpdate()
     {
+        
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
             {
                 DispatchQueue.main.async
                 {
+                    UIApplication.shared.applicationIconBadgeNumber = 0
                     self.conversationListUpdated()
                     ProcessingIndicator.hide()
                     self.initiateMessageCall()
@@ -249,6 +251,7 @@ extension ConversationListingViewController
                 {
                     DispatchQueue.main.async
                         {
+                            UIApplication.shared.applicationIconBadgeNumber = 0
                             self.conversationListUpdated()
                             ProcessingIndicator.hide()
                     }

@@ -50,6 +50,7 @@ class HomeViewController: UIViewController
     
     @objc func pushNotificationRecieved()
     {
+        UIApplication.shared.applicationIconBadgeNumber = 0
         self.conversationListingViewController.callLastConversationsUpdate()
     }
     
