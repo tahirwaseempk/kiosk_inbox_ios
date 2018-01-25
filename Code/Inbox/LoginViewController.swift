@@ -10,6 +10,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     
     var isAutoLogin:Bool = false
     
+    var tickBox:Checkbox? = nil
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -27,6 +29,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         
         self.rememberMeButton.backgroundColor = UIColor.clear
         
+        self.loginButton.clipsToBounds = true
+        
+        self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 8.0
+        
         if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
@@ -42,29 +48,41 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    
+    override func viewDidLayoutSubviews()
+    {
+        super.viewDidLayoutSubviews()
+        
+        if self.tickBox != nil
+        {
+            self.tickBox?.frame = self.rememberMeButton.bounds
+        }
+    }
+    
     func addCheckboxSubviews() {
         
         // tick
-        let tickBox = Checkbox(frame: self.rememberMeButton.bounds)
-        tickBox.borderColor = UIColor.black
-        tickBox.checkmarkColor = UIColor.black
-        tickBox.borderStyle = .square
-        tickBox.checkmarkStyle = .tick
-        tickBox.checkmarkSize = 0.8
+        self.tickBox = Checkbox(frame: self.rememberMeButton.bounds)
+        self.tickBox?.borderColor = UIColor.black
+        self.tickBox?.checkmarkColor = UIColor.black
+        self.tickBox?.borderStyle = .square
+        self.tickBox?.checkmarkStyle = .tick
+        self.tickBox?.checkmarkSize = 0.8
         
         if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
-                tickBox.isChecked = true
+                self.tickBox?.isChecked = true
             } else {
-                tickBox.isChecked = false
+                self.tickBox?.isChecked = false
             }
         }else {
-            tickBox.isChecked = false
+            self.tickBox?.isChecked = false
         }
         
         
-        tickBox.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
-        self.rememberMeButton.addSubview(tickBox)
+        self.tickBox?.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
+        
+        self.rememberMeButton.addSubview(self.tickBox!)
     }
     
     @objc func circleBoxValueChanged(sender: Checkbox) {

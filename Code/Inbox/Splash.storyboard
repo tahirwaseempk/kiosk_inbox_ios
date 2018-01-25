@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eZh-ts-gx1">
-    <device id="ipad9_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eZh-ts-gx1">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,11 +36,11 @@
                         <viewControllerLayoutGuide type="bottom" id="VBw-MV-dU3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rGN-ho-uVo">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-7y-YJZ">
-                                <rect key="frame" x="307" y="179" width="410" height="410"/>
+                                <rect key="frame" x="72" y="128" width="176" height="176"/>
                                 <color key="backgroundColor" red="0.29207086563110352" green="0.56385505199432373" blue="0.88705593347549438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OZq-7y-YJZ" secondAttribute="height" multiplier="1:1" id="ka9-n3-399"/>
@@ -50,8 +50,8 @@
                         <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerX" secondItem="rGN-ho-uVo" secondAttribute="centerX" id="B6g-Ib-mcf"/>
-                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerY" secondItem="rGN-ho-uVo" secondAttribute="centerY" id="p4c-Jf-Pgo"/>
-                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="width" secondItem="rGN-ho-uVo" secondAttribute="width" multiplier="0.4" id="uSA-IY-JZR"/>
+                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerY" secondItem="rGN-ho-uVo" secondAttribute="centerY" multiplier="0.9" id="p4c-Jf-Pgo"/>
+                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="width" secondItem="rGN-ho-uVo" secondAttribute="width" multiplier="0.55" id="uSA-IY-JZR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SgO-Yx-vam"/>
@@ -62,6 +62,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splashImage" width="434" height="362"/>
+        <image name="splashImage" width="384" height="288"/>
     </resources>
 </document>
