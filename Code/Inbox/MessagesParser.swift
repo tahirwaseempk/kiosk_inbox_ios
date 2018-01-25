@@ -54,12 +54,10 @@ class MessagesParser: NSObject {
                 var msgDate = Date()
                 
                 if let dateStr:String = dic["date"] as? String {
-                    if dateStr.characters.count > 0 {
-                        
+                    
+                    if dateStr.count > 0 {
                         let dateFormatter = DateFormatter()
-                        
                         dateFormatter.dateFormat = DATE_FORMATE_STRING
-                        
                         msgDate = dateFormatter.date(from: dateStr)!
                     }
                 }
@@ -75,6 +73,8 @@ class MessagesParser: NSObject {
                 {
                     
                     message?.update(date_:msgDate, message_: dic["message"] as! String, messageId_: dic["id"] as! Int64, mobile_: dic["mobile"] as! String, shortCode_: dic["shortcode"] as! String, isSender_: check, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                 
+                    messages.append(message!)
                 }
                 
             }

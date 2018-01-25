@@ -28,12 +28,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.rememberMeButton.backgroundColor = UIColor.clear
         
         if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
-            print("Auto Login Enabled")
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
+                print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
                 self.serialTextField.text = (UserDefaults.standard.object(forKey:"serialKey") as? String)
                 login()
             } else {
-                print("Auto Login not Enabled")
+                print("########## >>>>>>>>> Auto Login not Enabled <<<<<<<<<< ##########")
             }
         }
         
@@ -127,12 +127,20 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 if self.isAutoLogin == true {
                                     UserDefaults.standard.set(self.serialTextField.text, forKey: "serialKey")
+                                    
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(true, forKey: "isAutoKey")
+                                    
                                     UserDefaults.standard.synchronize()
                                     
                                 } else {
                                     UserDefaults.standard.set("", forKey: "serialKey")
+
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(false, forKey: "isAutoKey")
+
                                     UserDefaults.standard.synchronize()
                                 }
                                 //*******************************************************************//

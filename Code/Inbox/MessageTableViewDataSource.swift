@@ -88,6 +88,16 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         }
         
         self.targetedTableView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+            let numberOfSections = 0//self.targetedTableView.numberOfSections
+            let numberOfRows = self.targetedTableView.numberOfRows(inSection: numberOfSections)
+          
+            if numberOfRows > 0 {
+                let indexPath = IndexPath(row: numberOfRows-1, section: 0)
+                self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -187,42 +197,42 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         //        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
         self.reloadControls()
         
-        var rowsCount = 0
-        
-        if self.selectedConversation != nil
-        {
-            rowsCount = (self.selectedConversation?.messages?.count)!
-        }
-        
-        if rowsCount > 0 {
-            let indexPath = IndexPath(row:(rowsCount-1), section: 0)
-            self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+//        var rowsCount = 0
 //
-//            let scrollPoint = CGPoint(x: 0, y: self.targetedTableView.contentSize.height - self.targetedTableView.frame.size.height)
-//            self.targetedTableView.setContentOffset(scrollPoint, animated: true)
-        }
-        
+//        if self.selectedConversation != nil
+//        {
+//            rowsCount = (self.selectedConversation?.messages?.count)!
+//        }
+//
+//        if rowsCount > 0 {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+//
+//                let indexPath = IndexPath(row: rowsCount-1, section: 0)
+//                self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+//            }
+//        }
+//
         return true
     }
     
-    func addNewMessage(_ message:Message) -> Bool {
-        
-        self.reloadControls()
-        
-        let rowCount = self.selectedConversation?.messages?.count
-        
-        if rowCount!>0 {
-            let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
-            self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        }
-        
-        return true
-    }
+//    func addNewMessage(_ message:Message) -> Bool {
+//
+//        self.reloadControls()
+//
+//        let rowCount = self.selectedConversation?.messages?.count
+//
+//        if rowCount!>0 {
+//            let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
+//            self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+//        }
+//
+//        return true
+//    }
     
-    func clearMessages(_ conversation:Conversation?)
-    {
-        self.selectedConversation = conversation
-        self.targetedTableView.reloadData()
-    }
+//    func clearMessages(_ conversation:Conversation?)
+//    {
+//        self.selectedConversation = conversation
+//        self.targetedTableView.reloadData()
+//    }
 }
 
