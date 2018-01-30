@@ -31,21 +31,22 @@ class ComposeMessageViewController: UIViewController {
         mobileTextField.attributedPlaceholder = NSAttributedString(string:"Mobile Number", attributes:  [NSForegroundColorAttributeName: UIColor.lightGray])
         
         
-        backView.layer.cornerRadius = 15;
+        backView.layer.cornerRadius = 5;
         self.view.addSubview(backView)
         
-        //sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 1
-        //sendButton.layer.borderColor = UIColor.black.cgColor
+        sendButton.layer.cornerRadius = 5
+        sendButton.layer.borderWidth = 2
+        let bordercolor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 236.0/255.0, alpha: 1.0)
+        cancelButton.backgroundColor = UIColor.white
+        sendButton.layer.borderColor = bordercolor.cgColor
         
-        //cancelButton.layer.cornerRadius = 5
+        cancelButton.layer.cornerRadius = 5
         cancelButton.layer.borderWidth = 1
         cancelButton.backgroundColor = UIColor.white
-
-        cancelButton.layer.borderColor = UIColor.black.cgColor
+        cancelButton.layer.borderColor = UIColor.clear.cgColor
         
         messageTextView.delegate = self
-        messageTextView.text = "Please enter message here"
+        messageTextView.text = "Enter your message"
         messageTextView.textColor = UIColor.lightGray
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
         
@@ -68,7 +69,7 @@ class ComposeMessageViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else if ((messageTextView.text == "Please enter message here") ||
-            (messageTextView.text.characters.count == 0)) {
+            (messageTextView.text.count == 0)) {
             
             let alert = UIAlertController(title: "Compose Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -140,22 +141,22 @@ extension ComposeMessageViewController : UITextFieldDelegate {
             
             return true
             
-        }else if str!.characters.count < 3{
+        }else if str!.count < 3{
             
-            if str!.characters.count == 1{
+            if str!.count == 1{
                 
                 mobileTextField.text = "("
             }
             
-        }else if str!.characters.count == 5{
+        }else if str!.count == 5{
             
             mobileTextField.text = mobileTextField.text! + ") "
             
-        }else if str!.characters.count == 10{
+        }else if str!.count == 10{
             
             mobileTextField.text = mobileTextField.text! + "-"
             
-        }else if str!.characters.count > 14{
+        }else if str!.count > 14{
             
             return false
         }
