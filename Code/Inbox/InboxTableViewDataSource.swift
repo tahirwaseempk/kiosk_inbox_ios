@@ -134,7 +134,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         if conversation.isRead == true
         {
-            cell.dotImageView.image = UIImage(named: "redCircle.png")
+            cell.dotImageView.image = UIImage(named: "blackdot.png")
         } else {
             cell.dotImageView.image = nil
             
