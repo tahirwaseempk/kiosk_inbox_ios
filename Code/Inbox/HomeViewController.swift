@@ -31,13 +31,6 @@ class HomeViewController: UIViewController
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.pushNotificationRecieved), name: PushNotificationName, object: nil)
         
-        //if UIDevice.current.userInterfaceIdiom == .pad        {
-        self.userNameLabel.text = User.getLoginedUser()?.serial
-        //}
-        //else
-        //{
-        // self.userNameLabel.text = ""
-        //}
         
         self.setupSignoutButton()
         
@@ -46,6 +39,8 @@ class HomeViewController: UIViewController
         self.setupConversationListingView()
         
         self.setupConversationDetailView()
+        
+        self.refreshUnReadCount()
     }
     
     @objc func pushNotificationRecieved()
@@ -56,9 +51,7 @@ class HomeViewController: UIViewController
     
     func setupSignoutButton()
     {
-        //        signOutButton.layer.borderWidth = 1
-        signOutButton.backgroundColor = UIColor.white
-        //        signOutButton.layer.borderColor = UIColor.black.cgColor
+        
     }
     
     func setupConversationListingView()
@@ -108,6 +101,65 @@ class HomeViewController: UIViewController
         
         self.view.addSubview(self.composeMessageViewController.view)
     }
+    
+    @IBAction func refreshButton_Tapped(_ sender: Any)
+    {
+        self.conversationListingViewController.callLastConversationsUpdate()
+    }
+    
+    @IBAction func searchButton_Tapped(_ sender: Any)
+    {
+        UIView.animate(withDuration: 0.35)
+        {
+            self.searchBar.isHidden = !self.searchBar.isHidden
+            
+            if self.searchBar.isHidden == true
+            {
+                self.searchBar.resignFirstResponder()
+            }
+            else
+            {
+                self.searchBar.becomeFirstResponder()
+            }
+        }
+    }
+    
+    func refreshUnReadCount ()
+    {
+        if UIDevice.current.userInterfaceIdiom == .pad
+        {
+            self.userNameLabel.text = User.getLoginedUser()?.serial
+        }
+        else
+        {
+            self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+        }
+    }
+    
+    func showUnReadConversationCount(_ conversations: NSSet?) -> Int
+    {
+        if conversations == nil
+        {
+            return 0
+        }
+        
+        var arrConversations = conversations?.allObjects as! Array<Conversation>
+        
+        arrConversations = arrConversations.filter({ (conversation1) -> Bool in
+            
+            if (conversation1.isRead == true)
+            {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        })
+        
+        return arrConversations.count
+    }
+    
 }
 
 extension HomeViewController:UISearchBarDelegate
@@ -139,6 +191,8 @@ extension HomeViewController:UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         searchBar.resignFirstResponder()
+        
+        self.searchBar.isHidden = true
     }
     
     func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String)

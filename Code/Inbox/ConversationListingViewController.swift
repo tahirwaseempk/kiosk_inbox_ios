@@ -14,6 +14,8 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     var delegate:ConversationListingViewControllerProtocol? = nil
     
+    @IBOutlet weak var nomessageImage: UIImageView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -274,6 +276,15 @@ extension ConversationListingViewController
 {
     func conversationListUpdated()
     {
+        if (User.getLoginedUser()?.conversations)!.count > 0
+        {
+            self.nomessageImage.isHidden = true
+        }
+        else
+        {
+            self.nomessageImage.isHidden = false
+        }
+        
         if self.tableViewDataSource?.searchView != nil
         {
             self.tableViewDataSource?.applySearchFiltersForSearchText((self.tableViewDataSource?.searchView.searchBar.text)!)

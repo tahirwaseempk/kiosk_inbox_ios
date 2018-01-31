@@ -95,7 +95,12 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-        return 50.0;
+        if UIDevice.current.userInterfaceIdiom == .pad
+        {
+            return 50.0;
+        }
+        
+        return 0.0;
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
