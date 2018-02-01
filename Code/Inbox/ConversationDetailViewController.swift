@@ -7,7 +7,25 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var messageNumberLabel: UILabel!
     @IBOutlet weak var shortCodeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet var closeView: UIView!
+    
+    @IBAction func closeButtonTapped(_ sender: Any)
+    {
+        self.closeView.frame = self.view.bounds
+        
+        self.view.addSubview(self.closeView)
+    }
+    
+    @IBAction func closeViewDismisssButtonTapped(_ sender: Any)
+    {
+        self.closeView.removeFromSuperview()
+    }
+    
+    @IBAction func editContactNameButtonTapped(_ sender: Any)
+    {
+        
+    }
+    
     var delegate:ConversationDetailViewControllerProtocol? = nil
     
     var tableViewDataSource:MessageTableViewDataSource? = nil

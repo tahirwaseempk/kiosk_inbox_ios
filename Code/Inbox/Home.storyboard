@@ -47,7 +47,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-ws-FRy">
-                                        <rect key="frame" x="290" y="18.5" width="22" height="16"/>
+                                        <rect key="frame" x="288" y="18.5" width="24" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" image="SignoutButton">
@@ -76,18 +76,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfs-zV-MbY" userLabel="RefreshButton">
-                                        <rect key="frame" x="204.5" y="18.5" width="27" height="16.5"/>
+                                        <rect key="frame" x="202" y="19" width="16" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Vfs-zV-MbY" secondAttribute="height" multiplier="1:1" id="Ioo-3d-XHx"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" image="RefreshButton">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
-                                        <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
                                         <connections>
                                             <action selector="refreshButton_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="k9P-OM-bKv"/>
@@ -123,7 +120,7 @@
                                     <constraint firstItem="Q4j-nY-myW" firstAttribute="centerX" secondItem="aaL-EV-VEn" secondAttribute="centerX" id="QDU-lc-Kwg"/>
                                     <constraint firstItem="foU-ju-hvW" firstAttribute="leading" secondItem="aaL-EV-VEn" secondAttribute="leading" id="UGr-zM-URa"/>
                                     <constraint firstItem="Fu2-hA-oGe" firstAttribute="top" secondItem="2bl-ws-FRy" secondAttribute="top" id="Uje-FF-A4O"/>
-                                    <constraint firstItem="Vfs-zV-MbY" firstAttribute="leading" secondItem="Q4j-nY-myW" secondAttribute="trailing" constant="8" id="UzE-WL-Zsc"/>
+                                    <constraint firstItem="Vfs-zV-MbY" firstAttribute="leading" secondItem="Q4j-nY-myW" secondAttribute="trailing" constant="5" id="UzE-WL-Zsc"/>
                                     <constraint firstItem="2bl-ws-FRy" firstAttribute="top" secondItem="D5g-k4-TpC" secondAttribute="bottom" id="XfX-XW-ERc"/>
                                     <constraint firstItem="Dud-mu-hA3" firstAttribute="width" secondItem="D5g-k4-TpC" secondAttribute="width" id="YBg-bR-FYL"/>
                                     <constraint firstItem="Dud-mu-hA3" firstAttribute="top" secondItem="2bl-ws-FRy" secondAttribute="bottom" id="YRA-tA-yff"/>
@@ -282,8 +279,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RefreshButton" width="27" height="23"/>
-        <image name="SignoutButton" width="22" height="22"/>
+        <image name="RefreshButton" width="36" height="36"/>
+        <image name="SignoutButton" width="24" height="24"/>
         <image name="compose" width="68" height="68"/>
         <image name="searchIcon" width="24" height="24"/>
     </resources>
