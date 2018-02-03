@@ -11,7 +11,8 @@ import Foundation
 
 class ComposeMessageViewController: UIViewController {
     
-    
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
@@ -51,6 +52,8 @@ class ComposeMessageViewController: UIViewController {
         messageTextView.text = "Enter your message"
         messageTextView.textColor = UIColor.lightGray
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
+        
+        self.inputCharacterCountLabel.text = "Characters Count 0/160"
     }
     
     @IBAction func cancel_Tapped(_ sender: Any) {
@@ -114,11 +117,22 @@ extension ComposeMessageViewController : UITextViewDelegate {
     {
         let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
         
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        
+        let filtered = text.components(separatedBy: cs).joined(separator: "")
+        
+        let isAllowed = (text == filtered)
+        
+        if isAllowed == false
+        {
+            return false
+        }
+        
         let reminingCount = 160 - str.count
         
         if reminingCount >= 0
         {
-            self.inputCharacterCountLabel.text = "Remaining Characters " + String(160-str.count)
+            self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/160"
         }
 
         if str.count > 160
@@ -128,6 +142,8 @@ extension ComposeMessageViewController : UITextViewDelegate {
         
         return true
     }
+    
+    
 }
 
 extension ComposeMessageViewController : UITextFieldDelegate {
