@@ -24,10 +24,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-EV-VEn" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-nY-myW">
-                                        <rect key="frame" x="124.5" y="18" width="72" height="17"/>
+                                        <rect key="frame" x="124.5" y="20.5" width="72" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -39,15 +39,15 @@
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UY8-t8-hK5">
-                                        <rect key="frame" x="311.5" y="0.0" width="8.5" height="43"/>
+                                        <rect key="frame" x="310.5" y="0.0" width="9.5" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foU-ju-hvW">
-                                        <rect key="frame" x="0.0" y="0.0" width="8.5" height="43"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="9.5" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-ws-FRy">
-                                        <rect key="frame" x="288" y="18.5" width="24" height="16"/>
+                                        <rect key="frame" x="287" y="19.5" width="24" height="19"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" image="SignoutButton">
@@ -58,7 +58,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fu2-hA-oGe" userLabel="SearchButton">
-                                        <rect key="frame" x="8.5" y="18.5" width="24" height="16"/>
+                                        <rect key="frame" x="9.5" y="19.5" width="24" height="19"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" image="searchIcon">
@@ -76,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfs-zV-MbY" userLabel="RefreshButton">
-                                        <rect key="frame" x="202" y="19" width="16" height="16"/>
+                                        <rect key="frame" x="202" y="20" width="19" height="19"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Vfs-zV-MbY" secondAttribute="height" multiplier="1:1" id="Ioo-3d-XHx"/>
@@ -91,18 +91,18 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5g-k4-TpC">
-                                        <rect key="frame" x="271.5" y="10" width="40" height="8.5"/>
+                                        <rect key="frame" x="270.5" y="10" width="40" height="9.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="eO8-hz-CQ8"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dud-mu-hA3">
-                                        <rect key="frame" x="271.5" y="34.5" width="40" height="8.5"/>
+                                        <rect key="frame" x="270.5" y="38.5" width="40" height="9.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-p8-Cn7">
-                                        <rect key="frame" x="32" y="19" width="288" height="24"/>
+                                        <rect key="frame" x="33" y="20" width="287" height="18.5"/>
                                         <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
@@ -116,7 +116,6 @@
                                     <constraint firstAttribute="bottom" secondItem="foU-ju-hvW" secondAttribute="bottom" id="INP-rG-gBp"/>
                                     <constraint firstItem="D5g-k4-TpC" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="top" constant="10" id="Mb2-7Z-zee"/>
                                     <constraint firstItem="M8d-p8-Cn7" firstAttribute="leading" secondItem="Fu2-hA-oGe" secondAttribute="trailing" id="McJ-y7-qGb"/>
-                                    <constraint firstAttribute="bottom" secondItem="M8d-p8-Cn7" secondAttribute="bottom" id="Mne-zc-HHJ"/>
                                     <constraint firstItem="Q4j-nY-myW" firstAttribute="centerX" secondItem="aaL-EV-VEn" secondAttribute="centerX" id="QDU-lc-Kwg"/>
                                     <constraint firstItem="foU-ju-hvW" firstAttribute="leading" secondItem="aaL-EV-VEn" secondAttribute="leading" id="UGr-zM-URa"/>
                                     <constraint firstItem="Fu2-hA-oGe" firstAttribute="top" secondItem="2bl-ws-FRy" secondAttribute="top" id="Uje-FF-A4O"/>
@@ -134,6 +133,7 @@
                                     <constraint firstItem="UY8-t8-hK5" firstAttribute="leading" secondItem="Dud-mu-hA3" secondAttribute="trailing" id="jDo-6Y-d9c"/>
                                     <constraint firstItem="UY8-t8-hK5" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="top" id="kvZ-VF-zYB"/>
                                     <constraint firstItem="Vfs-zV-MbY" firstAttribute="top" secondItem="Fu2-hA-oGe" secondAttribute="top" id="p26-Qv-guH"/>
+                                    <constraint firstItem="M8d-p8-Cn7" firstAttribute="bottom" secondItem="Fu2-hA-oGe" secondAttribute="bottom" id="qAV-qa-sDT"/>
                                     <constraint firstItem="Q4j-nY-myW" firstAttribute="centerY" secondItem="2bl-ws-FRy" secondAttribute="centerY" id="qSX-PV-Mr6"/>
                                     <constraint firstAttribute="bottom" secondItem="UY8-t8-hK5" secondAttribute="bottom" id="qVw-d8-sk2"/>
                                     <constraint firstAttribute="trailing" secondItem="M8d-p8-Cn7" secondAttribute="trailing" id="rW1-FY-QaL"/>
@@ -164,10 +164,10 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOR-GB-SQM" userLabel="BodyView">
-                                <rect key="frame" x="0.0" y="43" width="320" height="437"/>
+                                <rect key="frame" x="0.0" y="48" width="320" height="432"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MT2-An-B82">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="437"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="9lr-72-aRc"/>
                                         </constraints>
@@ -183,7 +183,7 @@
                                         </variation>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqw-vv-Nsf">
-                                        <rect key="frame" x="320" y="0.0" width="0.0" height="437"/>
+                                        <rect key="frame" x="320" y="0.0" width="0.0" height="432"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="IMW-IZ-Vsb"/>
                                         </constraints>
@@ -238,7 +238,7 @@
                             <constraint firstItem="nOR-GB-SQM" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="bottom" id="gF8-Eh-pZk"/>
                             <constraint firstItem="aWK-TJ-d6L" firstAttribute="bottom" secondItem="MT2-An-B82" secondAttribute="bottom" constant="-10" id="lfs-Ff-uHW"/>
                             <constraint firstItem="aaL-EV-VEn" firstAttribute="height" secondItem="OC1-1Y-81s" secondAttribute="height" multiplier="8%" id="o3H-CC-1b3"/>
-                            <constraint firstItem="aaL-EV-VEn" firstAttribute="height" secondItem="OC1-1Y-81s" secondAttribute="height" multiplier="9%" id="uqK-kE-fUo"/>
+                            <constraint firstItem="aaL-EV-VEn" firstAttribute="height" secondItem="OC1-1Y-81s" secondAttribute="height" multiplier="10%" id="uqK-kE-fUo"/>
                             <constraint firstItem="nOR-GB-SQM" firstAttribute="leading" secondItem="OC1-1Y-81s" secondAttribute="leading" id="zSs-u1-eeE"/>
                             <constraint firstItem="aWK-TJ-d6L" firstAttribute="width" secondItem="OC1-1Y-81s" secondAttribute="width" multiplier="15%" id="zX5-cL-gXd"/>
                             <constraint firstItem="aaL-EV-VEn" firstAttribute="top" secondItem="OC1-1Y-81s" secondAttribute="top" id="zdi-ow-cfp"/>

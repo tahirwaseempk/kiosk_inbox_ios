@@ -21,11 +21,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.closeView.removeFromSuperview()
     }
     
-    @IBAction func editContactNameButtonTapped(_ sender: Any)
-    {
-        
-    }
-    
     var delegate:ConversationDetailViewControllerProtocol? = nil
     
     var tableViewDataSource:MessageTableViewDataSource? = nil
@@ -220,7 +215,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             {
                 if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
                 {
-                    self.messageFromLabel.text =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+                    self.messageFromLabel.text =  self.selectedConversation.mobile//(self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
                     
                     self.messageNumberLabel.text = self.selectedConversation.mobile
                 }

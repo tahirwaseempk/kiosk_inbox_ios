@@ -19,6 +19,8 @@ class ComposeMessageViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    @IBOutlet weak var inputCharacterCountLabel: UILabel!
+    
     var delegate : ComposeMessageProtocol? = nil
     
     override func viewDidLoad() {
@@ -49,7 +51,6 @@ class ComposeMessageViewController: UIViewController {
         messageTextView.text = "Enter your message"
         messageTextView.textColor = UIColor.lightGray
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
-        
     }
     
     @IBAction func cancel_Tapped(_ sender: Any) {
@@ -109,6 +110,24 @@ extension ComposeMessageViewController : UITextViewDelegate {
         }
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+        
+        let reminingCount = 160 - str.count
+        
+        if reminingCount >= 0
+        {
+            self.inputCharacterCountLabel.text = "Remaining Characters " + String(160-str.count)
+        }
+
+        if str.count > 160
+        {
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension ComposeMessageViewController : UITextFieldDelegate {
@@ -125,16 +144,19 @@ extension ComposeMessageViewController : UITextFieldDelegate {
         
         let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
+        
         if textField == mobileTextField{
             
             return checkEnglishPhoneNumberFormat(string: string, str: str)
             
         } else {
             
+            
             return true
         }
     }
     
+
     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         
         if string == ""{ //BackSpace

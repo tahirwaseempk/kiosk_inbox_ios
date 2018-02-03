@@ -20,6 +20,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     init(tableview:UITableView, conversation: NSSet, delegate_:ConversationListingTableCellProtocol) {
         
+        
         self.targetedTableView = tableview
         
         self.delegate = delegate_
@@ -100,16 +101,19 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             return 50.0;
         }
         
-        return 0.0;
+        return 1.0;
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as! SearchView
+        if UIDevice.current.userInterfaceIdiom == .pad
+        {
+            self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as! SearchView
+            
+            self.searchView.delegate = self
+        }
         
-        self.searchView.delegate = self
-        
-        return self.searchView
+        return UIView()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -119,7 +123,6 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         let conversation:Conversation = filteredConversations [indexPath.row]
         
         cell.selectionStyle = .default
-        
 
         if conversation.lastMessage != nil
         {
