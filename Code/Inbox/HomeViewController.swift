@@ -116,6 +116,7 @@ class HomeViewController: UIViewController
             if self.searchBar.isHidden == true
             {
                 self.searchBar.resignFirstResponder()
+                self.conversationListingViewController.applySearchFiltersForSearchText("")
             }
             else
             {

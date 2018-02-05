@@ -168,7 +168,7 @@ extension InboxTableViewDataSource:SearchViewProtocol
         {
             filteredConversations = conversations.filter({ (conversation1) -> Bool in
                 
-                if ((conversation1.mobile?.contains(text))! || (conversation1.lastMessage?.contains(text))!)
+                if ((conversation1.mobileNumber?.contains(text))! || (conversation1.lastMessage?.contains(text))!)
                 {
                     selectedConversation = nil
                     return true
