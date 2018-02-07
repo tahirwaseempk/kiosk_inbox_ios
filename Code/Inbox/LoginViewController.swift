@@ -235,23 +235,55 @@ extension LoginViewController {
         }
     }
     
+//    func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
+//
+//        if string == ""{ //BackSpace
+//
+//            return true
+//
+//        }else if str!.count == 5 {
+//
+//            serialTextField.text = serialTextField.text! + "-"
+//
+//        }else if str!.count > 9 {
+//
+//            return false
+//
+//        }
+//
+//        return true
+//    }
+
     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         
-        if string == ""{ //BackSpace
+        if string == ""
+        {
+            //BackSpace
+            
+            if str!.count == 4
+            {
+                let truncated = str!.substring(to: str!.index(before: str!.endIndex))
+                
+                serialTextField.text =  truncated
+                
+                return false
+            }
             
             return true
-            
-        }else if str!.count == 5 {
-            
-            serialTextField.text = serialTextField.text! + "-"
-       
-        }else if str!.count > 9 {
+        }
+        else if str!.count == 4
+        {
+            serialTextField.text = serialTextField.text! + string! + "-"
             
             return false
             
+        }else if str!.count > 9 {
+            
+            return false
         }
         
         return true
     }
+    
 }
 

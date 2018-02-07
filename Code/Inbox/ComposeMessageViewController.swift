@@ -108,8 +108,9 @@ extension ComposeMessageViewController : CNContactPickerDelegate {
         let mobile : String = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
         print("number is = \(mobile)")
         
-        
+        if mobile.count>0 {
         mobileTextField.text = self.format(phoneNumber: mobile)
+        }
     }
     
     func format(phoneNumber sourcePhoneNumber: String) -> String? {
@@ -161,8 +162,6 @@ extension ComposeMessageViewController : CNContactPickerDelegate {
     }
     
 //    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-//
-//
 //        contacts.forEach { contact in
 //            for number in contact.phoneNumbers {
 //                let phoneNumber = number.value
