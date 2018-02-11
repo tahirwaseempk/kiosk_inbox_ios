@@ -111,6 +111,8 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as! SearchView
             
             self.searchView.delegate = self
+            
+            return self.searchView
         }
         
         return UIView()

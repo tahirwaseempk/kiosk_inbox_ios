@@ -36,9 +36,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
+                self.isAutoLogin = true
                 self.serialTextField.text = (UserDefaults.standard.object(forKey:"serialKey") as? String)
                 login()
             } else {
+                self.isAutoLogin = false
                 print("########## >>>>>>>>> Auto Login not Enabled <<<<<<<<<< ##########")
             }
         }
@@ -88,9 +90,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @objc func circleBoxValueChanged(sender: Checkbox) {
         
         if sender.isChecked == true {
-            isAutoLogin = true
+            self.isAutoLogin = true
         } else {
-            isAutoLogin = false
+            self.isAutoLogin = false
             UserDefaults.standard.set("", forKey: "serialNumber")
             UserDefaults.standard.set(false, forKey: "isAutoLogin")
             UserDefaults.standard.synchronize()
