@@ -92,9 +92,9 @@ extension String {
             let escapableContentString = String(escapableContent)
             let replacementString: String
 
-            if escapableContentString.hasPrefix("#") {
+            if escapableContentString?.hasPrefix("#") {
 
-                guard let unescapedNumber = escapableContentString.unescapeAsNumber() else {
+                guard let unescapedNumber = escapableContentString?.unescapeAsNumber() else {
                     result += self[delimiterRange.lowerBound ..< semicolonRange.upperBound]
                     cursorPosition = semicolonRange.upperBound
                     continue
@@ -104,7 +104,7 @@ extension String {
 
             } else {
 
-                guard let unescapedCharacter = HTMLUnescapingTable[escapableContentString] else {
+                guard let unescapedCharacter = HTMLUnescapingTable[escapableContentString!] else {
                     result += self[delimiterRange.lowerBound ..< semicolonRange.upperBound]
                     cursorPosition = semicolonRange.upperBound
                     continue

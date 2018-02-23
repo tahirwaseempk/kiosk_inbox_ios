@@ -12,7 +12,7 @@ fileprivate let CombiningEnclosingKeycap: UInt32 = 0x20E3
 fileprivate let VaridationSelector15: UInt32 = 0xFE0E
 fileprivate let VaridationSelector16: UInt32 = 0xFE0F
 
-public extension NSString {
+public extension String {
     public func containsEmoji() -> Bool {
         let codepoints = (self as String).unicodeScalars.map { $0.value }
         
@@ -26,14 +26,33 @@ public extension NSString {
         }
     }
     
-    @objc(stringByRemovingEmoji)
-    public func removingEmoji() -> NSString {
-        let buffer = NSMutableString(capacity: self.length)
-        self.enumerateSubstrings(in: NSMakeRange(0, self.length), options: .byComposedCharacterSequences) { substring, _, _, _ in
-            if let substring = substring, !substring.containsEmoji() {
-                buffer.append(substring)
+    public func replaceEmojiWithHexa() -> String
+    {
+        let buffer = NSMutableString(capacity: self.count)
+        
+        let range = self.startIndex ..< self.endIndex
+
+        self.enumerateSubstrings(in:range, options: .byComposedCharacterSequences) { substring, _, _, _ in
+            
+            if let substring = substring
+            {
+                if !substring.containsEmoji()
+                {
+                    buffer.append(substring)
+                }
+                else
+                {
+                    let uni = substring.unicodeScalars // Unicode scalar values of the string
+                    
+                    let unicode = uni[uni.startIndex].value // First element as an UInt32
+                    
+                    let unicodeString = String(unicode)
+                    
+                    buffer.append(unicodeString)
+                }
             }
         }
-        return buffer
+        
+        return buffer as String
     }
 }

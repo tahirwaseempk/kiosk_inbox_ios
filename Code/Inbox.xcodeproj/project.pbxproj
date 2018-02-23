@@ -75,6 +75,12 @@
 		754085FF1F16743000CDB81F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
 		755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
 		755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */; };
+		756615CF203941670087CB9D /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
+		756615D0203941670087CB9D /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
+		759BD34C2040767700832092 /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD3482040767700832092 /* Mappings.swift */; };
+		759BD34D2040767700832092 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD3492040767700832092 /* Deprecated.swift */; };
+		759BD34E2040767700832092 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD34A2040767700832092 /* HTMLString.swift */; };
+		759BD34F2040767700832092 /* NSString+HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD34B2040767700832092 /* NSString+HTMLString.swift */; };
 		759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */; };
 		759C5BE21FC60C08007889E7 /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
 		759C5BE31FC60C08007889E7 /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
@@ -182,6 +188,12 @@
 		754085FE1F16743000CDB81F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		755C665A1EFA897800A3F74A /* MessagesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesParser.swift; sourceTree = "<group>"; };
 		755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCellProtocol.swift; sourceTree = "<group>"; };
+		756615CD203941670087CB9D /* CodePointSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodePointSet.swift; sourceTree = "<group>"; };
+		756615CE203941670087CB9D /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
+		759BD3482040767700832092 /* Mappings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappings.swift; sourceTree = "<group>"; };
+		759BD3492040767700832092 /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
+		759BD34A2040767700832092 /* HTMLString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLString.swift; sourceTree = "<group>"; };
+		759BD34B2040767700832092 /* NSString+HTMLString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+HTMLString.swift"; sourceTree = "<group>"; };
 		759C5BCE1FC5F1F4007889E7 /* Inbox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Inbox.entitlements; path = Inbox/Inbox.entitlements; sourceTree = "<group>"; };
 		759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMessageProtocol.swift; sourceTree = "<group>"; };
 		759C5BD71FC60C05007889E7 /* Pushy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pushy.swift; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				756615CA20393D5C0087CB9D /* Emojy Manager */,
 				1AF3E5B92018D79D00A5A35F /* Underlined Text Field */,
 				759C5BED1FC60C96007889E7 /* Pushy */,
 				04EC9FB61FC3723700F3C42A /* Checkbox */,
@@ -548,6 +561,19 @@
 			name = InboxCellProtocol;
 			sourceTree = "<group>";
 		};
+		756615CA20393D5C0087CB9D /* Emojy Manager */ = {
+			isa = PBXGroup;
+			children = (
+				759BD3492040767700832092 /* Deprecated.swift */,
+				759BD34A2040767700832092 /* HTMLString.swift */,
+				759BD3482040767700832092 /* Mappings.swift */,
+				759BD34B2040767700832092 /* NSString+HTMLString.swift */,
+				756615CD203941670087CB9D /* CodePointSet.swift */,
+				756615CE203941670087CB9D /* String+Emoji.swift */,
+			);
+			path = "Emojy Manager";
+			sourceTree = "<group>";
+		};
 		759C5BCF1FC605C7007889E7 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,8 +732,12 @@
 				046560BF1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift in Sources */,
 				752CE44D1F27E24900FCC976 /* IQUITextFieldView+Additions.swift in Sources */,
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
+				759BD34E2040767700832092 /* HTMLString.swift in Sources */,
 				759C5BEB1FC60C08007889E7 /* PushySwizzler.swift in Sources */,
+				759BD34C2040767700832092 /* Mappings.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
+				759BD34D2040767700832092 /* Deprecated.swift in Sources */,
+				756615CF203941670087CB9D /* CodePointSet.swift in Sources */,
 				759C5BEC1FC60C08007889E7 /* PushyResponseException.swift in Sources */,
 				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
 				759C5BE61FC60C08007889E7 /* PushyHTTP.swift in Sources */,
@@ -739,8 +769,10 @@
 				759C5BE91FC60C08007889E7 /* PushyConfig.swift in Sources */,
 				750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
+				756615D0203941670087CB9D /* String+Emoji.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
+				759BD34F2040767700832092 /* NSString+HTMLString.swift in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 				750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */,
@@ -884,8 +916,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "38315649-b2ad-4a53-b60d-7357e83a6054";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
+				PROVISIONING_PROFILE = "03dd1b1b-b60c-4a44-b1fc-fc74f74e5962";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdHocProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -913,8 +945,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "38315649-b2ad-4a53-b60d-7357e83a6054";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
+				PROVISIONING_PROFILE = "03dd1b1b-b60c-4a44-b1fc-fc74f74e5962";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdHocProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;

@@ -275,8 +275,8 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func removeSpecialCharsFromString(_ text: String) -> String {
         let okayChars : Set<Character> =
-            Set("1234567890".characters)
-        return String(text.characters.filter {okayChars.contains($0) })
+            Set("1234567890")
+        return String(text.filter {okayChars.contains($0) })
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -290,6 +290,8 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         let message:String = params["message"] as! String
+        
+       // message = message.replaceEmojiWithHexa()
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         
@@ -410,8 +412,50 @@ class WebManager: NSObject
                 //                    }
                 //                }
                 
+                
+                let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
+                
+                guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8)
+                    else
+                {
+                    completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+
+                    print("could not convert data to UTF-8 format")
+                    
+                    return
+                }
+                
                 do
                 {
+                    if let responseJSONDict = try JSONSerialization.jsonObject(with: modifiedDataInUTF8Format) as? [String: Any]
+                    {
+                        completion(nil,responseJSONDict as NSDictionary)
+                    }
+                    else
+                    {
+                        completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                    }
+                }
+                catch
+                {
+                    print(error.localizedDescription)
+                    
+                    let code = (error as NSError).code
+                    
+                    if(code == 3840)
+                    {
+                        completion(NSError(domain: "com.mpos.tlt", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+                    }
+                    else
+                    {
+                        completion(error,nil);
+                    }
+                }
+                
+                /*
+                do
+                {
+                    
                     if let Data = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
                     {
                         
@@ -436,7 +480,8 @@ class WebManager: NSObject
                     {
                         completion(error,nil);
                     }
-                }
+                } */
+                
             })
             dataTask.resume()
             
