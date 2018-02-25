@@ -48,7 +48,7 @@ extension Conversation {
         conversation.lastName = lastName_
         conversation.conversationDate = conversationDate_
         conversation.isRead = isRead_
-        conversation.lastMessage = lastMessage_
+        conversation.lastMessage = lastMessage_.removingHTMLEntities
 
         conversation.shortcodeDisplay = shortcodeDisplay_
         conversation.mobileNumber = mobileNumber_
@@ -70,7 +70,7 @@ extension Conversation {
         self.lastName = lastName_
         self.conversationDate = conversationDate_
         self.isRead = isRead_
-        self.lastMessage = lastMessage_
+        self.lastMessage = lastMessage_.removingHTMLEntities
         
         self.shortcodeDisplay = shortcodeDisplay_
         self.mobileNumber = mobileNumber_

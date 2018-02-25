@@ -1,39 +1,41 @@
 import UIKit
 import Foundation
 
-let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
+//mcpn.us
+
+let LOGIN_URL = "https://fct.la/limeApi?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
-let APNS_URL = "https://mcpn.us/limeApi?ev=kioskAddToken&serial="
+let APNS_URL = "https://fct.la/limeApi?ev=kioskAddToken&serial="
 let APNS_URL_UDID = "&uuid="
 let APNS_URL_TYPE = "&type="
 let APNS_URL_TOKEN = "&token="
 
-let OPTOUT_URL_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&serial="
+let OPTOUT_URL_SERIAL = "https://fct.la/limeApi?ev=kioskInboxOptOut&serial="
 let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
 let OPTOUT_URL_UUID = "&uuid="
 
-let CHAT_URL = "https://mcpn.us/limeApi?ev=kioskChatMessages&uuid="
+let CHAT_URL = "https://fct.la/limeApi?ev=kioskChatMessages&uuid="
 let CHAT_URL_BEFORE_SERIAL = "&serial="
 let CHAT_URL_BEFORE_MOBILE = "&mobile="
 let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
 
-let SEND_URL = "https://mcpn.us/limeApi?ev=kioskSendMessage&uuid="
+let SEND_URL = "https://fct.la/limeApi?ev=kioskSendMessage&uuid="
 let SEND_URL_BEFORE_SERIAL = "&serial="
 let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
 let SEND_URL_BEFORE_MOBILE = "&mobile="
 let SEND_URL_BEFORE_MESSAGE_END = "&message="
 
-let CONVERSATION_URL = "https://mcpn.us/limeApi?ev=kioskInboxWithDetails&uuid="
+let CONVERSATION_URL = "https://fct.la/limeApi?ev=kioskInboxWithDetails&uuid="
 let CONVERSATION_URL_END = "&serial="
 
-let READ_URL_BEFORE_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxSetReadByMobile&serial="
+let READ_URL_BEFORE_SERIAL = "https://fct.la/limeApi?ev=kioskInboxSetReadByMobile&serial="
 let READ_URL_BEFORE_UUID = "&uuid="
 let READ_URL_BEFORE_ISREAD = "&isRead="
 let READ_URL_BEFORE_MOBILE = "&mobile="
 let READ_URL_BEFORE_SHORTCODE_END = "&shortcode="
 
-let DELETE_URL = "https://mcpn.us/limeApi?ev=kioskInboxDeleteForNumber&uuid="
+let DELETE_URL = "https://fct.la/limeApi?ev=kioskInboxDeleteForNumber&uuid="
 let DELETE_URL_BEFORE_SERIAL = "&serial="
 let DELETE_URL_BEFORE_MOBILE = "&mobile="
 let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
@@ -291,7 +293,7 @@ class WebManager: NSObject
         let shortCode:String = params["shortCode"] as! String
         let message:String = params["message"] as! String
         
-       // message = message.replaceEmojiWithHexa()
+        //message = message.addingUnicodeEntities
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         

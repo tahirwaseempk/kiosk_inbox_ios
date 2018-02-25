@@ -2,6 +2,8 @@ import UIKit
 
 class ConversationDetailViewController: UIViewController, ConversationListingTableCellProtocol
 {
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=& "
+
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
     @IBOutlet weak var messageNumberLabel: UILabel!
@@ -34,6 +36,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         super.viewDidLoad()
         
         self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.sendTextField.delegate = self
         
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView)
         
@@ -295,4 +298,24 @@ extension ConversationDetailViewController:UITextFieldDelegate
         
         return true;
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = string.components(separatedBy: cs).joined(separator: "")
+        let isAllowed = (string == filtered)
+        
+        if isAllowed == false {
+            return false
+        }
+        
+        if str.count > 160 {
+            return false
+        }
+        
+        return true
+    }
+    
 }

@@ -24,9 +24,23 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
 
         self.refreshUnReadCount()
         
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        
         self.initiateMessageCall()
     }
     
+    @objc func refreshListingTable(refreshControl: UIRefreshControl) {
+        
+        self.callLastConversationsUpdate()
+        refreshControl.endRefreshing()
+    }
     func setupControls()
     {
         self.setupTableView()

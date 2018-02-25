@@ -26,7 +26,7 @@ extension Message {
         
         message.messageId   = messageId_
         message.messageDate = date_
-        message.message     = message_
+        message.message     = message_.removingHTMLEntities
         message.mobile      = mobile_
         message.shortCode   = shortCode_
         message.isSender    = isSender_
@@ -43,7 +43,7 @@ extension Message {
         
         self.messageId      = messageId_
         self.messageDate    = date_
-        self.message        = message_
+        self.message        = message_.removingHTMLEntities
         self.mobile         = mobile_
         self.shortCode      = shortCode_
         self.isSender       = isSender_

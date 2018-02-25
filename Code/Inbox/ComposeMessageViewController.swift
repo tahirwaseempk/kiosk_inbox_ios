@@ -12,8 +12,8 @@ import ContactsUI
 
 class ComposeMessageViewController: UIViewController {
     
-    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=& "
+    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
@@ -94,7 +94,7 @@ class ComposeMessageViewController: UIViewController {
     }
     
     @IBAction func contactsButton_Tapped(_ sender: Any) {
-      
+        
         let cnPicker = CNContactPickerViewController()
         cnPicker.delegate = self
         self.present(cnPicker, animated: true, completion: nil)
@@ -102,14 +102,14 @@ class ComposeMessageViewController: UIViewController {
 }
 
 extension ComposeMessageViewController : CNContactPickerDelegate {
-   
+    
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-
+        
         let mobile : String = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
         print("number is = \(mobile)")
         
         if mobile.count>0 {
-        mobileTextField.text = self.format(phoneNumber: mobile)
+            mobileTextField.text = self.format(phoneNumber: mobile)
         }
     }
     
@@ -161,16 +161,16 @@ extension ComposeMessageViewController : CNContactPickerDelegate {
         return leadingOne + areaCode + prefix + "-" + suffix
     }
     
-//    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-//        contacts.forEach { contact in
-//            for number in contact.phoneNumbers {
-//                let phoneNumber = number.value
-//                print("number is = \(phoneNumber)")
-//                let mobile : String = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
-//                print("number is = \(mobile)")
-//            }
-//        }
-//    }
+    //    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
+    //        contacts.forEach { contact in
+    //            for number in contact.phoneNumbers {
+    //                let phoneNumber = number.value
+    //                print("number is = \(phoneNumber)")
+    //                let mobile : String = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
+    //                print("number is = \(mobile)")
+    //            }
+    //        }
+    //    }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         print("Cancel Contact Picker")
@@ -214,23 +214,21 @@ extension ComposeMessageViewController : UITextViewDelegate {
     {
         let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
         
-//        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
-//        let filtered = text.components(separatedBy: cs).joined(separator: "")
-//        let isAllowed = (text == filtered)
-//        if isAllowed == false
-//        {
-//            return false
-//    }
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = text.components(separatedBy: cs).joined(separator: "")
+        let isAllowed = (text == filtered)
+        
+        if isAllowed == false {
+            return false
+        }
         
         let reminingCount = 160 - str.count
         
-        if reminingCount >= 0
-        {
+        if reminingCount >= 0 {
             self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/160"
         }
-
-        if str.count > 160
-        {
+        
+        if str.count > 160 {
             return false
         }
         
@@ -266,7 +264,7 @@ extension ComposeMessageViewController : UITextFieldDelegate {
         }
     }
     
-
+    
     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         
         if string == ""{ //BackSpace

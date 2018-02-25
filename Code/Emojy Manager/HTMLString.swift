@@ -92,7 +92,7 @@ extension String {
             let escapableContentString = String(escapableContent)
             let replacementString: String
 
-            if escapableContentString?.hasPrefix("#") {
+            if (escapableContentString?.hasPrefix("#"))! {
 
                 guard let unescapedNumber = escapableContentString?.unescapeAsNumber() else {
                     result += self[delimiterRange.lowerBound ..< semicolonRange.upperBound]
