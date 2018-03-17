@@ -423,6 +423,84 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func createAppointment(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["uuid"] = user.uuid
+            paramsDic["serial"] = user.serial
+            paramsDic["mobile"] = params["mobile"]
+            paramsDic["message"] = "Appointemnt Reminder Message."//params["message"]
+            paramsDic["date"] = params["date"]
+            paramsDic["type"] = "Confirmation"
+            paramsDic["notifyHours"] = params["notifyHours"] as! String
+            paramsDic["first"] = params["first"] as! String
+            paramsDic["last"] = params["last"] as! String
+            paramsDic["endDate"] = params["endDate"] as! String
+            paramsDic["notifyEmail"] = params["notifyEmail"] as! String
+            paramsDic["notifyNumber"] = params["notifyNumber"] as! String
+            
+//            paramsDic["type"] = type
+//            paramsDic["date"] = date
+//            paramsDic["endDate"] = endDate
+//            paramsDic["notifyHours"] = notifyHours
+//            paramsDic["mobile"] = mobile
+//            paramsDic["first"] = first
+//            paramsDic["last"] = last
+//            paramsDic["message"] = message
+//            paramsDic["notifyEmail"] = notifyEmail
+//            paramsDic["notifyNumber"] = notifyNumber
+            
+            WebManager.composeMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                if let status = response?["result"] as? String
+                {
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    let splitString = status.components(separatedBy: ",")
+                    
+                    if (String(splitString[0]) == "OK") {
+                        
+                        DispatchQueue.global(qos: .background).async
+                            {
+                                DispatchQueue.main.async
+                                    {
+                                        successBlock(true)
+                                }
+                        }
+                    } else {
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                    }
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////
+                    
+                }
+                else if let status = response?["err"] as? String
+                {
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                    
+                } else {
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     static func setReadConversation(conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
@@ -473,7 +551,9 @@ extension User
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     
     static func setReadAllConversations(conversations: NSSet,index:Int, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {

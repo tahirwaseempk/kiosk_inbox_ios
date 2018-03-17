@@ -40,6 +40,16 @@ let DELETE_URL_BEFORE_SERIAL = "&serial="
 let DELETE_URL_BEFORE_MOBILE = "&mobile="
 let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
 
+let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json={"
+let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid="
+let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "&serial="
+let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "&mobile="
+let CREATE_APPOINMENT_URL_BEFORE_DATE = "&date="
+let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "&message="
+let CREATE_APPOINMENT_URL_BEFORE_TYPE = "&type="
+let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "&notifyHours="
+let CREATE_APPOINMENT_URL_END = "}"
+
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------//
@@ -347,6 +357,46 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func createAppointment(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let uuid:String = params["uuid"] as! String
+        let serial:String = params["serial"] as! String
+        let mobile:String = params["mobile"] as! String
+        let message:String = params["message"] as! String
+        let date:String = params["date"] as! String
+        let type:String = "Confirmation"//params["date"] as! String
+        let notifyHours:String = params["notifyHours"] as! String
+        
+        let first:String = params["first"] as! String
+        let last:String = params["last"] as! String
+        let endDate:String = params["endDate"] as! String
+        let notifyEmail:String = params["notifyEmail"] as! String
+        let notifyNumber:String = params["notifyNumber"] as! String
+        
+        
+        //        mobile = removeSpecialCharsFromString(mobile)
+        //        let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+        
+        let finalurl = CREATE_APPOINMENT_URL + CREATE_APPOINMENT_URL_BEFORE_UUID + uuid + CREATE_APPOINMENT_URL_BEFORE_SERIAL + serial + CREATE_APPOINMENT_URL_BEFORE_MOBILE + mobile + CREATE_APPOINMENT_URL_BEFORE_MESSAGE + message + CREATE_APPOINMENT_URL_BEFORE_DATE + date + CREATE_APPOINMENT_URL_BEFORE_TYPE + type + CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS + notifyHours + CREATE_APPOINMENT_URL_END
+        
+        PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+
     internal static func PostDataWithUrl (urlString: String, withParameterDictionary parameters: Dictionary<String,Any>, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void))) {
         
         if Reachability.isInternetAvailable()
