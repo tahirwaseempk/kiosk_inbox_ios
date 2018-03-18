@@ -432,28 +432,17 @@ extension User
             paramsDic["uuid"] = user.uuid
             paramsDic["serial"] = user.serial
             paramsDic["mobile"] = params["mobile"]
-            paramsDic["message"] = "Appointemnt Reminder Message."//params["message"]
+            paramsDic["message"] = "" //"Appointemnt Reminder Message."//params["message"]
             paramsDic["date"] = params["date"]
-            paramsDic["type"] = "Confirmation"
+            paramsDic["type"] = "Reminder"
             paramsDic["notifyHours"] = params["notifyHours"] as! String
             paramsDic["first"] = params["first"] as! String
             paramsDic["last"] = params["last"] as! String
-            paramsDic["endDate"] = params["endDate"] as! String
-            paramsDic["notifyEmail"] = params["notifyEmail"] as! String
-            paramsDic["notifyNumber"] = params["notifyNumber"] as! String
+            paramsDic["endDate"] = "" //params["endDate"] as! String
+            paramsDic["notifyEmail"] = "" //params["notifyEmail"] as! String
+            paramsDic["notifyNumber"] = "" //params["notifyNumber"] as! String
             
-//            paramsDic["type"] = type
-//            paramsDic["date"] = date
-//            paramsDic["endDate"] = endDate
-//            paramsDic["notifyHours"] = notifyHours
-//            paramsDic["mobile"] = mobile
-//            paramsDic["first"] = first
-//            paramsDic["last"] = last
-//            paramsDic["message"] = message
-//            paramsDic["notifyEmail"] = notifyEmail
-//            paramsDic["notifyNumber"] = notifyNumber
-            
-            WebManager.composeMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+            WebManager.createAppointment(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 if let status = response?["result"] as? String
                 {
