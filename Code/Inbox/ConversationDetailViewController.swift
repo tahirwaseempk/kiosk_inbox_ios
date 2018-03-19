@@ -11,6 +11,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var closeView: UIView!
     
+    var scheduleAppointmentViewController:ScheduleAppointmentViewController!
+
     @IBAction func closeButtonTapped(_ sender: Any)
     {
         self.closeView.frame = self.view.bounds
@@ -51,6 +53,13 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBAction func backButton_Tapped(_ sender: Any)
     {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func scheduleAppointment_Tapped(_ sender: Any)
+    {
+        self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as! ScheduleAppointmentViewController
+        
+        self.view.addSubview(self.scheduleAppointmentViewController.view)
     }
     
     @IBAction func optOut_Tapped(_ sender: Any)
