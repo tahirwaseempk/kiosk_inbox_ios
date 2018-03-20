@@ -13,7 +13,7 @@ class ScheduleAppointmentViewController: UIViewController
     {
         super.viewDidLoad()
     }
-
+    
     @IBAction func dismisButtonTapped(_ sender: Any)
     {
         self.view.removeFromSuperview()
@@ -21,7 +21,50 @@ class ScheduleAppointmentViewController: UIViewController
     
     @IBAction func scheduleButtonTapped(_ sender: Any)
     {
+        ProcessingIndicator.show()
         
+        var paramsDic = Dictionary<String, Any>()
+        
+        paramsDic["mobile"] = "17326188328"
+        paramsDic["date"] = "2018-03-18 21:00:00"
+        paramsDic["notifyHours"] = "3"
+        paramsDic["first"] = ""
+        paramsDic["last"] = ""
+        
+        User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            if status == true {
+                                ProcessingIndicator.hide()
+                                
+                                let alert = UIAlertController(title: "Sucess", message: "Appointment Created Sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else
+                            {
+                                ProcessingIndicator.hide()
+                                let alert = UIAlertController(title: "Error", message: "Appointment Not Created Sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                    }
+            }
+        }, andFailureBlock: { (error: Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                    }
+            }
+        })
     }
     
     @IBAction func calendarButtonTapped(_ sender: UIButton)
