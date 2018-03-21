@@ -51,6 +51,18 @@ class ScheduleAppointmentViewController: UIViewController
     {
         ProcessingIndicator.show()
         
+        let dateString = self.calendarLabel.text
+        
+        let hoursString = self.hourCounterView.valueLabel.text
+
+        let minutesWithMString = self.minuteCounterView.valueLabel.text // Contains m at end like 12m
+
+        let minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
+
+        let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
+        
+        let timeWithoutHrsString = String(self.timeCounterView.valueLabel.tag) // Does Not Contain hrs at end like 12
+
         var paramsDic = Dictionary<String, Any>()
         
         paramsDic["mobile"] = "17326188328"
@@ -104,21 +116,19 @@ class ScheduleAppointmentViewController: UIViewController
         
         self.view.addSubview(self.calendarView)
         
-        let width = self.view.frame.size.width - 20
+        let width = self.view.frame.size.width - 40
         
         self.calendarView.frame = CGRect(x: 0, y: 0, width: width, height: width)
         
         let options = [
             .type(.down),
             .cornerRadius(1 / 1),
-            .animationIn(0.3),
+            .animationIn(0.35),
             .blackOverlayColor(UIColor.clear),
             .arrowSize(CGSize(width: 10, height: 10))
             ] as [PopoverOption]
         
         let popover = Popover(options: options, showHandler: nil, dismissHandler: nil)
-        
-        //self.calendarView.backgroundColor = UIColor(red: 72.0/255.0, green: 154.0/255.0, blue: 229.0/255.0, alpha: 1.0)
         
         popover.show(self.calendarView, fromView: self.calendarLabel)
     }
