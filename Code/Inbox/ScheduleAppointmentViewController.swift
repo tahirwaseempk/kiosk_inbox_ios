@@ -2,7 +2,7 @@ import UIKit
 
 class ScheduleAppointmentViewController: UIViewController
 {
-    @IBOutlet var calendarView: CalendarView!
+    @IBOutlet var calendarView: GCCalendarView!
     
     @IBOutlet weak var calendarLabel: UILabel!
     @IBOutlet weak var hourCounterView: CounterView!
@@ -20,6 +20,14 @@ class ScheduleAppointmentViewController: UIViewController
         super.viewDidLoad()
         
         self.headerLabel.text = "Schedule Appointment with " + self.headerTitleString
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.calendar = NSCalendar.current
+
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMMM, yyyy", options: 0, locale: dateFormatter.calendar.locale)
+        
+        self.calendarLabel.text = dateFormatter.string(from: Date())
         
         self.whiteBackgroundView.layer.cornerRadius =  self.whiteBackgroundView.frame.size.width / 25.0
         
@@ -89,13 +97,15 @@ class ScheduleAppointmentViewController: UIViewController
     
     @IBAction func calendarButtonTapped(_ sender: UIButton)
     {
-        let width = self.view.frame.size.width - 20
+        self.calendarView.delegate = self
         
-        self.calendarView.frame = CGRect(x: 0, y: 0, width: width, height: width)
+        self.calendarView.displayMode = .month
         
         self.view.addSubview(self.calendarView)
         
-        return
+        let width = self.view.frame.size.width - 20
+        
+        self.calendarView.frame = CGRect(x: 0, y: 0, width: width, height: width)
         
         let options = [
             .type(.down),
@@ -107,7 +117,22 @@ class ScheduleAppointmentViewController: UIViewController
         
         let popover = Popover(options: options, showHandler: nil, dismissHandler: nil)
         
-        self.calendarView.backgroundColor = .red
-        popover.show(self.calendarView, fromView: sender)
+        //self.calendarView.backgroundColor = UIColor(red: 72.0/255.0, green: 154.0/255.0, blue: 229.0/255.0, alpha: 1.0)
+        
+        popover.show(self.calendarView, fromView: self.calendarLabel)
+    }
+}
+
+extension ScheduleAppointmentViewController : GCCalendarViewDelegate
+{
+    func calendarView(_ calendarView: GCCalendarView, didSelectDate date: Date, inCalendar calendar: Calendar)
+    {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.calendar = calendar
+        
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMMM, yyyy", options: 0, locale: calendar.locale)
+        
+        self.calendarLabel.text = dateFormatter.string(from: date)
     }
 }
