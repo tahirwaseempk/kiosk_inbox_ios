@@ -63,14 +63,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         if self.selectedConversation != nil
         {
-            if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
-            {
-                self.scheduleAppointmentViewController.headerTitleString =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
-            }
-            else
-            {
+//            if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
+//            {
+//                self.scheduleAppointmentViewController.headerTitleString =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+//            }
+//            else
+//            {
                 self.scheduleAppointmentViewController.headerTitleString = self.selectedConversation.mobile!
-            }
+//            }
             
             self.scheduleAppointmentViewController.selectedConversation = self.selectedConversation
         }

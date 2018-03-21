@@ -66,8 +66,10 @@ class ScheduleAppointmentViewController: UIViewController
 
         dateFormatter.dateStyle = .full
         
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
+       // dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
 
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
         let dateString = dateFormatter.string(from: selectedDate)
         
         let hoursString = self.hourCounterView.valueLabel.text
@@ -84,12 +86,12 @@ class ScheduleAppointmentViewController: UIViewController
 
         var paramsDic = Dictionary<String, Any>()
         
-        paramsDic["mobile"] = "17326188328"
-        paramsDic["date"] = "2018-03-23 21:00:00"
-        paramsDic["notifyHours"] = "3"
+        paramsDic["mobile"] = self.headerTitleString
+        paramsDic["date"] = dateString
+        paramsDic["notifyHours"] = timeWithoutHrsString
         paramsDic["first"] = ""
         paramsDic["last"] = ""
-        paramsDic["message"] = "hi"
+        paramsDic["message"] = "Appointment"
 
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
