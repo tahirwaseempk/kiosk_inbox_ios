@@ -432,19 +432,19 @@ extension User
             paramsDic["uuid"] = user.uuid
             paramsDic["serial"] = user.serial
             paramsDic["mobile"] = params["mobile"]
-            paramsDic["message"] = "" //"Appointemnt Reminder Message."//params["message"]
+            paramsDic["message"] = params["message"]//"Appointemnt Reminder Message."//params["message"]
             paramsDic["date"] = params["date"]
             paramsDic["type"] = "Reminder"
             paramsDic["notifyHours"] = params["notifyHours"] as! String
-            paramsDic["first"] = params["first"] as! String
-            paramsDic["last"] = params["last"] as! String
-            paramsDic["endDate"] = "" //params["endDate"] as! String
-            paramsDic["notifyEmail"] = "" //params["notifyEmail"] as! String
-            paramsDic["notifyNumber"] = "" //params["notifyNumber"] as! String
+//            paramsDic["first"] = params["first"] as! String
+//            paramsDic["last"] = params["last"] as! String
+//            paramsDic["endDate"] = "" //params["endDate"] as! String
+//            paramsDic["notifyEmail"] = "" //params["notifyEmail"] as! String
+//            paramsDic["notifyNumber"] = "" //params["notifyNumber"] as! String
             
             WebManager.createAppointment(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
-                if let status = response?["result"] as? String
+                if let status = response?["status"] as? String
                 {
                     /////////////////////////////////////////////////////////////////////////////
                     /////////////////////////////////////////////////////////////////////////////

@@ -54,11 +54,12 @@ class ScheduleAppointmentViewController: UIViewController
         var paramsDic = Dictionary<String, Any>()
         
         paramsDic["mobile"] = "17326188328"
-        paramsDic["date"] = "2018-03-18 21:00:00"
+        paramsDic["date"] = "2018-03-23 21:00:00"
         paramsDic["notifyHours"] = "3"
         paramsDic["first"] = ""
         paramsDic["last"] = ""
-        
+        paramsDic["message"] = "hi"
+
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {

@@ -40,16 +40,15 @@ let DELETE_URL_BEFORE_SERIAL = "&serial="
 let DELETE_URL_BEFORE_MOBILE = "&mobile="
 let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
 
-let CREATE_APPOINMENT_BASE_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&"
 let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json="
-let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid="
-let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "&serial="
-let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "&mobile="
-let CREATE_APPOINMENT_URL_BEFORE_DATE = "&date="
-let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "&message="
-let CREATE_APPOINMENT_URL_BEFORE_TYPE = "&type="
-let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "&notifyHours="
-let CREATE_APPOINMENT_URL_END = "}"
+//let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid="
+//let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "&serial="
+//let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "&mobile="
+//let CREATE_APPOINMENT_URL_BEFORE_DATE = "&date="
+//let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "&message="
+//let CREATE_APPOINMENT_URL_BEFORE_TYPE = "&type="
+//let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "&notifyHours="
+//let CREATE_APPOINMENT_URL_END = "}"
 
 //let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json={%22"
 //let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid%22:%22"
@@ -370,24 +369,6 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func createAppointment(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        let uuid:String = params["uuid"] as! String
-        let serial:String = params["serial"] as! String
-        let mobile:String = params["mobile"] as! String
-        let message:String = params["message"] as! String
-        let dateString:String = params["date"] as! String
-        let type:String = "Confirmation"//params["date"] as! String
-        let notifyHours:String = params["notifyHours"] as! String
-        
-        //        let first:String = params["first"] as! String
-        //        let last:String = params["last"] as! String
-        //        let endDate:String = params["endDate"] as! String
-        //        let notifyEmail:String = params["notifyEmail"] as! String
-        //        let notifyNumber:String = params["notifyNumber"] as! String
-        
-        
-//        var dic = Dictionary<String,Any>()
-        
-//        dic["json"] = params
         var theJSONText = ""
         
         if let theJSONData = try? JSONSerialization.data(
@@ -395,15 +376,14 @@ class WebManager: NSObject
             options: []) {
             theJSONText = String(data: theJSONData,
                                  encoding: .ascii)!
-            print("JSON string = \(theJSONText)")
         }
         
+        let escapedString :String = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         
-        //https://mcpn.us/limeApi?ev=kioskInboxCreateAppointment&json={%22uuid%22:%225aea6597-65c8-4f12-95%20f4-c716a87cd26b%22,%22serial%22:%221111-1111%22,%22mobile%22:%2217326188328%22%20,%22date%22:%222018-05-18%2017:00:00%22,%22message%22:%22appointment%20reminder%20message%22,%22type%22:%22Reminder%22%20,%22notifyHours%22:%203}
-        
-        
-        let finalurl = CREATE_APPOINMENT_URL + theJSONText // + CREATE_APPOINMENT_URL_BEFORE_UUID + uuid + CREATE_APPOINMENT_URL_BEFORE_SERIAL + serial + CREATE_APPOINMENT_URL_BEFORE_MOBILE + mobile + CREATE_APPOINMENT_URL_BEFORE_MESSAGE + message + CREATE_APPOINMENT_URL_BEFORE_DATE + dateString + CREATE_APPOINMENT_URL_BEFORE_TYPE + type + CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS + notifyHours + CREATE_APPOINMENT_URL_END
-        
+        let finalurl = CREATE_APPOINMENT_URL + escapedString
+
+        print("finalurl = \(finalurl)")
+
         PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
