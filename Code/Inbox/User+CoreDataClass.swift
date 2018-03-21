@@ -431,7 +431,7 @@ extension User
             
             paramsDic["uuid"] = user.uuid
             paramsDic["serial"] = user.serial
-            paramsDic["mobile"] = params["mobile"]
+            paramsDic["mobile"] = WebManager.removeSpecialCharsFromString(params["mobile"] as! String)
             paramsDic["message"] = params["message"]//"Appointemnt Reminder Message."//params["message"]
             paramsDic["date"] = params["date"]
             paramsDic["type"] = "Reminder"
