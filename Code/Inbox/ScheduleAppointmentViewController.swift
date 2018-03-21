@@ -100,7 +100,10 @@ class ScheduleAppointmentViewController: UIViewController
                                 ProcessingIndicator.hide()
                                 
                                 let alert = UIAlertController(title: "Sucess", message: "Appointment Created Sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
+                                    self.view.removeFromSuperview()
+                                }))
+                        
                                 self.present(alert, animated: true, completion: nil)
                             }
                             else
