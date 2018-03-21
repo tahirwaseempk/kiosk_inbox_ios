@@ -41,7 +41,7 @@ open class Popover: UIView {
   open var popoverType: PopoverType = .down
   open var blackOverlayColor: UIColor = UIColor(white: 0.0, alpha: 0.2)
   open var overlayBlur: UIBlurEffect?
-  open var popoverColor: UIColor = UIColor(red: 72.0/255.0, green: 154.0/255.0, blue: 229.0/255.0, alpha: 1.0)//UIColor.white
+  open var popoverColor: UIColor = UIColor.white//UIColor(red: 72.0/255.0, green: 154.0/255.0, blue: 229.0/255.0, alpha: 1.0)
   open var dismissOnBlackOverlayTap: Bool = true
   open var showBlackOverlay: Bool = true
   open var highlightFromView: Bool = false

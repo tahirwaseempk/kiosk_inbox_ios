@@ -71,6 +71,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             {
                 self.scheduleAppointmentViewController.headerTitleString = self.selectedConversation.mobile!
             }
+            
+            self.scheduleAppointmentViewController.selectedConversation = self.selectedConversation
         }
         
         self.view.addSubview(self.scheduleAppointmentViewController.view)

@@ -14,6 +14,8 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var calendarLogoButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
     
+    var selectedConversation:Conversation! = nil
+
     var headerTitleString = ""
 
     var selectedDate = Date()
@@ -58,9 +60,15 @@ class ScheduleAppointmentViewController: UIViewController
         
         dateFormatter.calendar = NSCalendar.current
         
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
+        let currentTimeZone: TimeZone = TimeZone.current
         
-        let dateString = dateFormatter.string(from: Date())
+        dateFormatter.timeZone = currentTimeZone
+
+        dateFormatter.dateStyle = .full
+        
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
+
+        let dateString = dateFormatter.string(from: selectedDate)
         
         let hoursString = self.hourCounterView.valueLabel.text
 
@@ -71,6 +79,8 @@ class ScheduleAppointmentViewController: UIViewController
         let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
         
         let timeWithoutHrsString = String(self.timeCounterView.valueLabel.tag) // Does Not Contain hrs at end like 12
+
+        let mobileNumber = self.selectedConversation.mobile!
 
         var paramsDic = Dictionary<String, Any>()
         
@@ -149,8 +159,8 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
     {
         let dateFormatter = DateFormatter()
         
-        dateFormatter.calendar = calendar
-        
+        dateFormatter.calendar = NSCalendar.current
+
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMMM, yyyy", options: 0, locale: calendar.locale)
         
         self.calendarLabel.text = dateFormatter.string(from: date)
