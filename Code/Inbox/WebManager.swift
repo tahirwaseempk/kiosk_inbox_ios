@@ -40,26 +40,26 @@ let DELETE_URL_BEFORE_SERIAL = "&serial="
 let DELETE_URL_BEFORE_MOBILE = "&mobile="
 let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
 
-//let CREATE_APPOINMENT_BASE_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&"
-//let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json={"
-//let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid="
-//let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "&serial="
-//let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "&mobile="
-//let CREATE_APPOINMENT_URL_BEFORE_DATE = "&date="
-//let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "&message="
-//let CREATE_APPOINMENT_URL_BEFORE_TYPE = "&type="
-//let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "&notifyHours="
-//let CREATE_APPOINMENT_URL_END = "}"
-
-let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json={%22"
-let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid%22:%22"
-let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "%22serial%22:%22"
-let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "%22mobile%22:%22"
-let CREATE_APPOINMENT_URL_BEFORE_DATE = "%22date%22:%22"
-let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "%22message%22:%22"
-let CREATE_APPOINMENT_URL_BEFORE_TYPE = "%22type%22:%22"
-let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "%22notifyHours%22:%22"
+let CREATE_APPOINMENT_BASE_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&"
+let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json="
+let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid="
+let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "&serial="
+let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "&mobile="
+let CREATE_APPOINMENT_URL_BEFORE_DATE = "&date="
+let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "&message="
+let CREATE_APPOINMENT_URL_BEFORE_TYPE = "&type="
+let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "&notifyHours="
 let CREATE_APPOINMENT_URL_END = "}"
+
+//let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json={%22"
+//let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid%22:%22"
+//let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "%22serial%22:%22"
+//let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "%22mobile%22:%22"
+//let CREATE_APPOINMENT_URL_BEFORE_DATE = "%22date%22:%22"
+//let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "%22message%22:%22"
+//let CREATE_APPOINMENT_URL_BEFORE_TYPE = "%22type%22:%22"
+//let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "%22notifyHours%22:%22"
+//let CREATE_APPOINMENT_URL_END = "}"
 
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
@@ -120,15 +120,15 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let uuid:String   = params["uuid"] as! String
         let type:String   = params["type"] as! String
-
+        
         let keyExists = params["token"] != nil
         var tokenKey:String
         if keyExists {
-           tokenKey = params["token"] as! String
+            tokenKey = params["token"] as! String
         } else {
             tokenKey = ""
         }
-
+        
         
         
         let finalUrl = APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
@@ -164,11 +164,11 @@ class WebManager: NSObject
             if (error == nil)
             {
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
-                    }
+                        DispatchQueue.main.async
+                            {
+                                successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
+                        }
                 }
             }
             else
@@ -378,18 +378,32 @@ class WebManager: NSObject
         let type:String = "Confirmation"//params["date"] as! String
         let notifyHours:String = params["notifyHours"] as! String
         
-        let first:String = params["first"] as! String
-        let last:String = params["last"] as! String
-        let endDate:String = params["endDate"] as! String
-        let notifyEmail:String = params["notifyEmail"] as! String
-        let notifyNumber:String = params["notifyNumber"] as! String
+        //        let first:String = params["first"] as! String
+        //        let last:String = params["last"] as! String
+        //        let endDate:String = params["endDate"] as! String
+        //        let notifyEmail:String = params["notifyEmail"] as! String
+        //        let notifyNumber:String = params["notifyNumber"] as! String
+        
+        
+//        var dic = Dictionary<String,Any>()
+        
+//        dic["json"] = params
+        var theJSONText = ""
+        
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: params,
+            options: []) {
+            theJSONText = String(data: theJSONData,
+                                 encoding: .ascii)!
+            print("JSON string = \(theJSONText)")
+        }
         
         
         //https://mcpn.us/limeApi?ev=kioskInboxCreateAppointment&json={%22uuid%22:%225aea6597-65c8-4f12-95%20f4-c716a87cd26b%22,%22serial%22:%221111-1111%22,%22mobile%22:%2217326188328%22%20,%22date%22:%222018-05-18%2017:00:00%22,%22message%22:%22appointment%20reminder%20message%22,%22type%22:%22Reminder%22%20,%22notifyHours%22:%203}
         
         
-        let finalurl = CREATE_APPOINMENT_URL + CREATE_APPOINMENT_URL_BEFORE_UUID + uuid + CREATE_APPOINMENT_URL_BEFORE_SERIAL + serial + CREATE_APPOINMENT_URL_BEFORE_MOBILE + mobile + CREATE_APPOINMENT_URL_BEFORE_MESSAGE + message + CREATE_APPOINMENT_URL_BEFORE_DATE + dateString + CREATE_APPOINMENT_URL_BEFORE_TYPE + type + CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS + notifyHours + CREATE_APPOINMENT_URL_END
-
+        let finalurl = CREATE_APPOINMENT_URL + theJSONText // + CREATE_APPOINMENT_URL_BEFORE_UUID + uuid + CREATE_APPOINMENT_URL_BEFORE_SERIAL + serial + CREATE_APPOINMENT_URL_BEFORE_MOBILE + mobile + CREATE_APPOINMENT_URL_BEFORE_MESSAGE + message + CREATE_APPOINMENT_URL_BEFORE_DATE + dateString + CREATE_APPOINMENT_URL_BEFORE_TYPE + type + CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS + notifyHours + CREATE_APPOINMENT_URL_END
+        
         PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
@@ -407,7 +421,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-
+    
     internal static func PostDataWithUrl (urlString: String, withParameterDictionary parameters: Dictionary<String,Any>, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void))) {
         
         if Reachability.isInternetAvailable()
@@ -482,7 +496,7 @@ class WebManager: NSObject
                     else
                 {
                     completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
-
+                    
                     print("could not convert data to UTF-8 format")
                     
                     return
@@ -516,34 +530,34 @@ class WebManager: NSObject
                 }
                 
                 /*
-                do
-                {
-                    
-                    if let Data = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
-                    {
-                        
-                        completion(nil,Data as NSDictionary)
-                    }
-                    else
-                    {
-                        completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
-                    }
-                }
-                catch let error
-                {
-                    print(error.localizedDescription)
-                    
-                    let code = (error as NSError).code
-                    
-                    if(code == 3840)
-                    {
-                        completion(NSError(domain: "com.mpos.tlt", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
-                    }
-                    else
-                    {
-                        completion(error,nil);
-                    }
-                } */
+                 do
+                 {
+                 
+                 if let Data = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                 {
+                 
+                 completion(nil,Data as NSDictionary)
+                 }
+                 else
+                 {
+                 completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                 }
+                 }
+                 catch let error
+                 {
+                 print(error.localizedDescription)
+                 
+                 let code = (error as NSError).code
+                 
+                 if(code == 3840)
+                 {
+                 completion(NSError(domain: "com.mpos.tlt", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+                 }
+                 else
+                 {
+                 completion(error,nil);
+                 }
+                 } */
                 
             })
             dataTask.resume()
