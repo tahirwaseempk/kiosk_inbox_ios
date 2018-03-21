@@ -13,8 +13,11 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var dateControlsContainer: UIView!
     @IBOutlet weak var calendarLogoButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
+    
     var headerTitleString = ""
 
+    var selectedDate = Date()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -50,6 +53,14 @@ class ScheduleAppointmentViewController: UIViewController
     @IBAction func scheduleButtonTapped(_ sender: Any)
     {
         ProcessingIndicator.show()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.calendar = NSCalendar.current
+        
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
+        
+        self.calendarLabel.text = dateFormatter.string(from: Date())
         
         let dateString = self.calendarLabel.text
         
@@ -145,5 +156,7 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMMM, yyyy", options: 0, locale: calendar.locale)
         
         self.calendarLabel.text = dateFormatter.string(from: date)
+        
+        self.selectedDate = date
     }
 }
