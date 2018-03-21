@@ -60,9 +60,7 @@ class ScheduleAppointmentViewController: UIViewController
         
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
         
-        self.calendarLabel.text = dateFormatter.string(from: Date())
-        
-        let dateString = self.calendarLabel.text
+        let dateString = dateFormatter.string(from: Date())
         
         let hoursString = self.hourCounterView.valueLabel.text
 
