@@ -57,7 +57,21 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBAction func scheduleAppointment_Tapped(_ sender: Any)
     {
+        self.closeView.removeFromSuperview()
+
         self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as! ScheduleAppointmentViewController
+        
+        if self.selectedConversation != nil
+        {
+            if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
+            {
+                self.scheduleAppointmentViewController.headerTitleString =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+            }
+            else
+            {
+                self.scheduleAppointmentViewController.headerTitleString = self.selectedConversation.mobile!
+            }
+        }
         
         self.view.addSubview(self.scheduleAppointmentViewController.view)
     }

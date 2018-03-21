@@ -10,6 +10,10 @@ class CounterView: UIView
     
     @IBInspectable var minValue:Int = 0
     
+    @IBOutlet weak var incrementerButton: UIButton!
+    
+    @IBOutlet weak var decrementerButton: UIButton!
+    
     @IBOutlet var containerView: CounterView!
     
     required init(coder aDecoder: NSCoder)
@@ -26,6 +30,23 @@ class CounterView: UIView
         initSubviews()
     }
     
+    override func awakeFromNib()
+    {
+        super.awakeFromNib()
+        
+        self.valueLabel.tag = self.minValue
+        
+        self.valueLabel.text = String(self.minValue) + postfixString
+        
+        self.incrementerButton.layer.borderWidth = 1.0
+        
+        self.incrementerButton.layer.borderColor = UIColor.lightGray.cgColor
+
+        self.decrementerButton.layer.borderWidth = 1.0
+        
+        self.decrementerButton.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
     func initSubviews()
     {
         let nib = UINib(nibName:"CounterView", bundle: nil)
@@ -36,8 +57,8 @@ class CounterView: UIView
         
         containerView.layer.borderWidth = 1.0
         
-        containerView.layer.borderColor = UIColor.darkGray.cgColor
-        
+        containerView.layer.borderColor = UIColor.lightGray.cgColor
+
         addSubview(containerView)
     }
     

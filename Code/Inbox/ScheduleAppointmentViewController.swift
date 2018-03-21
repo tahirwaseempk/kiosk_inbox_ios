@@ -8,10 +8,30 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var hourCounterView: CounterView!
     @IBOutlet weak var minuteCounterView: CounterView!
     @IBOutlet weak var timeCounterView: CounterView!
-    
+    @IBOutlet weak var whiteBackgroundView: UIView!
+    @IBOutlet weak var scheduleAppointmentButton: UIButton!
+    @IBOutlet weak var dateControlsContainer: UIView!
+    @IBOutlet weak var calendarLogoButton: UIButton!
+    @IBOutlet weak var headerLabel: UILabel!
+    var headerTitleString = ""
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.headerLabel.text = "Schedule Appointment with " + self.headerTitleString
+        
+        self.whiteBackgroundView.layer.cornerRadius =  self.whiteBackgroundView.frame.size.width / 25.0
+        
+        self.scheduleAppointmentButton.layer.cornerRadius =  self.scheduleAppointmentButton.frame.size.width / 30.0
+        
+        self.dateControlsContainer.layer.borderWidth = 1.0
+        
+        self.dateControlsContainer.layer.borderColor = UIColor.lightGray.cgColor
+        
+        self.calendarLogoButton.layer.borderWidth = 1.0
+        
+        self.calendarLogoButton.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     @IBAction func dismisButtonTapped(_ sender: Any)
@@ -72,6 +92,11 @@ class ScheduleAppointmentViewController: UIViewController
         let width = self.view.frame.size.width - 20
         
         self.calendarView.frame = CGRect(x: 0, y: 0, width: width, height: width)
+        
+        self.view.addSubview(self.calendarView)
+        
+        return
+        
         let options = [
             .type(.down),
             .cornerRadius(1 / 1),
