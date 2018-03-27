@@ -56,42 +56,49 @@ class ScheduleAppointmentViewController: UIViewController
     {
         ProcessingIndicator.show()
         
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.calendar = NSCalendar.current
-        
-        let currentTimeZone: TimeZone = TimeZone.current
-        
-        dateFormatter.timeZone = currentTimeZone
 
-        dateFormatter.dateStyle = .full
         
-       // dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
-
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+       // let hoursString = self.hourCounterView.valueLabel.text
+        let hoursWithoutMString = String(self.hourCounterView.valueLabel.tag) // Does Not Contain m at end like 12
         
-        let dateString = dateFormatter.string(from: selectedDate)
-        
-        let hoursString = self.hourCounterView.valueLabel.text
-
-        let minutesWithMString = self.minuteCounterView.valueLabel.text // Contains m at end like 12m
-
+       // let minutesWithMString = self.minuteCounterView.valueLabel.text // Contains m at end like 12m
         let minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
 
-        let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
+        /////////////////////////////////////////////////////////////////////////////////////
+        //--------------------------------------------------------------------------------//
+        ///////////////////////////////////////////////////////////////////////////////////
+        let dateFormatter = DateFormatter()
+//        dateFormatter.calendar = NSCalendar.current
+//        let currentTimeZone: TimeZone = TimeZone.current
+//        dateFormatter.timeZone = currentTimeZone
+        dateFormatter.dateStyle = .full
+        // dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
         
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var dateString = dateFormatter.string(from: self.selectedDate)
+        dateString = dateString + " " + hoursWithoutMString + ":" + minutesWithoutMString + ":00"
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let msgDate = dateFormatter.date(from: dateString)
+        dateString = dateFormatter.string(from: msgDate!)
+        /////////////////////////////////////////////////////////////////////////////////////
+        //--------------------------------------------------------------------------------//
+        ///////////////////////////////////////////////////////////////////////////////////
+        
+       // let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
         let timeWithoutHrsString = String(self.timeCounterView.valueLabel.tag) // Does Not Contain hrs at end like 12
 
         let mobileNumber = self.selectedConversation.mobile!
 
         var paramsDic = Dictionary<String, Any>()
         
-        paramsDic["mobile"] = self.headerTitleString
+        paramsDic["mobile"] = mobileNumber
         paramsDic["date"] = dateString
         paramsDic["notifyHours"] = timeWithoutHrsString
         paramsDic["first"] = ""
         paramsDic["last"] = ""
         paramsDic["message"] = "Appointment"
+        paramsDic["type"] = "Reminder"
 
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
@@ -170,6 +177,6 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         
         self.calendarLabel.text = dateFormatter.string(from: date)
         
-        self.selectedDate = date
+       self.selectedDate = date
     }
 }

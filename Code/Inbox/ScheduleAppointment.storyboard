@@ -63,12 +63,12 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <integer key="value" value="24"/>
+                                        <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minValue">
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="postfixString" value="   "/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="postfixString" value="hrs"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">

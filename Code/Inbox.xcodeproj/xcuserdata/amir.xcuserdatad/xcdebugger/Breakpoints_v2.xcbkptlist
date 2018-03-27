@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "543350796.621006"
+            timestampString = "543350875.432201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "447"
@@ -26,13 +26,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ScheduleAppointmentViewController.swift"
-            timestampString = "543350796.6213289"
+            timestampString = "543860271.807842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "scheduleButtonTapped(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Inbox.ScheduleAppointmentViewController.scheduleButtonTapped(Any) -&gt; ()"
+                  moduleName = "Inbox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/NETSOL/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ScheduleAppointmentViewController.swift"
+                  timestampString = "543860271.962925"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Inbox.ScheduleAppointmentViewController.scheduleButtonTapped(Any) -&gt; ()"
+                  moduleName = "Inbox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/NETSOL/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ScheduleAppointmentViewController.swift"
+                  timestampString = "543860271.96559"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "543350796.621886"
+            timestampString = "543350875.434182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "385"
@@ -58,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ScheduleAppointmentViewController.swift"
-            timestampString = "543350796.622068"
+            timestampString = "543860271.808285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "scheduleButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ScheduleAppointmentViewController.swift"
-            timestampString = "543350796.622315"
+            timestampString = "543860271.808568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "scheduleButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
