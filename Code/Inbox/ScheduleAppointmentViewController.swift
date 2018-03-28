@@ -14,10 +14,16 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var calendarLogoButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
     
+    @IBOutlet weak var btnCheckBox: UIButton!
+    
+    var tickBox:Checkbox? = nil
+
     var selectedConversation:Conversation! = nil
     
     var headerTitleString = ""
     
+    var checkBoxMessage = "Reminder"
+
     var selectedDate = Date()
     
     override func viewDidLoad()
@@ -45,7 +51,38 @@ class ScheduleAppointmentViewController: UIViewController
         self.calendarLogoButton.layer.borderWidth = 1.0
         
         self.calendarLogoButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        self.addCheckboxSubviews()
     }
+    
+    func addCheckboxSubviews() {
+        
+        // tick
+        self.tickBox = Checkbox(frame: self.btnCheckBox.bounds)
+        self.tickBox?.borderColor = UIColor.black
+        self.tickBox?.checkmarkColor = UIColor.black
+        self.tickBox?.borderStyle = .square
+        self.tickBox?.checkmarkStyle = .tick
+        self.tickBox?.checkmarkSize = 0.8
+        
+        self.tickBox?.addTarget(self, action: #selector(circleBoxValueChanged(sender:)), for: .valueChanged)
+        
+        self.btnCheckBox.addSubview(self.tickBox!)
+    }
+
+    @objc func circleBoxValueChanged(sender: Checkbox) {
+        
+        if sender.isChecked == true {
+            self.checkBoxMessage = "ShortConfirmation"
+        }
+        else {
+            self.checkBoxMessage = "Reminder"
+        }
+        
+        print("circle box value change: \(sender.isChecked)")
+    }
+    
+    
     
     @IBAction func dismisButtonTapped(_ sender: Any)
     {
@@ -59,7 +96,7 @@ class ScheduleAppointmentViewController: UIViewController
         
         
         // let hoursString = self.hourCounterView.valueLabel.text
-        let hoursWithoutMString = String(self.hourCounterView.valueLabel.tag) // Does Not Contain m at end like 12
+        let hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
         
         // let minutesWithMString = self.minuteCounterView.valueLabel.text // Contains m at end like 12m
         let minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
@@ -76,11 +113,12 @@ class ScheduleAppointmentViewController: UIViewController
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var dateString = dateFormatter.string(from: self.selectedDate)
-        dateString = dateString + " " + hoursWithoutMString + ":" + minutesWithoutMString + ":00"
+        dateString = dateString + " " + hoursWithoutMString + ":" + minutesWithoutMString  //+ ":00"
         
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd h:mm"
         let msgDate = dateFormatter.date(from: dateString)
         dateString = dateFormatter.string(from: msgDate!)
+        dateString = dateString + ":00"
         /////////////////////////////////////////////////////////////////////////////////////
         //--------------------------------------------------------------------------------//
         ///////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +136,7 @@ class ScheduleAppointmentViewController: UIViewController
         paramsDic["first"] = ""
         paramsDic["last"] = ""
         paramsDic["message"] = "Appointment"
-        paramsDic["type"] = "Reminder" //ShortConfirmation
+        paramsDic["type"] = self.checkBoxMessage // "Reminder" //ShortConfirmation
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
