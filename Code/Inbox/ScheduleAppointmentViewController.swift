@@ -24,7 +24,7 @@ class ScheduleAppointmentViewController: UIViewController
     {
         super.viewDidLoad()
         
-        self.headerLabel.text = "Schedule Appointment with " + self.headerTitleString
+        self.headerLabel.text =  self.headerTitleString// "Schedule Appointment with " + self.headerTitleString
         
         let dateFormatter = DateFormatter()
         
@@ -98,7 +98,7 @@ class ScheduleAppointmentViewController: UIViewController
         paramsDic["first"] = ""
         paramsDic["last"] = ""
         paramsDic["message"] = "Appointment"
-        paramsDic["type"] = "Reminder"
+        paramsDic["type"] = "Reminder" //ShortConfirmation
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
