@@ -87,34 +87,34 @@ extension User
         WebManager.requestLogin(params: paramsDic, loginParser: LoginParser(), completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
-            {
-                DispatchQueue.main.async
                 {
-                    let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
-                    
-                    User.loginedUser = user
-                    
-                    self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
-                        
-                        DispatchQueue.global(qos: .background).async
+                    DispatchQueue.main.async
                         {
-                            DispatchQueue.main.async
-                            {
-                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                            let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
+                            
+                            User.loginedUser = user
+                            
+                            self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
                                 
-                                successBlock(user)
-                            }
-                        }
-                        
-                    }, andFailureBlock: { (error: Error?) -> (Void) in
-
-                        failureBlock(error)
-                    })
-                }
+                                DispatchQueue.global(qos: .background).async
+                                    {
+                                        DispatchQueue.main.async
+                                            {
+                                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                                
+                                                successBlock(user)
+                                        }
+                                }
+                                
+                            }, andFailureBlock: { (error: Error?) -> (Void) in
+                                
+                                failureBlock(error)
+                            })
+                    }
             }
             
         }) { (error: Error?) -> (Void) in
-
+            
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
@@ -128,16 +128,16 @@ extension User
         paramsDic["serial"] = serial
         paramsDic["uuid"] = uuid
         paramsDic["type"] = "Inbox"
-
+        
         if let token = defaults.string(forKey: "pushyToken")
         {
             paramsDic["token"] = token
         }
         
         WebManager.registerAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
-
+            
             successBlock(true)
-
+            
         }) { (error: Error?) -> (Void) in
             
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
@@ -159,38 +159,38 @@ extension User
             WebManager.requestConversations(params:paramsDic, conversationParser: ConversationParser(),completionBlockSuccess:{(conversations:Array<Conversation>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        for case let savedConversation as Conversation in user.conversations!
-                        {
-                            var isFound = false
-                            
-                            for conversation in conversations!
+                        DispatchQueue.main.async
                             {
-                                if conversation.conversationId == savedConversation.conversationId
+                                for case let savedConversation as Conversation in user.conversations!
                                 {
-                                    isFound = true
+                                    var isFound = false
                                     
-                                    break
+                                    for conversation in conversations!
+                                    {
+                                        if conversation.conversationId == savedConversation.conversationId
+                                        {
+                                            isFound = true
+                                            
+                                            break
+                                        }
+                                    }
+                                    
+                                    if isFound == false
+                                    {
+                                        savedConversation.user = nil
+                                    }
                                 }
-                            }
-                            
-                            if isFound == false
-                            {
-                                savedConversation.user = nil
-                            }
+                                
+                                for conversation in conversations!
+                                {
+                                    conversation.user = user
+                                }
+                                
+                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                
+                                successBlock(user.conversations?.allObjects as? Array<Conversation>)
                         }
-                        
-                        for conversation in conversations!
-                        {
-                            conversation.user = user
-                        }
-                        
-                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
-
-                        successBlock(user.conversations?.allObjects as? Array<Conversation>)
-                    }
                 }
                 
             }){(error:Error?) -> (Void) in
@@ -216,21 +216,21 @@ extension User
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobile
             paramsDic["shortCode"] = conversation.shortCode
-        WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
+            WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        for message in messages!
-                        {
-                            message.conversation = conversation
+                        DispatchQueue.main.async
+                            {
+                                for message in messages!
+                                {
+                                    message.conversation = conversation
+                                }
+                                
+                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                
+                                successBlock(messages)
                         }
-                        
-                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
-
-                        successBlock(messages)
-                    }
                 }
                 
             }){(error:Error?) -> (Void) in
@@ -276,7 +276,7 @@ extension User
                 {
                     successBlock(false)
                 }
-
+                
             }, andFailureBlock: { (error:Error?) -> (Void) in
                 failureBlock(error)
             })
@@ -321,19 +321,19 @@ extension User
                         msgDate = dateFormatter.date(from: dateString)!
                         
                         DispatchQueue.global(qos: .background).async
-                        {
-                            DispatchQueue.main.async
                             {
-                                let msgID: Int64 = Int64(splitString[1])!
-                                
-                                let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
-                                
-                                conversation.addToMessages(message)
-                                
-                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-
-                                successBlock(message)
-                            }
+                                DispatchQueue.main.async
+                                    {
+                                        let msgID: Int64 = Int64(splitString[1])!
+                                        
+                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        
+                                        conversation.addToMessages(message)
+                                        
+                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                        
+                                        successBlock(message)
+                                }
                         }
                     }
                     else
@@ -436,11 +436,12 @@ extension User
             paramsDic["date"] = params["date"]
             paramsDic["type"] = params["type"]
             paramsDic["notifyHours"] = params["notifyHours"] as! String
-//            paramsDic["first"] = params["first"] as! String
-//            paramsDic["last"] = params["last"] as! String
-//            paramsDic["endDate"] = "" //params["endDate"] as! String
-//            paramsDic["notifyEmail"] = "" //params["notifyEmail"] as! String
-//            paramsDic["notifyNumber"] = "" //params["notifyNumber"] as! String
+            
+            //            paramsDic["first"] = params["first"] as! String
+            //            paramsDic["last"] = params["last"] as! String
+            //            paramsDic["endDate"] = "" //params["endDate"] as! String
+            //            paramsDic["notifyEmail"] = "" //params["notifyEmail"] as! String
+            //            paramsDic["notifyNumber"] = "" //params["notifyNumber"] as! String
             
             WebManager.createAppointment(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -603,7 +604,7 @@ extension User
             else
             {
                 CoreDataManager.coreDataManagerSharedInstance.saveContext()
-
+                
                 successBlock(true)
             }
         }
@@ -652,7 +653,7 @@ extension User
                                         }
                                         
                                         CoreDataManager.coreDataManagerSharedInstance.saveContext()
-
+                                        
                                         successBlock(true)
                                         
                                     } else  {
