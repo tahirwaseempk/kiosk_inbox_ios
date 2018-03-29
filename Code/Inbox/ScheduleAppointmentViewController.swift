@@ -30,7 +30,7 @@ class ScheduleAppointmentViewController: UIViewController
     {
         super.viewDidLoad()
         
-        self.headerLabel.text =  self.headerTitleString// "Schedule Appointment with " + self.headerTitleString
+        self.headerLabel.text =  self.splitNumber(str: self.headerTitleString)// "Schedule Appointment with " + self.headerTitleString
         
         let dateFormatter = DateFormatter()
         
@@ -87,6 +87,7 @@ class ScheduleAppointmentViewController: UIViewController
     @IBAction func dismisButtonTapped(_ sender: Any)
     {
         self.view.removeFromSuperview()
+        
     }
     
     @IBAction func scheduleButtonTapped(_ sender: Any)
@@ -96,7 +97,7 @@ class ScheduleAppointmentViewController: UIViewController
         
         
         // let hoursString = self.hourCounterView.valueLabel.text
-        let hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
+        var hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
         
         // let minutesWithMString = self.minuteCounterView.valueLabel.text // Contains m at end like 12m
         var minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
@@ -117,12 +118,20 @@ class ScheduleAppointmentViewController: UIViewController
         if (minutesWithoutMString == "0") {
             minutesWithoutMString = "00"
         }
-        dateString = dateString + " " + hoursWithoutMString + ":" + minutesWithoutMString  //+ ":00"
         
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
-        let msgDate = dateFormatter.date(from: dateString)
-        dateString = dateFormatter.string(from: msgDate!)
-        dateString = dateString + ":00"
+        if (hoursWithoutMString == "24") {
+            hoursWithoutMString = "23"
+        }
+        else if (hoursWithoutMString == "0") {
+            hoursWithoutMString = "00"
+        }
+        
+        dateString = dateString + " " + hoursWithoutMString + ":" + minutesWithoutMString  + ":00"
+        
+        //dateFormatter.dateFormat = "yyyy-MM-dd h:mm:ss"
+        //let msgDate = dateFormatter.date(from: dateString)
+        //dateString = dateFormatter.string(from: msgDate!)
+        //dateString = dateString + ":00"
         /////////////////////////////////////////////////////////////////////////////////////
         //--------------------------------------------------------------------------------//
         ///////////////////////////////////////////////////////////////////////////////////
@@ -220,5 +229,17 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         self.calendarLabel.text = dateFormatter.string(from: date)
         
         self.selectedDate = date
+    }
+    
+    func splitNumber(str:String) -> String
+    {
+        
+        var strArr  = str.split{$0 == "-"}.map(String.init)
+        //let first = strArr[0]
+        let second = strArr[1]
+        let third = strArr[2]
+        let fourth = strArr[2]
+
+        return String(second+"-"+third+"-"+fourth)
     }
 }

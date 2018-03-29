@@ -40,8 +40,12 @@ class CounterView: UIView
         
         self.valueLabel.tag = self.minValue
         
-        self.valueLabel.text = String(self.minValue) + postfixString
-        
+        if viewType == "hours" {
+            self.valueLabel.text = String(12) + postfixString
+        }
+        else {
+            self.valueLabel.text = String(self.minValue) + postfixString
+        }
         self.incrementerButton.layer.borderWidth = 1.0
         
         self.incrementerButton.layer.borderColor = UIColor.lightGray.cgColor
