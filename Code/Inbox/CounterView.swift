@@ -70,37 +70,36 @@ class CounterView: UIView
     {
         //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
-        //-------------------------------------------------------------------------------------//
-        //-------------------------------------------------------------------------------------//
         if self.viewType == "hours"
         {
+            print("TEMP VALUE: \(self.tempValue)")
+            print("MAX VALUE: \(self.maxValue)")
+            
             if (self.tempValue < self.maxValue) {
 
                 self.tempValue = self.tempValue + 1
+                
                 //****************************************************************//
-                if 1 ... 11 ~= self.tempValue {
+                if (self.tempValue == 0) {
+                    
+                    self.valueLabel.text = String(12) + " AM"
+                    
+                } else if 1 ... 11 ~= self.tempValue {
                   
                     self.valueLabel.text = String(self.tempValue) + " AM"
                     
                 } else if (self.tempValue == 12) {
                     
-                    self.valueLabel.text = String(self.tempValue) + " PM"
+                    self.valueLabel.text = String(12) + " PM"
                     
                 } else if 13 ... 23 ~= self.tempValue {
                  
                     self.valueLabel.text = String(self.tempValue-12) + " PM"
                 }
-                else if (self.tempValue == 24) {
-                    
-                    self.valueLabel.text = String(self.tempValue-12) + " AM"
-                }
                 //****************************************************************//
             }
-            
             return
         }
-        //-------------------------------------------------------------------------------------//
-        //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
         
@@ -114,39 +113,38 @@ class CounterView: UIView
     
     @IBAction func decrement_Tapped(_ sender: Any)
     {
-
-        //-------------------------------------------------------------------------------------//
-        //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
         if self.viewType == "hours"
         {
-            if (self.tempValue < self.maxValue) {
+            print("TEMP VALUE: \(self.tempValue)")
+            print("MIN VALUE: \(self.minValue)")
+
+            if (self.tempValue > self.minValue) {
                 
                 self.tempValue = self.tempValue - 1
+                
                 //****************************************************************//
-                if 1 ... 11 ~= self.tempValue {
+                if (self.tempValue == 0) {
+                    
+                    self.valueLabel.text = String(12) + " AM"
+               
+                } else if 1 ... 11 ~= self.tempValue {
                     
                     self.valueLabel.text = String(self.tempValue) + " AM"
                     
                 } else if (self.tempValue == 12) {
                     
-                    self.valueLabel.text = String(self.tempValue) + " PM"
+                    self.valueLabel.text = String(12) + " PM"
                     
-                } else if 13 ... 23 ~= self.tempValue {
+                } else if 13 ... 24 ~= self.tempValue {
                     
                     self.valueLabel.text = String(self.tempValue-12) + " PM"
-                }
-                else if (self.tempValue == 24) {
-                    
-                    self.valueLabel.text = String(self.tempValue-12) + " AM"
                 }
                 //****************************************************************//
             } 
             return
         }
-        //-------------------------------------------------------------------------------------//
-        //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
         
@@ -159,7 +157,8 @@ class CounterView: UIView
     }
     
     
-    func amAppend(str:String) -> String{
+    func amAppend(str:String) -> String
+    {
         
         var strArr  = str.split{$0 == " "}.map(String.init)
         
@@ -168,7 +167,8 @@ class CounterView: UIView
         return String(removeSpecialCharsFromString(postfix))
     }
     
-    func removeSpecialCharsFromString(_ str: String) -> String {
+    func removeSpecialCharsFromString(_ str: String) -> String
+    {
         struct Constants {
             static let validChars = Set("AMP")
         }

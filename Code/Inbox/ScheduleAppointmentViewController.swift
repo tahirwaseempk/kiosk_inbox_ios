@@ -99,7 +99,7 @@ class ScheduleAppointmentViewController: UIViewController
         let hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
         
         // let minutesWithMString = self.minuteCounterView.valueLabel.text // Contains m at end like 12m
-        let minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
+        var minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
         
         /////////////////////////////////////////////////////////////////////////////////////
         //--------------------------------------------------------------------------------//
@@ -113,9 +113,13 @@ class ScheduleAppointmentViewController: UIViewController
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var dateString = dateFormatter.string(from: self.selectedDate)
+      
+        if (minutesWithoutMString == "0") {
+            minutesWithoutMString = "00"
+        }
         dateString = dateString + " " + hoursWithoutMString + ":" + minutesWithoutMString  //+ ":00"
         
-        dateFormatter.dateFormat = "yyyy-MM-dd h:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
         let msgDate = dateFormatter.date(from: dateString)
         dateString = dateFormatter.string(from: msgDate!)
         dateString = dateString + ":00"

@@ -72,15 +72,15 @@
                                                         <color key="backgroundColor" red="0.9294143319" green="0.92941170930000006" blue="0.92940384149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                                <integer key="value" value="24"/>
+                                                                <integer key="value" value="23"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                                                <integer key="value" value="1"/>
+                                                                <integer key="value" value="0"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="postfixString" value=" AM"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewType" value="hours"/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="tempValue">
-                                                                <integer key="value" value="1"/>
+                                                                <integer key="value" value="0"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
