@@ -236,10 +236,19 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         
         var strArr  = str.split{$0 == "-"}.map(String.init)
         //let first = strArr[0]
-        let second = strArr[1]
-        let third = strArr[2]
-        let fourth = strArr[2]
+        var second = ""
+        var third = ""
+        var fourth = ""
+        
+        if (strArr.count > 3) {
+        second = strArr[1]
+        third = strArr[2]
+        fourth = strArr[3]
+        }
 
-        return String(second+"-"+third+"-"+fourth)
+
+        let returningStr = second+"-"+third+"-"+fourth
+        
+        return returningStr
     }
 }
