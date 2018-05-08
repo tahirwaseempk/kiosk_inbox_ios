@@ -94,8 +94,6 @@ class ScheduleAppointmentViewController: UIViewController
     {
         ProcessingIndicator.show()
         
-        
-        
         // let hoursString = self.hourCounterView.valueLabel.text
         var hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
         
@@ -113,7 +111,7 @@ class ScheduleAppointmentViewController: UIViewController
         // dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        var dateString = dateFormatter.string(from: self.selectedDate)
+        var selectedDateStr = dateFormatter.string(from: self.selectedDate)
       
         if (minutesWithoutMString == "0") {
             minutesWithoutMString = "00"
@@ -126,10 +124,26 @@ class ScheduleAppointmentViewController: UIViewController
             hoursWithoutMString = "00"
         }
         
-        dateString = dateString + " " + hoursWithoutMString + ":" + minutesWithoutMString  + ":00"
+        selectedDateStr = selectedDateStr + " " + hoursWithoutMString + ":" + minutesWithoutMString  + ":00"
         
-        //dateFormatter.dateFormat = "yyyy-MM-dd h:mm:ss"
-        //let msgDate = dateFormatter.date(from: dateString)
+        let currentDte = Date()
+        dateFormatter.dateFormat = "yyyy-MM-dd h:mm:ss"
+        let currentDateStr = dateFormatter.string(from: currentDte)
+        
+        let selectedDate = dateFormatter.date(from: selectedDateStr)
+        let currentDate = dateFormatter.date(from: currentDateStr)
+        
+        if selectedDate?.compare(currentDate!) == .orderedAscending {
+            print("Selected Date is smaller then Current Date")
+            
+            ProcessingIndicator.hide()
+
+            let alert = UIAlertController(title: "Error", message: "Selected Date/Time is in the past.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         //dateString = dateFormatter.string(from: msgDate!)
         //dateString = dateString + ":00"
         /////////////////////////////////////////////////////////////////////////////////////
@@ -144,7 +158,7 @@ class ScheduleAppointmentViewController: UIViewController
         var paramsDic = Dictionary<String, Any>()
         
         paramsDic["mobile"] = mobileNumber
-        paramsDic["date"] = dateString
+        paramsDic["date"] = selectedDateStr
         paramsDic["notifyHours"] = timeWithoutHrsString
         paramsDic["first"] = ""
         paramsDic["last"] = ""

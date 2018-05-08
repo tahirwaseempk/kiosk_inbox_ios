@@ -992,8 +992,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03dd1b1b-b60c-4a44-b1fc-fc74f74e5962";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdHocProfile;
+				PROVISIONING_PROFILE = "c0d4c812-bdd7-47e1-8898-d36ee6e2c1ac";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -1021,8 +1021,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03dd1b1b-b60c-4a44-b1fc-fc74f74e5962";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdHocProfile;
+				PROVISIONING_PROFILE = "c0d4c812-bdd7-47e1-8898-d36ee6e2c1ac";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStoreProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;

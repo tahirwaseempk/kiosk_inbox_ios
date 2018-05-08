@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // Override point for customization after application launch.
         
         //UIApplication.shared.isStatusBarHidden = true
-        
         //registerForPushNotifications()
         
         application.applicationIconBadgeNumber = 0
@@ -51,8 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          UserDefaults.standard.synchronize()
          // Subscribe the device for PubSub topic(s)
          pushy.subscribe(topic: "news", handler: { (error) in
-         // Handle errors
-         if error != nil {
+        
+        // Handle errors
+        if error != nil {
          return print ("Subscribe failed: \(error!)")
          }
          
@@ -102,55 +102,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         CoreDataManager.coreDataManagerSharedInstance.saveContext()
         UserDefaults.standard.synchronize()
     }
-    /*
-        func registerForPushNotifications() {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-                (granted, error) in
-                print("Permission granted: \(granted)")
- 
-                guard granted else { return }
-                self.getNotificationSettings()
-            }
-        }
- 
-        func getNotificationSettings() {
-            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-                print("Notification settings: \(settings)")
-                guard settings.authorizationStatus == .authorized else { return }
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-        }
- 
- 
-        func application(_ application: UIApplication,
-                         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-            let tokenParts = deviceToken.map { data -> String in
-                return String(format: "%02.2hhx", data)
-            }
- 
-            let token = tokenParts.joined()
-            print("Device Token: \(token)")
- 
-            if token.characters.count>0 {
-                let defaults = UserDefaults.standard
-                defaults.set(token, forKey: "DeviceToken")
-                defaults.synchronize()
-            }
- 
-        }
- 
-        func application(_ application: UIApplication,
-                         didFailToRegisterForRemoteNotificationsWithError error: Error) {
-            print("Failed to register: \(error)")
-        }
- 
-    func application(
-        _ application: UIApplication,
-        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-
-
-    }
- */
 }
 
