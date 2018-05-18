@@ -41,24 +41,7 @@ let DELETE_URL_BEFORE_MOBILE = "&mobile="
 let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
 
 let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json="
-//let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid="
-//let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "&serial="
-//let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "&mobile="
-//let CREATE_APPOINMENT_URL_BEFORE_DATE = "&date="
-//let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "&message="
-//let CREATE_APPOINMENT_URL_BEFORE_TYPE = "&type="
-//let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "&notifyHours="
-//let CREATE_APPOINMENT_URL_END = "}"
 
-//let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json={%22"
-//let CREATE_APPOINMENT_URL_BEFORE_UUID = "uuid%22:%22"
-//let CREATE_APPOINMENT_URL_BEFORE_SERIAL = "%22serial%22:%22"
-//let CREATE_APPOINMENT_URL_BEFORE_MOBILE = "%22mobile%22:%22"
-//let CREATE_APPOINMENT_URL_BEFORE_DATE = "%22date%22:%22"
-//let CREATE_APPOINMENT_URL_BEFORE_MESSAGE = "%22message%22:%22"
-//let CREATE_APPOINMENT_URL_BEFORE_TYPE = "%22type%22:%22"
-//let CREATE_APPOINMENT_URL_BEFORE_NOTIFYHOURS = "%22notifyHours%22:%22"
-//let CREATE_APPOINMENT_URL_END = "}"
 
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

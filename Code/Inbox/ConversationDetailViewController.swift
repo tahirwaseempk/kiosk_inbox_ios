@@ -75,7 +75,12 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             self.scheduleAppointmentViewController.selectedConversation = self.selectedConversation
         }
         
+        
+        
+        
         self.view.addSubview(self.scheduleAppointmentViewController.view)
+        
+        self.scheduleAppointmentViewController.view.frame = self.view.bounds
     }
     
     @IBAction func optOut_Tapped(_ sender: Any)
