@@ -2,7 +2,7 @@ import UIKit
 
 class ConversationDetailViewController: UIViewController, ConversationListingTableCellProtocol
 {
-    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=&,.-! "
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=&,.-!() "
 
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
