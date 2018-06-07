@@ -28,7 +28,7 @@ class ComposeMessageViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
         mobileTextField.text = ""
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -96,7 +96,6 @@ class ComposeMessageViewController: UIViewController {
         
     }
     
-    
     @IBAction func contactsButton_Tapped(_ sender: Any) {
         
         let cnPicker = CNContactPickerViewController()
@@ -108,89 +107,18 @@ class ComposeMessageViewController: UIViewController {
 
 extension ComposeMessageViewController : CNContactPickerDelegate {
     
-//    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-//
-//        let mobile : String = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
-//        print("number is = \(mobile)")
-//
-//        var numbersArr = [String]()
-//
-//        if contact.phoneNumbers.count > 0 {
-//
-//            for i in 0...(contact.phoneNumbers.count-1) {
-//                numbersArr.append((contact.phoneNumbers[i].value ).value(forKey: "digits") as! String)
-//            }
-//
-//            if mobile.count>0 {
-//                mobileTextField.text = self.format(phoneNumber: mobile)
-//            }
-//        }
-//
-//    }
-    
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
         
         let contact = contactProperty.contact
+        let identifierStr = contactProperty.identifier
         
-        if let phoneNumber = contact.phoneNumbers.first { // We display only phone numbers, so we will have it ;)
-            let phoneNumberValue = phoneNumber.value
-            let result = phoneNumberValue.stringValue
-            
-            mobileTextField.text = self.format(phoneNumber: result)
-        } else {
-            mobileTextField.text = ""
+        for phoneNumber in contact.phoneNumbers {
+            if phoneNumber.identifier == identifierStr {
+                let myString = phoneNumber.value.stringValue;
+                mobileTextField.text = self.format(phoneNumber: myString)
+            }
         }
-        
-        //let mobileNumber : String = contactProperty.contact.phoneNumbers  as! String
-        
-       // if mobileNumber.count>0 {
-       //     mobileTextField.text = self.format(phoneNumber: mobileNumber)
-       // }
     }
-
-    
-//    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-//
-//        for ContctVar in contacts
-//        {
-//           // let ContctDtlVar = ContctDtlCls()
-//            ContctVar.ManNamVar = CNContactFormatter.stringFromContact(ContctVar, style: .FullName)!
-//
-//            for ContctNumVar: CNLabeledValue in ContctVar.phoneNumbers
-//            {
-//                var MobNumVar  = ((ContctNumVar.value ).value(forKey: "digits") as? String)!
-//                if(MobNumVar.Len() > 10)
-//                {
-//                    MobNumVar = MobNumVar.GetLstSubSrgFnc(10)
-//                }
-//                ContctDtlVar.MobNumVar = MobNumVar
-//                ContctDtlVar.append(ContctDtlVar)
-//            }
-//        }
-//    }
-  
-    //    func contactPicker(picker: CNContactPickerViewController, didSelectContacts ContctAryVar: [CNContact])
-    //    {
-    //        for ContctVar in ContctAryVar
-    //        {
-    //            let ContctDtlVar = ContctDtlCls()
-    //            ContctDtlVar.ManNamVar = CNContactFormatter.stringFromContact(ContctVar, style: .FullName)!
-    //
-    //            for ContctNumVar: CNLabeledValue in ContctVar.phoneNumbers
-    //            {
-    //                var MobNumVar  = ((ContctNumVar.value ).valueForKey("digits") as? String)!
-    //                if(MobNumVar.Len() > 10)
-    //                {
-    //                    MobNumVar = MobNumVar.GetLstSubSrgFnc(10)
-    //                }
-    //                ContctDtlVar.MobNumVar = MobNumVar
-    //                ContctDtlVar.append(ContctDtlVar)
-    //            }
-    //        }
-    //
-    //        delegate.didFetchContacts([contact])
-    //        navigationController?.popViewController(animated: true)
-    //    }
     
     func format(phoneNumber sourcePhoneNumber: String) -> String? {
         // Remove any character that is not a number
@@ -239,17 +167,6 @@ extension ComposeMessageViewController : CNContactPickerDelegate {
         
         return leadingOne + areaCode + prefix + "-" + suffix
     }
-    
-    //    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-    //        contacts.forEach { contact in
-    //            for number in contact.phoneNumbers {
-    //                let phoneNumber = number.value
-    //                print("number is = \(phoneNumber)")
-    //                let mobile : String = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
-    //                print("number is = \(mobile)")
-    //            }
-    //        }
-    //    }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         print("Cancel Contact Picker")
