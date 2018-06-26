@@ -13,18 +13,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     var scheduleAppointmentViewController:ScheduleAppointmentViewController!
 
-    @IBAction func closeButtonTapped(_ sender: Any)
-    {
-        self.closeView.frame = self.view.bounds
-        
-        self.view.addSubview(self.closeView)
-    }
-    
-    @IBAction func closeViewDismisssButtonTapped(_ sender: Any)
-    {
-        self.closeView.removeFromSuperview()
-    }
-    
     var delegate:ConversationDetailViewControllerProtocol? = nil
     
     var tableViewDataSource:MessageTableViewDataSource? = nil
@@ -32,10 +20,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     var selectedConversation:Conversation! = nil
     
     var isShowActivityIndicator:Bool = false
-
-    override func viewDidLoad()
-    {
+    
+    let imagePicker = UIImagePickerController()
+    
+    override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.sendTextField.delegate = self
@@ -48,15 +40,26 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         {
             _ = self.conversationSelected(conversation: self.selectedConversation)
         }
-     }
+    }
     
-    @IBAction func backButton_Tapped(_ sender: Any)
-    {
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        
+        self.closeView.frame = self.view.bounds
+        
+        self.view.addSubview(self.closeView)
+    }
+    
+    @IBAction func closeViewDismisssButtonTapped(_ sender: Any) {
+        self.closeView.removeFromSuperview()
+    }
+    
+    @IBAction func backButton_Tapped(_ sender: Any) {
+        
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func scheduleAppointment_Tapped(_ sender: Any)
-    {
+    @IBAction func scheduleAppointment_Tapped(_ sender: Any) {
+        
         self.closeView.removeFromSuperview()
 
         self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as! ScheduleAppointmentViewController
@@ -83,8 +86,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.scheduleAppointmentViewController.view.frame = self.view.bounds
     }
     
-    @IBAction func optOut_Tapped(_ sender: Any)
-    {
+    @IBAction func optOut_Tapped(_ sender: Any) {
+        
         if (self.selectedConversation == nil)
         {
             let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
@@ -142,8 +145,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
     }
     
-    @IBAction func deleteMessage_Tapped(_ sender: Any)
-    {
+    @IBAction func deleteMessage_Tapped(_ sender: Any) {
+        
         if (self.selectedConversation == nil)
         {
             let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
@@ -204,8 +207,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
     }
     
-    @IBAction func sendMessage_Tapped(_ sender: Any)
-    {
+    @IBAction func sendMessage_Tapped(_ sender: Any) {
+        
         if (self.selectedConversation == nil)
         {
             let alert = UIAlertController(title: "Send Message", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
@@ -220,7 +223,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             {
                 ProcessingIndicator.show()
                 
-                _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: self.sendTextField.text!)
+                _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: self.sendTextField.text!, imageType: "", imageString: "")
             } else
             {
                 let alert = UIAlertController(title: "Send Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
@@ -232,8 +235,171 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
     }
     
-    func conversationSelected(conversation:Conversation?) -> Bool
-    {
+    @IBAction func attachment_Tapped(_ sender: Any) {
+        
+        if (self.selectedConversation == nil)
+        {
+            let alert = UIAlertController(title: "Send Message", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else
+        {
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func convertImageTobase64(format: String, image:UIImage) -> String? {
+        
+        var imageData: Data?
+        
+        if (format == "jpg") {
+            imageData = UIImageJPEGRepresentation(image, 0)
+            
+        }
+        else if (format == "png") {
+            imageData = UIImagePNGRepresentation(image)
+        }
+        //##################################################################################//
+        //##################################################################################//
+        //##################################################################################//
+        //        return imageData?.base64EncodedString()
+        //##################################################################################//
+        //##################################################################################//
+        //##################################################################################//
+        let base64Str = imageData?.base64EncodedString()
+        let utf8str = base64Str?.data(using: String.Encoding.utf8)
+        let base64Encoded = utf8str?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
+        let resultStr = base64Encoded! as String
+        return resultStr
+        //********************************************************************************//
+        //********************************************************************************//
+        //********************************************************************************//
+        //       let myBase64Data = imageData?.base64EncodedData(options: NSData.Base64EncodingOptions.endLineWithLineFeed)
+        //       let resultData = NSData(base64Encoded: myBase64Data!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+        //       let resultNSString = resultData.base64EncodedString()
+        //       let resultNSString = NSString(data: resultData as Data, encoding: String.Encoding.utf8.rawValue)
+        //       let resultString = resultNSString! as String
+        //       return resultNSString
+        //********************************************************************************//
+        //********************************************************************************//
+        //********************************************************************************//
+        
+        //        return imageData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        //        return imageData?.base64EncodedString(options: NSData.Base64EncodingOptions.endLineWithLineFeed)
+        //##################################################################################//
+        //##################################################################################//
+        //##################################################################################//
+    }
+    
+    func getImageFromBase64(base64:String) -> UIImage {
+      
+        let data = Data(base64Encoded: base64)
+        return UIImage(data: data!)!
+    }
+    
+    func base64ToBase64url(base64: String) -> String {
+        let base64url = base64
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+        return base64url
+    }
+    
+    func base64urlToBase64(base64url: String) -> String {
+        var base64 = base64url
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+        if base64.count % 4 != 0 {
+            base64.append(String(repeating: "=", count: 4 - base64.count % 4))
+        }
+        return base64
+    }
+}
+
+// MARK: - Stings Extensions Base64 Methods
+//extension String {
+//
+//    func fromZBase64() -> String? {
+//        guard let data = Data(base64Encoded: self) else {
+//            return nil
+//        }
+//
+//        return String(data: data, encoding: .utf8)
+//    }
+//
+//    func toZBase64() -> String {
+//        return Data(self.utf8).base64EncodedString()
+//    }
+//}
+
+// MARK: - UIImagePickerControllerDelegate Methods
+extension ConversationDetailViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
+   
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if (info[UIImagePickerControllerOriginalImage] as? UIImage) != nil {
+            
+            var selectedImageType:String = ""
+            let assetPath = info[UIImagePickerControllerReferenceURL] as! NSURL
+            
+            if (assetPath.absoluteString?.hasSuffix("JPG"))! {
+                selectedImageType = "jpg"
+            }
+            else if (assetPath.absoluteString?.hasSuffix("PNG"))! {
+                selectedImageType = "png"
+            }
+                //            else if (assetPath.absoluteString?.hasSuffix("GIF"))! {
+                //                selectedImageType = "gif"
+                //            }
+                //            else if (assetPath.absoluteString?.hasSuffix("BMP"))! {
+                //                selectedImageType = "bmp"
+                //            }
+            else {
+                selectedImageType = ""
+                
+                let alert = UIAlertController(title: "Error Message", message: "Selected image type not supported.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                dismiss(animated: true, completion: nil)
+            }
+            
+            
+            let base64String = convertImageTobase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
+            //base64String = base64String?.replacingOccurrences(of: "+", with: "%2B")
+            
+            //Call Web Service to Send Message
+            if base64String != ""
+            {
+                if (selectedImageType != "") {
+                    ProcessingIndicator.show()
+                    _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: "", imageType: selectedImageType, imageString: base64String!)
+                    
+                } else {
+                    
+                    let alert = UIAlertController(title: "Error Message", message: "Selected image type not supported.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - Service Calling Methods
+extension ConversationDetailViewController {
+    
+    func conversationSelected(conversation:Conversation?) -> Bool {
         self.selectedConversation = conversation
         
         if self.selectedConversation != nil
@@ -259,7 +425,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                     self.messageNumberLabel.text = ""
                 }
             }
-                        
+            
             self.shortCodeLabel.text = self.selectedConversation.shortcodeDisplay
         }
         else
@@ -277,13 +443,16 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         return true
     }
-}
-
-extension ConversationDetailViewController
-{
-    func sendMessageToConversation(conversation: Conversation, message: String) -> Bool
-    {
-        User.sendUserMessage(conversation: conversation, message: message, completionBlockSuccess: { (sendMessaage:Message) -> (Void) in
+    
+    func sendMessageToConversation(conversation: Conversation, message: String, imageType: String, imageString: String) -> Bool {
+        
+        
+        var paramsDic = Dictionary<String, Any>()
+        paramsDic["message"] = message
+        paramsDic["attachment"] = imageString
+        paramsDic["attachemntFileSuffix"] = imageType
+        
+        User.sendUserMessage(conversation: conversation, paramsJson: paramsDic, completionBlockSuccess: { (sendMessaage:Message) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
             {
@@ -294,6 +463,10 @@ extension ConversationDetailViewController
                     self.sendTextField.text = ""
                     
                     _ = self.tableViewDataSource?.reloadControls()
+//                    let alert = UIAlertController(title: "Ahooo", message:"" , preferredStyle: UIAlertControllerStyle.alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                    self.present(alert, animated: true, completion: nil)
+
                 }
             }
             
@@ -308,9 +481,7 @@ extension ConversationDetailViewController
                     self.sendTextField.text = ""
                     
                     let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
-                    
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    
                     self.present(alert, animated: true, completion: nil)
                 }
             }
@@ -320,10 +491,11 @@ extension ConversationDetailViewController
     }
 }
 
-extension ConversationDetailViewController:UITextFieldDelegate
-{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
+// MARK: - UITextFieldDelegate Methods
+extension ConversationDetailViewController:UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         sendTextField.resignFirstResponder()
         
         return true;

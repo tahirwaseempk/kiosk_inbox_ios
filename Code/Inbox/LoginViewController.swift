@@ -16,10 +16,37 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     {
         super.viewDidLoad()
         
-        let deviceID = UIDevice.current.identifierForVendor!.uuidString
-        self.udidTextField.text = deviceID
+        //**********************************************************************//
+        //**********************************************************************//
+        if UserDefaults.standard.string(forKey: "UUID_Key") != nil{
+            
+            print("########## >>>>>>>>> UUID ALREADY EXITS <<<<<<<<<< ##########")
+            print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
+            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
+            
+        } else {
+            
+            let deviceID = UIDevice.current.identifierForVendor!.uuidString
+            print("########## >>>>>>>>> UUID NOT EXITS <<<<<<<<<< ##########")
+            UserDefaults.standard.set(deviceID, forKey: "UUID_Key")
+            UserDefaults.standard.synchronize()
+            print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
+            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
+        }
         
-        // TEST Accounts 'abfc-4f2b' 'test-1234'
+        self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
+        
+        //**********************************************************************//
+        //**********************************************************************//
+        
+        
+        //**********************************************************************//
+        //**********************************************************************//
+        //IF UDID AND TOKEN ID IS DIFFERENT
+        //        if !(deviceID == (UserDefaults.standard.object(forKey:"UUID_Key")as? String)){
+        //        }
+        //**********************************************************************//
+        //**********************************************************************//
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -37,7 +64,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
                 self.isAutoLogin = true
-                self.serialTextField.text = (UserDefaults.standard.object(forKey:"serialKey") as? String)
+                self.serialTextField.text = (UserDefaults.standard.object(forKey:"serial_Key") as? String)
                 login()
             } else {
                 self.isAutoLogin = false
@@ -93,7 +120,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             self.isAutoLogin = true
         } else {
             self.isAutoLogin = false
-            UserDefaults.standard.set("", forKey: "serialNumber")
+            UserDefaults.standard.set("", forKey: "serial_Key")
             UserDefaults.standard.set(false, forKey: "isAutoLogin")
             UserDefaults.standard.synchronize()
         }
@@ -135,7 +162,6 @@ extension LoginViewController {
         
         User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
             
-            
             User.registerUserAPNS(serial: self.serialTextField.text!, uuid: self.udidTextField.text!, completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -146,7 +172,7 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 //*******************************************************************//
                                 if self.isAutoLogin == true {
-                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "serialKey")
+                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "serial_Key")
                                     
                                     UserDefaults.standard.register(defaults: ["isAutoKey" : true])
                                     UserDefaults.standard.bool(forKey: "isAutoKey")
@@ -155,12 +181,12 @@ extension LoginViewController {
                                     UserDefaults.standard.synchronize()
                                     
                                 } else {
-                                    UserDefaults.standard.set("", forKey: "serialKey")
-
+                                    UserDefaults.standard.set("", forKey: "serial_Key")
+                                    
                                     UserDefaults.standard.register(defaults: ["isAutoKey" : true])
                                     UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(false, forKey: "isAutoKey")
-
+                                    
                                     UserDefaults.standard.synchronize()
                                 }
                                 //*******************************************************************//
@@ -237,25 +263,6 @@ extension LoginViewController {
         }
     }
     
-//    func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
-//
-//        if string == ""{ //BackSpace
-//
-//            return true
-//
-//        }else if str!.count == 5 {
-//
-//            serialTextField.text = serialTextField.text! + "-"
-//
-//        }else if str!.count > 9 {
-//
-//            return false
-//
-//        }
-//
-//        return true
-//    }
-
     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         
         if string == ""

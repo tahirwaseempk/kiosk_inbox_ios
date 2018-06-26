@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "543350875.432201"
+            timestampString = "551734501.6214091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
             landmarkName = "createAppointment(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -33,22 +33,6 @@
             endingLineNumber = "194"
             landmarkName = "scheduleButtonTapped(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/WebManager.swift"
-            timestampString = "547742965.622165"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
-            landmarkName = "WebManager"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -228,7 +212,7 @@
                   moduleName = "Inbox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/NETSOL/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ScheduleAppointmentViewController.swift"
-                  timestampString = "550044538.772311"
+                  timestampString = "551727827.879704"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
@@ -243,7 +227,7 @@
                   moduleName = "Inbox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/NETSOL/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ScheduleAppointmentViewController.swift"
-                  timestampString = "550044538.776516"
+                  timestampString = "551727827.882236"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "169"
@@ -266,6 +250,54 @@
             startingLineNumber = "121"
             endingLineNumber = "121"
             landmarkName = "scheduleButtonTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/ConversationDetailViewController.swift"
+            timestampString = "551734501.6215889"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "483"
+            endingLineNumber = "483"
+            landmarkName = "sendMessageToConversation(conversation:message:imageType:imageString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/ConversationDetailViewController.swift"
+            timestampString = "551734501.622003"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "convertImageTobase64(format:image:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/WebManager.swift"
+            timestampString = "551734501.622322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "sendMessage(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

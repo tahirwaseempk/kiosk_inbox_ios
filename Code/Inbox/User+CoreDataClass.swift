@@ -146,6 +146,31 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func deleteUserAPNS(serial:String, uuid:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        var paramsDic = Dictionary<String, Any>()
+        let defaults = UserDefaults.standard
+        paramsDic["serial"] = serial
+        paramsDic["uuid"] = uuid
+        paramsDic["type"] = "Inbox"
+        
+        if let token = defaults.string(forKey: "pushyToken")
+        {
+            paramsDic["token"] = token
+        }
+        
+        WebManager.deleteAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
+            
+            successBlock(true)
+            
+        }) { (error: Error?) -> (Void) in
+            
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     static func getLatestConversations(completionBlockSuccess successBlock: @escaping ((Array<Conversation>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
@@ -289,7 +314,7 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func sendUserMessage(conversation: Conversation, message: String, completionBlockSuccess successBlock: @escaping ((_ messageNew: Message) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func sendUserMessage(conversation: Conversation, paramsJson: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((_ messageNew: Message) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
@@ -297,7 +322,11 @@ extension User
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobileNumber
-            paramsDic["message"] = message
+            paramsDic["message"] = paramsJson["message"] as! String
+            paramsDic["attachment"] = paramsJson["attachment"] as! String
+            paramsDic["attachemntFileSuffix"] = paramsJson["attachemntFileSuffix"] as! String
+            paramsDic["ev"] = "kioskSendMessage"
+
             
             if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
                 paramsDic["shortCode"] = conversation.tollFree
@@ -326,7 +355,7 @@ extension User
                                     {
                                         let msgID: Int64 = Int64(splitString[1])!
                                         
-                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_: message, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_:  paramsJson["message"] as! String, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
                                         conversation.addToMessages(message)
                                         

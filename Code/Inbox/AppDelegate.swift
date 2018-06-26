@@ -21,10 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         // Override point for customization after application launch.
-        
-        //UIApplication.shared.isStatusBarHidden = true
-        //registerForPushNotifications()
-        
         application.applicationIconBadgeNumber = 0
         
         IQKeyboardManager.sharedManager().enable = true
@@ -35,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          // Register the device for push notifications
          pushy.register({ (error, deviceToken) in
             
-//            application.applicationIconBadgeNumber = 0
-
          // Handle registration errors
          if error != nil {
          return print ("Registration failed: \(error!)")

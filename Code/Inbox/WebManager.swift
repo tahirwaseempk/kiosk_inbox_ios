@@ -11,6 +11,11 @@ let APNS_URL_UDID = "&uuid="
 let APNS_URL_TYPE = "&type="
 let APNS_URL_TOKEN = "&token="
 
+let DELETE_APNS_URL = "https://fct.la/limeApi?ev=kioskDeleteToken&serial="
+let DELETE_APNS_URL_UDID = "&uuid="
+let DELETE_APNS_URL_TYPE = "&type="
+let DELETE_APNS_URL_TOKEN = "&token="
+
 let OPTOUT_URL_SERIAL = "https://fct.la/limeApi?ev=kioskInboxOptOut&serial="
 let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
 let OPTOUT_URL_UUID = "&uuid="
@@ -20,11 +25,14 @@ let CHAT_URL_BEFORE_SERIAL = "&serial="
 let CHAT_URL_BEFORE_MOBILE = "&mobile="
 let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
 
+let SEND_URL_ONLY = "https://fct.la/limeApi/"
 let SEND_URL = "https://fct.la/limeApi?ev=kioskSendMessage&uuid="
 let SEND_URL_BEFORE_SERIAL = "&serial="
 let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
 let SEND_URL_BEFORE_MOBILE = "&mobile="
-let SEND_URL_BEFORE_MESSAGE_END = "&message="
+let SEND_URL_BEFORE_MESSAGE = "&message="
+let SEND_URL_BEFORE_IMAGETYPE = "&attachemntFileSuffix="
+let SEND_URL_BEFORE_IMAGE = "&attachemnt="
 
 let CONVERSATION_URL = "https://fct.la/limeApi?ev=kioskInboxWithDetails&uuid="
 let CONVERSATION_URL_END = "&serial="
@@ -114,6 +122,43 @@ class WebManager: NSObject
         
         
         let finalUrl = APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary<String, Any>)
+                
+            } else {
+                
+                failureBlock(error)
+            }
+            
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func deleteAPNS(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let serial:String = params["serial"] as! String
+        let uuid:String   = params["uuid"] as! String
+        let type:String   = params["type"] as! String
+        
+        let keyExists = params["token"] != nil
+        var tokenKey:String
+        if keyExists {
+            tokenKey = params["token"] as! String
+        } else {
+            tokenKey = ""
+        }
+        
+        
+        
+        let finalUrl = DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -290,19 +335,51 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func sendMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
+//*
         let uuid:String = params["uuid"] as! String
         let serial:String = params["serial"] as! String
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         let message:String = params["message"] as! String
+        let attachment:String = params["attachment"] as! String
+        let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
         
-        //message = message.addingUnicodeEntities
+        let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+
+        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
+  // */
         
-        let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+//        var theJSONText = ""
+//
+//        if let theJSONData = try? JSONSerialization.data(
+//            withJSONObject: params,
+//            options: []) {
+//            theJSONText = String(data: theJSONData,
+//                                 encoding: .ascii)!
+//        }
+//
+//        let escapedString :String = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+
+//        do {
+//            let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+//            // here "jsonData" is the dictionary encoded in JSON data
+//
+//            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+//            // here "decoded" is of type `Any`, decoded from JSON data
+//
+//            // you can now cast it with the right type
+//            if let dictFromJSON = decoded as? [String:String] {
+//                print(dictFromJSON)
+//            }
+//        } catch {
+//            print(error.localizedDescription)
+//        }
         
-        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE_END + escapedString
+//        let finalurl = SEND_URL_ONLY //+ escapedString
         
-        PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+        print("finalurl = \(finalurl)")
+        
+        PostDataWithUrl(urlString:finalurl, withParameterDictionary:params,completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -331,7 +408,7 @@ class WebManager: NSObject
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         
-        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE_END + escapedString
+        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
         
         PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -390,7 +467,7 @@ class WebManager: NSObject
         if Reachability.isInternetAvailable()
         {
             
-            let request : NSMutableURLRequest = NSMutableURLRequest.init(url: NSURL.init(string: urlString)! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 12)
+            let request : NSMutableURLRequest = NSMutableURLRequest.init(url: NSURL.init(string: urlString)! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 35)
             
             request.httpMethod = "POST"
             
