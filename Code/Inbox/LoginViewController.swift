@@ -33,9 +33,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
             self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
         }
-        
-        self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
-        
         //**********************************************************************//
         //**********************************************************************//
         

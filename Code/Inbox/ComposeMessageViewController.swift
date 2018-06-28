@@ -12,8 +12,6 @@ import ContactsUI
 
 class ComposeMessageViewController: UIViewController {
     
-    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=&,.-!() "
-    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!

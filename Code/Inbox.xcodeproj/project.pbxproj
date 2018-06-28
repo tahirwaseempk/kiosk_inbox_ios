@@ -996,10 +996,10 @@
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4f1ee7cd-44af-4b3e-b6a4-b6309861a03a";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStore;
+				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
+				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -1025,10 +1025,10 @@
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4f1ee7cd-44af-4b3e-b6a4-b6309861a03a";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStore;
+				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
+				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;

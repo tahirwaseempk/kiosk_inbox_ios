@@ -1,8 +1,9 @@
 import UIKit
 import Foundation
 
-//mcpn.us
-
+//SMS Factory mcpn.us
+//Texting Line fct.la
+/*
 let LOGIN_URL = "https://fct.la/limeApi?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
@@ -25,7 +26,7 @@ let CHAT_URL_BEFORE_SERIAL = "&serial="
 let CHAT_URL_BEFORE_MOBILE = "&mobile="
 let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
 
-let SEND_URL_ONLY = "https://fct.la/limeApi/"
+let SEND_URL_ONLY = "https://fct.la/limeApi"
 let SEND_URL = "https://fct.la/limeApi?ev=kioskSendMessage&uuid="
 let SEND_URL_BEFORE_SERIAL = "&serial="
 let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
@@ -49,7 +50,54 @@ let DELETE_URL_BEFORE_MOBILE = "&mobile="
 let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
 
 let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json="
+*/
 
+let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
+let LOGIN_URL_END = "&uuid="
+
+let APNS_URL = "https://mcpn.us/limeApi?ev=kioskAddToken&serial="
+let APNS_URL_UDID = "&uuid="
+let APNS_URL_TYPE = "&type="
+let APNS_URL_TOKEN = "&token="
+
+let DELETE_APNS_URL = "https://mcpn.us/limeApi?ev=kioskDeleteToken&serial="
+let DELETE_APNS_URL_UDID = "&uuid="
+let DELETE_APNS_URL_TYPE = "&type="
+let DELETE_APNS_URL_TOKEN = "&token="
+
+let OPTOUT_URL_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&serial="
+let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
+let OPTOUT_URL_UUID = "&uuid="
+
+let CHAT_URL = "https://mcpn.us/limeApi?ev=kioskChatMessages&uuid="
+let CHAT_URL_BEFORE_SERIAL = "&serial="
+let CHAT_URL_BEFORE_MOBILE = "&mobile="
+let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
+
+let SEND_URL_ONLY = "https://mcpn.us/limeApi"
+let SEND_URL = "https://mcpn.us/limeApi?ev=kioskSendMessage&uuid="
+let SEND_URL_BEFORE_SERIAL = "&serial="
+let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
+let SEND_URL_BEFORE_MOBILE = "&mobile="
+let SEND_URL_BEFORE_MESSAGE = "&message="
+let SEND_URL_BEFORE_IMAGETYPE = "&attachemntFileSuffix="
+let SEND_URL_BEFORE_IMAGE = "&attachemnt="
+
+let CONVERSATION_URL = "https://mcpn.us/limeApi?ev=kioskInboxWithDetails&uuid="
+let CONVERSATION_URL_END = "&serial="
+
+let READ_URL_BEFORE_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxSetReadByMobile&serial="
+let READ_URL_BEFORE_UUID = "&uuid="
+let READ_URL_BEFORE_ISREAD = "&isRead="
+let READ_URL_BEFORE_MOBILE = "&mobile="
+let READ_URL_BEFORE_SHORTCODE_END = "&shortcode="
+
+let DELETE_URL = "https://mcpn.us/limeApi?ev=kioskInboxDeleteForNumber&uuid="
+let DELETE_URL_BEFORE_SERIAL = "&serial="
+let DELETE_URL_BEFORE_MOBILE = "&mobile="
+let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
+
+let CREATE_APPOINMENT_URL = "https://mcpn.us/limeApi?ev=kioskInboxCreateAppointment&json="
 
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
@@ -155,8 +203,6 @@ class WebManager: NSObject
         } else {
             tokenKey = ""
         }
-        
-        
         
         let finalUrl = DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
         
@@ -328,6 +374,16 @@ class WebManager: NSObject
             Set("1234567890")
         return String(text.filter {okayChars.contains($0) })
     }
+    
+    static func getPostString(params:[String:Any]) -> String
+    {
+        var data = [String]()
+        for(key, value) in params
+        {
+            data.append(key + "=\(value)")
+        }
+        return data.map { String($0) }.joined(separator: "&")
+    }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -335,49 +391,34 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func sendMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-//*
-        let uuid:String = params["uuid"] as! String
-        let serial:String = params["serial"] as! String
-        let mobile:String = params["mobile"] as! String
-        let shortCode:String = params["shortCode"] as! String
-        let message:String = params["message"] as! String
-        let attachment:String = params["attachment"] as! String
-        let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
-        
-        let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-
-        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
-  // */
-        
-//        var theJSONText = ""
-//
-//        if let theJSONData = try? JSONSerialization.data(
-//            withJSONObject: params,
-//            options: []) {
-//            theJSONText = String(data: theJSONData,
-//                                 encoding: .ascii)!
-//        }
-//
-//        let escapedString :String = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-
-//        do {
-//            let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-//            // here "jsonData" is the dictionary encoded in JSON data
-//
-//            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-//            // here "decoded" is of type `Any`, decoded from JSON data
-//
-//            // you can now cast it with the right type
-//            if let dictFromJSON = decoded as? [String:String] {
-//                print(dictFromJSON)
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-        
-//        let finalurl = SEND_URL_ONLY //+ escapedString
-        
+        //------------------------------------------------------------------------------------------------//
+        //------------------------------------------------------------------------------------------------//
+        //------------------------------------------------------------------------------------------------//
+        //------------------------------------------------------------------------------------------------//
+        ///*
+        //let ev:String = params["ev"] as! String
+         let uuid:String = params["uuid"] as! String
+         let serial:String = params["serial"] as! String
+         let mobile:String = params["mobile"] as! String
+         let shortCode:String = params["shortCode"] as! String
+         let message:String = params["message"] as! String
+        //let attachment:String = params["attachment"] as! String
+        //let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
+                
+         let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+         
+         let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
+       
         print("finalurl = \(finalurl)")
+
+        //*/
+        //------------------------------------------------------------------------------------------------//
+        //------------------------------------------------------------------------------------------------//
+        //------------------------------------------------------------------------------------------------//
+        //------------------------------------------------------------------------------------------------//
+        
+        //let finalurl = SEND_URL_ONLY //+ escapedString
+        //print("finalurl = \(finalurl)")
         
         PostDataWithUrl(urlString:finalurl, withParameterDictionary:params,completionBlock: {(error, response) -> (Void) in
             
@@ -391,8 +432,7 @@ class WebManager: NSObject
             }
         })
     }
-    
-    //************************************************************************************************//
+   //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -474,12 +514,14 @@ class WebManager: NSObject
             do
             {
                 request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+                //                let postString = self.getPostString(params: parameters)
+                //                request.httpBody = postString.data(using: .utf8)
             }
             catch let error
             {
                 print(error.localizedDescription)
             }
-            
+        
             request.setValue(/*"application/json"*/"application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -618,4 +660,3 @@ class WebManager: NSObject
 //------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------//
 //************************************************************************************************//
-

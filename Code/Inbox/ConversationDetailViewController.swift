@@ -2,8 +2,6 @@ import UIKit
 
 class ConversationDetailViewController: UIViewController, ConversationListingTableCellProtocol
 {
-    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=&,.-!() "
-
     @IBOutlet weak var sendTextField: UITextField!
     @IBOutlet weak var messageFromLabel: UILabel!
     @IBOutlet weak var messageNumberLabel: UILabel!
@@ -27,7 +25,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         super.viewDidLoad()
         
-        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.sendTextField.delegate = self
@@ -257,7 +255,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         if (format == "jpg") {
             imageData = UIImageJPEGRepresentation(image, 0)
-            
         }
         else if (format == "png") {
             imageData = UIImagePNGRepresentation(image)
@@ -286,7 +283,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //********************************************************************************//
         //********************************************************************************//
         //********************************************************************************//
-        
         //        return imageData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         //        return imageData?.base64EncodedString(options: NSData.Base64EncodingOptions.endLineWithLineFeed)
         //##################################################################################//
@@ -355,12 +351,7 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
             else if (assetPath.absoluteString?.hasSuffix("PNG"))! {
                 selectedImageType = "png"
             }
-                //            else if (assetPath.absoluteString?.hasSuffix("GIF"))! {
-                //                selectedImageType = "gif"
-                //            }
-                //            else if (assetPath.absoluteString?.hasSuffix("BMP"))! {
-                //                selectedImageType = "bmp"
-                //            }
+                
             else {
                 selectedImageType = ""
                 
@@ -463,10 +454,6 @@ extension ConversationDetailViewController {
                     self.sendTextField.text = ""
                     
                     _ = self.tableViewDataSource?.reloadControls()
-//                    let alert = UIAlertController(title: "Ahooo", message:"" , preferredStyle: UIAlertControllerStyle.alert)
-//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                    self.present(alert, animated: true, completion: nil)
-
                 }
             }
             

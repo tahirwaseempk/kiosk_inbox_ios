@@ -348,7 +348,7 @@
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-dh-reY">
                                         <rect key="frame" x="316" y="2" width="40" height="46"/>
-                                        <color key="backgroundColor" red="0.86255824569999995" green="0.18782589669999999" blue="0.1136115837" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.25881557208989792" green="0.66846884923599914" blue="0.89657545336787559" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="YqS-NA-AtW"/>
                                         </constraints>
