@@ -14,7 +14,7 @@
         <!--Login View Controller-->
         <scene sceneID="czI-Wn-uCl">
             <objects>
-                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="cFw-t2-fhl" customClass="LoginViewController" customModule="Inbox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="cFw-t2-fhl" customClass="LoginViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gAE-x6-yb4"/>
                         <viewControllerLayoutGuide type="bottom" id="rlQ-wI-3gu"/>
@@ -47,7 +47,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSW-86-ooT" userLabel="FieldsView">
                                 <rect key="frame" x="32" y="221.5" width="256" height="250"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXS-Mc-sHm" customClass="UnderlinedTextField" customModule="Inbox" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXS-Mc-sHm" customClass="UnderlinedTextField" customModule="SMSFactory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="96" width="256" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
@@ -72,7 +72,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         </variation>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-1D-Vdu" customClass="UnderlinedTextField" customModule="Inbox" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-1D-Vdu" customClass="UnderlinedTextField" customModule="SMSFactory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="18" width="256" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -209,7 +209,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.28776031730000001" green="0.56385242940000002" blue="0.88705629109999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.36078431372549019" green="0.56470588235294117" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2q1-HO-CtZ" firstAttribute="top" secondItem="1KR-Kx-rii" secondAttribute="top" id="0Lx-VV-u4L"/>
                             <constraint firstItem="HSW-86-ooT" firstAttribute="top" secondItem="Lqc-HG-a3d" secondAttribute="bottom" constant="40" id="1Ve-3N-nhd"/>
@@ -254,8 +254,11 @@
                     <connections>
                         <outlet property="fieldsView" destination="HSW-86-ooT" id="z9m-DQ-R7Z"/>
                         <outlet property="loginButton" destination="x8K-87-jsy" id="idO-Ta-Jaf"/>
+                        <outlet property="loginImageView" destination="FQ1-sZ-9AO" id="0S4-Qe-v85"/>
                         <outlet property="rememberMeButton" destination="Fiv-JL-FTC" id="040-ff-lqL"/>
+                        <outlet property="serialLabel" destination="IFu-YB-5El" id="tct-Kn-xl5"/>
                         <outlet property="serialTextField" destination="ecA-1D-Vdu" id="m3W-3f-Rk4"/>
+                        <outlet property="udidLabel" destination="HwL-01-D2z" id="4YB-YR-D8P"/>
                         <outlet property="udidTextField" destination="KXS-Mc-sHm" id="vDP-TJ-iak"/>
                     </connections>
                 </viewController>

@@ -6,9 +6,19 @@ class SplashViewController: UIViewController
     {
         super.viewDidLoad()
 
+        
+        switch environment {
+        case .texting_Line:
+            splashImageView.image = UIImage(named: "splashImage")
+        case .sms_Factory:
+            splashImageView.image = UIImage(named: "sms_splash")
+        }
+        
         loadLoginView()
     }
 
+    @IBOutlet weak var splashImageView: UIImageView!
+    
     func loadLoginView()
     {
         let dispatchTime = DispatchTime.now() + .seconds(1)

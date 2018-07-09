@@ -20,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
+        
+        switch environment {
+        case .texting_Line:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ texting_Line $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        case .sms_Factory:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ sms_Factory $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        }
+
         // Override point for customization after application launch.
         application.applicationIconBadgeNumber = 0
         

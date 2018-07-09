@@ -48,6 +48,110 @@
 		1AFB4A5D1FC32FFD001EC4D5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
 		1AFB4A5F1FC33026001EC4D5 /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
 		1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
+		290BED8E20E697EC00F30BAA /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
+		290BED8F20E697EC00F30BAA /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42D1F27E24900FCC976 /* IQKeyboardManagerConstants.swift */; };
+		290BED9020E697EC00F30BAA /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F3D20601992009C4625 /* CounterView.swift */; };
+		290BED9120E697EC00F30BAA /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4331F27E24900FCC976 /* IQTitleBarButtonItem.swift */; };
+		290BED9220E697EC00F30BAA /* InboxTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */; };
+		290BED9320E697EC00F30BAA /* ComposeMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */; };
+		290BED9420E697EC00F30BAA /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42F1F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift */; };
+		290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */; };
+		290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4391F27E24900FCC976 /* IQUIViewController+Additions.swift */; };
+		290BED9720E697EC00F30BAA /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4321F27E24900FCC976 /* IQTextView.swift */; };
+		290BED9820E697EC00F30BAA /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
+		290BED9920E697EC00F30BAA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */; };
+		290BED9A20E697EC00F30BAA /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
+		290BED9B20E697EC00F30BAA /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
+		290BED9C20E697EC00F30BAA /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
+		290BED9D20E697EC00F30BAA /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
+		290BED9E20E697EC00F30BAA /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4381F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift */; };
+		290BED9F20E697EC00F30BAA /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42C1F27E24900FCC976 /* IQKeyboardManager.swift */; };
+		290BEDA020E697EC00F30BAA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4371F27E24900FCC976 /* IQUIView+Hierarchy.swift */; };
+		290BEDA120E697EC00F30BAA /* NSString+HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35A204077F400832092 /* NSString+HTMLString.swift */; };
+		290BEDA220E697EC00F30BAA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
+		290BEDA320E697EC00F30BAA /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
+		290BEDA420E697EC00F30BAA /* GCCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475202062CA6100FA0FFB /* GCCalendarView.swift */; };
+		290BEDA520E697EC00F30BAA /* GCCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */; };
+		290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE43A1F27E24900FCC976 /* IQUIWindow+Hierarchy.swift */; };
+		290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
+		290BEDA820E697EC00F30BAA /* PushyNetworkException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */; };
+		290BEDA920E697EC00F30BAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
+		290BEDAA20E697EC00F30BAA /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
+		290BEDAB20E697EC00F30BAA /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
+		290BEDAC20E697EC00F30BAA /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
+		290BEDAD20E697EC00F30BAA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4361F27E24900FCC976 /* IQUITextFieldView+Additions.swift */; };
+		290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
+		290BEDAF20E697EC00F30BAA /* PushySwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE01FC60C07007889E7 /* PushySwizzler.swift */; };
+		290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD358204077F300832092 /* Mappings.swift */; };
+		290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
+		290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD359204077F300832092 /* Deprecated.swift */; };
+		290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
+		290BEDB420E697EC00F30BAA /* PushyResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE11FC60C07007889E7 /* PushyResponseException.swift */; };
+		290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
+		290BEDB620E697EC00F30BAA /* PushyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */; };
+		290BEDB720E697EC00F30BAA /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */; };
+		290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42E1F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift */; };
+		290BEDB920E697EC00F30BAA /* PushySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDD1FC60C06007889E7 /* PushySettings.swift */; };
+		290BEDBA20E697EC00F30BAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
+		290BEDBB20E697EC00F30BAA /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
+		290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */; };
+		290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4311F27E24900FCC976 /* IQPreviousNextView.swift */; };
+		290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
+		290BEDBF20E697EC00F30BAA /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
+		290BEDC020E697EC00F30BAA /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
+		290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB71FC3724700F3C42A /* Checkbox.swift */; };
+		290BEDC220E697EC00F30BAA /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
+		290BEDC320E697EC00F30BAA /* GCCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */; };
+		290BEDC420E697EC00F30BAA /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F4220603C48009C4625 /* Popover.swift */; };
+		290BEDC520E697EC00F30BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */; };
+		290BEDC620E697EC00F30BAA /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
+		290BEDC720E697EC00F30BAA /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
+		290BEDC820E697EC00F30BAA /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
+		290BEDC920E697EC00F30BAA /* PushyRegistrationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */; };
+		290BEDCA20E697EC00F30BAA /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
+		290BEDCB20E697EC00F30BAA /* PushyPubSubException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */; };
+		290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4341F27E24900FCC976 /* IQToolbar.swift */; };
+		290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
+		290BEDCE20E697EC00F30BAA /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
+		290BEDCF20E697EC00F30BAA /* GCCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */; };
+		290BEDD020E697EC00F30BAA /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
+		290BEDD120E697EC00F30BAA /* PushyKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */; };
+		290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4301F27E24900FCC976 /* IQNSArray+Sort.swift */; };
+		290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F39206017BB009C4625 /* ScheduleAppointmentViewController.swift */; };
+		290BEDD420E697EC00F30BAA /* PushyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDE1FC60C06007889E7 /* PushyConfig.swift */; };
+		290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
+		290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
+		290BEDD720E697EC00F30BAA /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
+		290BEDD820E697EC00F30BAA /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35B204077F400832092 /* HTMLString.swift */; };
+		290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
+		290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
+		290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4351F27E24900FCC976 /* IQUIScrollView+Additions.swift */; };
+		290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
+		290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
+		290BEDDF20E697EC00F30BAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684151F03F59F00D24264 /* UIKit.framework */; };
+		290BEDE020E697EC00F30BAA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
+		290BEDE120E697EC00F30BAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
+		290BEDE320E697EC00F30BAA /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
+		290BEDE420E697EC00F30BAA /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
+		290BEDE520E697EC00F30BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */; };
+		290BEDE620E697EC00F30BAA /* IQButtonBarArrowUp@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42B1F27E24900FCC976 /* IQButtonBarArrowUp@3x.png */; };
+		290BEDE720E697EC00F30BAA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
+		290BEDE820E697EC00F30BAA /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
+		290BEDE920E697EC00F30BAA /* IQButtonBarArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4251F27E24900FCC976 /* IQButtonBarArrowDown@2x.png */; };
+		290BEDEA20E697EC00F30BAA /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */; };
+		290BEDEB20E697EC00F30BAA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */; };
+		290BEDEC20E697EC00F30BAA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */; };
+		290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4281F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png */; };
+		290BEDEE20E697EC00F30BAA /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
+		290BEDEF20E697EC00F30BAA /* IQButtonBarArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4291F27E24900FCC976 /* IQButtonBarArrowRight@3x.png */; };
+		290BEDF020E697EC00F30BAA /* IQButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4271F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png */; };
+		290BEDF120E697EC00F30BAA /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
+		290BEDF220E697EC00F30BAA /* CounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F40206019C0009C4625 /* CounterView.xib */; };
+		290BEDF320E697EC00F30BAA /* IQButtonBarArrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4261F27E24900FCC976 /* IQButtonBarArrowDown@3x.png */; };
+		290BEDF420E697EC00F30BAA /* IQButtonBarArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42A1F27E24900FCC976 /* IQButtonBarArrowUp@2x.png */; };
+		290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
+		290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
+		290BEDFE20E6999200F30BAA /* smsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* smsAssets.xcassets */; };
 		750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
 		750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
@@ -113,6 +217,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		290BEDF720E697EC00F30BAA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		759C5BD61FC60BB5007889E7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,7 +256,7 @@
 		1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarConfiguration.swift; sourceTree = "<group>"; };
 		1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarMonthView.swift; sourceTree = "<group>"; };
 		1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarWeekView.swift; sourceTree = "<group>"; };
-		1ADE9F7A1EF98E48006C2CAC /* Inbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ADE9F7A1EF98E48006C2CAC /* TextingLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextingLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Inbox.xcdatamodel; sourceTree = "<group>"; };
 		1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Inbox/Assets.xcassets; sourceTree = "<group>"; };
@@ -170,6 +284,9 @@
 		1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationListing.storyboard; sourceTree = "<group>"; };
 		1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
+		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Inbox copy-Info.plist"; path = "/Volumes/NETSOL/Personal Data Amir/Current Working/Sir Wahab/June/Code/Inbox copy-Info.plist"; sourceTree = "<absolute>"; };
+		290BEDFD20E6999200F30BAA /* smsAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = smsAssets.xcassets; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
 		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
@@ -249,6 +366,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		290BEDDE20E697EC00F30BAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				290BEDDF20E697EC00F30BAA /* UIKit.framework in Frameworks */,
+				290BEDE020E697EC00F30BAA /* CoreGraphics.framework in Frameworks */,
+				290BEDE120E697EC00F30BAA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -314,13 +441,15 @@
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
 				753684101F03F58900D24264 /* Frameworks */,
+				290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		1ADE9F7B1EF98E48006C2CAC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1ADE9F7A1EF98E48006C2CAC /* Inbox.app */,
+				1ADE9F7A1EF98E48006C2CAC /* TextingLine.app */,
+				290BEDFB20E697EC00F30BAA /* SMSFactory.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,6 +483,7 @@
 			children = (
 				04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */,
 				1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */,
+				290BEDFD20E6999200F30BAA /* smsAssets.xcassets */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -680,9 +810,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1ADE9F791EF98E48006C2CAC /* Inbox */ = {
+		1ADE9F791EF98E48006C2CAC /* TextingLine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1ADE9F8F1EF98E4A006C2CAC /* Build configuration list for PBXNativeTarget "Inbox" */;
+			buildConfigurationList = 1ADE9F8F1EF98E4A006C2CAC /* Build configuration list for PBXNativeTarget "TextingLine" */;
 			buildPhases = (
 				1ADE9F761EF98E48006C2CAC /* Sources */,
 				1ADE9F771EF98E48006C2CAC /* Frameworks */,
@@ -693,9 +823,27 @@
 			);
 			dependencies = (
 			);
-			name = Inbox;
+			name = TextingLine;
 			productName = Inbox;
-			productReference = 1ADE9F7A1EF98E48006C2CAC /* Inbox.app */;
+			productReference = 1ADE9F7A1EF98E48006C2CAC /* TextingLine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		290BED8C20E697EC00F30BAA /* SMSFactory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 290BEDF820E697EC00F30BAA /* Build configuration list for PBXNativeTarget "SMSFactory" */;
+			buildPhases = (
+				290BED8D20E697EC00F30BAA /* Sources */,
+				290BEDDE20E697EC00F30BAA /* Frameworks */,
+				290BEDE220E697EC00F30BAA /* Resources */,
+				290BEDF720E697EC00F30BAA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMSFactory;
+			productName = Inbox;
+			productReference = 290BEDFB20E697EC00F30BAA /* SMSFactory.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -719,6 +867,11 @@
 							};
 						};
 					};
+					290BED8C20E697EC00F30BAA = {
+						DevelopmentTeam = TWA5JJ29B2;
+						LastSwiftMigration = 0940;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = 1ADE9F751EF98E47006C2CAC /* Build configuration list for PBXProject "Inbox" */;
@@ -734,7 +887,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1ADE9F791EF98E48006C2CAC /* Inbox */,
+				1ADE9F791EF98E48006C2CAC /* TextingLine */,
+				290BED8C20E697EC00F30BAA /* SMSFactory */,
 			);
 		};
 /* End PBXProject section */
@@ -764,6 +918,34 @@
 				752CE4411F27E24900FCC976 /* IQButtonBarArrowUp@2x.png in Resources */,
 				1AE37F3C206017D0009C4625 /* ScheduleAppointment.storyboard in Resources */,
 				750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		290BEDE220E697EC00F30BAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				290BEDE320E697EC00F30BAA /* InboxTableViewCell.xib in Resources */,
+				290BEDE420E697EC00F30BAA /* ConversationDetail.storyboard in Resources */,
+				290BEDE520E697EC00F30BAA /* Assets.xcassets in Resources */,
+				290BEDFE20E6999200F30BAA /* smsAssets.xcassets in Resources */,
+				290BEDE620E697EC00F30BAA /* IQButtonBarArrowUp@3x.png in Resources */,
+				290BEDE720E697EC00F30BAA /* Home.storyboard in Resources */,
+				290BEDE820E697EC00F30BAA /* ConversationListing.storyboard in Resources */,
+				290BEDE920E697EC00F30BAA /* IQButtonBarArrowDown@2x.png in Resources */,
+				290BEDEA20E697EC00F30BAA /* Splash.storyboard in Resources */,
+				290BEDEB20E697EC00F30BAA /* Default-568h@2x.png in Resources */,
+				290BEDEC20E697EC00F30BAA /* Login.storyboard in Resources */,
+				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
+				290BEDEE20E697EC00F30BAA /* ComposeMessage.storyboard in Resources */,
+				290BEDEF20E697EC00F30BAA /* IQButtonBarArrowRight@3x.png in Resources */,
+				290BEDF020E697EC00F30BAA /* IQButtonBarArrowLeft@2x.png in Resources */,
+				290BEDF120E697EC00F30BAA /* SearchView.xib in Resources */,
+				290BEDF220E697EC00F30BAA /* CounterView.xib in Resources */,
+				290BEDF320E697EC00F30BAA /* IQButtonBarArrowDown@3x.png in Resources */,
+				290BEDF420E697EC00F30BAA /* IQButtonBarArrowUp@2x.png in Resources */,
+				290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */,
+				290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +1036,93 @@
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 				750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		290BED8D20E697EC00F30BAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				290BED8E20E697EC00F30BAA /* WebManager.swift in Sources */,
+				290BED8F20E697EC00F30BAA /* IQKeyboardManagerConstants.swift in Sources */,
+				290BED9020E697EC00F30BAA /* CounterView.swift in Sources */,
+				290BED9120E697EC00F30BAA /* IQTitleBarButtonItem.swift in Sources */,
+				290BED9220E697EC00F30BAA /* InboxTableViewCellProtocol.swift in Sources */,
+				290BED9320E697EC00F30BAA /* ComposeMessageProtocol.swift in Sources */,
+				290BED9420E697EC00F30BAA /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */,
+				290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */,
+				290BED9720E697EC00F30BAA /* IQTextView.swift in Sources */,
+				290BED9820E697EC00F30BAA /* ChatCellSettings.m in Sources */,
+				290BED9920E697EC00F30BAA /* User+CoreDataProperties.swift in Sources */,
+				290BED9A20E697EC00F30BAA /* LoginParser.swift in Sources */,
+				290BED9B20E697EC00F30BAA /* Pushy.swift in Sources */,
+				290BED9C20E697EC00F30BAA /* ComposeMessageViewController.swift in Sources */,
+				290BED9D20E697EC00F30BAA /* ConversationDetailViewController.swift in Sources */,
+				290BED9E20E697EC00F30BAA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				290BED9F20E697EC00F30BAA /* IQKeyboardManager.swift in Sources */,
+				290BEDA020E697EC00F30BAA /* IQUIView+Hierarchy.swift in Sources */,
+				290BEDA120E697EC00F30BAA /* NSString+HTMLString.swift in Sources */,
+				290BEDA220E697EC00F30BAA /* CoreDataManager.swift in Sources */,
+				290BEDA320E697EC00F30BAA /* MessagesParser.swift in Sources */,
+				290BEDA420E697EC00F30BAA /* GCCalendarView.swift in Sources */,
+				290BEDA520E697EC00F30BAA /* GCCalendarConfiguration.swift in Sources */,
+				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
+				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
+				290BEDA820E697EC00F30BAA /* PushyNetworkException.swift in Sources */,
+				290BEDA920E697EC00F30BAA /* HomeViewController.swift in Sources */,
+				290BEDAA20E697EC00F30BAA /* GCCalendarWeekView.swift in Sources */,
+				290BEDAB20E697EC00F30BAA /* InboxTableViewCell.swift in Sources */,
+				290BEDAC20E697EC00F30BAA /* ConversationListingViewControllerProtocol.swift in Sources */,
+				290BEDAD20E697EC00F30BAA /* IQUITextFieldView+Additions.swift in Sources */,
+				290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */,
+				290BEDAF20E697EC00F30BAA /* PushySwizzler.swift in Sources */,
+				290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */,
+				290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */,
+				290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */,
+				290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */,
+				290BEDB420E697EC00F30BAA /* PushyResponseException.swift in Sources */,
+				290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */,
+				290BEDB620E697EC00F30BAA /* PushyHTTP.swift in Sources */,
+				290BEDB720E697EC00F30BAA /* Conversation+CoreDataClass.swift in Sources */,
+				290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				290BEDB920E697EC00F30BAA /* PushySettings.swift in Sources */,
+				290BEDBA20E697EC00F30BAA /* LoginViewController.swift in Sources */,
+				290BEDBB20E697EC00F30BAA /* Inbox.xcdatamodeld in Sources */,
+				290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */,
+				290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */,
+				290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */,
+				290BEDBF20E697EC00F30BAA /* PushyEnvironment.swift in Sources */,
+				290BEDC020E697EC00F30BAA /* ChatTableViewCell.m in Sources */,
+				290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */,
+				290BEDC220E697EC00F30BAA /* ConversationDetailViewControllerProtocol.swift in Sources */,
+				290BEDC320E697EC00F30BAA /* GCCalendarMonthView.swift in Sources */,
+				290BEDC420E697EC00F30BAA /* Popover.swift in Sources */,
+				290BEDC520E697EC00F30BAA /* AppDelegate.swift in Sources */,
+				290BEDC620E697EC00F30BAA /* User+CoreDataClass.swift in Sources */,
+				290BEDC720E697EC00F30BAA /* ConversationListingViewController.swift in Sources */,
+				290BEDC820E697EC00F30BAA /* InboxTableViewDataSource.swift in Sources */,
+				290BEDC920E697EC00F30BAA /* PushyRegistrationException.swift in Sources */,
+				290BEDCA20E697EC00F30BAA /* ProcessingIndicatorHandler.swift in Sources */,
+				290BEDCB20E697EC00F30BAA /* PushyPubSubException.swift in Sources */,
+				290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */,
+				290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */,
+				290BEDCE20E697EC00F30BAA /* ProcessingIndicatorView.swift in Sources */,
+				290BEDCF20E697EC00F30BAA /* GCCalendarViewDelegate.swift in Sources */,
+				290BEDD020E697EC00F30BAA /* Message+CoreDataProperties.swift in Sources */,
+				290BEDD120E697EC00F30BAA /* PushyKeychain.swift in Sources */,
+				290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */,
+				290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */,
+				290BEDD420E697EC00F30BAA /* PushyConfig.swift in Sources */,
+				290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */,
+				290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */,
+				290BEDD720E697EC00F30BAA /* String+Emoji.swift in Sources */,
+				290BEDD820E697EC00F30BAA /* HTMLString.swift in Sources */,
+				290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */,
+				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
+				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
+				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
+				290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,14 +1265,14 @@
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
-				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
+				PROVISIONING_PROFILE = "c0160099-cedb-459e-a363-6343b8f0e5fd";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdhoc;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1025,13 +1294,70 @@
 				INFOPLIST_FILE = Inbox/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c0160099-cedb-459e-a363-6343b8f0e5fd";
+				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAdhoc;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		290BEDF920E697EC00F30BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = smsAppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Inbox copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
+				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		290BEDFA20E697EC00F30BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = smsAppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Inbox copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
 				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1048,11 +1374,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1ADE9F8F1EF98E4A006C2CAC /* Build configuration list for PBXNativeTarget "Inbox" */ = {
+		1ADE9F8F1EF98E4A006C2CAC /* Build configuration list for PBXNativeTarget "TextingLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1ADE9F901EF98E4A006C2CAC /* Debug */,
 				1ADE9F911EF98E4A006C2CAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		290BEDF820E697EC00F30BAA /* Build configuration list for PBXNativeTarget "SMSFactory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				290BEDF920E697EC00F30BAA /* Debug */,
+				290BEDFA20E697EC00F30BAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

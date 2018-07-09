@@ -292,7 +292,7 @@ open class Popover: UIView {
     UIView.animate(withDuration: self.animationIn / 3,
       delay: 0,
       options: .curveLinear,
-      animations: { _ in
+      animations: { 
         self.blackOverlay.alpha = 1
       }, completion: { _ in
     })
@@ -303,7 +303,7 @@ open class Popover: UIView {
     return true
   }
 
-  open func dismiss() {
+  @objc open func dismiss() {
     if self.superview != nil {
       self.willDismissHandler?()
       UIView.animate(withDuration: self.animationOut, delay: 0,
