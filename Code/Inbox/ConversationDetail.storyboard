@@ -15,7 +15,7 @@
         <!--Conversation Detail View Controller-->
         <scene sceneID="kkr-ff-7YH">
             <objects>
-                <viewController storyboardIdentifier="ConversationDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nXl-5u-ZEJ" customClass="ConversationDetailViewController" customModule="Inbox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nXl-5u-ZEJ" customClass="ConversationDetailViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HBk-8f-W1l"/>
                         <viewControllerLayoutGuide type="bottom" id="E29-x1-XIJ"/>
@@ -311,7 +311,7 @@
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your message here" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-vj-aG3">
-                                        <rect key="frame" x="15" y="2" width="341" height="46"/>
+                                        <rect key="frame" x="8" y="2" width="300" height="46"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -346,7 +346,7 @@
                                             <constraint firstAttribute="height" constant="1" id="kUA-Rz-NqX"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-dh-reY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-dh-reY">
                                         <rect key="frame" x="316" y="2" width="40" height="46"/>
                                         <color key="backgroundColor" red="0.25881557208989792" green="0.66846884923599914" blue="0.89657545336787559" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -371,8 +371,8 @@
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" id="Rep-jx-mvv"/>
                                     <constraint firstItem="yk5-dh-reY" firstAttribute="top" secondItem="q2D-9z-iaV" secondAttribute="top" id="UGX-Qc-g5e"/>
                                     <constraint firstAttribute="trailing" secondItem="j5v-i9-RST" secondAttribute="trailing" id="VR5-bZ-3KK"/>
-                                    <constraint firstItem="g4e-vj-aG3" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" constant="15" id="ajk-RF-SKd"/>
-                                    <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="g4e-vj-aG3" secondAttribute="trailing" constant="2" id="bQx-N7-o8L"/>
+                                    <constraint firstItem="g4e-vj-aG3" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" constant="8" id="ajk-RF-SKd"/>
+                                    <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="g4e-vj-aG3" secondAttribute="trailing" constant="50" id="bQx-N7-o8L"/>
                                     <constraint firstItem="yk5-dh-reY" firstAttribute="baseline" secondItem="q2D-9z-iaV" secondAttribute="baseline" constant="11" id="kjn-G3-SLp"/>
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" id="kmc-FR-BFA"/>
                                     <constraint firstAttribute="height" constant="50" id="vOS-Sv-PLR"/>

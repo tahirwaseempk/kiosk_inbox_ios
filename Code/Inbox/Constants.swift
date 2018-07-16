@@ -9,3 +9,14 @@ let DATE_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
 
 
 let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=&,.-!()$ "
+
+enum environmentType {
+    case texting_Line,
+    sms_Factory
+}
+
+let environment:environmentType = .texting_Line
+
+let AppBlueColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
+
+

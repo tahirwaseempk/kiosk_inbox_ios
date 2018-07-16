@@ -8,6 +8,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @IBOutlet weak var serialTextField: UnderlinedTextField!
     @IBOutlet weak var fieldsView: UIView!
     
+    @IBOutlet weak var loginImageView: UIImageView!
+    @IBOutlet weak var serialLabel: UILabel!
+    @IBOutlet weak var udidLabel: UILabel!
+        
     var isAutoLogin:Bool = false
     
     var tickBox:Checkbox? = nil
@@ -16,9 +20,30 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     {
         super.viewDidLoad()
         
+        switch environment {
+        case .texting_Line:
+            loginImageView.image = UIImage(named: "LoginImage")
+            self.view.backgroundColor = UIColor.white
+            loginButton.backgroundColor = AppBlueColor
+            loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+            serialLabel.textColor = AppBlueColor
+            udidLabel.textColor = AppBlueColor
+        case .sms_Factory:
+            loginImageView.image = UIImage(named: "smsfactory")
+            self.view.backgroundColor = AppBlueColor
+            loginButton.backgroundColor = UIColor.white
+            loginButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+            serialLabel.textColor = UIColor.black
+            udidLabel.textColor = UIColor.black
+        }
+        
         //**********************************************************************//
         //**********************************************************************//
         if UserDefaults.standard.string(forKey: "UUID_Key") != nil{
+            
+            let alert = UIAlertController(title:"ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+            self.present(alert, animated: true, completion: nil)
             
             print("########## >>>>>>>>> UUID ALREADY EXITS <<<<<<<<<< ##########")
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
@@ -32,6 +57,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             UserDefaults.standard.synchronize()
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
             self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
+            
+            let alert = UIAlertController(title:"NOT ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+            self.present(alert, animated: true, completion: nil)
         }
         //**********************************************************************//
         //**********************************************************************//
@@ -62,6 +91,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
                 self.isAutoLogin = true
                 self.serialTextField.text = (UserDefaults.standard.object(forKey:"serial_Key") as? String)
+                
+                let alert = UIAlertController(title:"serial_Key",message:UserDefaults.standard.string(forKey: "serial_Key"),preferredStyle:UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+                self.present(alert, animated: true, completion: nil)
+                
                 login()
             } else {
                 self.isAutoLogin = false

@@ -14,8 +14,10 @@ class ProcessingIndicatorView: UIView
     @IBInspectable var innerFillColor : UIColor  = UIColor.clear
     @IBInspectable var innerStrokeColor : UIColor = UIColor(red: 208/255, green: 154/255, blue: 35/255, alpha: 1)
     @IBInspectable var centerImageSize: CGFloat = 50
-    @IBInspectable var centerImage: UIImage? = UIImage(named:"sms_indicator.png")
-    //    @IBInspectable var centerImage: UIImage? = UIImage(named:"ChatLogo.jpg")
+   
+    @IBInspectable var centerImage: UIImage? = UIImage(named:"ChatLogo.jpg")
+//    @IBInspectable var centerImage: UIImage? = UIImage(named:"sms_indicator.png")
+
     @IBInspectable var innerLineWidth : CGFloat = 5.0
     @IBInspectable var innerEndStroke : CGFloat = 0.5
     @IBInspectable var innerAnimationDuration : CGFloat = 1.0

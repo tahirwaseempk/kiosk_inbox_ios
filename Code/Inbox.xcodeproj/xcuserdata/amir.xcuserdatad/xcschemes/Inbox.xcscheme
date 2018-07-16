@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1ADE9F791EF98E48006C2CAC"
-               BuildableName = "Inbox.app"
-               BlueprintName = "Inbox"
+               BuildableName = "TextingLine.app"
+               BlueprintName = "TextingLine"
                ReferencedContainer = "container:Inbox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ADE9F791EF98E48006C2CAC"
-            BuildableName = "Inbox.app"
-            BlueprintName = "Inbox"
+            BuildableName = "TextingLine.app"
+            BlueprintName = "TextingLine"
             ReferencedContainer = "container:Inbox.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ADE9F791EF98E48006C2CAC"
-            BuildableName = "Inbox.app"
-            BlueprintName = "Inbox"
+            BuildableName = "TextingLine.app"
+            BlueprintName = "TextingLine"
             ReferencedContainer = "container:Inbox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ADE9F791EF98E48006C2CAC"
-            BuildableName = "Inbox.app"
-            BlueprintName = "Inbox"
+            BuildableName = "TextingLine.app"
+            BlueprintName = "TextingLine"
             ReferencedContainer = "container:Inbox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

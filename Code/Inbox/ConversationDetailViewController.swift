@@ -59,25 +59,22 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBAction func scheduleAppointment_Tapped(_ sender: Any) {
         
         self.closeView.removeFromSuperview()
-
+        
         self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as! ScheduleAppointmentViewController
         
         if self.selectedConversation != nil
         {
-//            if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
-//            {
-//                self.scheduleAppointmentViewController.headerTitleString =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
-//            }
-//            else
-//            {
-                self.scheduleAppointmentViewController.headerTitleString = self.selectedConversation.mobile!
-//            }
+            //            if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
+            //            {
+            //                self.scheduleAppointmentViewController.headerTitleString =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+            //            }
+            //            else
+            //            {
+            self.scheduleAppointmentViewController.headerTitleString = self.selectedConversation.mobile!
+            //            }
             
             self.scheduleAppointmentViewController.selectedConversation = self.selectedConversation
         }
-        
-        
-        
         
         self.view.addSubview(self.scheduleAppointmentViewController.view)
         
@@ -249,6 +246,10 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
     }
     
+}
+
+extension ConversationDetailViewController {
+    
     func convertImageTobase64(format: String, image:UIImage) -> String? {
         
         var imageData: Data?
@@ -263,14 +264,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //##################################################################################//
         //##################################################################################//
         //        return imageData?.base64EncodedString()
-        //##################################################################################//
-        //##################################################################################//
-        //##################################################################################//
-        let base64Str = imageData?.base64EncodedString()
-        let utf8str = base64Str?.data(using: String.Encoding.utf8)
-        let base64Encoded = utf8str?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
-        let resultStr = base64Encoded! as String
-        return resultStr
         //********************************************************************************//
         //********************************************************************************//
         //********************************************************************************//
@@ -288,10 +281,18 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //##################################################################################//
         //##################################################################################//
         //##################################################################################//
+        let base64Str = imageData?.base64EncodedString()
+        let utf8str = base64Str?.data(using: String.Encoding.utf8)
+        let base64Encoded = utf8str?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
+        let resultStr = base64Encoded! as String
+        return resultStr
+        //##################################################################################//
+        //##################################################################################//
+        //##################################################################################//
     }
     
     func getImageFromBase64(base64:String) -> UIImage {
-      
+        
         let data = Data(base64Encoded: base64)
         return UIImage(data: data!)!
     }
@@ -313,23 +314,25 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
         return base64
     }
+    
+    // MARK: - Stings Extensions Base64 Methods
+    //extension String {
+    //
+    //    func fromZBase64() -> String? {
+    //        guard let data = Data(base64Encoded: self) else {
+    //            return nil
+    //        }
+    //
+    //        return String(data: data, encoding: .utf8)
+    //    }
+    //
+    //    func toZBase64() -> String {
+    //        return Data(self.utf8).base64EncodedString()
+    //    }
+    //}
+    
 }
 
-// MARK: - Stings Extensions Base64 Methods
-//extension String {
-//
-//    func fromZBase64() -> String? {
-//        guard let data = Data(base64Encoded: self) else {
-//            return nil
-//        }
-//
-//        return String(data: data, encoding: .utf8)
-//    }
-//
-//    func toZBase64() -> String {
-//        return Data(self.utf8).base64EncodedString()
-//    }
-//}
 
 // MARK: - UIImagePickerControllerDelegate Methods
 extension ConversationDetailViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate  {

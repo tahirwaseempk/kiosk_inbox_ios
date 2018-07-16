@@ -30,7 +30,7 @@
         <!--Splash View Controller-->
         <scene sceneID="t2B-Nt-3ok">
             <objects>
-                <viewController restorationIdentifier="SplashViewController" storyboardIdentifier="SplashViewController" id="4rJ-H3-g8v" customClass="SplashViewController" customModule="Inbox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SplashViewController" storyboardIdentifier="SplashViewController" id="4rJ-H3-g8v" customClass="SplashViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="587-5m-3Ir"/>
                         <viewControllerLayoutGuide type="bottom" id="VBw-MV-dU3"/>
@@ -55,6 +55,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SgO-Yx-vam"/>
+                    <connections>
+                        <outlet property="splashImageView" destination="OZq-7y-YJZ" id="MGO-a3-doU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0W-e7-YoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
