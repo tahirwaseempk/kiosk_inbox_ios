@@ -212,7 +212,7 @@
                   moduleName = "TextingLine"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ScheduleAppointmentViewController.swift"
-                  timestampString = "553401452.406109"
+                  timestampString = "553449645.5470591"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
@@ -227,7 +227,7 @@
                   moduleName = "TextingLine"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ScheduleAppointmentViewController.swift"
-                  timestampString = "553401452.410363"
+                  timestampString = "553449645.548933"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "169"
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "553401451.664959"
+            timestampString = "553449645.402909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "getMessages(params:messageParser:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "553401451.66527"
+            timestampString = "553449645.402972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "requestConversations(params:conversationParser:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -307,14 +307,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Inbox/WebManager.swift"
-            timestampString = "553401522.603525"
+            filePath = "Inbox/ConversationDetailViewController.swift"
+            timestampString = "553409037.274097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418"
-            landmarkName = "sendMessage(params:completionBlockSuccess:andFailureBlock:)"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TextingLine.ConversationDetailViewController.imagePickerController(__ObjC.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ConversationDetailViewController.swift"
+                  timestampString = "553449645.558597"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "368"
+                  endingLineNumber = "368"
+                  offsetFromSymbolStart = "3769">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TextingLine.ConversationDetailViewController.imagePickerController(__ObjC.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/ConversationDetailViewController.swift"
+                  timestampString = "553449645.560388"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "368"
+                  endingLineNumber = "368"
+                  offsetFromSymbolStart = "9705">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -324,11 +356,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "553401527.834357"
+            timestampString = "553449645.403051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
             landmarkName = "sendMessage(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>

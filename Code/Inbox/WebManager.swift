@@ -1,33 +1,39 @@
 import UIKit
 import Foundation
 
-//SMS Factory mcpn.us
-//Texting Line fct.la
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//
 
-let LOGIN_URL = "https://fct.la/limeApi?ev=kioskInbox&serial="
+let URL_SMS_FACTORY = "https://mcpn.us/limeApi?"
+let URL_TEXTING_LINE = "https://fct.la/limeApi?"
+
+let LOGIN_URL = "ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
-let APNS_URL = "https://fct.la/limeApi?ev=kioskAddToken&serial="
+let APNS_URL = "ev=kioskAddToken&serial="
 let APNS_URL_UDID = "&uuid="
 let APNS_URL_TYPE = "&type="
 let APNS_URL_TOKEN = "&token="
 
-let DELETE_APNS_URL = "https://fct.la/limeApi?ev=kioskDeleteToken&serial="
+let DELETE_APNS_URL = "ev=kioskDeleteToken&serial="
 let DELETE_APNS_URL_UDID = "&uuid="
 let DELETE_APNS_URL_TYPE = "&type="
 let DELETE_APNS_URL_TOKEN = "&token="
 
-let OPTOUT_URL_SERIAL = "https://fct.la/limeApi?ev=kioskInboxOptOut&serial="
+let OPTOUT_URL_SERIAL = "ev=kioskInboxOptOut&serial="
 let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
 let OPTOUT_URL_UUID = "&uuid="
 
-let CHAT_URL = "https://fct.la/limeApi?ev=kioskChatMessages&uuid="
+let CHAT_URL = "ev=kioskChatMessages&uuid="
 let CHAT_URL_BEFORE_SERIAL = "&serial="
 let CHAT_URL_BEFORE_MOBILE = "&mobile="
 let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
 
 let SEND_URL_ONLY = "https://fct.la/limeApi"
-let SEND_URL = "https://fct.la/limeApi?ev=kioskSendMessage&uuid="
+let SEND_URL = "ev=kioskSendMessage&uuid="
 let SEND_URL_BEFORE_SERIAL = "&serial="
 let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
 let SEND_URL_BEFORE_MOBILE = "&mobile="
@@ -35,68 +41,21 @@ let SEND_URL_BEFORE_MESSAGE = "&message="
 let SEND_URL_BEFORE_IMAGETYPE = "&attachmentFileSuffix="
 let SEND_URL_BEFORE_IMAGE = "&attachment="
 
-let CONVERSATION_URL = "https://fct.la/limeApi?ev=kioskInboxWithDetails&uuid="
+let CONVERSATION_URL = "ev=kioskInboxWithDetails&uuid="
 let CONVERSATION_URL_END = "&serial="
 
-let READ_URL_BEFORE_SERIAL = "https://fct.la/limeApi?ev=kioskInboxSetReadByMobile&serial="
+let READ_URL_BEFORE_SERIAL = "ev=kioskInboxSetReadByMobile&serial="
 let READ_URL_BEFORE_UUID = "&uuid="
 let READ_URL_BEFORE_ISREAD = "&isRead="
 let READ_URL_BEFORE_MOBILE = "&mobile="
 let READ_URL_BEFORE_SHORTCODE_END = "&shortcode="
 
-let DELETE_URL = "https://fct.la/limeApi?ev=kioskInboxDeleteForNumber&uuid="
+let DELETE_URL = "ev=kioskInboxDeleteForNumber&uuid="
 let DELETE_URL_BEFORE_SERIAL = "&serial="
 let DELETE_URL_BEFORE_MOBILE = "&mobile="
 let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
 
-let CREATE_APPOINMENT_URL = "https://fct.la/limeApi?ev=kioskInboxCreateAppointment&json="
-
-//let LOGIN_URL = "https://mcpn.us/limeApi?ev=kioskInbox&serial="
-//let LOGIN_URL_END = "&uuid="
-//
-//let APNS_URL = "https://mcpn.us/limeApi?ev=kioskAddToken&serial="
-//let APNS_URL_UDID = "&uuid="
-//let APNS_URL_TYPE = "&type="
-//let APNS_URL_TOKEN = "&token="
-//
-//let DELETE_APNS_URL = "https://mcpn.us/limeApi?ev=kioskDeleteToken&serial="
-//let DELETE_APNS_URL_UDID = "&uuid="
-//let DELETE_APNS_URL_TYPE = "&type="
-//let DELETE_APNS_URL_TOKEN = "&token="
-//
-//let OPTOUT_URL_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxOptOut&serial="
-//let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
-//let OPTOUT_URL_UUID = "&uuid="
-//
-//let CHAT_URL = "https://mcpn.us/limeApi?ev=kioskChatMessages&uuid="
-//let CHAT_URL_BEFORE_SERIAL = "&serial="
-//let CHAT_URL_BEFORE_MOBILE = "&mobile="
-//let CHAT_URL_BEFORE_SHORTCODE = "&shortcode="
-//
-//let SEND_URL_ONLY = "https://mcpn.us/limeApi"
-//let SEND_URL = "https://mcpn.us/limeApi?ev=kioskSendMessage&uuid="
-//let SEND_URL_BEFORE_SERIAL = "&serial="
-//let SEND_URL_BEFORE_SHORTCODE = "&shortcode="
-//let SEND_URL_BEFORE_MOBILE = "&mobile="
-//let SEND_URL_BEFORE_MESSAGE = "&message="
-//let SEND_URL_BEFORE_IMAGETYPE = "&attachmentFileSuffix="
-//let SEND_URL_BEFORE_IMAGE = "&attachment="
-//
-//let CONVERSATION_URL = "https://mcpn.us/limeApi?ev=kioskInboxWithDetails&uuid="
-//let CONVERSATION_URL_END = "&serial="
-//
-//let READ_URL_BEFORE_SERIAL = "https://mcpn.us/limeApi?ev=kioskInboxSetReadByMobile&serial="
-//let READ_URL_BEFORE_UUID = "&uuid="
-//let READ_URL_BEFORE_ISREAD = "&isRead="
-//let READ_URL_BEFORE_MOBILE = "&mobile="
-//let READ_URL_BEFORE_SHORTCODE_END = "&shortcode="
-//
-//let DELETE_URL = "https://mcpn.us/limeApi?ev=kioskInboxDeleteForNumber&uuid="
-//let DELETE_URL_BEFORE_SERIAL = "&serial="
-//let DELETE_URL_BEFORE_MOBILE = "&mobile="
-//let DELETE_URL_BEFORE_SHORTCODE = "&shortcode="
-//
-//let CREATE_APPOINMENT_URL = "https://mcpn.us/limeApi?ev=kioskInboxCreateAppointment&json="
+let CREATE_APPOINMENT_URL = "ev=kioskInboxCreateAppointment&json="
 
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
@@ -125,7 +84,18 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let uuid:String = params["uuid"] as! String
         
-        let finalUrl = LOGIN_URL + serial + LOGIN_URL_END + uuid
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + LOGIN_URL + serial + LOGIN_URL_END + uuid
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + LOGIN_URL + serial + LOGIN_URL_END + uuid
+        }
+        
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -166,9 +136,18 @@ class WebManager: NSObject
             tokenKey = ""
         }
         
+        var finalUrl = ""
         
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
+        }
         
-        let finalUrl = APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -203,7 +182,18 @@ class WebManager: NSObject
             tokenKey = ""
         }
         
-        let finalUrl = DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
+        }
+        
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -229,7 +219,18 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let uuid:String = params["uuid"] as! String
         
-        let finalUrl = CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
+        }
+        
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -262,7 +263,18 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         //let mobile_ = removeSpecialCharsFromString(mobile)
         
-        let finalUrl =  OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+        }
+        
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -289,7 +301,18 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         
-        let finalUrl =  DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl =  URL_TEXTING_LINE + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+            
+        case .sms_Factory:
+            finalUrl =  URL_SMS_FACTORY + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+        }
+        
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -316,7 +339,18 @@ class WebManager: NSObject
         let shortCode:String = params["shortCode"] as! String
         let mobile_ = removeSpecialCharsFromString(mobile)
         
-        let finalUrl = READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
+        }
+        
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -342,7 +376,18 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
         
-        let finalUrl = CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
+        }
+        
+        print("finalurl = \(finalUrl)")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -391,33 +436,32 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func sendMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-
-        //------------------------------------------------------------------------------------------------//
-        //------------------------------------------------------------------------------------------------//
-        /*
-        //let ev:String = params["ev"] as! String
-         let uuid:String = params["uuid"] as! String
-         let serial:String = params["serial"] as! String
-         let mobile:String = params["mobile"] as! String
-         let shortCode:String = params["shortCode"] as! String
-         let message:String = params["message"] as! String
-        let attachment:String = params["attachment"] as! String
-        let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
         
-         let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-         
-         let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
-       
-        print("finalurl = \(finalurl)")
-
-        */
-        //------------------------------------------------------------------------------------------------//
-        //------------------------------------------------------------------------------------------------//
+        var finalUrl = ""
         
-        let finalurl = SEND_URL_ONLY //+ escapedString
-        print("finalurl = \(finalurl)")
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + SEND_URL_ONLY //+ escapedString
+            
+        case .sms_Factory:
+            //             let ev:String = params["ev"] as! String
+            let uuid:String = params["uuid"] as! String
+            let serial:String = params["serial"] as! String
+            let mobile:String = params["mobile"] as! String
+            let shortCode:String = params["shortCode"] as! String
+            let message:String = params["message"] as! String
+            //             let attachment:String = params["attachment"] as! String
+            //             let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
+            
+            let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+            
+            finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
+        }
         
-        PostDataWithUrl(urlString:finalurl, withParameterDictionary:params,completionBlock: {(error, response) -> (Void) in
+        print("finalurl = \(finalUrl)")
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:params,completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -429,7 +473,7 @@ class WebManager: NSObject
             }
         })
     }
-   //************************************************************************************************//
+    //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -445,9 +489,20 @@ class WebManager: NSObject
         
         let escapedString :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         
-        let finalurl = SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+        var finalUrl = ""
         
-        PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+        }
+        
+        print("finalurl = \(finalUrl)")
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -477,11 +532,21 @@ class WebManager: NSObject
         
         let escapedString :String = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         
-        let finalurl = CREATE_APPOINMENT_URL + escapedString
-
-        print("finalurl = \(finalurl)")
-
-        PostDataWithUrl(urlString:finalurl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + CREATE_APPOINMENT_URL + escapedString
+            
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + CREATE_APPOINMENT_URL + escapedString
+        }
+        
+        print("finalurl = \(finalUrl)")
+        
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -517,7 +582,7 @@ class WebManager: NSObject
             {
                 print(error.localizedDescription)
             }
-        
+            
             request.setValue(/*"application/json"*/"application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -533,7 +598,7 @@ class WebManager: NSObject
                 {
                     return
                 }
-
+                
                 let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
                 
                 guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8)

@@ -15,8 +15,8 @@ class ProcessingIndicatorView: UIView
     @IBInspectable var innerStrokeColor : UIColor = UIColor(red: 208/255, green: 154/255, blue: 35/255, alpha: 1)
     @IBInspectable var centerImageSize: CGFloat = 50
    
-    @IBInspectable var centerImage: UIImage? = UIImage(named:"ChatLogo.jpg")
-//    @IBInspectable var centerImage: UIImage? = UIImage(named:"sms_indicator.png")
+//    @IBInspectable var centerImage: UIImage? = UIImage(named:"ChatLogo.jpg")
+    @IBInspectable var centerImage: UIImage? = UIImage(named:"sms_indicator.png")
 
     @IBInspectable var innerLineWidth : CGFloat = 5.0
     @IBInspectable var innerEndStroke : CGFloat = 0.5
@@ -32,6 +32,14 @@ class ProcessingIndicatorView: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
+        
+        switch environment {
+        case .texting_Line:
+            centerImage = UIImage(named:"ChatLogo.jpg")
+        case .sms_Factory:
+            centerImage = UIImage(named:"sms_indicator.png")
+        }
+        
         self.commonInit()
     }
     

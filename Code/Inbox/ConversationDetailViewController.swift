@@ -315,22 +315,21 @@ extension ConversationDetailViewController {
         return base64
     }
     
-    // MARK: - Stings Extensions Base64 Methods
-    //extension String {
-    //
-    //    func fromZBase64() -> String? {
-    //        guard let data = Data(base64Encoded: self) else {
-    //            return nil
-    //        }
-    //
-    //        return String(data: data, encoding: .utf8)
-    //    }
-    //
-    //    func toZBase64() -> String {
-    //        return Data(self.utf8).base64EncodedString()
-    //    }
-    //}
+}
+
+extension String {
     
+    func fromZBase64() -> String? {
+        guard let data = Data(base64Encoded: self) else {
+            return nil
+        }
+        
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func toZBase64() -> String {
+        return Data(self.utf8).base64EncodedString()
+    }
 }
 
 
