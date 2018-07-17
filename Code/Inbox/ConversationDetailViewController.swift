@@ -250,7 +250,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 
 extension ConversationDetailViewController {
     
-    func convertImageTobase64(format: String, image:UIImage) -> String? {
+    func convertImageToBase64(format: String, image:UIImage) -> String? {
         
         var imageData: Data?
         
@@ -317,22 +317,6 @@ extension ConversationDetailViewController {
     
 }
 
-extension String {
-    
-    func fromZBase64() -> String? {
-        guard let data = Data(base64Encoded: self) else {
-            return nil
-        }
-        
-        return String(data: data, encoding: .utf8)
-    }
-    
-    func toZBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
-    }
-}
-
-
 // MARK: - UIImagePickerControllerDelegate Methods
 extension ConversationDetailViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
    
@@ -365,7 +349,7 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
             }
             
             
-            let base64String = convertImageTobase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
+            let base64String = convertImageToBase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
             //base64String = base64String?.replacingOccurrences(of: "+", with: "%2B")
             
             //Call Web Service to Send Message
@@ -373,7 +357,7 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
             {
                 if (selectedImageType != "") {
                     ProcessingIndicator.show()
-                    _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: "", imageType: selectedImageType, imageString: base64String!)
+                    _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: "image testing", imageType: selectedImageType, imageString: base64String!)
                     
                 } else {
                     
@@ -502,7 +486,7 @@ extension ConversationDetailViewController:UITextFieldDelegate {
             return false
         }
         
-        if str.count > 160 {
+        if str.count > sendMessageMaxLength {
             return false
         }
         

@@ -324,14 +324,14 @@ extension User
             paramsDic["mobile"] = conversation.mobileNumber
             paramsDic["message"] = paramsJson["message"] as! String
             paramsDic["attachment"] = paramsJson["attachment"] as! String
-            paramsDic["attachemntFileSuffix"] = paramsJson["attachemntFileSuffix"] as! String
+            paramsDic["attachmentFileSuffix"] = paramsJson["attachemntFileSuffix"] as! String
             paramsDic["ev"] = "kioskSendMessage"
 
             
             if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
-                paramsDic["shortCode"] = conversation.tollFree
+                paramsDic["shortcode"] = conversation.tollFree
             } else {
-                paramsDic["shortCode"] = conversation.shortcodeDisplay
+                paramsDic["shortcode"] = conversation.shortcodeDisplay
             }
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in

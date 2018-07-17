@@ -41,9 +41,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         //**********************************************************************//
         if UserDefaults.standard.string(forKey: "UUID_Key") != nil{
             
-            let alert = UIAlertController(title:"ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            self.present(alert, animated: true, completion: nil)
+            //            let alert = UIAlertController(title:"ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
+            //            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+            //            self.present(alert, animated: true, completion: nil)
             
             print("########## >>>>>>>>> UUID ALREADY EXITS <<<<<<<<<< ##########")
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
@@ -58,9 +58,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
             self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
             
-            let alert = UIAlertController(title:"NOT ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            self.present(alert, animated: true, completion: nil)
+            //            let alert = UIAlertController(title:"NOT ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
+            //            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+            //            self.present(alert, animated: true, completion: nil)
         }
         //**********************************************************************//
         //**********************************************************************//
@@ -92,9 +92,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
                 self.isAutoLogin = true
                 self.serialTextField.text = (UserDefaults.standard.object(forKey:"serial_Key") as? String)
                 
-                let alert = UIAlertController(title:"serial_Key",message:UserDefaults.standard.string(forKey: "serial_Key"),preferredStyle:UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-                self.present(alert, animated: true, completion: nil)
+                //                let alert = UIAlertController(title:"serial_Key",message:UserDefaults.standard.string(forKey: "serial_Key"),preferredStyle:UIAlertControllerStyle.alert)
+                //                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+                //                self.present(alert, animated: true, completion: nil)
                 
                 login()
             } else {

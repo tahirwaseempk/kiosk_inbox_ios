@@ -19,4 +19,5 @@ let environment:environmentType = .texting_Line
 
 let AppBlueColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 
+let sendMessageMaxLength = 250
 

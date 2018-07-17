@@ -51,7 +51,7 @@ class ComposeMessageViewController: UIViewController {
         messageTextView.textColor = UIColor.lightGray
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
         
-        self.inputCharacterCountLabel.text = "Characters Count 0/160"
+        self.inputCharacterCountLabel.text = "Characters Count 0/250"
     }
     
     @IBAction func cancel_Tapped(_ sender: Any) {
@@ -216,13 +216,13 @@ extension ComposeMessageViewController : UITextViewDelegate {
             return false
         }
         
-        let reminingCount = 160 - str.count
+        let reminingCount = sendMessageMaxLength - str.count
         
         if reminingCount >= 0 {
-            self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/160"
+            self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
         }
         
-        if str.count > 160 {
+        if str.count > sendMessageMaxLength {
             return false
         }
         
