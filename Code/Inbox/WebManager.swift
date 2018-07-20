@@ -94,7 +94,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + LOGIN_URL + serial + LOGIN_URL_END + uuid
         }
         
-        print("===== >>>>> login URL = \(finalUrl)")
+        print("\n ===== >>>>> login URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -146,7 +146,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
         }
         
-        print("===== >>>>> Register APNS URL  = \(finalUrl)")
+        print("\n ===== >>>>> Register APNS URL  = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -192,7 +192,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
         }
         
-        print("===== >>>>> Delete APNS URL = \(finalUrl)")
+        print("\n ===== >>>>> Delete APNS URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -229,7 +229,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
         }
         
-        print("===== >>>>> Conversations URL = \(finalUrl)")
+        print("\n ===== >>>>> Conversations URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -274,7 +274,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
         }
         
-        print("===== >>>>> OPTOUT URL = \(finalUrl)")
+        print("\n ===== >>>>> OPTOUT URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -312,7 +312,7 @@ class WebManager: NSObject
             finalUrl =  URL_SMS_FACTORY + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
         }
         
-        print("===== >>>>> Delete Conversation URL = \(finalUrl)")
+        print("\n ===== >>>>> Delete Conversation URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -350,7 +350,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
         }
         
-        print("===== >>>>> Read Receipt URL = \(finalUrl)")
+        print("\n ===== >>>>> Read Receipt URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -387,7 +387,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
         }
         
-        print("===== >>>>> Get Message URL = \(finalUrl)")
+        print("\n ===== >>>>> Get Message URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -440,35 +440,15 @@ class WebManager: NSObject
         var finalUrl = ""
         
         switch environment {
+//            
+//            for key in params {
+//            dict.removeValueForKey(key)
+//            }
             
         case .texting_Line:
-            /*
-            //            var theJSONText = ""
-            //
-            //            if let theJSONData = try? JSONSerialization.data(
-            //                withJSONObject: params,
-            //                options: []) {
-            //                theJSONText = String(data: theJSONData,
-            //                                     encoding: .ascii)!
-            //            }
-            //
-            //            let escapedMessageStr = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
             
-            finalUrl = URL_TEXTING_LINE // + escapedMessageStr
-            */
-            let uuid:String = params["uuid"] as! String
-            let serial:String = params["serial"] as! String
-            let mobile:String = params["mobile"] as! String
-            let shortCode:String = params["shortcode"] as! String
-            let message:String = params["message"] as! String
+            finalUrl = URL_TEXTING_LINE
             
-            //            let ev:String = params["ev"] as! String
-            //            let attachment:String = params["attachment"] as! String
-            //            let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
-            
-            let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-            
-            finalUrl = URL_TEXTING_LINE + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
             
         case .sms_Factory:
             let uuid:String = params["uuid"] as! String
@@ -476,7 +456,7 @@ class WebManager: NSObject
             let mobile:String = params["mobile"] as! String
             let shortCode:String = params["shortcode"] as! String
             let message:String = params["message"] as! String
-
+            
             //            let ev:String = params["ev"] as! String
             //            let attachment:String = params["attachment"] as! String
             //            let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
@@ -486,10 +466,10 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
         }
         
-        print("===== >>>>> Send Message URL = \(finalUrl)")
+        print("\n ===== >>>>> Send Message URL = \(finalUrl) \n")
         
-        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:params,completionBlock: {(error, response) -> (Void) in
-            
+        callSendMessageWebService(urlStr: finalUrl, parameters:params,completionBlock: {(error, response) -> (Void) in
+
             if (error == nil)
             {
                 successBlock(response as? Dictionary)
@@ -499,6 +479,18 @@ class WebManager: NSObject
                 failureBlock(error)
             }
         })
+        
+//                PostDataWithUrl(urlString:finalUrl, withParameterDictionary:params,completionBlock: {(error, response) -> (Void) in
+//
+//                    if (error == nil)
+//                    {
+//                        successBlock(response as? Dictionary)
+//                    }
+//                    else
+//                    {
+//                        failureBlock(error)
+//                    }
+//                })
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -527,7 +519,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
         }
         
-        print("===== >>>>> Compose Message URL = \(finalUrl)")
+        print("\n ===== >>>>> Compose Message URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -571,7 +563,7 @@ class WebManager: NSObject
             finalUrl = URL_SMS_FACTORY + CREATE_APPOINMENT_URL + escapedString
         }
         
-        print("===== >>>>> Create Appoinment URL = \(finalUrl)")
+        print("\n ===== >>>>> Create Appoinment URL = \(finalUrl) \n")
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
             
@@ -601,10 +593,15 @@ class WebManager: NSObject
             
             do
             {
+                
                 request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-//                let postString = self.getPostString(params: parameters)
-//                request.httpBody = postString.data(using: .utf8)
-//                print("===== ===== >>>>> Request HTTP Body <<<<< ===== ====== \(String(describing: request.httpBody))")
+                //                let postString = self.getPostString(params: parameters)
+                //                request.httpBody = postString.data(using: .utf8)
+               
+                //                let jsonData = try? JSONSerialization.data(withJSONObject: parameters)
+                //                request.httpBody = jsonData
+                
+                print("\n ==== >>>>> Request HTTP Body <<<<< ====== \(String(describing: request.httpBody)) \n")
             }
             catch let error
             {
@@ -678,6 +675,91 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    
+    internal static func callSendMessageWebService(urlStr: String, parameters: Dictionary<String,Any>, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void))) {
+        
+        //declare parameter as a dictionary which contains string as key and value combination.
+        
+        //create the url with NSURL
+        let url = NSURL(string: urlStr)
+        
+        //create the session object
+        let session = URLSession.shared
+        
+        //now create the NSMutableRequest object using the url object
+        let request = NSMutableURLRequest(url: url! as URL)
+        request.httpMethod = "POST" //set http method as POST
+
+//        let postString = parameters.description
+//        let escapedMessageStr :String = postString.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+
+        let postString = (parameters.compactMap({ (key, value) -> String in
+            return "\(key)=\(value)"
+        }) as Array).joined(separator: "&")
+        
+        print("\n \(postString) \n")
+
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        
+        //HTTP Headers
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+        //create dataTask using the session object to send data to the server
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else
+            {
+                return
+            }
+            
+            guard let data = data else
+            {
+                return
+            }
+            
+            let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
+            
+            guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8)
+                else
+            {
+                completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                
+                print("could not convert data to UTF-8 format")
+                
+                return
+            }
+            
+            do
+            {
+                if let responseJSONDict = try JSONSerialization.jsonObject(with: modifiedDataInUTF8Format) as? [String: Any]
+                {
+                    completion(nil,responseJSONDict as NSDictionary)
+                }
+                else
+                {
+                    completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                }
+            }
+            catch
+            {
+                print(error.localizedDescription)
+                
+                let code = (error as NSError).code
+                
+                if(code == 3840)
+                {
+                    completion(NSError(domain: "com.mpos.tlt", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+                }
+                else
+                {
+                    completion(error,nil);
+                }
+            }
+        })
+        
+        task.resume()
+    }
+    
 }
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

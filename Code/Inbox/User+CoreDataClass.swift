@@ -324,7 +324,7 @@ extension User
             paramsDic["mobile"] = conversation.mobileNumber
             paramsDic["message"] = paramsJson["message"] as! String
             paramsDic["attachment"] = paramsJson["attachment"] as! String
-            paramsDic["attachmentFileSuffix"] = paramsJson["attachemntFileSuffix"] as! String
+            paramsDic["attachmentFileSuffix"] = paramsJson["attachmentFileSuffix"] as! String
             paramsDic["ev"] = "kioskSendMessage"
 
             
@@ -336,6 +336,8 @@ extension User
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
+                print("\n ===== >>>>> SEND MESSAGE RESPONSE =  <<<<< ===== \(String(describing: response)) \n")
+
                 if let status = response?["result"] as? String
                 {
                     //split status into two parts. OK,1761705481

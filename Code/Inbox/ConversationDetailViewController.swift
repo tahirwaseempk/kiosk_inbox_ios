@@ -10,7 +10,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet var closeView: UIView!
     
     var scheduleAppointmentViewController:ScheduleAppointmentViewController!
-
+    
     var delegate:ConversationDetailViewControllerProtocol? = nil
     
     var tableViewDataSource:MessageTableViewDataSource? = nil
@@ -98,43 +98,43 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             User.optOutFromConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        ProcessingIndicator.hide()
-                        
-                        if status == true
-                        {
-                            let alert = UIAlertController(title: "Message", message: "Number has been successfully been opted out.", preferredStyle: UIAlertControllerStyle.alert)
-                            
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                            
-                            self.present(alert, animated: true, completion: nil)
+                        DispatchQueue.main.async
+                            {
+                                ProcessingIndicator.hide()
+                                
+                                if status == true
+                                {
+                                    let alert = UIAlertController(title: "Message", message: "Number has been successfully been opted out.", preferredStyle: UIAlertControllerStyle.alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                                else if status == false
+                                {
+                                    let alert = UIAlertController(title: "Error", message: "Number failed to opt out from list.", preferredStyle: UIAlertControllerStyle.alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                         }
-                        else if status == false
-                        {
-                            let alert = UIAlertController(title: "Error", message: "Number failed to opt out from list.", preferredStyle: UIAlertControllerStyle.alert)
-                            
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                            
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                    }
                 }
             }, andFailureBlock: { (error: Error?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        ProcessingIndicator.hide()
+                        DispatchQueue.main.async
+                            {
+                                ProcessingIndicator.hide()
                                 
-                        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                        
-                        self.present(alert, animated: true, completion: nil)
-                    }
+                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(alert, animated: true, completion: nil)
+                        }
                 }
             })
         }
@@ -157,46 +157,46 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             User.deleteLocalConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        
-                        //ProcessingIndicator.hide()
-                        
-                        if status == true
-                        {
-                            
-                            if let delegate = self.delegate
+                        DispatchQueue.main.async
                             {
-                                delegate.conversationRemoved()
-                            }
-                            
-                            self.navigationController?.popViewController(animated: true)
+                                
+                                //ProcessingIndicator.hide()
+                                
+                                if status == true
+                                {
+                                    
+                                    if let delegate = self.delegate
+                                    {
+                                        delegate.conversationRemoved()
+                                    }
+                                    
+                                    self.navigationController?.popViewController(animated: true)
+                                }
+                                else if status == false
+                                {
+                                    let alert = UIAlertController(title: "Error", message: "Conversation has been failed to be deleted.", preferredStyle: UIAlertControllerStyle.alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                         }
-                        else if status == false
-                        {
-                            let alert = UIAlertController(title: "Error", message: "Conversation has been failed to be deleted.", preferredStyle: UIAlertControllerStyle.alert)
-                            
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                            
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                    }
                 }
             }, andFailureBlock: { (error: Error?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
                     {
-                        ProcessingIndicator.hide()
-                        
-                        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                        
-                        self.present(alert, animated: true, completion: nil)
-                    }
+                        DispatchQueue.main.async
+                            {
+                                ProcessingIndicator.hide()
+                                
+                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(alert, animated: true, completion: nil)
+                        }
                 }
             })
         }
@@ -249,6 +249,28 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 }
 
 extension ConversationDetailViewController {
+    //##################################################################################//
+    
+    func convertImageToDataUTF8EncodingString(format: String, image:UIImage) -> String {
+        
+        var imageData:Data?
+        
+        if (format == "jpg") {
+            imageData? = UIImageJPEGRepresentation(image, 0)!
+        }
+        else if (format == "png") {
+            imageData? = UIImagePNGRepresentation(image)!
+        }
+        
+        let utf8EncodingStr = NSString(data: imageData!, encoding: String.Encoding.utf8.rawValue)
+        
+        //        let cString = utf8EncodingStr?.cString(using: .init(truncating: 0))! // null-terminated
+        
+        // let base64String = utf8EncodingStr?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        
+        return utf8EncodingStr! as String
+    }
+    //##################################################################################//
     
     func convertImageToBase64(format: String, image:UIImage) -> String? {
         
@@ -260,19 +282,24 @@ extension ConversationDetailViewController {
         else if (format == "png") {
             imageData = UIImagePNGRepresentation(image)
         }
+        
+        let  base64String = imageData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 1))
+        return base64String
+        //        print(base64String)
+        
         //##################################################################################//
         //##################################################################################//
         //##################################################################################//
-        //        return imageData?.base64EncodedString()
+        //                        return imageData?.base64EncodedString()
         //********************************************************************************//
         //********************************************************************************//
         //********************************************************************************//
         //       let myBase64Data = imageData?.base64EncodedData(options: NSData.Base64EncodingOptions.endLineWithLineFeed)
         //       let resultData = NSData(base64Encoded: myBase64Data!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
-        //       let resultNSString = resultData.base64EncodedString()
-        //       let resultNSString = NSString(data: resultData as Data, encoding: String.Encoding.utf8.rawValue)
-        //       let resultString = resultNSString! as String
-        //       return resultNSString
+        //        let resultNSString = resultData.base64EncodedString()
+        //        let resultNSString = NSString(data: imageData as! Data, encoding: String.Encoding.utf8.rawValue)
+        //        let resultString = resultNSString! as String
+        //        return resultString
         //********************************************************************************//
         //********************************************************************************//
         //********************************************************************************//
@@ -281,11 +308,11 @@ extension ConversationDetailViewController {
         //##################################################################################//
         //##################################################################################//
         //##################################################################################//
-        let base64Str = imageData?.base64EncodedString()
-        let utf8str = base64Str?.data(using: String.Encoding.utf8)
-        let base64Encoded = utf8str?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
-        let resultStr = base64Encoded! as String
-        return resultStr
+        //        let base64Str = imageData?.base64EncodedString()
+        //        let utf8str = base64Str?.data(using: String.Encoding.utf8)
+        //        let base64Encoded = utf8str?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
+        //        let resultStr = base64Encoded! as String
+        //        return resultStr
         //##################################################################################//
         //##################################################################################//
         //##################################################################################//
@@ -317,9 +344,28 @@ extension ConversationDetailViewController {
     
 }
 
+extension String {
+    
+    //: ### Base64 encoding a string
+    func base64Encoded() -> String? {
+        if let data = self.data(using: .utf8) {
+            return data.base64EncodedString()
+        }
+        return nil
+    }
+    
+    //: ### Base64 decoding a string
+    func base64Decoded() -> String? {
+        if let data = Data(base64Encoded: self) {
+            return String(data: data, encoding: .utf8)
+        }
+        return nil
+    }
+}
+
 // MARK: - UIImagePickerControllerDelegate Methods
 extension ConversationDetailViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
-   
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
@@ -348,9 +394,13 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
                 dismiss(animated: true, completion: nil)
             }
             
-            
-            let base64String = convertImageToBase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
-            //base64String = base64String?.replacingOccurrences(of: "+", with: "%2B")
+            ////////////////////////////////////////////////////////////////////////////////
+            var base64String = convertImageToBase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
+            base64String = base64String?.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+
+            ////////////////////////////////////////////////////////////////////////////////
+            //            let base64String = convertImageToBase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
+            ////////////////////////////////////////////////////////////////////////////////
             
             //Call Web Service to Send Message
             if base64String != ""
@@ -427,36 +477,36 @@ extension ConversationDetailViewController {
         var paramsDic = Dictionary<String, Any>()
         paramsDic["message"] = message
         paramsDic["attachment"] = imageString
-        paramsDic["attachemntFileSuffix"] = imageType
+        paramsDic["attachmentFileSuffix"] = imageType
         
         User.sendUserMessage(conversation: conversation, paramsJson: paramsDic, completionBlockSuccess: { (sendMessaage:Message) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
-            {
-                DispatchQueue.main.async
                 {
-                    ProcessingIndicator.hide()
-                    
-                    self.sendTextField.text = ""
-                    
-                    _ = self.tableViewDataSource?.reloadControls()
-                }
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            
+                            self.sendTextField.text = ""
+                            
+                            _ = self.tableViewDataSource?.reloadControls()
+                    }
             }
             
         }) { (error:Error?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
-            {
-                DispatchQueue.main.async
                 {
-                    ProcessingIndicator.hide()
-                    
-                    self.sendTextField.text = ""
-                    
-                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            
+                            self.sendTextField.text = ""
+                            
+                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                    }
             }
         }
         
@@ -475,9 +525,9 @@ extension ConversationDetailViewController:UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-
+        
         let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
         let filtered = string.components(separatedBy: cs).joined(separator: "")
         let isAllowed = (string == filtered)
