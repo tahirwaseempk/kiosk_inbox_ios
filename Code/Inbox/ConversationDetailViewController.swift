@@ -249,81 +249,47 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 }
 
 extension ConversationDetailViewController {
+
     //##################################################################################//
-    
-    func convertImageToDataUTF8EncodingString(format: String, image:UIImage) -> String {
-        
-        var imageData:Data?
-        
-        if (format == "jpg") {
-            imageData? = UIImageJPEGRepresentation(image, 0)!
-        }
-        else if (format == "png") {
-            imageData? = UIImagePNGRepresentation(image)!
-        }
-        
-        let utf8EncodingStr = NSString(data: imageData!, encoding: String.Encoding.utf8.rawValue)
-        
-        //        let cString = utf8EncodingStr?.cString(using: .init(truncating: 0))! // null-terminated
-        
-        // let base64String = utf8EncodingStr?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        
-        return utf8EncodingStr! as String
-    }
     //##################################################################################//
-    
-    func convertImageToBase64(format: String, image:UIImage) -> String? {
-        
+    func getDataFromImage(format: String, imageE:UIImage) -> Data {
+
         var imageData: Data?
         
-        if (format == "jpg") {
-            imageData = UIImageJPEGRepresentation(image, 0)
+        if (format == "jpg" || format == "jpeg") {
+            imageData = UIImageJPEGRepresentation(imageE, 1)!   // QUALITY min = 0 / max = 1
         }
         else if (format == "png") {
-            imageData = UIImagePNGRepresentation(image)
+            imageData = UIImagePNGRepresentation(imageE)!
         }
         
-        let  base64String = imageData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 1))
-        return base64String
-        //        print(base64String)
+        return imageData!
+    }
+    //##################################################################################//
+    //##################################################################################//
+    func getImageFromData(imageData: Data) -> UIImage {
+       
+        return UIImage(data: imageData)!
+
+    }
+    //##################################################################################//
+    //##################################################################################//
+    func getBase64StringFromImage(format: String, image:UIImage) -> String? {
         
-        //##################################################################################//
-        //##################################################################################//
-        //##################################################################################//
-        //                        return imageData?.base64EncodedString()
-        //********************************************************************************//
-        //********************************************************************************//
-        //********************************************************************************//
-        //       let myBase64Data = imageData?.base64EncodedData(options: NSData.Base64EncodingOptions.endLineWithLineFeed)
-        //       let resultData = NSData(base64Encoded: myBase64Data!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
-        //        let resultNSString = resultData.base64EncodedString()
-        //        let resultNSString = NSString(data: imageData as! Data, encoding: String.Encoding.utf8.rawValue)
-        //        let resultString = resultNSString! as String
-        //        return resultString
-        //********************************************************************************//
-        //********************************************************************************//
-        //********************************************************************************//
-        //        return imageData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        //        return imageData?.base64EncodedString(options: NSData.Base64EncodingOptions.endLineWithLineFeed)
-        //##################################################################################//
-        //##################################################################################//
-        //##################################################################################//
-        //        let base64Str = imageData?.base64EncodedString()
-        //        let utf8str = base64Str?.data(using: String.Encoding.utf8)
-        //        let base64Encoded = utf8str?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
-        //        let resultStr = base64Encoded! as String
-        //        return resultStr
-        //##################################################################################//
-        //##################################################################################//
-        //##################################################################################//
+        let imageData = self.getDataFromImage(format: format, imageE: image)
+        
+        let  base64String = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 1))
+        
+        return base64String
     }
     
+    //Not using
     func getImageFromBase64(base64:String) -> UIImage {
         
         let data = Data(base64Encoded: base64)
         return UIImage(data: data!)!
     }
-    
+    //Not using
     func base64ToBase64url(base64: String) -> String {
         let base64url = base64
             .replacingOccurrences(of: "+", with: "-")
@@ -331,7 +297,7 @@ extension ConversationDetailViewController {
             .replacingOccurrences(of: "=", with: "")
         return base64url
     }
-    
+    //Not using
     func base64urlToBase64(base64url: String) -> String {
         var base64 = base64url
             .replacingOccurrences(of: "-", with: "+")
@@ -342,25 +308,6 @@ extension ConversationDetailViewController {
         return base64
     }
     
-}
-
-extension String {
-    
-    //: ### Base64 encoding a string
-    func base64Encoded() -> String? {
-        if let data = self.data(using: .utf8) {
-            return data.base64EncodedString()
-        }
-        return nil
-    }
-    
-    //: ### Base64 decoding a string
-    func base64Decoded() -> String? {
-        if let data = Data(base64Encoded: self) {
-            return String(data: data, encoding: .utf8)
-        }
-        return nil
-    }
 }
 
 // MARK: - UIImagePickerControllerDelegate Methods
@@ -394,12 +341,11 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
                 dismiss(animated: true, completion: nil)
             }
             
-            ////////////////////////////////////////////////////////////////////////////////
-            var base64String = convertImageToBase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
-            base64String = base64String?.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-
-            ////////////////////////////////////////////////////////////////////////////////
-            //            let base64String = convertImageToBase64(format: selectedImageType, image: (info[UIImagePickerControllerEditedImage] as? UIImage)!)
+            //////////////////////////////////////////////////////////////////////////////
+            var base64String = getBase64StringFromImage(format: selectedImageType, image: (info[UIImagePickerControllerOriginalImage] as? UIImage)!)
+            base64String = self.base64ToBase64url(base64: base64String!)
+            
+            //base64String?.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)!
             ////////////////////////////////////////////////////////////////////////////////
             
             //Call Web Service to Send Message
@@ -407,7 +353,7 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
             {
                 if (selectedImageType != "") {
                     ProcessingIndicator.show()
-                    _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: "image testing", imageType: selectedImageType, imageString: base64String!)
+                    _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: "MMS", imageType: selectedImageType, imageString: base64String!)
                     
                 } else {
                     

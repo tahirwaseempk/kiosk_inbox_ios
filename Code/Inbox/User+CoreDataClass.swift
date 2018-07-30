@@ -319,15 +319,22 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["ev"] = "kioskSendMessage"
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = conversation.mobileNumber
             paramsDic["message"] = paramsJson["message"] as! String
-            paramsDic["attachment"] = paramsJson["attachment"] as! String
-            paramsDic["attachmentFileSuffix"] = paramsJson["attachmentFileSuffix"] as! String
-            paramsDic["ev"] = "kioskSendMessage"
-
             
+            if (paramsJson["message"] as! String != ""){
+                paramsDic["message"] = paramsJson["message"] as! String
+            }
+            if (paramsJson["attachment"] as! String != ""){
+                paramsDic["attachment"] = paramsJson["attachment"] as! String
+            }
+            if (paramsJson["attachmentFileSuffix"] as! String != ""){
+                paramsDic["attachmentFileSuffix"] = paramsJson["attachmentFileSuffix"] as! String
+            }
             if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
                 paramsDic["shortcode"] = conversation.tollFree
             } else {
@@ -340,7 +347,6 @@ extension User
 
                 if let status = response?["result"] as? String
                 {
-                    //split status into two parts. OK,1761705481
                     let splitString = status.components(separatedBy: ",")
                     
                     if (String(splitString[0]) == "OK")

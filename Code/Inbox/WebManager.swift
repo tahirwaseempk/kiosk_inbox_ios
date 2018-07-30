@@ -440,17 +440,13 @@ class WebManager: NSObject
         var finalUrl = ""
         
         switch environment {
-//            
-//            for key in params {
-//            dict.removeValueForKey(key)
-//            }
             
         case .texting_Line:
             
             finalUrl = URL_TEXTING_LINE
             
-            
         case .sms_Factory:
+            
             let uuid:String = params["uuid"] as! String
             let serial:String = params["serial"] as! String
             let mobile:String = params["mobile"] as! String
@@ -480,17 +476,6 @@ class WebManager: NSObject
             }
         })
         
-//                PostDataWithUrl(urlString:finalUrl, withParameterDictionary:params,completionBlock: {(error, response) -> (Void) in
-//
-//                    if (error == nil)
-//                    {
-//                        successBlock(response as? Dictionary)
-//                    }
-//                    else
-//                    {
-//                        failureBlock(error)
-//                    }
-//                })
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -593,15 +578,8 @@ class WebManager: NSObject
             
             do
             {
-                
                 request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-                //                let postString = self.getPostString(params: parameters)
-                //                request.httpBody = postString.data(using: .utf8)
-               
-                //                let jsonData = try? JSONSerialization.data(withJSONObject: parameters)
-                //                request.httpBody = jsonData
-                
-                print("\n ==== >>>>> Request HTTP Body <<<<< ====== \(String(describing: request.httpBody)) \n")
+            //                print("\n ==== >>>>> Request HTTP Body <<<<< ====== \(String(describing: request.httpBody)) \n")
             }
             catch let error
             {
@@ -690,19 +668,20 @@ class WebManager: NSObject
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "POST" //set http method as POST
 
-//        let postString = parameters.description
-//        let escapedMessageStr :String = postString.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-
         let postString = (parameters.compactMap({ (key, value) -> String in
             return "\(key)=\(value)"
         }) as Array).joined(separator: "&")
         
-        print("\n \(postString) \n")
+        print("\(postString) \n")
 
-        request.httpBody = postString.data(using: String.Encoding.utf8);
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        //(using: String.Encoding.init(rawValue: 1), allowLossyConversion: false)
+        //(using: .utf8, allowLossyConversion: false)
+        //.data(using: String.Encoding.utf8);
         
         //HTTP Headers
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        //        request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         //create dataTask using the session object to send data to the server
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
@@ -725,7 +704,6 @@ class WebManager: NSObject
                 completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
                 
                 print("could not convert data to UTF-8 format")
-                
                 return
             }
             
