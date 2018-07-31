@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "553966698.8819259"
+            timestampString = "554758467.6239001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "626"
-            endingLineNumber = "626"
+            startingLineNumber = "629"
+            endingLineNumber = "629"
             landmarkName = "PostDataWithUrl(urlString:withParameterDictionary:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "553966698.8819799"
+            timestampString = "554758467.625398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
             landmarkName = "sendMessage(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -48,15 +48,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "553966698.882028"
+            timestampString = "554758467.625661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "675"
-            endingLineNumber = "675"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
             landmarkName = "callSendMessageWebService(urlStr:parameters:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ConversationDetailViewController.swift"
-            timestampString = "553966698.882076"
+            timestampString = "554669346.383231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "346"

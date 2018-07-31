@@ -447,6 +447,8 @@ class WebManager: NSObject
             
         case .sms_Factory:
             
+            finalUrl = URL_SMS_FACTORY
+/*
             let uuid:String = params["uuid"] as! String
             let serial:String = params["serial"] as! String
             let mobile:String = params["mobile"] as! String
@@ -460,6 +462,7 @@ class WebManager: NSObject
             let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
             
             finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
+                */
         }
         
         print("\n ===== >>>>> Send Message URL = \(finalUrl) \n")
