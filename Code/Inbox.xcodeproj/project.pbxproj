@@ -25,7 +25,7 @@
 		1A34752A2062CA6100FA0FFB /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
 		1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */; };
 		1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
-		1ADE9F881EF98E4A006C2CAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */; };
+		1ADE9F881EF98E4A006C2CAC /* TextingLine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */; };
 		1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
 		1ADE9F9B1EF98ED9006C2CAC /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */; };
 		1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
@@ -133,7 +133,7 @@
 		290BEDE120E697EC00F30BAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
 		290BEDE320E697EC00F30BAA /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
 		290BEDE420E697EC00F30BAA /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
-		290BEDE520E697EC00F30BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */; };
+		290BEDE520E697EC00F30BAA /* TextingLine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */; };
 		290BEDE620E697EC00F30BAA /* IQButtonBarArrowUp@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42B1F27E24900FCC976 /* IQButtonBarArrowUp@3x.png */; };
 		290BEDE720E697EC00F30BAA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
 		290BEDE820E697EC00F30BAA /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
@@ -151,9 +151,13 @@
 		290BEDF420E697EC00F30BAA /* IQButtonBarArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42A1F27E24900FCC976 /* IQButtonBarArrowUp@2x.png */; };
 		290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
-		290BEDFE20E6999200F30BAA /* smsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* smsAssets.xcassets */; };
+		290BEDFE20E6999200F30BAA /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
 		29FD0F1E2114BADF00062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
 		29FD0F1F2114BADF00062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
+		29FD0F212114C2A400062362 /* Fanconnect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F202114C2A400062362 /* Fanconnect.xcassets */; };
+		29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F202114C2A400062362 /* Fanconnect.xcassets */; };
+		29FD0F242114C30600062362 /* PhotoTexting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F232114C30600062362 /* PhotoTexting.xcassets */; };
+		29FD0F252114C30600062362 /* PhotoTexting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F232114C30600062362 /* PhotoTexting.xcassets */; };
 		750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
 		750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
@@ -261,7 +265,7 @@
 		1ADE9F7A1EF98E48006C2CAC /* TextingLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextingLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Inbox.xcdatamodel; sourceTree = "<group>"; };
-		1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Inbox/Assets.xcassets; sourceTree = "<group>"; };
+		1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = TextingLine.xcassets; path = Inbox/TextingLine.xcassets; sourceTree = "<group>"; };
 		1ADE9F8C1EF98E4A006C2CAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Inbox/Info.plist; sourceTree = "<group>"; };
 		1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -288,9 +292,11 @@
 		1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Inbox copy-Info.plist"; path = "/Volumes/NETSOL/Personal Data Amir/Current Working/Sir Wahab/June/Code/Inbox copy-Info.plist"; sourceTree = "<absolute>"; };
-		290BEDFD20E6999200F30BAA /* smsAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = smsAssets.xcassets; sourceTree = "<group>"; };
+		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
+		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
+		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
 		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewProtocol.swift; sourceTree = "<group>"; };
@@ -485,9 +491,11 @@
 			isa = PBXGroup;
 			children = (
 				04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */,
-				1ADE9F871EF98E4A006C2CAC /* Assets.xcassets */,
+				1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */,
 				29FD0F1D2114BADF00062362 /* GenericImages.xcassets */,
-				290BEDFD20E6999200F30BAA /* smsAssets.xcassets */,
+				290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */,
+				29FD0F202114C2A400062362 /* Fanconnect.xcassets */,
+				29FD0F232114C30600062362 /* PhotoTexting.xcassets */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -904,7 +912,7 @@
 			files = (
 				1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */,
 				1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */,
-				1ADE9F881EF98E4A006C2CAC /* Assets.xcassets in Resources */,
+				1ADE9F881EF98E4A006C2CAC /* TextingLine.xcassets in Resources */,
 				752CE4421F27E24900FCC976 /* IQButtonBarArrowUp@3x.png in Resources */,
 				1AFB4A5D1FC32FFD001EC4D5 /* Home.storyboard in Resources */,
 				1AFB4A5F1FC33026001EC4D5 /* ConversationListing.storyboard in Resources */,
@@ -918,6 +926,8 @@
 				752CE4401F27E24900FCC976 /* IQButtonBarArrowRight@3x.png in Resources */,
 				752CE43E1F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */,
+				29FD0F242114C30600062362 /* PhotoTexting.xcassets in Resources */,
+				29FD0F212114C2A400062362 /* Fanconnect.xcassets in Resources */,
 				1AE37F41206019C0009C4625 /* CounterView.xib in Resources */,
 				752CE43D1F27E24900FCC976 /* IQButtonBarArrowDown@3x.png in Resources */,
 				752CE4411F27E24900FCC976 /* IQButtonBarArrowUp@2x.png in Resources */,
@@ -932,15 +942,17 @@
 			files = (
 				290BEDE320E697EC00F30BAA /* InboxTableViewCell.xib in Resources */,
 				290BEDE420E697EC00F30BAA /* ConversationDetail.storyboard in Resources */,
-				290BEDE520E697EC00F30BAA /* Assets.xcassets in Resources */,
-				290BEDFE20E6999200F30BAA /* smsAssets.xcassets in Resources */,
+				290BEDE520E697EC00F30BAA /* TextingLine.xcassets in Resources */,
+				290BEDFE20E6999200F30BAA /* SmsFactory.xcassets in Resources */,
 				290BEDE620E697EC00F30BAA /* IQButtonBarArrowUp@3x.png in Resources */,
 				290BEDE720E697EC00F30BAA /* Home.storyboard in Resources */,
+				29FD0F252114C30600062362 /* PhotoTexting.xcassets in Resources */,
 				290BEDE820E697EC00F30BAA /* ConversationListing.storyboard in Resources */,
 				290BEDE920E697EC00F30BAA /* IQButtonBarArrowDown@2x.png in Resources */,
 				290BEDEA20E697EC00F30BAA /* Splash.storyboard in Resources */,
 				290BEDEB20E697EC00F30BAA /* Default-568h@2x.png in Resources */,
 				290BEDEC20E697EC00F30BAA /* Login.storyboard in Resources */,
+				29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */,
 				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
 				290BEDEE20E697EC00F30BAA /* ComposeMessage.storyboard in Resources */,
 				290BEDEF20E697EC00F30BAA /* IQButtonBarArrowRight@3x.png in Resources */,

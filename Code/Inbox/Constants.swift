@@ -12,12 +12,18 @@ let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 
 enum environmentType {
     case texting_Line,
-    sms_Factory
+    sms_Factory,
+    fan_Connect,
+    photo_Texting
 }
 
-let environment:environmentType = .sms_Factory
+let environment:environmentType = .fan_Connect
 
 let AppBlueColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
+
+let FanGreen = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
+
+let PhotoPurple = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
 
 let sendMessageMaxLength = 250
 

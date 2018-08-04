@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Conversation Listing View Controller-->
         <scene sceneID="596-mI-wPz">
             <objects>
-                <viewController storyboardIdentifier="ConversationListingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Aae-re-8Jn" customClass="ConversationListingViewController" customModule="Inbox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationListingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Aae-re-8Jn" customClass="ConversationListingViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RGV-F0-DEw"/>
                         <viewControllerLayoutGuide type="bottom" id="Qq5-xP-aRh"/>
@@ -117,6 +117,7 @@
                     </view>
                     <connections>
                         <outlet property="counterLabel" destination="vAZ-eA-GcT" id="5hh-4K-TWb"/>
+                        <outlet property="header_View" destination="26t-F7-K2M" id="jCC-Cv-VJt"/>
                         <outlet property="markAllAsRead_Btn" destination="JCR-5L-194" id="DAG-Cp-1DY"/>
                         <outlet property="nomessageImage" destination="Bgh-Ab-1nL" id="kNL-pp-FI6"/>
                         <outlet property="tableView" destination="flf-Lp-xj6" id="3li-E5-W0M"/>

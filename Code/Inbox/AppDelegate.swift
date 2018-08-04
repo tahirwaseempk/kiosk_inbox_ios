@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Texting_Line $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         case .sms_Factory:
             print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Sms_Factory $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        case .fan_Connect:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Fan_Connect $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        case .photo_Texting:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Photo_Texting $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         }
 
         // Override point for customization after application launch.

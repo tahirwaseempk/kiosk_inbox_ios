@@ -9,6 +9,8 @@ import Foundation
 
 let URL_SMS_FACTORY = "https://mcpn.us/limeApi"
 let URL_TEXTING_LINE = "https://app.textingline.com/limeApi"
+let URL_FANCONNECT = "https://app.textingline.com/limeApi"
+let URL_PHOTO_TEXTING = "https://app.textingline.com/limeApi"
 
 let LOGIN_URL = "?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
@@ -89,9 +91,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + LOGIN_URL + serial + LOGIN_URL_END + uuid
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + LOGIN_URL + serial + LOGIN_URL_END + uuid
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + LOGIN_URL + serial + LOGIN_URL_END + uuid
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + LOGIN_URL + serial + LOGIN_URL_END + uuid
         }
         
         print("\n ===== >>>>> login URL = \(finalUrl) \n")
@@ -141,9 +146,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + APNS_URL + serial + APNS_URL_UDID + uuid + APNS_URL_TYPE + type + APNS_URL_TOKEN + tokenKey
         }
         
         print("\n ===== >>>>> Register APNS URL  = \(finalUrl) \n")
@@ -187,9 +195,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + DELETE_APNS_URL + serial + DELETE_APNS_URL_UDID + uuid + DELETE_APNS_URL_TYPE + type + DELETE_APNS_URL_TOKEN + tokenKey
         }
         
         print("\n ===== >>>>> Delete APNS URL = \(finalUrl) \n")
@@ -224,9 +235,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
         }
         
         print("\n ===== >>>>> Conversations URL = \(finalUrl) \n")
@@ -268,10 +282,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
-            
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
         }
         
         print("\n ===== >>>>> OPTOUT URL = \(finalUrl) \n")
@@ -307,9 +323,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl =  URL_TEXTING_LINE + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
-            
         case .sms_Factory:
             finalUrl =  URL_SMS_FACTORY + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+        case .fan_Connect:
+            finalUrl =  URL_FANCONNECT + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+        case .photo_Texting:
+            finalUrl =  URL_PHOTO_TEXTING + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
         }
         
         print("\n ===== >>>>> Delete Conversation URL = \(finalUrl) \n")
@@ -345,9 +364,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + READ_URL_BEFORE_SERIAL + serial + READ_URL_BEFORE_UUID + uuid + READ_URL_BEFORE_ISREAD + "true" + READ_URL_BEFORE_MOBILE + mobile_ + READ_URL_BEFORE_SHORTCODE_END + shortCode
         }
         
         print("\n ===== >>>>> Read Receipt URL = \(finalUrl) \n")
@@ -382,9 +404,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
         }
         
         print("\n ===== >>>>> Get Message URL = \(finalUrl) \n")
@@ -463,6 +488,10 @@ class WebManager: NSObject
             
             finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
                 */
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING
         }
         
         print("\n ===== >>>>> Send Message URL = \(finalUrl) \n")
@@ -502,9 +531,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
         }
         
         print("\n ===== >>>>> Compose Message URL = \(finalUrl) \n")
@@ -546,9 +578,12 @@ class WebManager: NSObject
             
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + CREATE_APPOINMENT_URL + escapedString
-            
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + CREATE_APPOINMENT_URL + escapedString
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + CREATE_APPOINMENT_URL + escapedString
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + CREATE_APPOINMENT_URL + escapedString
         }
         
         print("\n ===== >>>>> Create Appoinment URL = \(finalUrl) \n")
@@ -610,7 +645,7 @@ class WebManager: NSObject
                 guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8)
                     else
                 {
-                    completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                    completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
                     
                     print("could not convert data to UTF-8 format")
                     
@@ -625,7 +660,7 @@ class WebManager: NSObject
                     }
                     else
                     {
-                        completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                        completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
                     }
                 }
                 catch
@@ -636,7 +671,7 @@ class WebManager: NSObject
                     
                     if(code == 3840)
                     {
-                        completion(NSError(domain: "com.mpos.tlt", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+                        completion(NSError(domain: "com.chat.sms", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
                     }
                     else
                     {
@@ -647,7 +682,7 @@ class WebManager: NSObject
             dataTask.resume()
             
         }else{
-            completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Check_Internet_Question]),nil)
+            completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Check_Internet_Question]),nil)
         }
         
     }
@@ -704,7 +739,7 @@ class WebManager: NSObject
             guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8)
                 else
             {
-                completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
                 
                 print("could not convert data to UTF-8 format")
                 return
@@ -718,7 +753,7 @@ class WebManager: NSObject
                 }
                 else
                 {
-                    completion(NSError(domain: "com.mpos.tlt", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                    completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
                 }
             }
             catch
@@ -729,7 +764,7 @@ class WebManager: NSObject
                 
                 if(code == 3840)
                 {
-                    completion(NSError(domain: "com.mpos.tlt", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+                    completion(NSError(domain: "com.chat.sms", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
                 }
                 else
                 {

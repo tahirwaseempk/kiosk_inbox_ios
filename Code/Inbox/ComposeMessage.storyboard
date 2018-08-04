@@ -218,6 +218,7 @@
                     <connections>
                         <outlet property="backView" destination="b5P-05-YoR" id="Muf-uv-069"/>
                         <outlet property="cancelButton" destination="RDQ-cw-CwP" id="Xw8-q9-bhY"/>
+                        <outlet property="header_label" destination="FiW-Yh-tms" id="TEy-s1-4JL"/>
                         <outlet property="inputCharacterCountLabel" destination="DYb-kZ-VHO" id="Ibg-Dt-A6x"/>
                         <outlet property="messageTextView" destination="7ug-oL-tYW" id="PPM-Q2-3Nu"/>
                         <outlet property="mobileTextField" destination="gIm-dx-chc" id="k5f-R7-WRY"/>

@@ -35,6 +35,20 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             loginButton.setTitleColor(UIColor.black, for: UIControlState.normal)
             serialLabel.textColor = UIColor.black
             udidLabel.textColor = UIColor.black
+        case .fan_Connect:
+            loginImageView.image = UIImage(named: "Fan_Login")
+            self.view.backgroundColor = UIColor.white
+            loginButton.backgroundColor = FanGreen
+            loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+            serialLabel.textColor = FanGreen
+            udidLabel.textColor = FanGreen
+        case .photo_Texting:
+            loginImageView.image = UIImage(named: "Photo_Login")
+            self.view.backgroundColor = UIColor.white
+            loginButton.backgroundColor = PhotoPurple
+            loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+            serialLabel.textColor = PhotoPurple
+            udidLabel.textColor = PhotoPurple
         }
         
         //**********************************************************************//
@@ -152,7 +166,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         } else {
             self.isAutoLogin = false
             UserDefaults.standard.set("", forKey: "serial_Key")
-            UserDefaults.standard.set(false, forKey: "isAutoLogin")
+            UserDefaults.standard.bool(forKey: "isAutoKey")
+            UserDefaults.standard.set(false, forKey: "isAutoKey")
             UserDefaults.standard.synchronize()
         }
         

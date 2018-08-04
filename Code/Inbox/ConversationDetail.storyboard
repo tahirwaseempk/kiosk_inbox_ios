@@ -411,9 +411,14 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="Optout_Button" destination="Qe9-Z4-Z3p" id="rpj-Ws-N34"/>
                         <outlet property="closeView" destination="h6B-n2-H6I" id="aXg-ga-mI6"/>
+                        <outlet property="cross_Button" destination="Sr7-FW-YkZ" id="jyQ-vx-1Ub"/>
+                        <outlet property="delete_Button" destination="DyZ-d3-lfl" id="rEN-qx-dnD"/>
+                        <outlet property="header_View" destination="0ba-wH-bdk" id="hm3-6n-ybU"/>
                         <outlet property="messageFromLabel" destination="1lw-Pb-4JC" id="ZxG-gp-QdG"/>
                         <outlet property="messageNumberLabel" destination="Tuk-KQ-TZn" id="EBi-NY-A3E"/>
+                        <outlet property="schedule_Button" destination="ICx-QA-FLV" id="0lk-Ts-9Vu"/>
                         <outlet property="sendTextField" destination="g4e-vj-aG3" id="KGG-Lg-kXR"/>
                         <outlet property="shortCodeLabel" destination="hDw-se-gWa" id="z66-Cs-E1I"/>
                         <outlet property="tableView" destination="WR1-rU-Qz7" id="T9b-C1-luR"/>

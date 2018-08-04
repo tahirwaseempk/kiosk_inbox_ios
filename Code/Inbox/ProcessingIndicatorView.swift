@@ -38,6 +38,10 @@ class ProcessingIndicatorView: UIView
             centerImage = UIImage(named:"ChatLogo.jpg")
         case .sms_Factory:
             centerImage = UIImage(named:"sms_indicator.png")
+        case .fan_Connect:
+            centerImage = UIImage(named:"activityIndicator")
+        case .photo_Texting:
+            centerImage = UIImage(named:"activityIndicator")
         }
         
         self.commonInit()

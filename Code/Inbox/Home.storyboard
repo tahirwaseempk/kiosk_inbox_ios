@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
         <!--Home View Controller-->
         <scene sceneID="hsI-SO-GFq">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xIz-XR-nNT" customClass="HomeViewController" customModule="Inbox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xIz-XR-nNT" customClass="HomeViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i3U-OX-Clq"/>
                         <viewControllerLayoutGuide type="bottom" id="edG-KV-1gq"/>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fu2-hA-oGe" userLabel="SearchButton">
-                                        <rect key="frame" x="16.5" y="26.5" width="24" height="39"/>
+                                        <rect key="frame" x="16.5" y="26.5" width="18" height="39"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" image="searchIcon">
@@ -105,7 +105,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-p8-Cn7">
-                                        <rect key="frame" x="40" y="27" width="728" height="38.5"/>
+                                        <rect key="frame" x="34" y="27" width="734" height="38.5"/>
                                         <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
@@ -275,8 +275,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="compose_Button" destination="aWK-TJ-d6L" id="z62-3e-3ga"/>
                         <outlet property="conversationDetailContainer" destination="Yqw-vv-Nsf" id="hx7-jL-4wn"/>
                         <outlet property="conversationListingContainer" destination="MT2-An-B82" id="7uz-JZ-N1B"/>
+                        <outlet property="header_View" destination="aaL-EV-VEn" id="tlK-Ri-jTp"/>
                         <outlet property="searchBar" destination="M8d-p8-Cn7" id="GYT-K8-8HZ"/>
                         <outlet property="signOutButton" destination="2bl-ws-FRy" id="rXj-Co-R9y"/>
                         <outlet property="userNameLabel" destination="Q4j-nY-myW" id="UkI-uI-1HB"/>
@@ -284,13 +286,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4N-7h-dWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1125" y="-205.078125"/>
+            <point key="canvasLocation" x="-1122" y="-216"/>
         </scene>
     </scenes>
     <resources>
         <image name="RefreshButton" width="36" height="36"/>
-        <image name="SignoutButton" width="72" height="72"/>
+        <image name="SignoutButton" width="16" height="17"/>
         <image name="compose" width="68" height="68"/>
-        <image name="searchIcon" width="24" height="24"/>
+        <image name="searchIcon" width="18" height="18"/>
     </resources>
 </document>

@@ -21,12 +21,51 @@ class ComposeMessageViewController: UIViewController {
     
     @IBOutlet weak var inputCharacterCountLabel: UILabel!
     
+    @IBOutlet weak var header_label: UILabel!
+    
     var delegate : ComposeMessageProtocol? = nil
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        switch environment {
+
+        case .texting_Line:
+        header_label.textColor = AppBlueColor
+
+        sendButton.layer.cornerRadius = 5
+        sendButton.layer.borderWidth = 2
+        sendButton.layer.borderColor = AppBlueColor.cgColor
+        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
+
+        case .sms_Factory:
+        header_label.textColor = AppBlueColor
+            
+        sendButton.layer.cornerRadius = 5
+        sendButton.layer.borderWidth = 2
+        sendButton.layer.borderColor = AppBlueColor.cgColor
+        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
+
+        case .fan_Connect:
+        header_label.textColor = FanGreen
+            
+        sendButton.layer.cornerRadius = 5
+        sendButton.layer.borderWidth = 2
+        sendButton.layer.borderColor = FanGreen.cgColor
+        sendButton.setTitleColor(FanGreen, for: UIControlState.normal)
+
+        case .photo_Texting:
+        header_label.textColor = AppBlueColor
+            
+        sendButton.layer.cornerRadius = 5
+        sendButton.layer.borderWidth = 2
+        sendButton.layer.borderColor = FanGreen.cgColor
+        sendButton.setTitleColor(FanGreen, for: UIControlState.normal)
+
+    }
+    
+    
         mobileTextField.text = ""
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -34,12 +73,6 @@ class ComposeMessageViewController: UIViewController {
         
         backView.layer.cornerRadius = 5;
         self.view.addSubview(backView)
-        
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 2
-        let bordercolor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 236.0/255.0, alpha: 1.0)
-        cancelButton.backgroundColor = UIColor.white
-        sendButton.layer.borderColor = bordercolor.cgColor
         
         cancelButton.layer.cornerRadius = 5
         cancelButton.layer.borderWidth = 1

@@ -12,6 +12,11 @@ class SplashViewController: UIViewController
             splashImageView.image = UIImage(named: "splashImage")
         case .sms_Factory:
             splashImageView.image = UIImage(named: "sms_splash")
+        case .fan_Connect:
+            splashImageView.image = UIImage(named: "Fan_Splash")
+            self.view.backgroundColor = UIColor.white
+        case .photo_Texting:
+            splashImageView.image = UIImage(named: "Photo_Splash")
         }
         
         loadLoginView()

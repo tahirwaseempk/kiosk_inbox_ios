@@ -12,6 +12,10 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var conversationDetailContainer: UIView!
     
+    @IBOutlet weak var header_View: UIView!
+    
+    @IBOutlet weak var compose_Button: UIButton!
+    
     var composeMessageViewController:ComposeMessageViewController!
     
     var conversationListingViewController:ConversationListingViewController!
@@ -23,6 +27,25 @@ class HomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        switch environment {
+        case .texting_Line:
+            header_View.backgroundColor = AppBlueColor
+            searchBar.backgroundColor = AppBlueColor
+            compose_Button.backgroundColor = AppBlueColor
+        case .sms_Factory:
+            header_View.backgroundColor = AppBlueColor
+            searchBar.backgroundColor = AppBlueColor
+            compose_Button.backgroundColor = AppBlueColor
+        case .fan_Connect:
+            header_View.backgroundColor = FanGreen
+            searchBar.backgroundColor = FanGreen
+            compose_Button.backgroundColor = FanGreen
+        case .photo_Texting:
+            header_View.backgroundColor = PhotoPurple
+            searchBar.backgroundColor = PhotoPurple
+            compose_Button.backgroundColor = PhotoPurple
+        }
         
         self.setupControls()
     }

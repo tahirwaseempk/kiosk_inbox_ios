@@ -14,6 +14,8 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     var delegate:ConversationListingViewControllerProtocol? = nil
     
+    @IBOutlet weak var header_View: UIView!
+    
     @IBOutlet weak var nomessageImage: UIImageView!
     
     override func viewDidLoad()
@@ -31,7 +33,16 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         tableView.refreshControl = refreshControl
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
-
+        switch environment {
+        case .texting_Line:
+            header_View.backgroundColor = AppBlueColor
+        case .sms_Factory:
+            header_View.backgroundColor = AppBlueColor
+        case .fan_Connect:
+            header_View.backgroundColor = FanGreen
+        case .photo_Texting:
+            header_View.backgroundColor = PhotoPurple
+        }
         
         self.initiateMessageCall()
     }

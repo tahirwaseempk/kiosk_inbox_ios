@@ -9,6 +9,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var closeView: UIView!
     
+    /////////////////////////////////////////////////
+    @IBOutlet weak var cross_Button: UIButton!
+    @IBOutlet weak var delete_Button: UIButton!
+    @IBOutlet weak var Optout_Button: UIButton!
+    @IBOutlet weak var schedule_Button: UIButton!
+    /////////////////////////////////////////////////
+    
+    @IBOutlet weak var header_View: UIView!
     var scheduleAppointmentViewController:ScheduleAppointmentViewController!
     
     var delegate:ConversationDetailViewControllerProtocol? = nil
@@ -24,6 +32,36 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        switch environment {
+        case .texting_Line:
+            header_View.backgroundColor = AppBlueColor
+            cross_Button.backgroundColor = AppBlueColor
+            delete_Button.backgroundColor = AppBlueColor
+            Optout_Button.backgroundColor = AppBlueColor
+            schedule_Button.backgroundColor = AppBlueColor
+
+        case .sms_Factory:
+            header_View.backgroundColor = AppBlueColor
+            cross_Button.backgroundColor = AppBlueColor
+            delete_Button.backgroundColor = AppBlueColor
+            Optout_Button.backgroundColor = AppBlueColor
+            schedule_Button.backgroundColor = AppBlueColor
+            
+        case .fan_Connect:
+            header_View.backgroundColor = FanGreen
+            cross_Button.backgroundColor = FanGreen
+            delete_Button.backgroundColor = FanGreen
+            Optout_Button.backgroundColor = FanGreen
+            schedule_Button.backgroundColor = FanGreen
+            
+        case .photo_Texting:
+            header_View.backgroundColor = PhotoPurple
+            cross_Button.backgroundColor = PhotoPurple
+            delete_Button.backgroundColor = PhotoPurple
+            Optout_Button.backgroundColor = PhotoPurple
+            schedule_Button.backgroundColor = PhotoPurple
+        }
         
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
