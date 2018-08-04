@@ -7,6 +7,7 @@ let ACTIVITY_OVERLAY_TAG = 100002
 
 let DATE_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
 
+let sendMessageMaxLength = 250
 
 let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=&,.-!()$ "
 
@@ -17,16 +18,14 @@ enum environmentType {
     photo_Texting
 }
 
-let environment:environmentType = .photo_Texting
+let environment:environmentType = .fan_Connect
 
 let AppBlueColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
-
 let FanAppColor = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
-
 let PhotoAppColor = UIColor(red: 141/256, green: 143/256, blue: 199/256, alpha: 1.0)
+let GrayHeaderColor = UIColor(red: 206/256, green: 205/256, blue: 210/256, alpha: 1.0)
 
-let GrayHeaderColor = UIColor(red: 194/256, green: 194/256, blue: 194/256, alpha: 1.0)
-
-
-let sendMessageMaxLength = 250
-
+let TextingHex = "007AFF"
+let FanHex  = "56B3B5"
+let PhotoHex = "8D8FC7"
+let ReceiverHex = "DFDEE5"

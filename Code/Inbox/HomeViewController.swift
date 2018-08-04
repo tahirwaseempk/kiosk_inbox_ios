@@ -33,20 +33,30 @@ class HomeViewController: UIViewController
             header_View.backgroundColor = AppBlueColor
             searchBar.backgroundColor = AppBlueColor
 //            compose_Button.backgroundColor = AppBlueColor
+//            compose_Button.setImage(UIImage(named: "compose_blue")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+//            loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
         case .sms_Factory:
             header_View.backgroundColor = AppBlueColor
             searchBar.backgroundColor = AppBlueColor
 //            compose_Button.backgroundColor = AppBlueColor
+//            compose_Button.setImage(UIImage(named: "compose_blue")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+
         case .fan_Connect:
             header_View.backgroundColor = FanAppColor
             searchBar.backgroundColor = FanAppColor
 //            compose_Button.backgroundColor = FanAppColor
+//            compose_Button.setImage(UIImage(named: "compose_green")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.setImage(UIImage(named: "compose_green"), for: UIControlState.normal)
+
         case .photo_Texting:
             header_View.backgroundColor = PhotoAppColor
             searchBar.backgroundColor = PhotoAppColor
-            compose_Button.setImage(UIImage(named: "compose")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            compose_Button.tintColor = PhotoAppColor
-            compose_Button.backgroundColor = UIColor.white
+//            compose_Button.setImage(UIImage(named: "compose_purple")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+//            compose_Button.tintColor = PhotoAppColor
+//            compose_Button.backgroundColor = UIColor.white
+            compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
 
             
         }

@@ -31,12 +31,25 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
          Set settings for Application
          /////////////////////////////// */
         
-        chatCellSettings?.setSenderBubbleColorHex("007AFF");
+        switch environment {
+        case .texting_Line:
+            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
+            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+        case .sms_Factory:
+            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
+            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+        case .fan_Connect:
+            chatCellSettings?.setSenderBubbleColorHex(FanHex);
+            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+        case .photo_Texting:
+            chatCellSettings?.setSenderBubbleColorHex(PhotoHex);
+            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+        }
+        
         chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleTimeTextColorHex("FFFFFF");
         
-        chatCellSettings?.setReceiverBubbleColorHex("DFDEE5");
         chatCellSettings?.setReceiverBubbleNameTextColorHex("000000");
         chatCellSettings?.setReceiverBubbleMessageTextColorHex("000000");
         chatCellSettings?.setReceiverBubbleTimeTextColorHex("000000");
