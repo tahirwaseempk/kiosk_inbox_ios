@@ -57,8 +57,6 @@ class HomeViewController: UIViewController
 //            compose_Button.tintColor = PhotoAppColor
 //            compose_Button.backgroundColor = UIColor.white
             compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
-
-            
         }
         
         self.setupControls()

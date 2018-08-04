@@ -22,21 +22,52 @@ class InboxTableViewCell: UITableViewCell
     {
         super.awakeFromNib()
         
-//        let bgColorView = UIView()
-//        bgColorView.backgroundColor = UIColor(red: 81.0, green: 186.0, blue: 251.0, alpha: 1.0)
-//        bgColorView.layer.cornerRadius = 15;
-        //self.selectedBackgroundView = bgColorView
+        switch environment {
+        case .texting_Line:
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = AppBlueColor
+            self.selectedBackgroundView = bgColorView
+        case .sms_Factory:
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = AppBlueColor
+            self.selectedBackgroundView = bgColorView
+        case .fan_Connect:
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = FanAppColor
+            self.selectedBackgroundView = bgColorView
+        case .photo_Texting:
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = PhotoAppColor
+            self.selectedBackgroundView = bgColorView
+            
+        }
         
-//        self.backgroundView = bgColorView
+        //        bgColorView.layer.cornerRadius = 15;
+
+        //        self.backgroundView = bgColorView
         
-        self.selectedBackgroundView = UIView()
-        self.selectionStyle = .default // you can also take this line out
+//        self.selectedBackgroundView = UIView()
+//        self.selectionStyle = .default // you can also take this line out
+        
+//        let backgroundView = UIView()
+//        backgroundView.backgroundColor = UIColor.red
+//        self.self.selectionStyle = backgroundView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)
-        self.selectedBackgroundView!.backgroundColor = selected ? UIColor(red: 81.0/255.0, green: 186.0/255.0, blue: 251.0/255.0, alpha: 1.0) : nil
-
+       
+        switch environment {
+        case .texting_Line:
+            self.selectedBackgroundView!.backgroundColor = selected ? AppBlueColor : nil
+        case .sms_Factory:
+            self.selectedBackgroundView!.backgroundColor = selected ? AppBlueColor : nil
+        case .fan_Connect:
+            self.selectedBackgroundView!.backgroundColor = selected ? FanAppColor : nil
+        case .photo_Texting:
+            self.selectedBackgroundView!.backgroundColor = selected ? PhotoAppColor : nil
+        }
+        
     }
 }

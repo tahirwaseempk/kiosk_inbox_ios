@@ -125,7 +125,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         let conversation:Conversation = filteredConversations [indexPath.row]
         
         cell.selectionStyle = .default
-
+        
         if conversation.lastMessage != nil
         {
             cell.titleLabel.text = conversation.mobile
