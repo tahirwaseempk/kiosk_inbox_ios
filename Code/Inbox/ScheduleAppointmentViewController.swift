@@ -17,13 +17,13 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var btnCheckBox: UIButton!
     
     var tickBox:Checkbox? = nil
-
+    
     var selectedConversation:Conversation! = nil
     
     var headerTitleString = ""
     
     var checkBoxMessage = "Reminder"
-
+    
     var selectedDate = Date()
     
     override func viewDidLoad()
@@ -52,6 +52,21 @@ class ScheduleAppointmentViewController: UIViewController
         
         self.calendarLogoButton.layer.borderColor = UIColor.lightGray.cgColor
         
+        switch environment {
+        case .texting_Line:
+            scheduleAppointmentButton.backgroundColor = AppBlueColor
+            scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        case .sms_Factory:
+            scheduleAppointmentButton.backgroundColor = AppBlueColor
+            scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        case .fan_Connect:
+            scheduleAppointmentButton.backgroundColor = FanAppColor
+            scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        case .photo_Texting:
+            scheduleAppointmentButton.backgroundColor = PhotoAppColor
+            scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        }
+        
         self.addCheckboxSubviews()
     }
     
@@ -69,7 +84,7 @@ class ScheduleAppointmentViewController: UIViewController
         
         self.btnCheckBox.addSubview(self.tickBox!)
     }
-
+    
     @objc func circleBoxValueChanged(sender: Checkbox) {
         
         if sender.isChecked == true {
@@ -112,7 +127,7 @@ class ScheduleAppointmentViewController: UIViewController
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var selectedDateStr = dateFormatter.string(from: self.selectedDate)
-      
+        
         if (minutesWithoutMString == "0") {
             minutesWithoutMString = "00"
         }
@@ -137,10 +152,10 @@ class ScheduleAppointmentViewController: UIViewController
             print("Selected Date is smaller then Current Date")
             
             ProcessingIndicator.hide()
-
+            
             let alert = UIAlertController(title: "Error", message: "Selected Date/Time is in the past.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
@@ -255,12 +270,12 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         var fourth = ""
         
         if (strArr.count > 3) {
-        second = strArr[1]
-        third = strArr[2]
-        fourth = strArr[3]
+            second = strArr[1]
+            third = strArr[2]
+            fourth = strArr[3]
         }
-
-
+        
+        
         let returningStr = second+"-"+third+"-"+fourth
         
         return returningStr

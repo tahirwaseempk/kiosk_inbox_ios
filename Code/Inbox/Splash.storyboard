@@ -41,13 +41,13 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sms_splash" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-7y-YJZ">
                                 <rect key="frame" x="72" y="128" width="176" height="176"/>
-                                <color key="backgroundColor" red="0.29207086563110352" green="0.56385505199432373" blue="0.88705593347549438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OZq-7y-YJZ" secondAttribute="height" multiplier="1:1" id="ka9-n3-399"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerX" secondItem="rGN-ho-uVo" secondAttribute="centerX" id="B6g-Ib-mcf"/>
                             <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerY" secondItem="rGN-ho-uVo" secondAttribute="centerY" multiplier="0.9" id="p4c-Jf-Pgo"/>

@@ -239,7 +239,6 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular">
-                                    <color key="backgroundColor" red="0.16388159990310669" green="0.32409727573394775" blue="0.51486736536026001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <mask key="constraints">
                                         <include reference="6Jo-oR-BwB"/>
                                         <include reference="eD1-Xi-0zu"/>
@@ -262,7 +261,6 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <mask key="constraints">
                                         <include reference="6Jo-oR-BwB"/>
                                         <include reference="eD1-Xi-0zu"/>

@@ -48,20 +48,20 @@ class ComposeMessageViewController: UIViewController {
         sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
 
         case .fan_Connect:
-        header_label.textColor = FanGreen
+        header_label.textColor = FanAppColor
             
         sendButton.layer.cornerRadius = 5
         sendButton.layer.borderWidth = 2
-        sendButton.layer.borderColor = FanGreen.cgColor
-        sendButton.setTitleColor(FanGreen, for: UIControlState.normal)
+        sendButton.layer.borderColor = FanAppColor.cgColor
+        sendButton.setTitleColor(FanAppColor, for: UIControlState.normal)
 
         case .photo_Texting:
-        header_label.textColor = AppBlueColor
+        header_label.textColor = PhotoAppColor
             
         sendButton.layer.cornerRadius = 5
         sendButton.layer.borderWidth = 2
-        sendButton.layer.borderColor = FanGreen.cgColor
-        sendButton.setTitleColor(FanGreen, for: UIControlState.normal)
+        sendButton.layer.borderColor = PhotoAppColor.cgColor
+        sendButton.setTitleColor(PhotoAppColor, for: UIControlState.normal)
 
     }
     

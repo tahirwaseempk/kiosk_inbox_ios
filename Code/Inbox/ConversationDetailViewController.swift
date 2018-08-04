@@ -35,32 +35,48 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         switch environment {
         case .texting_Line:
-            header_View.backgroundColor = AppBlueColor
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                header_View.backgroundColor = GrayHeaderColor
+            } else {
+                header_View.backgroundColor = AppBlueColor
+            }
             cross_Button.backgroundColor = AppBlueColor
             delete_Button.backgroundColor = AppBlueColor
             Optout_Button.backgroundColor = AppBlueColor
             schedule_Button.backgroundColor = AppBlueColor
 
         case .sms_Factory:
-            header_View.backgroundColor = AppBlueColor
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                header_View.backgroundColor = GrayHeaderColor
+            } else {
+                header_View.backgroundColor = AppBlueColor
+            }
             cross_Button.backgroundColor = AppBlueColor
             delete_Button.backgroundColor = AppBlueColor
             Optout_Button.backgroundColor = AppBlueColor
             schedule_Button.backgroundColor = AppBlueColor
             
         case .fan_Connect:
-            header_View.backgroundColor = FanGreen
-            cross_Button.backgroundColor = FanGreen
-            delete_Button.backgroundColor = FanGreen
-            Optout_Button.backgroundColor = FanGreen
-            schedule_Button.backgroundColor = FanGreen
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                header_View.backgroundColor = GrayHeaderColor
+            } else {
+                header_View.backgroundColor = FanAppColor
+            }
+            cross_Button.backgroundColor = FanAppColor
+            delete_Button.backgroundColor = FanAppColor
+            Optout_Button.backgroundColor = FanAppColor
+            schedule_Button.backgroundColor = FanAppColor
             
         case .photo_Texting:
-            header_View.backgroundColor = PhotoPurple
-            cross_Button.backgroundColor = PhotoPurple
-            delete_Button.backgroundColor = PhotoPurple
-            Optout_Button.backgroundColor = PhotoPurple
-            schedule_Button.backgroundColor = PhotoPurple
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                header_View.backgroundColor = GrayHeaderColor
+            } else {
+                header_View.backgroundColor = PhotoAppColor
+            }
+            cross_Button.backgroundColor = PhotoAppColor
+            delete_Button.backgroundColor = PhotoAppColor
+            Optout_Button.backgroundColor = PhotoAppColor
+            schedule_Button.backgroundColor = PhotoAppColor
         }
         
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate

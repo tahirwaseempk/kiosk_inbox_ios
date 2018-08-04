@@ -10,13 +10,16 @@ class SplashViewController: UIViewController
         switch environment {
         case .texting_Line:
             splashImageView.image = UIImage(named: "splashImage")
+            self.view.backgroundColor = AppBlueColor
         case .sms_Factory:
             splashImageView.image = UIImage(named: "sms_splash")
+            self.view.backgroundColor = AppBlueColor
         case .fan_Connect:
-            splashImageView.image = UIImage(named: "Fan_Splash")
+            splashImageView.image = UIImage(named: "Fan_Login")
             self.view.backgroundColor = UIColor.white
         case .photo_Texting:
-            splashImageView.image = UIImage(named: "Photo_Splash")
+            splashImageView.image = UIImage(named: "Photo_Login")
+            self.view.backgroundColor = UIColor.white
         }
         
         loadLoginView()

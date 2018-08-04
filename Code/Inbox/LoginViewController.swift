@@ -38,17 +38,17 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         case .fan_Connect:
             loginImageView.image = UIImage(named: "Fan_Login")
             self.view.backgroundColor = UIColor.white
-            loginButton.backgroundColor = FanGreen
+            loginButton.backgroundColor = FanAppColor
             loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-            serialLabel.textColor = FanGreen
-            udidLabel.textColor = FanGreen
+            serialLabel.textColor = FanAppColor
+            udidLabel.textColor = FanAppColor
         case .photo_Texting:
             loginImageView.image = UIImage(named: "Photo_Login")
             self.view.backgroundColor = UIColor.white
-            loginButton.backgroundColor = PhotoPurple
+            loginButton.backgroundColor = PhotoAppColor
             loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-            serialLabel.textColor = PhotoPurple
-            udidLabel.textColor = PhotoPurple
+            serialLabel.textColor = PhotoAppColor
+            udidLabel.textColor = PhotoAppColor
         }
         
         //**********************************************************************//

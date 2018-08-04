@@ -39,9 +39,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         case .sms_Factory:
             header_View.backgroundColor = AppBlueColor
         case .fan_Connect:
-            header_View.backgroundColor = FanGreen
+            header_View.backgroundColor = FanAppColor
         case .photo_Texting:
-            header_View.backgroundColor = PhotoPurple
+            header_View.backgroundColor = PhotoAppColor
         }
         
         self.initiateMessageCall()

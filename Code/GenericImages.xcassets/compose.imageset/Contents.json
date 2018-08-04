@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "WhatsApp Image 2018-08-04 at 2.31.28 AM-2.jpeg",
+      "filename" : "Compose_icon_large_fanconnect-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WhatsApp Image 2018-08-04 at 2.31.28 AM-1.jpeg",
+      "filename" : "Compose_icon_large_fanconnect-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WhatsApp Image 2018-08-04 at 2.31.28 AM.jpeg",
+      "filename" : "Compose_icon_large_fanconnect.png",
       "scale" : "3x"
     }
   ],

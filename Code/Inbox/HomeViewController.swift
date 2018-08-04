@@ -32,19 +32,23 @@ class HomeViewController: UIViewController
         case .texting_Line:
             header_View.backgroundColor = AppBlueColor
             searchBar.backgroundColor = AppBlueColor
-            compose_Button.backgroundColor = AppBlueColor
+//            compose_Button.backgroundColor = AppBlueColor
         case .sms_Factory:
             header_View.backgroundColor = AppBlueColor
             searchBar.backgroundColor = AppBlueColor
-            compose_Button.backgroundColor = AppBlueColor
+//            compose_Button.backgroundColor = AppBlueColor
         case .fan_Connect:
-            header_View.backgroundColor = FanGreen
-            searchBar.backgroundColor = FanGreen
-            compose_Button.backgroundColor = FanGreen
+            header_View.backgroundColor = FanAppColor
+            searchBar.backgroundColor = FanAppColor
+//            compose_Button.backgroundColor = FanAppColor
         case .photo_Texting:
-            header_View.backgroundColor = PhotoPurple
-            searchBar.backgroundColor = PhotoPurple
-            compose_Button.backgroundColor = PhotoPurple
+            header_View.backgroundColor = PhotoAppColor
+            searchBar.backgroundColor = PhotoAppColor
+            compose_Button.setImage(UIImage(named: "compose")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.tintColor = PhotoAppColor
+            compose_Button.backgroundColor = UIColor.white
+
+            
         }
         
         self.setupControls()

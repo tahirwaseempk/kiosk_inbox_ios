@@ -31,8 +31,18 @@ extension SearchView:UISearchBarDelegate
 
         self.searchBar.searchBarStyle = UISearchBarStyle.prominent
         self.searchBar.isTranslucent = false
-        self.searchBar.barTintColor = FanGreen//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
-    }
+        
+        switch environment {
+        case .texting_Line:
+            self.searchBar.barTintColor = AppBlueColor
+        case .sms_Factory:
+            self.searchBar.barTintColor = AppBlueColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
+        case .fan_Connect:
+            self.searchBar.barTintColor = FanAppColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
+        case .photo_Texting:
+            self.searchBar.barTintColor = PhotoAppColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
+        }
+     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
     {
