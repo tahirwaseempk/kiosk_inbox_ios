@@ -158,6 +158,220 @@
 		29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F202114C2A400062362 /* Fanconnect.xcassets */; };
 		29FD0F242114C30600062362 /* PhotoTexting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F232114C30600062362 /* PhotoTexting.xcassets */; };
 		29FD0F252114C30600062362 /* PhotoTexting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F232114C30600062362 /* PhotoTexting.xcassets */; };
+		29FD0F2821160D0500062362 /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
+		29FD0F2921160D0500062362 /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42D1F27E24900FCC976 /* IQKeyboardManagerConstants.swift */; };
+		29FD0F2A21160D0500062362 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F3D20601992009C4625 /* CounterView.swift */; };
+		29FD0F2B21160D0500062362 /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4331F27E24900FCC976 /* IQTitleBarButtonItem.swift */; };
+		29FD0F2C21160D0500062362 /* InboxTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */; };
+		29FD0F2D21160D0500062362 /* ComposeMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */; };
+		29FD0F2E21160D0500062362 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42F1F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift */; };
+		29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */; };
+		29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4391F27E24900FCC976 /* IQUIViewController+Additions.swift */; };
+		29FD0F3121160D0500062362 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4321F27E24900FCC976 /* IQTextView.swift */; };
+		29FD0F3221160D0500062362 /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
+		29FD0F3321160D0500062362 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */; };
+		29FD0F3421160D0500062362 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
+		29FD0F3521160D0500062362 /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
+		29FD0F3621160D0500062362 /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
+		29FD0F3721160D0500062362 /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
+		29FD0F3821160D0500062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4381F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift */; };
+		29FD0F3921160D0500062362 /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42C1F27E24900FCC976 /* IQKeyboardManager.swift */; };
+		29FD0F3A21160D0500062362 /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4371F27E24900FCC976 /* IQUIView+Hierarchy.swift */; };
+		29FD0F3B21160D0500062362 /* NSString+HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35A204077F400832092 /* NSString+HTMLString.swift */; };
+		29FD0F3C21160D0500062362 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
+		29FD0F3D21160D0500062362 /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
+		29FD0F3E21160D0500062362 /* GCCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475202062CA6100FA0FFB /* GCCalendarView.swift */; };
+		29FD0F3F21160D0500062362 /* GCCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */; };
+		29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE43A1F27E24900FCC976 /* IQUIWindow+Hierarchy.swift */; };
+		29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
+		29FD0F4221160D0500062362 /* PushyNetworkException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */; };
+		29FD0F4321160D0500062362 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
+		29FD0F4421160D0500062362 /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
+		29FD0F4521160D0500062362 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
+		29FD0F4621160D0500062362 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
+		29FD0F4721160D0500062362 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4361F27E24900FCC976 /* IQUITextFieldView+Additions.swift */; };
+		29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
+		29FD0F4921160D0500062362 /* PushySwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE01FC60C07007889E7 /* PushySwizzler.swift */; };
+		29FD0F4A21160D0500062362 /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD358204077F300832092 /* Mappings.swift */; };
+		29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
+		29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD359204077F300832092 /* Deprecated.swift */; };
+		29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
+		29FD0F4E21160D0500062362 /* PushyResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE11FC60C07007889E7 /* PushyResponseException.swift */; };
+		29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
+		29FD0F5021160D0500062362 /* PushyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */; };
+		29FD0F5121160D0500062362 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */; };
+		29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42E1F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift */; };
+		29FD0F5321160D0500062362 /* PushySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDD1FC60C06007889E7 /* PushySettings.swift */; };
+		29FD0F5421160D0500062362 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
+		29FD0F5521160D0500062362 /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
+		29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */; };
+		29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4311F27E24900FCC976 /* IQPreviousNextView.swift */; };
+		29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
+		29FD0F5921160D0500062362 /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
+		29FD0F5A21160D0500062362 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
+		29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB71FC3724700F3C42A /* Checkbox.swift */; };
+		29FD0F5C21160D0500062362 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
+		29FD0F5D21160D0500062362 /* GCCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */; };
+		29FD0F5E21160D0500062362 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F4220603C48009C4625 /* Popover.swift */; };
+		29FD0F5F21160D0500062362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */; };
+		29FD0F6021160D0500062362 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
+		29FD0F6121160D0500062362 /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
+		29FD0F6221160D0500062362 /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
+		29FD0F6321160D0500062362 /* PushyRegistrationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */; };
+		29FD0F6421160D0500062362 /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
+		29FD0F6521160D0500062362 /* PushyPubSubException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */; };
+		29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4341F27E24900FCC976 /* IQToolbar.swift */; };
+		29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
+		29FD0F6821160D0500062362 /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
+		29FD0F6921160D0500062362 /* GCCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */; };
+		29FD0F6A21160D0500062362 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
+		29FD0F6B21160D0500062362 /* PushyKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */; };
+		29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4301F27E24900FCC976 /* IQNSArray+Sort.swift */; };
+		29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F39206017BB009C4625 /* ScheduleAppointmentViewController.swift */; };
+		29FD0F6E21160D0500062362 /* PushyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDE1FC60C06007889E7 /* PushyConfig.swift */; };
+		29FD0F6F21160D0500062362 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
+		29FD0F7021160D0500062362 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
+		29FD0F7121160D0500062362 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
+		29FD0F7221160D0500062362 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35B204077F400832092 /* HTMLString.swift */; };
+		29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
+		29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
+		29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4351F27E24900FCC976 /* IQUIScrollView+Additions.swift */; };
+		29FD0F7621160D0500062362 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
+		29FD0F7721160D0500062362 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
+		29FD0F7921160D0500062362 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684151F03F59F00D24264 /* UIKit.framework */; };
+		29FD0F7A21160D0500062362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
+		29FD0F7B21160D0500062362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
+		29FD0F7D21160D0500062362 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
+		29FD0F7E21160D0500062362 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
+		29FD0F7F21160D0500062362 /* TextingLine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */; };
+		29FD0F8021160D0500062362 /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
+		29FD0F8121160D0500062362 /* IQButtonBarArrowUp@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42B1F27E24900FCC976 /* IQButtonBarArrowUp@3x.png */; };
+		29FD0F8221160D0500062362 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
+		29FD0F8321160D0500062362 /* PhotoTexting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F232114C30600062362 /* PhotoTexting.xcassets */; };
+		29FD0F8421160D0500062362 /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
+		29FD0F8521160D0500062362 /* IQButtonBarArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4251F27E24900FCC976 /* IQButtonBarArrowDown@2x.png */; };
+		29FD0F8621160D0500062362 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */; };
+		29FD0F8721160D0500062362 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */; };
+		29FD0F8821160D0500062362 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */; };
+		29FD0F8921160D0500062362 /* Fanconnect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F202114C2A400062362 /* Fanconnect.xcassets */; };
+		29FD0F8A21160D0500062362 /* IQButtonBarArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4281F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png */; };
+		29FD0F8B21160D0500062362 /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
+		29FD0F8C21160D0500062362 /* IQButtonBarArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4291F27E24900FCC976 /* IQButtonBarArrowRight@3x.png */; };
+		29FD0F8D21160D0500062362 /* IQButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4271F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png */; };
+		29FD0F8E21160D0500062362 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
+		29FD0F8F21160D0500062362 /* CounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F40206019C0009C4625 /* CounterView.xib */; };
+		29FD0F9021160D0500062362 /* IQButtonBarArrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4261F27E24900FCC976 /* IQButtonBarArrowDown@3x.png */; };
+		29FD0F9121160D0500062362 /* IQButtonBarArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42A1F27E24900FCC976 /* IQButtonBarArrowUp@2x.png */; };
+		29FD0F9221160D0500062362 /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
+		29FD0F9321160D0500062362 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
+		29FD0F9421160D0500062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
+		29FD0F9D21160D1000062362 /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
+		29FD0F9E21160D1000062362 /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42D1F27E24900FCC976 /* IQKeyboardManagerConstants.swift */; };
+		29FD0F9F21160D1000062362 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F3D20601992009C4625 /* CounterView.swift */; };
+		29FD0FA021160D1000062362 /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4331F27E24900FCC976 /* IQTitleBarButtonItem.swift */; };
+		29FD0FA121160D1000062362 /* InboxTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */; };
+		29FD0FA221160D1000062362 /* ComposeMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */; };
+		29FD0FA321160D1000062362 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42F1F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift */; };
+		29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */; };
+		29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4391F27E24900FCC976 /* IQUIViewController+Additions.swift */; };
+		29FD0FA621160D1000062362 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4321F27E24900FCC976 /* IQTextView.swift */; };
+		29FD0FA721160D1000062362 /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
+		29FD0FA821160D1000062362 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */; };
+		29FD0FA921160D1000062362 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
+		29FD0FAA21160D1000062362 /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
+		29FD0FAB21160D1000062362 /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
+		29FD0FAC21160D1000062362 /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
+		29FD0FAD21160D1000062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4381F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift */; };
+		29FD0FAE21160D1000062362 /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42C1F27E24900FCC976 /* IQKeyboardManager.swift */; };
+		29FD0FAF21160D1000062362 /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4371F27E24900FCC976 /* IQUIView+Hierarchy.swift */; };
+		29FD0FB021160D1000062362 /* NSString+HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35A204077F400832092 /* NSString+HTMLString.swift */; };
+		29FD0FB121160D1000062362 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
+		29FD0FB221160D1000062362 /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
+		29FD0FB321160D1000062362 /* GCCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475202062CA6100FA0FFB /* GCCalendarView.swift */; };
+		29FD0FB421160D1000062362 /* GCCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */; };
+		29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE43A1F27E24900FCC976 /* IQUIWindow+Hierarchy.swift */; };
+		29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
+		29FD0FB721160D1000062362 /* PushyNetworkException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */; };
+		29FD0FB821160D1000062362 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
+		29FD0FB921160D1000062362 /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
+		29FD0FBA21160D1000062362 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
+		29FD0FBB21160D1000062362 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
+		29FD0FBC21160D1000062362 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4361F27E24900FCC976 /* IQUITextFieldView+Additions.swift */; };
+		29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
+		29FD0FBE21160D1000062362 /* PushySwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE01FC60C07007889E7 /* PushySwizzler.swift */; };
+		29FD0FBF21160D1000062362 /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD358204077F300832092 /* Mappings.swift */; };
+		29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
+		29FD0FC121160D1000062362 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD359204077F300832092 /* Deprecated.swift */; };
+		29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
+		29FD0FC321160D1000062362 /* PushyResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE11FC60C07007889E7 /* PushyResponseException.swift */; };
+		29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
+		29FD0FC521160D1000062362 /* PushyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */; };
+		29FD0FC621160D1000062362 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */; };
+		29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42E1F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift */; };
+		29FD0FC821160D1000062362 /* PushySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDD1FC60C06007889E7 /* PushySettings.swift */; };
+		29FD0FC921160D1000062362 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
+		29FD0FCA21160D1000062362 /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
+		29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */; };
+		29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4311F27E24900FCC976 /* IQPreviousNextView.swift */; };
+		29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
+		29FD0FCE21160D1000062362 /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
+		29FD0FCF21160D1000062362 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
+		29FD0FD021160D1000062362 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB71FC3724700F3C42A /* Checkbox.swift */; };
+		29FD0FD121160D1000062362 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
+		29FD0FD221160D1000062362 /* GCCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */; };
+		29FD0FD321160D1000062362 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F4220603C48009C4625 /* Popover.swift */; };
+		29FD0FD421160D1000062362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */; };
+		29FD0FD521160D1000062362 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
+		29FD0FD621160D1000062362 /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
+		29FD0FD721160D1000062362 /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
+		29FD0FD821160D1000062362 /* PushyRegistrationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */; };
+		29FD0FD921160D1000062362 /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
+		29FD0FDA21160D1000062362 /* PushyPubSubException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */; };
+		29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4341F27E24900FCC976 /* IQToolbar.swift */; };
+		29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
+		29FD0FDD21160D1000062362 /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
+		29FD0FDE21160D1000062362 /* GCCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */; };
+		29FD0FDF21160D1000062362 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
+		29FD0FE021160D1000062362 /* PushyKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */; };
+		29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4301F27E24900FCC976 /* IQNSArray+Sort.swift */; };
+		29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F39206017BB009C4625 /* ScheduleAppointmentViewController.swift */; };
+		29FD0FE321160D1000062362 /* PushyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDE1FC60C06007889E7 /* PushyConfig.swift */; };
+		29FD0FE421160D1000062362 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
+		29FD0FE521160D1000062362 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
+		29FD0FE621160D1000062362 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
+		29FD0FE721160D1000062362 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35B204077F400832092 /* HTMLString.swift */; };
+		29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
+		29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
+		29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4351F27E24900FCC976 /* IQUIScrollView+Additions.swift */; };
+		29FD0FEB21160D1000062362 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
+		29FD0FEC21160D1000062362 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
+		29FD0FEE21160D1000062362 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684151F03F59F00D24264 /* UIKit.framework */; };
+		29FD0FEF21160D1000062362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
+		29FD0FF021160D1000062362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
+		29FD0FF221160D1000062362 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
+		29FD0FF321160D1000062362 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
+		29FD0FF421160D1000062362 /* TextingLine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */; };
+		29FD0FF521160D1000062362 /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
+		29FD0FF621160D1000062362 /* IQButtonBarArrowUp@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42B1F27E24900FCC976 /* IQButtonBarArrowUp@3x.png */; };
+		29FD0FF721160D1000062362 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
+		29FD0FF821160D1000062362 /* PhotoTexting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F232114C30600062362 /* PhotoTexting.xcassets */; };
+		29FD0FF921160D1000062362 /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
+		29FD0FFA21160D1000062362 /* IQButtonBarArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4251F27E24900FCC976 /* IQButtonBarArrowDown@2x.png */; };
+		29FD0FFB21160D1000062362 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */; };
+		29FD0FFC21160D1000062362 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */; };
+		29FD0FFD21160D1000062362 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */; };
+		29FD0FFE21160D1000062362 /* Fanconnect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F202114C2A400062362 /* Fanconnect.xcassets */; };
+		29FD0FFF21160D1000062362 /* IQButtonBarArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4281F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png */; };
+		29FD100021160D1000062362 /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
+		29FD100121160D1000062362 /* IQButtonBarArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4291F27E24900FCC976 /* IQButtonBarArrowRight@3x.png */; };
+		29FD100221160D1000062362 /* IQButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4271F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png */; };
+		29FD100321160D1000062362 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
+		29FD100421160D1000062362 /* CounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F40206019C0009C4625 /* CounterView.xib */; };
+		29FD100521160D1000062362 /* IQButtonBarArrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4261F27E24900FCC976 /* IQButtonBarArrowDown@3x.png */; };
+		29FD100621160D1000062362 /* IQButtonBarArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42A1F27E24900FCC976 /* IQButtonBarArrowUp@2x.png */; };
+		29FD100721160D1000062362 /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
+		29FD100821160D1000062362 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
+		29FD100921160D1000062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
 		750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
 		750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
@@ -233,6 +447,26 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		29FD0F9521160D0500062362 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FD100A21160D1000062362 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		759C5BD61FC60BB5007889E7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +531,10 @@
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
 		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
+		29FD0F9921160D0500062362 /* FanConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SMSFactory copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/SMSFactory copy-Info.plist"; sourceTree = "<absolute>"; };
+		29FD100E21160D1000062362 /* PhotoTexting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTexting.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FD100F21160D1000062362 /* FanConnect copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FanConnect copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/FanConnect copy-Info.plist"; sourceTree = "<absolute>"; };
 		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewProtocol.swift; sourceTree = "<group>"; };
@@ -385,6 +623,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		29FD0F7821160D0500062362 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FD0F7921160D0500062362 /* UIKit.framework in Frameworks */,
+				29FD0F7A21160D0500062362 /* CoreGraphics.framework in Frameworks */,
+				29FD0F7B21160D0500062362 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FD0FED21160D1000062362 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FD0FEE21160D1000062362 /* UIKit.framework in Frameworks */,
+				29FD0FEF21160D1000062362 /* CoreGraphics.framework in Frameworks */,
+				29FD0FF021160D1000062362 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -451,6 +709,8 @@
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
 				753684101F03F58900D24264 /* Frameworks */,
 				290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */,
+				29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */,
+				29FD100F21160D1000062362 /* FanConnect copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -459,6 +719,8 @@
 			children = (
 				1ADE9F7A1EF98E48006C2CAC /* TextingLine.app */,
 				290BEDFB20E697EC00F30BAA /* SMSFactory.app */,
+				29FD0F9921160D0500062362 /* FanConnect.app */,
+				29FD100E21160D1000062362 /* PhotoTexting.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -858,6 +1120,42 @@
 			productReference = 290BEDFB20E697EC00F30BAA /* SMSFactory.app */;
 			productType = "com.apple.product-type.application";
 		};
+		29FD0F2621160D0500062362 /* FanConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnect" */;
+			buildPhases = (
+				29FD0F2721160D0500062362 /* Sources */,
+				29FD0F7821160D0500062362 /* Frameworks */,
+				29FD0F7C21160D0500062362 /* Resources */,
+				29FD0F9521160D0500062362 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FanConnect;
+			productName = Inbox;
+			productReference = 29FD0F9921160D0500062362 /* FanConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		29FD0F9B21160D1000062362 /* PhotoTexting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29FD100B21160D1000062362 /* Build configuration list for PBXNativeTarget "PhotoTexting" */;
+			buildPhases = (
+				29FD0F9C21160D1000062362 /* Sources */,
+				29FD0FED21160D1000062362 /* Frameworks */,
+				29FD0FF121160D1000062362 /* Resources */,
+				29FD100A21160D1000062362 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoTexting;
+			productName = Inbox;
+			productReference = 29FD100E21160D1000062362 /* PhotoTexting.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -884,6 +1182,14 @@
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Manual;
 					};
+					29FD0F2621160D0500062362 = {
+						DevelopmentTeam = TWA5JJ29B2;
+						ProvisioningStyle = Manual;
+					};
+					29FD0F9B21160D1000062362 = {
+						DevelopmentTeam = TWA5JJ29B2;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = 1ADE9F751EF98E47006C2CAC /* Build configuration list for PBXProject "Inbox" */;
@@ -901,6 +1207,8 @@
 			targets = (
 				1ADE9F791EF98E48006C2CAC /* TextingLine */,
 				290BED8C20E697EC00F30BAA /* SMSFactory */,
+				29FD0F2621160D0500062362 /* FanConnect */,
+				29FD0F9B21160D1000062362 /* PhotoTexting */,
 			);
 		};
 /* End PBXProject section */
@@ -964,6 +1272,68 @@
 				290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */,
 				290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */,
 				29FD0F1F2114BADF00062362 /* GenericImages.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FD0F7C21160D0500062362 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FD0F7D21160D0500062362 /* InboxTableViewCell.xib in Resources */,
+				29FD0F7E21160D0500062362 /* ConversationDetail.storyboard in Resources */,
+				29FD0F7F21160D0500062362 /* TextingLine.xcassets in Resources */,
+				29FD0F8021160D0500062362 /* SmsFactory.xcassets in Resources */,
+				29FD0F8121160D0500062362 /* IQButtonBarArrowUp@3x.png in Resources */,
+				29FD0F8221160D0500062362 /* Home.storyboard in Resources */,
+				29FD0F8321160D0500062362 /* PhotoTexting.xcassets in Resources */,
+				29FD0F8421160D0500062362 /* ConversationListing.storyboard in Resources */,
+				29FD0F8521160D0500062362 /* IQButtonBarArrowDown@2x.png in Resources */,
+				29FD0F8621160D0500062362 /* Splash.storyboard in Resources */,
+				29FD0F8721160D0500062362 /* Default-568h@2x.png in Resources */,
+				29FD0F8821160D0500062362 /* Login.storyboard in Resources */,
+				29FD0F8921160D0500062362 /* Fanconnect.xcassets in Resources */,
+				29FD0F8A21160D0500062362 /* IQButtonBarArrowLeft@3x.png in Resources */,
+				29FD0F8B21160D0500062362 /* ComposeMessage.storyboard in Resources */,
+				29FD0F8C21160D0500062362 /* IQButtonBarArrowRight@3x.png in Resources */,
+				29FD0F8D21160D0500062362 /* IQButtonBarArrowLeft@2x.png in Resources */,
+				29FD0F8E21160D0500062362 /* SearchView.xib in Resources */,
+				29FD0F8F21160D0500062362 /* CounterView.xib in Resources */,
+				29FD0F9021160D0500062362 /* IQButtonBarArrowDown@3x.png in Resources */,
+				29FD0F9121160D0500062362 /* IQButtonBarArrowUp@2x.png in Resources */,
+				29FD0F9221160D0500062362 /* ScheduleAppointment.storyboard in Resources */,
+				29FD0F9321160D0500062362 /* IQButtonBarArrowRight@2x.png in Resources */,
+				29FD0F9421160D0500062362 /* GenericImages.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FD0FF121160D1000062362 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FD0FF221160D1000062362 /* InboxTableViewCell.xib in Resources */,
+				29FD0FF321160D1000062362 /* ConversationDetail.storyboard in Resources */,
+				29FD0FF421160D1000062362 /* TextingLine.xcassets in Resources */,
+				29FD0FF521160D1000062362 /* SmsFactory.xcassets in Resources */,
+				29FD0FF621160D1000062362 /* IQButtonBarArrowUp@3x.png in Resources */,
+				29FD0FF721160D1000062362 /* Home.storyboard in Resources */,
+				29FD0FF821160D1000062362 /* PhotoTexting.xcassets in Resources */,
+				29FD0FF921160D1000062362 /* ConversationListing.storyboard in Resources */,
+				29FD0FFA21160D1000062362 /* IQButtonBarArrowDown@2x.png in Resources */,
+				29FD0FFB21160D1000062362 /* Splash.storyboard in Resources */,
+				29FD0FFC21160D1000062362 /* Default-568h@2x.png in Resources */,
+				29FD0FFD21160D1000062362 /* Login.storyboard in Resources */,
+				29FD0FFE21160D1000062362 /* Fanconnect.xcassets in Resources */,
+				29FD0FFF21160D1000062362 /* IQButtonBarArrowLeft@3x.png in Resources */,
+				29FD100021160D1000062362 /* ComposeMessage.storyboard in Resources */,
+				29FD100121160D1000062362 /* IQButtonBarArrowRight@3x.png in Resources */,
+				29FD100221160D1000062362 /* IQButtonBarArrowLeft@2x.png in Resources */,
+				29FD100321160D1000062362 /* SearchView.xib in Resources */,
+				29FD100421160D1000062362 /* CounterView.xib in Resources */,
+				29FD100521160D1000062362 /* IQButtonBarArrowDown@3x.png in Resources */,
+				29FD100621160D1000062362 /* IQButtonBarArrowUp@2x.png in Resources */,
+				29FD100721160D1000062362 /* ScheduleAppointment.storyboard in Resources */,
+				29FD100821160D1000062362 /* IQButtonBarArrowRight@2x.png in Resources */,
+				29FD100921160D1000062362 /* GenericImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,6 +1511,180 @@
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
 				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
 				290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FD0F2721160D0500062362 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FD0F2821160D0500062362 /* WebManager.swift in Sources */,
+				29FD0F2921160D0500062362 /* IQKeyboardManagerConstants.swift in Sources */,
+				29FD0F2A21160D0500062362 /* CounterView.swift in Sources */,
+				29FD0F2B21160D0500062362 /* IQTitleBarButtonItem.swift in Sources */,
+				29FD0F2C21160D0500062362 /* InboxTableViewCellProtocol.swift in Sources */,
+				29FD0F2D21160D0500062362 /* ComposeMessageProtocol.swift in Sources */,
+				29FD0F2E21160D0500062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */,
+				29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */,
+				29FD0F3121160D0500062362 /* IQTextView.swift in Sources */,
+				29FD0F3221160D0500062362 /* ChatCellSettings.m in Sources */,
+				29FD0F3321160D0500062362 /* User+CoreDataProperties.swift in Sources */,
+				29FD0F3421160D0500062362 /* LoginParser.swift in Sources */,
+				29FD0F3521160D0500062362 /* Pushy.swift in Sources */,
+				29FD0F3621160D0500062362 /* ComposeMessageViewController.swift in Sources */,
+				29FD0F3721160D0500062362 /* ConversationDetailViewController.swift in Sources */,
+				29FD0F3821160D0500062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				29FD0F3921160D0500062362 /* IQKeyboardManager.swift in Sources */,
+				29FD0F3A21160D0500062362 /* IQUIView+Hierarchy.swift in Sources */,
+				29FD0F3B21160D0500062362 /* NSString+HTMLString.swift in Sources */,
+				29FD0F3C21160D0500062362 /* CoreDataManager.swift in Sources */,
+				29FD0F3D21160D0500062362 /* MessagesParser.swift in Sources */,
+				29FD0F3E21160D0500062362 /* GCCalendarView.swift in Sources */,
+				29FD0F3F21160D0500062362 /* GCCalendarConfiguration.swift in Sources */,
+				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
+				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
+				29FD0F4221160D0500062362 /* PushyNetworkException.swift in Sources */,
+				29FD0F4321160D0500062362 /* HomeViewController.swift in Sources */,
+				29FD0F4421160D0500062362 /* GCCalendarWeekView.swift in Sources */,
+				29FD0F4521160D0500062362 /* InboxTableViewCell.swift in Sources */,
+				29FD0F4621160D0500062362 /* ConversationListingViewControllerProtocol.swift in Sources */,
+				29FD0F4721160D0500062362 /* IQUITextFieldView+Additions.swift in Sources */,
+				29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */,
+				29FD0F4921160D0500062362 /* PushySwizzler.swift in Sources */,
+				29FD0F4A21160D0500062362 /* Mappings.swift in Sources */,
+				29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */,
+				29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */,
+				29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */,
+				29FD0F4E21160D0500062362 /* PushyResponseException.swift in Sources */,
+				29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */,
+				29FD0F5021160D0500062362 /* PushyHTTP.swift in Sources */,
+				29FD0F5121160D0500062362 /* Conversation+CoreDataClass.swift in Sources */,
+				29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				29FD0F5321160D0500062362 /* PushySettings.swift in Sources */,
+				29FD0F5421160D0500062362 /* LoginViewController.swift in Sources */,
+				29FD0F5521160D0500062362 /* Inbox.xcdatamodeld in Sources */,
+				29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */,
+				29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */,
+				29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */,
+				29FD0F5921160D0500062362 /* PushyEnvironment.swift in Sources */,
+				29FD0F5A21160D0500062362 /* ChatTableViewCell.m in Sources */,
+				29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */,
+				29FD0F5C21160D0500062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
+				29FD0F5D21160D0500062362 /* GCCalendarMonthView.swift in Sources */,
+				29FD0F5E21160D0500062362 /* Popover.swift in Sources */,
+				29FD0F5F21160D0500062362 /* AppDelegate.swift in Sources */,
+				29FD0F6021160D0500062362 /* User+CoreDataClass.swift in Sources */,
+				29FD0F6121160D0500062362 /* ConversationListingViewController.swift in Sources */,
+				29FD0F6221160D0500062362 /* InboxTableViewDataSource.swift in Sources */,
+				29FD0F6321160D0500062362 /* PushyRegistrationException.swift in Sources */,
+				29FD0F6421160D0500062362 /* ProcessingIndicatorHandler.swift in Sources */,
+				29FD0F6521160D0500062362 /* PushyPubSubException.swift in Sources */,
+				29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */,
+				29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */,
+				29FD0F6821160D0500062362 /* ProcessingIndicatorView.swift in Sources */,
+				29FD0F6921160D0500062362 /* GCCalendarViewDelegate.swift in Sources */,
+				29FD0F6A21160D0500062362 /* Message+CoreDataProperties.swift in Sources */,
+				29FD0F6B21160D0500062362 /* PushyKeychain.swift in Sources */,
+				29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */,
+				29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				29FD0F6E21160D0500062362 /* PushyConfig.swift in Sources */,
+				29FD0F6F21160D0500062362 /* SearchView.swift in Sources */,
+				29FD0F7021160D0500062362 /* Reachability.swift in Sources */,
+				29FD0F7121160D0500062362 /* String+Emoji.swift in Sources */,
+				29FD0F7221160D0500062362 /* HTMLString.swift in Sources */,
+				29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */,
+				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
+				29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */,
+				29FD0F7621160D0500062362 /* Constants.swift in Sources */,
+				29FD0F7721160D0500062362 /* SearchViewProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FD0F9C21160D1000062362 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FD0F9D21160D1000062362 /* WebManager.swift in Sources */,
+				29FD0F9E21160D1000062362 /* IQKeyboardManagerConstants.swift in Sources */,
+				29FD0F9F21160D1000062362 /* CounterView.swift in Sources */,
+				29FD0FA021160D1000062362 /* IQTitleBarButtonItem.swift in Sources */,
+				29FD0FA121160D1000062362 /* InboxTableViewCellProtocol.swift in Sources */,
+				29FD0FA221160D1000062362 /* ComposeMessageProtocol.swift in Sources */,
+				29FD0FA321160D1000062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */,
+				29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */,
+				29FD0FA621160D1000062362 /* IQTextView.swift in Sources */,
+				29FD0FA721160D1000062362 /* ChatCellSettings.m in Sources */,
+				29FD0FA821160D1000062362 /* User+CoreDataProperties.swift in Sources */,
+				29FD0FA921160D1000062362 /* LoginParser.swift in Sources */,
+				29FD0FAA21160D1000062362 /* Pushy.swift in Sources */,
+				29FD0FAB21160D1000062362 /* ComposeMessageViewController.swift in Sources */,
+				29FD0FAC21160D1000062362 /* ConversationDetailViewController.swift in Sources */,
+				29FD0FAD21160D1000062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				29FD0FAE21160D1000062362 /* IQKeyboardManager.swift in Sources */,
+				29FD0FAF21160D1000062362 /* IQUIView+Hierarchy.swift in Sources */,
+				29FD0FB021160D1000062362 /* NSString+HTMLString.swift in Sources */,
+				29FD0FB121160D1000062362 /* CoreDataManager.swift in Sources */,
+				29FD0FB221160D1000062362 /* MessagesParser.swift in Sources */,
+				29FD0FB321160D1000062362 /* GCCalendarView.swift in Sources */,
+				29FD0FB421160D1000062362 /* GCCalendarConfiguration.swift in Sources */,
+				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
+				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
+				29FD0FB721160D1000062362 /* PushyNetworkException.swift in Sources */,
+				29FD0FB821160D1000062362 /* HomeViewController.swift in Sources */,
+				29FD0FB921160D1000062362 /* GCCalendarWeekView.swift in Sources */,
+				29FD0FBA21160D1000062362 /* InboxTableViewCell.swift in Sources */,
+				29FD0FBB21160D1000062362 /* ConversationListingViewControllerProtocol.swift in Sources */,
+				29FD0FBC21160D1000062362 /* IQUITextFieldView+Additions.swift in Sources */,
+				29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */,
+				29FD0FBE21160D1000062362 /* PushySwizzler.swift in Sources */,
+				29FD0FBF21160D1000062362 /* Mappings.swift in Sources */,
+				29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */,
+				29FD0FC121160D1000062362 /* Deprecated.swift in Sources */,
+				29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */,
+				29FD0FC321160D1000062362 /* PushyResponseException.swift in Sources */,
+				29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */,
+				29FD0FC521160D1000062362 /* PushyHTTP.swift in Sources */,
+				29FD0FC621160D1000062362 /* Conversation+CoreDataClass.swift in Sources */,
+				29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				29FD0FC821160D1000062362 /* PushySettings.swift in Sources */,
+				29FD0FC921160D1000062362 /* LoginViewController.swift in Sources */,
+				29FD0FCA21160D1000062362 /* Inbox.xcdatamodeld in Sources */,
+				29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */,
+				29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */,
+				29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */,
+				29FD0FCE21160D1000062362 /* PushyEnvironment.swift in Sources */,
+				29FD0FCF21160D1000062362 /* ChatTableViewCell.m in Sources */,
+				29FD0FD021160D1000062362 /* Checkbox.swift in Sources */,
+				29FD0FD121160D1000062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
+				29FD0FD221160D1000062362 /* GCCalendarMonthView.swift in Sources */,
+				29FD0FD321160D1000062362 /* Popover.swift in Sources */,
+				29FD0FD421160D1000062362 /* AppDelegate.swift in Sources */,
+				29FD0FD521160D1000062362 /* User+CoreDataClass.swift in Sources */,
+				29FD0FD621160D1000062362 /* ConversationListingViewController.swift in Sources */,
+				29FD0FD721160D1000062362 /* InboxTableViewDataSource.swift in Sources */,
+				29FD0FD821160D1000062362 /* PushyRegistrationException.swift in Sources */,
+				29FD0FD921160D1000062362 /* ProcessingIndicatorHandler.swift in Sources */,
+				29FD0FDA21160D1000062362 /* PushyPubSubException.swift in Sources */,
+				29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */,
+				29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */,
+				29FD0FDD21160D1000062362 /* ProcessingIndicatorView.swift in Sources */,
+				29FD0FDE21160D1000062362 /* GCCalendarViewDelegate.swift in Sources */,
+				29FD0FDF21160D1000062362 /* Message+CoreDataProperties.swift in Sources */,
+				29FD0FE021160D1000062362 /* PushyKeychain.swift in Sources */,
+				29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */,
+				29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				29FD0FE321160D1000062362 /* PushyConfig.swift in Sources */,
+				29FD0FE421160D1000062362 /* SearchView.swift in Sources */,
+				29FD0FE521160D1000062362 /* Reachability.swift in Sources */,
+				29FD0FE621160D1000062362 /* String+Emoji.swift in Sources */,
+				29FD0FE721160D1000062362 /* HTMLString.swift in Sources */,
+				29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */,
+				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,
+				29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */,
+				29FD0FEB21160D1000062362 /* Constants.swift in Sources */,
+				29FD0FEC21160D1000062362 /* SearchViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1380,6 +1924,120 @@
 			};
 			name = Release;
 		};
+		29FD0F9721160D0500062362 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "SMSFactory copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "62003372-8a26-44d5-b564-9548f4e9ac02";
+				PROVISIONING_PROFILE_SPECIFIER = FanConnectAppStore;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29FD0F9821160D0500062362 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "SMSFactory copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "62003372-8a26-44d5-b564-9548f4e9ac02";
+				PROVISIONING_PROFILE_SPECIFIER = FanConnectAppStore;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		29FD100C21160D1000062362 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Photo_AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "FanConnect copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.phototexting;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
+				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29FD100D21160D1000062362 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Photo_AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inbox/Inbox.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "FanConnect copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.phototexting;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
+				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1406,6 +2064,24 @@
 			buildConfigurations = (
 				290BEDF920E697EC00F30BAA /* Debug */,
 				290BEDFA20E697EC00F30BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29FD0F9721160D0500062362 /* Debug */,
+				29FD0F9821160D0500062362 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29FD100B21160D1000062362 /* Build configuration list for PBXNativeTarget "PhotoTexting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29FD100C21160D1000062362 /* Debug */,
+				29FD100D21160D1000062362 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

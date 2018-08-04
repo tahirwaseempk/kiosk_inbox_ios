@@ -18,7 +18,7 @@ class SplashViewController: UIViewController
             splashImageView.image = UIImage(named: "Fan_Login")
             self.view.backgroundColor = UIColor.white
         case .photo_Texting:
-            splashImageView.image = UIImage(named: "Photo_Login")
+            splashImageView.image = UIImage(named: "Photo_Splash_Logo")
             self.view.backgroundColor = UIColor.white
         }
         

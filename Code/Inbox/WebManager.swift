@@ -7,9 +7,9 @@ import Foundation
 //------------------------------------------------------------------------------------------------//
 //************************************************************************************************//
 
-let URL_SMS_FACTORY = "https://mcpn.us/limeApi"
-let URL_TEXTING_LINE = "https://app.textingline.com/limeApi"
-let URL_FANCONNECT = "https://app.textingline.com/limeApi"
+let URL_SMS_FACTORY   = "https://app.textingline.com/limeApi"
+let URL_TEXTING_LINE  = "https://app.textingline.com/limeApi"
+let URL_FANCONNECT    = "https://app.textingline.com/limeApi"
 let URL_PHOTO_TEXTING = "https://app.textingline.com/limeApi"
 
 let LOGIN_URL = "?ev=kioskInbox&serial="
