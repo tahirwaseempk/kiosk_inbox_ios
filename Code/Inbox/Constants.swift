@@ -18,7 +18,7 @@ enum environmentType {
     photo_Texting
 }
 
-let environment:environmentType = .sms_Factory
+let environment:environmentType = .photo_Texting
 
 let AppBlueColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
@@ -29,3 +29,6 @@ let TextingHex = "007AFF"
 let FanHex  = "56B3B5"
 let PhotoHex = "8D8FC7"
 let ReceiverHex = "DFDEE5"
+
+
+//c8c176a0ed82274194f917b82b4df907714079959b88c0a3dea53eb2e8014750 FanConnect
