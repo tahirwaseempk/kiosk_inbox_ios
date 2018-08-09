@@ -6,9 +6,10 @@ import Foundation
 //------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------//
 //************************************************************************************************//
+let URL_TEXTING_LINE  = "https://services.textingline.com"
+
 
 let URL_SMS_FACTORY   = "https://app.textingline.com/limeApi"
-let URL_TEXTING_LINE  = "https://app.textingline.com/limeApi"
 let URL_FANCONNECT    = "https://app.textingline.com/limeApi"
 let URL_PHOTO_TEXTING = "https://app.textingline.com/limeApi"
 
@@ -82,26 +83,27 @@ class WebManager: NSObject
     static func requestLogin(params: Dictionary<String,Any>,loginParser:LoginParser, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
-        let serial:String = params["serial"] as! String
-        let uuid:String = params["uuid"] as! String
+        var paramsDic = Dictionary<String, Any>()
+        paramsDic["username"] = params["serial"] as! String
+        paramsDic["password"] = params["uuid"] as! String
         
         var finalUrl = ""
         
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_TEXTING_LINE + "/api/v1/auth/login" //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_SMS_FACTORY //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT + LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_FANCONNECT //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_PHOTO_TEXTING //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
         }
         
         print("\n ===== >>>>> login URL = \(finalUrl) \n")
         
-        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:paramsDic,completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -718,7 +720,7 @@ class WebManager: NSObject
         //.data(using: String.Encoding.utf8);
         
         //HTTP Headers
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         //        request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         //create dataTask using the session object to send data to the server

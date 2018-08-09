@@ -117,6 +117,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             }
         }
         
+        serialTextField.text = "8443712030"
+        udidTextField.text = "lime123"
+        
         self.addCheckboxSubviews()
     }
     //************************************************************************************************//
