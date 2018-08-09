@@ -534,7 +534,7 @@
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
 		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
-		29FD0F9921160D0500062362 /* FanConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FD0F9921160D0500062362 /* FanConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FanConnect.app; path = FanConnectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SMSFactory copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/SMSFactory copy-Info.plist"; sourceTree = "<absolute>"; };
 		29FD100E21160D1000062362 /* PhotoTextingCom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTextingCom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD100F21160D1000062362 /* FanConnect copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FanConnect copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/FanConnect copy-Info.plist"; sourceTree = "<absolute>"; };

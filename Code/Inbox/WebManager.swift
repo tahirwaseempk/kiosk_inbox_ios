@@ -11,7 +11,7 @@ let URL_SMS_FACTORY   = "https://app.textingline.com/limeApi"
 let URL_TEXTING_LINE  = "https://app.textingline.com/limeApi"
 let URL_FANCONNECT    = "https://app.textingline.com/limeApi"
 let URL_PHOTO_TEXTING = "https://app.textingline.com/limeApi"
-
+//https://api.textingline.com/api/v1/docs/swagger/#/Chat/chats
 let LOGIN_URL = "?ev=kioskInbox&serial="
 let LOGIN_URL_END = "&uuid="
 
