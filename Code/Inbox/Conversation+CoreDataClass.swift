@@ -14,12 +14,12 @@ public class Conversation: NSManagedObject {
     
      func getMessageFromID(messID: Int64) -> Message? {
         
-        let filteredMessages = messages?.filter { ($0 as! Message).messageId == messID }
-        
-        if (filteredMessages?.count)! > 0 {
-            return filteredMessages?.first as? Message
-        }
-        
+//        let filteredMessages = messages?.filter { ($0 as! Message).messageId == messID }
+//
+//        if (filteredMessages?.count)! > 0 {
+//            return filteredMessages?.first as? Message
+//        }
+//
         return nil;
     }
 
@@ -37,23 +37,20 @@ extension Conversation {
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     
-    static func create(context: NSManagedObjectContext, conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String, shortcodeDisplay_: String, mobileNumber_: String, tollFree_: String) ->Conversation{
+    static func create(context: NSManagedObjectContext,contactId_: Int64, unreadMessages_: Bool, conversationId_: Int64, timeStamp_: Date, senderId_: Int64, chatId_: Int64, lastMessageId_: Int64, lastMessage_: String) -> Conversation {
         
         let conversation = Conversation(context: context)
         
+        //NEW WORK
+        conversation.contactId = contactId_
+        conversation.unreadMessages = unreadMessages_
         conversation.conversationId = conversationId_
-        conversation.mobile = mobile_
-        conversation.shortCode = shortCode_
-        conversation.firstName = firstName_
-        conversation.lastName = lastName_
-        conversation.conversationDate = conversationDate_
-        conversation.isRead = isRead_
-        conversation.lastMessage = lastMessage_.removingHTMLEntities
-
-        conversation.shortcodeDisplay = shortcodeDisplay_
-        conversation.mobileNumber = mobileNumber_
-        conversation.tollFree = tollFree_
-
+        conversation.timeStamp = timeStamp_
+        conversation.senderId = senderId_
+        conversation.chatId = chatId_
+        conversation.lastMessageId = lastMessageId_
+        conversation.lastMessage = lastMessage_
+        
         return conversation
     }
     
@@ -61,20 +58,17 @@ extension Conversation {
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     
-    func update(conversationId_:Int64, mobile_:String, shortCode_:String, firstName_:String, lastName_:String, conversationDate_:Date, isRead_:Bool, lastMessage_:String, shortcodeDisplay_: String, mobileNumber_: String, tollFree_: String) {
+    func update(contactId_: Int64, unreadMessages_: Bool, conversationId_: Int64, timeStamp_: Date, senderId_: Int64, chatId_: Int64, lastMessageId_: Int64, lastMessage_: String) {
         
+        //NEW WORK
+        self.contactId = contactId_
+        self.unreadMessages = unreadMessages_
         self.conversationId = conversationId_
-        self.mobile = mobile_
-        self.shortCode = shortCode_
-        self.firstName = firstName_
-        self.lastName = lastName_
-        self.conversationDate = conversationDate_
-        self.isRead = isRead_
-        self.lastMessage = lastMessage_.removingHTMLEntities
-        
-        self.shortcodeDisplay = shortcodeDisplay_
-        self.mobileNumber = mobileNumber_
-        self.tollFree = tollFree_
+        self.timeStamp = timeStamp_
+        self.senderId = senderId_
+        self.chatId = chatId_
+        self.lastMessageId = lastMessageId_
+        self.lastMessage = lastMessage_
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//

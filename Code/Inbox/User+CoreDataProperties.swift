@@ -23,9 +23,32 @@ extension User {
     @NSManaged public var isRemember: Bool
     
     @nonobjc static var loginedUser:User? = nil
-
+    
+    // New Work //
+    @NSManaged public var token: String?
+    //user
+    @NSManaged public var userId: Int64
+    @NSManaged public var username: String?
+    @NSManaged public var formattedUsername: String?
+    @NSManaged public var email: String?
+    @NSManaged public var phone: String?
+    @NSManaged public var mobile: String?
+    @NSManaged public var firstName: String?
+    @NSManaged public var lastName: String?
+    @NSManaged public var companyName: String?
+    //locationDetails
+    @NSManaged public var address: String?
+    @NSManaged public var city: String?
+    @NSManaged public var country: String?
+    @NSManaged public var state: String?
+    @NSManaged public var zipCode: String?
+    //
+    @NSManaged public var whiteLableConfigurationId: Int64
+    @NSManaged public var userGroupId: Int64
+    @NSManaged public var timezone: Int64
+    @NSManaged public var license: String?
 }
-
+    
 // MARK: Generated accessors for conversations
 extension User {
 

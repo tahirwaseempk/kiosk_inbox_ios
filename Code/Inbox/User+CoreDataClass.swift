@@ -11,7 +11,7 @@ import CoreData
 
 public class User: NSManagedObject {
     
-    static func create(context: NSManagedObjectContext, serial:String,uuid:String,isRemember:Bool) -> User
+    static func create(context: NSManagedObjectContext, serial:String,uuid:String,isRemember:Bool,token: String, userId: Int64, username: String, formattedUsername: String, email: String, phone: String, mobile: String, firstName: String, lastName: String, companyName: String, address: String, city: String, country: String,state: String, zipCode: String, whiteLableConfigurationId: Int64, userGroupId: Int64, timezone: Int64, license: String) -> User
     {
         var targettedUser:User? = nil
         
@@ -27,6 +27,26 @@ public class User: NSManagedObject {
         targettedUser?.serial = serial
         targettedUser?.uuid = uuid
         targettedUser?.isRemember = isRemember
+        //
+        targettedUser?.token = token
+        targettedUser?.userId = userId
+        targettedUser?.username = username
+        targettedUser?.formattedUsername = formattedUsername
+        targettedUser?.email = email
+        targettedUser?.phone = phone
+        targettedUser?.mobile = mobile
+        targettedUser?.firstName = firstName
+        targettedUser?.lastName = lastName
+        targettedUser?.companyName = companyName
+        targettedUser?.address = address
+        targettedUser?.city = city
+        targettedUser?.country = country
+        targettedUser?.state = state
+        targettedUser?.zipCode = zipCode
+        targettedUser?.whiteLableConfigurationId = whiteLableConfigurationId
+        targettedUser?.userGroupId = userGroupId
+        targettedUser?.timezone = timezone
+        targettedUser?.license = license
         
         return targettedUser!
     }
@@ -90,7 +110,32 @@ extension User
                 {
                     DispatchQueue.main.async
                         {
-                            let user :User? = User.create(context: DEFAULT_CONTEXT ,serial:serial, uuid:uuid, isRemember:isRemember)
+                            
+                            let tempDict = response
+                            
+                            let user :User? = User.create(context: DEFAULT_CONTEXT,
+                                                          serial:serial,
+                                                          uuid:uuid,
+                                                          isRemember:isRemember,
+                                                          token: tempDict!["token"] as! String,
+                                                          userId: tempDict!["userId"] as! Int64,
+                                                          username: response!["username"] as! String,
+                                                          formattedUsername: tempDict!["formattedUsername"] as! String,
+                                                          email: tempDict!["email"] as! String,
+                                                          phone: tempDict!["phone"] as! String,
+                                                          mobile: tempDict!["mobile"] as! String,
+                                                          firstName: tempDict!["firstName"] as! String,
+                                                          lastName: tempDict!["lastName"] as! String,
+                                                          companyName: tempDict!["companyName"] as! String,
+                                                          address: tempDict!["address"] as! String,
+                                                          city: tempDict!["city"] as! String,
+                                                          country: tempDict!["country"] as! String,
+                                                          state: tempDict!["state"] as! String,
+                                                          zipCode: tempDict!["zipCode"] as! String,
+                                                          whiteLableConfigurationId: tempDict!["whiteLableConfigurationId"] as! Int64,
+                                                          userGroupId: tempDict!["userGroupId"] as! Int64,
+                                                          timezone: tempDict!["timezone"] as! Int64,
+                                                          license: tempDict!["license"] as! String)
                             
                             User.loginedUser = user
                             
@@ -178,9 +223,9 @@ extension User
             var paramsDic = Dictionary<String, Any>()
             
             paramsDic["serial"] = user.serial
-            
             paramsDic["uuid"] = user.uuid
-            
+            paramsDic["token"] = user.token
+
             WebManager.requestConversations(params:paramsDic, conversationParser: ConversationParser(),completionBlockSuccess:{(conversations:Array<Conversation>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async

@@ -16,21 +16,20 @@ extension Conversation {
         return NSFetchRequest<Conversation>(entityName: "Conversation")
     }
 
+    @NSManaged public var user: User?
+    
+    //New Work
+    //chats
+    @NSManaged public var contactId: Int64
+    @NSManaged public var unreadMessages: Bool
     @NSManaged public var conversationId: Int64
-    @NSManaged public var messages: NSSet?
-    @NSManaged public var mobile: String?
-    @NSManaged public var shortCode: String?
-    @NSManaged public var firstName: String?
-    @NSManaged public var lastName: String?
-    @NSManaged public var conversationDate: Date
-    @NSManaged public var isRead: Bool
+    //lastMessage
+    @NSManaged public var timeStamp: Date
+    @NSManaged public var senderId: Int64
+    @NSManaged public var chatId: Int64
+    @NSManaged public var lastMessageId: Int64
     @NSManaged public var lastMessage: String?
     
-    @NSManaged public var mobileNumber: String?
-    @NSManaged public var shortcodeDisplay: String?
-    @NSManaged public var tollFree: String?
-
-    @NSManaged public var user: User?
 }
 
 // MARK: Generated accessors for messages
