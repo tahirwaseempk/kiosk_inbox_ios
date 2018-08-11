@@ -183,7 +183,7 @@ class HomeViewController: UIViewController
         
         arrConversations = arrConversations.filter({ (conversation1) -> Bool in
             
-            if (conversation1.isRead == true)
+            if (conversation1.unreadMessages == true)
             {
                 return true
             }

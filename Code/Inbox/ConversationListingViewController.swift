@@ -119,7 +119,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
             {
                 DispatchQueue.main.async
                 {
-                    if self.selectedConversation.isRead == true
+                    if self.selectedConversation.unreadMessages == true
                     {
                         User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
                             
@@ -129,9 +129,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                                 {
                                     ProcessingIndicator.hide()
                                     
-                                    if conversation?.isRead == true
+                                    if conversation?.unreadMessages == true
                                     {
-                                        conversation?.isRead = false
+                                        conversation?.unreadMessages = false
                                         
                                         self.conversationListUpdated()
                                     }
@@ -148,9 +148,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                                 {
                                     ProcessingIndicator.hide()
                                     
-                                    if conversation?.isRead == true
+                                    if conversation?.unreadMessages == true
                                     {
-                                        conversation?.isRead = false
+                                        conversation?.unreadMessages = false
                                         
                                         self.conversationListUpdated()
                                     }
@@ -212,7 +212,7 @@ extension ConversationListingViewController
         
         arrConversations = arrConversations.filter({ (conversation1) -> Bool in
             
-            if (conversation1.isRead == true)
+            if (conversation1.unreadMessages == true)
             {
                 return true
             }

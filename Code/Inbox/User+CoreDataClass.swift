@@ -284,8 +284,9 @@ extension User
             
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = conversation.mobile
-            paramsDic["shortCode"] = conversation.shortCode
+            paramsDic["mobile"] = "1" //conversation.mobile
+            paramsDic["shortCode"] = "1" //conversation.shortCode
+            
             WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -323,7 +324,7 @@ extension User
             var paramsDic = Dictionary<String, Any>()
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = conversation.mobileNumber
+            paramsDic["mobile"] = "1" //conversation.mobileNumber
             
             WebManager.optOutMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -368,7 +369,7 @@ extension User
             paramsDic["ev"] = "kioskSendMessage"
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = conversation.mobileNumber
+            paramsDic["mobile"] = "1" //conversation.mobileNumber
             paramsDic["message"] = paramsJson["message"] as! String
             
             if (paramsJson["message"] as! String != ""){
@@ -380,11 +381,11 @@ extension User
             if (paramsJson["attachmentFileSuffix"] as! String != ""){
                 paramsDic["attachmentFileSuffix"] = paramsJson["attachmentFileSuffix"] as! String
             }
-            if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
-                paramsDic["shortcode"] = conversation.tollFree
-            } else {
-                paramsDic["shortcode"] = conversation.shortcodeDisplay
-            }
+//            if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
+//                paramsDic["shortcode"] = conversation.tollFree
+//            } else {
+//                paramsDic["shortcode"] = conversation.shortcodeDisplay
+//            }
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -408,7 +409,7 @@ extension User
                                     {
                                         let msgID: Int64 = Int64(splitString[1])!
                                         
-                                        let message = Message.create(context: DEFAULT_CONTEXT, date_: msgDate, message_:  paramsJson["message"] as! String, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        let message = Message() // .create(context: DEFAULT_CONTEXT, date_: msgDate, message_:  paramsJson["message"] as! String, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
                                         
                                         conversation.addToMessages(message)
                                         
@@ -582,8 +583,8 @@ extension User
             
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = conversation.mobile
-            paramsDic["shortCode"] = conversation.shortCode
+            paramsDic["mobile"] = "1" //conversation.mobile
+            paramsDic["shortCode"] = "1" //conversation.shortCode
             
             WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -635,7 +636,7 @@ extension User
             {
                 let conversation = conversations.allObjects[index] as! Conversation
                 
-                if conversation.isRead == false
+                if conversation.unreadMessages == false
                 {
                     User.setReadAllConversations(conversations: conversations, index: index + 1, completionBlockSuccess: successBlock, andFailureBlock: failureBlock)
                 }
@@ -645,8 +646,8 @@ extension User
                     
                     paramsDic["serial"] = user.serial
                     paramsDic["uuid"] = user.uuid
-                    paramsDic["mobile"] = conversation.mobile
-                    paramsDic["shortCode"] = conversation.shortCode
+                    paramsDic["mobile"] = "1" //conversation.mobile
+                    paramsDic["shortCode"] = "1"// conversation.shortCode
                     
                     WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                         
@@ -658,7 +659,7 @@ extension User
                                         {
                                             if (status == "OK")
                                             {
-                                                conversation.isRead = false
+                                                conversation.unreadMessages = false
                                                 
                                                 User.setReadAllConversations(conversations: conversations, index: index + 1, completionBlockSuccess: successBlock, andFailureBlock: failureBlock)
                                             }
@@ -711,8 +712,8 @@ extension User
             
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = conversation.mobile
-            paramsDic["shortCode"] = conversation.shortCode
+            paramsDic["mobile"] = "1" //conversation.mobile
+            paramsDic["shortCode"] = "1" //conversation.shortCode
             
             WebManager.deleteConversation(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 

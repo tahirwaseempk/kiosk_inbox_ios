@@ -47,11 +47,11 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             //print(conversation1.isRead, conversation2.isRead)
 //            if conversation1.isRead == conversation2.isRead {
                         
-                if conversation1.conversationDate.compare(conversation2.conversationDate) == .orderedDescending
+                if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedDescending
                 {
                     return true
                 }
-                else if conversation1.conversationDate.compare(conversation2.conversationDate) == .orderedAscending
+                else if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedAscending
                 {
                     return false
                 }
@@ -128,21 +128,21 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         if conversation.lastMessage != nil
         {
-            cell.titleLabel.text = conversation.mobile
+            cell.titleLabel.text = "MOBILE NUMBER"//conversation.mobile
             cell.detailLabel.text = conversation.lastMessage
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = DATE_FORMATE_STRING
-            cell.dateLabel.text = "Sent" + " " + dateFormatter.string(from: conversation.conversationDate)
+            cell.dateLabel.text = "Sent" + " " + dateFormatter.string(from: conversation.timeStamp)
         }
         else
         {
-            cell.titleLabel.text = conversation.mobileNumber
+            cell.titleLabel.text = "MOBILE NUMBER" //conversation.mobileNumber
             cell.detailLabel.text = "no message"
             cell.dateLabel.text = ""
         }
         
-        if conversation.isRead == true
+        if conversation.unreadMessages == true
         {
             cell.dotImageView.image = UIImage(named: "blackdot.png")
         } else {
@@ -170,15 +170,15 @@ extension InboxTableViewDataSource:SearchViewProtocol
         {
             filteredConversations = conversations.filter({ (conversation1) -> Bool in
                 
-                if ((conversation1.mobileNumber?.contains(text))! || (conversation1.lastMessage?.contains(text))!)
-                {
-                    selectedConversation = nil
-                    return true
-                }
-                else
-                {
+//                if ((conversation1.mobileNumber?.contains(text))! || (conversation1.lastMessage?.contains(text))!)
+//                {
+//                    selectedConversation = nil
+//                    return true
+//                }
+//                else
+//                {
                     return false
-                }
+//                }
             })
         }
         else

@@ -124,7 +124,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             //            }
             //            else
             //            {
-            self.scheduleAppointmentViewController.headerTitleString = self.selectedConversation.mobile!
+            
+            self.scheduleAppointmentViewController.headerTitleString = "NUMBER SHOW KERNA"//self.selectedConversation.mobile!
+            
             //            }
             
             self.scheduleAppointmentViewController.selectedConversation = self.selectedConversation
@@ -433,27 +435,29 @@ extension ConversationDetailViewController {
         {
             if UIDevice.current.userInterfaceIdiom == .pad
             {
-                self.messageFromLabel.text =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+                self.messageFromLabel.text = "FIRST LAST NAME" //(self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
                 
-                self.messageNumberLabel.text = self.selectedConversation.mobile
+                self.messageNumberLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
             }
             else
             {
+                /*
                 if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
                 {
-                    self.messageFromLabel.text =  self.selectedConversation.mobile//(self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
+                    self.messageFromLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
                     
-                    self.messageNumberLabel.text = self.selectedConversation.mobile
+                    self.messageNumberLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
                 }
                 else
                 {
-                    self.messageFromLabel.text =   self.selectedConversation.mobile
+                    self.messageFromLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
                     
                     self.messageNumberLabel.text = ""
                 }
+                */
             }
             
-            self.shortCodeLabel.text = self.selectedConversation.shortcodeDisplay
+            self.shortCodeLabel.text = "SHORT CODE" //self.selectedConversation.shortcodeDisplay
         }
         else
         {

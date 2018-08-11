@@ -17,7 +17,8 @@ extension Conversation {
     }
 
     @NSManaged public var user: User?
-    
+    @NSManaged public var messages: NSSet?
+
     //New Work
     //chats
     @NSManaged public var contactId: Int64

@@ -168,7 +168,7 @@ class ScheduleAppointmentViewController: UIViewController
         // let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
         let timeWithoutHrsString = String(self.timeCounterView.valueLabel.tag) // Does Not Contain hrs at end like 12
         
-        let mobileNumber = self.selectedConversation.mobile!
+        let mobileNumber = "1" //self.selectedConversation.mobile!
         
         var paramsDic = Dictionary<String, Any>()
         
