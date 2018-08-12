@@ -15,7 +15,7 @@ public class User: NSManagedObject {
     {
         var targettedUser:User? = nil
         
-        if let user = User.getUserFromID(serial_: serial)
+        if let user = User.getUserFromID(userName_: username)
         {
             targettedUser = user
             
@@ -67,10 +67,10 @@ public class User: NSManagedObject {
         return nil;
     }
     
-    static func getUserFromID(serial_: String) -> User? {
+    static func getUserFromID(userName_: String) -> User? {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        let predicate = NSPredicate(format: "serial == %@", serial_)
+        let predicate = NSPredicate(format: "username == %@", userName_)
         request.predicate = predicate
         request.fetchLimit = 1
         
@@ -286,7 +286,11 @@ extension User
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = "1" //conversation.mobile
             paramsDic["shortCode"] = "1" //conversation.shortCode
-            
+          
+            paramsDic["token"] = user.token
+            paramsDic["lastMessageId"] = String(conversation.lastMessageId)
+
+
             WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async

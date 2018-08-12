@@ -238,7 +238,7 @@ class WebManager: NSObject
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + "/api/v1/chats/" //+ "?limit=" + LIMIT + "&isEmojiAliases" + EMOJI
+            finalUrl = URL_TEXTING_LINE + "/api/v1/chats/" + "?limit=" + LIMIT + "&isEmojiAliases=" + EMOJI
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + CONVERSATION_URL + uuid + CONVERSATION_URL_END + serial
         case .fan_Connect:
@@ -401,13 +401,16 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
-        
+       
+        let lastMsgId:String = params["lastMessageId"] as! String
+        let token:String = params["token"] as! String
+
         var finalUrl = ""
         
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
+            finalUrl = URL_TEXTING_LINE + "/api/v1/messages/new" + "?lastId=" + lastMsgId
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
         case .fan_Connect:
@@ -418,8 +421,8 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> Get Message URL = \(finalUrl) \n")
         
-        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
-            
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+
             if (error == nil)
             {
                 DispatchQueue.global(qos: .background).async

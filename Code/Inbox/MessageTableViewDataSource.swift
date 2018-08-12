@@ -81,11 +81,11 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             
             messages = messages.sorted(by: { (mesage1, message2) -> Bool in
                 
-                if mesage1.messageDate.compare(message2.messageDate) == .orderedAscending
+                if mesage1.messageTimeStamp.compare(message2.messageTimeStamp) == .orderedAscending
                 {
                     return true
                 }
-                else if mesage1.messageDate.compare(message2.messageDate) == .orderedDescending
+                else if mesage1.messageTimeStamp.compare(message2.messageTimeStamp) == .orderedDescending
                 {
                     return false
                 }
@@ -133,14 +133,14 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         let formatter = DateFormatter()
         formatter.dateFormat = DATE_FORMATE_STRING
-        let outStr = formatter.string(from: message.messageDate)
+        let outStr = formatter.string(from: message.messageTimeStamp)
         
         if (message.isSender == false) {
             
             chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
             
-            chatCell.chatMessageLabel.text = message.message
-            chatCell.chatNameLabel.text = message.mobile
+            chatCell.chatMessageLabel.text = message.messageText
+            chatCell.chatNameLabel.text = "MOBILE NUMBER"//message.mobile
             chatCell.chatTimeLabel.text = outStr
             //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
             chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
@@ -149,7 +149,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             
             chatCell = tableView.dequeueReusableCell(withIdentifier: "chatReceive", for: indexPath)as? ChatTableViewCell
             
-            chatCell.chatMessageLabel.text = message.message
+            chatCell.chatMessageLabel.text = message.messageText
             chatCell.chatNameLabel.text = "Me"
             chatCell.chatTimeLabel.text = outStr
             //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
@@ -189,7 +189,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[0]], context: nil).size
         
         let messageSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Messagesize = (message.message! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:fontArray[1]], context: nil).size
+        Messagesize = (message.messageText! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:fontArray[1]], context: nil).size
         
         let timeSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
         Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[2]], context: nil).size
