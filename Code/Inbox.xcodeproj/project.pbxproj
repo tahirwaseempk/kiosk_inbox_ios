@@ -152,6 +152,18 @@
 		290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		290BEDFE20E6999200F30BAA /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
+		295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
+		295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
+		295EA29121204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
+		295EA29221204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
+		295EA29321204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */; };
+		295EA29421204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */; };
+		295EA29521204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */; };
+		295EA29621204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */; };
+		295EA2982120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
+		295EA2992120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
+		295EA29A2120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
+		295EA29B2120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
 		29FD0F1E2114BADF00062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
 		29FD0F1F2114BADF00062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
 		29FD0F212114C2A400062362 /* Fanconnect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F202114C2A400062362 /* Fanconnect.xcassets */; };
@@ -529,12 +541,15 @@
 		290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Inbox copy-Info.plist"; path = "/Volumes/NETSOL/Personal Data Amir/Current Working/Sir Wahab/June/Code/Inbox copy-Info.plist"; sourceTree = "<absolute>"; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
+		295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataClass.swift"; path = "../UserContact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataProperties.swift"; path = "../UserContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		295EA2972120518700C1EAB2 /* UserContactsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactsParser.swift; sourceTree = "<group>"; };
 		2960E1C72116F23E00F85ED0 /* PhotoTexting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoTexting.entitlements; sourceTree = "<group>"; };
 		2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnect.entitlements; sourceTree = "<group>"; };
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
 		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
-		29FD0F9921160D0500062362 /* FanConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FD0F9921160D0500062362 /* FanConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FanConnect.app; path = FanConnectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SMSFactory copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/SMSFactory copy-Info.plist"; sourceTree = "<absolute>"; };
 		29FD100E21160D1000062362 /* PhotoTextingCom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTextingCom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD100F21160D1000062362 /* FanConnect copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FanConnect copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/FanConnect copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -1015,6 +1030,8 @@
 				04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */,
 				04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */,
 				04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */,
+				295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */,
+				295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */,
 			);
 			name = Persistent;
 			sourceTree = "<group>";
@@ -1026,6 +1043,7 @@
 				75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */,
 				75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */,
 				755C665A1EFA897800A3F74A /* MessagesParser.swift */,
+				295EA2972120518700C1EAB2 /* UserContactsParser.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1405,6 +1423,7 @@
 				756615CF203941670087CB9D /* CodePointSet.swift in Sources */,
 				759C5BEC1FC60C08007889E7 /* PushyResponseException.swift in Sources */,
 				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
+				295EA2982120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				759C5BE61FC60C08007889E7 /* PushyHTTP.swift in Sources */,
 				04EC9FBD1FC373C500F3C42A /* Conversation+CoreDataClass.swift in Sources */,
 				752CE4451F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
@@ -1414,6 +1433,7 @@
 				04EC9FBE1FC373C500F3C42A /* Conversation+CoreDataProperties.swift in Sources */,
 				752CE4481F27E24900FCC976 /* IQPreviousNextView.swift in Sources */,
 				04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */,
+				295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				759C5BE31FC60C08007889E7 /* PushyEnvironment.swift in Sources */,
 				7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */,
 				04EC9FC01FC373D200F3C42A /* Checkbox.swift in Sources */,
@@ -1441,6 +1461,7 @@
 				756615D0203941670087CB9D /* String+Emoji.swift in Sources */,
 				759BD35F204077F400832092 /* HTMLString.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
+				295EA29321204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
@@ -1492,6 +1513,7 @@
 				290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */,
 				290BEDB420E697EC00F30BAA /* PushyResponseException.swift in Sources */,
 				290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */,
+				295EA2992120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				290BEDB620E697EC00F30BAA /* PushyHTTP.swift in Sources */,
 				290BEDB720E697EC00F30BAA /* Conversation+CoreDataClass.swift in Sources */,
 				290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
@@ -1501,6 +1523,7 @@
 				290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */,
 				290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */,
 				290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */,
+				295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				290BEDBF20E697EC00F30BAA /* PushyEnvironment.swift in Sources */,
 				290BEDC020E697EC00F30BAA /* ChatTableViewCell.m in Sources */,
 				290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */,
@@ -1528,6 +1551,7 @@
 				290BEDD720E697EC00F30BAA /* String+Emoji.swift in Sources */,
 				290BEDD820E697EC00F30BAA /* HTMLString.swift in Sources */,
 				290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */,
+				295EA29421204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
 				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
@@ -1579,6 +1603,7 @@
 				29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */,
 				29FD0F4E21160D0500062362 /* PushyResponseException.swift in Sources */,
 				29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */,
+				295EA29A2120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				29FD0F5021160D0500062362 /* PushyHTTP.swift in Sources */,
 				29FD0F5121160D0500062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
@@ -1588,6 +1613,7 @@
 				29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */,
 				29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */,
+				295EA29121204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				29FD0F5921160D0500062362 /* PushyEnvironment.swift in Sources */,
 				29FD0F5A21160D0500062362 /* ChatTableViewCell.m in Sources */,
 				29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */,
@@ -1615,6 +1641,7 @@
 				29FD0F7121160D0500062362 /* String+Emoji.swift in Sources */,
 				29FD0F7221160D0500062362 /* HTMLString.swift in Sources */,
 				29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */,
+				295EA29521204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
 				29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */,
 				29FD0F7621160D0500062362 /* Constants.swift in Sources */,
@@ -1666,6 +1693,7 @@
 				29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */,
 				29FD0FC321160D1000062362 /* PushyResponseException.swift in Sources */,
 				29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */,
+				295EA29B2120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				29FD0FC521160D1000062362 /* PushyHTTP.swift in Sources */,
 				29FD0FC621160D1000062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
@@ -1675,6 +1703,7 @@
 				29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */,
 				29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */,
+				295EA29221204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				29FD0FCE21160D1000062362 /* PushyEnvironment.swift in Sources */,
 				29FD0FCF21160D1000062362 /* ChatTableViewCell.m in Sources */,
 				29FD0FD021160D1000062362 /* Checkbox.swift in Sources */,
@@ -1702,6 +1731,7 @@
 				29FD0FE621160D1000062362 /* String+Emoji.swift in Sources */,
 				29FD0FE721160D1000062362 /* HTMLString.swift in Sources */,
 				29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */,
+				295EA29621204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,
 				29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */,
 				29FD0FEB21160D1000062362 /* Constants.swift in Sources */,

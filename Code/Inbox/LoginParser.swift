@@ -24,8 +24,8 @@ class LoginParser: NSObject {
             returnDictionary["errorCode"] = json["errorCode"] as! String
             returnDictionary["message"] = json["message"] as! String
             returnDictionary["statusCode"] = json["statusCode"] as! String
-        } else {
             
+        } else {
             returnDictionary["token"] = json["token"] as! String
             let userDict = json["user"] as! Dictionary<String,Any>
             returnDictionary["userId"] = userDict["id"] as! Int64
