@@ -73,7 +73,7 @@ class MessagesParser: NSObject {
                     if message == nil {
                         
                         message = Message.create(context: DEFAULT_CONTEXT,
-                                                 messageTimeStamp_:msgDate,
+                                                 msgTimeStamp_:msgDate,
                                                  senderId_:senderId,
                                                  chatId_:chatId,
                                                  recipientId_:recipientId,
@@ -85,7 +85,7 @@ class MessagesParser: NSObject {
                     }
                     else {
                         
-                        message?.update( messageTimeStamp_:msgDate,
+                        message?.update( msgTimeStamp_:msgDate,
                                          senderId_:senderId,
                                          chatId_:chatId,
                                          recipientId_:recipientId,

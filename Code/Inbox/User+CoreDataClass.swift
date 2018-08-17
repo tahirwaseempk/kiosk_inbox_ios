@@ -139,8 +139,7 @@ extension User
                             
                             User.loginedUser = user
                             
-                            self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
-                                
+                            self.syncContacts(completionBlockSuccess: { () -> (Void) in
                                 DispatchQueue.global(qos: .background).async
                                     {
                                         DispatchQueue.main.async
@@ -152,9 +151,19 @@ extension User
                                 }
                                 
                             }, andFailureBlock: { (error: Error?) -> (Void) in
-                                
                                 failureBlock(error)
                             })
+                            
+                            //
+                            //                            self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
+                            //
+                            //
+                            //                                }
+                            //
+                            //                            }, andFailureBlock: { (error: Error?) -> (Void) in
+                            //
+                            //                                failureBlock(error)
+                            //                            })
                     }
             }
             
@@ -225,7 +234,7 @@ extension User
             paramsDic["serial"] = user.serial
             paramsDic["uuid"] = user.uuid
             paramsDic["token"] = user.token
-
+            
             WebManager.requestConversations(params:paramsDic, conversationParser: ConversationParser(),completionBlockSuccess:{(conversations:Array<Conversation>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -257,6 +266,8 @@ extension User
                                     conversation.user = user
                                 }
                                 
+                                User.getLoginedUser()?.updateConversations()
+                                
                                 CoreDataManager.coreDataManagerSharedInstance.saveContext()
                                 
                                 successBlock(user.conversations?.allObjects as? Array<Conversation>)
@@ -286,11 +297,11 @@ extension User
             paramsDic["uuid"] = user.uuid
             paramsDic["mobile"] = "1" //conversation.mobile
             paramsDic["shortCode"] = "1" //conversation.shortCode
-          
+            
             paramsDic["token"] = user.token
             paramsDic["lastMessageId"] = String(conversation.lastMessageId)
-
-
+            
+            
             WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -385,16 +396,16 @@ extension User
             if (paramsJson["attachmentFileSuffix"] as! String != ""){
                 paramsDic["attachmentFileSuffix"] = paramsJson["attachmentFileSuffix"] as! String
             }
-//            if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
-//                paramsDic["shortcode"] = conversation.tollFree
-//            } else {
-//                paramsDic["shortcode"] = conversation.shortcodeDisplay
-//            }
+            //            if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
+            //                paramsDic["shortcode"] = conversation.tollFree
+            //            } else {
+            //                paramsDic["shortcode"] = conversation.shortcodeDisplay
+            //            }
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 print("\n ===== >>>>> SEND MESSAGE RESPONSE =  <<<<< ===== \(String(describing: response)) \n")
-
+                
                 if let status = response?["result"] as? String
                 {
                     let splitString = status.components(separatedBy: ",")
@@ -769,4 +780,93 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func syncContacts(completionBlockSuccess successBlock: @escaping (() -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            paramsDic["token"] = user.token
+            
+            //(params:paramsDic, conversationParser: ConversationParser(),completionBlockSuccess:{(conversations:Array<Conversation>?) -> (Void) in
+            
+            WebManager.getAllContacs(params: paramsDic, contactParser: UserContactsParser(), completionBlockSuccess:{(response:Array<UserContact>?) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
+                                    
+                                    DispatchQueue.global(qos: .background).async
+                                        {
+                                            DispatchQueue.main.async
+                                                {
+                                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                                    
+                                                    successBlock()
+                                            }
+                                    }
+                                    
+                                }, andFailureBlock: { (error: Error?) -> (Void) in
+                                    
+                                    failureBlock(error)
+                                })
+                        }
+                    }.self
+                
+            }) { (error: Error?) -> (Void) in
+                
+                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+            }
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    @discardableResult
+    func updateConversations() -> Bool
+    {
+        // Fetch all conversations
+        // Fetch All UserContacts
+        
+        let user = User.getLoginedUser()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserContact")
+        
+        do
+        {
+            let results = try self.managedObjectContext?.fetch(fetchRequest)
+            
+            let  contracts = results as! [UserContact]
+            
+            if let chats =  user?.conversations?.allObjects as? Array<Conversation>
+            {
+                for conv in chats
+                {
+                    for contact in contracts
+                    {
+                        if conv.senderId == contact.contactId
+                        {
+                            conv.sender = contact
+                        }
+                        
+                        if conv.contactId == contact.contactId
+                        {
+                            conv.receiver = contact
+                        }
+                    }
+                }
+            }
+            
+        } catch let error as NSError {
+            //            print("Could not fetch \(error)”)
+        }
+        
+        return true
+    }
 }

@@ -7,85 +7,132 @@
 //
 
 import Foundation
-
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//
 class UserContactsParser: NSObject
 {
+//    var userContactObj : UserContact!
+//
+//    init(_ userContact_: UserContact) {
+//        
+//        self.userContactObj = userContact_
+//        super.init()
+//    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     func parseUserContacts(json:Dictionary<String,Any>) -> Array<UserContact>
     {
-        var contacts = Array<UserContact>()
+        var contactsArr = Array<UserContact>()
         
         var tempDictionary = Dictionary<String,Any>()
-
-       /* if json["statusCode"] != nil {
+        
+        if json["statusCode"] != nil {
             tempDictionary["name"] = json["name"] as! String
             tempDictionary["errorCode"] = json["errorCode"] as! String
             tempDictionary["message"] = json["message"] as! String
             tempDictionary["statusCode"] = json["statusCode"] as! String
         } else {
             
-            let chatsArray = json["chats"] as! Array<Dictionary<String,Any>>
-           
-            for dic in chatsArray
+            let contactsArray = json["contacts"] as! Array<Dictionary<String,Any>>
+            
+            for dic in contactsArray
             {
                 if dic.count > 0
                 {
-                    let contactId = dic["contactId"] as! Int64
-                    let unread : Bool
-                    if (dic["unreadMessages"] as! Int == 1){
-                        unread = true
-                    } else {
-                        unread = false
-                    }
-                    let conversationId = dic["id"] as! Int64
-                    let lastMessageDict = dic["lastMessage"] as! Dictionary<String,Any>
-                    //                    let timeStamp = lastMessagenDict["timeStamp"] as! String
-                    let senderId = lastMessageDict["senderId"] as! Int64
-                    let chatId = lastMessageDict["chatId"] as! Int64
-                    let lastMessageId = lastMessageDict["id"] as! Int64
-                    let lastMessage = lastMessageDict["text"] as! String
-                   
-                    var conversation: Conversation? = User.getLoginedUser()?.getConverstaionFromID(conID: conversationId);
+                    let fName = checkForNull(value: (dic["firstName"] as AnyObject))
+                    let lName = checkForNull(value: (dic["lastName"] as AnyObject))
+                    let phoneNo = checkForNull(value: (dic["phoneNumber"] as AnyObject))
+                    let gender = checkForNull(value: (dic["gender"] as AnyObject))
+                    let email = checkForNull(value: (dic["email"] as AnyObject))
+
+//                    let fName = dic["firstName"] as! String
+//                    let lName = dic["lastName"] as! String
+//                    let phoneNo = dic["phoneNumber"] as! String
+//                    let gender = dic["gender"] as! String
+                    let contactId = dic["id"] as! Int64
+                    //let birthOfDate = dic["birthDate"] as! String
+//                    let email = dic["email"] as! String
+                    let locationDict = dic["locationDetails"] as! Dictionary<String,Any>
+
+                    let country = checkForNull(value: (locationDict["country"] as AnyObject))
+                    let zipCode = checkForNull(value: (locationDict["zipCode"] as AnyObject))
+                    let address = checkForNull(value: (locationDict["address"] as AnyObject))
+                    let city = checkForNull(value: (locationDict["city"] as AnyObject))
+                    let state = checkForNull(value: (locationDict["state"] as AnyObject))
                     
-                    var msgDate = Date()
-                    if let dateStr:String = dic["timeStamp"] as? String {
-                        if dateStr.count > 0 {
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = DATE_FORMATE_STRING
-                            msgDate = dateFormatter.date(from: dateStr)!
-                        }
-                    }
+                    var contact: UserContact? = UserContact.getContactFromID(conID: contactId)
                     
-                    if conversation == nil {
+                    let birth_Date = Date()
+                    //                    if let dateStr:String = dic["birthDate"] as? String {
+                    //                        if dateStr.count > 0 {
+                    //                            let dateFormatter = DateFormatter()
+                    //                            dateFormatter.dateFormat = DATE_FORMATE_STRING
+                    //                            birth_Date = dateFormatter.date(from: dateStr)!
+                    //                        }
+                    //                    }
+                    
+                    if contact == nil {
+                    
+                        contact = UserContact.create(context: DEFAULT_CONTEXT,
+                                                     firstName_: fName,
+                                                     lastName_: lName,
+                                                     phoneNumber_: phoneNo,
+                                                     gender_: gender,
+                                                     country_: country,
+                                                     zipCode_: zipCode,
+                                                     address_: address,
+                                                     city_: city,
+                                                     state_: state,
+                                                     birthDate_: birth_Date,
+                                                     email_: email,
+                                                     contactId_: contactId)
                         
-                        conversation = Conversation.create(context: DEFAULT_CONTEXT,
-                                                           contactId_: contactId,
-                                                           unreadMessages_: unread,
-                                                           conversationId_: conversationId,
-                                                           timeStamp_: msgDate,
-                                                           senderId_: senderId,
-                                                           chatId_: chatId,
-                                                           lastMessageId_: lastMessageId,
-                                                           lastMessage_: lastMessage)
-                        
-                        conversations.append(conversation!)
-                    }
+                        contactsArr.append(contact!)
+                   }
                     else
                     {
-                        conversation?.update(contactId_: contactId,
-                                              unreadMessages_: unread,
-                                              conversationId_: conversationId,
-                                              timeStamp_: msgDate,
-                                              senderId_: senderId,
-                                              chatId_: chatId,
-                                              lastMessageId_: lastMessageId,
-                                              lastMessage_: lastMessage)
+                        contact?.update(firstName_: fName,
+                                        lastName_: lName,
+                                        phoneNumber_: phoneNo,
+                                        gender_: gender,
+                                        country_: country,
+                                        zipCode_: zipCode,
+                                        address_: address,
+                                        city_: city,
+                                        state_: state,
+                                        birthDate_: birth_Date,
+                                        email_: email,
+                                        contactId_: contactId)
                         
-                        conversations.append(conversation!)
+                        contactsArr.append(contact!)
                     }
                 }
             }
-        } */
+        }
         
-        return contacts
+        return contactsArr
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    func checkForNull(value:AnyObject) -> String
+    {
+        if(value as! NSObject == NSNull() || value as! String == "")
+        {
+            return ""
+        }
+        else
+        {
+            return value as! String
+        }
     }
 }
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//

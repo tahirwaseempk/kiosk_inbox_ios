@@ -18,6 +18,9 @@ extension Conversation {
 
     @NSManaged public var user: User?
     @NSManaged public var messages: NSSet?
+    
+    @NSManaged var receiver:UserContact?
+    @NSManaged var sender:UserContact?
 
     //New Work
     //chats
@@ -27,6 +30,7 @@ extension Conversation {
     //lastMessage
     @NSManaged public var timeStamp: Date
     @NSManaged public var senderId: Int64
+
     @NSManaged public var chatId: Int64
     @NSManaged public var lastMessageId: Int64
     @NSManaged public var lastMessage: String?

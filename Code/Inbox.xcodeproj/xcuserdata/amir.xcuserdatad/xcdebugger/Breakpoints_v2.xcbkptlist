@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "555748215.3753999"
+            timestampString = "556142835.284269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "687"
-            endingLineNumber = "687"
+            startingLineNumber = "732"
+            endingLineNumber = "732"
             landmarkName = "PostDataWithUrl(urlString:withParameterDictionary:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "555748215.375796"
+            timestampString = "556142835.284349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "508"
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "555748215.375923"
+            timestampString = "556142835.2844141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "735"
-            endingLineNumber = "735"
+            startingLineNumber = "780"
+            endingLineNumber = "780"
             landmarkName = "callSendMessageWebService(urlStr:parameters:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -132,27 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "555748215.376283"
+            timestampString = "556142835.28453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "623"
-            endingLineNumber = "623"
-            landmarkName = "PostDataWithUrl(urlString:withParameterDictionary:completionBlock:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/WebManager.swift"
-            timestampString = "555748215.376363"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636"
+            startingLineNumber = "681"
+            endingLineNumber = "681"
             landmarkName = "PostDataWithUrl(urlString:withParameterDictionary:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,6 +170,38 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "conversationSelected(conversation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/UserContactsParser.swift"
+            timestampString = "556185305.792922"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "parseUserContacts(json:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/UserContactsParser.swift"
+            timestampString = "556185305.7930191"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "parseUserContacts(json:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

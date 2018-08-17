@@ -612,6 +612,51 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+
+    static func getAllContacs(params: Dictionary<String,Any>,contactParser:UserContactsParser,completionBlockSuccess successBlock: @escaping ((Array<UserContact>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let token:String = params["token"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + "/api/v1/contacts/?onlyWithChat=" + CONTACTSWITHCHAT
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING
+        }
+        
+        print("\n ===== >>>>> Get Contact URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                successBlock(contactParser.parseUserContacts(json:response as! Dictionary<String, Any>))
+                        }
+                }
+                
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     internal static func PostDataWithUrl (urlString: String, withParameterDictionary parameters: Dictionary<String,Any>, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void))) {
         
         if Reachability.isInternetAvailable()

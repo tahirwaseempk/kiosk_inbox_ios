@@ -81,11 +81,11 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             
             messages = messages.sorted(by: { (mesage1, message2) -> Bool in
                 
-                if mesage1.messageTimeStamp.compare(message2.messageTimeStamp) == .orderedAscending
+                if mesage1.msgTimeStamp.compare(message2.msgTimeStamp) == .orderedAscending
                 {
                     return true
                 }
-                else if mesage1.messageTimeStamp.compare(message2.messageTimeStamp) == .orderedDescending
+                else if mesage1.msgTimeStamp.compare(message2.msgTimeStamp) == .orderedDescending
                 {
                     return false
                 }
@@ -133,7 +133,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         let formatter = DateFormatter()
         formatter.dateFormat = DATE_FORMATE_STRING
-        let outStr = formatter.string(from: message.messageTimeStamp)
+        let outStr = formatter.string(from: message.msgTimeStamp)
         
         if (message.isSender == false) {
             

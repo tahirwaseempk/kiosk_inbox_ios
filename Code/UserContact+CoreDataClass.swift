@@ -10,73 +10,68 @@
 import Foundation
 import CoreData
 
-@objc(UserContact)
+//@objc(UserContact)
 public class UserContact: NSManagedObject
 {
-    
-    static func syncContacts(completionBlockSuccess successBlock: @escaping ((Array<UserContact>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
-    {
-        /*var paramsDic = Dictionary<String, Any>()
-        paramsDic["serial"] = serial
-        paramsDic["uuid"] = uuid
+
+  static func getContactFromID(conID: Int64) -> UserContact? {
         
-        WebManager.requestLogin(params: paramsDic, loginParser: LoginParser(), completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
-            
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            
-                            let tempDict = response
-                            
-                            let user :User? = User.create(context: DEFAULT_CONTEXT,
-                                                          serial:serial,
-                                                          uuid:uuid,
-                                                          isRemember:isRemember,
-                                                          token: tempDict!["token"] as! String,
-                                                          userId: tempDict!["userId"] as! Int64,
-                                                          username: response!["username"] as! String,
-                                                          formattedUsername: tempDict!["formattedUsername"] as! String,
-                                                          email: tempDict!["email"] as! String,
-                                                          phone: tempDict!["phone"] as! String,
-                                                          mobile: tempDict!["mobile"] as! String,
-                                                          firstName: tempDict!["firstName"] as! String,
-                                                          lastName: tempDict!["lastName"] as! String,
-                                                          companyName: tempDict!["companyName"] as! String,
-                                                          address: tempDict!["address"] as! String,
-                                                          city: tempDict!["city"] as! String,
-                                                          country: tempDict!["country"] as! String,
-                                                          state: tempDict!["state"] as! String,
-                                                          zipCode: tempDict!["zipCode"] as! String,
-                                                          whiteLableConfigurationId: tempDict!["whiteLableConfigurationId"] as! Int64,
-                                                          userGroupId: tempDict!["userGroupId"] as! Int64,
-                                                          timezone: tempDict!["timezone"] as! Int64,
-                                                          license: tempDict!["license"] as! String)
-                            
-                            User.loginedUser = user
-                            
-                            self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
-                                
-                                DispatchQueue.global(qos: .background).async
-                                    {
-                                        DispatchQueue.main.async
-                                            {
-                                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                                
-                                                successBlock(user)
-                                        }
-                                }
-                                
-                            }, andFailureBlock: { (error: Error?) -> (Void) in
-                                
-                                failureBlock(error)
-                            })
-                    }
-            }
-            
-        }) { (error: Error?) -> (Void) in
-            
-            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
-        } */
+        //        let filteredMessages = messages?.filter { ($0 as! Message).messageId == messID }
+        //
+        //        if (filteredMessages?.count)! > 0 {
+        //            return filteredMessages?.first as? Message
+        //        }
+        //
+        return nil;
     }
 }
+
+extension UserContact {
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func create(context: NSManagedObjectContext, firstName_: String, lastName_: String, phoneNumber_: String, gender_: String, country_: String, zipCode_: String, address_: String, city_: String, state_: String, birthDate_: Date, email_: String, contactId_: Int64) -> UserContact {
+        
+        let contact = UserContact(context: context)
+        
+        contact.firstName = firstName_
+        contact.lastName = lastName_
+        contact.phoneNumber = phoneNumber_
+        contact.gender = gender_
+        contact.country = country_
+        contact.zipCode = zipCode_
+        contact.address = address_
+        contact.city = city_
+        contact.state = state_
+        contact.birthDate = birthDate_
+        contact.email = email_
+        contact.contactId = contactId_
+        
+        return contact
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    func update(firstName_: String,lastName_: String, phoneNumber_: String, gender_: String, country_: String, zipCode_: String, address_: String, city_: String, state_: String, birthDate_: Date, email_: String, contactId_: Int64) {
+        
+        self.firstName = firstName_
+        self.lastName = lastName_
+        self.phoneNumber = phoneNumber_
+        self.gender = gender_
+        self.country = country_
+        self.zipCode = zipCode_
+        self.address = address_
+        self.city = city_
+        self.state = state_
+        self.birthDate = birthDate_
+        self.email = email_
+        self.contactId = contactId_
+        
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+}
+//************************************************************************************************//
+//------------------------------------------------------------------------------------------------//
+//************************************************************************************************//

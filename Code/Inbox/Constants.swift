@@ -32,5 +32,5 @@ let ReceiverHex = "DFDEE5"
 
 let LIMIT = "0"
 let EMOJI = "false"
-
+let CONTACTSWITHCHAT = "false"
 //c8c176a0ed82274194f917b82b4df907714079959b88c0a3dea53eb2e8014750 FanConnect
