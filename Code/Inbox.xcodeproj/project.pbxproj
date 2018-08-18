@@ -528,9 +528,9 @@
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Inbox copy-Info.plist"; path = "/Volumes/NETSOL/Personal Data Amir/Current Working/Sir Wahab/June/Code/Inbox copy-Info.plist"; sourceTree = "<absolute>"; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
+		2939756A2128175E00962E04 /* PhotoTextingCom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoTextingCom.entitlements; sourceTree = "<group>"; };
 		293B6783211CE4B300576C0D /* FanConnectNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnectNow.entitlements; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
-		2960E1C72116F23E00F85ED0 /* PhotoTexting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoTexting.entitlements; sourceTree = "<group>"; };
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
 		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
@@ -706,8 +706,8 @@
 		1ADE9F711EF98E46006C2CAC = {
 			isa = PBXGroup;
 			children = (
+				2939756A2128175E00962E04 /* PhotoTextingCom.entitlements */,
 				293B6783211CE4B300576C0D /* FanConnectNow.entitlements */,
-				2960E1C72116F23E00F85ED0 /* PhotoTexting.entitlements */,
 				29017325211666B600D00E06 /* SMSFactory.entitlements */,
 				759C5BCE1FC5F1F4007889E7 /* Inbox.entitlements */,
 				1ADE9F7C1EF98E48006C2CAC /* Classes */,
@@ -1203,7 +1203,7 @@
 						};
 					};
 					29FD0F9B21160D1000062362 = {
-						DevelopmentTeam = TWA5JJ29B2;
+						DevelopmentTeam = G3K37RYC9A;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -2007,11 +2007,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Photo_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = PhotoTexting.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_ENTITLEMENTS = PhotoTextingCom.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = G3K37RYC9A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2019,10 +2019,10 @@
 				INFOPLIST_FILE = "FanConnect copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.phototexting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.phototextingcom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "06f59d58-5861-4f91-9ab3-a1754feb8c8e";
-				PROVISIONING_PROFILE_SPECIFIER = PhotoTextingAppStore;
+				PROVISIONING_PROFILE = "f4a9fedc-37ea-4400-8dac-18fa691f38de";
+				PROVISIONING_PROFILE_SPECIFIER = PhotographyTextingAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2036,11 +2036,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Photo_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = PhotoTexting.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_ENTITLEMENTS = PhotoTextingCom.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = G3K37RYC9A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2048,10 +2048,10 @@
 				INFOPLIST_FILE = "FanConnect copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.phototexting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.phototextingcom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "06f59d58-5861-4f91-9ab3-a1754feb8c8e";
-				PROVISIONING_PROFILE_SPECIFIER = PhotoTextingAppStore;
+				PROVISIONING_PROFILE = "f4a9fedc-37ea-4400-8dac-18fa691f38de";
+				PROVISIONING_PROFILE_SPECIFIER = PhotographyTextingAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
