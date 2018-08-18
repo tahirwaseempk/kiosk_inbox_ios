@@ -402,7 +402,7 @@ class WebManager: NSObject
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
        
-        let lastMsgId:String = params["lastMessageId"] as! String
+        let chatID:String = params["chatID"] as! String
         let token:String = params["token"] as! String
 
         var finalUrl = ""
@@ -410,7 +410,7 @@ class WebManager: NSObject
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + "/api/v1/messages/new" + "?lastId=" + lastMsgId
+            finalUrl = URL_TEXTING_LINE + "/api/v1/messages/" + chatID
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + CHAT_URL + uuid + CHAT_URL_BEFORE_SERIAL + serial + CHAT_URL_BEFORE_MOBILE + mobile + CHAT_URL_BEFORE_SHORTCODE + shortCode
         case .fan_Connect:

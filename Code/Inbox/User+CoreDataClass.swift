@@ -299,7 +299,7 @@ extension User
             paramsDic["shortCode"] = "1" //conversation.shortCode
             
             paramsDic["token"] = user.token
-            paramsDic["lastMessageId"] = String(conversation.lastMessageId)
+            paramsDic["chatID"] = String(conversation.chatId)
             
             
             WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in

@@ -15,7 +15,7 @@
         <!--Conversation Detail View Controller-->
         <scene sceneID="kkr-ff-7YH">
             <objects>
-                <viewController storyboardIdentifier="ConversationDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nXl-5u-ZEJ" customClass="ConversationDetailViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nXl-5u-ZEJ" customClass="ConversationDetailViewController" customModule="FanConnectMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HBk-8f-W1l"/>
                         <viewControllerLayoutGuide type="bottom" id="E29-x1-XIJ"/>
@@ -72,7 +72,7 @@
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
+                                        <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaL-FU-23c">
                                         <rect key="frame" x="324" y="27" width="30" height="30"/>
@@ -139,7 +139,7 @@
                                             <action selector="backButton_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="RX8-iX-uu8"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDw-se-gWa">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDw-se-gWa">
                                         <rect key="frame" x="5" y="64" width="19" height="9"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

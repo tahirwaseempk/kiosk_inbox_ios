@@ -14,13 +14,6 @@ import Foundation
 //************************************************************************************************//
 class UserContactsParser: NSObject
 {
-//    var userContactObj : UserContact!
-//
-//    init(_ userContact_: UserContact) {
-//        
-//        self.userContactObj = userContact_
-//        super.init()
-//    }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
@@ -48,16 +41,8 @@ class UserContactsParser: NSObject
                     let phoneNo = checkForNull(value: (dic["phoneNumber"] as AnyObject))
                     let gender = checkForNull(value: (dic["gender"] as AnyObject))
                     let email = checkForNull(value: (dic["email"] as AnyObject))
-
-//                    let fName = dic["firstName"] as! String
-//                    let lName = dic["lastName"] as! String
-//                    let phoneNo = dic["phoneNumber"] as! String
-//                    let gender = dic["gender"] as! String
                     let contactId = dic["id"] as! Int64
-                    //let birthOfDate = dic["birthDate"] as! String
-//                    let email = dic["email"] as! String
                     let locationDict = dic["locationDetails"] as! Dictionary<String,Any>
-
                     let country = checkForNull(value: (locationDict["country"] as AnyObject))
                     let zipCode = checkForNull(value: (locationDict["zipCode"] as AnyObject))
                     let address = checkForNull(value: (locationDict["address"] as AnyObject))
@@ -76,7 +61,7 @@ class UserContactsParser: NSObject
                     //                    }
                     
                     if contact == nil {
-                    
+                        
                         contact = UserContact.create(context: DEFAULT_CONTEXT,
                                                      firstName_: fName,
                                                      lastName_: lName,
@@ -92,7 +77,7 @@ class UserContactsParser: NSObject
                                                      contactId_: contactId)
                         
                         contactsArr.append(contact!)
-                   }
+                    }
                     else
                     {
                         contact?.update(firstName_: fName,

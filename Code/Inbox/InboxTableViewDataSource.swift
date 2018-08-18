@@ -128,7 +128,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         if conversation.lastMessage != nil
         {
-            cell.titleLabel.text = "MOBILE NUMBER"//conversation.mobile
+            cell.titleLabel.text = conversation.receiver?.phoneNumber//"MOBILE NUMBER"//conversation.mobile
             cell.detailLabel.text = conversation.lastMessage
             
             let dateFormatter = DateFormatter()

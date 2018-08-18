@@ -125,7 +125,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             //            else
             //            {
             
-            self.scheduleAppointmentViewController.headerTitleString = "NUMBER SHOW KERNA"//self.selectedConversation.mobile!
+            self.scheduleAppointmentViewController.headerTitleString = (self.selectedConversation.receiver?.phoneNumber)!//"NUMBER SHOW KERNA"//self.selectedConversation.mobile!
             
             //            }
             
@@ -435,36 +435,34 @@ extension ConversationDetailViewController {
         {
             if UIDevice.current.userInterfaceIdiom == .pad
             {
-                self.messageFromLabel.text = "FIRST LAST NAME" //(self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
-                
-                self.messageNumberLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
-            }
-            else
-            {
-                /*
-                if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
+                if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
-                    self.messageFromLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
-                    
-                    self.messageNumberLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
+                    self.messageFromLabel.text = self.selectedConversation.receiver?.firstName
+                    self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
-                else
-                {
-                    self.messageFromLabel.text = "MOBILE NUMBER" //self.selectedConversation.mobile
-                    
+                else {
+                    self.messageFromLabel.text = self.selectedConversation.receiver?.phoneNumber
                     self.messageNumberLabel.text = ""
                 }
-                */
             }
-            
-            self.shortCodeLabel.text = "SHORT CODE" //self.selectedConversation.shortcodeDisplay
+            else {
+                // If Device is iPhone/iPod
+                if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
+                {
+                    self.messageFromLabel.text = self.selectedConversation.receiver?.firstName //+
+                    self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
+                }
+                else {
+                    self.messageFromLabel.text = self.selectedConversation.receiver?.phoneNumber
+                    self.messageNumberLabel.text = ""
+                }
+            }
+            self.shortCodeLabel.text = ""
         }
         else
         {
             self.messageFromLabel.text =  ""
-            
             self.messageNumberLabel.text = ""
-            
             self.shortCodeLabel.text = ""
         }
         
