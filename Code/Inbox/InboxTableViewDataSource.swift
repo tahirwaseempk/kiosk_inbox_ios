@@ -170,15 +170,17 @@ extension InboxTableViewDataSource:SearchViewProtocol
         {
             filteredConversations = conversations.filter({ (conversation1) -> Bool in
                 
-//                if ((conversation1.mobileNumber?.contains(text))! || (conversation1.lastMessage?.contains(text))!)
-//                {
-//                    selectedConversation = nil
-//                    return true
-//                }
-//                else
-//                {
+                if ((conversation1.sender?.phoneNumber?.contains(text))! ||
+                    (conversation1.receiver?.phoneNumber?.contains(text))! ||
+                    (conversation1.lastMessage?.contains(text))!)
+                {
+                    selectedConversation = nil
+                    return true
+                }
+                else
+                {
                     return false
-//                }
+                }
             })
         }
         else
