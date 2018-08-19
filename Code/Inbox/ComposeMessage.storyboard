@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
         <!--Compose Message View Controller-->
         <scene sceneID="eyL-hh-WGe">
             <objects>
-                <viewController storyboardIdentifier="ComposeMessageViewController" id="AKq-vz-dqd" customClass="ComposeMessageViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComposeMessageViewController" id="AKq-vz-dqd" customClass="ComposeMessageViewController" customModule="FanConnectMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i4X-AW-3Mn"/>
                         <viewControllerLayoutGuide type="bottom" id="34A-s5-sOB"/>
@@ -30,10 +31,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-05-YoR">
-                                <rect key="frame" x="32" y="83.5" width="256" height="314"/>
+                                <rect key="frame" x="32" y="83.5" width="256" height="313.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAV-bb-VpN">
-                                        <rect key="frame" x="18" y="259" width="100" height="40"/>
+                                        <rect key="frame" x="18" y="258.5" width="100" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Send">
@@ -44,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDQ-cw-CwP">
-                                        <rect key="frame" x="138" y="259" width="100" height="40"/>
+                                        <rect key="frame" x="138" y="258.5" width="100" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Lgu-Sb-7fR"/>
                                             <constraint firstAttribute="width" constant="100" id="VoZ-VO-Fyr"/>
@@ -80,7 +81,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIm-dx-chc">
-                                        <rect key="frame" x="23" y="77" width="213" height="40"/>
+                                        <rect key="frame" x="23" y="77" width="131" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="qhM-0U-5sw"/>
@@ -99,7 +100,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPOSE MESSAGE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiW-Yh-tms">
-                                        <rect key="frame" x="23" y="14" width="181" height="52"/>
+                                        <rect key="frame" x="23" y="14" width="181.5" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="Xgy-2g-WnE"/>
                                         </constraints>
@@ -108,7 +109,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYb-kZ-VHO">
-                                        <rect key="frame" x="23" y="235" width="213" height="14"/>
+                                        <rect key="frame" x="23" y="235" width="213" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -120,16 +121,26 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yge-Xb-xjD" userLabel="ContactsButton">
-                                        <rect key="frame" x="198" y="77" width="40" height="39"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="PGe-8A-8jT"/>
-                                        </constraints>
+                                        <rect key="frame" x="154" y="77" width="41" height="40.5"/>
+                                        <color key="backgroundColor" red="1" green="0.1616903123" blue="0.89863799229999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="ic_person_add">
                                             <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="contactsButton_Tapped:" destination="AKq-vz-dqd" eventType="touchUpInside" id="4VF-ZP-BuY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvi-iD-5oS" userLabel="ContactsButton">
+                                        <rect key="frame" x="195" y="77.5" width="41" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.99539288380000002" blue="0.28673177239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Uvi-iD-5oS" secondAttribute="height" multiplier="40:39" id="oYm-Pw-Hm2"/>
+                                        </constraints>
+                                        <state key="normal" image="ic_person_add">
+                                            <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="appContactsButton_Tapped:" destination="AKq-vz-dqd" eventType="touchUpInside" id="Ae9-Jn-KCN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -139,22 +150,27 @@
                                     <constraint firstItem="RDQ-cw-CwP" firstAttribute="centerX" secondItem="b5P-05-YoR" secondAttribute="centerX" constant="60" id="3nQ-Jo-Hav"/>
                                     <constraint firstItem="FiW-Yh-tms" firstAttribute="top" secondItem="b5P-05-YoR" secondAttribute="top" constant="14" id="5T4-YE-8QV"/>
                                     <constraint firstItem="RDQ-cw-CwP" firstAttribute="centerX" secondItem="b5P-05-YoR" secondAttribute="centerX" constant="85" id="6XR-V1-Lar"/>
+                                    <constraint firstItem="Uvi-iD-5oS" firstAttribute="height" secondItem="gIm-dx-chc" secondAttribute="height" id="8fw-29-Nzf"/>
                                     <constraint firstItem="UAV-bb-VpN" firstAttribute="height" secondItem="RDQ-cw-CwP" secondAttribute="height" id="AS7-HV-Uyw"/>
-                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="centerY" secondItem="gIm-dx-chc" secondAttribute="centerY" id="B1R-xU-4ob"/>
-                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="trailing" secondItem="RDQ-cw-CwP" secondAttribute="trailing" id="BGS-QB-eoz"/>
                                     <constraint firstAttribute="trailing" secondItem="7ug-oL-tYW" secondAttribute="trailing" constant="20" id="GSs-qK-u56"/>
                                     <constraint firstItem="gIm-dx-chc" firstAttribute="top" secondItem="FiW-Yh-tms" secondAttribute="bottom" constant="11" id="Gb0-9B-fRm"/>
                                     <constraint firstItem="7ug-oL-tYW" firstAttribute="leading" secondItem="b5P-05-YoR" secondAttribute="leading" constant="23" id="Kvp-fL-EJV"/>
+                                    <constraint firstItem="Uvi-iD-5oS" firstAttribute="centerY" secondItem="gIm-dx-chc" secondAttribute="centerY" id="MSD-sM-sye"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uvi-iD-5oS" secondAttribute="trailing" constant="20" id="OPW-1M-Wds"/>
+                                    <constraint firstItem="Uvi-iD-5oS" firstAttribute="leading" secondItem="yge-Xb-xjD" secondAttribute="trailing" id="Qyc-U2-ypL"/>
+                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="centerY" secondItem="Uvi-iD-5oS" secondAttribute="centerY" id="TSb-0p-xIi"/>
                                     <constraint firstItem="gIm-dx-chc" firstAttribute="leading" secondItem="b5P-05-YoR" secondAttribute="leading" constant="23" id="UI3-eT-4xa"/>
+                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="bottom" secondItem="Uvi-iD-5oS" secondAttribute="bottom" id="UIz-nx-Rug"/>
                                     <constraint firstItem="FiW-Yh-tms" firstAttribute="leading" secondItem="b5P-05-YoR" secondAttribute="leading" constant="23" id="UrU-u5-rCx"/>
-                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="top" secondItem="gIm-dx-chc" secondAttribute="top" id="X2a-Cf-6Jv"/>
+                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="top" secondItem="Uvi-iD-5oS" secondAttribute="top" id="W3q-t3-Tx5"/>
                                     <constraint firstAttribute="bottom" secondItem="RDQ-cw-CwP" secondAttribute="bottom" constant="15" id="XiT-2j-Xfm"/>
                                     <constraint firstItem="UAV-bb-VpN" firstAttribute="width" secondItem="RDQ-cw-CwP" secondAttribute="width" id="YMx-dg-Z0b"/>
                                     <constraint firstItem="DYb-kZ-VHO" firstAttribute="top" secondItem="7ug-oL-tYW" secondAttribute="bottom" constant="5" id="YlK-Di-wna"/>
                                     <constraint firstItem="DYb-kZ-VHO" firstAttribute="trailing" secondItem="7ug-oL-tYW" secondAttribute="trailing" id="b0k-2G-jcy"/>
-                                    <constraint firstAttribute="trailing" secondItem="gIm-dx-chc" secondAttribute="trailing" constant="20" id="fra-J1-pBL"/>
+                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="width" secondItem="Uvi-iD-5oS" secondAttribute="width" id="bo8-o8-ywk"/>
                                     <constraint firstItem="RDQ-cw-CwP" firstAttribute="leading" secondItem="UAV-bb-VpN" secondAttribute="trailing" constant="20" id="hZi-lF-6CJ"/>
                                     <constraint firstItem="DYb-kZ-VHO" firstAttribute="leading" secondItem="7ug-oL-tYW" secondAttribute="leading" id="nUk-rn-xZM"/>
+                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="leading" secondItem="gIm-dx-chc" secondAttribute="trailing" id="onP-IP-gOH"/>
                                     <constraint firstItem="UAV-bb-VpN" firstAttribute="top" secondItem="RDQ-cw-CwP" secondAttribute="top" id="pb7-e8-Grn"/>
                                     <constraint firstItem="RDQ-cw-CwP" firstAttribute="top" secondItem="DYb-kZ-VHO" secondAttribute="bottom" constant="10" id="prQ-qq-Kmu"/>
                                 </constraints>

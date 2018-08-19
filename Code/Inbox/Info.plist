@@ -52,5 +52,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSContactsUsageDescription</key>
+	<string>$(PRODUCT_NAME) will access your contacts to send receive messages.</string>
 </dict>
 </plist>

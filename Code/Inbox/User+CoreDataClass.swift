@@ -858,17 +858,27 @@ extension User
             {
                 for conv in chats
                 {
+                    var isSenderFound = false
+                    
                     for contact in contracts
                     {
-                        if conv.senderId == user?.userId
+                        if conv.senderId == contact.contactId
                         {
                             conv.sender = contact
+                            
+                            isSenderFound = true
                         }
+                        
                         
                         if conv.contactId == contact.contactId
                         {
                             conv.receiver = contact
                         }
+                    }
+                    
+                    if isSenderFound == false
+                    {
+                        //conv.sender = contact
                     }
                 }
             }

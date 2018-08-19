@@ -446,6 +446,42 @@
 		75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
 		75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
 		75F731E61F389B3D00DBDA84 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
+		9A1638CA2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
+		9A1638CB2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
+		9A1638CC2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
+		9A1638CD2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
+		9A1638D52129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
+		9A1638D62129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
+		9A1638D72129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
+		9A1638D82129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
+		9A1638D92129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
+		9A1638DA2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
+		9A1638DB2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
+		9A1638DC2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
+		9A1638DD2129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
+		9A1638DE2129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
+		9A1638DF2129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
+		9A1638E02129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
+		9A1638E12129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
+		9A1638E22129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
+		9A1638E32129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
+		9A1638E42129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
+		9A1638E52129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
+		9A1638E62129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
+		9A1638E72129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
+		9A1638E82129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
+		9A1638E92129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
+		9A1638EA2129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
+		9A1638EB2129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
+		9A1638EC2129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
+		9A1638ED2129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
+		9A1638EE2129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
+		9A1638EF2129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
+		9A1638F02129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
+		9A1638F22129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
+		9A1638F32129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
+		9A1638F42129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
+		9A1638F52129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -618,6 +654,15 @@
 		75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeMessageViewController.swift; sourceTree = "<group>"; };
 		75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ComposeMessage.storyboard; sourceTree = "<group>"; };
 		75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContactsPickerViewController.swift; sourceTree = "<group>"; };
+		9A1638CE2129CE3F009A865F /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
+		9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionCollectionView.swift; sourceTree = "<group>"; };
+		9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMultiSelect.swift; sourceTree = "<group>"; };
+		9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableView.swift; sourceTree = "<group>"; };
+		9A1638D22129CE40009A865F /* ContactsLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsLibrary.swift; sourceTree = "<group>"; };
+		9A1638D32129CE41009A865F /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
+		9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionViewController.swift; sourceTree = "<group>"; };
+		9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppContactsPickerViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1101,8 +1146,25 @@
 				759C5BCF1FC605C7007889E7 /* Protocol */,
 				75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */,
 				75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */,
+				9A1638C82129C9BA009A865F /* App Contacts Picker View */,
 			);
 			name = ComposeMessage;
+			sourceTree = "<group>";
+		};
+		9A1638C82129C9BA009A865F /* App Contacts Picker View */ = {
+			isa = PBXGroup;
+			children = (
+				9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */,
+				9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */,
+				9A1638D22129CE40009A865F /* ContactsLibrary.swift */,
+				9A1638D32129CE41009A865F /* CustomCollectionCell.swift */,
+				9A1638CE2129CE3F009A865F /* CustomTableCell.swift */,
+				9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */,
+				9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */,
+				9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */,
+				9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */,
+			);
+			name = "App Contacts Picker View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1258,6 +1320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */,
+				9A1638F22129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */,
 				1ADE9F881EF98E4A006C2CAC /* TextingLine.xcassets in Resources */,
 				752CE4421F27E24900FCC976 /* IQButtonBarArrowUp@3x.png in Resources */,
@@ -1302,6 +1365,7 @@
 				29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */,
 				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
 				290BEDEE20E697EC00F30BAA /* ComposeMessage.storyboard in Resources */,
+				9A1638F32129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				290BEDEF20E697EC00F30BAA /* IQButtonBarArrowRight@3x.png in Resources */,
 				290BEDF020E697EC00F30BAA /* IQButtonBarArrowLeft@2x.png in Resources */,
 				290BEDF120E697EC00F30BAA /* SearchView.xib in Resources */,
@@ -1333,6 +1397,7 @@
 				29FD0F8921160D0500062362 /* Fanconnect.xcassets in Resources */,
 				29FD0F8A21160D0500062362 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				29FD0F8B21160D0500062362 /* ComposeMessage.storyboard in Resources */,
+				9A1638F42129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				29FD0F8C21160D0500062362 /* IQButtonBarArrowRight@3x.png in Resources */,
 				29FD0F8D21160D0500062362 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				29FD0F8E21160D0500062362 /* SearchView.xib in Resources */,
@@ -1364,6 +1429,7 @@
 				29FD0FFE21160D1000062362 /* Fanconnect.xcassets in Resources */,
 				29FD0FFF21160D1000062362 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				29FD100021160D1000062362 /* ComposeMessage.storyboard in Resources */,
+				9A1638F52129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				29FD100121160D1000062362 /* IQButtonBarArrowRight@3x.png in Resources */,
 				29FD100221160D1000062362 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				29FD100321160D1000062362 /* SearchView.xib in Resources */,
@@ -1387,10 +1453,12 @@
 				752CE4441F27E24900FCC976 /* IQKeyboardManagerConstants.swift in Sources */,
 				1AE37F3E20601992009C4625 /* CounterView.swift in Sources */,
 				752CE44A1F27E24900FCC976 /* IQTitleBarButtonItem.swift in Sources */,
+				9A1638E12129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
 				759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */,
 				752CE4461F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				1A3475252062CA6100FA0FFB /* GCCalendarDayView.swift in Sources */,
+				9A1638E52129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
 				752CE4491F27E24900FCC976 /* IQTextView.swift in Sources */,
 				7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */,
@@ -1407,6 +1475,7 @@
 				755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */,
 				1A3475262062CA6100FA0FFB /* GCCalendarView.swift in Sources */,
 				1A3475282062CA6100FA0FFB /* GCCalendarConfiguration.swift in Sources */,
+				9A1638E92129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
 				759C5BEA1FC60C08007889E7 /* PushyNetworkException.swift in Sources */,
@@ -1440,12 +1509,14 @@
 				046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				1A3475292062CA6100FA0FFB /* GCCalendarMonthView.swift in Sources */,
 				1AE37F4320603C48009C4625 /* Popover.swift in Sources */,
+				9A1638CA2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
 				04EC9FBB1FC373C500F3C42A /* User+CoreDataClass.swift in Sources */,
 				1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				759C5BE41FC60C08007889E7 /* PushyRegistrationException.swift in Sources */,
 				754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */,
+				9A1638DD2129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
 				759C5BE71FC60C08007889E7 /* PushyPubSubException.swift in Sources */,
 				752CE44B1F27E24900FCC976 /* IQToolbar.swift in Sources */,
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
@@ -1455,6 +1526,7 @@
 				759C5BE51FC60C08007889E7 /* PushyKeychain.swift in Sources */,
 				752CE4471F27E24900FCC976 /* IQNSArray+Sort.swift in Sources */,
 				1AE37F3A206017BB009C4625 /* ScheduleAppointmentViewController.swift in Sources */,
+				9A1638D92129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
 				759C5BE91FC60C08007889E7 /* PushyConfig.swift in Sources */,
 				750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
@@ -1463,7 +1535,9 @@
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 				295EA29321204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
+				9A1638D52129CE41009A865F /* CustomTableCell.swift in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
+				9A1638ED2129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 				750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -1477,10 +1551,12 @@
 				290BED8F20E697EC00F30BAA /* IQKeyboardManagerConstants.swift in Sources */,
 				290BED9020E697EC00F30BAA /* CounterView.swift in Sources */,
 				290BED9120E697EC00F30BAA /* IQTitleBarButtonItem.swift in Sources */,
+				9A1638E22129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				290BED9220E697EC00F30BAA /* InboxTableViewCellProtocol.swift in Sources */,
 				290BED9320E697EC00F30BAA /* ComposeMessageProtocol.swift in Sources */,
 				290BED9420E697EC00F30BAA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */,
+				9A1638E62129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */,
 				290BED9720E697EC00F30BAA /* IQTextView.swift in Sources */,
 				290BED9820E697EC00F30BAA /* ChatCellSettings.m in Sources */,
@@ -1497,6 +1573,7 @@
 				290BEDA320E697EC00F30BAA /* MessagesParser.swift in Sources */,
 				290BEDA420E697EC00F30BAA /* GCCalendarView.swift in Sources */,
 				290BEDA520E697EC00F30BAA /* GCCalendarConfiguration.swift in Sources */,
+				9A1638EA2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
 				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
 				290BEDA820E697EC00F30BAA /* PushyNetworkException.swift in Sources */,
@@ -1530,12 +1607,14 @@
 				290BEDC220E697EC00F30BAA /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				290BEDC320E697EC00F30BAA /* GCCalendarMonthView.swift in Sources */,
 				290BEDC420E697EC00F30BAA /* Popover.swift in Sources */,
+				9A1638CB2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				290BEDC520E697EC00F30BAA /* AppDelegate.swift in Sources */,
 				290BEDC620E697EC00F30BAA /* User+CoreDataClass.swift in Sources */,
 				290BEDC720E697EC00F30BAA /* ConversationListingViewController.swift in Sources */,
 				290BEDC820E697EC00F30BAA /* InboxTableViewDataSource.swift in Sources */,
 				290BEDC920E697EC00F30BAA /* PushyRegistrationException.swift in Sources */,
 				290BEDCA20E697EC00F30BAA /* ProcessingIndicatorHandler.swift in Sources */,
+				9A1638DE2129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
 				290BEDCB20E697EC00F30BAA /* PushyPubSubException.swift in Sources */,
 				290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */,
 				290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */,
@@ -1545,6 +1624,7 @@
 				290BEDD120E697EC00F30BAA /* PushyKeychain.swift in Sources */,
 				290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */,
 				290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */,
+				9A1638DA2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
 				290BEDD420E697EC00F30BAA /* PushyConfig.swift in Sources */,
 				290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */,
 				290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */,
@@ -1553,7 +1633,9 @@
 				290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */,
 				295EA29421204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
+				9A1638D62129CE41009A865F /* CustomTableCell.swift in Sources */,
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
+				9A1638EE2129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
 				290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */,
 			);
@@ -1567,10 +1649,12 @@
 				29FD0F2921160D0500062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0F2A21160D0500062362 /* CounterView.swift in Sources */,
 				29FD0F2B21160D0500062362 /* IQTitleBarButtonItem.swift in Sources */,
+				9A1638E32129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				29FD0F2C21160D0500062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				29FD0F2D21160D0500062362 /* ComposeMessageProtocol.swift in Sources */,
 				29FD0F2E21160D0500062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */,
+				9A1638E72129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0F3121160D0500062362 /* IQTextView.swift in Sources */,
 				29FD0F3221160D0500062362 /* ChatCellSettings.m in Sources */,
@@ -1587,6 +1671,7 @@
 				29FD0F3D21160D0500062362 /* MessagesParser.swift in Sources */,
 				29FD0F3E21160D0500062362 /* GCCalendarView.swift in Sources */,
 				29FD0F3F21160D0500062362 /* GCCalendarConfiguration.swift in Sources */,
+				9A1638EB2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
 				29FD0F4221160D0500062362 /* PushyNetworkException.swift in Sources */,
@@ -1620,12 +1705,14 @@
 				29FD0F5C21160D0500062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				29FD0F5D21160D0500062362 /* GCCalendarMonthView.swift in Sources */,
 				29FD0F5E21160D0500062362 /* Popover.swift in Sources */,
+				9A1638CC2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				29FD0F5F21160D0500062362 /* AppDelegate.swift in Sources */,
 				29FD0F6021160D0500062362 /* User+CoreDataClass.swift in Sources */,
 				29FD0F6121160D0500062362 /* ConversationListingViewController.swift in Sources */,
 				29FD0F6221160D0500062362 /* InboxTableViewDataSource.swift in Sources */,
 				29FD0F6321160D0500062362 /* PushyRegistrationException.swift in Sources */,
 				29FD0F6421160D0500062362 /* ProcessingIndicatorHandler.swift in Sources */,
+				9A1638DF2129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
 				29FD0F6521160D0500062362 /* PushyPubSubException.swift in Sources */,
 				29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */,
 				29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */,
@@ -1635,6 +1722,7 @@
 				29FD0F6B21160D0500062362 /* PushyKeychain.swift in Sources */,
 				29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				9A1638DB2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
 				29FD0F6E21160D0500062362 /* PushyConfig.swift in Sources */,
 				29FD0F6F21160D0500062362 /* SearchView.swift in Sources */,
 				29FD0F7021160D0500062362 /* Reachability.swift in Sources */,
@@ -1643,7 +1731,9 @@
 				29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */,
 				295EA29521204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
+				9A1638D72129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */,
+				9A1638EF2129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				29FD0F7621160D0500062362 /* Constants.swift in Sources */,
 				29FD0F7721160D0500062362 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -1657,10 +1747,12 @@
 				29FD0F9E21160D1000062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0F9F21160D1000062362 /* CounterView.swift in Sources */,
 				29FD0FA021160D1000062362 /* IQTitleBarButtonItem.swift in Sources */,
+				9A1638E42129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				29FD0FA121160D1000062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				29FD0FA221160D1000062362 /* ComposeMessageProtocol.swift in Sources */,
 				29FD0FA321160D1000062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */,
+				9A1638E82129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0FA621160D1000062362 /* IQTextView.swift in Sources */,
 				29FD0FA721160D1000062362 /* ChatCellSettings.m in Sources */,
@@ -1677,6 +1769,7 @@
 				29FD0FB221160D1000062362 /* MessagesParser.swift in Sources */,
 				29FD0FB321160D1000062362 /* GCCalendarView.swift in Sources */,
 				29FD0FB421160D1000062362 /* GCCalendarConfiguration.swift in Sources */,
+				9A1638EC2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
 				29FD0FB721160D1000062362 /* PushyNetworkException.swift in Sources */,
@@ -1710,12 +1803,14 @@
 				29FD0FD121160D1000062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				29FD0FD221160D1000062362 /* GCCalendarMonthView.swift in Sources */,
 				29FD0FD321160D1000062362 /* Popover.swift in Sources */,
+				9A1638CD2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				29FD0FD421160D1000062362 /* AppDelegate.swift in Sources */,
 				29FD0FD521160D1000062362 /* User+CoreDataClass.swift in Sources */,
 				29FD0FD621160D1000062362 /* ConversationListingViewController.swift in Sources */,
 				29FD0FD721160D1000062362 /* InboxTableViewDataSource.swift in Sources */,
 				29FD0FD821160D1000062362 /* PushyRegistrationException.swift in Sources */,
 				29FD0FD921160D1000062362 /* ProcessingIndicatorHandler.swift in Sources */,
+				9A1638E02129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
 				29FD0FDA21160D1000062362 /* PushyPubSubException.swift in Sources */,
 				29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */,
 				29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */,
@@ -1725,6 +1820,7 @@
 				29FD0FE021160D1000062362 /* PushyKeychain.swift in Sources */,
 				29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				9A1638DC2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
 				29FD0FE321160D1000062362 /* PushyConfig.swift in Sources */,
 				29FD0FE421160D1000062362 /* SearchView.swift in Sources */,
 				29FD0FE521160D1000062362 /* Reachability.swift in Sources */,
@@ -1733,7 +1829,9 @@
 				29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */,
 				295EA29621204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,
+				9A1638D82129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */,
+				9A1638F02129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				29FD0FEB21160D1000062362 /* Constants.swift in Sources */,
 				29FD0FEC21160D1000062362 /* SearchViewProtocol.swift in Sources */,
 			);

@@ -25,6 +25,8 @@ class ComposeMessageViewController: UIViewController {
     
     var delegate : ComposeMessageProtocol? = nil
     
+    let appContactsPickerViewController = UIStoryboard.init(name: "AppContactsPickerViewController", bundle: nil).instantiateViewController(withIdentifier: "AppContactsPickerViewController") as! AppContactsPickerViewController
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -369,7 +371,20 @@ extension ComposeMessageViewController {
         })
         return true
     }
-    
+}
+
+extension ComposeMessageViewController
+{
+    @IBAction func appContactsButton_Tapped(_ sender: Any)
+    {
+        self.view.addSubview(self.appContactsPickerViewController.view)
+        
+        //self.appContactsPickerViewController.delegate = self
+        
+        //self.present(appContactsPickerViewController, animated: true, completion: nil)
+
+        //self.conversationListingViewController.navigationController?.pushViewController(self.conversationDetailViewController, animated: true)
+    }
 }
 
 
