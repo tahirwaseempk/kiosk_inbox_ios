@@ -35,37 +35,37 @@ class ConversationParser: NSObject {
                 if dic.count > 0
                 {
                     let contactId = dic["contactId"] as! Int64
+                   
                     let unread : Bool
                     if (dic["unreadMessages"] as! Int == 1){
                         unread = true
                     } else {
                         unread = false
                     }
-                    let conversationId = dic["id"] as! Int64
                     let lastMessageDict = dic["lastMessage"] as! Dictionary<String,Any>
-                    //                    let timeStamp = lastMessagenDict["timeStamp"] as! String
                     let senderId = lastMessageDict["senderId"] as! Int64
-                    let chatId = lastMessageDict["chatId"] as! Int64
+                    let chatId = dic["id"] as! Int64 //lastMessageDict["chatId"] as! Int64
                     let lastMessageId = lastMessageDict["id"] as! Int64
-                    let lastMessage = lastMessageDict["text"] as! String
-                   
-                    var conversation: Conversation? = User.getLoginedUser()?.getConverstaionFromID(conID: conversationId);
+                    let lastMessage = checkForNull(value: (lastMessageDict["text"] as AnyObject))
                     
                     var msgDate = Date()
-                    if let dateStr:String = dic["timeStamp"] as? String {
+                    if var dateStr = lastMessageDict["timeStamp"] as? String {
                         if dateStr.count > 0 {
+                            dateStr = convertTimeStampToDateString(tsString: dateStr)
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = DATE_FORMATE_STRING
                             msgDate = dateFormatter.date(from: dateStr)!
                         }
                     }
+                    //------------------------------------------------------------------------------------------------//
+                    var conversation: Conversation? = User.getLoginedUser()?.getConverstaionFromID(chatID_: chatId);
+                    //------------------------------------------------------------------------------------------------//
                     
                     if conversation == nil {
                         
                         conversation = Conversation.create(context: DEFAULT_CONTEXT,
                                                            contactId_: contactId,
                                                            unreadMessages_: unread,
-                                                           conversationId_: conversationId,
                                                            timeStamp_: msgDate,
                                                            senderId_: senderId,
                                                            chatId_: chatId,
@@ -78,7 +78,6 @@ class ConversationParser: NSObject {
                     {
                         conversation?.update(contactId_: contactId,
                                               unreadMessages_: unread,
-                                              conversationId_: conversationId,
                                               timeStamp_: msgDate,
                                               senderId_: senderId,
                                               chatId_: chatId,
@@ -96,6 +95,17 @@ class ConversationParser: NSObject {
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    func checkForNull(value:AnyObject) -> String
+    {
+        if(value as! NSObject == NSNull() || value as! String == "")
+        {
+            return ""
+        }
+        else
+        {
+            return value as! String
+        }
+    }
 }
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

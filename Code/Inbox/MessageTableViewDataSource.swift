@@ -132,7 +132,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         let message:Message = messages[indexPath.row]
         
         let formatter = DateFormatter()
-        formatter.dateFormat = DATE_FORMATE_STRING
+        formatter.dateFormat = DISPLAY_FORMATE_STRING
         let outStr = formatter.string(from: message.msgTimeStamp)
         
         if (message.isSender == false) {
@@ -140,7 +140,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
             
             chatCell.chatMessageLabel.text = message.messageText
-            chatCell.chatNameLabel.text = "MOBILE NUMBER"//message.mobile
+            chatCell.chatNameLabel.text = self.selectedConversation?.receiver?.phoneNumber //"MOBILE NUMBER"//message.mobile
             chatCell.chatTimeLabel.text = outStr
             //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
             chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver

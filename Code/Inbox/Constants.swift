@@ -5,7 +5,8 @@ let activityWidth = 60
 let ACTIVITY_VIEW_TAG = 100001
 let ACTIVITY_OVERLAY_TAG = 100002
 
-let DATE_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
+let DATE_FORMATE_STRING = "yyyy/MM/dd HH:mm:ss"
+let DISPLAY_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
 
 let sendMessageMaxLength = 250
 
@@ -34,3 +35,14 @@ let LIMIT = "0"
 let EMOJI = "false"
 let CONTACTSWITHCHAT = "true"
 //c8c176a0ed82274194f917b82b4df907714079959b88c0a3dea53eb2e8014750 FanConnect
+
+func convertTimeStampToDateString(tsString: String) -> String {
+    
+    let splitString = tsString.components(separatedBy: "T")
+    let datePart = splitString[0]
+    var timePart = splitString[1]
+    let delCharSet = CharacterSet(charactersIn: "Z")
+    timePart = timePart.trimmingCharacters(in: delCharSet as CharacterSet)
+    
+    return (datePart + " " + timePart)
+}

@@ -61,13 +61,14 @@ class MessagesParser: NSObject {
                     var message: Message? = conversation.getMessageFromID(messID:messageId);
                     
                     var msgDate = Date()
-                    //                    if let dateStr:String = dic["timeStamp"] as? String {
-                    //                        if dateStr.count > 0 {
-                    //                            let dateFormatter = DateFormatter()
-                    //                            dateFormatter.dateFormat = DATE_FORMATE_STRING
-                    //                            msgDate = dateFormatter.date(from: dateStr)!
-                    //                        }
-                    //                    }
+                    if var dateStr:String = dic["timeStamp"] as? String {
+                        if dateStr.count > 0 {
+                            dateStr = convertTimeStampToDateString(tsString: dateStr)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = DATE_FORMATE_STRING
+                            msgDate = dateFormatter.date(from: dateStr)!
+                        }
+                    }
                     
                     if message == nil {
                         

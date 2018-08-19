@@ -15,7 +15,7 @@ public class User: NSManagedObject {
     {
         var targettedUser:User? = nil
         
-        if let user = User.getUserFromID(userName_: username)
+        if let user = User.getUserFromID(userId_: userId)
         {
             targettedUser = user
             
@@ -56,9 +56,9 @@ public class User: NSManagedObject {
         return loginedUser
     }
     
-    func getConverstaionFromID(conID: Int64) -> Conversation? {
+    func getConverstaionFromID(chatID_: Int64) -> Conversation? {
         
-        let filteredConversations = self.conversations?.allObjects.filter { ($0 as! Conversation).conversationId == conID }
+        let filteredConversations = self.conversations?.allObjects.filter { ($0 as! Conversation).chatId == chatID_ }
         
         if (filteredConversations?.count)! > 0 {
             return filteredConversations?.first as? Conversation
@@ -67,10 +67,10 @@ public class User: NSManagedObject {
         return nil;
     }
     
-    static func getUserFromID(userName_: String) -> User? {
+    static func getUserFromID(userId_: Int64) -> User? {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        let predicate = NSPredicate(format: "username == %@", userName_)
+        let predicate = NSPredicate(format: "userId == %d", userId_)
         request.predicate = predicate
         request.fetchLimit = 1
         
@@ -247,10 +247,9 @@ extension User
                                     
                                     for conversation in conversations!
                                     {
-                                        if conversation.conversationId == savedConversation.conversationId
+                                        if conversation.chatId == savedConversation.chatId
                                         {
                                             isFound = true
-                                            
                                             break
                                         }
                                     }
@@ -266,6 +265,7 @@ extension User
                                     conversation.user = user
                                 }
                                 
+                                // UPDATE ALL CONVERSATIONS CONTACTS//
                                 User.getLoginedUser()?.updateConversations()
                                 
                                 CoreDataManager.coreDataManagerSharedInstance.saveContext()
@@ -312,6 +312,9 @@ extension User
                                 {
                                     message.conversation = conversation
                                 }
+
+                                // UPDATE ALL MESSAGES CONTACTS//
+                               // User.getLoginedUser()?.updateMessages()
                                 
                                 CoreDataManager.coreDataManagerSharedInstance.saveContext()
                                 
@@ -424,7 +427,14 @@ extension User
                                     {
                                         let msgID: Int64 = Int64(splitString[1])!
                                         
-                                        let message = Message() // .create(context: DEFAULT_CONTEXT, date_: msgDate, message_:  paramsJson["message"] as! String, messageId_: msgID, mobile_: conversation.mobile!, shortCode_: conversation.shortCode!, isSender_: true, isRead_: false, updatedOn_: 0, createdOn_: 0)
+                                        let message = Message.create(context: DEFAULT_CONTEXT,
+                                                                     msgTimeStamp_:msgDate,
+                                                                     senderId_:conversation.senderId,
+                                                                     chatId_:conversation.chatId,
+                                                                     recipientId_:conversation.contactId,
+                                                                     messageId_: msgID,
+                                                                     messageText_: paramsJson["message"] as! String,
+                                                                     isSender_: true)
                                         
                                         conversation.addToMessages(message)
                                         
@@ -850,7 +860,7 @@ extension User
                 {
                     for contact in contracts
                     {
-                        if conv.senderId == contact.contactId
+                        if conv.senderId == user?.userId
                         {
                             conv.sender = contact
                         }
@@ -867,6 +877,48 @@ extension User
             //            print("Could not fetch \(error)”)
         }
         
+        return true
+    }
+    
+    @discardableResult
+    func updateMessages() -> Bool
+    {
+        // Fetch all Messages
+        // Fetch All UserContacts
+        
+        let allChats = User.getLoginedUser()?.conversations
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserContact")
+        /*
+        do
+        {
+            let results = try self.managedObjectContext?.fetch(fetchRequest)
+            
+            let  contacts = results as! [UserContact]
+            
+            if let messageS =  allChats. allObjects as? Array<Message>
+            {
+                for msg in messageS
+                {
+                    for contact in contacts
+                    {
+                        if msg.senderId == contact.contactId
+                        {
+                            msg.sender = contacts
+                        }
+                        
+                        if msg.contactId == contact.contactId
+                        {
+                            msg.receiver = contacts
+                        }
+                    }
+                }
+            }
+            
+        } catch let error as NSError {
+            //            print("Could not fetch \(error)”)
+        }
+        */
         return true
     }
 }

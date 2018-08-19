@@ -26,12 +26,12 @@ extension Conversation {
     //chats
     @NSManaged public var contactId: Int64
     @NSManaged public var unreadMessages: Bool
-    @NSManaged public var conversationId: Int64
+
     //lastMessage
     @NSManaged public var timeStamp: Date
     @NSManaged public var senderId: Int64
 
-    @NSManaged public var chatId: Int64
+    @NSManaged public var chatId: Int64 //conversationId
     @NSManaged public var lastMessageId: Int64
     @NSManaged public var lastMessage: String?
     

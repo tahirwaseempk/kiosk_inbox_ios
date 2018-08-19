@@ -132,7 +132,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             cell.detailLabel.text = conversation.lastMessage
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = DATE_FORMATE_STRING
+            dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
             cell.dateLabel.text = "Sent" + " " + dateFormatter.string(from: conversation.timeStamp)
         }
         else
