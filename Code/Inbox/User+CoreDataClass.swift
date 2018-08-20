@@ -384,11 +384,9 @@ extension User
         {
             var paramsDic = Dictionary<String, Any>()
             
-            paramsDic["ev"] = "kioskSendMessage"
-            paramsDic["serial"] = user.serial
-            paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = "1" //conversation.mobileNumber
-            paramsDic["message"] = paramsJson["message"] as! String
+            paramsDic["token"] = user.token
+            paramsDic["chatId"] = conversation.chatId
+            paramsDic["mobile"] = conversation.receiver?.phoneNumber
             
             if (paramsJson["message"] as! String != ""){
                 paramsDic["message"] = paramsJson["message"] as! String
@@ -399,14 +397,60 @@ extension User
             if (paramsJson["attachmentFileSuffix"] as! String != ""){
                 paramsDic["attachmentFileSuffix"] = paramsJson["attachmentFileSuffix"] as! String
             }
-            //            if (conversation.shortcodeDisplay == "TollFree") && !(conversation.tollFree == "") {
-            //                paramsDic["shortcode"] = conversation.tollFree
-            //            } else {
-            //                paramsDic["shortcode"] = conversation.shortcodeDisplay
-            //            }
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
+                
+                
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict = response as! Dictionary<String, Any>
+                var isErrorOccured: Bool = false
+                
+                if jsonDict["statusCode"] != nil {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                  
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+
+                    isErrorOccured = false
+                }
+                else {
+                    isErrorOccured = true
+                    
+                    let messageId = jsonDict["id"] as! Int64
+                    let chatId = jsonDict["chatId"] as! Int64
+                    let recipientId = jsonDict["recipientId"] as! Int64
+                    let senderId = jsonDict["senderId"] as! Int64
+                    let messageText = jsonDict["text"] as! String
+                    
+                    let check : Bool = true
+                    
+                    var msgDate = Date()
+                    if var dateStr:String = jsonDict["timeStamp"] as? String {
+                        if dateStr.count > 0 {
+                            dateStr = convertTimeStampToDateString(tsString: dateStr)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = DATE_FORMATE_STRING
+                            msgDate = dateFormatter.date(from: dateStr)!
+                        }
+                    }
+                    
+                        let message = Message.create(context: DEFAULT_CONTEXT,
+                                                 msgTimeStamp_:msgDate,
+                                                 senderId_:senderId,
+                                                 chatId_:chatId,
+                                                 recipientId_:recipientId,
+                                                 messageId_:messageId,
+                                                 messageText_:messageText,
+                                                 isSender_: check)
+                        
+                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                    
+                    successBlock(message)
+                }
+                /*
                 print("\n ===== >>>>> SEND MESSAGE RESPONSE =  <<<<< ===== \(String(describing: response)) \n")
                 
                 if let status = response?["result"] as? String
@@ -444,10 +488,6 @@ extension User
                                 }
                         }
                     }
-                    else
-                    {
-                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-                    }
                 }
                 else if let status = response?["err"] as? String
                 {
@@ -456,11 +496,10 @@ extension User
                 } else {
                     
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
-                }
+                }*/
             }, andFailureBlock: { (error) -> (Void) in
                 failureBlock(error)
             })
-            
         }
         else {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))

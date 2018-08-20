@@ -25,9 +25,9 @@ class UserContactsParser: NSObject
         
         if json["statusCode"] != nil {
             tempDictionary["name"] = json["name"] as! String
-            tempDictionary["errorCode"] = json["errorCode"] as! String
+            tempDictionary["errorCode"] = json["errorCode"] as! Int64
             tempDictionary["message"] = json["message"] as! String
-            tempDictionary["statusCode"] = json["statusCode"] as! String
+            tempDictionary["statusCode"] = json["statusCode"] as! Int64
         } else {
             
             let contactsArray = json["contacts"] as! Array<Dictionary<String,Any>>
@@ -97,6 +97,46 @@ class UserContactsParser: NSObject
                     }
                 }
             }
+            
+            //----- Check Login User Contact Start-----//
+            let currentUser = User.loginedUser
+            var currentContact: UserContact? = UserContact.getContactFromID(conID: (currentUser?.userId)!)
+            
+            if currentContact == nil {
+                
+                currentContact = UserContact.create(context: DEFAULT_CONTEXT,
+                                                    firstName_: (currentUser?.firstName)!,
+                                                    lastName_: (currentUser?.lastName)!,
+                                                    phoneNumber_: (currentUser?.formattedUsername)!,
+                                                    gender_: "",
+                                                    country_: (currentUser?.country)!,
+                                                    zipCode_: (currentUser?.zipCode)!,
+                                                    address_: (currentUser?.address)!,
+                                                    city_: (currentUser?.city)!,
+                                                    state_: (currentUser?.state)!,
+                                                    birthDate_:  Date(),
+                                                    email_: (currentUser?.email)!,
+                                                    contactId_: (currentUser?.userId)!)
+                contactsArr.append(currentContact!)
+            }
+            else
+            {
+                currentContact?.update(firstName_: (currentUser?.firstName)!,
+                                       lastName_: (currentUser?.lastName)!,
+                                       phoneNumber_: (currentUser?.formattedUsername)!,
+                                       gender_: (currentContact?.gender)!,
+                                       country_: (currentUser?.country)!,
+                                       zipCode_: (currentUser?.zipCode)!,
+                                       address_: (currentUser?.address)!,
+                                       city_: (currentUser?.city)!,
+                                       state_: (currentUser?.state)!,
+                                       birthDate_:  (currentContact?.birthDate)!,
+                                       email_: (currentUser?.email)!,
+                                       contactId_: (currentUser?.userId)!)
+                
+                contactsArr.append(currentContact!)
+            }
+            //----- Check Login User Contact End -----//
         }
         
         return contactsArr

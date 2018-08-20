@@ -27,9 +27,6 @@ extension Message {
     @NSManaged public var messageText: String?
     @NSManaged public var isSender: Bool
     
-    @NSManaged var receiver:UserContact?
-    @NSManaged var sender:UserContact?
-
 }
 
 

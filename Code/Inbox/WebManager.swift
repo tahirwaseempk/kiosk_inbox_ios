@@ -70,7 +70,8 @@ class WebManager: NSObject
     static let Invalid_Json_Format      = "Invalid Json Format"
     static let Server_Not_Responding    = "Server is not responding"
     static let User_Not_Logined         = "User is not logined"
-    
+    static let Invalid_Token            = "Unexpected token in JSON"
+
     override init()
     {
         super.init()
@@ -92,17 +93,16 @@ class WebManager: NSObject
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + "/api/v1/auth/login" //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_TEXTING_LINE + "/api/v1/auth/login"
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_SMS_FACTORY
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_FANCONNECT
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING //+ LOGIN_URL + serial + LOGIN_URL_END + uuid
+            finalUrl = URL_PHOTO_TEXTING
         }
         
         print("\n ===== >>>>> login URL = \(finalUrl) \n")
-        
         
         PostDataWithUrl(urlString:finalUrl, withParameterDictionary:paramsDic,completionBlock: {(error, response) -> (Void) in
             
@@ -468,43 +468,34 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func sendMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        
+        let token:String = params["token"] as! String
+
+        var paramsDictionary = Dictionary<String, Any>()
+
+        paramsDictionary["message"] = params["message"] as! String
+        paramsDictionary["chatId"] = params["chatId"] as! Int64
+
         var finalUrl = ""
         
         switch environment {
             
         case .texting_Line:
-            
-            finalUrl = URL_TEXTING_LINE
+            finalUrl = URL_TEXTING_LINE + "/api/v1/messages/"
             
         case .sms_Factory:
-            
             finalUrl = URL_SMS_FACTORY
-/*
-            let uuid:String = params["uuid"] as! String
-            let serial:String = params["serial"] as! String
-            let mobile:String = params["mobile"] as! String
-            let shortCode:String = params["shortcode"] as! String
-            let message:String = params["message"] as! String
             
-            //            let ev:String = params["ev"] as! String
-            //            let attachment:String = params["attachment"] as! String
-            //            let attachmentSuffix:String = params["attachemntFileSuffix"] as! String
-            
-            let escapedMessageStr :String = message.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-            
-            finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_SHORTCODE + shortCode + SEND_URL_BEFORE_MESSAGE + escapedMessageStr //+ SEND_URL_BEFORE_IMAGETYPE + attachmentSuffix + SEND_URL_BEFORE_IMAGE + attachment
-                */
         case .fan_Connect:
             finalUrl = URL_FANCONNECT
+            
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING
         }
         
         print("\n ===== >>>>> Send Message URL = \(finalUrl) \n")
         
-        callSendMessageWebService(urlStr: finalUrl, parameters:params,completionBlock: {(error, response) -> (Void) in
-
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
             if (error == nil)
             {
                 successBlock(response as? Dictionary)
@@ -514,7 +505,6 @@ class WebManager: NSObject
                 failureBlock(error)
             }
         })
-        
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -871,8 +861,9 @@ class WebManager: NSObject
         
         request.httpBody = postString.data(using: String.Encoding.utf8)
         
-        request.setValue(httpHeaderValue, forHTTPHeaderField: httpHeaderKey)
-        
+        if httpHeaderValue.isEmpty == false {
+            request.setValue(httpHeaderValue, forHTTPHeaderField: httpHeaderKey)
+        }
         
         //HTTP Headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

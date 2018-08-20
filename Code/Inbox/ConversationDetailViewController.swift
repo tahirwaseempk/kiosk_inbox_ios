@@ -437,7 +437,8 @@ extension ConversationDetailViewController {
             {
                 if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
-                    self.messageFromLabel.text = self.selectedConversation.receiver?.firstName
+                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!)
+                    
                     self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
                 else {
@@ -449,7 +450,8 @@ extension ConversationDetailViewController {
                 // If Device is iPhone/iPod
                 if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
-                    self.messageFromLabel.text = self.selectedConversation.receiver?.firstName //+
+                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!)
+
                     self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
                 else {
@@ -474,7 +476,6 @@ extension ConversationDetailViewController {
     }
     
     func sendMessageToConversation(conversation: Conversation, message: String, imageType: String, imageString: String) -> Bool {
-        
         
         var paramsDic = Dictionary<String, Any>()
         paramsDic["message"] = message

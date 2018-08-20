@@ -21,9 +21,9 @@ class LoginParser: NSObject {
         
         if json["statusCode"] != nil {
             returnDictionary["name"] = json["name"] as! String
-            returnDictionary["errorCode"] = json["errorCode"] as! String
+            returnDictionary["errorCode"] = json["errorCode"] as! Int64
             returnDictionary["message"] = json["message"] as! String
-            returnDictionary["statusCode"] = json["statusCode"] as! String
+            returnDictionary["statusCode"] = json["statusCode"] as! Int64
             
         } else {
             returnDictionary["token"] = json["token"] as! String

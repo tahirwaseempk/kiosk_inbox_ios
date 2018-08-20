@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "556229149.294246"
+            timestampString = "556476330.2556159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "732"
-            endingLineNumber = "732"
+            startingLineNumber = "722"
+            endingLineNumber = "722"
             landmarkName = "PostDataWithUrl(urlString:withParameterDictionary:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,27 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "556229149.2943079"
+            timestampString = "556476330.255687"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "508"
-            endingLineNumber = "508"
-            landmarkName = "sendMessage(params:completionBlockSuccess:andFailureBlock:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/WebManager.swift"
-            timestampString = "556229149.294353"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "780"
-            endingLineNumber = "780"
+            startingLineNumber = "770"
+            endingLineNumber = "770"
             landmarkName = "callSendMessageWebService(urlStr:parameters:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ConversationDetailViewController.swift"
-            timestampString = "556229149.294398"
+            timestampString = "556476330.2557369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "402"
@@ -84,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/LoginViewController.swift"
-            timestampString = "555539849.47612"
+            timestampString = "556388357.1857949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "214"
@@ -132,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/WebManager.swift"
-            timestampString = "556229149.294463"
+            timestampString = "556476330.2557991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "681"
-            endingLineNumber = "681"
+            startingLineNumber = "671"
+            endingLineNumber = "671"
             landmarkName = "PostDataWithUrl(urlString:withParameterDictionary:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ConversationListingViewController.swift"
-            timestampString = "556301743.8106689"
+            timestampString = "556466253.369807"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "327"
@@ -164,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ConversationListingViewController.swift"
-            timestampString = "556301743.814068"
+            timestampString = "556466253.369867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -180,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/MessagesParser.swift"
-            timestampString = "556355386.445599"
+            timestampString = "556476330.2558661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -196,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ConversationParser.swift"
-            timestampString = "556355386.446002"
+            timestampString = "556476330.255904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -212,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/ConversationParser.swift"
-            timestampString = "556355386.446077"
+            timestampString = "556476330.255937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -228,12 +212,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/InboxTableViewDataSource.swift"
-            timestampString = "556376379.218274"
+            timestampString = "556476330.255971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "applySearchFiltersForSearchText(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/ConversationDetailViewController.swift"
+            timestampString = "556476330.256029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "scheduleAppointment_Tapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/UserContactsParser.swift"
+            timestampString = "556476330.25607"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "parseUserContacts(json:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TextingLine.UserContactsParser.parseUserContacts(json: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; Swift.Array&lt;TextingLine.UserContact&gt;"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/UserContactsParser.swift"
+                  timestampString = "556476330.437888"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "18262">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TextingLine.UserContactsParser.parseUserContacts(json: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; Swift.Array&lt;TextingLine.UserContact&gt;"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/UserContactsParser.swift"
+                  timestampString = "556476330.440222"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "24935">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/ConversationDetailViewController.swift"
+            timestampString = "556476330.256374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
+            landmarkName = "conversationSelected(conversation:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

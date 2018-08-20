@@ -65,9 +65,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             
         } else {
             
-            let deviceID = UIDevice.current.identifierForVendor!.uuidString
+            //let deviceID = UIDevice.current.identifierForVendor!.uuidString
             print("########## >>>>>>>>> UUID NOT EXITS <<<<<<<<<< ##########")
-            UserDefaults.standard.set(deviceID, forKey: "UUID_Key")
+            UserDefaults.standard.set(udidTextField.text, forKey: "UUID_Key")
             UserDefaults.standard.synchronize()
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
             self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
@@ -91,7 +91,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
-        self.udidTextField.isEnabled = false
+        //        self.udidTextField.isEnabled = false
         self.serialTextField.delegate = self
         
         self.rememberMeButton.backgroundColor = UIColor.clear
