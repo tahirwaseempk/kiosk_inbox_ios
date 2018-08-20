@@ -71,7 +71,7 @@ class WebManager: NSObject
     static let Server_Not_Responding    = "Server is not responding"
     static let User_Not_Logined         = "User is not logined"
     static let Invalid_Token            = "Unexpected token in JSON"
-
+    
     override init()
     {
         super.init()
@@ -231,7 +231,7 @@ class WebManager: NSObject
         
         let serial:String = params["serial"] as! String
         let uuid:String = params["uuid"] as! String
-         let token:String = params["token"] as! String
+        let token:String = params["token"] as! String
         
         var finalUrl = ""
         
@@ -401,10 +401,10 @@ class WebManager: NSObject
         let serial:String = params["serial"] as! String
         let mobile:String = params["mobile"] as! String
         let shortCode:String = params["shortCode"] as! String
-       
+        
         let chatID:String = params["chatID"] as! String
         let token:String = params["token"] as! String
-
+        
         var finalUrl = ""
         
         switch environment {
@@ -422,7 +422,7 @@ class WebManager: NSObject
         print("\n ===== >>>>> Get Message URL = \(finalUrl) \n")
         
         callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
-
+            
             if (error == nil)
             {
                 DispatchQueue.global(qos: .background).async
@@ -469,12 +469,12 @@ class WebManager: NSObject
     static func sendMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         let token:String = params["token"] as! String
-
+        
         var paramsDictionary = Dictionary<String, Any>()
-
-        paramsDictionary["message"] = params["message"] as! String
+        
+        paramsDictionary["text"] = params["message"] as! String
         paramsDictionary["chatId"] = params["chatId"] as! Int64
-
+        
         var finalUrl = ""
         
         switch environment {
@@ -602,7 +602,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-
+    
     static func getAllContacs(params: Dictionary<String,Any>,contactParser:UserContactsParser,completionBlockSuccess successBlock: @escaping ((Array<UserContact>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         let token:String = params["token"] as! String
@@ -663,18 +663,18 @@ class WebManager: NSObject
                 if (parameters.keys.count > 0) {
                     
                     var jsonData: Data? = nil
-
+                    
                     jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-
+                    
                     if jsonData != nil {
                         let theJSONText = NSString(data: jsonData!,encoding: String.Encoding.ascii.rawValue)
                         print("JSON string = \(theJSONText!)")
                     }
-
+                    
                     request.httpBody = jsonData //try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-
+                    
                 }
-
+                
                 //                print("\n ==== >>>>> Request HTTP Body <<<<< ====== \(String(describing: request.httpBody)) \n")
                 
             }
@@ -684,7 +684,7 @@ class WebManager: NSObject
             }
             
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            //            request.addValue("application/json", forHTTPHeaderField: "Accept")
             
             let dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
                 
@@ -762,13 +762,13 @@ class WebManager: NSObject
         //now create the NSMutableRequest object using the url object
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "POST" //set http method as POST
-
+        
         let postString = (parameters.compactMap({ (key, value) -> String in
             return "\(key)=\(value)"
         }) as Array).joined(separator: "&")
         
         print("\(postString) \n")
-
+        
         request.httpBody = postString.data(using: String.Encoding.utf8)
         //(using: String.Encoding.init(rawValue: 1), allowLossyConversion: false)
         //(using: .utf8, allowLossyConversion: false)
@@ -777,7 +777,7 @@ class WebManager: NSObject
         //HTTP Headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         //        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
+        
         //create dataTask using the session object to send data to the server
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
@@ -832,7 +832,7 @@ class WebManager: NSObject
         
         task.resume()
     }
-
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -842,7 +842,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-
+    
     internal static func callNewWebService(urlStr: String, parameters: Dictionary<String,Any>, httpMethod: String, httpHeaderKey: String, httpHeaderValue: String, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void))) {
         
         //create the url with NSURL
@@ -853,13 +853,31 @@ class WebManager: NSObject
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = httpMethod //set http method as POST
         
-        let postString = (parameters.compactMap({ (key, value) -> String in
-            return "\(key)=\(value)"
-        }) as Array).joined(separator: "&")
+        if httpMethod == "POST" {
+            
+            if (parameters.keys.count > 0) {
+                var jsonData: Data? = nil
+                jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+                if jsonData != nil {
+                    let theJSONText = NSString(data: jsonData!,encoding: String.Encoding.ascii.rawValue)
+                    print("JSON string = \(theJSONText!)")
+                }
+                request.httpBody = jsonData
+            }
+        }
+        else {
+            if (parameters.keys.count > 0) {
+                let postString = (parameters.compactMap({ (key, value) -> String in
+                    return "\(key)=\(value)"
+                }) as Array).joined(separator: "&")
+                
+                print("\(postString) \n")
+                
+                request.httpBody = postString.data(using: String.Encoding.utf8)
+            }
+        }
         
-        print("\(postString) \n")
         
-        request.httpBody = postString.data(using: String.Encoding.utf8)
         
         if httpHeaderValue.isEmpty == false {
             request.setValue(httpHeaderValue, forHTTPHeaderField: httpHeaderKey)

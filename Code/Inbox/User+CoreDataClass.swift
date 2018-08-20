@@ -400,24 +400,18 @@ extension User
             
             WebManager.sendMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
-                
-                
                 var tempDictionary = Dictionary<String,Any>()
-                let jsonDict = response as! Dictionary<String, Any>
-                var isErrorOccured: Bool = false
+                let jsonDict: Dictionary<String, Any> = response!
                 
                 if jsonDict["statusCode"] != nil {
                     tempDictionary["name"] = jsonDict["name"] as! String
                     tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
                     tempDictionary["message"] = jsonDict["message"] as! String
                     tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
-                  
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
 
-                    isErrorOccured = false
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
                 }
                 else {
-                    isErrorOccured = true
                     
                     let messageId = jsonDict["id"] as! Int64
                     let chatId = jsonDict["chatId"] as! Int64
@@ -436,7 +430,6 @@ extension User
                             msgDate = dateFormatter.date(from: dateStr)!
                         }
                     }
-                    
                         let message = Message.create(context: DEFAULT_CONTEXT,
                                                  msgTimeStamp_:msgDate,
                                                  senderId_:senderId,
@@ -448,55 +441,10 @@ extension User
                         
                     CoreDataManager.coreDataManagerSharedInstance.saveContext()
                     
+                    conversation.addToMessages(message)
+                    
                     successBlock(message)
                 }
-                /*
-                print("\n ===== >>>>> SEND MESSAGE RESPONSE =  <<<<< ===== \(String(describing: response)) \n")
-                
-                if let status = response?["result"] as? String
-                {
-                    let splitString = status.components(separatedBy: ",")
-                    
-                    if (String(splitString[0]) == "OK")
-                    {
-                        var msgDate = Date()
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = DATE_FORMATE_STRING
-                        let dateString = dateFormatter.string(from: msgDate)
-                        msgDate = dateFormatter.date(from: dateString)!
-                        
-                        DispatchQueue.global(qos: .background).async
-                            {
-                                DispatchQueue.main.async
-                                    {
-                                        let msgID: Int64 = Int64(splitString[1])!
-                                        
-                                        let message = Message.create(context: DEFAULT_CONTEXT,
-                                                                     msgTimeStamp_:msgDate,
-                                                                     senderId_:conversation.senderId,
-                                                                     chatId_:conversation.chatId,
-                                                                     recipientId_:conversation.contactId,
-                                                                     messageId_: msgID,
-                                                                     messageText_: paramsJson["message"] as! String,
-                                                                     isSender_: true)
-                                        
-                                        conversation.addToMessages(message)
-                                        
-                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                        
-                                        successBlock(message)
-                                }
-                        }
-                    }
-                }
-                else if let status = response?["err"] as? String
-                {
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-                    
-                } else {
-                    
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
-                }*/
             }, andFailureBlock: { (error) -> (Void) in
                 failureBlock(error)
             })
