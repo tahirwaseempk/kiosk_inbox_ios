@@ -30,7 +30,18 @@ class ScheduleAppointmentViewController: UIViewController
     {
         super.viewDidLoad()
         
-        self.headerLabel.text =  self.splitNumber(str: self.headerTitleString)// "Schedule Appointment with " + self.headerTitleString
+//        self.headerLabel.text =  self.splitNumber(str: self.headerTitleString)// "Schedule Appointment with " + self.headerTitleString
+        
+        
+        if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
+        {
+            self.headerLabel.text = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
+        }
+        else
+        {
+            self.headerLabel.text = (self.selectedConversation.receiver?.phoneNumber)!
+            
+        }
         
         let dateFormatter = DateFormatter()
         
@@ -122,7 +133,7 @@ class ScheduleAppointmentViewController: UIViewController
         //        dateFormatter.calendar = NSCalendar.current
         //        let currentTimeZone: TimeZone = TimeZone.current
         //        dateFormatter.timeZone = currentTimeZone
-        dateFormatter.dateStyle = .full
+        dateFormatter.dateStyle = .short
         // dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -139,46 +150,40 @@ class ScheduleAppointmentViewController: UIViewController
             hoursWithoutMString = "00"
         }
         
+        let jsonDate = selectedDateStr + "T" + hoursWithoutMString + ":" + minutesWithoutMString  + ":00Z"
+
         selectedDateStr = selectedDateStr + " " + hoursWithoutMString + ":" + minutesWithoutMString  + ":00"
-        
+       
+        /////////////////////////////////////////////////////////////////////////////////////
+        //--------------------------------------------------------------------------------//
+        ///////////////////////////////////////////////////////////////////////////////////
         let currentDte = Date()
         dateFormatter.dateFormat = "yyyy-MM-dd h:mm:ss"
         let currentDateStr = dateFormatter.string(from: currentDte)
-        
         let selectedDate = dateFormatter.date(from: selectedDateStr)
         let currentDate = dateFormatter.date(from: currentDateStr)
         
         if selectedDate?.compare(currentDate!) == .orderedAscending {
-            print("Selected Date is smaller then Current Date")
-            
             ProcessingIndicator.hide()
-            
             let alert = UIAlertController(title: "Error", message: "Selected Date/Time is in the past.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
-        
-        //dateString = dateFormatter.string(from: msgDate!)
-        //dateString = dateString + ":00"
         /////////////////////////////////////////////////////////////////////////////////////
         //--------------------------------------------------------------------------------//
         ///////////////////////////////////////////////////////////////////////////////////
-        
         // let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
-        let timeWithoutHrsString = String(self.timeCounterView.valueLabel.tag) // Does Not Contain hrs at end like 12
-        
-        let mobileNumber = "1" //self.selectedConversation.mobile!
+        let timeWithoutHrs = self.timeCounterView.valueLabel.tag // Does Not Contain hrs at end like 12
         
         var paramsDic = Dictionary<String, Any>()
         
-        paramsDic["mobile"] = mobileNumber
-        paramsDic["date"] = selectedDateStr
-        paramsDic["notifyHours"] = timeWithoutHrsString
-        paramsDic["first"] = ""
-        paramsDic["last"] = ""
+        paramsDic["contactId"] = selectedConversation.contactId //Int
+        paramsDic["date"] = jsonDate
+        paramsDic["endDate"] = ""
+        paramsDic["reminderTime"] = Int64(timeWithoutHrs) //Int
         paramsDic["message"] = "Appointment"
-        paramsDic["type"] = self.checkBoxMessage // "Reminder" //ShortConfirmation
+        //paramsDic["type"] = self.checkBoxMessage // "Reminder" //ShortConfirmation
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
@@ -242,6 +247,13 @@ class ScheduleAppointmentViewController: UIViewController
         let popover = Popover(options: options, showHandler: nil, dismissHandler: nil)
         
         popover.show(self.calendarView, fromView: self.calendarLabel)
+    }
+    
+    func removeTimeStamp(fromDate: Date) -> Date {
+        guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: fromDate)) else {
+            fatalError("Failed to strip time from Date object")
+        }
+        return date
     }
 }
 

@@ -44,7 +44,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             delete_Button.backgroundColor = AppBlueColor
             Optout_Button.backgroundColor = AppBlueColor
             schedule_Button.backgroundColor = AppBlueColor
-
+            
         case .sms_Factory:
             if UIDevice.current.userInterfaceIdiom == .pad {
                 header_View.backgroundColor = GrayHeaderColor
@@ -113,27 +113,21 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBAction func scheduleAppointment_Tapped(_ sender: Any) {
         
         self.closeView.removeFromSuperview()
-        
         self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as! ScheduleAppointmentViewController
         
         if self.selectedConversation != nil
         {
-            //            if self.selectedConversation.firstName?.isEmpty == false && self.selectedConversation.firstName?.isEmpty == false
-            //            {
-            //                self.scheduleAppointmentViewController.headerTitleString =  (self.selectedConversation.firstName)! + " " + (self.selectedConversation.lastName)!
-            //            }
-            //            else
-            //            {
-            
-            self.scheduleAppointmentViewController.headerTitleString = (self.selectedConversation.receiver?.phoneNumber)!//"NUMBER SHOW KERNA"//self.selectedConversation.mobile!
-            
-            //            }
-            
+            if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
+            {
+                self.scheduleAppointmentViewController.headerTitleString = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
+            }
+            else
+            {
+                self.scheduleAppointmentViewController.headerTitleString = (self.selectedConversation.receiver?.phoneNumber)!
+            }
             self.scheduleAppointmentViewController.selectedConversation = self.selectedConversation
         }
-        
         self.view.addSubview(self.scheduleAppointmentViewController.view)
-        
         self.scheduleAppointmentViewController.view.frame = self.view.bounds
     }
     
@@ -142,57 +136,62 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         if (self.selectedConversation == nil)
         {
             let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
-            
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            
             self.present(alert, animated: true, completion: nil)
         }
         else
         {
-            ProcessingIndicator.show()
+            let alert = UIAlertController(title: "Message", message: "Opt Out functionality is coming soon.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
             
-            User.optOutFromConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                ProcessingIndicator.hide()
-                                
-                                if status == true
-                                {
-                                    let alert = UIAlertController(title: "Message", message: "Number has been successfully been opted out.", preferredStyle: UIAlertControllerStyle.alert)
-                                    
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    
-                                    self.present(alert, animated: true, completion: nil)
-                                }
-                                else if status == false
-                                {
-                                    let alert = UIAlertController(title: "Error", message: "Number failed to opt out from list.", preferredStyle: UIAlertControllerStyle.alert)
-                                    
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    
-                                    self.present(alert, animated: true, completion: nil)
-                                }
-                        }
-                }
-            }, andFailureBlock: { (error: Error?) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                ProcessingIndicator.hide()
-                                
-                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                                
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                
-                                self.present(alert, animated: true, completion: nil)
-                        }
-                }
-            })
+            /*
+             ProcessingIndicator.show()
+             
+             User.optOutFromConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+             
+             DispatchQueue.global(qos: .background).async
+             {
+             DispatchQueue.main.async
+             {
+             ProcessingIndicator.hide()
+             
+             if status == true
+             {
+             let alert = UIAlertController(title: "Message", message: "Number has been successfully been opted out.", preferredStyle: UIAlertControllerStyle.alert)
+             
+             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+             
+             self.present(alert, animated: true, completion: nil)
+             }
+             else if status == false
+             {
+             let alert = UIAlertController(title: "Error", message: "Number failed to opt out from list.", preferredStyle: UIAlertControllerStyle.alert)
+             
+             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+             
+             self.present(alert, animated: true, completion: nil)
+             }
+             }
+             }
+             }, andFailureBlock: { (error: Error?) -> (Void) in
+             
+             DispatchQueue.global(qos: .background).async
+             {
+             DispatchQueue.main.async
+             {
+             ProcessingIndicator.hide()
+             
+             let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+             
+             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+             
+             self.present(alert, animated: true, completion: nil)
+             }
+             }
+             })
+             */
         }
     }
     
@@ -305,11 +304,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 }
 
 extension ConversationDetailViewController {
-
+    
     //##################################################################################//
     //##################################################################################//
     func getDataFromImage(format: String, imageE:UIImage) -> Data {
-
+        
         var imageData: Data?
         
         if (format == "jpg" || format == "jpeg") {
@@ -324,9 +323,9 @@ extension ConversationDetailViewController {
     //##################################################################################//
     //##################################################################################//
     func getImageFromData(imageData: Data) -> UIImage {
-       
+        
         return UIImage(data: imageData)!
-
+        
     }
     //##################################################################################//
     //##################################################################################//
@@ -451,7 +450,7 @@ extension ConversationDetailViewController {
                 if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
                     self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!)
-
+                    
                     self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
                 else {

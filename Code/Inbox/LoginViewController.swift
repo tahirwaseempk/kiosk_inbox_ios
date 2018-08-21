@@ -51,43 +51,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             udidLabel.textColor = PhotoAppColor
         }
         
-        //**********************************************************************//
-        //**********************************************************************//
-        if UserDefaults.standard.string(forKey: "UUID_Key") != nil{
-            
-            //            let alert = UIAlertController(title:"ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
-            //            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            //            self.present(alert, animated: true, completion: nil)
-            
-            print("########## >>>>>>>>> UUID ALREADY EXITS <<<<<<<<<< ##########")
-            print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
-            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
-            
-        } else {
-            
-            //let deviceID = UIDevice.current.identifierForVendor!.uuidString
-            print("########## >>>>>>>>> UUID NOT EXITS <<<<<<<<<< ##########")
-            UserDefaults.standard.set(udidTextField.text, forKey: "UUID_Key")
-            UserDefaults.standard.synchronize()
-            print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
-            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
-            
-            //            let alert = UIAlertController(title:"NOT ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
-            //            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            //            self.present(alert, animated: true, completion: nil)
-        }
-        //**********************************************************************//
-        //**********************************************************************//
-        
-        
-        //**********************************************************************//
-        //**********************************************************************//
-        //IF UDID AND TOKEN ID IS DIFFERENT
-        //        if !(deviceID == (UserDefaults.standard.object(forKey:"UUID_Key")as? String)){
-        //        }
-        //**********************************************************************//
-        //**********************************************************************//
-        
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
@@ -104,12 +67,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
                 self.isAutoLogin = true
-                self.serialTextField.text = (UserDefaults.standard.object(forKey:"serial_Key") as? String)
-                
-                //                let alert = UIAlertController(title:"serial_Key",message:UserDefaults.standard.string(forKey: "serial_Key"),preferredStyle:UIAlertControllerStyle.alert)
-                //                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-                //                self.present(alert, animated: true, completion: nil)
-                
+                self.serialTextField.text = (UserDefaults.standard.object(forKey:"USER_NAME") as? String)
+                self.udidTextField.text = (UserDefaults.standard.object(forKey:"PASSWORD") as? String)
                 login()
             } else {
                 self.isAutoLogin = false
@@ -168,7 +127,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             self.isAutoLogin = true
         } else {
             self.isAutoLogin = false
-            UserDefaults.standard.set("", forKey: "serial_Key")
+            UserDefaults.standard.set("", forKey: "USER_NAME")
+            UserDefaults.standard.set("", forKey: "PASSWORD")
             UserDefaults.standard.bool(forKey: "isAutoKey")
             UserDefaults.standard.set(false, forKey: "isAutoKey")
             UserDefaults.standard.synchronize()
@@ -221,21 +181,19 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 //*******************************************************************//
                                 if self.isAutoLogin == true {
-                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "serial_Key")
-                                    
+                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "USER_NAME")
+                                    UserDefaults.standard.set(self.udidTextField.text, forKey: "PASSWORD")
                                     UserDefaults.standard.register(defaults: ["isAutoKey" : true])
                                     UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(true, forKey: "isAutoKey")
-                                    
                                     UserDefaults.standard.synchronize()
                                     
                                 } else {
-                                    UserDefaults.standard.set("", forKey: "serial_Key")
-                                    
+                                    UserDefaults.standard.set("", forKey: "USER_NAME")
+                                    UserDefaults.standard.set("", forKey: "PASSWORD")
                                     UserDefaults.standard.register(defaults: ["isAutoKey" : true])
                                     UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(false, forKey: "isAutoKey")
-                                    
                                     UserDefaults.standard.synchronize()
                                 }
                                 //*******************************************************************//
@@ -255,6 +213,28 @@ extension LoginViewController {
                     {
                         DispatchQueue.main.async
                             {
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                if self.isAutoLogin == true {
+                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "USER_NAME")
+                                    UserDefaults.standard.set(self.udidTextField.text, forKey: "PASSWORD")
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
+                                    UserDefaults.standard.set(true, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                    
+                                } else {
+                                    UserDefaults.standard.set("", forKey: "USER_NAME")
+                                    UserDefaults.standard.set("", forKey: "PASSWORD")
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
+                                    UserDefaults.standard.set(false, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                }
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
                                 ProcessingIndicator.hide()
                                 
                                 let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)

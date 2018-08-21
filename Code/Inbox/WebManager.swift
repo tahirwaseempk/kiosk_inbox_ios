@@ -20,6 +20,7 @@ let APNS_URL = "?ev=kioskAddToken&serial="
 let APNS_URL_UDID = "&uuid="
 let APNS_URL_TYPE = "&type="
 let APNS_URL_TOKEN = "&token="
+//https://app.textingline.com/limeApi?ev=kioskAddToken&serial=aaaa-aaaa&uuid=xyz_string_long&type=inbox&token=xyz_string_long
 
 let DELETE_APNS_URL = "?ev=kioskDeleteToken&serial="
 let DELETE_APNS_URL_UDID = "&uuid="
@@ -71,7 +72,8 @@ class WebManager: NSObject
     static let Server_Not_Responding    = "Server is not responding"
     static let User_Not_Logined         = "User is not logined"
     static let Invalid_Token            = "Unexpected token in JSON"
-    
+    static let Appointment_Error        = "Failed to create Appointment"
+
     override init()
     {
         super.init()
@@ -557,35 +559,32 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func createAppointment(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        var theJSONText = ""
-        
-        if let theJSONData = try? JSONSerialization.data(
-            withJSONObject: params,
-            options: []) {
-            theJSONText = String(data: theJSONData,
-                                 encoding: .ascii)!
-        }
-        
-        let escapedString :String = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-        
-        
+
+        let token:String = params["token"] as! String
+
+        var paramsDictionary = Dictionary<String, Any>()
+        paramsDictionary["contactId"] = params["contactId"] as! Int64
+        paramsDictionary["date"] = params["date"] as! String
+        paramsDictionary["endDate"] = params["endDate"] as! String
+        paramsDictionary["reminderTime"] = params["reminderTime"] as! Int64
+        paramsDictionary["message"] = params["message"] as! String
+
         var finalUrl = ""
         
         switch environment {
-            
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + CREATE_APPOINMENT_URL + escapedString
+            finalUrl = URL_TEXTING_LINE + "/api/v1/appointments/"
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + CREATE_APPOINMENT_URL + escapedString
+            finalUrl = URL_SMS_FACTORY
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT + CREATE_APPOINMENT_URL + escapedString
+            finalUrl = URL_FANCONNECT
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + CREATE_APPOINMENT_URL + escapedString
+            finalUrl = URL_PHOTO_TEXTING
         }
         
         print("\n ===== >>>>> Create Appoinment URL = \(finalUrl) \n")
         
-        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -864,6 +863,19 @@ class WebManager: NSObject
                 }
                 request.httpBody = jsonData
             }
+        } else if httpMethod == "JSON" {
+           
+            var theJSONText = ""
+            
+            if let theJSONData = try? JSONSerialization.data(
+                withJSONObject: parameters,
+                options: []) {
+                theJSONText = String(data: theJSONData,
+                                     encoding: .ascii)!
+            }
+            
+           // let escapedString :String = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
+            
         }
         else {
             if (parameters.keys.count > 0) {

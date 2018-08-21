@@ -523,30 +523,29 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
-            
-            paramsDic["uuid"] = user.uuid
-            paramsDic["serial"] = user.serial
-            paramsDic["mobile"] = WebManager.removeSpecialCharsFromString(params["mobile"] as! String)
-            paramsDic["message"] = params["message"]
+            paramsDic["token"] = user.token
+            paramsDic["contactId"] = params["contactId"] //Int
             paramsDic["date"] = params["date"]
-            paramsDic["type"] = params["type"]
-            paramsDic["notifyHours"] = params["notifyHours"] as! String
-            
-            //            paramsDic["first"] = params["first"] as! String
-            //            paramsDic["last"] = params["last"] as! String
-            //            paramsDic["endDate"] = "" //params["endDate"] as! String
-            //            paramsDic["notifyEmail"] = "" //params["notifyEmail"] as! String
-            //            paramsDic["notifyNumber"] = "" //params["notifyNumber"] as! String
+            paramsDic["endDate"] = params["endDate"]
+            paramsDic["reminderTime"] = params["reminderTime"] //Int
+            paramsDic["message"] = params["message"]
             
             WebManager.createAppointment(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
-                if let status = response?["status"] as? String
-                {
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    let splitString = status.components(separatedBy: ",")
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
                     
-                    if (String(splitString[0]) == "OK") {
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                }
+                else {
+                    
+                    if jsonDict["id"] as! Int64 > 0 {
                         
                         DispatchQueue.global(qos: .background).async
                             {
@@ -555,25 +554,11 @@ extension User
                                         successBlock(true)
                                 }
                         }
-                    } else {
-                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
                     }
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    
-                }
-                else if let status = response?["err"] as? String
-                {
-                    
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-                    
-                } else {
-                    
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
-                }
+                    else {
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Appointment_Error]))
+                    }
+                }                
             }, andFailureBlock: { (error) -> (Void) in
                 failureBlock(error)
             })
@@ -629,7 +614,6 @@ extension User
             }, andFailureBlock: { (error:Error?) -> (Void) in
                 failureBlock(error)
             })
-            
         }
         else
         {
