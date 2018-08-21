@@ -16,6 +16,31 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     
     var tickBox:Checkbox? = nil
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
+            if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
+                print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
+                self.isAutoLogin = true
+                self.serialTextField.text = (UserDefaults.standard.object(forKey:"serial_Key") as? String)
+                self.udidTextField.text = "User123"
+                udidTextField.resignFirstResponder()
+                serialTextField.resignFirstResponder()
+            } else {
+                self.isAutoLogin = false
+                print("########## >>>>>>>>> Auto Login not Enabled <<<<<<<<<< ##########")
+                self.serialTextField.text = ""
+                self.udidTextField.text = ""
+                udidTextField.resignFirstResponder()
+                serialTextField.resignFirstResponder()
+            }
+        }
+    }
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -53,47 +78,29 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         
         //**********************************************************************//
         //**********************************************************************//
-        if UserDefaults.standard.string(forKey: "UUID_Key") != nil{
-            
-            //            let alert = UIAlertController(title:"ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
-            //            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            //            self.present(alert, animated: true, completion: nil)
-            
+        if UserDefaults.standard.string(forKey: "UUID_Key") != nil {
             print("########## >>>>>>>>> UUID ALREADY EXITS <<<<<<<<<< ##########")
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
-            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
+            //self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
             
         } else {
-            
             let deviceID = UIDevice.current.identifierForVendor!.uuidString
             print("########## >>>>>>>>> UUID NOT EXITS <<<<<<<<<< ##########")
             UserDefaults.standard.set(deviceID, forKey: "UUID_Key")
             UserDefaults.standard.synchronize()
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
-            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
-            
-            //            let alert = UIAlertController(title:"NOT ALREADY UUID_Key",message:UserDefaults.standard.string(forKey: "UUID_Key"),preferredStyle:UIAlertControllerStyle.alert)
-            //            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            //            self.present(alert, animated: true, completion: nil)
+            //self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
         }
-        //**********************************************************************//
-        //**********************************************************************//
-        
-        
-        //**********************************************************************//
-        //**********************************************************************//
-        //IF UDID AND TOKEN ID IS DIFFERENT
-        //        if !(deviceID == (UserDefaults.standard.object(forKey:"UUID_Key")as? String)){
-        //        }
         //**********************************************************************//
         //**********************************************************************//
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
-        self.udidTextField.isEnabled = false
+        self.udidTextField.isEnabled = true
         self.serialTextField.delegate = self
-        
+        self.udidTextField.delegate   = self
+
         self.rememberMeButton.backgroundColor = UIColor.clear
         
         self.loginButton.clipsToBounds = true
@@ -105,10 +112,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
                 self.isAutoLogin = true
                 self.serialTextField.text = (UserDefaults.standard.object(forKey:"serial_Key") as? String)
-                
-                //                let alert = UIAlertController(title:"serial_Key",message:UserDefaults.standard.string(forKey: "serial_Key"),preferredStyle:UIAlertControllerStyle.alert)
-                //                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-                //                self.present(alert, animated: true, completion: nil)
                 
                 login()
             } else {
@@ -193,20 +196,34 @@ extension LoginViewController {
     
     func login()
     {
+        
         if (self.serialTextField.text?.isEmpty)!
         {
-            let alert = UIAlertController(title:"Warning",message:"Please enter serial!",preferredStyle:UIAlertControllerStyle.alert)
-            
+            let alert = UIAlertController(title:"Warning",message:"Please enter serial.",preferredStyle:UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            
             self.present(alert, animated: true, completion: nil)
-            
             return
+        }
+        
+        if (self.udidTextField.text != "User123") {
+            
+            ProcessingIndicator.show()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+                ProcessingIndicator.hide()
+                
+                let alert = UIAlertController(title:"Warning",message:"Please enter correct serial or password.",preferredStyle:UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+                self.present(alert, animated: true, completion: nil)
+                self.udidTextField.text = ""
+            })
+            return
+
         }
         
         ProcessingIndicator.show()
         
-        User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
+        User.loginWithUser(serial:self.serialTextField.text!,uuid:(UserDefaults.standard.object(forKey:"UUID_Key") as? String)!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
             
             User.registerUserAPNS(serial: self.serialTextField.text!, uuid: self.udidTextField.text!, completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
                 
@@ -219,20 +236,16 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 if self.isAutoLogin == true {
                                     UserDefaults.standard.set(self.serialTextField.text, forKey: "serial_Key")
-                                    
                                     UserDefaults.standard.register(defaults: ["isAutoKey" : true])
                                     UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(true, forKey: "isAutoKey")
-                                    
                                     UserDefaults.standard.synchronize()
                                     
                                 } else {
                                     UserDefaults.standard.set("", forKey: "serial_Key")
-                                    
                                     UserDefaults.standard.register(defaults: ["isAutoKey" : true])
                                     UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(false, forKey: "isAutoKey")
-                                    
                                     UserDefaults.standard.synchronize()
                                 }
                                 //*******************************************************************//
@@ -284,7 +297,6 @@ extension LoginViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         udidTextField.resignFirstResponder()
-        
         serialTextField.resignFirstResponder()
         
         return true;
