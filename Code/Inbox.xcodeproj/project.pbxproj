@@ -587,7 +587,7 @@
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
 		29FD0F9921160D0500062362 /* FanConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FanConnect.app; path = FanConnectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SMSFactory copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/SMSFactory copy-Info.plist"; sourceTree = "<absolute>"; };
-		29FD100E21160D1000062362 /* PhotoTextingCom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTextingCom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FD100E21160D1000062362 /* PhotoSMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD100F21160D1000062362 /* FanConnect copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FanConnect copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/FanConnect copy-Info.plist"; sourceTree = "<absolute>"; };
 		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
@@ -786,7 +786,7 @@
 				1ADE9F7A1EF98E48006C2CAC /* TextingLine.app */,
 				290BEDFB20E697EC00F30BAA /* SMSFactory.app */,
 				29FD0F9921160D0500062362 /* FanConnect.app */,
-				29FD100E21160D1000062362 /* PhotoTextingCom.app */,
+				29FD100E21160D1000062362 /* PhotoSMS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1224,9 +1224,9 @@
 			productReference = 29FD0F9921160D0500062362 /* FanConnect.app */;
 			productType = "com.apple.product-type.application";
 		};
-		29FD0F9B21160D1000062362 /* PhotoTextingCom */ = {
+		29FD0F9B21160D1000062362 /* PhotoSMS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29FD100B21160D1000062362 /* Build configuration list for PBXNativeTarget "PhotoTextingCom" */;
+			buildConfigurationList = 29FD100B21160D1000062362 /* Build configuration list for PBXNativeTarget "PhotoSMS" */;
 			buildPhases = (
 				29FD0F9C21160D1000062362 /* Sources */,
 				29FD0FED21160D1000062362 /* Frameworks */,
@@ -1237,9 +1237,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoTextingCom;
+			name = PhotoSMS;
 			productName = Inbox;
-			productReference = 29FD100E21160D1000062362 /* PhotoTextingCom.app */;
+			productReference = 29FD100E21160D1000062362 /* PhotoSMS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1309,7 +1309,7 @@
 				1ADE9F791EF98E48006C2CAC /* TextingLine */,
 				290BED8C20E697EC00F30BAA /* SMSFactory */,
 				29FD0F2621160D0500062362 /* FanConnectMe */,
-				29FD0F9B21160D1000062362 /* PhotoTextingCom */,
+				29FD0F9B21160D1000062362 /* PhotoSMS */,
 			);
 		};
 /* End PBXProject section */
@@ -2226,7 +2226,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29FD100B21160D1000062362 /* Build configuration list for PBXNativeTarget "PhotoTextingCom" */ = {
+		29FD100B21160D1000062362 /* Build configuration list for PBXNativeTarget "PhotoSMS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29FD100C21160D1000062362 /* Debug */,

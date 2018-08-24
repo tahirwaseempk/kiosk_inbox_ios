@@ -44,7 +44,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
             header_View.backgroundColor = PhotoAppColor
         }
         
-        self.initiateMessageCall()
+       // self.initiateMessageCall()
     }
     
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
@@ -250,7 +250,7 @@ extension ConversationListingViewController
                     UIApplication.shared.applicationIconBadgeNumber = 0
                     self.conversationListUpdated()
                     ProcessingIndicator.hide()
-                    self.initiateMessageCall()
+                   // self.initiateMessageCall()
                 }
             }
             
@@ -262,7 +262,7 @@ extension ConversationListingViewController
                 {
                     ProcessingIndicator.hide()
 
-                    self.initiateMessageCall()
+                   // self.initiateMessageCall()
                 }
             }
         }

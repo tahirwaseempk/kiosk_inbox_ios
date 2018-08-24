@@ -106,7 +106,7 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> login URL = \(finalUrl) \n")
         
-        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:paramsDic,completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters: paramsDic, httpMethod: "POST", httpHeaderKey: "", httpHeaderValue: "", completionBlock:{(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -318,28 +318,26 @@ class WebManager: NSObject
     static func deleteConversation(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
     {
         
-        let uuid:String = params["uuid"] as! String
-        let serial:String = params["serial"] as! String
-        let mobile:String = params["mobile"] as! String
-        let shortCode:String = params["shortCode"] as! String
+        let token:String = params["token"] as! String
+        let chatId:String = params["chatID"] as! String
         
         var finalUrl = ""
         
         switch environment {
             
         case .texting_Line:
-            finalUrl =  URL_TEXTING_LINE + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+            finalUrl =  URL_TEXTING_LINE + "/api/v1/chats/" + chatId
         case .sms_Factory:
-            finalUrl =  URL_SMS_FACTORY + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+            finalUrl =  URL_SMS_FACTORY
         case .fan_Connect:
-            finalUrl =  URL_FANCONNECT + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+            finalUrl =  URL_FANCONNECT
         case .photo_Texting:
-            finalUrl =  URL_PHOTO_TEXTING + DELETE_URL + uuid + DELETE_URL_BEFORE_SERIAL + serial + DELETE_URL_BEFORE_MOBILE + mobile + DELETE_URL_BEFORE_SHORTCODE + shortCode
+            finalUrl =  URL_PHOTO_TEXTING
         }
         
         print("\n ===== >>>>> Delete Conversation URL = \(finalUrl) \n")
         
-        PostDataWithUrl(urlString:finalUrl, withParameterDictionary:Dictionary(),completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "DELETE", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -529,13 +527,13 @@ class WebManager: NSObject
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+            finalUrl = URL_TEXTING_LINE + "/api/v1/messages/startNewChatMsg"
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+            finalUrl = URL_SMS_FACTORY + "/api/v1/messages/startNewChatMsg"
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+            finalUrl = URL_FANCONNECT + "/api/v1/messages/startNewChatMsg"
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + SEND_URL + uuid + SEND_URL_BEFORE_SERIAL + serial + SEND_URL_BEFORE_MOBILE + mobile + SEND_URL_BEFORE_MESSAGE + escapedString
+            finalUrl = URL_PHOTO_TEXTING + "/api/v1/messages/startNewChatMsg"
         }
         
         print("\n ===== >>>>> Compose Message URL = \(finalUrl) \n")
@@ -863,26 +861,12 @@ class WebManager: NSObject
                 }
                 request.httpBody = jsonData
             }
-        } else if httpMethod == "JSON" {
-           
-            var theJSONText = ""
-            
-            if let theJSONData = try? JSONSerialization.data(
-                withJSONObject: parameters,
-                options: []) {
-                theJSONText = String(data: theJSONData,
-                                     encoding: .ascii)!
-            }
-            
-           // let escapedString :String = theJSONText.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-            
         }
         else {
             if (parameters.keys.count > 0) {
                 let postString = (parameters.compactMap({ (key, value) -> String in
                     return "\(key)=\(value)"
                 }) as Array).joined(separator: "&")
-                
                 print("\(postString) \n")
                 
                 request.httpBody = postString.data(using: String.Encoding.utf8)
@@ -940,6 +924,7 @@ class WebManager: NSObject
                 
                 if(code == 3840)
                 {
+                    
                     completion(NSError(domain: "com.chat.sms", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
                 }
                 else

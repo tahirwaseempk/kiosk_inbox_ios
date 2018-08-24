@@ -705,51 +705,58 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
-            
-            paramsDic["serial"] = user.serial
-            paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = "1" //conversation.mobile
-            paramsDic["shortCode"] = "1" //conversation.shortCode
-            
+            paramsDic["token"] = user.token
+            paramsDic["chatID"] = String(conversation.chatId)
+
             WebManager.deleteConversation(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
                             {
-                                if let status = response?["status"] as? String
-                                {
-                                    if (status == "OK")
-                                    {
-                                        User.getLoginedUser()?.removeFromConversations(conversation)
-                                        
-                                        do {
-                                            
-                                            try user.managedObjectContext?.save()
-                                        }
-                                        catch {
-                                            
-                                        }
-                                        
-                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                        
-                                        successBlock(true)
-                                        
-                                    } else  {
-                                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                
+                                var tempDictionary = Dictionary<String,Any>()
+                                let jsonDict: Dictionary<String, Any> = response!
+                                
+                                if jsonDict["statusCode"] != nil {
+                                    tempDictionary["name"] = jsonDict["name"] as! String
+                                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                                    tempDictionary["message"] = jsonDict["message"] as! String
+                                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                                    
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                                }
+                                else {
+                                   
+                                    User.getLoginedUser()?.removeFromConversations(conversation)
+
+                                    do {
+                                        try user.managedObjectContext?.save()
+                                    }
+                                    catch {
                                     }
                                     
-                                } else if let status = response?["err"] as? String {
-                                    
-                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-                                } else {
-                                    successBlock(false)
+                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                    successBlock(true)
                                 }
                         }
                 }
                 
             }, andFailureBlock: { (error:Error?) -> (Void) in
+               
+                if (error?.localizedDescription == "Invalid Json Format") {
+                    User.getLoginedUser()?.removeFromConversations(conversation)
+                    do {
+                        try user.managedObjectContext?.save()
+                    }
+                    catch {
+                    }
+                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                    failureBlock(nil)
+                    
+                } else {
                 failureBlock(error)
+                }
             })
         }
         else

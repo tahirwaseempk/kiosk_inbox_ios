@@ -215,7 +215,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                     {
                         DispatchQueue.main.async
                             {
-                                
                                 //ProcessingIndicator.hide()
                                 
                                 if status == true
@@ -246,11 +245,21 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                             {
                                 ProcessingIndicator.hide()
                                 
-                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                                
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                
-                                self.present(alert, animated: true, completion: nil)
+                                if error != nil{
+                                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                    
+                                } else {
+                                    
+                                    if let delegate = self.delegate
+                                    {
+                                        delegate.conversationRemoved()
+                                    }
+                                    self.navigationController?.popViewController(animated: true)
+                                }
                         }
                 }
             })
