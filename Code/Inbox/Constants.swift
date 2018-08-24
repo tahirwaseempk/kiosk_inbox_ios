@@ -22,12 +22,13 @@ let environment:environmentType = .photo_Texting
 
 let AppBlueColor    = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor     = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
-let PhotoAppColor   = UIColor(red: 141/256, green: 143/256, blue: 199/256, alpha: 1.0)
+//let PhotoAppColor   = UIColor(red: 141/256, green: 143/256, blue: 199/256, alpha: 1.0)
+let PhotoAppColor   = UIColor(red: 225/256, green: 133/256, blue: 78/256, alpha: 1.0)
 let GrayHeaderColor = UIColor(red: 206/256, green: 205/256, blue: 210/256, alpha: 1.0)
 
 let TextingHex  = "007AFF"
 let FanHex      = "56B3B5"
-let PhotoHex    = "8D8FC7"
+let PhotoHex    =  "#E1854E"//"8D8FC7"
 let ReceiverHex = "DFDEE5"
 
 
