@@ -80,7 +80,7 @@ class ComposeMessageViewController: UIViewController {
         cancelButton.layer.borderColor = UIColor.clear.cgColor
         
         messageTextView.delegate = self
-        messageTextView.text = "Enter your message"
+        messageTextView.text = "Please enter message here"
         messageTextView.textColor = UIColor.lightGray
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
         

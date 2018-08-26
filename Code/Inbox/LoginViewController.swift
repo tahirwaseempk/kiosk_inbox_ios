@@ -81,15 +81,24 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         if UserDefaults.standard.string(forKey: "UUID_Key") != nil {
             print("########## >>>>>>>>> UUID ALREADY EXITS <<<<<<<<<< ##########")
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
-            //self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
-            
+            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
         } else {
             let deviceID = UIDevice.current.identifierForVendor!.uuidString
             print("########## >>>>>>>>> UUID NOT EXITS <<<<<<<<<< ##########")
             UserDefaults.standard.set(deviceID, forKey: "UUID_Key")
             UserDefaults.standard.synchronize()
             print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
-            //self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
+            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
+        }
+        //**********************************************************************//
+        //**********************************************************************//
+        if self.udidTextField.text?.isEmpty == true {
+            let deviceID = UIDevice.current.identifierForVendor!.uuidString
+            print("########## >>>>>>>>> UUID NOT EXITS DOUBLE CHECK <<<<<<<<<< ##########")
+            UserDefaults.standard.set(deviceID, forKey: "UUID_Key")
+            UserDefaults.standard.synchronize()
+            print(UserDefaults.standard.object(forKey:"UUID_Key") ?? String())
+            self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
         }
         //**********************************************************************//
         //**********************************************************************//
@@ -97,9 +106,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
-        self.udidTextField.isEnabled = true
+        self.udidTextField.isEnabled = false
         self.serialTextField.delegate = self
-        self.udidTextField.delegate   = self
+        //        self.udidTextField.delegate   = self
 
         self.rememberMeButton.backgroundColor = UIColor.clear
         
@@ -205,21 +214,21 @@ extension LoginViewController {
             return
         }
         
-        if (self.udidTextField.text != "User123") {
-            
-            ProcessingIndicator.show()
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-                ProcessingIndicator.hide()
-                
-                let alert = UIAlertController(title:"Warning",message:"Please enter correct serial or password.",preferredStyle:UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-                self.present(alert, animated: true, completion: nil)
-                self.udidTextField.text = ""
-            })
-            return
-
-        }
+        //        if (self.udidTextField.text != "User123") {
+        //            
+        //            ProcessingIndicator.show()
+        //
+        //            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+        //                ProcessingIndicator.hide()
+        //                
+        //                let alert = UIAlertController(title:"Warning",message:"Please enter correct serial or password.",preferredStyle:UIAlertControllerStyle.alert)
+        //                alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+        //                self.present(alert, animated: true, completion: nil)
+        //                self.udidTextField.text = ""
+        //            })
+        //            return
+        //
+        //        }
         
         ProcessingIndicator.show()
         
