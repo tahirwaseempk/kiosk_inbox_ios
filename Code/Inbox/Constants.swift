@@ -33,7 +33,7 @@ let ReceiverHex = "DFDEE5"
 
 let LIMIT = "0"
 let EMOJI = "false"
-let CONTACTSWITHCHAT = "true"
+let CONTACTSWITHCHAT = "false" //"true"
 //c8c176a0ed82274194f917b82b4df907714079959b88c0a3dea53eb2e8014750 FanConnect
 
 func convertTimeStampToDateString(tsString: String) -> String {
@@ -45,4 +45,33 @@ func convertTimeStampToDateString(tsString: String) -> String {
     timePart = timePart.trimmingCharacters(in: delCharSet as CharacterSet)
     
     return (datePart + " " + timePart)
+}
+
+func removeSpecialCharsFromString(_ text: String) -> String
+{
+    let okayChars : Set<Character> =
+        Set("1234567890")
+    return String(text.filter {okayChars.contains($0) })
+}
+
+func getPostString(params:[String:Any]) -> String
+{
+    var data = [String]()
+    for(key, value) in params
+    {
+        data.append(key + "=\(value)")
+    }
+    return data.map { String($0) }.joined(separator: "&")
+}
+
+func checkForNull(value:AnyObject) -> String
+{
+    if(value as! NSObject == NSNull() || value as! String == "")
+    {
+        return ""
+    }
+    else
+    {
+        return value as! String
+    }
 }

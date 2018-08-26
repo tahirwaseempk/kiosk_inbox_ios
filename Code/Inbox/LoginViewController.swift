@@ -169,9 +169,9 @@ extension LoginViewController {
         
         ProcessingIndicator.show()
         
-        User.loginWithUser(serial:self.serialTextField.text!,uuid:self.udidTextField.text!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
+        User.loginWithUser(username:self.serialTextField.text!,password:self.udidTextField.text!,isRemember:isAutoLogin, completionBlockSuccess:{(user:User?) -> (Void) in
             
-            User.registerUserAPNS(serial: self.serialTextField.text!, uuid: self.udidTextField.text!, completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
+            User.registerUserAPNS(license: (user?.license)!, completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
                     {

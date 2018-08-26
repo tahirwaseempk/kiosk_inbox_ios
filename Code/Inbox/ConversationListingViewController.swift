@@ -132,7 +132,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                                     if conversation?.unreadMessages == true
                                     {
                                         conversation?.unreadMessages = false
-                                        
                                         self.conversationListUpdated()
                                     }
                                     
@@ -151,7 +150,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                                     if conversation?.unreadMessages == true
                                     {
                                         conversation?.unreadMessages = false
-                                        
                                         self.conversationListUpdated()
                                     }
                                     
@@ -163,7 +161,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                     else
                     {
                         ProcessingIndicator.hide()
-                        
                         self.selectedConversationUpdated()
                     }
                 }

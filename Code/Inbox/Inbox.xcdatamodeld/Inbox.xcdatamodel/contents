@@ -36,14 +36,12 @@
         <attribute name="license" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serial" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timezone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userGroupId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="whiteLableConfigurationId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="zipCode" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="conversations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Conversation" inverseName="user" inverseEntity="Conversation" syncable="YES"/>
@@ -65,7 +63,7 @@
     <elements>
         <element name="Conversation" positionX="-54" positionY="54" width="128" height="210"/>
         <element name="Message" positionX="207" positionY="162" width="128" height="165"/>
-        <element name="User" positionX="-144" positionY="-54" width="128" height="390"/>
+        <element name="User" positionX="-144" positionY="-54" width="128" height="360"/>
         <element name="UserContact" positionX="36" positionY="99" width="128" height="225"/>
     </elements>
 </model>

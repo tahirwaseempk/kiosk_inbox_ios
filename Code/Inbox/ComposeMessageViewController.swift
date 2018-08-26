@@ -107,7 +107,7 @@ class ComposeMessageViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        else if ((messageTextView.text == "Please enter message here") ||
+        else if ((messageTextView.text == "Enter your message") ||
             (messageTextView.text.count == 0)) {
             
             let alert = UIAlertController(title: "Compose Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
@@ -317,7 +317,7 @@ extension ComposeMessageViewController : UITextFieldDelegate {
             
         }else if str!.count > 14{
             
-            return false
+            //return false
         }
         
         return true
@@ -330,7 +330,9 @@ extension ComposeMessageViewController {
         
         ProcessingIndicator.show()
         
-        User.composeNewMessage(mobile: mobile, message: message, completionBlockSuccess: { (status: Bool) -> (Void) in
+       let mobileString  = removeSpecialCharsFromString(mobile)
+        
+        User.composeNewMessage(mobile: mobileString, message: message, contactId: 0, completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {
                     DispatchQueue.main.async

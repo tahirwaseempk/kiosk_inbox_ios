@@ -51,15 +51,16 @@ class UserContactsParser: NSObject
                     
                     var contact: UserContact? = UserContact.getContactFromID(conID: contactId)
                     
-                    let birth_Date = Date()
-                    //                    if let dateStr:String = dic["birthDate"] as? String {
-                    //                        if dateStr.count > 0 {
-                    //                            let dateFormatter = DateFormatter()
-                    //                            dateFormatter.dateFormat = DATE_FORMATE_STRING
-                    //                            birth_Date = dateFormatter.date(from: dateStr)!
-                    //                        }
-                    //                    }
-                    
+                    var birth_Date = Date()
+                    if var dateStr:String = dic["birthDate"] as? String {
+                        if dateStr.count > 0 {
+                            dateStr = convertTimeStampToDateString(tsString: dateStr)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = DATE_FORMATE_STRING
+                            birth_Date = dateFormatter.date(from: dateStr)!
+                        }
+                    }
+            
                     if contact == nil {
                         
                         contact = UserContact.create(context: DEFAULT_CONTEXT,
@@ -144,17 +145,6 @@ class UserContactsParser: NSObject
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    func checkForNull(value:AnyObject) -> String
-    {
-        if(value as! NSObject == NSNull() || value as! String == "")
-        {
-            return ""
-        }
-        else
-        {
-            return value as! String
-        }
-    }
 }
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

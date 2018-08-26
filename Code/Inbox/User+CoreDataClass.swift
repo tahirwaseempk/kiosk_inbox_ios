@@ -11,7 +11,7 @@ import CoreData
 
 public class User: NSManagedObject {
     
-    static func create(context: NSManagedObjectContext, serial:String,uuid:String,isRemember:Bool,token: String, userId: Int64, username: String, formattedUsername: String, email: String, phone: String, mobile: String, firstName: String, lastName: String, companyName: String, address: String, city: String, country: String,state: String, zipCode: String, whiteLableConfigurationId: Int64, userGroupId: Int64, timezone: Int64, license: String) -> User
+    static func create(context: NSManagedObjectContext, isRemember:Bool,token: String, userId: Int64, username: String, formattedUsername: String, email: String, phone: String, mobile: String, firstName: String, lastName: String, companyName: String, address: String, city: String, country: String,state: String, zipCode: String, whiteLableConfigurationId: Int64, userGroupId: Int64, timezone: Int64, license: String) -> User
     {
         var targettedUser:User? = nil
         
@@ -24,8 +24,6 @@ public class User: NSManagedObject {
             targettedUser = User(context: context)
         }
         
-        targettedUser?.serial = serial
-        targettedUser?.uuid = uuid
         targettedUser?.isRemember = isRemember
         //
         targettedUser?.token = token
@@ -98,11 +96,11 @@ public class User: NSManagedObject {
 
 extension User
 {
-    static func loginWithUser(serial:String, uuid:String, isRemember:Bool, completionBlockSuccess successBlock: @escaping ((User?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func loginWithUser(username:String, password:String, isRemember:Bool, completionBlockSuccess successBlock: @escaping ((User?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         var paramsDic = Dictionary<String, Any>()
-        paramsDic["serial"] = serial
-        paramsDic["uuid"] = uuid
+        paramsDic["username"] = username
+        paramsDic["password"] = password
         
         WebManager.requestLogin(params: paramsDic, loginParser: LoginParser(), completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
             
@@ -110,12 +108,9 @@ extension User
                 {
                     DispatchQueue.main.async
                         {
-                            
                             let tempDict = response
                             
                             let user :User? = User.create(context: DEFAULT_CONTEXT,
-                                                          serial:serial,
-                                                          uuid:uuid,
                                                           isRemember:isRemember,
                                                           token: tempDict!["token"] as! String,
                                                           userId: tempDict!["userId"] as! Int64,
@@ -153,17 +148,6 @@ extension User
                             }, andFailureBlock: { (error: Error?) -> (Void) in
                                 failureBlock(error)
                             })
-                            
-                            //
-                            //                            self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
-                            //
-                            //
-                            //                                }
-                            //
-                            //                            }, andFailureBlock: { (error: Error?) -> (Void) in
-                            //
-                            //                                failureBlock(error)
-                            //                            })
                     }
             }
             
@@ -175,25 +159,52 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func registerUserAPNS(serial:String, uuid:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func registerUserAPNS(license:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        var paramsDic = Dictionary<String, Any>()
-        let defaults = UserDefaults.standard
-        paramsDic["serial"] = serial
-        paramsDic["uuid"] = uuid
-        paramsDic["type"] = "Inbox"
         
-        if let token = defaults.string(forKey: "pushyToken")
+        if let user = User.getLoginedUser()
         {
-            paramsDic["token"] = token
+            var paramsDic = Dictionary<String, Any>()
+            paramsDic["type"] = "Inbox"
+
+            if (license.isEmpty == true){
+                paramsDic["serial"] = user.license
+            } else {
+                paramsDic["serial"] = license
+            }
+
+            if let token = UserDefaults.standard.string(forKey: "pushyToken")
+            {
+                paramsDic["token"] = token
+            } else {
+                paramsDic["token"] = ""
+            }
+            
+            if let token = UserDefaults.standard.string(forKey: "pushyToken")
+            {
+                paramsDic["uuid"] = token
+            } else {
+                paramsDic["uuid"] = ""
+            }
+            
+            //----------------------------------------------------//
+            //----------------------------------------------------//
+            #if targetEnvironment(simulator)
+            print("Simulator Simulator Simulator Simulator Simulator Simulator Simulator Simulator")
+            #endif
+            //----------------------------------------------------//
+            //----------------------------------------------------//
+
+            WebManager.registerAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
+                
+                successBlock(true)
+                
+            }) { (error: Error?) -> (Void) in
+                
+                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+            }
         }
-        
-        WebManager.registerAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
-            
-            successBlock(true)
-            
-        }) { (error: Error?) -> (Void) in
-            
+        else {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
@@ -202,6 +213,7 @@ extension User
     //************************************************************************************************//
     static func deleteUserAPNS(serial:String, uuid:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
+        
         var paramsDic = Dictionary<String, Any>()
         let defaults = UserDefaults.standard
         paramsDic["serial"] = serial
@@ -230,9 +242,6 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
-            
-            paramsDic["serial"] = user.serial
-            paramsDic["uuid"] = user.uuid
             paramsDic["token"] = user.token
             
             WebManager.requestConversations(params:paramsDic, conversationParser: ConversationParser(),completionBlockSuccess:{(conversations:Array<Conversation>?) -> (Void) in
@@ -292,15 +301,8 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
-            
-            paramsDic["serial"] = user.serial
-            paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = "1" //conversation.mobile
-            paramsDic["shortCode"] = "1" //conversation.shortCode
-            
             paramsDic["token"] = user.token
             paramsDic["chatID"] = String(conversation.chatId)
-            
             
             WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
                 
@@ -312,9 +314,6 @@ extension User
                                 {
                                     message.conversation = conversation
                                 }
-
-                                // UPDATE ALL MESSAGES CONTACTS//
-                               // User.getLoginedUser()?.updateMessages()
                                 
                                 CoreDataManager.coreDataManagerSharedInstance.saveContext()
                                 
@@ -340,9 +339,6 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
-            paramsDic["serial"] = user.serial
-            paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = "1" //conversation.mobileNumber
             
             WebManager.optOutMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -408,7 +404,7 @@ extension User
                     tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
                     tempDictionary["message"] = jsonDict["message"] as! String
                     tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
-
+                    
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
                 }
                 else {
@@ -430,20 +426,27 @@ extension User
                             msgDate = dateFormatter.date(from: dateStr)!
                         }
                     }
-                        let message = Message.create(context: DEFAULT_CONTEXT,
-                                                 msgTimeStamp_:msgDate,
-                                                 senderId_:senderId,
-                                                 chatId_:chatId,
-                                                 recipientId_:recipientId,
-                                                 messageId_:messageId,
-                                                 messageText_:messageText,
-                                                 isSender_: check)
-                        
-                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
                     
-                    conversation.addToMessages(message)
-                    
-                    successBlock(message)
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    let message = Message.create(context: DEFAULT_CONTEXT,
+                                                                 msgTimeStamp_:msgDate,
+                                                                 senderId_:senderId,
+                                                                 chatId_:chatId,
+                                                                 recipientId_:recipientId,
+                                                                 messageId_:messageId,
+                                                                 messageText_:messageText,
+                                                                 isSender_: check)
+                                    
+                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                    
+                                    conversation.addToMessages(message)
+                                    
+                                    successBlock(message)
+                            }
+                    }
                 }
             }, andFailureBlock: { (error) -> (Void) in
                 failureBlock(error)
@@ -456,55 +459,68 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func composeNewMessage(mobile: String, message: String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func composeNewMessage(mobile: String, message: String, contactId: Int64, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
             
-            paramsDic["serial"] = user.serial
-            paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = mobile
-            paramsDic["message"] = message
+            paramsDic["token"] = user.token
+            
+            if (message != ""){
+                paramsDic["message"] = message
+            }
+            if (mobile != ""){
+                paramsDic["mobile"] =  Int64(mobile)
+            }
+            
+            if (contactId != 0){
+                paramsDic["contactId"] =  contactId
+            }
             
             WebManager.composeMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
-                if let status = response?["result"] as? String
-                {
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    let splitString = status.components(separatedBy: ",")
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
                     
-                    if (String(splitString[0]) == "OK") {
-                        
-                        DispatchQueue.global(qos: .background).async
-                            {
-                                DispatchQueue.main.async
-                                    {
-                                        successBlock(true)
-                                }
-                        }
-                    } else {
-                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-                    }
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////////////////////
-                    
+                    let messageStr =  tempDictionary["message"] as! String
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageStr]))
                 }
-                else if let status = response?["err"] as? String
-                {
+                else {
                     
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                    /*
+                     let messageId = jsonDict["id"] as! Int64
+                     let chatId = jsonDict["chatId"] as! Int64
+                     let recipientId = jsonDict["recipientId"] as! Int64
+                     let senderId = jsonDict["senderId"] as! Int64
+                     let messageText = jsonDict["text"] as! String
+                     
+                     let check : Bool = true
+                     
+                     var msgDate = Date()
+                     if var dateStr:String = jsonDict["timeStamp"] as? String {
+                     if dateStr.count > 0 {
+                     dateStr = convertTimeStampToDateString(tsString: dateStr)
+                     let dateFormatter = DateFormatter()
+                     dateFormatter.dateFormat = DATE_FORMATE_STRING
+                     msgDate = dateFormatter.date(from: dateStr)!
+                     }
+                     }
+                     */
                     
-                } else {
-                    
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:""]))
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    successBlock(true)
+                            }
+                    }
                 }
             }, andFailureBlock: { (error) -> (Void) in
                 failureBlock(error)
@@ -577,12 +593,9 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
-            
-            paramsDic["serial"] = user.serial
-            paramsDic["uuid"] = user.uuid
-            paramsDic["mobile"] = "1" //conversation.mobile
-            paramsDic["shortCode"] = "1" //conversation.shortCode
-            
+            paramsDic["token"] = user.token
+            paramsDic["chatId"] = String(conversation.chatId)
+
             WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -623,11 +636,11 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    
     static func setReadAllConversations(conversations: NSSet,index:Int, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
+            
             if index >= 0 && index < conversations.count
             {
                 let conversation = conversations.allObjects[index] as! Conversation
@@ -640,11 +653,9 @@ extension User
                 {
                     var paramsDic = Dictionary<String, Any>()
                     
-                    paramsDic["serial"] = user.serial
-                    paramsDic["uuid"] = user.uuid
-                    paramsDic["mobile"] = "1" //conversation.mobile
-                    paramsDic["shortCode"] = "1"// conversation.shortCode
-                    
+                    paramsDic["token"] = user.token
+                    paramsDic["chatId"] = String(conversation.chatId)
+
                     WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                         
                         DispatchQueue.global(qos: .background).async
@@ -692,10 +703,6 @@ extension User
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-    
-    //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //************************************************************************************************//
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
@@ -707,43 +714,54 @@ extension User
             var paramsDic = Dictionary<String, Any>()
             paramsDic["token"] = user.token
             paramsDic["chatID"] = String(conversation.chatId)
-
+            
             WebManager.deleteConversation(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
+                
+                
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    
+                    if (jsonDict["statusCode"] as! Int64 == 200) {
+                        tempDictionary["name"] = jsonDict["name"] as! String
+                        tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                        tempDictionary["message"] = jsonDict["message"] as! String
+                        tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                        
+                        DispatchQueue.global(qos: .background).async
                             {
-                                
-                                var tempDictionary = Dictionary<String,Any>()
-                                let jsonDict: Dictionary<String, Any> = response!
-                                
-                                if jsonDict["statusCode"] != nil {
-                                    tempDictionary["name"] = jsonDict["name"] as! String
-                                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
-                                    tempDictionary["message"] = jsonDict["message"] as! String
-                                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
-                                    
-                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
-                                }
-                                else {
-                                   
-                                    User.getLoginedUser()?.removeFromConversations(conversation)
-
-                                    do {
-                                        try user.managedObjectContext?.save()
-                                    }
-                                    catch {
-                                    }
-                                    
-                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                    successBlock(true)
+                                DispatchQueue.main.async
+                                    {
+                                        User.getLoginedUser()?.removeFromConversations(conversation)
+                                        
+                                        do {
+                                            try user.managedObjectContext?.save()
+                                        }
+                                        catch {
+                                        }
+                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                        successBlock(true)
                                 }
                         }
-                }
+                        
+                    } else if (jsonDict["statusCode"] as! Int64 == 400) {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                    
+                        successBlock(false)
+
+                    }
                 
+                }
+                else {
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                }
             }, andFailureBlock: { (error:Error?) -> (Void) in
-               
+                
                 if (error?.localizedDescription == "Invalid Json Format") {
                     User.getLoginedUser()?.removeFromConversations(conversation)
                     do {
@@ -755,7 +773,7 @@ extension User
                     failureBlock(nil)
                     
                 } else {
-                failureBlock(error)
+                    failureBlock(error)
                 }
             })
         }
@@ -764,7 +782,6 @@ extension User
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
@@ -865,48 +882,6 @@ extension User
             //            print("Could not fetch \(error)”)
         }
         
-        return true
-    }
-    
-    @discardableResult
-    func updateMessages() -> Bool
-    {
-        // Fetch all Messages
-        // Fetch All UserContacts
-        
-        let allChats = User.getLoginedUser()?.conversations
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserContact")
-        /*
-        do
-        {
-            let results = try self.managedObjectContext?.fetch(fetchRequest)
-            
-            let  contacts = results as! [UserContact]
-            
-            if let messageS =  allChats. allObjects as? Array<Message>
-            {
-                for msg in messageS
-                {
-                    for contact in contacts
-                    {
-                        if msg.senderId == contact.contactId
-                        {
-                            msg.sender = contacts
-                        }
-                        
-                        if msg.contactId == contact.contactId
-                        {
-                            msg.receiver = contacts
-                        }
-                    }
-                }
-            }
-            
-        } catch let error as NSError {
-            //            print("Could not fetch \(error)”)
-        }
-        */
         return true
     }
 }

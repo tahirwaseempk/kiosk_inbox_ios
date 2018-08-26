@@ -16,8 +16,6 @@ class LoginParser: NSObject {
     func parseUser(json:Dictionary<String,Any>) -> Dictionary<String,Any>
     {
         var returnDictionary = Dictionary<String,Any>()
-        // let mainDictionary = json["statusCode"] as! Dictionary<String,Any>
-        //let keyExists = json["statusCode"] != nil
         
         if json["statusCode"] != nil {
             returnDictionary["name"] = json["name"] as! String
@@ -49,11 +47,6 @@ class LoginParser: NSObject {
             returnDictionary["license"] = userDict["license"] as! String
         }
         
-        //        if (json["err"] as? String) != nil
-        //        {
-        //            return json
-        //        }
-        //
         return returnDictionary
     }
 }
