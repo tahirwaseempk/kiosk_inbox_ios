@@ -26,14 +26,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
                 self.isAutoLogin = true
                 self.serialTextField.text = (UserDefaults.standard.object(forKey:"serial_Key") as? String)
-                self.udidTextField.text = "User123"
+                self.udidTextField.text = UserDefaults.standard.object(forKey:"UUID_Key") as? String
                 udidTextField.resignFirstResponder()
                 serialTextField.resignFirstResponder()
             } else {
                 self.isAutoLogin = false
                 print("########## >>>>>>>>> Auto Login not Enabled <<<<<<<<<< ##########")
                 self.serialTextField.text = ""
-                self.udidTextField.text = ""
+                //self.udidTextField.text = ""
                 udidTextField.resignFirstResponder()
                 serialTextField.resignFirstResponder()
             }
