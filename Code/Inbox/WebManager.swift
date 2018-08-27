@@ -26,7 +26,7 @@ let SEND_MESSAGE = "/api/v1/messages/"
 let COMPOSE_MESSAGE = "/api/v1/messages/startNewChatMsg"
 let CREATE_APPOINTMENT = "/api/v1/appointments/"
 let GET_CONTACTS = "/api/v1/contacts/?onlyWithChat="
-let READ_MESSAGES = "/chats/clearUnreadMsgs/"
+let READ_MESSAGES = "/api/v1/chats/clearUnreadMsgs/"
 //----------------------------------------------------------//
 let APNS_REGISTER_URL = "https://app.textingline.com/limeApi"
 let APNS_REGISTER_SERIAL = "?ev=kioskAddToken&serial="
@@ -42,6 +42,7 @@ let APNS_DELETE_TOKEN = "&token="
 //----------------------------------------------------------//
 //----------------------------------------------------------//
 //**********************************************************//
+
 let OPTOUT_URL_SERIAL = "?ev=kioskInboxOptOut&serial="
 let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
 let OPTOUT_URL_UUID = "&uuid="
@@ -51,7 +52,6 @@ let READ_URL_BEFORE_UUID = "&uuid="
 let READ_URL_BEFORE_ISREAD = "&isRead="
 let READ_URL_BEFORE_MOBILE = "&mobile="
 let READ_URL_BEFORE_SHORTCODE_END = "&shortcode="
-
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------//
@@ -304,7 +304,6 @@ class WebManager: NSObject
         var finalUrl = ""
         
         switch environment {
-            
         case .texting_Line:
             finalUrl =  URL_TEXTING_LINE + DELETE_CONVERSATION + chatId
         case .sms_Factory:
@@ -355,7 +354,7 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> Read Receipt URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "PATCH", httpHeaderKey: "authorization", httpHeaderValue: "token", completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "PATCH", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -653,9 +652,8 @@ class WebManager: NSObject
                 return
             }
             
-            if let httpResponse = response as? HTTPURLResponse {
-                
-                if (httpMethod == "DElETE"){
+            if (httpMethod == "DElETE" || httpMethod == "PATCH"){
+                if let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         var statusDict = Dictionary<String, Any>()
                         statusDict["statusCode"] = httpResponse.statusCode
@@ -663,7 +661,6 @@ class WebManager: NSObject
                         statusDict["name"] = "RequestCompletedSucessfully"
                         statusDict["message"] = "Request Completed Sucessfully"
                         completion(nil,statusDict as NSDictionary)
-                        
                     } else if httpResponse.statusCode == 400 {
                         var statusDict = Dictionary<String, Any>()
                         statusDict["statusCode"] = httpResponse.statusCode
