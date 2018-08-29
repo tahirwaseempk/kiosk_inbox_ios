@@ -54,9 +54,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
-        //        self.udidTextField.isEnabled = false
+        self.udidTextField.isEnabled = true
         self.serialTextField.delegate = self
-        
+        self.udidTextField.delegate = self
+
         self.rememberMeButton.backgroundColor = UIColor.clear
         
         self.loginButton.clipsToBounds = true
@@ -76,8 +77,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             }
         }
         
-        serialTextField.text = "8443712030"
-        udidTextField.text = "lime123"
+//        serialTextField.text = "8443712030"
+//        udidTextField.text = "lime123"
         
         self.addCheckboxSubviews()
     }
@@ -231,6 +232,8 @@ extension LoginViewController {
                                     UserDefaults.standard.bool(forKey: "isAutoKey")
                                     UserDefaults.standard.set(false, forKey: "isAutoKey")
                                     UserDefaults.standard.synchronize()
+                                    self.serialTextField.text = ""
+                                    self.udidTextField.text = ""
                                 }
                                 //*******************************************************************//
                                 //*******************************************************************//
@@ -254,7 +257,10 @@ extension LoginViewController {
                         {
                             ProcessingIndicator.hide()
                             
-                            let alert = UIAlertController(title:"Error!",message:"Unable to login",preferredStyle: UIAlertControllerStyle.alert)
+                            self.serialTextField.text = ""
+                            self.udidTextField.text = ""
+
+                            let alert = UIAlertController(title:"Error",message:error?.localizedDescription,preferredStyle: UIAlertControllerStyle.alert)
                             
                             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler: nil))
                             
@@ -282,14 +288,14 @@ extension LoginViewController {
         
         let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        if textField == serialTextField{
-            
-            return checkEnglishPhoneNumberFormat(string: string, str: str)
-            
-        } else {
-            
+//        if textField == serialTextField{
+//
+//            return checkEnglishPhoneNumberFormat(string: string, str: str)
+//
+//        } else {
+//
             return true
-        }
+//        }
     }
     
     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{

@@ -66,6 +66,8 @@ class WebManager: NSObject
     static let Invalid_Token            = "Unexpected token in JSON"
     static let Appointment_Error        = "Failed to create Appointment"
     static let Json_Parameters_Error    = "Parameters fail"
+    static let Wrong_User_Passwprd      = "Please provide correct Username/Password."
+
     override init()
     {
         super.init()
@@ -652,7 +654,7 @@ class WebManager: NSObject
                 return
             }
             
-            if (httpMethod == "DElETE" || httpMethod == "PATCH"){
+            if (httpMethod == "DELETE" || httpMethod == "PATCH"){
                 if let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         var statusDict = Dictionary<String, Any>()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -81,7 +81,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIm-dx-chc">
-                                        <rect key="frame" x="23" y="77" width="131" height="40"/>
+                                        <rect key="frame" x="23" y="77" width="172" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="qhM-0U-5sw"/>
@@ -120,19 +120,16 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yge-Xb-xjD" userLabel="ContactsButton">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yge-Xb-xjD" userLabel="ContactsButton">
                                         <rect key="frame" x="154" y="77" width="41" height="40.5"/>
                                         <color key="backgroundColor" red="1" green="0.1616903123" blue="0.89863799229999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="ic_person_add">
                                             <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="contactsButton_Tapped:" destination="AKq-vz-dqd" eventType="touchUpInside" id="4VF-ZP-BuY"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvi-iD-5oS" userLabel="ContactsButton">
                                         <rect key="frame" x="195" y="77.5" width="41" height="40"/>
-                                        <color key="backgroundColor" red="1" green="0.99539288380000002" blue="0.28673177239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Uvi-iD-5oS" secondAttribute="height" multiplier="40:39" id="oYm-Pw-Hm2"/>
                                         </constraints>
@@ -140,7 +137,7 @@
                                             <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="appContactsButton_Tapped:" destination="AKq-vz-dqd" eventType="touchUpInside" id="Ae9-Jn-KCN"/>
+                                            <action selector="contactsButton_Tapped:" destination="AKq-vz-dqd" eventType="touchUpInside" id="IAo-de-nwh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -170,7 +167,7 @@
                                     <constraint firstItem="yge-Xb-xjD" firstAttribute="width" secondItem="Uvi-iD-5oS" secondAttribute="width" id="bo8-o8-ywk"/>
                                     <constraint firstItem="RDQ-cw-CwP" firstAttribute="leading" secondItem="UAV-bb-VpN" secondAttribute="trailing" constant="20" id="hZi-lF-6CJ"/>
                                     <constraint firstItem="DYb-kZ-VHO" firstAttribute="leading" secondItem="7ug-oL-tYW" secondAttribute="leading" id="nUk-rn-xZM"/>
-                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="leading" secondItem="gIm-dx-chc" secondAttribute="trailing" id="onP-IP-gOH"/>
+                                    <constraint firstItem="yge-Xb-xjD" firstAttribute="leading" secondItem="gIm-dx-chc" secondAttribute="trailing" constant="-41" id="onP-IP-gOH"/>
                                     <constraint firstItem="UAV-bb-VpN" firstAttribute="top" secondItem="RDQ-cw-CwP" secondAttribute="top" id="pb7-e8-Grn"/>
                                     <constraint firstItem="RDQ-cw-CwP" firstAttribute="top" secondItem="DYb-kZ-VHO" secondAttribute="bottom" constant="10" id="prQ-qq-Kmu"/>
                                 </constraints>

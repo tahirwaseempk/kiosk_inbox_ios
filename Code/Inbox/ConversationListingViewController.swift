@@ -113,81 +113,159 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
 
         ProcessingIndicator.show()
         
+        callMessagesWebService()
+//        User.getMessageForConversation(self.selectedConversation, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
+//
+//            DispatchQueue.global(qos:.background).async
+//            {
+//                DispatchQueue.main.async
+//                {
+//                    if self.selectedConversation.unreadMessages == true
+//                    {
+//                        User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+//
+//                            DispatchQueue.global(qos:.background).async
+//                            {
+//                                DispatchQueue.main.async
+//                                {
+//                                    ProcessingIndicator.hide()
+//
+//                                    if conversation?.unreadMessages == true
+//                                    {
+//                                        conversation?.unreadMessages = false
+//                                        self.conversationListUpdated()
+//                                    }
+//
+//                                    self.selectedConversationUpdated()
+//                                }
+//                            }
+//
+//                        }, andFailureBlock: { (error:Error?) -> (Void) in
+//
+//                            DispatchQueue.global(qos:.background).async
+//                            {
+//                                DispatchQueue.main.async
+//                                {
+//                                    ProcessingIndicator.hide()
+//
+//                                    if conversation?.unreadMessages == true
+//                                    {
+//                                        conversation?.unreadMessages = false
+//                                        self.conversationListUpdated()
+//                                    }
+//
+//                                    self.selectedConversationUpdated()
+//                                }
+//                            }
+//                        })
+//                    }
+//                    else
+//                    {
+//                        ProcessingIndicator.hide()
+//                        self.selectedConversationUpdated()
+//                    }
+//                }
+//            }
+//
+//        }) {(error:Error?) -> (Void) in
+//
+//            DispatchQueue.global(qos:.background).async
+//            {
+//                DispatchQueue.main.async
+//                {
+//                    ProcessingIndicator.hide()
+//
+//                    self.selectedConversation = nil
+//
+//                    self.selectedConversationUpdated()
+//
+//                    let alert = UIAlertController(title: "ERROR", message: "Could not load conversation.", preferredStyle: UIAlertControllerStyle.alert)
+//
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//
+//                    self.present(alert, animated: true, completion: nil)
+//                }
+//            }
+//        }
+        
+        return true
+    }
+    
+    func callMessagesWebService () {
+        
         User.getMessageForConversation(self.selectedConversation, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
-            {
-                DispatchQueue.main.async
                 {
-                    if self.selectedConversation.unreadMessages == true
-                    {
-                        User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-                            
-                            DispatchQueue.global(qos:.background).async
+                    DispatchQueue.main.async
+                        {
+                            if self.selectedConversation.unreadMessages == true
                             {
-                                DispatchQueue.main.async
-                                {
-                                    ProcessingIndicator.hide()
+                                User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
                                     
-                                    if conversation?.unreadMessages == true
-                                    {
-                                        conversation?.unreadMessages = false
-                                        self.conversationListUpdated()
+                                    DispatchQueue.global(qos:.background).async
+                                        {
+                                            DispatchQueue.main.async
+                                                {
+                                                    ProcessingIndicator.hide()
+                                                    
+                                                    if self.selectedConversation.unreadMessages == true
+                                                    {
+                                                        self.selectedConversation.unreadMessages = false
+                                                        self.conversationListUpdated()
+                                                    }
+                                                    
+                                                    self.selectedConversationUpdated()
+                                            }
                                     }
                                     
-                                    self.selectedConversationUpdated()
-                                }
-                            }
-                            
-                        }, andFailureBlock: { (error:Error?) -> (Void) in
-                            
-                            DispatchQueue.global(qos:.background).async
-                            {
-                                DispatchQueue.main.async
-                                {
-                                    ProcessingIndicator.hide()
+                                }, andFailureBlock: { (error:Error?) -> (Void) in
                                     
-                                    if conversation?.unreadMessages == true
-                                    {
-                                        conversation?.unreadMessages = false
-                                        self.conversationListUpdated()
+                                    DispatchQueue.global(qos:.background).async
+                                        {
+                                            DispatchQueue.main.async
+                                                {
+                                                    ProcessingIndicator.hide()
+                                                    
+                                                    if self.selectedConversation.unreadMessages == true
+                                                    {
+                                                        self.selectedConversation.unreadMessages = false
+                                                        self.conversationListUpdated()
+                                                    }
+                                                    
+                                                    self.selectedConversationUpdated()
+                                            }
                                     }
-                                    
-                                    self.selectedConversationUpdated()
-                                }
+                                })
                             }
-                        })
+                            else
+                            {
+                                ProcessingIndicator.hide()
+                                self.selectedConversationUpdated()
+                            }
                     }
-                    else
-                    {
-                        ProcessingIndicator.hide()
-                        self.selectedConversationUpdated()
-                    }
-                }
             }
             
         }) {(error:Error?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
-            {
-                DispatchQueue.main.async
                 {
-                    ProcessingIndicator.hide()
-
-                    self.selectedConversation = nil
-                    
-                    self.selectedConversationUpdated()
-
-                    let alert = UIAlertController(title: "ERROR", message: "Could not load conversation.", preferredStyle: UIAlertControllerStyle.alert)
-                    
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    
-                    self.present(alert, animated: true, completion: nil)
-                }
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            
+                            self.selectedConversation = nil
+                            
+                            self.selectedConversationUpdated()
+                            
+                            let alert = UIAlertController(title: "ERROR", message: "Could not load conversation.", preferredStyle: UIAlertControllerStyle.alert)
+                            
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            
+                            self.present(alert, animated: true, completion: nil)
+                    }
             }
         }
-        
-        return true
     }
 }
 

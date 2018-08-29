@@ -110,44 +110,54 @@ extension User
                         {
                             let tempDict = response
                             
-                            let user :User? = User.create(context: DEFAULT_CONTEXT,
-                                                          isRemember:isRemember,
-                                                          token: tempDict!["token"] as! String,
-                                                          userId: tempDict!["userId"] as! Int64,
-                                                          username: response!["username"] as! String,
-                                                          formattedUsername: tempDict!["formattedUsername"] as! String,
-                                                          email: tempDict!["email"] as! String,
-                                                          phone: tempDict!["phone"] as! String,
-                                                          mobile: tempDict!["mobile"] as! String,
-                                                          firstName: tempDict!["firstName"] as! String,
-                                                          lastName: tempDict!["lastName"] as! String,
-                                                          companyName: tempDict!["companyName"] as! String,
-                                                          address: tempDict!["address"] as! String,
-                                                          city: tempDict!["city"] as! String,
-                                                          country: tempDict!["country"] as! String,
-                                                          state: tempDict!["state"] as! String,
-                                                          zipCode: tempDict!["zipCode"] as! String,
-                                                          whiteLableConfigurationId: tempDict!["whiteLableConfigurationId"] as! Int64,
-                                                          userGroupId: tempDict!["userGroupId"] as! Int64,
-                                                          timezone: tempDict!["timezone"] as! Int64,
-                                                          license: tempDict!["license"] as! String)
-                            
-                            User.loginedUser = user
-                            
-                            self.syncContacts(completionBlockSuccess: { () -> (Void) in
-                                DispatchQueue.global(qos: .background).async
-                                    {
-                                        DispatchQueue.main.async
-                                            {
-                                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                                
-                                                successBlock(user)
-                                        }
-                                }
+                            if tempDict!["statusCode"] != nil {
+                                //                                tempDictionary["name"] = tempDict["name"] as! String
+                                //                                tempDictionary["errorCode"] = tempDict["errorCode"] as! Int64
+                                //                                tempDictionary["message"] = tempDict["message"] as! String
+                                //                                tempDictionary["statusCode"] = tempDict["statusCode"] as! Int64
+                                failureBlock(NSError(domain:"com.inbox.amir",code:401,userInfo:[NSLocalizedDescriptionKey:WebManager.Wrong_User_Passwprd]))
+
+                            } else {
                                 
-                            }, andFailureBlock: { (error: Error?) -> (Void) in
-                                failureBlock(error)
-                            })
+                                let user :User? = User.create(context: DEFAULT_CONTEXT,
+                                                              isRemember:isRemember,
+                                                              token: tempDict!["token"] as! String,
+                                                              userId: tempDict!["userId"] as! Int64,
+                                                              username: response!["username"] as! String,
+                                                              formattedUsername: tempDict!["formattedUsername"] as! String,
+                                                              email: tempDict!["email"] as! String,
+                                                              phone: tempDict!["phone"] as! String,
+                                                              mobile: tempDict!["mobile"] as! String,
+                                                              firstName: tempDict!["firstName"] as! String,
+                                                              lastName: tempDict!["lastName"] as! String,
+                                                              companyName: tempDict!["companyName"] as! String,
+                                                              address: tempDict!["address"] as! String,
+                                                              city: tempDict!["city"] as! String,
+                                                              country: tempDict!["country"] as! String,
+                                                              state: tempDict!["state"] as! String,
+                                                              zipCode: tempDict!["zipCode"] as! String,
+                                                              whiteLableConfigurationId: tempDict!["whiteLableConfigurationId"] as! Int64,
+                                                              userGroupId: tempDict!["userGroupId"] as! Int64,
+                                                              timezone: tempDict!["timezone"] as! Int64,
+                                                              license: tempDict!["license"] as! String)
+                                
+                                User.loginedUser = user
+                                
+                                self.syncContacts(completionBlockSuccess: { () -> (Void) in
+                                    DispatchQueue.global(qos: .background).async
+                                        {
+                                            DispatchQueue.main.async
+                                                {
+                                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                                    successBlock(user)
+                                            }
+                                    }
+                                    
+                                }, andFailureBlock: { (error: Error?) -> (Void) in
+                                    failureBlock(error)
+                                })
+                                
+                            }
                     }
             }
             
@@ -166,13 +176,13 @@ extension User
         {
             var paramsDic = Dictionary<String, Any>()
             paramsDic["type"] = "Inbox"
-
+            
             if (license.isEmpty == true){
                 paramsDic["serial"] = user.license
             } else {
                 paramsDic["serial"] = license
             }
-
+            
             if let token = UserDefaults.standard.string(forKey: "pushyToken")
             {
                 paramsDic["token"] = token
@@ -194,7 +204,7 @@ extension User
             #endif
             //----------------------------------------------------//
             //----------------------------------------------------//
-
+            
             WebManager.registerAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
                 
                 successBlock(true)
@@ -595,7 +605,7 @@ extension User
             var paramsDic = Dictionary<String, Any>()
             paramsDic["token"] = user.token
             paramsDic["chatId"] = String(conversation.chatId)
-
+            
             WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -655,7 +665,7 @@ extension User
                     
                     paramsDic["token"] = user.token
                     paramsDic["chatId"] = String(conversation.chatId)
-
+                    
                     WebManager.setReadReceipt(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                         
                         DispatchQueue.global(qos: .background).async
@@ -747,15 +757,15 @@ extension User
                         }
                         
                     } else if (jsonDict["statusCode"] as! Int64 == 400) {
-                    tempDictionary["name"] = jsonDict["name"] as! String
-                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
-                    tempDictionary["message"] = jsonDict["message"] as! String
-                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
-                    
+                        tempDictionary["name"] = jsonDict["name"] as! String
+                        tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                        tempDictionary["message"] = jsonDict["message"] as! String
+                        tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                        
                         successBlock(false)
-
+                        
                     }
-                
+                    
                 }
                 else {
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
