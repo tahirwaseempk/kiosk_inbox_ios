@@ -242,7 +242,13 @@ class WebManager: NSObject
                     {
                         DispatchQueue.main.async
                             {
-                                successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
+                                let responseDict = response as! Dictionary<String,Any>
+                                if responseDict["statusCode"] != nil {
+                                    let errorMessage = responseDict["message"] as! String
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:errorMessage]))
+                                } else {
+                                    successBlock(conversationParser.parseConversations(json:response as! Dictionary<String, Any>))
+                                }
                         }
                 }
             }
@@ -378,7 +384,7 @@ class WebManager: NSObject
         
         let chatID:String = params["chatID"] as! String
         let token:String = params["token"] as! String
-        
+
         var finalUrl = ""
         
         switch environment {
@@ -403,7 +409,13 @@ class WebManager: NSObject
                     {
                         DispatchQueue.main.async
                             {
-                                successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
+                                let responseDict = response as! Dictionary<String,Any>
+                                if responseDict["statusCode"] != nil {
+                                    let errorMessage = responseDict["message"] as! String
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:errorMessage]))
+                                } else {
+                                    successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
+                                }
                         }
                 }
                 

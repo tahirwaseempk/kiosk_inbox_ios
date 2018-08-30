@@ -159,7 +159,7 @@ extension LoginViewController {
     {
         if (self.serialTextField.text?.isEmpty)!
         {
-            let alert = UIAlertController(title:"Warning",message:"Please enter serial!",preferredStyle:UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title:"Warning",message:"Please enter phone number",preferredStyle:UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
             
@@ -257,9 +257,31 @@ extension LoginViewController {
                         {
                             ProcessingIndicator.hide()
                             
-                            self.serialTextField.text = ""
-                            self.udidTextField.text = ""
-
+                            //*******************************************************************//
+                            //*******************************************************************//
+                            //*******************************************************************//
+                            if self.isAutoLogin == true {
+                                UserDefaults.standard.set(self.serialTextField.text, forKey: "USER_NAME")
+                                UserDefaults.standard.set(self.udidTextField.text, forKey: "PASSWORD")
+                                UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                UserDefaults.standard.bool(forKey: "isAutoKey")
+                                UserDefaults.standard.set(true, forKey: "isAutoKey")
+                                UserDefaults.standard.synchronize()
+                                
+                            } else {
+                                UserDefaults.standard.set("", forKey: "USER_NAME")
+                                UserDefaults.standard.set("", forKey: "PASSWORD")
+                                UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                UserDefaults.standard.bool(forKey: "isAutoKey")
+                                UserDefaults.standard.set(false, forKey: "isAutoKey")
+                                UserDefaults.standard.synchronize()
+                                self.serialTextField.text = ""
+                                self.udidTextField.text = ""
+                            }
+                            //*******************************************************************//
+                            //*******************************************************************//
+                            //*******************************************************************//
+                            
                             let alert = UIAlertController(title:"Error",message:error?.localizedDescription,preferredStyle: UIAlertControllerStyle.alert)
                             
                             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler: nil))
@@ -283,7 +305,28 @@ extension LoginViewController {
 
 extension LoginViewController {
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == self.serialTextField {
+            let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_DIGITS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let isAllowed = (string == filtered)
+            
+            if isAllowed == false {
+                return false
+            }
+            
+            if str.count > PHONENUMBER_MAX_LENGTH {
+                return false
+            }
+        }
     
+        return true
+    }
+    
+ /*
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
@@ -327,7 +370,8 @@ extension LoginViewController {
         }
         
         return true
-    }
+    }*/
+    
     
 }
 

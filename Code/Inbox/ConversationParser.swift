@@ -26,6 +26,7 @@ class ConversationParser: NSObject {
             tempDictionary["errorCode"] = json["errorCode"] as! Int64
             tempDictionary["message"] = json["message"] as! String
             tempDictionary["statusCode"] = json["statusCode"] as! Int64
+            
         } else {
             
             let chatsArray = json["chats"] as! Array<Dictionary<String,Any>>

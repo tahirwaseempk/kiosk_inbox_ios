@@ -111,11 +111,11 @@ extension User
                             let tempDict = response
                             
                             if tempDict!["statusCode"] != nil {
-                                //                                tempDictionary["name"] = tempDict["name"] as! String
-                                //                                tempDictionary["errorCode"] = tempDict["errorCode"] as! Int64
-                                //                                tempDictionary["message"] = tempDict["message"] as! String
-                                //                                tempDictionary["statusCode"] = tempDict["statusCode"] as! Int64
-                                failureBlock(NSError(domain:"com.inbox.amir",code:401,userInfo:[NSLocalizedDescriptionKey:WebManager.Wrong_User_Passwprd]))
+//                                                                tempDictionary["name"] = tempDict["name"] as! String
+//                                                                tempDictionary["errorCode"] = tempDict["errorCode"] as! Int64
+//                                                                tempDictionary["message"] = tempDict["message"] as! String
+//                                                                tempDictionary["statusCode"] = tempDict["statusCode"] as! Int64
+                                failureBlock(NSError(domain:"com.inbox.amir",code:401,userInfo:[NSLocalizedDescriptionKey:tempDict!["message"] as! String]))
 
                             } else {
                                 
