@@ -5,7 +5,6 @@ class SplashViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         
         switch environment {
         case .texting_Line:

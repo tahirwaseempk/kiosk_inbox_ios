@@ -77,3 +77,15 @@ func checkForNull(value:AnyObject) -> String
         return value as! String
     }
 }
+
+func checkJsonForNull(value:AnyObject) -> Int64
+{
+    if(value as! NSObject == NSNull() || value as! String == "")
+    {
+        return 0
+    }
+    else
+    {
+        return value as! Int64
+    }
+}

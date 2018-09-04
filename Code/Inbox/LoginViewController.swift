@@ -11,11 +11,33 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @IBOutlet weak var loginImageView: UIImageView!
     @IBOutlet weak var serialLabel: UILabel!
     @IBOutlet weak var udidLabel: UILabel!
-        
+    
     var isAutoLogin:Bool = false
     
     var tickBox:Checkbox? = nil
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
+            if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
+                print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
+                self.isAutoLogin = true
+                self.serialTextField.text = (UserDefaults.standard.object(forKey:"USER_NAME") as? String)
+                self.udidTextField.text = (UserDefaults.standard.object(forKey:"PASSWORD") as? String)
+                login()
+            } else {
+                self.isAutoLogin = false
+                self.serialTextField.text = ""
+                self.udidTextField.text =  ""
+                print("########## >>>>>>>>> Auto Login not Enabled <<<<<<<<<< ##########")
+            }
+        }
+        
+        udidTextField.resignFirstResponder()
+        serialTextField.resignFirstResponder()
+    }
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -57,7 +79,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.udidTextField.isEnabled = true
         self.serialTextField.delegate = self
         self.udidTextField.delegate = self
-
+        
         self.rememberMeButton.backgroundColor = UIColor.clear
         
         self.loginButton.clipsToBounds = true
@@ -73,11 +95,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate
                 login()
             } else {
                 self.isAutoLogin = false
+                self.serialTextField.text = ""
+                self.udidTextField.text =  ""
                 print("########## >>>>>>>>> Auto Login not Enabled <<<<<<<<<< ##########")
             }
         }
         
-//        serialTextField.text = "8443712030"
+        //        serialTextField.text = "8443712030"
+//        serialTextField.text = "8006999130"
 //        udidTextField.text = "lime123"
         
         self.addCheckboxSubviews()
@@ -322,55 +347,55 @@ extension LoginViewController {
                 return false
             }
         }
-    
+        
         return true
     }
     
- /*
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        
-//        if textField == serialTextField{
-//
-//            return checkEnglishPhoneNumberFormat(string: string, str: str)
-//
-//        } else {
-//
-            return true
-//        }
-    }
-    
-    func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
-        
-        if string == ""
-        {
-            //BackSpace
-            
-            if str!.count == 4
-            {
-                let truncated = str!.substring(to: str!.index(before: str!.endIndex))
-                
-                serialTextField.text =  truncated
-                
-                return false
-            }
-            
-            return true
-        }
-        else if str!.count == 4
-        {
-            serialTextField.text = serialTextField.text! + string! + "-"
-            
-            return false
-            
-        }else if str!.count > 9 {
-            
-            return false
-        }
-        
-        return true
-    }*/
+    /*
+     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     
+     let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+     
+     //        if textField == serialTextField{
+     //
+     //            return checkEnglishPhoneNumberFormat(string: string, str: str)
+     //
+     //        } else {
+     //
+     return true
+     //        }
+     }
+     
+     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
+     
+     if string == ""
+     {
+     //BackSpace
+     
+     if str!.count == 4
+     {
+     let truncated = str!.substring(to: str!.index(before: str!.endIndex))
+     
+     serialTextField.text =  truncated
+     
+     return false
+     }
+     
+     return true
+     }
+     else if str!.count == 4
+     {
+     serialTextField.text = serialTextField.text! + string! + "-"
+     
+     return false
+     
+     }else if str!.count > 9 {
+     
+     return false
+     }
+     
+     return true
+     }*/
     
     
 }

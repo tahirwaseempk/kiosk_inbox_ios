@@ -164,7 +164,14 @@ class HomeViewController: UIViewController
     {
         if UIDevice.current.userInterfaceIdiom == .pad
         {
-            self.userNameLabel.text = User.getLoginedUser()?.username
+            if (User.getLoginedUser()?.firstName!.isEmpty == false &&
+                User.getLoginedUser()?.lastName!.isEmpty == false)
+            {
+                self.userNameLabel.text = ((User.getLoginedUser()?.firstName)! + " " + (User.getLoginedUser()?.lastName)!)
+            }
+            else {
+                self.userNameLabel.text = User.getLoginedUser()?.username
+            }
         }
         else
         {
