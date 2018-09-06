@@ -1,4 +1,6 @@
 import UIKit
+import Crashlytics
+
 
 class LoginViewController: UIViewController,UITextFieldDelegate
 {
@@ -25,7 +27,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate
                 self.isAutoLogin = true
                 self.serialTextField.text = (UserDefaults.standard.object(forKey:"USER_NAME") as? String)
                 self.udidTextField.text = (UserDefaults.standard.object(forKey:"PASSWORD") as? String)
-                login()
             } else {
                 self.isAutoLogin = false
                 self.serialTextField.text = ""
@@ -36,6 +37,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         
         udidTextField.resignFirstResponder()
         serialTextField.resignFirstResponder()
+        
+        //        serialTextField.text = "8443712030"
+        //        serialTextField.text = "8006999130"
+        //        udidTextField.text = "lime123"
     }
 
     override func viewDidLoad()
@@ -101,9 +106,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             }
         }
         
-        //        serialTextField.text = "8443712030"
+                serialTextField.text = "8443712030"
 //        serialTextField.text = "8006999130"
-//        udidTextField.text = "lime123"
+        udidTextField.text = "lime123"
         
         self.addCheckboxSubviews()
     }
@@ -167,6 +172,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     //************************************************************************************************//
     @IBAction func loginButton_Tapped(_ sender: Any)
     {
+        //Crashlytics.sharedInstance().crash()
         self.login()
     }
     //************************************************************************************************//

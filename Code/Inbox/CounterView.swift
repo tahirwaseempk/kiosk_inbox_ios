@@ -12,7 +12,7 @@ class CounterView: UIView
     
     @IBInspectable var viewType:String = ""
     
-    @IBInspectable var tempValue:Int = 1
+    @IBInspectable var tempValue:Int = 0
     
     @IBOutlet weak var incrementerButton: UIButton!
     

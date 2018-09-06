@@ -309,8 +309,8 @@
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your message here" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-vj-aG3">
-                                        <rect key="frame" x="8" y="2" width="348" height="46"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="8" y="2" width="348" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -357,20 +357,35 @@
                                             <action selector="attachment_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="jv8-9T-GdW"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-Pf-o8n">
+                                        <rect key="frame" x="273" y="36" width="83" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="g4e-vj-aG3" secondAttribute="bottom" constant="2" id="6DD-hg-O4H"/>
+                                    <constraint firstAttribute="bottom" secondItem="g4e-vj-aG3" secondAttribute="bottom" constant="14" id="6DD-hg-O4H"/>
+                                    <constraint firstAttribute="bottom" secondItem="s5D-Pf-o8n" secondAttribute="bottom" id="6vI-BZ-e3B"/>
                                     <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="yk5-dh-reY" secondAttribute="trailing" constant="2" id="8OQ-Pc-KdK"/>
                                     <constraint firstAttribute="bottom" secondItem="q2D-9z-iaV" secondAttribute="bottom" constant="2" id="DEn-MK-Kki"/>
                                     <constraint firstAttribute="trailing" secondItem="q2D-9z-iaV" secondAttribute="trailing" constant="2" id="DPx-da-aXg"/>
                                     <constraint firstItem="g4e-vj-aG3" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" constant="2" id="Kng-rl-9vb"/>
                                     <constraint firstItem="yk5-dh-reY" firstAttribute="firstBaseline" secondItem="q2D-9z-iaV" secondAttribute="firstBaseline" constant="-11" id="ORv-li-zBW"/>
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" id="Rep-jx-mvv"/>
+                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="trailing" secondItem="g4e-vj-aG3" secondAttribute="trailing" id="SvA-LX-NVO"/>
                                     <constraint firstItem="yk5-dh-reY" firstAttribute="top" secondItem="q2D-9z-iaV" secondAttribute="top" id="UGX-Qc-g5e"/>
                                     <constraint firstAttribute="trailing" secondItem="j5v-i9-RST" secondAttribute="trailing" id="VR5-bZ-3KK"/>
                                     <constraint firstItem="g4e-vj-aG3" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" constant="8" id="ajk-RF-SKd"/>
                                     <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="g4e-vj-aG3" secondAttribute="trailing" constant="2" id="bQx-N7-o8L"/>
+                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="top" secondItem="g4e-vj-aG3" secondAttribute="bottom" id="bjO-BL-SOD"/>
                                     <constraint firstItem="yk5-dh-reY" firstAttribute="baseline" secondItem="q2D-9z-iaV" secondAttribute="baseline" constant="11" id="kjn-G3-SLp"/>
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" id="kmc-FR-BFA"/>
                                     <constraint firstAttribute="height" constant="50" id="vOS-Sv-PLR"/>
@@ -414,6 +429,7 @@
                         <outlet property="cross_Button" destination="Sr7-FW-YkZ" id="jyQ-vx-1Ub"/>
                         <outlet property="delete_Button" destination="DyZ-d3-lfl" id="rEN-qx-dnD"/>
                         <outlet property="header_View" destination="0ba-wH-bdk" id="hm3-6n-ybU"/>
+                        <outlet property="inputCharacterCountLabel" destination="s5D-Pf-o8n" id="3cg-Bo-w7G"/>
                         <outlet property="messageFromLabel" destination="1lw-Pb-4JC" id="ZxG-gp-QdG"/>
                         <outlet property="messageNumberLabel" destination="Tuk-KQ-TZn" id="EBi-NY-A3E"/>
                         <outlet property="schedule_Button" destination="ICx-QA-FLV" id="0lk-Ts-9Vu"/>

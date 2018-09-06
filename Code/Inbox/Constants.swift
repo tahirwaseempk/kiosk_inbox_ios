@@ -11,7 +11,7 @@ let DISPLAY_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
 let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15
 
-let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=&,.-!()$ "
+let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_;/?:@=,.-!()$ "
 let ACCEPTABLE_DIGITS = "0123456789"
 
 enum environmentType {

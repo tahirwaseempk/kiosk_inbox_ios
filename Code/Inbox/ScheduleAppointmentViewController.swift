@@ -47,7 +47,7 @@ class ScheduleAppointmentViewController: UIViewController
         
         dateFormatter.calendar = NSCalendar.current
         
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMMM, yyyy", options: 0, locale: dateFormatter.calendar.locale)
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMM, yyyy", options: 0, locale: dateFormatter.calendar.locale)
         
         self.calendarLabel.text = dateFormatter.string(from: Date())
         

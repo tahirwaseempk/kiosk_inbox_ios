@@ -221,9 +221,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                                     
                                 }, andFailureBlock: { (error:Error?) -> (Void) in
                                     
-                                    DispatchQueue.global(qos:.background).async
+                                    DispatchQueue.global(qos:.background).sync
                                         {
-                                            DispatchQueue.main.async
+                                            DispatchQueue.main.sync
                                                 {
                                                     ProcessingIndicator.hide()
                                                     
@@ -248,9 +248,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
             
         }) {(error:Error?) -> (Void) in
             
-            DispatchQueue.global(qos:.background).async
+            DispatchQueue.global(qos:.background).sync
                 {
-                    DispatchQueue.main.async
+                    DispatchQueue.main.sync
                         {
                             ProcessingIndicator.hide()
                             

@@ -9,6 +9,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var closeView: UIView!
     
+    @IBOutlet weak var inputCharacterCountLabel: UILabel!
+
     /////////////////////////////////////////////////
     @IBOutlet weak var cross_Button: UIButton!
     @IBOutlet weak var delete_Button: UIButton!
@@ -32,7 +34,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+                
         switch environment {
         case .texting_Line:
             if UIDevice.current.userInterfaceIdiom == .pad {
@@ -79,6 +81,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             schedule_Button.backgroundColor = PhotoAppColor
         }
         
+        self.inputCharacterCountLabel.text = "Characters Count 0/250"
+
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -545,6 +549,16 @@ extension ConversationDetailViewController:UITextFieldDelegate {
         
         if isAllowed == false {
             return false
+        }
+        
+//        if str.count > sendMessageMaxLength {
+//            return false
+//        }
+
+        let reminingCount = sendMessageMaxLength - str.count
+        
+        if reminingCount >= 0 {
+            self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
         }
         
         if str.count > sendMessageMaxLength {

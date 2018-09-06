@@ -675,6 +675,8 @@ class WebManager: NSObject
                         statusDict["name"] = "RequestCompletedSucessfully"
                         statusDict["message"] = "Request Completed Sucessfully"
                         completion(nil,statusDict as NSDictionary)
+                        return
+                        
                     } else if httpResponse.statusCode == 400 {
                         var statusDict = Dictionary<String, Any>()
                         statusDict["statusCode"] = httpResponse.statusCode
@@ -682,9 +684,11 @@ class WebManager: NSObject
                         statusDict["name"] = "BadRequestError"
                         statusDict["message"] = "Request Not Completed Sucessfully"
                         completion(nil,statusDict as NSDictionary)
+                        return
                     }
                     else {
                         completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Json_Parameters_Error]),nil)
+                        return
                     }
                     /*
                      if let statusCode = httpResponse.allHeaderFields["Access-Control-Allow-Origin"] as? String {
@@ -697,7 +701,6 @@ class WebManager: NSObject
                      }
                      if let statusCode = httpResponse.allHeaderFields["x-powered-by"] as? String {
                      }*/
-                    
                 }
             }
             

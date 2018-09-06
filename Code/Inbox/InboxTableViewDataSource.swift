@@ -183,7 +183,9 @@ extension InboxTableViewDataSource:SearchViewProtocol
                 
                 if ((conversation1.sender?.phoneNumber?.contains(text))! ||
                     (conversation1.receiver?.phoneNumber?.contains(text))! ||
-                    (conversation1.lastMessage?.contains(text))!)
+                    (conversation1.lastMessage?.contains(text))! ||
+                    (conversation1.receiver?.firstName?.contains(text))! ||
+                    (conversation1.receiver?.lastName?.contains(text))!)
                 {
                     selectedConversation = nil
                     return true

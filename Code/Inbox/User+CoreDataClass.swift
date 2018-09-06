@@ -612,22 +612,18 @@ extension User
                     {
                         DispatchQueue.main.async
                             {
+                                var jsonDict: Dictionary<String, Any> = response!
                                 
-                                if let status = response?["status"] as? String
-                                {
-                                    if (status == "OK")
-                                    {
-                                        successBlock(true)
-                                        
-                                    } else  {
-                                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
-                                    }
+                                if (jsonDict["statusCode"] as! Int64 == 200 &&
+                                    jsonDict["errorCode"] as! Int64 == 200) {
                                     
-                                } else if let status = response?["err"] as? String{
+                                    successBlock(true)
+                                }
+                                else if (jsonDict["statusCode"] as! Int64 == 400 &&
+                                    jsonDict["errorCode"] as! Int64 == 400) {
                                     
-                                    print(status)
-                                    
-                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:status]))
+                                    let messageErr = jsonDict["message"] as! String
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageErr]))
                                 } else {
                                     successBlock(false)
                                 }
