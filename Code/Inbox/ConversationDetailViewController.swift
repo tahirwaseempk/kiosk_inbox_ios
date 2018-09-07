@@ -503,7 +503,8 @@ extension ConversationDetailViewController {
                             ProcessingIndicator.hide()
                             
                             self.sendTextField.text = ""
-                            
+                            self.inputCharacterCountLabel.text = "Characters Count 0/250"
+
                             _ = self.tableViewDataSource?.reloadControls()
                     }
             }

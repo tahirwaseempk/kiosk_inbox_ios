@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UILabel+Copyable.h"
 
 typedef NS_ENUM(NSUInteger, AuthorType) {
     iMessageBubbleTableViewCellAuthorTypeSender = 0,

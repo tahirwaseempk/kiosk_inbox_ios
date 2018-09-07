@@ -127,6 +127,9 @@ static ChatCellSettings *chatCellSettings = nil;
     chatNameLabel.lineBreakMode = NSLineBreakByClipping;
     chatTimeLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
+    //Amir Change
+    chatMessageLabel.copyingEnabled = YES;
+
     
     //Common placement of the different views
     
