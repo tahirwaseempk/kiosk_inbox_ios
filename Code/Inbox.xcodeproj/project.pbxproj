@@ -2043,6 +2043,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TWA5JJ29B2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
