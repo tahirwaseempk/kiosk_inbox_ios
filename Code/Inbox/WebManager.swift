@@ -353,11 +353,11 @@ class WebManager: NSObject
         case .texting_Line:
             finalUrl = URL_TEXTING_LINE + READ_MESSAGES + chatId
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + READ_MESSAGES
+            finalUrl = URL_SMS_FACTORY + READ_MESSAGES + chatId
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT + READ_MESSAGES
+            finalUrl = URL_FANCONNECT + READ_MESSAGES + chatId
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + READ_MESSAGES
+            finalUrl = URL_PHOTO_TEXTING + READ_MESSAGES + chatId
         }
         
         print("\n ===== >>>>> Read Receipt URL = \(finalUrl) \n")
@@ -584,7 +584,7 @@ class WebManager: NSObject
             finalUrl = URL_PHOTO_TEXTING + GET_CONTACTS + CONTACTSWITHCHAT
         }
         
-        print("\n ===== >>>>> Get Contact URL = \(finalUrl) \n")
+        print("\n ===== >>>>> Get Contacts URL = \(finalUrl) \n")
         
         callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
@@ -745,7 +745,6 @@ class WebManager: NSObject
         
         task.resume()
     }
-    
 }
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

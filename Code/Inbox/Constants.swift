@@ -34,7 +34,7 @@ let PhotoHex    = "8D8FC7"
 let ReceiverHex = "DFDEE5"
 
 let LIMIT = "0"
-let EMOJI = "false"
+let EMOJI = "true"
 let CONTACTSWITHCHAT = "false" //"true"
 //c8c176a0ed82274194f917b82b4df907714079959b88c0a3dea53eb2e8014750 FanConnect
 
