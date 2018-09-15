@@ -38,9 +38,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         udidTextField.resignFirstResponder()
         serialTextField.resignFirstResponder()
         
-                        serialTextField.text = "8443712030"
-        //        serialTextField.text = "8006999130"
-                        udidTextField.text = "lime123"
+        //   serialTextField.text = "8443712030"
+        //   serialTextField.text = "8006999130"
+        //   udidTextField.text = "lime123"
     }
 
     override func viewDidLoad()
@@ -306,8 +306,8 @@ extension LoginViewController {
                                 UserDefaults.standard.bool(forKey: "isAutoKey")
                                 UserDefaults.standard.set(false, forKey: "isAutoKey")
                                 UserDefaults.standard.synchronize()
-                                self.serialTextField.text = ""
-                                self.udidTextField.text = ""
+                               // self.serialTextField.text = ""
+                              //  self.udidTextField.text = ""
                             }
                             //*******************************************************************//
                             //*******************************************************************//

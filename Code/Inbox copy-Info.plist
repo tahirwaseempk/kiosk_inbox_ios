@@ -17,13 +17,29 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.4</string>
+	<string>1.3</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>bce2d39d12be4c08933d7fa6caeba25179c955bb</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) What to access Camera for capturing picture and sending via message.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>$(PRODUCT_NAME) will access your contacts to send receive messages.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) What to access Library for capturing picture and sending via message.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

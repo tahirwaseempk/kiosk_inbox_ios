@@ -1247,6 +1247,7 @@
 				290BEDDE20E697EC00F30BAA /* Frameworks */,
 				290BEDE220E697EC00F30BAA /* Resources */,
 				290BEDF720E697EC00F30BAA /* Embed Frameworks */,
+				29CE4294214D936F008D0CD8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1497,6 +1498,19 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		29955C64213A89E1000B733F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c";
+		};
+		29CE4294214D936F008D0CD8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2111,8 +2125,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4cbd9baa-1bf5-4ab0-8164-c1afe7e6a0dd";
-				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAdHocProfile;
+				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
+				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2140,8 +2154,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4cbd9baa-1bf5-4ab0-8164-c1afe7e6a0dd";
-				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAdHocProfile;
+				PROVISIONING_PROFILE = "2dcfd3e2-8a6f-4f76-ac41-ca1639c3bfec";
+				PROVISIONING_PROFILE_SPECIFIER = SMSFactoryAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

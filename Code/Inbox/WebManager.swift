@@ -12,9 +12,9 @@ import Foundation
 //----------------------------------------------------------//
 //**********************************************************//
 let URL_TEXTING_LINE  = "https://services.textingline.com"
-let URL_SMS_FACTORY   = "https://app.textingline.com/limeApi"
-let URL_FANCONNECT    = "https://app.textingline.com/limeApi"
-let URL_PHOTO_TEXTING = "https://app.textingline.com/limeApi"
+let URL_SMS_FACTORY   = "https://services.textingline.com"
+let URL_FANCONNECT    = "https://services.textingline.com"
+let URL_PHOTO_TEXTING = "https://services.textingline.com"
 //----------------------------------------------------------//
 let LOGIN = "/api/v1/auth/login"
 let GET_CONVERSATIONS = "/api/v1/chats/"

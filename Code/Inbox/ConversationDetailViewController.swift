@@ -487,10 +487,19 @@ extension ConversationDetailViewController {
         return true
     }
     
+    func encode(_ s: String) -> String {
+        let data = s.data(using: .nonLossyASCII, allowLossyConversion: true)!
+        return String(data: data, encoding: .utf8)!
+    }
+    
     func sendMessageToConversation(conversation: Conversation, message: String, imageType: String, imageString: String) -> Bool {
         
         var paramsDic = Dictionary<String, Any>()
-        paramsDic["message"] = message
+        
+        // message = message.replaceEmojiWithHexa()
+        //message = message.addingUnicodeEntities
+
+        paramsDic["message"] = message //self.encode(message)  //.replaceEmojiWithHexa()
         paramsDic["attachment"] = imageString
         paramsDic["attachmentFileSuffix"] = imageType
         
@@ -547,7 +556,7 @@ extension ConversationDetailViewController:UITextFieldDelegate {
         let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
         let filtered = string.components(separatedBy: cs).joined(separator: "")
         let isAllowed = (string == filtered)
-        
+
         if isAllowed == false {
             return false
         }

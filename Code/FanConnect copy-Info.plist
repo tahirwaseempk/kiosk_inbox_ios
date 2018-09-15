@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) What to access Camera for capturing picture and sending via message.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>$(PRODUCT_NAME) will access your contacts to send receive messages.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) What to access Library for capturing picture and sending via message.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
