@@ -607,7 +607,7 @@
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
 		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
-		29FD0F9921160D0500062362 /* FanConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FanConnect.app; path = FanConnectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FD0F9921160D0500062362 /* FanConnectNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnectNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SMSFactory copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/SMSFactory copy-Info.plist"; sourceTree = "<absolute>"; };
 		29FD100E21160D1000062362 /* PhotoSMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD100F21160D1000062362 /* FanConnect copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FanConnect copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/FanConnect copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -816,7 +816,7 @@
 			children = (
 				1ADE9F7A1EF98E48006C2CAC /* TextingLine.app */,
 				290BEDFB20E697EC00F30BAA /* SMSFactory.app */,
-				29FD0F9921160D0500062362 /* FanConnect.app */,
+				29FD0F9921160D0500062362 /* FanConnectNow.app */,
 				29FD100E21160D1000062362 /* PhotoSMS.app */,
 			);
 			name = Products;
@@ -1258,22 +1258,23 @@
 			productReference = 290BEDFB20E697EC00F30BAA /* SMSFactory.app */;
 			productType = "com.apple.product-type.application";
 		};
-		29FD0F2621160D0500062362 /* FanConnectMe */ = {
+		29FD0F2621160D0500062362 /* FanConnectNow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnectMe" */;
+			buildConfigurationList = 29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnectNow" */;
 			buildPhases = (
 				29FD0F2721160D0500062362 /* Sources */,
 				29FD0F7821160D0500062362 /* Frameworks */,
 				29FD0F7C21160D0500062362 /* Resources */,
 				29FD0F9521160D0500062362 /* Embed Frameworks */,
+				297122A3214EE80300DDDF21 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FanConnectMe;
+			name = FanConnectNow;
 			productName = Inbox;
-			productReference = 29FD0F9921160D0500062362 /* FanConnect.app */;
+			productReference = 29FD0F9921160D0500062362 /* FanConnectNow.app */;
 			productType = "com.apple.product-type.application";
 		};
 		29FD0F9B21160D1000062362 /* PhotoSMS */ = {
@@ -1326,7 +1327,7 @@
 						};
 					};
 					29FD0F2621160D0500062362 = {
-						DevelopmentTeam = TWA5JJ29B2;
+						DevelopmentTeam = G3K37RYC9A;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1360,7 +1361,7 @@
 			targets = (
 				1ADE9F791EF98E48006C2CAC /* TextingLine */,
 				290BED8C20E697EC00F30BAA /* SMSFactory */,
-				29FD0F2621160D0500062362 /* FanConnectMe */,
+				29FD0F2621160D0500062362 /* FanConnectNow */,
 				29FD0F9B21160D1000062362 /* PhotoSMS */,
 			);
 		};
@@ -1497,6 +1498,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		297122A3214EE80300DDDF21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c";
+		};
 		29955C64213A89E1000B733F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2169,10 +2183,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FanConnect.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = G3K37RYC9A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2180,10 +2194,10 @@
 				INFOPLIST_FILE = "SMSFactory copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnecnow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "62003372-8a26-44d5-b564-9548f4e9ac02";
-				PROVISIONING_PROFILE_SPECIFIER = FanConnectAppStore;
+				PROVISIONING_PROFILE = "e0b7087f-e9ff-4397-bea8-efde4e556409";
+				PROVISIONING_PROFILE_SPECIFIER = FanConnectNowAppStoreProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2198,10 +2212,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FanConnect.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Don Prentice (G3K37RYC9A)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = G3K37RYC9A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2209,10 +2223,10 @@
 				INFOPLIST_FILE = "SMSFactory copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnecnow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "62003372-8a26-44d5-b564-9548f4e9ac02";
-				PROVISIONING_PROFILE_SPECIFIER = FanConnectAppStore;
+				PROVISIONING_PROFILE = "e0b7087f-e9ff-4397-bea8-efde4e556409";
+				PROVISIONING_PROFILE_SPECIFIER = FanConnectNowAppStoreProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -2307,7 +2321,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnectMe" */ = {
+		29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnectNow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29FD0F9721160D0500062362 /* Debug */,
