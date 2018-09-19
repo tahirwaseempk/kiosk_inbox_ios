@@ -152,6 +152,10 @@
 		290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		290BEDFE20E6999200F30BAA /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
+		2952C1B3215301B000C7C084 /* TextingLine Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B2215301B000C7C084 /* TextingLine Info.plist */; };
+		2952C1B5215301BA00C7C084 /* SMSFactory copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B4215301BA00C7C084 /* SMSFactory copy-Info.plist */; };
+		2952C1B7215301C600C7C084 /* FanConnectNow copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */; };
+		2952C1B9215301CF00C7C084 /* PhotoTextingLine copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B8215301CF00C7C084 /* PhotoTextingLine copy-Info.plist */; };
 		295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
 		295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
 		295EA29121204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
@@ -564,7 +568,6 @@
 		1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Inbox.xcdatamodel; sourceTree = "<group>"; };
 		1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = TextingLine.xcassets; path = Inbox/TextingLine.xcassets; sourceTree = "<group>"; };
-		1ADE9F8C1EF98E4A006C2CAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Inbox/Info.plist; sourceTree = "<group>"; };
 		1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -590,10 +593,13 @@
 		1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
 		29017325211666B600D00E06 /* SMSFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMSFactory.entitlements; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Inbox copy-Info.plist"; path = "/Volumes/NETSOL/Personal Data Amir/Current Working/Sir Wahab/June/Code/Inbox copy-Info.plist"; sourceTree = "<absolute>"; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
 		29472EFC2137190500DC2747 /* TextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
+		2952C1B2215301B000C7C084 /* TextingLine Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TextingLine Info.plist"; sourceTree = "<group>"; };
+		2952C1B4215301BA00C7C084 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SMSFactory copy-Info.plist"; sourceTree = "<group>"; };
+		2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FanConnectNow copy-Info.plist"; sourceTree = "<group>"; };
+		2952C1B8215301CF00C7C084 /* PhotoTextingLine copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhotoTextingLine copy-Info.plist"; sourceTree = "<group>"; };
 		295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataClass.swift"; path = "../UserContact+CoreDataClass.swift"; sourceTree = "<group>"; };
 		295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataProperties.swift"; path = "../UserContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		295EA2972120518700C1EAB2 /* UserContactsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactsParser.swift; sourceTree = "<group>"; };
@@ -608,9 +614,7 @@
 		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
 		29FD0F9921160D0500062362 /* FanConnectNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnectNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SMSFactory copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/SMSFactory copy-Info.plist"; sourceTree = "<absolute>"; };
 		29FD100E21160D1000062362 /* PhotoTextingLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTextingLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		29FD100F21160D1000062362 /* FanConnect copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FanConnect copy-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/FanConnect copy-Info.plist"; sourceTree = "<absolute>"; };
 		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewProtocol.swift; sourceTree = "<group>"; };
@@ -805,9 +809,6 @@
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
 				753684101F03F58900D24264 /* Frameworks */,
-				290BEDFC20E697EC00F30BAA /* Inbox copy-Info.plist */,
-				29FD0F9A21160D0600062362 /* SMSFactory copy-Info.plist */,
-				29FD100F21160D1000062362 /* FanConnect copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -862,7 +863,10 @@
 		1ADE9F941EF98E69006C2CAC /* P-List */ = {
 			isa = PBXGroup;
 			children = (
-				1ADE9F8C1EF98E4A006C2CAC /* Info.plist */,
+				2952C1B8215301CF00C7C084 /* PhotoTextingLine copy-Info.plist */,
+				2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */,
+				2952C1B4215301BA00C7C084 /* SMSFactory copy-Info.plist */,
+				2952C1B2215301B000C7C084 /* TextingLine Info.plist */,
 			);
 			name = "P-List";
 			sourceTree = "<group>";
@@ -1389,6 +1393,7 @@
 				75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */,
 				752CE4401F27E24900FCC976 /* IQButtonBarArrowRight@3x.png in Resources */,
 				752CE43E1F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png in Resources */,
+				2952C1B3215301B000C7C084 /* TextingLine Info.plist in Resources */,
 				750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */,
 				29FD0F242114C30600062362 /* PhotoTexting.xcassets in Resources */,
 				29FD0F212114C2A400062362 /* Fanconnect.xcassets in Resources */,
@@ -1415,6 +1420,7 @@
 				290BEDE920E697EC00F30BAA /* IQButtonBarArrowDown@2x.png in Resources */,
 				290BEDEA20E697EC00F30BAA /* Splash.storyboard in Resources */,
 				290BEDEB20E697EC00F30BAA /* Default-568h@2x.png in Resources */,
+				2952C1B5215301BA00C7C084 /* SMSFactory copy-Info.plist in Resources */,
 				290BEDEC20E697EC00F30BAA /* Login.storyboard in Resources */,
 				29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */,
 				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
@@ -1444,6 +1450,7 @@
 				29FD0F8221160D0500062362 /* Home.storyboard in Resources */,
 				29FD0F8321160D0500062362 /* PhotoTexting.xcassets in Resources */,
 				29FD0F8421160D0500062362 /* ConversationListing.storyboard in Resources */,
+				2952C1B7215301C600C7C084 /* FanConnectNow copy-Info.plist in Resources */,
 				29FD0F8521160D0500062362 /* IQButtonBarArrowDown@2x.png in Resources */,
 				29FD0F8621160D0500062362 /* Splash.storyboard in Resources */,
 				29FD0F8721160D0500062362 /* Default-568h@2x.png in Resources */,
@@ -1478,6 +1485,7 @@
 				29FD0FF921160D1000062362 /* ConversationListing.storyboard in Resources */,
 				29FD0FFA21160D1000062362 /* IQButtonBarArrowDown@2x.png in Resources */,
 				29FD0FFB21160D1000062362 /* Splash.storyboard in Resources */,
+				2952C1B9215301CF00C7C084 /* PhotoTextingLine copy-Info.plist in Resources */,
 				29FD0FFC21160D1000062362 /* Default-568h@2x.png in Resources */,
 				29FD0FFD21160D1000062362 /* Login.storyboard in Resources */,
 				29FD0FFE21160D1000062362 /* Fanconnect.xcassets in Resources */,
@@ -2091,7 +2099,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Inbox/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TextingLine Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
@@ -2120,7 +2128,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Inbox/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TextingLine Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
@@ -2148,7 +2156,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Inbox copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SMSFactory copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
@@ -2177,7 +2185,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Inbox copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SMSFactory copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
@@ -2262,7 +2270,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "FanConnect copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/PhotoTextingLine copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.photosms;
@@ -2291,7 +2299,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "FanConnect copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/PhotoTextingLine copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.photosms;
