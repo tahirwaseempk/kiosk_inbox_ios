@@ -45,9 +45,9 @@ class ConversationParser: NSObject {
                     }
                     let lastMessageDict = dic["lastMessage"] as! Dictionary<String,Any>
                     let senderId = lastMessageDict["senderId"] as! Int64
-                    let chatId = dic["id"] as! Int64 //lastMessageDict["chatId"] as! Int64
+                    let chatId = checkIntForNull(value: (dic["id"] as AnyObject)) //lastMessageDict["chatId"] as! Int64
                     let lastMessageId = lastMessageDict["id"] as! Int64
-                    let lastMessage = checkForNull(value: (lastMessageDict["text"] as AnyObject))
+                    let lastMessage = checkStringForNull(value: (lastMessageDict["text"] as AnyObject))
                     
                     var msgDate = Date()
                     if var dateStr = lastMessageDict["timeStamp"] as? String {

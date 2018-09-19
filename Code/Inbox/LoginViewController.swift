@@ -38,9 +38,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         udidTextField.resignFirstResponder()
         serialTextField.resignFirstResponder()
         
-        //   serialTextField.text = "8443712030"
+//           serialTextField.text = "8443712030"
         //   serialTextField.text = "8006999130"
-        //   udidTextField.text = "lime123"
+//           udidTextField.text = "lime123"
+      
+//           serialTextField.text = "5162821400"
+//           udidTextField.text = "56fjic"
+
     }
 
     override func viewDidLoad()

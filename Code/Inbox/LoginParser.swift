@@ -26,25 +26,28 @@ class LoginParser: NSObject {
         } else {
             returnDictionary["token"] = json["token"] as! String
             let userDict = json["user"] as! Dictionary<String,Any>
-            returnDictionary["userId"] = userDict["id"] as! Int64
-            returnDictionary["username"] = userDict["username"] as! String
-            returnDictionary["formattedUsername"] = userDict["formattedUsername"] as! String
-            returnDictionary["email"] = userDict["email"] as! String
-            returnDictionary["phone"] = userDict["phone"] as! String
-            returnDictionary["mobile"] = userDict["mobile"] as! String
-            returnDictionary["firstName"] = userDict["firstName"] as! String
-            returnDictionary["lastName"] = userDict["lastName"] as! String
-            returnDictionary["companyName"] = userDict["companyName"] as! String
+            
+            returnDictionary["userId"] = checkIntForNull(value: (userDict["id"] as AnyObject))
+            returnDictionary["username"] = checkStringForNull(value: (userDict["username"] as AnyObject))
+            returnDictionary["formattedUsername"] = checkStringForNull(value: (userDict["formattedUsername"] as AnyObject))
+            returnDictionary["email"] = checkStringForNull(value: (userDict["email"] as AnyObject))
+            returnDictionary["phone"] = checkStringForNull(value: (userDict["phone"] as AnyObject))
+            returnDictionary["mobile"] = checkStringForNull(value: (userDict["mobile"] as AnyObject))
+            returnDictionary["firstName"] = checkStringForNull(value: (userDict["firstName"] as AnyObject))
+            returnDictionary["lastName"] = checkStringForNull(value: (userDict["lastName"] as AnyObject))
+            returnDictionary["companyName"] = checkStringForNull(value: (userDict["companyName"] as AnyObject))
+            returnDictionary["whiteLableConfigurationId"] = checkIntForNull(value: (userDict["whiteLableConfigurationId"] as AnyObject))
+            returnDictionary["userGroupId"] = checkIntForNull(value: (userDict["userGroupId"] as AnyObject))
+            returnDictionary["timezone"] = checkIntForNull(value: (userDict["timezone"] as AnyObject))
+            returnDictionary["license"] = checkStringForNull(value: (userDict["license"] as AnyObject))
+            
             let locationDict = userDict["locationDetails"] as! Dictionary<String,Any>
-            returnDictionary["address"] = locationDict["address"] as! String
-            returnDictionary["city"] = locationDict["city"] as! String
-            returnDictionary["country"] = locationDict["country"] as! String
-            returnDictionary["state"] = locationDict["state"] as! String
-            returnDictionary["zipCode"] = locationDict["zipCode"] as! String
-            returnDictionary["whiteLableConfigurationId"] = userDict["whiteLableConfigurationId"] as! Int64
-            returnDictionary["userGroupId"] = userDict["userGroupId"] as! Int64
-            returnDictionary["timezone"] = userDict["timezone"] as! Int64
-            returnDictionary["license"] = userDict["license"] as! String
+            returnDictionary["address"] = checkStringForNull(value: (locationDict["address"] as AnyObject))
+            returnDictionary["city"] = checkStringForNull(value: (locationDict["city"] as AnyObject))
+            returnDictionary["country"] = checkStringForNull(value: (locationDict["country"] as AnyObject))
+            returnDictionary["state"] = checkStringForNull(value: (locationDict["state"] as AnyObject))
+            returnDictionary["zipCode"] = checkStringForNull(value: (locationDict["zipCode"] as AnyObject))
+            
         }
         
         return returnDictionary

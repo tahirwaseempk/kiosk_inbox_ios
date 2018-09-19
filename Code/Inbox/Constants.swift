@@ -21,7 +21,7 @@ enum environmentType {
     photo_Texting
 }
 
-let environment:environmentType = .fan_Connect
+let environment:environmentType = .texting_Line
 
 let AppBlueColor    = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor     = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
@@ -35,7 +35,7 @@ let ReceiverHex = "DFDEE5"
 
 let LIMIT = "0"
 let EMOJI = "true"
-let CONTACTSWITHCHAT = "false" //"true"
+let CONTACTSWITHCHAT = "false"
 //c8c176a0ed82274194f917b82b4df907714079959b88c0a3dea53eb2e8014750 FanConnect
 
 func convertTimeStampToDateString(tsString: String) -> String {
@@ -66,7 +66,7 @@ func getPostString(params:[String:Any]) -> String
     return data.map { String($0) }.joined(separator: "&")
 }
 
-func checkForNull(value:AnyObject) -> String
+func checkStringForNull(value:AnyObject) -> String
 {
     if(value as! NSObject == NSNull() || value as! String == "")
     {
@@ -78,9 +78,9 @@ func checkForNull(value:AnyObject) -> String
     }
 }
 
-func checkJsonForNull(value:AnyObject) -> Int64
+func checkIntForNull(value:AnyObject) -> Int64
 {
-    if(value as! NSObject == NSNull() || value as! String == "")
+    if(value as! NSObject == NSNull())
     {
         return 0
     }

@@ -49,6 +49,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>PhotoTextingLine.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>SMSFactory copy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

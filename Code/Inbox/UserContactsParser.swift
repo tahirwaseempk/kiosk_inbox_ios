@@ -36,18 +36,18 @@ class UserContactsParser: NSObject
             {
                 if dic.count > 0
                 {
-                    let fName = checkForNull(value: (dic["firstName"] as AnyObject))
-                    let lName = checkForNull(value: (dic["lastName"] as AnyObject))
-                    let phoneNo = checkForNull(value: (dic["phoneNumber"] as AnyObject))
-                    let gender = checkForNull(value: (dic["gender"] as AnyObject))
-                    let email = checkForNull(value: (dic["email"] as AnyObject))
+                    let fName = checkStringForNull(value: (dic["firstName"] as AnyObject))
+                    let lName = checkStringForNull(value: (dic["lastName"] as AnyObject))
+                    let phoneNo = checkStringForNull(value: (dic["phoneNumber"] as AnyObject))
+                    let gender = checkStringForNull(value: (dic["gender"] as AnyObject))
+                    let email = checkStringForNull(value: (dic["email"] as AnyObject))
                     let contactId = dic["id"] as! Int64
                     let locationDict = dic["locationDetails"] as! Dictionary<String,Any>
-                    let country = checkForNull(value: (locationDict["country"] as AnyObject))
-                    let zipCode = checkForNull(value: (locationDict["zipCode"] as AnyObject))
-                    let address = checkForNull(value: (locationDict["address"] as AnyObject))
-                    let city = checkForNull(value: (locationDict["city"] as AnyObject))
-                    let state = checkForNull(value: (locationDict["state"] as AnyObject))
+                    let country = checkStringForNull(value: (locationDict["country"] as AnyObject))
+                    let zipCode = checkStringForNull(value: (locationDict["zipCode"] as AnyObject))
+                    let address = checkStringForNull(value: (locationDict["address"] as AnyObject))
+                    let city = checkStringForNull(value: (locationDict["city"] as AnyObject))
+                    let state = checkStringForNull(value: (locationDict["state"] as AnyObject))
                     
                     var contact: UserContact? = UserContact.getContactFromID(conID: contactId)
                     
