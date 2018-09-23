@@ -31,7 +31,7 @@ class CoreDataManager: NSObject
     {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
     
-        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleCoreData.sqlite")
     
         var failureReason = "There was an error creating or loading the application's saved data."
         

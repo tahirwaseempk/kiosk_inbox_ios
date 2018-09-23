@@ -122,5 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         CoreDataManager.coreDataManagerSharedInstance.saveContext()
         UserDefaults.standard.synchronize()
     }
+    
+    
 }
 
