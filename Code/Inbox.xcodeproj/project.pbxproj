@@ -2275,7 +2275,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.photosms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4c3b25a1-8356-4676-813a-e06c28613a2c";
+				PROVISIONING_PROFILE = "a2e8a38c-dd70-49be-9861-8efa157bfde4";
 				PROVISIONING_PROFILE_SPECIFIER = PhotoTextingLineAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2304,7 +2304,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.photosms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4c3b25a1-8356-4676-813a-e06c28613a2c";
+				PROVISIONING_PROFILE = "a2e8a38c-dd70-49be-9861-8efa157bfde4";
 				PROVISIONING_PROFILE_SPECIFIER = PhotoTextingLineAppStore;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
