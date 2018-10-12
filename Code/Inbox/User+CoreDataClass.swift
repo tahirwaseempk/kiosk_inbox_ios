@@ -839,6 +839,65 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func updateUser(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            paramsDic["token"] = user.token
+            
+            //    "email": "string",
+            //    "mobile": "string",
+            //    "firstName": "string",
+            //    "lastName": "string",
+            //    "companyName": "string",
+            //    "address": "string",
+            //    "city": "string",
+            //    "country": "string",
+            //    "state": "string",
+            //    "zipCode": "string"
+            
+            WebManager.putUser(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                }
+                else {
+                    
+//                    if jsonDict["id"] as! Int64 > 0 {
+//
+//                        DispatchQueue.global(qos: .background).async
+//                            {
+//                                DispatchQueue.main.async
+//                                    {
+                                        successBlock(true)
+//                                }
+//                        }
+//                    }
+//                    else {
+//                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Appointment_Error]))
+//                    }
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     @discardableResult
     func updateConversations() -> Bool
     {

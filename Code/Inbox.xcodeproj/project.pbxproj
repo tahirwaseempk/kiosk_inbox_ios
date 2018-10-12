@@ -761,6 +761,7 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				29345210216FC75100053B87 /* Label */,
 				29C8204D2141CD1900A47752 /* UILabel+Copyable */,
 				29C820422141CC1900A47752 /* CopyableLabel */,
 				1A34751E2062CA4600FA0FFB /* Calendar  */,
@@ -1005,6 +1006,13 @@
 				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		29345210216FC75100053B87 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		29C820422141CC1900A47752 /* CopyableLabel */ = {

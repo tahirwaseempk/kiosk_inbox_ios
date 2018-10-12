@@ -27,6 +27,11 @@ let COMPOSE_MESSAGE = "/api/v1/messages/startNewChatMsg"
 let CREATE_APPOINTMENT = "/api/v1/appointments/"
 let GET_CONTACTS = "/api/v1/contacts/?onlyWithChat="
 let READ_MESSAGES = "/api/v1/chats/clearUnreadMsgs/"
+let PUT_USER = "/api/v1/user/"
+let GET_USER = "/api/v1/auth/user"
+let FORGET_PASSWORD = "/api/v1/auth/resetPassword"
+let BYPASS_MESSAGE = "/api/v1/auth/messages/byPass"
+
 //----------------------------------------------------------//
 let APNS_REGISTER_URL = "https://app.textingline.com/limeApi"
 let APNS_REGISTER_SERIAL = "?ev=kioskAddToken&serial="
@@ -610,6 +615,138 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func putUser(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let token:String = params["token"] as! String
+        
+        var paramsDictionary = Dictionary<String, Any>()
+        paramsDictionary["email"] = params["email"] as! String
+        paramsDictionary["mobile"] = params["mobile"] as! String
+        paramsDictionary["firstName"] = params["firstName"] as! String
+        paramsDictionary["lastName"] = params["lastName"] as! String
+        paramsDictionary["companyName"] = params["companyName"] as! String
+        paramsDictionary["address"] = params["address"] as! String
+        paramsDictionary["city"] = params["city"] as! String
+        paramsDictionary["country"] = params["country"] as! String
+        paramsDictionary["state"] = params["state"] as! String
+        paramsDictionary["zipCode"] = params["zipCode"] as! String        
+        
+        var finalUrl = ""
+        
+        switch environment {
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + PUT_USER
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + PUT_USER
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + PUT_USER
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + PUT_USER
+        }
+        
+        print("\n ===== >>>>> Put User URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "PUT", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func forgetPassword(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let token:String = params["token"] as! String
+       
+        var paramsDictionary = Dictionary<String, Any>()
+        paramsDictionary["username"] = params["mobile"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + FORGET_PASSWORD
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + FORGET_PASSWORD
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + FORGET_PASSWORD
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + FORGET_PASSWORD
+        }
+        
+        print("\n ===== >>>>> Forget Password URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func byPassMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let token:String = params["token"] as! String
+       
+        var paramsDictionary = Dictionary<String, Any>()
+        paramsDictionary["text"] = params["message"] as! String
+        paramsDictionary["mobile"] = params["mobile"] as! String
+
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + BYPASS_MESSAGE
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + BYPASS_MESSAGE
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + BYPASS_MESSAGE
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + BYPASS_MESSAGE
+        }
+        
+        print("\n ===== >>>>> By Pass Message URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    
     internal static func callNewWebService(urlStr: String, parameters: Dictionary<String,Any>, httpMethod: String, httpHeaderKey: String, httpHeaderValue: String, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void)))
     {
         
@@ -621,7 +758,7 @@ class WebManager: NSObject
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = httpMethod //set http method as POST
         
-        if httpMethod == "POST" {
+        if (httpMethod == "POST" || httpMethod == "PUT") {
             
             if (parameters.keys.count > 0) {
                 var jsonData: Data? = nil
@@ -666,7 +803,7 @@ class WebManager: NSObject
                 return
             }
             
-            if (httpMethod == "DELETE" || httpMethod == "PATCH"){
+            if (httpMethod == "DELETE" || httpMethod == "PATCH" || httpMethod == "PUT"){
                 if let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         var statusDict = Dictionary<String, Any>()
