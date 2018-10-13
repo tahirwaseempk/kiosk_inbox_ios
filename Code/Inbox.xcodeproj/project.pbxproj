@@ -592,7 +592,6 @@
 		29017325211666B600D00E06 /* SMSFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMSFactory.entitlements; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
-		2932C2C02171F45200D2A299 /* ActiveLabel.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = ActiveLabel.podspec; path = "../../../../../../../Users/amir/Desktop/ActiveLabel.swift-master/ActiveLabel.podspec"; sourceTree = "<group>"; };
 		29472EFC2137190500DC2747 /* TextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
 		2952C1B2215301B000C7C084 /* TextingLine Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TextingLine Info.plist"; sourceTree = "<group>"; };
@@ -1088,7 +1087,6 @@
 		753684101F03F58900D24264 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2932C2C02171F45200D2A299 /* ActiveLabel.podspec */,
 				29955C66213A8A1D000B733F /* Crashlytics.framework */,
 				29955C65213A8A1C000B733F /* Fabric.framework */,
 				2949C60120C3196B000A4BB8 /* PhoneNumberKit */,
