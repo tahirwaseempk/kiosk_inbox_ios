@@ -872,19 +872,102 @@ extension User
                 }
                 else {
                     
-//                    if jsonDict["id"] as! Int64 > 0 {
-//
-//                        DispatchQueue.global(qos: .background).async
-//                            {
-//                                DispatchQueue.main.async
-//                                    {
-                                        successBlock(true)
-//                                }
-//                        }
-//                    }
-//                    else {
-//                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Appointment_Error]))
-//                    }
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    successBlock(true)
+                            }
+                    }
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func forgetUserPassword(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            paramsDic["token"] = user.token
+            
+            //    "mobile": "string",
+            
+            WebManager.forgetPassword(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                }
+                else {
+                    
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    successBlock(true)
+                            }
+                    }
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func byPassMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            paramsDic["token"] = user.token
+            
+            //    "mobile": "string",
+            //    "message": "string",
+            
+            WebManager.byPassMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                }
+                else {
+                    
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    successBlock(true)
+                            }
+                    }
                 }
             }, andFailureBlock: { (error) -> (Void) in
                 failureBlock(error)

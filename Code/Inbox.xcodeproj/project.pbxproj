@@ -153,6 +153,10 @@
 		290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		290BEDFE20E6999200F30BAA /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
 		2932C2BF2171F25C00D2A299 /* TextingLine Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B2215301B000C7C084 /* TextingLine Info.plist */; };
+		2932C2C821720D0B00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2C721720D0B00D2A299 /* ProfileViewController.swift */; };
+		2932C2C921720D0B00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2C721720D0B00D2A299 /* ProfileViewController.swift */; };
+		2932C2CA21720D0B00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2C721720D0B00D2A299 /* ProfileViewController.swift */; };
+		2932C2CB21720D0B00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2C721720D0B00D2A299 /* ProfileViewController.swift */; };
 		2952C1B7215301C600C7C084 /* FanConnectNow copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */; };
 		295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
 		295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
@@ -592,6 +596,7 @@
 		29017325211666B600D00E06 /* SMSFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMSFactory.entitlements; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
+		2932C2C721720D0B00D2A299 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		29472EFC2137190500DC2747 /* TextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
 		2952C1B2215301B000C7C084 /* TextingLine Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TextingLine Info.plist"; sourceTree = "<group>"; };
@@ -1000,6 +1005,7 @@
 			children = (
 				1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */,
 				1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */,
+				2932C2C721720D0B00D2A299 /* ProfileViewController.swift */,
 				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
 			);
 			name = "Home View";
@@ -1570,6 +1576,7 @@
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
 				759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */,
 				752CE4461F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				2932C2C821720D0B00D2A299 /* ProfileViewController.swift in Sources */,
 				1A3475252062CA6100FA0FFB /* GCCalendarDayView.swift in Sources */,
 				9A1638E52129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
@@ -1670,6 +1677,7 @@
 				290BED9220E697EC00F30BAA /* InboxTableViewCellProtocol.swift in Sources */,
 				290BED9320E697EC00F30BAA /* ComposeMessageProtocol.swift in Sources */,
 				290BED9420E697EC00F30BAA /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				2932C2C921720D0B00D2A299 /* ProfileViewController.swift in Sources */,
 				290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */,
 				9A1638E62129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */,
@@ -1770,6 +1778,7 @@
 				29FD0F2C21160D0500062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				29FD0F2D21160D0500062362 /* ComposeMessageProtocol.swift in Sources */,
 				29FD0F2E21160D0500062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				2932C2CA21720D0B00D2A299 /* ProfileViewController.swift in Sources */,
 				29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */,
 				9A1638E72129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */,
@@ -1870,6 +1879,7 @@
 				29FD0FA121160D1000062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				29FD0FA221160D1000062362 /* ComposeMessageProtocol.swift in Sources */,
 				29FD0FA321160D1000062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				2932C2CB21720D0B00D2A299 /* ProfileViewController.swift in Sources */,
 				29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */,
 				9A1638E82129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */,
