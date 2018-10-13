@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  VerifyCodeViewController.swift
 //  Inbox
 //
 //  Created by Amir Akram on 13/10/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class VerifyCodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

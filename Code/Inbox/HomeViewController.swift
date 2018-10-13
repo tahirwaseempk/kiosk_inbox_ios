@@ -4,6 +4,8 @@ class HomeViewController: UIViewController
 {
     @IBOutlet weak var signOutButton: UIButton!
     
+    @IBOutlet weak var profileButton: UIButton!
+
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -16,6 +18,14 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var compose_Button: UIButton!
     
+    
+    @IBOutlet weak var closeButtonButton: UIButton!
+
+    @IBOutlet var closeView: UIView!
+
+    
+    var profileViewController:ProfileViewController!
+
     var composeMessageViewController:ComposeMessageViewController!
     
     var conversationListingViewController:ConversationListingViewController!
@@ -89,6 +99,7 @@ class HomeViewController: UIViewController
         
     }
     
+
     func setupConversationListingView()
     {
         let storyboard = UIStoryboard.init(name: "ConversationListing", bundle: nil)
@@ -110,7 +121,7 @@ class HomeViewController: UIViewController
         {
             let storyboard = UIStoryboard.init(name: "ConversationDetail", bundle: nil)
             
-            self.conversationDetailViewController = storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as! ConversationDetailViewController
+            self.conversationDetailViewController = storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as? ConversationDetailViewController
             
             self.conversationDetailViewController.delegate = self
             
@@ -118,6 +129,33 @@ class HomeViewController: UIViewController
             
             self.conversationDetailViewController.view.frame = self.conversationDetailContainer.bounds
         }
+    }
+    
+    
+
+    
+    
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        
+        self.closeView.removeFromSuperview()
+        
+        self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        
+        self.view.addSubview(self.profileViewController.view)
+        self.profileViewController.view.frame = self.view.bounds
+        
+    }
+    
+    @IBAction func closeViewDismisssButtonTapped(_ sender: Any) {
+        self.closeView?.removeFromSuperview()
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        
+//        self.closeView.clipsToBounds = true // set clipsToBounds true
+        self.closeView.frame = self.view.bounds
+        
+        self.view.addSubview(self.closeView)
     }
     
     @IBAction func signOut_Tapped(_ sender: Any)
