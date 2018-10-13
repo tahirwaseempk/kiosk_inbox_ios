@@ -14,6 +14,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @IBOutlet weak var serialLabel: UILabel!
     @IBOutlet weak var udidLabel: UILabel!
     
+    var forgetPasswordViewController:ForgetPasswordViewController!
+
     var isAutoLogin:Bool = false
     
     var tickBox:Checkbox? = nil
@@ -175,6 +177,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         //Crashlytics.sharedInstance().crash()
         self.login()
     }
+    
+    @IBAction func forgetPwdButton_Tapped(_ sender: Any) {
+        
+        self.forgetPasswordViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as? ForgetPasswordViewController
+        
+        self.view.addSubview(self.forgetPasswordViewController.view)
+        self.forgetPasswordViewController.view.frame = self.view.bounds
+        
+    }
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
