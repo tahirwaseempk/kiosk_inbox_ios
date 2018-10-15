@@ -936,7 +936,7 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func byPassMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func verifyNumber(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
@@ -946,7 +946,7 @@ extension User
             //    "mobile": "string",
             //    "message": "string",
             
-            WebManager.byPassMessage(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+            WebManager.verifyMobileNumber(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 var tempDictionary = Dictionary<String,Any>()
                 let jsonDict: Dictionary<String, Any> = response!

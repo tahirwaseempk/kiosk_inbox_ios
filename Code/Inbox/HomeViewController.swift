@@ -134,6 +134,7 @@ class HomeViewController: UIViewController
     
 
     
+    // MARK: CLOSE VIEW ACTIONS - START
     
     @IBAction func profileButtonTapped(_ sender: Any) {
         
@@ -152,9 +153,8 @@ class HomeViewController: UIViewController
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         
-//        self.closeView.clipsToBounds = true // set clipsToBounds true
         self.closeView.frame = self.view.bounds
-        
+
         self.view.addSubview(self.closeView)
     }
     
@@ -164,6 +164,8 @@ class HomeViewController: UIViewController
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    // MARK: CLOSE VIEW ACTIONS - END
+
     @IBAction func createMessage_Tapped(_ sender: Any)
     {
         let storyboard = UIStoryboard.init(name: "ComposeMessage", bundle: nil)

@@ -335,14 +335,7 @@ extension LoginViewController {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        udidTextField.resignFirstResponder()
-        
-        serialTextField.resignFirstResponder()
-        
-        return true;
-    }
+
 }
 
 
@@ -367,6 +360,14 @@ extension LoginViewController {
         }
         
         return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        udidTextField.resignFirstResponder()
+        
+        serialTextField.resignFirstResponder()
+        
+        return true;
     }
     
     /*
