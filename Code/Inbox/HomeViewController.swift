@@ -152,10 +152,15 @@ class HomeViewController: UIViewController
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        
-        self.closeView.frame = self.view.bounds
 
-        self.view.addSubview(self.closeView)
+        self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        
+        self.view.addSubview(self.profileViewController.view)
+        self.profileViewController.view.frame = self.view.bounds
+        
+//        self.closeView.frame = self.view.bounds
+//
+//        self.view.addSubview(self.closeView)
     }
     
     @IBAction func signOut_Tapped(_ sender: Any)
