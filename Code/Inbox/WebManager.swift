@@ -72,7 +72,7 @@ class WebManager: NSObject
     static let Appointment_Error        = "Failed to create Appointment"
     static let Json_Parameters_Error    = "Parameters fail"
     static let Wrong_User_Passwprd      = "Please provide correct Username/Password."
-
+    static let User_Not_Found           = "User Not Found"
     override init()
     {
         super.init()
@@ -667,7 +667,7 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func forgetPassword(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        let token:String = params["token"] as! String
+        //let token:String = params["token"] as! String
        
         var paramsDictionary = Dictionary<String, Any>()
         paramsDictionary["username"] = params["mobile"] as! String
@@ -688,7 +688,7 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> Forget Password URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: "", completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {

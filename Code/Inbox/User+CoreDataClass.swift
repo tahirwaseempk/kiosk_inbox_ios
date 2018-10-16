@@ -894,25 +894,31 @@ extension User
     //************************************************************************************************//
     static func forgetUserPassword(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        if let user = User.getLoginedUser()
-        {
+//        if let user = User.getLoginedUser()
+//        {
             var paramsDic = Dictionary<String, Any>()
-            paramsDic["token"] = user.token
-            
-            //    "mobile": "string",
+            //paramsDic["token"] = user.token
+            paramsDic["mobile"] = params["mobile"]
             
             WebManager.forgetPassword(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
                 var tempDictionary = Dictionary<String,Any>()
-                let jsonDict: Dictionary<String, Any> = response!
+                var jsonDict: Dictionary<String, Any> = response!
                 
                 if jsonDict["statusCode"] != nil {
+                    
+                    if jsonDict["errorCode"] as! Int == 2000 {
+                      
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Found]))
+
+                    } else {
                     tempDictionary["name"] = jsonDict["name"] as! String
                     tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
                     tempDictionary["message"] = jsonDict["message"] as! String
                     tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
                     
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                    }
                 }
                 else {
                     
@@ -928,10 +934,10 @@ extension User
                 failureBlock(error)
             })
             
-        }
-        else {
-            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
-        }
+//        }
+//        else {
+//            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+//        }
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
