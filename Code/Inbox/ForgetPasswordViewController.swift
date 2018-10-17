@@ -50,7 +50,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
                             if status == true {
                                
                                 ProcessingIndicator.hide()
-                                let alert = UIAlertController(title: "Sucess", message: "Password sent on your mobile number..", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Sucess", message: "A new password has been sent to your mobile number.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
                                     self.view.removeFromSuperview()
                                 }))
