@@ -120,3 +120,4 @@ func addLineToView(view : UIView, position : LINE_POSITION, width: Double) {
         break
     }
 }
+

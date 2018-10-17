@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameTextField: FloatLabelTextField!
@@ -26,19 +26,32 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+        var timeZones = [Int: String]()
+        timeZones[1] = "Eastern Time"
+        timeZones[2] = "Central Time"
+        timeZones[3] = "Mountain Time"
+        timeZones[4] = "Pacific Time"
+        timeZones[5] = "Alaskan Time"
+        timeZones[6] = "Hawaiian Time"
+        timeZones[7] = "Arizona Time"
         
         
         if let user = User.getLoginedUser()
         {
             self.usernameLabel.text        = " Username: " + user.username!
-           
+            
             self.nameTextField.text        = user.firstName!
             self.lastnameTextField.text    = user.lastName!
-            self.emailTextField.text       = user.lastName!
+            self.emailTextField.text       = user.email!
             self.mobileTextField.text      = user.mobile!
-            self.timeZoneTextField.text    = String(user.timezone)
+            
+            if user.timezone > 0 {
+                self.timeZoneTextField.text =  timeZones[Int(user.timezone)]
+            }
+            
             self.companyNameTextField.text = user.companyName!
             self.addressTextField.text     = user.address!
             self.cityTextField.text        = user.city!
@@ -47,30 +60,50 @@ class ProfileViewController: UIViewController {
             self.countryTextField.text     = user.country!
         }
         
-        addLineToView(view: self.nameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.lastnameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.emailTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.mobileTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.timeZoneTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.companyNameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.addressTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.cityTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.stateTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.zipCodeTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-        addLineToView(view: self.countryTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.nameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.lastnameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.emailTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.mobileTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.timeZoneTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.companyNameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.addressTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.cityTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.stateTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.zipCodeTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+//        addLineToView(view: self.countryTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
+        
+        self.nameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.lastnameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.emailTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.timeZoneTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.companyNameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.addressTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.cityTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.stateTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.zipCodeTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.countryTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
 
+        self.timeZoneTextField.isEnabled = false
+        self.stateTextField.isEnabled = false
+        self.countryTextField.isEnabled = false
+
+
+    }
+    func setupData(){
+        
+        
     }
     
-
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     
     
@@ -98,7 +131,7 @@ class ProfileViewController: UIViewController {
         paramsDic["state"]       = self.stateTextField.text
         paramsDic["zipCode"]     = self.zipCodeTextField.text
         paramsDic["country"]     = self.countryTextField.text
-
+        
         User.updateUser(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {
@@ -139,8 +172,9 @@ class ProfileViewController: UIViewController {
         
     }
     
-    
     @IBAction func backButton_Tapped(_ sender: Any) {
+        
+        self.view.removeFromSuperview()
     }
     
 }

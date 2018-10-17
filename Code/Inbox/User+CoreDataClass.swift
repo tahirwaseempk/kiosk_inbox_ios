@@ -111,12 +111,12 @@ extension User
                             let tempDict = response
                             
                             if tempDict!["statusCode"] != nil {
-//                                                                tempDictionary["name"] = tempDict["name"] as! String
-//                                                                tempDictionary["errorCode"] = tempDict["errorCode"] as! Int64
-//                                                                tempDictionary["message"] = tempDict["message"] as! String
-//                                                                tempDictionary["statusCode"] = tempDict["statusCode"] as! Int64
+                                //                                                                tempDictionary["name"] = tempDict["name"] as! String
+                                //                                                                tempDictionary["errorCode"] = tempDict["errorCode"] as! Int64
+                                //                                                                tempDictionary["message"] = tempDict["message"] as! String
+                                //                                                                tempDictionary["statusCode"] = tempDict["statusCode"] as! Int64
                                 failureBlock(NSError(domain:"com.inbox.amir",code:401,userInfo:[NSLocalizedDescriptionKey:tempDict!["message"] as! String]))
-
+                                
                             } else {
                                 
                                 let user :User? = User.create(context: DEFAULT_CONTEXT,
@@ -852,22 +852,31 @@ extension User
                 let jsonDict: Dictionary<String, Any> = response!
                 
                 if jsonDict["statusCode"] != nil {
-                    tempDictionary["name"] = jsonDict["name"] as! String
-                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
-                    tempDictionary["message"] = jsonDict["message"] as! String
-                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
                     
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                    if jsonDict["errorCode"] as! Int == 200 {
+                        DispatchQueue.global(qos: .background).async
+                            {
+                                DispatchQueue.main.async
+                                    {
+                                        successBlock(true)
+                                }
+                        }
+                    }
+                    else if jsonDict["errorCode"] as! Int == 400 {
+                        
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Request_Completed_Error]))
+                        
+                    } else {
+                        tempDictionary["name"] = jsonDict["name"] as! String
+                        tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                        tempDictionary["message"] = jsonDict["message"] as! String
+                        tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                        
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                    }
                 }
                 else {
-                    
-                    DispatchQueue.global(qos: .background).async
-                        {
-                            DispatchQueue.main.async
-                                {
-                                    successBlock(true)
-                            }
-                    }
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Request_Completed_Error]))
                 }
             }, andFailureBlock: { (error) -> (Void) in
                 failureBlock(error)
@@ -883,50 +892,50 @@ extension User
     //************************************************************************************************//
     static func forgetUserPassword(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-//        if let user = User.getLoginedUser()
-//        {
-            var paramsDic = Dictionary<String, Any>()
-            //paramsDic["token"] = user.token
-            paramsDic["mobile"] = params["mobile"]
+        //        if let user = User.getLoginedUser()
+        //        {
+        var paramsDic = Dictionary<String, Any>()
+        //paramsDic["token"] = user.token
+        paramsDic["mobile"] = params["mobile"]
+        
+        WebManager.forgetPassword(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
             
-            WebManager.forgetPassword(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+            var tempDictionary = Dictionary<String,Any>()
+            var jsonDict: Dictionary<String, Any> = response!
+            
+            if jsonDict["statusCode"] != nil {
                 
-                var tempDictionary = Dictionary<String,Any>()
-                var jsonDict: Dictionary<String, Any> = response!
-                
-                if jsonDict["statusCode"] != nil {
+                if jsonDict["errorCode"] as! Int == 2000 {
                     
-                    if jsonDict["errorCode"] as! Int == 2000 {
-                      
-                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Found]))
-
-                    } else {
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Found]))
+                    
+                } else {
                     tempDictionary["name"] = jsonDict["name"] as! String
                     tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
                     tempDictionary["message"] = jsonDict["message"] as! String
                     tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
                     
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
-                    }
                 }
-                else {
-                    
-                    DispatchQueue.global(qos: .background).async
-                        {
-                            DispatchQueue.main.async
-                                {
-                                    successBlock(true)
-                            }
-                    }
+            }
+            else {
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                successBlock(true)
+                        }
                 }
-            }, andFailureBlock: { (error) -> (Void) in
-                failureBlock(error)
-            })
-            
-//        }
-//        else {
-//            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
-//        }
+            }
+        }, andFailureBlock: { (error) -> (Void) in
+            failureBlock(error)
+        })
+        
+        //        }
+        //        else {
+        //            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        //        }
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//

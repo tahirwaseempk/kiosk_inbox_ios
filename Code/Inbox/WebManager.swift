@@ -73,6 +73,7 @@ class WebManager: NSObject
     static let Json_Parameters_Error    = "Parameters fail"
     static let Wrong_User_Passwprd      = "Please provide correct Username/Password."
     static let User_Not_Found           = "User Not Found"
+    static let Request_Completed_Error  = "Request Not Completed Sucessfully"
     override init()
     {
         super.init()

@@ -81,6 +81,8 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func backButton_Tapped(_ sender: Any) {
         
+        self.view.removeFromSuperview()
+
     }
     
     
