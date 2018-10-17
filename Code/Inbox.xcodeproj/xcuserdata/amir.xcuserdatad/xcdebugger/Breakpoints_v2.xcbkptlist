@@ -20,13 +20,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561407212.5754631"
+            timestampString = "561441847.5547661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "908"
-            endingLineNumber = "908"
+            startingLineNumber = "897"
+            endingLineNumber = "897"
             landmarkName = "forgetUserPassword(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/User+CoreDataClass.swift"
+            timestampString = "561441847.554996"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "848"
+            endingLineNumber = "848"
+            landmarkName = "updateUser(params:completionBlockSuccess:andFailureBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static TextingLine.User.updateUser(params: Swift.Dictionary&lt;Swift.String, Any&gt;, completionBlockSuccess: (Swift.Bool) -&gt; (), andFailureBlock: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/User+CoreDataClass.swift"
+                  timestampString = "561441847.694512"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "849"
+                  endingLineNumber = "849"
+                  offsetFromSymbolStart = "657">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; () in static TextingLine.User.updateUser(params: Swift.Dictionary&lt;Swift.String, Any&gt;, completionBlockSuccess: (Swift.Bool) -&gt; (), andFailureBlock: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/User+CoreDataClass.swift"
+                  timestampString = "561441847.696632"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "851"
+                  endingLineNumber = "851"
+                  offsetFromSymbolStart = "91">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

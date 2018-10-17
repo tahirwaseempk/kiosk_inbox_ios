@@ -843,19 +843,8 @@ extension User
     {
         if let user = User.getLoginedUser()
         {
-            var paramsDic = Dictionary<String, Any>()
-            paramsDic["token"] = user.token
-            
-            //    "email": "string",
-            //    "mobile": "string",
-            //    "firstName": "string",
-            //    "lastName": "string",
-            //    "companyName": "string",
-            //    "address": "string",
-            //    "city": "string",
-            //    "country": "string",
-            //    "state": "string",
-            //    "zipCode": "string"
+            var paramsDic = params
+            paramsDic["token"] = user.token            
             
             WebManager.putUser(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 

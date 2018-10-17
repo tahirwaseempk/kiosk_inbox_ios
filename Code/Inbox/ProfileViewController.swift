@@ -47,7 +47,6 @@ class ProfileViewController: UIViewController {
             self.countryTextField.text     = user.country!
         }
         
-        
         addLineToView(view: self.nameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
         addLineToView(view: self.lastnameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
         addLineToView(view: self.emailTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
@@ -89,17 +88,16 @@ class ProfileViewController: UIViewController {
         
         var paramsDic = Dictionary<String, Any>()
         
-        paramsDic["firstName"] = self.nameTextField.text
-        paramsDic["lastName"] = self.lastnameTextField.text
-        paramsDic["email"] = self.emailTextField.text
-        paramsDic["mobile"] = self.mobileTextField.text
-
+        paramsDic["firstName"]   = self.nameTextField.text
+        paramsDic["lastName"]    = self.lastnameTextField.text
+        paramsDic["email"]       = self.emailTextField.text
+        paramsDic["mobile"]      = self.mobileTextField.text
         paramsDic["companyName"] = self.companyNameTextField.text
-        paramsDic["address"] = self.addressTextField.text
-        paramsDic["city"] = self.cityTextField.text
-        paramsDic["state"] = self.stateTextField.text
-        paramsDic["zipCode"] = self.zipCodeTextField.text
-        paramsDic["country"] = self.countryTextField.text
+        paramsDic["address"]     = self.addressTextField.text
+        paramsDic["city"]        = self.cityTextField.text
+        paramsDic["state"]       = self.stateTextField.text
+        paramsDic["zipCode"]     = self.zipCodeTextField.text
+        paramsDic["country"]     = self.countryTextField.text
 
         User.updateUser(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
