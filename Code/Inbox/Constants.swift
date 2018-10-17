@@ -89,3 +89,34 @@ func checkIntForNull(value:AnyObject) -> Int64
         return value as! Int64
     }
 }
+
+enum LINE_POSITION {
+    case LINE_POSITION_TOP
+    case LINE_POSITION_BOTTOM
+}
+
+let TEXTFIELD_LINE_WIDTH = 0.5
+
+
+func addLineToView(view : UIView, position : LINE_POSITION, width: Double) {
+    
+    let color = AppBlueColor
+    
+    let lineView = UIView()
+    lineView.backgroundColor = color
+    lineView.translatesAutoresizingMaskIntoConstraints = false // This is important!
+    view.addSubview(lineView)
+    
+    let metrics = ["width" : NSNumber(value: width)]
+    let views = ["lineView" : lineView]
+    view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[lineView]|", options:NSLayoutFormatOptions(rawValue: 0), metrics:metrics, views:views))
+    
+    switch position {
+    case .LINE_POSITION_TOP:
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[lineView(width)]", options:NSLayoutFormatOptions(rawValue: 0), metrics:metrics, views:views))
+        break
+    case .LINE_POSITION_BOTTOM:
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[lineView(width)]|", options:NSLayoutFormatOptions(rawValue: 0), metrics:metrics, views:views))
+        break
+    }
+}
