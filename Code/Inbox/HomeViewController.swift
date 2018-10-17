@@ -158,15 +158,15 @@ class HomeViewController: UIViewController
 //        self.closeButtonButton.frame = window.bounds
 
         
-        self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-        
-        self.view.addSubview(self.profileViewController.view)
-        self.profileViewController.view.frame = self.view.bounds
+//        self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+//
+//        self.view.addSubview(self.profileViewController.view)
+//        self.profileViewController.view.frame = self.view.bounds
         
         
         //        let viewaa = self.closeView
-//        self.view.addSubview(self.closeView)
-//        self.closeView.frame = self.view.bounds
+        self.view.addSubview(self.closeView)
+        self.closeView.frame = self.view.bounds
 
     }
     

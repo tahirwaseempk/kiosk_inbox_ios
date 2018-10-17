@@ -10,11 +10,15 @@ import UIKit
 
 class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
 
-    @IBOutlet weak var numberTextField: UnderlinedTextField!
+    @IBOutlet weak var numberTextField: FloatLabelTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.numberTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.numberTextField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -123,7 +127,7 @@ extension ForgetPasswordViewController {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
-        numberTextField.resignFirstResponder()
+        self.numberTextField.resignFirstResponder()
         
         return true;
     }

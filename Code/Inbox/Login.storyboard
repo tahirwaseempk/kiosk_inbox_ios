@@ -36,7 +36,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aog-Jp-HHk" userLabel="PhoneNumberView">
                                 <rect key="frame" x="37.5" y="159" width="300" height="35"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7Y-Mz-iPs" userLabel="Mobile Text Field" customClass="UnderlinedTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7Y-Mz-iPs" userLabel="Mobile Text Field" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                         <rect key="frame" x="35" y="0.0" width="265" height="35"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
@@ -51,13 +51,13 @@
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGq-ai-3rL">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
-                                        <color key="backgroundColor" red="0.86255824569999995" green="0.18782589669999999" blue="0.1136115837" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.48803869659999999" green="0.86255824569999995" blue="0.2068347764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="r7Y-Mz-iPs" secondAttribute="bottom" id="0YT-lt-iQX"/>
                                     <constraint firstAttribute="bottom" secondItem="JGq-ai-3rL" secondAttribute="bottom" id="8vs-Hw-NGx"/>
@@ -92,14 +92,14 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iav-YO-rIV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iav-YO-rIV">
                                 <rect key="frame" x="0.0" y="20" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="2TA-rd-p5P"/>
                                     <constraint firstAttribute="width" secondItem="iav-YO-rIV" secondAttribute="height" multiplier="1:1" id="Cda-Gj-YhN"/>
                                 </constraints>
-                                <state key="normal" title="&lt;-">
+                                <state key="normal" image="black">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -107,7 +107,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fC9-Ao-tei">
-                                <rect key="frame" x="340" y="20" width="35" height="35"/>
+                                <rect key="frame" x="305" y="20" width="70" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,7 +117,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80392156859999997" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s6B-pM-kK8" firstAttribute="centerX" secondItem="2a2-5a-Bxg" secondAttribute="centerX" id="4lH-MB-EYG"/>
                             <constraint firstItem="vDz-ca-aUW" firstAttribute="leading" secondItem="2a2-5a-Bxg" secondAttribute="leading" constant="40" id="8YU-ff-uOX"/>
@@ -133,7 +133,7 @@
                             <constraint firstAttribute="trailing" secondItem="vDz-ca-aUW" secondAttribute="trailing" constant="40" id="fhw-e5-ZSv"/>
                             <constraint firstItem="aog-Jp-HHk" firstAttribute="width" secondItem="2a2-5a-Bxg" secondAttribute="width" multiplier="80%" id="lLL-72-T3l"/>
                             <constraint firstItem="aog-Jp-HHk" firstAttribute="top" secondItem="vDz-ca-aUW" secondAttribute="bottom" constant="16" id="pZ1-LW-lfS"/>
-                            <constraint firstItem="fC9-Ao-tei" firstAttribute="width" secondItem="iav-YO-rIV" secondAttribute="width" id="wtm-V0-y4g"/>
+                            <constraint firstItem="fC9-Ao-tei" firstAttribute="width" secondItem="iav-YO-rIV" secondAttribute="width" multiplier="2" id="wtm-V0-y4g"/>
                         </constraints>
                     </view>
                     <connections>
@@ -546,6 +546,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="black" width="36" height="36"/>
         <image name="smsfactory" width="800" height="520"/>
     </resources>
 </document>
