@@ -562,6 +562,12 @@ extension User
                 let jsonDict: Dictionary<String, Any> = response!
                 
                 if jsonDict["statusCode"] != nil {
+                    
+                    if (jsonDict["errorCode"] as! Int64 == 2000) {
+                        let messageErr = jsonDict["message"] as! String
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageErr]))
+                    }
+                    
                     tempDictionary["name"] = jsonDict["name"] as! String
                     tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
                     tempDictionary["message"] = jsonDict["message"] as! String

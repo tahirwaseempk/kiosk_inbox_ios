@@ -274,7 +274,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButtonButton" destination="2bl-ws-FRy" id="N0r-SO-hTu"/>
-                        <outlet property="closeView" destination="wBf-JS-GuY" id="1aT-Ua-bvi"/>
+                        <outlet property="closeView" destination="Wjd-X4-0yL" id="rcI-YW-TXo"/>
                         <outlet property="compose_Button" destination="aWK-TJ-d6L" id="z62-3e-3ga"/>
                         <outlet property="conversationDetailContainer" destination="Yqw-vv-Nsf" id="hx7-jL-4wn"/>
                         <outlet property="conversationListingContainer" destination="MT2-An-B82" id="7uz-JZ-N1B"/>
@@ -405,6 +405,9 @@
                             <variation key="heightClass=regular-widthClass=compact">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             </variation>
+                            <connections>
+                                <action selector="signOut_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="QT4-kO-kMl"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

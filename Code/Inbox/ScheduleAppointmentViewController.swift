@@ -120,29 +120,23 @@ class ScheduleAppointmentViewController: UIViewController
     {
         ProcessingIndicator.show()
         
-        // let hoursString = self.hourCounterView.valueLabel.text
         var hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
-        
-        // let minutesWithMString = self.minuteCounterView.valueLabel.text // Contains m at end like 12m
         var minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
-        
         /////////////////////////////////////////////////////////////////////////////////////
-        //--------------------------------------------------------------------------------//
-        ///////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////
         let dateFormatter = DateFormatter()
         //        dateFormatter.calendar = NSCalendar.current
         //        let currentTimeZone: TimeZone = TimeZone.current
         //        dateFormatter.timeZone = currentTimeZone
         dateFormatter.dateStyle = .short
         // dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = ONLY_DATE
         var selectedDateStr = dateFormatter.string(from: self.selectedDate)
+    
         
         if (minutesWithoutMString == "0") {
             minutesWithoutMString = "00"
         }
-        
         if (hoursWithoutMString == "24") {
             hoursWithoutMString = "23"
         }
@@ -150,19 +144,17 @@ class ScheduleAppointmentViewController: UIViewController
             hoursWithoutMString = "00"
         }
         
-        let jsonDate = selectedDateStr + "T" + hoursWithoutMString + ":" + minutesWithoutMString  + ":00Z"
-
+        //let jsonDate = selectedDateStr + "T" + hoursWithoutMString + ":" + minutesWithoutMString  + ":00Z"
         selectedDateStr = selectedDateStr + " " + hoursWithoutMString + ":" + minutesWithoutMString  + ":00"
-       
         /////////////////////////////////////////////////////////////////////////////////////
-        //--------------------------------------------------------------------------------//
-        ///////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////
         let currentDte = Date()
-        dateFormatter.dateFormat = "yyyy-MM-dd h:mm:ss"
+        dateFormatter.dateFormat = DATE_FORMATE_APP
         let currentDateStr = dateFormatter.string(from: currentDte)
-        let selectedDate = dateFormatter.date(from: selectedDateStr)
         let currentDate = dateFormatter.date(from: currentDateStr)
         
+        let selectedDate = dateFormatter.date(from: selectedDateStr)
+        //--------------------------------------------------------------------------------//
         if selectedDate?.compare(currentDate!) == .orderedAscending {
             ProcessingIndicator.hide()
             let alert = UIAlertController(title: "Error", message: "Selected Date/Time is in the past.", preferredStyle: UIAlertControllerStyle.alert)
@@ -170,16 +162,22 @@ class ScheduleAppointmentViewController: UIViewController
             self.present(alert, animated: true, completion: nil)
             return
         }
-        /////////////////////////////////////////////////////////////////////////////////////
         //--------------------------------------------------------------------------------//
-        ///////////////////////////////////////////////////////////////////////////////////
+        let utcFormatter = DateFormatter()
+        utcFormatter.dateFormat = UTC_DATE_TIME
+        utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        var utcTimeZoneStr = utcFormatter.string(from: self.selectedDate)
+        
+        utcTimeZoneStr = convertUTCToJsonString(tsString: utcTimeZoneStr)
+        //--------------------------------------------------------------------------------//
+
         // let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
         let timeWithoutHrs = self.timeCounterView.valueLabel.tag // Does Not Contain hrs at end like 12
         
         var paramsDic = Dictionary<String, Any>()
         
         paramsDic["contactId"] = selectedConversation.contactId //Int
-        paramsDic["date"] = jsonDate
+        paramsDic["date"] = utcTimeZoneStr
         paramsDic["endDate"] = ""
         paramsDic["reminderTime"] = Int64(timeWithoutHrs) //Int
         paramsDic["message"] = "Appointment"
@@ -255,6 +253,17 @@ class ScheduleAppointmentViewController: UIViewController
         }
         return date
     }
+    
+//    func convertToUTC(dateToConvert: Date) -> String {
+//
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = UTC_DATE_TIME
+//        //let convertedDate = formatter.string(from: dateToConvert)
+//        formatter.timeZone = TimeZone(identifier: "UTC")
+//        return formatter.string(from: dateToConvert)
+//
+//    }
+
 }
 
 extension ScheduleAppointmentViewController : GCCalendarViewDelegate

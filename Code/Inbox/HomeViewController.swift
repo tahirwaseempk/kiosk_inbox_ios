@@ -131,58 +131,39 @@ class HomeViewController: UIViewController
         }
     }
     
-    
-
-    
     // MARK: CLOSE VIEW ACTIONS - START
-    
     @IBAction func profileButtonTapped(_ sender: Any) {
         
         self.closeView.removeFromSuperview()
-        
+
         self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-        
         self.view.addSubview(self.profileViewController.view)
         self.profileViewController.view.frame = self.view.bounds
-        
     }
     
     @IBAction func closeViewDismisssButtonTapped(_ sender: Any) {
+        
         self.closeView?.removeFromSuperview()
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-
-//        let window = UIApplication.shared.keyWindow!
-//        self.closeView.frame = window.bounds
-//        self.closeButtonButton.frame = window.bounds
-
         
-//        self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-//
-//        self.view.addSubview(self.profileViewController.view)
-//        self.profileViewController.view.frame = self.view.bounds
-        
-        
-        //        let viewaa = self.closeView
         self.view.addSubview(self.closeView)
         self.closeView.frame = self.view.bounds
-
     }
     
-    @IBAction func signOut_Tapped(_ sender: Any)
-    {
+    @IBAction func signOut_Tapped(_ sender: Any) {
+        
         NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
     // MARK: CLOSE VIEW ACTIONS - END
 
     @IBAction func createMessage_Tapped(_ sender: Any)
     {
         let storyboard = UIStoryboard.init(name: "ComposeMessage", bundle: nil)
         
-        self.composeMessageViewController = storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController
+        self.composeMessageViewController = (storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController)
         
         self.composeMessageViewController.delegate  = self
         
@@ -312,7 +293,7 @@ extension HomeViewController:ConversationListingViewControllerProtocol
             {
                 let storyboard = UIStoryboard.init(name: "ConversationDetail", bundle: nil)
                 
-                self.conversationDetailViewController = storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as! ConversationDetailViewController
+                self.conversationDetailViewController = (storyboard.instantiateViewController(withIdentifier: "ConversationDetailViewController") as! ConversationDetailViewController)
                 
                 self.conversationDetailViewController.delegate = self
                 

@@ -7,6 +7,10 @@ let ACTIVITY_OVERLAY_TAG = 100002
 
 let DATE_FORMATE_STRING = "yyyy/MM/dd HH:mm:ss"
 let DISPLAY_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
+let DATE_FORMATE_APP = "yyyy-MM-dd h:mm:ss"
+let ONLY_DATE = "yyyy-MM-dd"
+let UTC_DATE_TIME = "yyyy-MM-dd HH:mm:ss ZZZ"
+
 
 let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15
@@ -48,6 +52,18 @@ func convertTimeStampToDateString(tsString: String) -> String {
     
     return (datePart + " " + timePart)
 }
+
+func convertUTCToJsonString(tsString: String) -> String {
+    
+    let splitString = tsString.components(separatedBy: " ")
+    let datePart = splitString[0]
+    let timePart = splitString[1]
+//    let delCharSet = CharacterSet(charactersIn: "Z")
+//    timePart = timePart.trimmingCharacters(in: delCharSet as CharacterSet)
+    
+    return (datePart + "T" + timePart + "Z")
+}
+
 
 func removeSpecialCharsFromString(_ text: String) -> String
 {
@@ -120,4 +136,5 @@ func addLineToView(view : UIView, position : LINE_POSITION, width: Double) {
         break
     }
 }
+
 
