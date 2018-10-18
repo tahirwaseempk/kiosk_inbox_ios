@@ -76,12 +76,12 @@ class CounterView: UIView
         //-------------------------------------------------------------------------------------//
         if self.viewType == "hours"
         {
-            print("<<<<<<<<<< TEMP VALUE: \(self.tempValue) < MAX VALUE: \(self.maxValue) >>>>>>>>>>")
+//            print("<<<<<<<<<< TEMP VALUE: \(self.tempValue) < MAX VALUE: \(self.maxValue) >>>>>>>>>>")
             
             if (self.tempValue < self.maxValue) {
 
                 self.tempValue = self.tempValue + 1
-                print("<********** Temp Value: \(self.tempValue) **********>")
+//                print("<********** Temp Value: \(self.tempValue) **********>")
 
                 //****************************************************************//
                 if (self.tempValue == 0) {
@@ -122,12 +122,12 @@ class CounterView: UIView
         if self.viewType == "hours"
         {
             
-            print("<<<<<<<<<< TEMP VALUE: \(self.tempValue) > MIN VALUE: \(self.minValue) >>>>>>>>>>")
+//            print("<<<<<<<<<< TEMP VALUE: \(self.tempValue) > MIN VALUE: \(self.minValue) >>>>>>>>>>")
 
             if (self.tempValue > self.minValue) {
                 
                 self.tempValue = self.tempValue - 1
-                print("<********** Temp Value: \(self.tempValue) **********>")
+//                print("<********** Temp Value: \(self.tempValue) **********>")
 
                 //****************************************************************//
                 if (self.tempValue == 0) {

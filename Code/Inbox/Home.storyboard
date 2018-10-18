@@ -301,7 +301,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSd-8T-Pqw">
-                                    <rect key="frame" x="336" y="23" width="24" height="24"/>
+                                    <rect key="frame" x="337" y="23" width="24" height="24"/>
                                     <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="uSd-8T-Pqw" secondAttribute="height" multiplier="1:1" id="DTh-9E-zpp"/>
@@ -332,12 +332,15 @@
                                             <include reference="clu-5I-Z1i"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="closeViewDismisssButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="Aeb-Pl-GqQ"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="uSd-8T-Pqw" firstAttribute="height" secondItem="WE5-gp-532" secondAttribute="height" multiplier="40%" id="K6f-zo-wFA"/>
-                                <constraint firstAttribute="trailing" secondItem="uSd-8T-Pqw" secondAttribute="trailing" constant="15" id="XXJ-bX-7Fa"/>
+                                <constraint firstAttribute="trailing" secondItem="uSd-8T-Pqw" secondAttribute="trailing" constant="14" id="XXJ-bX-7Fa"/>
                                 <constraint firstItem="uSd-8T-Pqw" firstAttribute="centerY" secondItem="WE5-gp-532" secondAttribute="centerY" id="ZYz-F3-Zlf"/>
                                 <constraint firstItem="uSd-8T-Pqw" firstAttribute="centerY" secondItem="WE5-gp-532" secondAttribute="centerY" constant="5" id="aeq-YH-si4"/>
                                 <constraint firstAttribute="height" constant="90" id="cAz-0Y-q97"/>
@@ -376,7 +379,7 @@
                             </variation>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veq-jL-SP1">
-                            <rect key="frame" x="157" y="47" width="203" height="42"/>
+                            <rect key="frame" x="158" y="47" width="203" height="42"/>
                             <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="SHY-nP-L0q"/>
@@ -395,7 +398,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aee-zL-8DT">
-                            <rect key="frame" x="157" y="89" width="203" height="42"/>
+                            <rect key="frame" x="158" y="89" width="203" height="42"/>
                             <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="     SignOut"/>

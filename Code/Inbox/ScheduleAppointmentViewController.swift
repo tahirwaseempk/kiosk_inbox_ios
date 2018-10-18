@@ -153,9 +153,9 @@ class ScheduleAppointmentViewController: UIViewController
         let currentDateStr = dateFormatter.string(from: currentDte)
         let currentDate = dateFormatter.date(from: currentDateStr)
         
-        let selectedDate = dateFormatter.date(from: selectedDateStr)
+        let selectedDate : Date = dateFormatter.date(from: selectedDateStr)!
         //--------------------------------------------------------------------------------//
-        if selectedDate?.compare(currentDate!) == .orderedAscending {
+        if selectedDate.compare(currentDate!) == .orderedAscending {
             ProcessingIndicator.hide()
             let alert = UIAlertController(title: "Error", message: "Selected Date/Time is in the past.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -166,7 +166,7 @@ class ScheduleAppointmentViewController: UIViewController
         let utcFormatter = DateFormatter()
         utcFormatter.dateFormat = UTC_DATE_TIME
         utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        var utcTimeZoneStr = utcFormatter.string(from: self.selectedDate)
+        var utcTimeZoneStr = utcFormatter.string(from: selectedDate)
         
         utcTimeZoneStr = convertUTCToJsonString(tsString: utcTimeZoneStr)
         //--------------------------------------------------------------------------------//

@@ -104,7 +104,7 @@ class HomeViewController: UIViewController
     {
         let storyboard = UIStoryboard.init(name: "ConversationListing", bundle: nil)
         
-        self.conversationListingViewController = storyboard.instantiateViewController(withIdentifier: "ConversationListingViewController") as! ConversationListingViewController
+        self.conversationListingViewController = (storyboard.instantiateViewController(withIdentifier: "ConversationListingViewController") as! ConversationListingViewController)
         
         self.conversationListingViewController.delegate = self
         

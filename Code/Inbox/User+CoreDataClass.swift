@@ -567,13 +567,13 @@ extension User
                         let messageErr = jsonDict["message"] as! String
                         failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageErr]))
                     }
-                    
-                    tempDictionary["name"] = jsonDict["name"] as! String
-                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
-                    tempDictionary["message"] = jsonDict["message"] as! String
-                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
-                    
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                    else {
+                        tempDictionary["name"] = jsonDict["name"] as! String
+                        tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                        tempDictionary["message"] = jsonDict["message"] as! String
+                        tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                    }
                 }
                 else {
                     
