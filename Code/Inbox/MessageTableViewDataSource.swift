@@ -55,11 +55,11 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         chatCellSettings?.setReceiverBubbleTimeTextColorHex("000000");
         
         chatCellSettings?.setSenderBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 10))
-        chatCellSettings.setSenderBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
+        chatCellSettings.setSenderBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 12))
         chatCellSettings.setSenderBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 10))
         
         chatCellSettings.setReceiverBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 10))
-        chatCellSettings.setReceiverBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 14))
+        chatCellSettings.setReceiverBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 12))
         chatCellSettings.setReceiverBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 10))
         
         chatCellSettings?.senderBubbleTailRequired(false)

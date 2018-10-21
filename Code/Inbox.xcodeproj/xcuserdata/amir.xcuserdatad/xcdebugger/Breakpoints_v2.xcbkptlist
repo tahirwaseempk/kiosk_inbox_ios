@@ -20,7 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561814746.684705"
+            timestampString = "561817166.845613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "945"
@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561814746.684808"
+            timestampString = "561817166.845692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "578"
@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561814746.684886"
+            timestampString = "561817166.845752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "582"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/VerifyCodeViewController.swift"
-            timestampString = "561814746.685114"
+            timestampString = "561817166.84593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -144,11 +144,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/HomeViewController.swift"
-            timestampString = "561814746.685186"
+            timestampString = "561817166.845986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -157,14 +157,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TextingLine.HomeViewController.viewDidLoad() -&gt; ()"
                   moduleName = "TextingLine"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/HomeViewController.swift"
-                  timestampString = "561814746.829909"
+                  timestampString = "561815931.040611"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "77"
@@ -172,14 +172,14 @@
                   offsetFromSymbolStart = "3675">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TextingLine.HomeViewController.viewDidLoad() -&gt; ()"
                   moduleName = "TextingLine"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/HomeViewController.swift"
-                  timestampString = "561814746.832278"
+                  timestampString = "561815931.042413"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "77"
