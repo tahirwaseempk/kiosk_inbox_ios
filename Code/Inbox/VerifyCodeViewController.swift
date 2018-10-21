@@ -17,47 +17,49 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var done_Button: UIButton!
     @IBOutlet weak var back_Button: UIButton!
     
+    @IBOutlet var codeView: UIView!
+    @IBOutlet weak var codeTextField: UITextField!
+    
+    var randomString : String = ""
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.numberTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.numberTextField.delegate = self
         
-        // Do any additional setup after loading the view.
+//        self.codeTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.codeTextField.delegate = self
+       
+        self.numberTextField.text = ""
+        self.codeTextField.text   = ""
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        NotificationCenter.default.removeObserver(self, name: .postNotifi, object: nil)
     }
-    */
     
     @IBAction func doneButton_Tapped(_ sender: Any) {
         
-        if (self.numberTextField.text?.isEmpty)!
-        {
-            let alert = UIAlertController(title:"Warning",message:"Please enter number.",preferredStyle:UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-            
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-        }
-        
-        var randomString : String = ""
+        self.numberTextField.resignFirstResponder()
 
-        for _ in 1...4 {
-            
+//        if (self.numberTextField.text?.isEmpty)!
+//        {
+//            let alert = UIAlertController(title:"Warning",message:"Please enter number.",preferredStyle:UIAlertControllerStyle.alert)
+//            
+//            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+//            
+//            self.present(alert, animated: true, completion: nil)
+//            
+//            return
+//        }
+        
+        for _ in 1...6 {
             let numberR = Int.random(in: 0 ..< 9)
             randomString = randomString + String(numberR)
         }
-
         
         ProcessingIndicator.show()
         
@@ -74,19 +76,17 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
                             if status == true {
                                 
                                 ProcessingIndicator.hide()
-//                                let alert = UIAlertController(title: "Sucess", message: "A new password has been sent to your mobile number.", preferredStyle: UIAlertControllerStyle.alert)
-//                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
-//                                    self.view.removeFromSuperview()
-//                                }))
-//
-//                                self.present(alert, animated: true, completion: nil)
+                                
+                                self.view.addSubview(self.codeView)
+                                self.codeView.frame = self.view.bounds
+                                
                             }
                             else
                             {
                                 ProcessingIndicator.hide()
-//                                let alert = UIAlertController(title: "Error", message: "Some error occured, please try again later.", preferredStyle: UIAlertControllerStyle.alert)
-//                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                                self.present(alert, animated: true, completion: nil)
+                                let alert = UIAlertController(title: "Error", message: "Some error occured, please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
                             }
                     }
             }
@@ -111,14 +111,84 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
         
         self.view.removeFromSuperview()
     }
+    
+    @IBAction func innerDoneButton_Tapped(_ sender: Any) {
+        self.codeTextField.resignFirstResponder()
 
+    }
+    
+    @IBAction func innerBackButton_Tapped(_ sender: Any) {
+        
+        self.codeTextField.resignFirstResponder()
+        self.codeView.removeFromSuperview()
+    }
+    
+    @IBAction func resendButton_Tapped(_ sender: Any) {
+        
+    }
+    
+    func checkVerificationCode(inputCode: String) {
+        
+        print(randomString)
+        if inputCode == randomString
+        {
+            ProcessingIndicator.show()
+            
+            var paramsDic = Dictionary<String, Any>()
+            paramsDic["mobile"] = self.numberTextField.text
+            
+            User.updateUser(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                if status == true {
+                                    
+                                    ProcessingIndicator.hide()
+                                    let alert = UIAlertController(title: "Success", message:"Thank you, your mobile number is now confimred.", preferredStyle: UIAlertControllerStyle.alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
+                                        self.view.removeFromSuperview()
+                                    }))
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                                else
+                                {
+                                    ProcessingIndicator.hide()
+                                    let alert = UIAlertController(title: "Error", message: "Some error occured, please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                        }
+                }
+            }, andFailureBlock: { (error: Error?) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                ProcessingIndicator.hide()
+                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                        }
+                }
+            })
+            
+        } else {
+            self.codeTextField.text = ""
+            let alert = UIAlertController(title: "Error", message:"You have entered wrong code, please enter again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
 extension VerifyCodeViewController {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if textField == self.numberTextField {
+        if (textField == self.numberTextField) {
             let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
             
             let cs = NSCharacterSet(charactersIn: ACCEPTABLE_DIGITS).inverted
@@ -132,6 +202,28 @@ extension VerifyCodeViewController {
             if str.count > PHONENUMBER_MAX_LENGTH {
                 return false
             }
+        } else if (textField == self.codeTextField) {
+           
+            let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_DIGITS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let isAllowed = (string == filtered)
+            
+            if isAllowed == false {
+                return false
+            }
+            
+            //[NotificationCenter .default.addObserver(self, selector: #selector(textHasChanged), name: NSNotification.Name.UITextFieldTextDidChange, object: self.codeTextField)]
+            
+            if str.count > CODE_MAX_LENGTH {
+                self.codeTextField.resignFirstResponder()
+                return false
+            }
+            
+//            if str.count == CODE_MAX_LENGTH {
+//                return true
+//            }
         }
         
         return true
@@ -140,8 +232,21 @@ extension VerifyCodeViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         self.numberTextField.resignFirstResponder()
-        
-        return true;
+        self.codeTextField.resignFirstResponder()
+        return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField)  {
+        
+        if textField == self.codeTextField {
+            if textField.text?.count == 6 {
+              _ = self.checkVerificationCode(inputCode: textField.text!)
+                
+            }
+        }
+    }
 }
+//extension Notification.Name {
+//    static let postNotifi = Notification.Name(
+//        rawValue: "postNotifi")
+//}

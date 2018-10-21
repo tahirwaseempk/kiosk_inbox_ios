@@ -30,7 +30,7 @@ let READ_MESSAGES = "/api/v1/chats/clearUnreadMsgs/"
 let PUT_USER = "/api/v1/user/"
 let GET_USER = "/api/v1/auth/user"
 let FORGET_PASSWORD = "/api/v1/auth/resetPassword"
-let BYPASS_MESSAGE = "/api/v1/auth/messages/byPass"
+let BYPASS_MESSAGE = "/api/v1/messages/byPass"
 
 //----------------------------------------------------------//
 let APNS_REGISTER_URL = "https://app.textingline.com/limeApi"
@@ -622,16 +622,37 @@ class WebManager: NSObject
         let token:String = params["token"] as! String
         
         var paramsDictionary = Dictionary<String, Any>()
-        paramsDictionary["email"] = params["email"] as! String
-        paramsDictionary["mobile"] = params["mobile"] as! String
-        paramsDictionary["firstName"] = params["firstName"] as! String
-        paramsDictionary["lastName"] = params["lastName"] as! String
-        paramsDictionary["companyName"] = params["companyName"] as! String
-        paramsDictionary["address"] = params["address"] as! String
-        paramsDictionary["city"] = params["city"] as! String
-        paramsDictionary["country"] = params["country"] as! String
-        paramsDictionary["state"] = params["state"] as! String
-        paramsDictionary["zipCode"] = params["zipCode"] as! String        
+        
+        if (params["email"] != nil) {
+            paramsDictionary["email"] = params["email"] as! String
+        }
+        if (params["mobile"] != nil) {
+            paramsDictionary["mobile"] = params["mobile"] as! String
+        }
+        if (params["firstName"] != nil) {
+            paramsDictionary["firstName"] = params["firstName"] as! String
+        }
+        if (params["lastName"] != nil) {
+            paramsDictionary["lastName"] = params["lastName"] as! String
+        }
+        if (params["companyName"] != nil) {
+            paramsDictionary["companyName"] = params["companyName"] as! String
+        }
+        if (params["address"] != nil) {
+            paramsDictionary["address"] = params["address"] as! String
+        }
+        if (params["city"] != nil) {
+            paramsDictionary["city"] = params["city"] as! String
+        }
+        if (params["country"] != nil) {
+            paramsDictionary["country"] = params["country"] as! String
+        }
+        if (params["state"] != nil) {
+            paramsDictionary["state"] = params["state"] as! String
+        }
+        if (params["zipCode"] != nil) {
+            paramsDictionary["zipCode"] = params["zipCode"] as! String
+        }
         
         var finalUrl = ""
         
@@ -802,6 +823,34 @@ class WebManager: NSObject
             guard let data = data else
             {
                 return
+            }
+            
+            if request.url?.lastPathComponent == "byPass" {
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        var statusDict = Dictionary<String, Any>()
+                        statusDict["statusCode"] = httpResponse.statusCode
+                        statusDict["errorCode"] = httpResponse.statusCode
+                        statusDict["name"] = "RequestCompletedSucessfully"
+                        statusDict["message"] = "Request Completed Sucessfully"
+                        completion(nil,statusDict as NSDictionary)
+                        return
+                        
+                    } else if httpResponse.statusCode == 400 {
+                        var statusDict = Dictionary<String, Any>()
+                        statusDict["statusCode"] = httpResponse.statusCode
+                        statusDict["errorCode"] = httpResponse.statusCode
+                        statusDict["name"] = "BadRequestError"
+                        statusDict["message"] = "Request Not Completed Sucessfully"
+                        completion(nil,statusDict as NSDictionary)
+                        return
+                    }
+                    else {
+                        completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Json_Parameters_Error]),nil)
+                        return
+                    }
+                }
+                
             }
             
             if (httpMethod == "DELETE" || httpMethod == "PATCH" || httpMethod == "PUT"){

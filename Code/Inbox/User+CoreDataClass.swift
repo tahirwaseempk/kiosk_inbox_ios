@@ -63,6 +63,14 @@ public class User: NSManagedObject {
         self.zipCode = zipCode_
     }
     
+    
+    
+    func updateMobile(mobile_: String)
+    {
+        self.mobile = mobile_
+    }
+    
+    
     static func getLoginedUser()-> User?
     {
         return loginedUser
@@ -879,16 +887,24 @@ extension User
                         
                         let user :User? = User.getLoginedUser()
                         
-                        user?.update(firstName_: paramsDic["firstName"] as! String,
-                                     lastName_: paramsDic["lastName"] as! String,
-                                     email_: paramsDic["email"] as! String,
-                                     mobile_: paramsDic["mobile"] as! String,
-                                     companyName_: paramsDic["companyName"] as! String,
-                                     address_: paramsDic["address"] as! String,
-                                     city_: paramsDic["city"] as! String,
-                                     country_: paramsDic["country"] as! String,
-                                     state_: paramsDic["state"] as! String,
-                                     zipCode_: paramsDic["zipCode"] as! String)
+                        if (params.count == 1) {
+
+                            user?.updateMobile(mobile_: paramsDic["mobile"] as! String)
+                            
+                        } else {
+                            
+                            user?.update(firstName_: paramsDic["firstName"] as! String,
+                                         lastName_: paramsDic["lastName"] as! String,
+                                         email_: paramsDic["email"] as! String,
+                                         mobile_: paramsDic["mobile"] as! String,
+                                         companyName_: paramsDic["companyName"] as! String,
+                                         address_: paramsDic["address"] as! String,
+                                         city_: paramsDic["city"] as! String,
+                                         country_: paramsDic["country"] as! String,
+                                         state_: paramsDic["state"] as! String,
+                                         zipCode_: paramsDic["zipCode"] as! String)
+                        }
+
 //                        User.loginedUser = user
                         
                         DispatchQueue.global(qos: .background).async
@@ -903,7 +919,7 @@ extension User
                     }
                     else if jsonDict["errorCode"] as! Int == 400 {
                         
-                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Request_Completed_Error]))
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:jsonDict["message"] as! String]))
                         
                     } else {
                         tempDictionary["name"] = jsonDict["name"] as! String
@@ -992,21 +1008,27 @@ extension User
                 let jsonDict: Dictionary<String, Any> = response!
                 
                 if jsonDict["statusCode"] != nil {
-                    tempDictionary["name"] = jsonDict["name"] as! String
-                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
-                    tempDictionary["message"] = jsonDict["message"] as! String
-                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
                     
+                    if (jsonDict["statusCode"] as! Int64 == 200) {
+
+                        DispatchQueue.global(qos: .background).async
+                            {
+                                DispatchQueue.main.async
+                                    {
+                                        successBlock(true)
+                                }
+                        }
+                    } else if (jsonDict["statusCode"] as! Int64 == 400) {
+                        successBlock(false)
+                        
+                    } else {
+                        
+                        tempDictionary["name"] = jsonDict["name"] as! String
+                        tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                        tempDictionary["message"] = jsonDict["message"] as! String
+                        tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
-                }
-                else {
-                    
-                    DispatchQueue.global(qos: .background).async
-                        {
-                            DispatchQueue.main.async
-                                {
-                                    successBlock(true)
-                            }
                     }
                 }
             }, andFailureBlock: { (error) -> (Void) in
