@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561589410.330694"
+            timestampString = "561814746.684705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "912"
-            endingLineNumber = "912"
+            startingLineNumber = "945"
+            endingLineNumber = "945"
             landmarkName = "forgetUserPassword(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,27 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561589410.331117"
+            timestampString = "561814746.684808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "861"
-            endingLineNumber = "861"
-            landmarkName = "updateUser(params:completionBlockSuccess:andFailureBlock:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561589410.331184"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "562"
-            endingLineNumber = "562"
+            startingLineNumber = "578"
+            endingLineNumber = "578"
             landmarkName = "createAppointment(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/User+CoreDataClass.swift"
-            timestampString = "561589410.33123"
+            timestampString = "561814746.684886"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "566"
-            endingLineNumber = "566"
+            startingLineNumber = "582"
+            endingLineNumber = "582"
             landmarkName = "createAppointment(params:completionBlockSuccess:andFailureBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -139,6 +123,70 @@
             endingLineNumber = "171"
             landmarkName = "scheduleButtonTapped(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/VerifyCodeViewController.swift"
+            timestampString = "561814746.685114"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "doneButton_Tapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inbox/HomeViewController.swift"
+            timestampString = "561814746.685186"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TextingLine.HomeViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/HomeViewController.swift"
+                  timestampString = "561814746.829909"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "3675">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TextingLine.HomeViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "TextingLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data%20HD/Personal%20Data%20Amir/Current%20Working/Sir%20Wahab/June/Code/Inbox/HomeViewController.swift"
+                  timestampString = "561814746.832278"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "6206">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

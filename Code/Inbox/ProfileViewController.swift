@@ -108,7 +108,19 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func doneButton_Tapped(_ sender: Any) {
-        
+       
+        self.nameTextField.resignFirstResponder()
+        self.lastnameTextField.resignFirstResponder()
+        self.emailTextField.resignFirstResponder()
+        self.mobileTextField.resignFirstResponder()
+        self.timeZoneTextField.resignFirstResponder()
+        self.companyNameTextField.resignFirstResponder()
+        self.addressTextField.resignFirstResponder()
+        self.cityTextField.resignFirstResponder()
+        self.stateTextField.resignFirstResponder()
+        self.zipCodeTextField.resignFirstResponder()
+        self.countryTextField.resignFirstResponder()
+
         if (self.nameTextField.text?.isEmpty)!
         {
             let alert = UIAlertController(title:"Warning",message:"Please enter name.",preferredStyle:UIAlertControllerStyle.alert)
@@ -140,7 +152,7 @@ class ProfileViewController: UIViewController {
                             if status == true {
                                 
                                 ProcessingIndicator.hide()
-                                let alert = UIAlertController(title: "Sucess", message: "User updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Success", message: "User updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
                                     self.view.removeFromSuperview()
                                 }))

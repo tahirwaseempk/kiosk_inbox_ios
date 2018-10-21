@@ -12,6 +12,11 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var numberTextField: FloatLabelTextField!
     
+    @IBOutlet weak var header_Label: UILabel!
+    @IBOutlet weak var heading2_Label: UILabel!
+    @IBOutlet weak var done_Button: UIButton!
+    @IBOutlet weak var back_Button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +32,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
 
         if (self.numberTextField.text?.isEmpty)!
         {
-            let alert = UIAlertController(title:"Warning",message:"Please enter phone number",preferredStyle:UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title:"Warning",message:"Please enter number.",preferredStyle:UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
             
@@ -133,4 +138,3 @@ extension ForgetPasswordViewController {
     }
     
 }
-

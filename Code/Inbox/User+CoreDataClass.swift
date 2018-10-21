@@ -49,6 +49,20 @@ public class User: NSManagedObject {
         return targettedUser!
     }
     
+    func update(firstName_: String, lastName_: String, email_: String, mobile_: String,companyName_: String, address_: String, city_: String, country_: String, state_: String, zipCode_: String)
+    {
+        self.firstName = firstName_
+        self.lastName = lastName_
+        self.email = email_
+        self.mobile = mobile_
+        self.companyName = companyName_
+        self.address = address_
+        self.city = city_
+        self.country = country_
+        self.state = state_
+        self.zipCode = zipCode_
+    }
+    
     static func getLoginedUser()-> User?
     {
         return loginedUser
@@ -346,6 +360,7 @@ extension User
     //************************************************************************************************//
     static func optOutFromConversation(conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
+        /*
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
@@ -380,6 +395,7 @@ extension User
         {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
+ */
     }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
@@ -860,10 +876,27 @@ extension User
                 if jsonDict["statusCode"] != nil {
                     
                     if jsonDict["errorCode"] as! Int == 200 {
+                        
+                        let user :User? = User.getLoginedUser()
+                        
+                        user?.update(firstName_: paramsDic["firstName"] as! String,
+                                     lastName_: paramsDic["lastName"] as! String,
+                                     email_: paramsDic["email"] as! String,
+                                     mobile_: paramsDic["mobile"] as! String,
+                                     companyName_: paramsDic["companyName"] as! String,
+                                     address_: paramsDic["address"] as! String,
+                                     city_: paramsDic["city"] as! String,
+                                     country_: paramsDic["country"] as! String,
+                                     state_: paramsDic["state"] as! String,
+                                     zipCode_: paramsDic["zipCode"] as! String)
+//                        User.loginedUser = user
+                        
                         DispatchQueue.global(qos: .background).async
                             {
                                 DispatchQueue.main.async
                                     {
+                                        
+                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
                                         successBlock(true)
                                 }
                         }
@@ -950,11 +983,8 @@ extension User
     {
         if let user = User.getLoginedUser()
         {
-            var paramsDic = Dictionary<String, Any>()
+            var paramsDic = params
             paramsDic["token"] = user.token
-            
-            //    "mobile": "string",
-            //    "message": "string",
             
             WebManager.verifyMobileNumber(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                 
@@ -1036,8 +1066,8 @@ extension User
                 }
             }
             
-        } catch let error as NSError {
-            //            print("Could not fetch \(error)”)
+        } catch _ as NSError {
+//                        print("Could not fetch \(error)”)
         }
         
         return true

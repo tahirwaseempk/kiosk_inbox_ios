@@ -18,12 +18,12 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var compose_Button: UIButton!
     
-    
     @IBOutlet weak var closeButtonButton: UIButton!
 
     @IBOutlet var closeView: UIView!
 
-    
+    var verifyCodeViewController:VerifyCodeViewController!
+
     var profileViewController:ProfileViewController!
 
     var composeMessageViewController:ComposeMessageViewController!
@@ -70,6 +70,17 @@ class HomeViewController: UIViewController
         }
         
         self.setupControls()
+        
+        
+        let user = User.getLoginedUser()
+        
+        if (user?.mobile?.isEmpty)!{
+            
+            self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
+            
+            self.view.addSubview(self.verifyCodeViewController.view)
+            self.verifyCodeViewController.view.frame = self.view.bounds
+        }
     }
     
     func setupControls()

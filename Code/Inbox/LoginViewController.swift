@@ -41,8 +41,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         serialTextField.resignFirstResponder()
         
 //           serialTextField.text = "8443712030"
-//           serialTextField.text = "8006999130"
-//           udidTextField.text = "lime123"
+           serialTextField.text = "8006999130"
+           udidTextField.text = "lime123"
       
 //           serialTextField.text = "5162821400"
 //           udidTextField.text = "56fjic"
@@ -181,9 +181,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @IBAction func forgetPwdButton_Tapped(_ sender: Any) {
         
         self.forgetPasswordViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as? ForgetPasswordViewController
-        
+
         self.view.addSubview(self.forgetPasswordViewController.view)
         self.forgetPasswordViewController.view.frame = self.view.bounds
+                
+//        self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
+//
+//        self.view.addSubview(self.verifyCodeViewController.view)
+//        self.verifyCodeViewController.view.frame = self.view.bounds
         
     }
     
