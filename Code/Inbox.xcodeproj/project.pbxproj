@@ -186,6 +186,30 @@
 		29955C6C213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6D213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6E213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
+		29B030EA217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
+		29B030EB217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
+		29B030EC217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
+		29B030ED217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
+		29B030EE217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
+		29B030EF217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
+		29B030F0217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
+		29B030F1217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
+		29B030F2217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
+		29B030F3217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
+		29B030F4217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
+		29B030F5217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
+		29B030F6217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
+		29B030F7217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
+		29B030F8217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
+		29B030F9217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
+		29B030FA217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
+		29B030FB217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
+		29B030FC217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
+		29B030FD217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
+		29B03116217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
+		29B03117217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
+		29B03118217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
+		29B03119217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
 		29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
@@ -627,6 +651,13 @@
 		2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnect.entitlements; sourceTree = "<group>"; };
 		29955C65213A8A1C000B733F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		29955C66213A8A1D000B733F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		29B030E5217E2CD2001E63BA /* ActiveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveType.swift; sourceTree = "<group>"; };
+		29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveBuilder.swift; sourceTree = "<group>"; };
+		29B030E7217E2CD2001E63BA /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
+		29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTrimExtension.swift; sourceTree = "<group>"; };
+		29B030E9217E2CD2001E63BA /* ActiveLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveLabel.swift; sourceTree = "<group>"; };
+		29B03114217E37E5001E63BA /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		29B03115217E37E6001E63BA /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
@@ -784,6 +815,8 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				29B03113217E37D9001E63BA /* TTT */,
+				29B030E4217E2C9B001E63BA /* LabelAction */,
 				29E5E12A217677E100BF642C /* JVFloatLabeledTextField */,
 				29C8204D2141CD1900A47752 /* UILabel+Copyable */,
 				29C820422141CC1900A47752 /* CopyableLabel */,
@@ -1032,6 +1065,27 @@
 				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		29B030E4217E2C9B001E63BA /* LabelAction */ = {
+			isa = PBXGroup;
+			children = (
+				29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */,
+				29B030E9217E2CD2001E63BA /* ActiveLabel.swift */,
+				29B030E5217E2CD2001E63BA /* ActiveType.swift */,
+				29B030E7217E2CD2001E63BA /* RegexParser.swift */,
+				29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */,
+			);
+			path = LabelAction;
+			sourceTree = "<group>";
+		};
+		29B03113217E37D9001E63BA /* TTT */ = {
+			isa = PBXGroup;
+			children = (
+				29B03114217E37E5001E63BA /* TTTAttributedLabel.h */,
+				29B03115217E37E6001E63BA /* TTTAttributedLabel.m */,
+			);
+			path = TTT;
 			sourceTree = "<group>";
 		};
 		29C820422141CC1900A47752 /* CopyableLabel */ = {
@@ -1629,6 +1683,7 @@
 				9A1638E92129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
+				29B030F2217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				759C5BEA1FC60C08007889E7 /* PushyNetworkException.swift in Sources */,
@@ -1643,15 +1698,18 @@
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
 				2932C2D7217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				759BD35D204077F400832092 /* Deprecated.swift in Sources */,
+				29B030EA217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				756615CF203941670087CB9D /* CodePointSet.swift in Sources */,
 				759C5BEC1FC60C08007889E7 /* PushyResponseException.swift in Sources */,
 				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA2982120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				759C5BE61FC60C08007889E7 /* PushyHTTP.swift in Sources */,
 				2932C2CD217230FE00D2A299 /* ProfileViewController.swift in Sources */,
+				29B03116217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				04EC9FBD1FC373C500F3C42A /* Conversation+CoreDataClass.swift in Sources */,
 				752CE4451F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				759C5BE81FC60C08007889E7 /* PushySettings.swift in Sources */,
+				29B030EE217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
 				04EC9FBE1FC373C500F3C42A /* Conversation+CoreDataProperties.swift in Sources */,
@@ -1675,6 +1733,7 @@
 				759C5BE71FC60C08007889E7 /* PushyPubSubException.swift in Sources */,
 				752CE44B1F27E24900FCC976 /* IQToolbar.swift in Sources */,
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
+				29B030F6217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				754085FB1F1671AF00CDB81F /* ProcessingIndicatorView.swift in Sources */,
 				1A3475272062CA6100FA0FFB /* GCCalendarViewDelegate.swift in Sources */,
 				04EC9FBA1FC373C500F3C42A /* Message+CoreDataProperties.swift in Sources */,
@@ -1692,6 +1751,7 @@
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 				295EA29321204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
+				29B030FA217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
 				9A1638D52129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820502141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
@@ -1734,6 +1794,7 @@
 				9A1638EA2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
 				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
+				29B030F3217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				290BEDA820E697EC00F30BAA /* PushyNetworkException.swift in Sources */,
@@ -1748,15 +1809,18 @@
 				290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */,
 				2932C2D8217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */,
+				29B030EB217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */,
 				290BEDB420E697EC00F30BAA /* PushyResponseException.swift in Sources */,
 				290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA2992120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				290BEDB620E697EC00F30BAA /* PushyHTTP.swift in Sources */,
 				2932C2CE217230FE00D2A299 /* ProfileViewController.swift in Sources */,
+				29B03117217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				290BEDB720E697EC00F30BAA /* Conversation+CoreDataClass.swift in Sources */,
 				290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				290BEDB920E697EC00F30BAA /* PushySettings.swift in Sources */,
+				29B030EF217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				290BEDBA20E697EC00F30BAA /* LoginViewController.swift in Sources */,
 				290BEDBB20E697EC00F30BAA /* Inbox.xcdatamodeld in Sources */,
 				290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */,
@@ -1780,6 +1844,7 @@
 				290BEDCB20E697EC00F30BAA /* PushyPubSubException.swift in Sources */,
 				290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */,
 				290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */,
+				29B030F7217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				290BEDCE20E697EC00F30BAA /* ProcessingIndicatorView.swift in Sources */,
 				290BEDCF20E697EC00F30BAA /* GCCalendarViewDelegate.swift in Sources */,
 				290BEDD020E697EC00F30BAA /* Message+CoreDataProperties.swift in Sources */,
@@ -1797,6 +1862,7 @@
 				290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */,
 				295EA29421204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
+				29B030FB217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
 				9A1638D62129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820512141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
@@ -1839,6 +1905,7 @@
 				9A1638EB2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
+				29B030F4217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				29FD0F4221160D0500062362 /* PushyNetworkException.swift in Sources */,
@@ -1853,15 +1920,18 @@
 				29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */,
 				2932C2D9217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */,
+				29B030EC217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */,
 				29FD0F4E21160D0500062362 /* PushyResponseException.swift in Sources */,
 				29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA29A2120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				29FD0F5021160D0500062362 /* PushyHTTP.swift in Sources */,
 				2932C2CF217230FE00D2A299 /* ProfileViewController.swift in Sources */,
+				29B03118217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				29FD0F5121160D0500062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				29FD0F5321160D0500062362 /* PushySettings.swift in Sources */,
+				29B030F0217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				29FD0F5421160D0500062362 /* LoginViewController.swift in Sources */,
 				29FD0F5521160D0500062362 /* Inbox.xcdatamodeld in Sources */,
 				29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */,
@@ -1885,6 +1955,7 @@
 				29FD0F6521160D0500062362 /* PushyPubSubException.swift in Sources */,
 				29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */,
 				29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */,
+				29B030F8217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				29FD0F6821160D0500062362 /* ProcessingIndicatorView.swift in Sources */,
 				29FD0F6921160D0500062362 /* GCCalendarViewDelegate.swift in Sources */,
 				29FD0F6A21160D0500062362 /* Message+CoreDataProperties.swift in Sources */,
@@ -1902,6 +1973,7 @@
 				29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */,
 				295EA29521204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
+				29B030FC217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
 				9A1638D72129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820522141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */,
@@ -1944,6 +2016,7 @@
 				9A1638EC2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
+				29B030F5217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820472141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E14221767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				29FD0FB721160D1000062362 /* PushyNetworkException.swift in Sources */,
@@ -1958,15 +2031,18 @@
 				29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */,
 				2932C2DA217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				29FD0FC121160D1000062362 /* Deprecated.swift in Sources */,
+				29B030ED217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */,
 				29FD0FC321160D1000062362 /* PushyResponseException.swift in Sources */,
 				29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA29B2120518700C1EAB2 /* UserContactsParser.swift in Sources */,
 				29FD0FC521160D1000062362 /* PushyHTTP.swift in Sources */,
 				2932C2D0217230FE00D2A299 /* ProfileViewController.swift in Sources */,
+				29B03119217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				29FD0FC621160D1000062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				29FD0FC821160D1000062362 /* PushySettings.swift in Sources */,
+				29B030F1217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				29FD0FC921160D1000062362 /* LoginViewController.swift in Sources */,
 				29FD0FCA21160D1000062362 /* Inbox.xcdatamodeld in Sources */,
 				29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */,
@@ -1990,6 +2066,7 @@
 				29FD0FDA21160D1000062362 /* PushyPubSubException.swift in Sources */,
 				29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */,
 				29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */,
+				29B030F9217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				29FD0FDD21160D1000062362 /* ProcessingIndicatorView.swift in Sources */,
 				29FD0FDE21160D1000062362 /* GCCalendarViewDelegate.swift in Sources */,
 				29FD0FDF21160D1000062362 /* Message+CoreDataProperties.swift in Sources */,
@@ -2007,6 +2084,7 @@
 				29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */,
 				295EA29621204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,
+				29B030FD217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
 				9A1638D82129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820532141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */,
