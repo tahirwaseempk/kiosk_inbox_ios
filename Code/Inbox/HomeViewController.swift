@@ -74,7 +74,7 @@ class HomeViewController: UIViewController
         
         let user = User.getLoginedUser()
         
-        if !(user?.mobile?.isEmpty)!{
+        if (user?.mobile?.isEmpty)!{
             
             self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
             

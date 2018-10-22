@@ -34,6 +34,9 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
        
         self.numberTextField.text = ""
         self.codeTextField.text   = ""
+        
+        
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,17 +48,18 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
         
         self.numberTextField.resignFirstResponder()
 
-//        if (self.numberTextField.text?.isEmpty)!
-//        {
-//            let alert = UIAlertController(title:"Warning",message:"Please enter number.",preferredStyle:UIAlertControllerStyle.alert)
-//            
-//            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
-//            
-//            self.present(alert, animated: true, completion: nil)
-//            
-//            return
-//        }
+        if (self.numberTextField.text?.isEmpty)!
+        {
+            let alert = UIAlertController(title:"Warning",message:"Please enter number.",preferredStyle:UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
         
+        randomString = ""
         for _ in 1...6 {
             let numberR = Int.random(in: 0 ..< 9)
             randomString = randomString + String(numberR)
@@ -66,7 +70,7 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
         var paramsDic = Dictionary<String, Any>()
         
         paramsDic["mobile"] = self.numberTextField.text
-        paramsDic["message"] = randomString
+        paramsDic["message"] =  "Here is the code for the mobile verification:" + randomString
         
         User.verifyNumber(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
@@ -136,6 +140,18 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
             
             var paramsDic = Dictionary<String, Any>()
             paramsDic["mobile"] = self.numberTextField.text
+//            userProfile = User.getLoginedUser()
+//            
+//            paramsDic["firstName"]   = userProfile.first
+//            paramsDic["lastName"]    = self.lastnameTextField.text
+//            paramsDic["email"]       = self.emailTextField.text
+//            paramsDic["companyName"] = self.companyNameTextField.text
+//            paramsDic["address"]     = self.addressTextField.text
+//            paramsDic["city"]        = self.cityTextField.text
+//            paramsDic["state"]       = self.stateTextField.text
+//            paramsDic["zipCode"]     = self.zipCodeTextField.text
+//            paramsDic["country"]     = self.countryTextField.text
+            
             
             User.updateUser(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
                 DispatchQueue.global(qos: .background).async

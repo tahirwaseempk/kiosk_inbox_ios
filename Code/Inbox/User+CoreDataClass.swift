@@ -888,9 +888,19 @@ extension User
                         let user :User? = User.getLoginedUser()
                         
                         if (params.count == 1) {
-
+                            
                             user?.updateMobile(mobile_: paramsDic["mobile"] as! String)
                             
+//                            user?.update(firstName_: (user?.firstName)!,
+//                                         lastName_: (user?.lastName)!,
+//                                         email_: (user?.email)!,
+//                                         mobile_: paramsDic["mobile"] as! String,
+//                                         companyName_: (user?.companyName)!,
+//                                         address_: (user?.address)!,
+//                                         city_: (user?.city)!,
+//                                         country_: (user?.country)!,
+//                                         state_: (user?.state)!,
+//                                         zipCode_: (user?.zipCode)!)
                         } else {
                             
                             user?.update(firstName_: paramsDic["firstName"] as! String,
