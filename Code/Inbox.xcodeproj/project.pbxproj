@@ -210,6 +210,10 @@
 		29B03117217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
 		29B03118217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
 		29B03119217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
+		29B0311B217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
+		29B0311C217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
+		29B0311D217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
+		29B0311E217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
 		29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
@@ -658,6 +662,7 @@
 		29B030E9217E2CD2001E63BA /* ActiveLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveLabel.swift; sourceTree = "<group>"; };
 		29B03114217E37E5001E63BA /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		29B03115217E37E6001E63BA /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCopyPasteUITextField.swift; sourceTree = "<group>"; };
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
@@ -815,6 +820,7 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */,
 				29B03113217E37D9001E63BA /* TTT */,
 				29B030E4217E2C9B001E63BA /* LabelAction */,
 				29E5E12A217677E100BF642C /* JVFloatLabeledTextField */,
@@ -1667,6 +1673,7 @@
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
 				752CE4491F27E24900FCC976 /* IQTextView.swift in Sources */,
 				7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */,
+				29B0311B217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				04EC9FBC1FC373C500F3C42A /* User+CoreDataProperties.swift in Sources */,
 				75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */,
 				759C5BE21FC60C08007889E7 /* Pushy.swift in Sources */,
@@ -1778,6 +1785,7 @@
 				290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */,
 				290BED9720E697EC00F30BAA /* IQTextView.swift in Sources */,
 				290BED9820E697EC00F30BAA /* ChatCellSettings.m in Sources */,
+				29B0311C217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				290BED9920E697EC00F30BAA /* User+CoreDataProperties.swift in Sources */,
 				290BED9A20E697EC00F30BAA /* LoginParser.swift in Sources */,
 				290BED9B20E697EC00F30BAA /* Pushy.swift in Sources */,
@@ -1889,6 +1897,7 @@
 				29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0F3121160D0500062362 /* IQTextView.swift in Sources */,
 				29FD0F3221160D0500062362 /* ChatCellSettings.m in Sources */,
+				29B0311D217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				29FD0F3321160D0500062362 /* User+CoreDataProperties.swift in Sources */,
 				29FD0F3421160D0500062362 /* LoginParser.swift in Sources */,
 				29FD0F3521160D0500062362 /* Pushy.swift in Sources */,
@@ -2000,6 +2009,7 @@
 				29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0FA621160D1000062362 /* IQTextView.swift in Sources */,
 				29FD0FA721160D1000062362 /* ChatCellSettings.m in Sources */,
+				29B0311E217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				29FD0FA821160D1000062362 /* User+CoreDataProperties.swift in Sources */,
 				29FD0FA921160D1000062362 /* LoginParser.swift in Sources */,
 				29FD0FAA21160D1000062362 /* Pushy.swift in Sources */,

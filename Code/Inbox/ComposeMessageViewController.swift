@@ -23,6 +23,8 @@ class ComposeMessageViewController: UIViewController {
     
     @IBOutlet weak var header_label: UILabel!
     
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+
     var delegate : ComposeMessageProtocol? = nil
     
     let appContactsPickerViewController = UIStoryboard.init(name: "AppContactsPickerViewController", bundle: nil).instantiateViewController(withIdentifier: "AppContactsPickerViewController") as! AppContactsPickerViewController
@@ -257,6 +259,12 @@ extension ComposeMessageViewController : UITextViewDelegate {
             self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
         }
         
+        var frame = self.messageTextView.frame
+        frame.size.height = self.messageTextView.contentSize.height
+//        self.textViewHeightConstraint = self.messageTextView.contentSize.height
+//       self.textViewHeightConstraint = frame.size.height
+        
+        self.messageTextView.setNeedsLayout()
         if str.count > sendMessageMaxLength {
             return false
         }
@@ -264,8 +272,8 @@ extension ComposeMessageViewController : UITextViewDelegate {
         return true
     }
     
-    
 }
+
 
 extension ComposeMessageViewController : UITextFieldDelegate {
     
@@ -277,6 +285,8 @@ extension ComposeMessageViewController : UITextFieldDelegate {
     //        let numberFiltered = compSepByCharInSet.joined(separator: "")
     //        return string == numberFiltered
     //    }
+    
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)

@@ -140,18 +140,17 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
             
             var paramsDic = Dictionary<String, Any>()
             paramsDic["mobile"] = self.numberTextField.text
-//            userProfile = User.getLoginedUser()
-//            
-//            paramsDic["firstName"]   = userProfile.first
-//            paramsDic["lastName"]    = self.lastnameTextField.text
-//            paramsDic["email"]       = self.emailTextField.text
-//            paramsDic["companyName"] = self.companyNameTextField.text
-//            paramsDic["address"]     = self.addressTextField.text
-//            paramsDic["city"]        = self.cityTextField.text
-//            paramsDic["state"]       = self.stateTextField.text
-//            paramsDic["zipCode"]     = self.zipCodeTextField.text
-//            paramsDic["country"]     = self.countryTextField.text
+           let user = User.getLoginedUser()
             
+            paramsDic["firstName"]   = user?.firstName
+            paramsDic["lastName"]    = user?.lastName
+            paramsDic["email"]       = user?.email
+            paramsDic["companyName"] = user?.companyName
+            paramsDic["address"]     = user?.address
+            paramsDic["city"]        = user?.city
+            paramsDic["state"]       = user?.state
+            paramsDic["zipCode"]     = user?.zipCode
+            paramsDic["country"]     = user?.country
             
             User.updateUser(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
                 DispatchQueue.global(qos: .background).async
