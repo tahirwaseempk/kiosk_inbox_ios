@@ -33,37 +33,41 @@ class ComposeMessageViewController: UIViewController {
         
         super.viewDidLoad()
         
+        
+        sendButton.layer.cornerRadius = 5
+        sendButton.layer.borderWidth = 2
+        
         switch environment {
 
         case .texting_Line:
         header_label.textColor = AppBlueColor
 
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 2
+//        sendButton.layer.cornerRadius = 5
+//        sendButton.layer.borderWidth = 2
         sendButton.layer.borderColor = AppBlueColor.cgColor
         sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
 
         case .sms_Factory:
         header_label.textColor = AppBlueColor
             
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 2
+//        sendButton.layer.cornerRadius = 5
+//        sendButton.layer.borderWidth = 2
         sendButton.layer.borderColor = AppBlueColor.cgColor
         sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
 
         case .fan_Connect:
         header_label.textColor = FanAppColor
             
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 2
+//        sendButton.layer.cornerRadius = 5
+//        sendButton.layer.borderWidth = 2
         sendButton.layer.borderColor = FanAppColor.cgColor
         sendButton.setTitleColor(FanAppColor, for: UIControlState.normal)
 
         case .photo_Texting:
         header_label.textColor = PhotoAppColor
             
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 2
+//        sendButton.layer.cornerRadius = 5
+//        sendButton.layer.borderWidth = 2
         sendButton.layer.borderColor = PhotoAppColor.cgColor
         sendButton.setTitleColor(PhotoAppColor, for: UIControlState.normal)
 
@@ -73,19 +77,20 @@ class ComposeMessageViewController: UIViewController {
         mobileTextField.text = ""
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        mobileTextField.attributedPlaceholder = NSAttributedString(string:"Mobile Number", attributes:  [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+//        mobileTextField.attributedPlaceholder = NSAttributedString(string:"Mobile Number", attributes:  [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
         backView.layer.cornerRadius = 5;
         self.view.addSubview(backView)
         
-        cancelButton.layer.cornerRadius = 5
-        cancelButton.layer.borderWidth = 1
-        cancelButton.backgroundColor = UIColor.white
-        cancelButton.layer.borderColor = UIColor.clear.cgColor
+//        cancelButton.layer.cornerRadius = 5
+//        cancelButton.layer.borderWidth = 1
+//        cancelButton.backgroundColor = UIColor.white
+//        cancelButton.layer.borderColor = UIColor.clear.cgColor
         
         messageTextView.delegate = self
         messageTextView.text = "Enter your message"
         messageTextView.textColor = UIColor.lightGray
+//        messageTextView.line
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
         
         self.inputCharacterCountLabel.text = "Characters Count 0/250"
@@ -259,10 +264,11 @@ extension ComposeMessageViewController : UITextViewDelegate {
             self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
         }
         
-        var frame = self.messageTextView.frame
-        frame.size.height = self.messageTextView.contentSize.height
-//        self.textViewHeightConstraint = self.messageTextView.contentSize.height
-//       self.textViewHeightConstraint = frame.size.height
+//        var frame = self.messageTextView.frame
+//        frame.size.height = self.messageTextView.contentSize.height
+        //       self.textViewHeightConstraint = frame.size.height
+
+        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height
         
         self.messageTextView.setNeedsLayout()
         if str.count > sendMessageMaxLength {

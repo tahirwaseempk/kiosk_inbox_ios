@@ -94,7 +94,7 @@ static ChatCellSettings *chatCellSettings = nil;
     
     [chatTimeLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    chatMessageLabel = [[UITextView alloc] init];
+    chatMessageLabel = [[UILabel alloc] init];
     
     [chatMessageLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -119,19 +119,18 @@ static ChatCellSettings *chatCellSettings = nil;
     
     chatMessageLabel.text = @"chatMessageLabel";
     
-//    [chatMessageLabel setNumberOfLines:0];
+    [chatMessageLabel setNumberOfLines:0];
     [chatNameLabel setNumberOfLines:1];
     [chatTimeLabel setNumberOfLines:1];
     
-//    chatMessageLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    chatMessageLabel.lineBreakMode = NSLineBreakByWordWrapping;
     chatNameLabel.lineBreakMode = NSLineBreakByClipping;
     chatTimeLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     //Amir Change
-    //chatMessageLabel.copyingEnabled = YES;
-    
-    chatMessageLabel.font = [UIFont systemFontOfSize:12];
+    chatMessageLabel.copyingEnabled = YES;
 
+    
     //Common placement of the different views
     
     //Setting constraints for Bubble. It should be at a zero distance from top, bottom and 8 distance right hand side of the superview, i.e., self.contentView (The default superview for all tableview cell elements)
@@ -290,9 +289,8 @@ static ChatCellSettings *chatCellSettings = nil;
     
     chatTimeLabel.textAlignment = NSTextAlignmentRight;
     
-//    [chatMessageLabel setPreferredMaxLayoutWidth:220.0f];
+    [chatMessageLabel setPreferredMaxLayoutWidth:220.0f];
     
-    [chatMessageLabel setNeedsDisplay];
     return self;
 }
 
