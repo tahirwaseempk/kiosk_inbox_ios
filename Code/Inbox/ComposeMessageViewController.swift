@@ -34,42 +34,46 @@ class ComposeMessageViewController: UIViewController {
         super.viewDidLoad()
         
         
-//        sendButton.layer.cornerRadius = 10
+        sendButton.layer.cornerRadius = 10
 //        sendButton.layer.borderWidth = 1
         
         switch environment {
 
         case .texting_Line:
-        header_label.textColor = AppBlueColor
+//        header_label.textColor = AppBlueColor
 
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
 //        sendButton.layer.borderColor = AppBlueColor.cgColor
 //        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
+        
+        sendButton.backgroundColor = AppBlueColor
+        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+
 
         case .sms_Factory:
-        header_label.textColor = AppBlueColor
+//        header_label.textColor = AppBlueColor
             
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
-//        sendButton.layer.borderColor = AppBlueColor.cgColor
-//        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
+        sendButton.layer.borderColor = AppBlueColor.cgColor
+        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
 
         case .fan_Connect:
         header_label.textColor = FanAppColor
             
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
-//        sendButton.layer.borderColor = FanAppColor.cgColor
-//        sendButton.setTitleColor(FanAppColor, for: UIControlState.normal)
+        sendButton.layer.borderColor = FanAppColor.cgColor
+        sendButton.setTitleColor(FanAppColor, for: UIControlState.normal)
 
         case .photo_Texting:
-        header_label.textColor = PhotoAppColor
+//        header_label.textColor = PhotoAppColor
             
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
-//        sendButton.layer.borderColor = PhotoAppColor.cgColor
-//        sendButton.setTitleColor(PhotoAppColor, for: UIControlState.normal)
+        sendButton.layer.borderColor = PhotoAppColor.cgColor
+        sendButton.setTitleColor(PhotoAppColor, for: UIControlState.normal)
 
     }
     
