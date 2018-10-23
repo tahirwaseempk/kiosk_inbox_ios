@@ -108,14 +108,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-Qf-MNQ" userLabel="BottomView">
                                         <rect key="frame" x="0.0" y="367" width="320" height="45"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jhe-0h-PLe">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
-                                            </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ug-oL-tYW">
-                                                <rect key="frame" x="0.0" y="0.0" width="278" height="45"/>
+                                                <rect key="frame" x="0.0" y="5" width="278" height="35"/>
                                                 <color key="backgroundColor" red="0.75902441740000004" green="0.75902441740000004" blue="0.75902441740000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="mGD-UN-LFT"/>
+                                                    <constraint firstAttribute="height" constant="35" id="mGD-UN-LFT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -132,15 +129,14 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 </variation>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAV-bb-VpN">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAV-bb-VpN">
                                                 <rect key="frame" x="280" y="5" width="35" height="35"/>
-                                                <color key="backgroundColor" red="0.4672022462" green="0.6654425263" blue="0.97578722240000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="07w-M7-Tc6"/>
                                                     <constraint firstAttribute="width" secondItem="UAV-bb-VpN" secondAttribute="height" multiplier="1:1" id="ACZ-Qh-Fi1"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <state key="normal" title="S">
+                                                <state key="normal" image="blackdot">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -148,20 +144,16 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.48803869659999999" green="0.86255824569999995" blue="0.2068347764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="DYb-kZ-VHO" firstAttribute="top" secondItem="j8D-Qf-MNQ" secondAttribute="top" constant="-15" id="4oT-0W-9Yp"/>
                                             <constraint firstAttribute="bottom" secondItem="UAV-bb-VpN" secondAttribute="bottom" constant="5" id="Fhy-q0-sIO"/>
-                                            <constraint firstAttribute="trailing" secondItem="Jhe-0h-PLe" secondAttribute="trailing" id="GIu-vL-xA8"/>
                                             <constraint firstItem="7ug-oL-tYW" firstAttribute="leading" secondItem="j8D-Qf-MNQ" secondAttribute="leading" id="HFg-nj-0je"/>
                                             <constraint firstItem="UAV-bb-VpN" firstAttribute="leading" secondItem="7ug-oL-tYW" secondAttribute="trailing" constant="2" id="K5V-Jn-tcf"/>
                                             <constraint firstAttribute="trailing" secondItem="DYb-kZ-VHO" secondAttribute="trailing" constant="5" id="LP5-W3-bNM"/>
-                                            <constraint firstItem="Jhe-0h-PLe" firstAttribute="top" secondItem="j8D-Qf-MNQ" secondAttribute="top" id="Q7R-KC-uby"/>
                                             <constraint firstAttribute="trailing" secondItem="UAV-bb-VpN" secondAttribute="trailing" constant="5" id="SAj-n9-WyU"/>
-                                            <constraint firstItem="7ug-oL-tYW" firstAttribute="top" secondItem="j8D-Qf-MNQ" secondAttribute="top" id="aET-am-KFJ"/>
-                                            <constraint firstItem="Jhe-0h-PLe" firstAttribute="leading" secondItem="j8D-Qf-MNQ" secondAttribute="leading" id="bsf-nb-4uY"/>
-                                            <constraint firstAttribute="bottom" secondItem="Jhe-0h-PLe" secondAttribute="bottom" id="lra-gK-74k"/>
-                                            <constraint firstAttribute="bottom" secondItem="7ug-oL-tYW" secondAttribute="bottom" id="txB-nc-20H"/>
+                                            <constraint firstItem="7ug-oL-tYW" firstAttribute="top" secondItem="j8D-Qf-MNQ" secondAttribute="top" constant="5" id="aET-am-KFJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="7ug-oL-tYW" secondAttribute="bottom" constant="5" id="txB-nc-20H"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -208,6 +200,7 @@
     </scenes>
     <resources>
         <image name="LeftArrow" width="48" height="48"/>
+        <image name="blackdot" width="136" height="136"/>
         <image name="ic_person_add_white" width="96" height="96"/>
     </resources>
 </document>

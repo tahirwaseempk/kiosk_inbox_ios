@@ -34,8 +34,8 @@ class ComposeMessageViewController: UIViewController {
         super.viewDidLoad()
         
         
-        sendButton.layer.cornerRadius = 5
-        sendButton.layer.borderWidth = 2
+//        sendButton.layer.cornerRadius = 10
+//        sendButton.layer.borderWidth = 1
         
         switch environment {
 
@@ -44,32 +44,32 @@ class ComposeMessageViewController: UIViewController {
 
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
-        sendButton.layer.borderColor = AppBlueColor.cgColor
-        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
+//        sendButton.layer.borderColor = AppBlueColor.cgColor
+//        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
 
         case .sms_Factory:
         header_label.textColor = AppBlueColor
             
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
-        sendButton.layer.borderColor = AppBlueColor.cgColor
-        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
+//        sendButton.layer.borderColor = AppBlueColor.cgColor
+//        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
 
         case .fan_Connect:
         header_label.textColor = FanAppColor
             
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
-        sendButton.layer.borderColor = FanAppColor.cgColor
-        sendButton.setTitleColor(FanAppColor, for: UIControlState.normal)
+//        sendButton.layer.borderColor = FanAppColor.cgColor
+//        sendButton.setTitleColor(FanAppColor, for: UIControlState.normal)
 
         case .photo_Texting:
         header_label.textColor = PhotoAppColor
             
 //        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 2
-        sendButton.layer.borderColor = PhotoAppColor.cgColor
-        sendButton.setTitleColor(PhotoAppColor, for: UIControlState.normal)
+//        sendButton.layer.borderColor = PhotoAppColor.cgColor
+//        sendButton.setTitleColor(PhotoAppColor, for: UIControlState.normal)
 
     }
     
@@ -92,6 +92,8 @@ class ComposeMessageViewController: UIViewController {
         messageTextView.textColor = UIColor.lightGray
 //        messageTextView.line
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
+        messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
+        messageTextView.isScrollEnabled = false
         
         self.inputCharacterCountLabel.text = "Characters Count 0/250"
     }
@@ -228,7 +230,24 @@ extension String {
     }
 }
 
+// MARK: - TextView Delegates
 extension ComposeMessageViewController : UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.textViewHeightConstraint.constant = textView.contentSize.height
+        updateHeight()
+    }
+    
+    func updateHeight() {
+         var newFrame = messageTextView.frame
+         
+         let fixedWidth = messageTextView.frame.size.width
+         let newSize = messageTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+         
+         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+         self.messageTextView.frame = newFrame
+    }
+    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
@@ -268,9 +287,11 @@ extension ComposeMessageViewController : UITextViewDelegate {
 //        frame.size.height = self.messageTextView.contentSize.height
         //       self.textViewHeightConstraint = frame.size.height
 
-        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height
+//        if str.count == 25 {
+//        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height + 35
+//        }
+//        self.messageTextView.setNeedsLayout()
         
-        self.messageTextView.setNeedsLayout()
         if str.count > sendMessageMaxLength {
             return false
         }
@@ -280,9 +301,9 @@ extension ComposeMessageViewController : UITextViewDelegate {
     
 }
 
+// MARK: - Text Field Delegates
 
 extension ComposeMessageViewController : UITextFieldDelegate {
-    
     
     //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     //
