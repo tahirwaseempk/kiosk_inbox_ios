@@ -19,10 +19,20 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     @IBOutlet weak var nomessageImage: UIImageView!
     
     
+    
+    @objc func willEnterForeground() {
+        getConversationUpdate()
+//        ProcessingIndicator.show()
+
+    }
+
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
  
+    NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
         self.setupControls()
 
         self.refreshUnReadCount()
@@ -238,6 +248,7 @@ extension ConversationListingViewController
     
     func getConversationUpdate()
     {
+        ProcessingIndicator.show()
         
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             

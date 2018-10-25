@@ -118,21 +118,15 @@ class ScheduleAppointmentViewController: UIViewController
     
     @IBAction func scheduleButtonTapped(_ sender: Any)
     {
-        ProcessingIndicator.show()
         
         var hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
         var minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
         /////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////
         let dateFormatter = DateFormatter()
-        //        dateFormatter.calendar = NSCalendar.current
-        //        let currentTimeZone: TimeZone = TimeZone.current
-        //        dateFormatter.timeZone = currentTimeZone
         dateFormatter.dateStyle = .short
-        // dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: dateFormatter.calendar.locale)
         dateFormatter.dateFormat = ONLY_DATE
         var selectedDateStr = dateFormatter.string(from: self.selectedDate)
-    
         
         if (minutesWithoutMString == "0") {
             minutesWithoutMString = "00"
@@ -144,7 +138,6 @@ class ScheduleAppointmentViewController: UIViewController
             hoursWithoutMString = "00"
         }
         
-        //let jsonDate = selectedDateStr + "T" + hoursWithoutMString + ":" + minutesWithoutMString  + ":00Z"
         selectedDateStr = selectedDateStr + " " + hoursWithoutMString + ":" + minutesWithoutMString  + ":00"
         /////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////
@@ -153,11 +146,10 @@ class ScheduleAppointmentViewController: UIViewController
         let currentDateStr = dateFormatter.string(from: currentDte)
         let currentDate = dateFormatter.date(from: currentDateStr)
         
-        let selectedDate : Date = dateFormatter.date(from: selectedDateStr)!
+        let selectedFullDate = dateFormatter.date(from: selectedDateStr)!
         //--------------------------------------------------------------------------------//
-        if selectedDate.compare(currentDate!) == .orderedAscending {
-            ProcessingIndicator.hide()
-            let alert = UIAlertController(title: "Error", message: "Selected Date/Time is in the past.", preferredStyle: UIAlertControllerStyle.alert)
+        if selectedFullDate.compare(currentDate!) == .orderedAscending {
+            let alert = UIAlertController(title: "Error", message: "Selected date or time is in the past.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
@@ -166,22 +158,20 @@ class ScheduleAppointmentViewController: UIViewController
         let utcFormatter = DateFormatter()
         utcFormatter.dateFormat = UTC_DATE_TIME
         utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        var utcTimeZoneStr = utcFormatter.string(from: selectedDate)
-        
+        var utcTimeZoneStr = utcFormatter.string(from: selectedFullDate)
         utcTimeZoneStr = convertUTCToJsonString(tsString: utcTimeZoneStr)
         //--------------------------------------------------------------------------------//
 
-        // let timeWithHrsString = self.timeCounterView.valueLabel.text // Contains hrs at end like 12hrs
         let timeWithoutHrs = self.timeCounterView.valueLabel.tag // Does Not Contain hrs at end like 12
         
-        var paramsDic = Dictionary<String, Any>()
+        ProcessingIndicator.show()
         
+        var paramsDic = Dictionary<String, Any>()
         paramsDic["contactId"] = selectedConversation.contactId //Int
         paramsDic["date"] = utcTimeZoneStr
         paramsDic["endDate"] = ""
         paramsDic["reminderTime"] = Int64(timeWithoutHrs) //Int
         paramsDic["message"] = "Appointment"
-        //paramsDic["type"] = self.checkBoxMessage // "Reminder" //ShortConfirmation
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
@@ -191,7 +181,7 @@ class ScheduleAppointmentViewController: UIViewController
                             if status == true {
                                 ProcessingIndicator.hide()
                                 
-                                let alert = UIAlertController(title: "Sucess", message: "Appointment Created Sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Success", message: "Appointment created sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
                                     self.view.removeFromSuperview()
                                 }))
@@ -201,7 +191,7 @@ class ScheduleAppointmentViewController: UIViewController
                             else
                             {
                                 ProcessingIndicator.hide()
-                                let alert = UIAlertController(title: "Error", message: "Appointment Not Created Sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Error", message: "Appointment not created sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
                             }
@@ -274,7 +264,7 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         
         dateFormatter.calendar = NSCalendar.current
         
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMMM, yyyy", options: 0, locale: calendar.locale)
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMM, yyyy", options: 0, locale: calendar.locale)
         
         self.calendarLabel.text = dateFormatter.string(from: date)
         
