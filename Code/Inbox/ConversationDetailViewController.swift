@@ -116,11 +116,18 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBAction func scheduleAppointment_Tapped(_ sender: Any) {
         
-        self.closeView.removeFromSuperview()
-        self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as! ScheduleAppointmentViewController
-        
-        if self.selectedConversation != nil
+        if (self.selectedConversation == nil)
         {
+            let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else
+        {
+            self.closeView.removeFromSuperview()
+            self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as? ScheduleAppointmentViewController
+            
+            
             if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
             {
                 self.scheduleAppointmentViewController.headerTitleString = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
@@ -130,9 +137,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                 self.scheduleAppointmentViewController.headerTitleString = (self.selectedConversation.receiver?.phoneNumber)!
             }
             self.scheduleAppointmentViewController.selectedConversation = self.selectedConversation
+            self.view.addSubview(self.scheduleAppointmentViewController.view)
+            self.scheduleAppointmentViewController.view.frame = self.view.bounds
         }
-        self.view.addSubview(self.scheduleAppointmentViewController.view)
-        self.scheduleAppointmentViewController.view.frame = self.view.bounds
     }
     
     @IBAction func optOut_Tapped(_ sender: Any) {

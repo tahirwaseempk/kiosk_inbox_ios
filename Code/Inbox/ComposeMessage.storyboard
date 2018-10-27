@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.46720224618911743" green="0.66544252634048462" blue="0.97578722238540649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="FiW-Yh-tms" firstAttribute="centerY" secondItem="Z7b-9t-oZ5" secondAttribute="centerY" id="JEf-Mx-sV2"/>
                                     <constraint firstItem="RDQ-cw-CwP" firstAttribute="leading" secondItem="Z7b-9t-oZ5" secondAttribute="leading" constant="10" id="phs-Nc-rus"/>
@@ -91,7 +91,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.4672022462" green="0.6654425263" blue="0.97578722240000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="8Bk-K8-DiY" firstAttribute="leading" secondItem="7dz-sZ-ydB" secondAttribute="leading" constant="10" id="FCb-n2-rXH"/>
                                             <constraint firstAttribute="trailing" secondItem="Uvi-iD-5oS" secondAttribute="trailing" constant="9" id="Lb2-4O-Eu8"/>

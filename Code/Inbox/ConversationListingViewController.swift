@@ -21,9 +21,12 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     
     @objc func willEnterForeground() {
-        getConversationUpdate()
-//        ProcessingIndicator.show()
-
+        
+        if (self.isViewLoaded && (self.view!.window != nil))
+        {
+            ProcessingIndicator.show()
+            callLastConversationsUpdate()
+        }
     }
 
     
@@ -248,7 +251,7 @@ extension ConversationListingViewController
     
     func getConversationUpdate()
     {
-        ProcessingIndicator.show()
+        //ProcessingIndicator.show()
         
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             

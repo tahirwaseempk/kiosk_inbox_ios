@@ -156,10 +156,10 @@ class ScheduleAppointmentViewController: UIViewController
         }
         //--------------------------------------------------------------------------------//
         let utcFormatter = DateFormatter()
-        utcFormatter.dateFormat = UTC_DATE_TIME
+        utcFormatter.dateFormat = UTC_DATE_TIME_TZ
         utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        var utcTimeZoneStr = utcFormatter.string(from: selectedFullDate)
-        utcTimeZoneStr = convertUTCToJsonString(tsString: utcTimeZoneStr)
+        let utcTimeZoneStr = utcFormatter.string(from: selectedFullDate)
+        //utcTimeZoneStr = convertUTCToJsonString(tsString: utcTimeZoneStr)
         //--------------------------------------------------------------------------------//
 
         let timeWithoutHrs = self.timeCounterView.valueLabel.tag // Does Not Contain hrs at end like 12

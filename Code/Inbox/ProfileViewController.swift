@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    
+    //MARK: IBOutlets
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameTextField: FloatLabelTextField!
     @IBOutlet weak var lastnameTextField: FloatLabelTextField!
@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var zipCodeTextField: FloatLabelTextField!
     @IBOutlet weak var countryTextField: FloatLabelTextField!
     
+    //MARK: View life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,11 +48,9 @@ class ProfileViewController: UIViewController {
             self.lastnameTextField.text    = user.lastName!
             self.emailTextField.text       = user.email!
             self.mobileTextField.text      = user.mobile!
-            
             if user.timezone > 0 {
                 self.timeZoneTextField.text =  timeZones[Int(user.timezone)]
             }
-            
             self.companyNameTextField.text = user.companyName!
             self.addressTextField.text     = user.address!
             self.cityTextField.text        = user.city!
@@ -59,18 +58,6 @@ class ProfileViewController: UIViewController {
             self.zipCodeTextField.text     = user.zipCode!
             self.countryTextField.text     = user.country!
         }
-        
-//        addLineToView(view: self.nameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.lastnameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.emailTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.mobileTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.timeZoneTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.companyNameTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.addressTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.cityTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.stateTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.zipCodeTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
-//        addLineToView(view: self.countryTextField, position:.LINE_POSITION_BOTTOM, width: TEXTFIELD_LINE_WIDTH)
         
         self.nameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.lastnameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -87,26 +74,9 @@ class ProfileViewController: UIViewController {
         self.timeZoneTextField.isEnabled = false
         self.stateTextField.isEnabled = false
         self.countryTextField.isEnabled = false
-
-
     }
-    func setupData(){
-        
-        
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-    
+
+    // MARK: Actions
     @IBAction func doneButton_Tapped(_ sender: Any) {
        
         self.nameTextField.resignFirstResponder()
@@ -123,16 +93,30 @@ class ProfileViewController: UIViewController {
 
         if (self.nameTextField.text?.isEmpty)!
         {
-            let alert = UIAlertController(title:"Warning",message:"Please enter name.",preferredStyle:UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title:"Warning",message:"Please enter first name.",preferredStyle:UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
         
+        callWebServiceProfileUpdate()
+    }
+    
+    @IBAction func backButton_Tapped(_ sender: Any) {
+        
+        self.view.removeFromSuperview()
+    }
+    
+}
+
+
+extension ProfileViewController {
+    
+    func callWebServiceProfileUpdate() {
+      
         ProcessingIndicator.show()
         
         var paramsDic = Dictionary<String, Any>()
-        
         paramsDic["firstName"]   = self.nameTextField.text
         paramsDic["lastName"]    = self.lastnameTextField.text
         paramsDic["email"]       = self.emailTextField.text
@@ -181,12 +165,5 @@ class ProfileViewController: UIViewController {
                     }
             }
         })
-        
     }
-    
-    @IBAction func backButton_Tapped(_ sender: Any) {
-        
-        self.view.removeFromSuperview()
-    }
-    
 }

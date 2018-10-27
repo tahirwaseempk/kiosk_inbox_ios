@@ -7,9 +7,11 @@ let ACTIVITY_OVERLAY_TAG = 100002
 
 let DATE_FORMATE_STRING = "yyyy/MM/dd HH:mm:ss"
 let DISPLAY_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
-let DATE_FORMATE_APP = "yyyy-MM-dd h:mm:ss"
+let DATE_FORMATE_APP = "yyyy-MM-dd HH:mm:ss"
 let ONLY_DATE = "yyyy-MM-dd"
 let UTC_DATE_TIME = "yyyy-MM-dd HH:mm:ss ZZZ"
+
+let UTC_DATE_TIME_TZ = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
 
 let sendMessageMaxLength = 250
