@@ -221,7 +221,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aWK-TJ-d6L" secondAttribute="height" multiplier="46:45" id="TNo-it-Mk6"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="compose_blue">
+                                <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -749,7 +749,6 @@
         <image name="CloseButtonIcon" width="48" height="48"/>
         <image name="LeftArrow" width="48" height="48"/>
         <image name="RefreshButton" width="36" height="36"/>
-        <image name="compose_blue" width="68" height="68"/>
         <image name="menuButtonIcon" width="48" height="48"/>
         <image name="searchIcon" width="18" height="18"/>
     </resources>
