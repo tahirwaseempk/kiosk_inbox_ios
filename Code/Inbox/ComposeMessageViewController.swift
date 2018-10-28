@@ -25,6 +25,10 @@ class ComposeMessageViewController: UIViewController {
     
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
 
+    
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var mobileNumberView: UIView!
+    
     var delegate : ComposeMessageProtocol? = nil
     
     let appContactsPickerViewController = UIStoryboard.init(name: "AppContactsPickerViewController", bundle: nil).instantiateViewController(withIdentifier: "AppContactsPickerViewController") as! AppContactsPickerViewController
@@ -33,68 +37,55 @@ class ComposeMessageViewController: UIViewController {
         
         super.viewDidLoad()
         
-        
-        sendButton.layer.cornerRadius = 10
+//        sendButton.layer.cornerRadius = 5
 //        sendButton.layer.borderWidth = 1
         
         switch environment {
 
         case .texting_Line:
-//        header_label.textColor = AppBlueColor
+        headerView.backgroundColor = AppBlueColor
+        mobileNumberView.backgroundColor = AppBlueColor
 
-//        sendButton.layer.cornerRadius = 5
-//        sendButton.layer.borderWidth = 2
-//        sendButton.layer.borderColor = AppBlueColor.cgColor
-//        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
-        
-        sendButton.backgroundColor = AppBlueColor
         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-
+        sendButton.tintColor = AppBlueColor
+        sendButton.layer.borderColor = AppBlueColor.cgColor
 
         case .sms_Factory:
-//        header_label.textColor = AppBlueColor
-            
-//        sendButton.layer.cornerRadius = 5
-//        sendButton.layer.borderWidth = 2
+        headerView.backgroundColor = AppBlueColor
+        mobileNumberView.backgroundColor = AppBlueColor
+         
+        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        sendButton.tintColor = AppBlueColor
         sendButton.layer.borderColor = AppBlueColor.cgColor
-        sendButton.setTitleColor(AppBlueColor, for: UIControlState.normal)
-
+            
         case .fan_Connect:
-        header_label.textColor = FanAppColor
-            
-//        sendButton.layer.cornerRadius = 5
-//        sendButton.layer.borderWidth = 2
+        headerView.backgroundColor = FanAppColor
+        mobileNumberView.backgroundColor = FanAppColor
+
+        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        sendButton.tintColor = FanAppColor
         sendButton.layer.borderColor = FanAppColor.cgColor
-        sendButton.setTitleColor(FanAppColor, for: UIControlState.normal)
-
-        case .photo_Texting:
-//        header_label.textColor = PhotoAppColor
             
-//        sendButton.layer.cornerRadius = 5
-//        sendButton.layer.borderWidth = 2
-        sendButton.layer.borderColor = PhotoAppColor.cgColor
-        sendButton.setTitleColor(PhotoAppColor, for: UIControlState.normal)
+        case .photo_Texting:
+        headerView.backgroundColor = PhotoAppColor
+        mobileNumberView.backgroundColor = PhotoAppColor
 
+        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        sendButton.tintColor = PhotoAppColor
+        sendButton.layer.borderColor = PhotoAppColor.cgColor
     }
-    
     
         mobileTextField.text = ""
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-//        mobileTextField.attributedPlaceholder = NSAttributedString(string:"Mobile Number", attributes:  [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+
         
         backView.layer.cornerRadius = 5;
         self.view.addSubview(backView)
         
-//        cancelButton.layer.cornerRadius = 5
-//        cancelButton.layer.borderWidth = 1
-//        cancelButton.backgroundColor = UIColor.white
-//        cancelButton.layer.borderColor = UIColor.clear.cgColor
-        
         messageTextView.delegate = self
         messageTextView.text = "Enter your message"
         messageTextView.textColor = UIColor.lightGray
-//        messageTextView.line
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
         messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
         messageTextView.isScrollEnabled = false

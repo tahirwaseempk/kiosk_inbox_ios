@@ -185,9 +185,11 @@
                     <connections>
                         <outlet property="backView" destination="b5P-05-YoR" id="Muf-uv-069"/>
                         <outlet property="cancelButton" destination="RDQ-cw-CwP" id="Xw8-q9-bhY"/>
+                        <outlet property="headerView" destination="Z7b-9t-oZ5" id="9cI-xx-FpS"/>
                         <outlet property="header_label" destination="FiW-Yh-tms" id="TEy-s1-4JL"/>
                         <outlet property="inputCharacterCountLabel" destination="DYb-kZ-VHO" id="Ibg-Dt-A6x"/>
                         <outlet property="messageTextView" destination="7ug-oL-tYW" id="PPM-Q2-3Nu"/>
+                        <outlet property="mobileNumberView" destination="7dz-sZ-ydB" id="MJU-KK-mCM"/>
                         <outlet property="mobileTextField" destination="gIm-dx-chc" id="k5f-R7-WRY"/>
                         <outlet property="sendButton" destination="UAV-bb-VpN" id="1Mb-OG-Xfs"/>
                         <outlet property="textViewHeightConstraint" destination="mGD-UN-LFT" id="Trk-II-N8Y"/>

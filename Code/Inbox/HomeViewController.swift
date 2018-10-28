@@ -6,6 +6,8 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var profileButton: UIButton!
 
+    @IBOutlet weak var closeInnerButton: UIButton!
+    
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -46,6 +48,11 @@ class HomeViewController: UIViewController
 //            compose_Button.setImage(UIImage(named: "compose_blue")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
 //            loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
             compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+            
+            profileButton.backgroundColor = AppBlueColor
+            signOutButton.backgroundColor = AppBlueColor
+            closeInnerButton.backgroundColor = AppBlueColor
+            
         case .sms_Factory:
             header_View.backgroundColor = AppBlueColor
             searchBar.backgroundColor = AppBlueColor
@@ -53,20 +60,27 @@ class HomeViewController: UIViewController
 //            compose_Button.setImage(UIImage(named: "compose_blue")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
             compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
 
+            profileButton.backgroundColor = AppBlueColor
+            signOutButton.backgroundColor = AppBlueColor
+            closeInnerButton.backgroundColor = AppBlueColor
+            
         case .fan_Connect:
             header_View.backgroundColor = FanAppColor
             searchBar.backgroundColor = FanAppColor
-//            compose_Button.backgroundColor = FanAppColor
-//            compose_Button.setImage(UIImage(named: "compose_green")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
             compose_Button.setImage(UIImage(named: "compose_green"), for: UIControlState.normal)
 
+            profileButton.backgroundColor = FanAppColor
+            signOutButton.backgroundColor = FanAppColor
+            closeInnerButton.backgroundColor = FanAppColor
+            
         case .photo_Texting:
             header_View.backgroundColor = PhotoAppColor
             searchBar.backgroundColor = PhotoAppColor
-//            compose_Button.setImage(UIImage(named: "compose_purple")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-//            compose_Button.tintColor = PhotoAppColor
-//            compose_Button.backgroundColor = UIColor.white
             compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
+            
+            profileButton.backgroundColor = PhotoAppColor
+            signOutButton.backgroundColor = PhotoAppColor
+            closeInnerButton.backgroundColor = PhotoAppColor
         }
         
         self.setupControls()

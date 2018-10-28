@@ -274,6 +274,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButtonButton" destination="2bl-ws-FRy" id="N0r-SO-hTu"/>
+                        <outlet property="closeInnerButton" destination="uSd-8T-Pqw" id="xNc-VJ-v2T"/>
                         <outlet property="closeView" destination="Wjd-X4-0yL" id="rcI-YW-TXo"/>
                         <outlet property="compose_Button" destination="aWK-TJ-d6L" id="z62-3e-3ga"/>
                         <outlet property="conversationDetailContainer" destination="Yqw-vv-Nsf" id="hx7-jL-4wn"/>

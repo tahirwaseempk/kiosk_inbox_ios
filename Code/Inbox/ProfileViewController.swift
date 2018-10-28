@@ -72,8 +72,20 @@ class ProfileViewController: UIViewController {
         self.countryTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
 
         self.timeZoneTextField.isEnabled = false
-        self.stateTextField.isEnabled = false
-        self.countryTextField.isEnabled = false
+        self.stateTextField.isEnabled    = false
+        self.countryTextField.isEnabled  = false
+        
+        switch environment {
+        case .texting_Line:
+            self.view.backgroundColor = AppBlueColor
+        case .sms_Factory:
+            self.view.backgroundColor = AppBlueColor
+        case .fan_Connect:
+            self.view.backgroundColor = FanAppColor
+        case .photo_Texting:
+            self.view.backgroundColor = PhotoAppColor
+        }
+        
     }
 
     // MARK: Actions
