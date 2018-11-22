@@ -786,7 +786,7 @@ class WebManager: NSObject
                 var jsonData: Data? = nil
                 jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
                 if jsonData != nil {
-                    let theJSONText = NSString(data: jsonData!,encoding: String.Encoding.ascii.rawValue)
+                    let theJSONText = NSString(data: jsonData!,encoding: String.Encoding.utf8.rawValue)
                     print("JSON string = \(theJSONText!)")
                 }
                 request.httpBody = jsonData
