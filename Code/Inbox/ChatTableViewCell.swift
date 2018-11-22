@@ -33,6 +33,7 @@ class ChatTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        
     }
     
     override func awakeFromNib() {

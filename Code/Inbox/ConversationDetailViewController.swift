@@ -34,7 +34,12 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     override func viewDidLoad() {
         
         super.viewDidLoad()
-                
+        
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        tableView.estimatedRowHeight = 105
+        
         switch environment {
         case .texting_Line:
             if UIDevice.current.userInterfaceIdiom == .pad {

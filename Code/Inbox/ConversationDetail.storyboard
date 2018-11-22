@@ -25,81 +25,81 @@
                                 <rect key="frame" x="0.0" y="73.666666666666686" width="414" height="612.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="101" id="eDM-EM-sdZ" customClass="ChatTableViewCell" customModule="ChatCell" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="101" id="oat-5J-GP0" customClass="ChatTableViewCell" customModule="ChatCell" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eDM-EM-sdZ" id="4QJ-zK-wvy">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oat-5J-GP0" id="Cxs-qb-JwG">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tqp-5d-1nt">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KEb-VT-ed5">
                                                     <rect key="frame" x="5" y="0.0" width="406" height="101"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pId-cp-vT6">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHg-fq-lHY">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkr-O5-SOp">
-                                                            <rect key="frame" x="15" y="5" width="384" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj8-DR-ujD">
+                                                            <rect key="frame" x="15" y="5" width="384" height="12"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CQr-nM-dej">
-                                                            <rect key="frame" x="15" y="27" width="384" height="47"/>
-                                                            <color key="backgroundColor" red="0.48803869659999999" green="0.86255824569999995" blue="0.2068347764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-KU-atd">
+                                                            <rect key="frame" x="15" y="22" width="384" height="57"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                                         </textView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEo-p9-Ul7">
-                                                            <rect key="frame" x="15" y="79" width="384" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-4K-dm6">
+                                                            <rect key="frame" x="15" y="84" width="384" height="12"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="NEo-p9-Ul7" firstAttribute="top" secondItem="CQr-nM-dej" secondAttribute="bottom" constant="5" id="6D1-6M-3BR"/>
-                                                        <constraint firstItem="NEo-p9-Ul7" firstAttribute="leading" secondItem="CQr-nM-dej" secondAttribute="leading" id="9YQ-Gy-kJx"/>
-                                                        <constraint firstItem="CQr-nM-dej" firstAttribute="leading" secondItem="pId-cp-vT6" secondAttribute="leading" constant="15" id="GC8-4s-jK9"/>
-                                                        <constraint firstAttribute="trailing" secondItem="CQr-nM-dej" secondAttribute="trailing" constant="15" id="c0R-18-10q"/>
-                                                        <constraint firstItem="Dkr-O5-SOp" firstAttribute="top" secondItem="pId-cp-vT6" secondAttribute="top" constant="5" id="dzG-ca-ZsH"/>
-                                                        <constraint firstItem="NEo-p9-Ul7" firstAttribute="top" secondItem="CQr-nM-dej" secondAttribute="bottom" constant="5" id="gKv-Pg-AVS"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CQr-nM-dej" secondAttribute="trailing" constant="15" id="jay-FD-qRb"/>
-                                                        <constraint firstItem="CQr-nM-dej" firstAttribute="top" secondItem="Dkr-O5-SOp" secondAttribute="bottom" constant="5" id="jg9-yv-1h4"/>
-                                                        <constraint firstItem="Dkr-O5-SOp" firstAttribute="trailing" secondItem="CQr-nM-dej" secondAttribute="trailing" id="ngi-US-Nov"/>
-                                                        <constraint firstItem="CQr-nM-dej" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pId-cp-vT6" secondAttribute="leading" constant="15" id="rx8-Gn-Qdk"/>
-                                                        <constraint firstItem="Dkr-O5-SOp" firstAttribute="leading" secondItem="CQr-nM-dej" secondAttribute="leading" id="vTw-eq-0Ne"/>
-                                                        <constraint firstItem="NEo-p9-Ul7" firstAttribute="trailing" secondItem="CQr-nM-dej" secondAttribute="trailing" id="yMj-8o-URa"/>
-                                                        <constraint firstAttribute="bottom" secondItem="NEo-p9-Ul7" secondAttribute="bottom" constant="5" id="zPo-EV-zGR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Gta-KU-atd" secondAttribute="trailing" constant="15" id="1Of-5I-oHM"/>
+                                                        <constraint firstItem="Wj8-DR-ujD" firstAttribute="top" secondItem="eHg-fq-lHY" secondAttribute="top" constant="5" id="AWj-rG-GPG"/>
+                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eHg-fq-lHY" secondAttribute="leading" constant="15" id="GMT-YT-7uD"/>
+                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="top" secondItem="Wj8-DR-ujD" secondAttribute="bottom" constant="5" id="I7H-3I-xH0"/>
+                                                        <constraint firstItem="i6v-4K-dm6" firstAttribute="trailing" secondItem="Gta-KU-atd" secondAttribute="trailing" id="KFe-uI-g3m"/>
+                                                        <constraint firstItem="i6v-4K-dm6" firstAttribute="leading" secondItem="Gta-KU-atd" secondAttribute="leading" id="TW2-eG-u0t"/>
+                                                        <constraint firstItem="Wj8-DR-ujD" firstAttribute="trailing" secondItem="Gta-KU-atd" secondAttribute="trailing" id="VU8-XL-jgk"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gta-KU-atd" secondAttribute="trailing" constant="15" id="aqy-f0-CrF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="i6v-4K-dm6" secondAttribute="bottom" constant="5" id="gmN-sb-LKe"/>
+                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="leading" secondItem="eHg-fq-lHY" secondAttribute="leading" constant="15" id="vWQ-S3-g6l"/>
+                                                        <constraint firstItem="i6v-4K-dm6" firstAttribute="top" secondItem="Gta-KU-atd" secondAttribute="bottom" constant="5" id="ySy-C8-038"/>
+                                                        <constraint firstItem="i6v-4K-dm6" firstAttribute="top" secondItem="Gta-KU-atd" secondAttribute="bottom" constant="5" id="zd1-OR-xwi"/>
+                                                        <constraint firstItem="Wj8-DR-ujD" firstAttribute="leading" secondItem="Gta-KU-atd" secondAttribute="leading" id="znw-kB-ayz"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="pId-cp-vT6" secondAttribute="trailing" id="3bu-yA-Qqc"/>
-                                                <constraint firstItem="pId-cp-vT6" firstAttribute="top" secondItem="4QJ-zK-wvy" secondAttribute="top" id="K0R-AH-D8S"/>
-                                                <constraint firstItem="Tqp-5d-1nt" firstAttribute="top" secondItem="pId-cp-vT6" secondAttribute="top" id="aQT-Yy-lfa"/>
-                                                <constraint firstItem="Tqp-5d-1nt" firstAttribute="leading" secondItem="CQr-nM-dej" secondAttribute="leading" constant="-10" id="ft3-hA-hSS"/>
-                                                <constraint firstItem="Tqp-5d-1nt" firstAttribute="bottom" secondItem="pId-cp-vT6" secondAttribute="bottom" id="mwK-9d-6SB"/>
-                                                <constraint firstItem="pId-cp-vT6" firstAttribute="leading" secondItem="4QJ-zK-wvy" secondAttribute="leading" id="oX9-yO-ZM5"/>
-                                                <constraint firstItem="Tqp-5d-1nt" firstAttribute="trailing" secondItem="CQr-nM-dej" secondAttribute="trailing" multiplier="1.03" id="sq1-sK-F7K"/>
-                                                <constraint firstAttribute="bottom" secondItem="pId-cp-vT6" secondAttribute="bottom" id="tdi-DH-dt6"/>
+                                                <constraint firstAttribute="bottom" secondItem="eHg-fq-lHY" secondAttribute="bottom" id="87E-eC-mrj"/>
+                                                <constraint firstItem="KEb-VT-ed5" firstAttribute="leading" secondItem="Gta-KU-atd" secondAttribute="leading" constant="-10" id="9Sz-i1-vcf"/>
+                                                <constraint firstItem="eHg-fq-lHY" firstAttribute="top" secondItem="Cxs-qb-JwG" secondAttribute="top" id="GOc-FT-d5h"/>
+                                                <constraint firstItem="KEb-VT-ed5" firstAttribute="top" secondItem="eHg-fq-lHY" secondAttribute="top" id="Oo7-1h-QFC"/>
+                                                <constraint firstItem="KEb-VT-ed5" firstAttribute="bottom" secondItem="eHg-fq-lHY" secondAttribute="bottom" id="XT8-hM-31p"/>
+                                                <constraint firstItem="eHg-fq-lHY" firstAttribute="leading" secondItem="Cxs-qb-JwG" secondAttribute="leading" id="h4q-Zw-hzG"/>
+                                                <constraint firstAttribute="trailing" secondItem="eHg-fq-lHY" secondAttribute="trailing" id="ka5-t7-Sjv"/>
+                                                <constraint firstItem="KEb-VT-ed5" firstAttribute="trailing" secondItem="Gta-KU-atd" secondAttribute="trailing" multiplier="1.03" id="qda-kb-xxQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="backgroundCellView" destination="pId-cp-vT6" id="Ezw-57-dWE"/>
-                                            <outlet property="bubbleImageView" destination="Tqp-5d-1nt" id="jZz-fF-c8U"/>
-                                            <outlet property="dateLabel" destination="NEo-p9-Ul7" id="mNK-ql-cPZ"/>
-                                            <outlet property="leadingConstraint" destination="rx8-Gn-Qdk" id="4MM-Wj-6cz"/>
-                                            <outlet property="leadingContraintEqual" destination="GC8-4s-jK9" id="lvb-rU-uLB"/>
-                                            <outlet property="messageLabel" destination="CQr-nM-dej" id="CMd-Yb-Rt7"/>
-                                            <outlet property="numberLabel" destination="Dkr-O5-SOp" id="fBU-hg-t3e"/>
-                                            <outlet property="trailingConstraint" destination="jay-FD-qRb" id="mcb-8v-p7F"/>
-                                            <outlet property="trailingContraintEqual" destination="c0R-18-10q" id="NgU-Fp-qSm"/>
+                                            <outlet property="backgroundCellView" destination="eHg-fq-lHY" id="taG-un-tJV"/>
+                                            <outlet property="bubbleImageView" destination="KEb-VT-ed5" id="Qbh-Ck-bEG"/>
+                                            <outlet property="dateLabel" destination="i6v-4K-dm6" id="K7n-tZ-1jH"/>
+                                            <outlet property="leadingConstraint" destination="GMT-YT-7uD" id="r6p-Mh-95n"/>
+                                            <outlet property="leadingContraintEqual" destination="vWQ-S3-g6l" id="301-xf-Gr2"/>
+                                            <outlet property="messageLabel" destination="Gta-KU-atd" id="9t5-mO-OuZ"/>
+                                            <outlet property="numberLabel" destination="Wj8-DR-ujD" id="wVr-U1-NYj"/>
+                                            <outlet property="trailingConstraint" destination="aqy-f0-CrF" id="9Vv-V4-coz"/>
+                                            <outlet property="trailingContraintEqual" destination="1Of-5I-oHM" id="d0m-HG-vdU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
