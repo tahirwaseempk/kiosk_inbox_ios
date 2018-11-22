@@ -214,6 +214,10 @@
 		29B0311C217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
 		29B0311D217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
 		29B0311E217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
+		29C5259421A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
+		29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
+		29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
+		29C5259721A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
@@ -643,6 +647,7 @@
 		2932C2CC217230FE00D2A299 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2932C2D1217235EF00D2A299 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
+		2934F3922191776F003ACE4E /* PhotoTextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoTextingLine.entitlements; sourceTree = "<group>"; };
 		29472EFC2137190500DC2747 /* TextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
 		2952C1B2215301B000C7C084 /* TextingLine Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TextingLine Info.plist"; sourceTree = "<group>"; };
@@ -663,10 +668,10 @@
 		29B03114217E37E5001E63BA /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		29B03115217E37E6001E63BA /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCopyPasteUITextField.swift; sourceTree = "<group>"; };
+		29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
-		29DF6ADD214FF21400DC404C /* PhotoTextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoTextingLine.entitlements; sourceTree = "<group>"; };
 		29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		29E5E13E21767A5E00BF642C /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
@@ -864,7 +869,7 @@
 		1ADE9F711EF98E46006C2CAC = {
 			isa = PBXGroup;
 			children = (
-				29DF6ADD214FF21400DC404C /* PhotoTextingLine.entitlements */,
+				2934F3922191776F003ACE4E /* PhotoTextingLine.entitlements */,
 				29472EFC2137190500DC2747 /* TextingLine.entitlements */,
 				2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */,
 				29017325211666B600D00E06 /* SMSFactory.entitlements */,
@@ -1055,6 +1060,7 @@
 			children = (
 				1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */,
 				1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */,
+				29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */,
 				046560BA1FC4B1AD0010B037 /* Protocol */,
 				1ADE9FB51EF9A57B006C2CAC /* TableView Data Source */,
 				1AE37F38206016E5009C4625 /* Schedule Appointment */,
@@ -1699,6 +1705,7 @@
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
 				046560BF1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift in Sources */,
 				752CE44D1F27E24900FCC976 /* IQUITextFieldView+Additions.swift in Sources */,
+				29C5259421A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
 				759C5BEB1FC60C08007889E7 /* PushySwizzler.swift in Sources */,
 				759BD35C204077F400832092 /* Mappings.swift in Sources */,
@@ -1811,6 +1818,7 @@
 				290BEDAB20E697EC00F30BAA /* InboxTableViewCell.swift in Sources */,
 				290BEDAC20E697EC00F30BAA /* ConversationListingViewControllerProtocol.swift in Sources */,
 				290BEDAD20E697EC00F30BAA /* IQUITextFieldView+Additions.swift in Sources */,
+				29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */,
 				290BEDAF20E697EC00F30BAA /* PushySwizzler.swift in Sources */,
 				290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */,
@@ -1923,6 +1931,7 @@
 				29FD0F4521160D0500062362 /* InboxTableViewCell.swift in Sources */,
 				29FD0F4621160D0500062362 /* ConversationListingViewControllerProtocol.swift in Sources */,
 				29FD0F4721160D0500062362 /* IQUITextFieldView+Additions.swift in Sources */,
+				29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0F4921160D0500062362 /* PushySwizzler.swift in Sources */,
 				29FD0F4A21160D0500062362 /* Mappings.swift in Sources */,
@@ -2035,6 +2044,7 @@
 				29FD0FBA21160D1000062362 /* InboxTableViewCell.swift in Sources */,
 				29FD0FBB21160D1000062362 /* ConversationListingViewControllerProtocol.swift in Sources */,
 				29FD0FBC21160D1000062362 /* IQUITextFieldView+Additions.swift in Sources */,
+				29C5259721A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0FBE21160D1000062362 /* PushySwizzler.swift in Sources */,
 				29FD0FBF21160D1000062362 /* Mappings.swift in Sources */,

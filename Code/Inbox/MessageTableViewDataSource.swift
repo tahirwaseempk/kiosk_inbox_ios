@@ -103,22 +103,34 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         self.targetedTableView.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-            let numberOfSections = 0//self.targetedTableView.numberOfSections
-            let numberOfRows = self.targetedTableView.numberOfRows(inSection: numberOfSections)
-          
-            if numberOfRows > 0 {
-                let indexPath = IndexPath(row: numberOfRows-1, section: 0)
+            let numberOfRows = 0 //self.targetedTableView.numberOfRows(inSection: numberOfSections)
+            let numberOfSections = self.targetedTableView.numberOfSections
+
+            if numberOfSections > 0 {
+                let indexPath = IndexPath(row: numberOfRows, section: numberOfSections-1)
                 self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+                
+//                self.targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.bottom)
             }
         }
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return 1
+    func loadConversation(conversation_: Conversation?) -> Bool {
+        self.selectedConversation = conversation_;
+        self.reloadControls()
+        return true
     }
+    //************************************************************************************************//
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    //************************************************************************************************//
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    //MARK: -  TableView Data Source
+
+    func numberOfSections(in tableView: UITableView) -> Int
     {
         guard (self.selectedConversation == nil) else {
             return (self.selectedConversation!.messages!.count)
@@ -126,10 +138,18 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         return 0
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        let message:Message = messages[indexPath.row]
+        let cell : ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
+
+        
+        let message:Message = messages[indexPath.section]
         
         let formatter = DateFormatter()
         formatter.dateFormat = DISPLAY_FORMATE_STRING
@@ -137,115 +157,78 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         if (message.isSender == false) {
             
-            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
+//            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
+//            chatCell.chatMessageLabel.text = message.messageText
+//            chatCell.chatNameLabel.text = self.selectedConversation?.receiver?.phoneNumber //"MOBILE NUMBER"//message.mobile
+//            chatCell.chatTimeLabel.text = outStr
+//            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
+//            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
             
-            chatCell.chatMessageLabel.text = message.messageText
-            chatCell.chatNameLabel.text = self.selectedConversation?.receiver?.phoneNumber //"MOBILE NUMBER"//message.mobile
-            chatCell.chatTimeLabel.text = outStr
-            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
-            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
-            
+            cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeReceiver, number: (self.selectedConversation?.receiver?.phoneNumber)!, dateTime: outStr)
+
         } else {
             
-            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatReceive", for: indexPath)as? ChatTableViewCell
+//            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatReceive", for: indexPath)as? ChatTableViewCell
+//            chatCell.chatMessageLabel.text = message.messageText
+//            chatCell.chatNameLabel.text = "Me"
+//            chatCell.chatTimeLabel.text = outStr
+//            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
+//            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeSender
             
-            chatCell.chatMessageLabel.text = message.messageText
-            chatCell.chatNameLabel.text = "Me"
-            chatCell.chatTimeLabel.text = outStr
-            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
-            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeSender
+            cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeSender, number: "Me", dateTime: outStr)
         }
         
-        return chatCell
+        return cell
     }
     
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        
-        let message:Message = messages[indexPath.row]
-        
-        var size = CGSize(width: 0, height: 0)
-        var Namesize:CGSize
-        var Timesize:CGSize
-        var Messagesize:CGSize
-        
-        var fontArray:NSArray = NSArray()
-        
-        //Get the chal cell font settings. This is to correctly find out the height of each of the cell according to the text written in those cells which change according to their fonts and sizes.
-        //If you want to keep the same font sizes for both sender and receiver cells then remove this code and manually enter the font name with size in Namesize, Messagesize and Timesize.
-        
-        
-        if(message.isSender == false)
-        {
-            fontArray = chatCellSettings.getReceiverBubbleFontWithSize()! as NSArray;
-        }
-        else
-        {
-            fontArray = chatCellSettings.getSenderBubbleFontWithSize()! as NSArray;
-        }
-        
-        let nameSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[0]], context: nil).size
-        
-        let messageSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Messagesize = (message.messageText! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:fontArray[1]], context: nil).size
-        
-        let timeSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-        Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[2]], context: nil).size
-        
-        size.height = Messagesize.height + Namesize.height + Timesize.height + 48.0
-        
-        return size.height
-    }
-    
-    func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
-    {
-        
-    }
-
-    func loadConversation(conversation_: Conversation?) -> Bool {
-        
-        self.selectedConversation = conversation_;
-        //        self.conversationMessages = self.selectedConversation.messages?.allObjects as! Array<Message>
-        self.reloadControls()
-        
-//        var rowsCount = 0
-//
-//        if self.selectedConversation != nil
-//        {
-//            rowsCount = (self.selectedConversation?.messages?.count)!
-//        }
-//
-//        if rowsCount > 0 {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-//
-//                let indexPath = IndexPath(row: rowsCount-1, section: 0)
-//                self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//            }
-//        }
-//
-        return true
-    }
-    
-//    func addNewMessage(_ message:Message) -> Bool {
-//
-//        self.reloadControls()
-//
-//        let rowCount = self.selectedConversation?.messages?.count
-//
-//        if rowCount!>0 {
-//            let indexPath = IndexPath(row:(self.selectedConversation?.messages?.count)! - 1, section: 0)
-//            self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//        }
-//
-//        return true
-//    }
-    
-//    func clearMessages(_ conversation:Conversation?)
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
 //    {
-//        self.selectedConversation = conversation
-//        self.targetedTableView.reloadData()
+//
+//        let message:Message = messages[indexPath.row]
+//
+//        var size = CGSize(width: 0, height: 0)
+//        var Namesize:CGSize
+//        var Timesize:CGSize
+//        var Messagesize:CGSize
+//
+//        var fontArray:NSArray = NSArray()
+//
+//        //Get the chal cell font settings. This is to correctly find out the height of each of the cell according to the text written in those cells which change according to their fonts and sizes.
+//        //If you want to keep the same font sizes for both sender and receiver cells then remove this code and manually enter the font name with size in Namesize, Messagesize and Timesize.
+//
+//
+//        if(message.isSender == false)
+//        {
+//            fontArray = chatCellSettings.getReceiverBubbleFontWithSize()! as NSArray;
+//        }
+//        else
+//        {
+//            fontArray = chatCellSettings.getSenderBubbleFontWithSize()! as NSArray;
+//        }
+//
+//        let nameSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
+//        Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[0]], context: nil).size
+//
+//        let messageSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
+//        Messagesize = (message.messageText! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:fontArray[1]], context: nil).size
+//
+//        let timeSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
+//        Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[2]], context: nil).size
+//
+//        size.height = Messagesize.height + Namesize.height + Timesize.height + 48.0
+//
+//        return size.height
 //    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.clear
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.clear
+    }
+    
 }
 
