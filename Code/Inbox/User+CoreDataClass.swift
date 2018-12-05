@@ -133,10 +133,7 @@ extension User
                             let tempDict = response
                             
                             if tempDict!["statusCode"] != nil {
-                                //                                                                tempDictionary["name"] = tempDict["name"] as! String
-                                //                                                                tempDictionary["errorCode"] = tempDict["errorCode"] as! Int64
-                                //                                                                tempDictionary["message"] = tempDict["message"] as! String
-                                //                                                                tempDictionary["statusCode"] = tempDict["statusCode"] as! Int64
+                
                                 failureBlock(NSError(domain:"com.inbox.amir",code:401,userInfo:[NSLocalizedDescriptionKey:tempDict!["message"] as! String]))
                                 
                             } else {
@@ -197,34 +194,13 @@ extension User
         if let user = User.getLoginedUser()
         {
             var paramsDic = Dictionary<String, Any>()
-            paramsDic["type"] = "Inbox"
             
-            if (license.isEmpty == true){
-                paramsDic["serial"] = user.license
-            } else {
-                paramsDic["serial"] = license
-            }
+            paramsDic["token"] = user.token
             
-            if let token = UserDefaults.standard.string(forKey: "pushyToken")
-            {
-                paramsDic["token"] = token
-            } else {
-                paramsDic["token"] = ""
-            }
-            
-            if let token = UserDefaults.standard.string(forKey: "pushyToken")
-            {
-                paramsDic["uuid"] = token
-            } else {
-                paramsDic["uuid"] = ""
-            }
-            
-            //----------------------------------------------------//
             //----------------------------------------------------//
             #if targetEnvironment(simulator)
-            print("Simulator Simulator Simulator Simulator Simulator Simulator Simulator Simulator")
+            print(" ========== >>>>>>>>>> SIMULATOR <<<<<<<<<< ==========")
             #endif
-            //----------------------------------------------------//
             //----------------------------------------------------//
             
             WebManager.registerAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
@@ -246,23 +222,28 @@ extension User
     static func deleteUserAPNS(serial:String, uuid:String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
-        var paramsDic = Dictionary<String, Any>()
-        let defaults = UserDefaults.standard
-        paramsDic["serial"] = serial
-        paramsDic["uuid"] = uuid
-        paramsDic["type"] = "Inbox"
-        
-        if let token = defaults.string(forKey: "pushyToken")
+        if let user = User.getLoginedUser()
         {
-            paramsDic["token"] = token
+            var paramsDic = Dictionary<String, Any>()
+
+            paramsDic["token"] = user.token
+            
+            //----------------------------------------------------//
+            #if targetEnvironment(simulator)
+            print(" ========== >>>>>>>>>> SIMULATOR <<<<<<<<<< ==========")
+            #endif
+            //----------------------------------------------------//
+            
+            WebManager.deleteAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
+                
+                successBlock(true)
+                
+            }) { (error: Error?) -> (Void) in
+                
+                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+            }
         }
-        
-        WebManager.deleteAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
-            
-            successBlock(true)
-            
-        }) { (error: Error?) -> (Void) in
-            
+        else {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }

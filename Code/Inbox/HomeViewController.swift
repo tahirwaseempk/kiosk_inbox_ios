@@ -103,6 +103,7 @@ class HomeViewController: UIViewController
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.pushNotificationRecieved), name: PushNotificationName, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.apnsPushNotificationRecieved), name: APNSPushNotificationName, object: nil)
         
         self.setupSignoutButton()
         
@@ -113,6 +114,34 @@ class HomeViewController: UIViewController
         self.setupConversationDetailView()
         
         self.refreshUnReadCount()
+    }
+    
+    @objc func apnsPushNotificationRecieved()
+    {
+        
+        User.registerUserAPNS(license: "", completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
+            
+//            DispatchQueue.global(qos: .background).async
+//                {
+//                    DispatchQueue.main.async
+//                        {
+////                            ProcessingIndicator.hide()
+//
+//                    }
+//            }
+            
+        }, andFailureBlock: { (error:Error?) -> (Void) in
+            
+//            DispatchQueue.global(qos: .background).async
+//                {
+//                    DispatchQueue.main.async
+//                        {
+////                            ProcessingIndicator.hide()
+//                    }
+//            }
+            
+        })
+        
     }
     
     @objc func pushNotificationRecieved()
@@ -168,6 +197,7 @@ class HomeViewController: UIViewController
         self.profileViewController.view.frame = self.view.bounds
     }
     
+    
     @IBAction func closeViewDismisssButtonTapped(_ sender: Any) {
         
         self.closeView?.removeFromSuperview()
@@ -182,8 +212,41 @@ class HomeViewController: UIViewController
     @IBAction func signOut_Tapped(_ sender: Any) {
         
         NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
-        self.navigationController?.popToRootViewController(animated: true)
+        NotificationCenter.default.removeObserver(self, name: APNSPushNotificationName, object: nil)
+        self.signOutDeleteAPNS()
     }
+    
+    func signOutDeleteAPNS () {
+        
+        ProcessingIndicator.show()
+        User.deleteUserAPNS(serial: "", uuid: "", completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            self.navigationController?.popToRootViewController(animated: true)
+
+                    }
+            }
+            
+        }, andFailureBlock: { (error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            self.navigationController?.popToRootViewController(animated: true)
+
+                    }
+            }
+            
+        })
+        
+    }
+    
     // MARK: CLOSE VIEW ACTIONS - END
 
     @IBAction func createMessage_Tapped(_ sender: Any)

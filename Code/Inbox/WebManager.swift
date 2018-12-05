@@ -34,6 +34,10 @@ let BYPASS_MESSAGE = "/api/v1/messages/byPass"
 
 //----------------------------------------------------------//
 let APNS_REGISTER_URL = "https://app.textingline.com/limeApi"
+
+let PUT_TOKEN_URL = "https://api.textingline.com/api/v1/pushtoken"
+let DELETE_TOKEN_URL = "https://api.textingline.com/api/v1/pushtoken/?"
+
 let APNS_REGISTER_SERIAL = "?ev=kioskAddToken&serial="
 let APNS_REGISTER_UDID = "&uuid="
 let APNS_REGISTER_TYPE = "&type="
@@ -86,9 +90,43 @@ class WebManager: NSObject
     static func requestLogin(params: Dictionary<String,Any>,loginParser:LoginParser, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
+        let dictionary1 = Bundle.main.infoDictionary!
+        let version     = dictionary1["CFBundleShortVersionString"] as! String
+        let build       = dictionary1["CFBundleVersion"] as! String
+        let systemVersion = UIDevice.current.systemVersion
+
+        
         var paramsDic = Dictionary<String, Any>()
         paramsDic["username"] = params["username"] as! String
         paramsDic["password"] = params["password"] as! String
+        
+        var clientMetadata = Dictionary<String, Any>()
+        clientMetadata["type"] = "NATIVE"
+        clientMetadata["os"] = "iOS"
+        clientMetadata["osVersion"] = systemVersion
+        clientMetadata["appVersion"] = version + " (" + build + ")"
+        
+
+        if let ipAddress = getWiFiAddress() {
+            clientMetadata["loginIp"] = ipAddress
+        } else {
+            print("No WiFi address")
+        }
+
+        var pushTokenDetails = Dictionary<String, Any>()
+        
+        if let token = UserDefaults.standard.string(forKey: "fireBaseToken")
+        {
+            pushTokenDetails["token"] = token
+        } else {
+            pushTokenDetails["token"] = ""
+        }
+        
+        pushTokenDetails["tokenProvider"] = "Firebase"
+
+        paramsDic["clientMetadata"] = clientMetadata
+        paramsDic["pushTokenDetails"] = pushTokenDetails
+
         
         var finalUrl = ""
         
@@ -132,27 +170,36 @@ class WebManager: NSObject
     //************************************************************************************************//
     static func registerAPNS(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        let serial:String = params["serial"] as! String
-        let uuid:String   = params["uuid"] as! String
-        let type:String   = params["type"] as! String
-        let tokenKey:String = params["token"] as! String
+        
+        let userToken:String = params["token"] as! String
+
+        var paramsDic = Dictionary<String, Any>()
+        
+        if let token = UserDefaults.standard.string(forKey: "fireBaseToken")
+        {
+            paramsDic["token"] = token
+        } else {
+            paramsDic["token"] = ""
+        }
+        
+        paramsDic["tokenProvider"] = "Firebase"
         
         var finalUrl = ""
         
         switch environment {
         case .texting_Line:
-            finalUrl = APNS_REGISTER_URL + APNS_REGISTER_SERIAL + serial + APNS_REGISTER_UDID + uuid + APNS_REGISTER_TYPE + type + APNS_REGISTER_TOKEN + tokenKey
+            finalUrl = PUT_TOKEN_URL
         case .sms_Factory:
-            finalUrl = APNS_REGISTER_URL + APNS_REGISTER_SERIAL + serial + APNS_REGISTER_UDID + uuid + APNS_REGISTER_TYPE + type + APNS_REGISTER_TOKEN + tokenKey
+            finalUrl = PUT_TOKEN_URL
         case .fan_Connect:
-            finalUrl = APNS_REGISTER_URL + APNS_REGISTER_SERIAL + serial + APNS_REGISTER_UDID + uuid + APNS_REGISTER_TYPE + type + APNS_REGISTER_TOKEN + tokenKey
+            finalUrl = PUT_TOKEN_URL
         case .photo_Texting:
-            finalUrl = APNS_REGISTER_URL + APNS_REGISTER_SERIAL + serial + APNS_REGISTER_UDID + uuid + APNS_REGISTER_TYPE + type + APNS_REGISTER_TOKEN + tokenKey
+            finalUrl = PUT_TOKEN_URL
         }
         
         print("\n ===== >>>>> Register APNS URL  = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "POST", httpHeaderKey: "", httpHeaderValue: "", completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters: paramsDic, httpMethod: "PUT", httpHeaderKey: "authorization", httpHeaderValue: userToken, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -173,35 +220,35 @@ class WebManager: NSObject
     static func deleteAPNS(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
-        let serial:String = params["serial"] as! String
-        let uuid:String   = params["uuid"] as! String
-        let type:String   = params["type"] as! String
+        let token:String = params["token"] as! String
         
-        let keyExists = params["token"] != nil
-        var tokenKey:String
-        if keyExists {
-            tokenKey = params["token"] as! String
-        } else {
-            tokenKey = ""
+        var pushToken:String = ""
+        
+        if let tokenFCM = UserDefaults.standard.string(forKey: "fireBaseToken")
+        {
+            pushToken = tokenFCM
         }
+        
+        let tokenProvider:String = "Firebase"
+
         
         var finalUrl = ""
         
         switch environment {
-            
+
         case .texting_Line:
-            finalUrl = APNS_REGISTER_URL + APNS_DELETE_SERIAL + serial + APNS_DELETE_UDID + uuid + APNS_DELETE_TYPE + type + APNS_DELETE_TOKEN + tokenKey
+            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .sms_Factory:
-            finalUrl = APNS_REGISTER_URL + APNS_DELETE_SERIAL + serial + APNS_DELETE_UDID + uuid + APNS_DELETE_TYPE + type + APNS_DELETE_TOKEN + tokenKey
+            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .fan_Connect:
-            finalUrl = APNS_REGISTER_URL + APNS_DELETE_SERIAL + serial + APNS_DELETE_UDID + uuid + APNS_DELETE_TYPE + type + APNS_DELETE_TOKEN + tokenKey
+            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .photo_Texting:
-            finalUrl = APNS_REGISTER_URL + APNS_DELETE_SERIAL + serial + APNS_DELETE_UDID + uuid + APNS_DELETE_TYPE + type + APNS_DELETE_TOKEN + tokenKey
+            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         }
         
         print("\n ===== >>>>> Delete APNS URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "POST", httpHeaderKey: "", httpHeaderValue: "", completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "DELETE", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {

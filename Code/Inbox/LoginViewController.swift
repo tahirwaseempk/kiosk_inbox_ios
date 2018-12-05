@@ -4,6 +4,7 @@ import Crashlytics
 
 class LoginViewController: UIViewController,UITextFieldDelegate
 {
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var rememberMeButton: UIButton!
     @IBOutlet weak var udidTextField: UnderlinedTextField!
@@ -40,10 +41,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         udidTextField.resignFirstResponder()
         serialTextField.resignFirstResponder()
         
-//           serialTextField.text = "8443712030"
-           serialTextField.text = "8006999130"
-           udidTextField.text = "lime123"
-      
+        //           serialTextField.text = "8443712030"
+        //           serialTextField.text = "8006999130"
+        //           udidTextField.text = "lime123"
     }
 
     override func viewDidLoad()
@@ -200,8 +200,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
 
 extension LoginViewController {
     
+
     func login()
     {
+        
         if (self.serialTextField.text?.isEmpty)!
         {
             let alert = UIAlertController(title:"Warning",message:"Please enter phone number",preferredStyle:UIAlertControllerStyle.alert)

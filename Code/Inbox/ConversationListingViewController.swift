@@ -24,7 +24,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
         if (self.isViewLoaded && (self.view!.window != nil))
         {
-            ProcessingIndicator.show()
+           // ProcessingIndicator.show()
             callLastConversationsUpdate()
         }
     }
@@ -282,7 +282,7 @@ extension ConversationListingViewController
     
     func callLastConversationsUpdate()
     {
-        ProcessingIndicator.show()
+       //ProcessingIndicator.show()
         
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
