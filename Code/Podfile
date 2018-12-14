@@ -6,6 +6,8 @@ target 'FanConnectNow' do
   use_frameworks!
 
   # Pods for FanConnectNow
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 end
 
@@ -14,6 +16,8 @@ target 'PhotoTextingLine' do
   use_frameworks!
 
   # Pods for PhotoTextingLine
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 end
 
@@ -22,6 +26,8 @@ target 'SMSFactory' do
   use_frameworks!
 
   # Pods for SMSFactory
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 end
 

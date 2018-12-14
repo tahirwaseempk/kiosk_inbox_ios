@@ -152,6 +152,7 @@
 		290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		290BEDFE20E6999200F30BAA /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
+		292CCE5021C462F600996BF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 292CCE4F21C462F600996BF5 /* GoogleService-Info.plist */; };
 		2932C2BF2171F25C00D2A299 /* TextingLine Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B2215301B000C7C084 /* TextingLine Info.plist */; };
 		2932C2CD217230FE00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2CC217230FE00D2A299 /* ProfileViewController.swift */; };
 		2932C2CE217230FE00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2CC217230FE00D2A299 /* ProfileViewController.swift */; };
@@ -165,6 +166,8 @@
 		2932C2D8217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */; };
 		2932C2D9217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */; };
 		2932C2DA217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */; };
+		294DD87521C4697E004536D8 /* GoogleService-Info_Photo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 294DD87421C4697E004536D8 /* GoogleService-Info_Photo.plist */; };
+		294DD87721C4698D004536D8 /* GoogleService-Info_Fan.plist in Resources */ = {isa = PBXBuildFile; fileRef = 294DD87621C4698D004536D8 /* GoogleService-Info_Fan.plist */; };
 		2952C1B7215301C600C7C084 /* FanConnectNow copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */; };
 		295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
 		295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
@@ -186,10 +189,6 @@
 		29955C6C213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6D213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6E213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
-		29A6914521B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29A6914421B6EE6500FBE2E1 /* GoogleService-Info.plist */; };
-		29A6914621B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29A6914421B6EE6500FBE2E1 /* GoogleService-Info.plist */; };
-		29A6914721B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29A6914421B6EE6500FBE2E1 /* GoogleService-Info.plist */; };
-		29A6914821B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29A6914421B6EE6500FBE2E1 /* GoogleService-Info.plist */; };
 		29B030EA217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
 		29B030EB217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
 		29B030EC217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
@@ -652,12 +651,15 @@
 		29017325211666B600D00E06 /* SMSFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMSFactory.entitlements; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
+		292CCE4F21C462F600996BF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2932C2CC217230FE00D2A299 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2932C2D1217235EF00D2A299 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
 		2934F3922191776F003ACE4E /* PhotoTextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoTextingLine.entitlements; sourceTree = "<group>"; };
 		29472EFC2137190500DC2747 /* TextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
+		294DD87421C4697E004536D8 /* GoogleService-Info_Photo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info_Photo.plist"; path = "../APNS/PhotoTextingLine/GoogleService-Info_Photo.plist"; sourceTree = "<group>"; };
+		294DD87621C4698D004536D8 /* GoogleService-Info_Fan.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info_Fan.plist"; path = "../APNS/FanConnectNow/GoogleService-Info_Fan.plist"; sourceTree = "<group>"; };
 		2952C1B2215301B000C7C084 /* TextingLine Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TextingLine Info.plist"; sourceTree = "<group>"; };
 		2952C1B4215301BA00C7C084 /* SMSFactory copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SMSFactory copy-Info.plist"; sourceTree = "<group>"; };
 		2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FanConnectNow copy-Info.plist"; sourceTree = "<group>"; };
@@ -668,7 +670,6 @@
 		2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnect.entitlements; sourceTree = "<group>"; };
 		29955C65213A8A1C000B733F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		29955C66213A8A1D000B733F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		29A6914421B6EE6500FBE2E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29B030E5217E2CD2001E63BA /* ActiveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveType.swift; sourceTree = "<group>"; };
 		29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveBuilder.swift; sourceTree = "<group>"; };
 		29B030E7217E2CD2001E63BA /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
@@ -957,7 +958,9 @@
 		1ADE9F941EF98E69006C2CAC /* P-List */ = {
 			isa = PBXGroup;
 			children = (
-				29A6914421B6EE6500FBE2E1 /* GoogleService-Info.plist */,
+				294DD87421C4697E004536D8 /* GoogleService-Info_Photo.plist */,
+				294DD87621C4698D004536D8 /* GoogleService-Info_Fan.plist */,
+				292CCE4F21C462F600996BF5 /* GoogleService-Info.plist */,
 				2952C1B8215301CF00C7C084 /* PhotoTextingLine copy-Info.plist */,
 				2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */,
 				2952C1B4215301BA00C7C084 /* SMSFactory copy-Info.plist */,
@@ -1403,6 +1406,7 @@
 				290BEDE220E697EC00F30BAA /* Resources */,
 				290BEDF720E697EC00F30BAA /* Embed Frameworks */,
 				29CE4294214D936F008D0CD8 /* ShellScript */,
+				8F5FF404845E1005AE6F5B8D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1423,6 +1427,7 @@
 				29FD0F7C21160D0500062362 /* Resources */,
 				29FD0F9521160D0500062362 /* Embed Frameworks */,
 				297122A3214EE80300DDDF21 /* ShellScript */,
+				E731911F26389E7C411F9C8F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1443,6 +1448,7 @@
 				29FD0FF121160D1000062362 /* Resources */,
 				29FD100A21160D1000062362 /* Embed Frameworks */,
 				29DF6ADB214FED6500DC404C /* ShellScript */,
+				778B9C4AA0A83E4272753A13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1546,7 +1552,7 @@
 				04EC9FBF1FC373CA00F3C42A /* Default-568h@2x.png in Resources */,
 				1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */,
 				29FD0F1E2114BADF00062362 /* GenericImages.xcassets in Resources */,
-				29A6914521B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */,
+				292CCE5021C462F600996BF5 /* GoogleService-Info.plist in Resources */,
 				752CE43F1F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */,
 				752CE4401F27E24900FCC976 /* IQButtonBarArrowRight@3x.png in Resources */,
@@ -1579,7 +1585,6 @@
 				290BEDEB20E697EC00F30BAA /* Default-568h@2x.png in Resources */,
 				290BEDEC20E697EC00F30BAA /* Login.storyboard in Resources */,
 				29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */,
-				29A6914621B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */,
 				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
 				290BEDEE20E697EC00F30BAA /* ComposeMessage.storyboard in Resources */,
 				9A1638F32129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
@@ -1610,7 +1615,7 @@
 				2952C1B7215301C600C7C084 /* FanConnectNow copy-Info.plist in Resources */,
 				29FD0F8521160D0500062362 /* IQButtonBarArrowDown@2x.png in Resources */,
 				29FD0F8621160D0500062362 /* Splash.storyboard in Resources */,
-				29A6914721B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */,
+				294DD87721C4698D004536D8 /* GoogleService-Info_Fan.plist in Resources */,
 				29FD0F8721160D0500062362 /* Default-568h@2x.png in Resources */,
 				29FD0F8821160D0500062362 /* Login.storyboard in Resources */,
 				29FD0F8921160D0500062362 /* Fanconnect.xcassets in Resources */,
@@ -1646,7 +1651,6 @@
 				29FD0FFC21160D1000062362 /* Default-568h@2x.png in Resources */,
 				29FD0FFD21160D1000062362 /* Login.storyboard in Resources */,
 				29FD0FFE21160D1000062362 /* Fanconnect.xcassets in Resources */,
-				29A6914821B6EE6500FBE2E1 /* GoogleService-Info.plist in Resources */,
 				29FD0FFF21160D1000062362 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				29FD100021160D1000062362 /* ComposeMessage.storyboard in Resources */,
 				9A1638F52129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
@@ -1656,6 +1660,7 @@
 				29FD100421160D1000062362 /* CounterView.xib in Resources */,
 				29FD100521160D1000062362 /* IQButtonBarArrowDown@3x.png in Resources */,
 				29FD100621160D1000062362 /* IQButtonBarArrowUp@2x.png in Resources */,
+				294DD87521C4697E004536D8 /* GoogleService-Info_Photo.plist in Resources */,
 				29FD100721160D1000062362 /* ScheduleAppointment.storyboard in Resources */,
 				29FD100821160D1000062362 /* IQButtonBarArrowRight@2x.png in Resources */,
 				29FD100921160D1000062362 /* GenericImages.xcassets in Resources */,
@@ -1717,6 +1722,32 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c";
 		};
+		778B9C4AA0A83E4272753A13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7F000DC766992EE8F849B65E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1737,6 +1768,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F5FF404845E1005AE6F5B8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF093952516EB96CCC61D660 /* [CP] Check Pods Manifest.lock */ = {
@@ -1807,6 +1864,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E731911F26389E7C411F9C8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4E672468DAD80D21E85DA6D /* [CP] Check Pods Manifest.lock */ = {

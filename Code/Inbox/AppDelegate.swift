@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         
+        
         Fabric.with([Crashlytics.self])
         //self.logUser()
         
@@ -35,17 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.updateBadgeCount()
         
         IQKeyboardManager.sharedManager().enable = true
-        
-        switch environment {
-        case .texting_Line:
-            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Texting_Line $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        case .sms_Factory:
-            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Sms_Factory $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        case .fan_Connect:
-            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Fan_Connect $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        case .photo_Texting:
-            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Photo_Texting $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        }
         
         // FireBase Integration started here
         if #available(iOS 10.0, *) {
@@ -65,7 +55,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             application.registerUserNotificationSettings(settings)
         }
         
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
+        switch environment {
+        case .texting_Line:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Texting_Line $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+            let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")!
+            let options = FirebaseOptions(contentsOfFile: filePath)
+            FirebaseApp.configure(options: options!)
+        case .sms_Factory:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ SMS_Factory $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        case .fan_Connect:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Fan_Connect_Now $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+            let filePath = Bundle.main.path(forResource: "GoogleService-Info_Fan", ofType: "plist")!
+            let options = FirebaseOptions(contentsOfFile: filePath)
+            FirebaseApp.configure(options: options!)
+        case .photo_Texting:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Photo_Texting_Line $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+            let filePath = Bundle.main.path(forResource: "GoogleService-Info_Photo", ofType: "plist")!
+            let options = FirebaseOptions(contentsOfFile: filePath)
+            FirebaseApp.configure(options: options!)
+        }
         application.registerForRemoteNotifications()
         
         return true

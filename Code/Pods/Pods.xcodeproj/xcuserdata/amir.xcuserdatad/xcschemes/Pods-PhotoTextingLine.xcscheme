@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "010B0EA7967FA6026DDDA8CF3C10B100"
+               BlueprintIdentifier = "964978EC0719C441F0DB43F125734665"
                BuildableName = "Pods_PhotoTextingLine.framework"
                BlueprintName = "Pods-PhotoTextingLine"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "010B0EA7967FA6026DDDA8CF3C10B100"
+            BlueprintIdentifier = "964978EC0719C441F0DB43F125734665"
             BuildableName = "Pods_PhotoTextingLine.framework"
             BlueprintName = "Pods-PhotoTextingLine"
             ReferencedContainer = "container:Pods.xcodeproj">
