@@ -16,7 +16,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @IBOutlet weak var udidLabel: UILabel!
     
     var forgetPasswordViewController:ForgetPasswordViewController!
-
+    
     var isAutoLogin:Bool = false
     
     var tickBox:Checkbox? = nil
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         //           serialTextField.text = "8006999130"
         //           udidTextField.text = "lime123"
     }
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -178,14 +178,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @IBAction func forgetPwdButton_Tapped(_ sender: Any) {
         
         self.forgetPasswordViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as? ForgetPasswordViewController
-
+        
         self.view.addSubview(self.forgetPasswordViewController.view)
         self.forgetPasswordViewController.view.frame = self.view.bounds
-                
-//        self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
-//
-//        self.view.addSubview(self.verifyCodeViewController.view)
-//        self.verifyCodeViewController.view.frame = self.view.bounds
+        
+        //        self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
+        //
+        //        self.view.addSubview(self.verifyCodeViewController.view)
+        //        self.verifyCodeViewController.view.frame = self.view.bounds
         
     }
     
@@ -200,7 +200,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
 
 extension LoginViewController {
     
-
+    
     func login()
     {
         
@@ -221,78 +221,12 @@ extension LoginViewController {
             
             User.registerUserAPNS(license: (user?.license)!, completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
                 
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                if self.isAutoLogin == true {
-                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "USER_NAME")
-                                    UserDefaults.standard.set(self.udidTextField.text, forKey: "PASSWORD")
-                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
-                                    UserDefaults.standard.bool(forKey: "isAutoKey")
-                                    UserDefaults.standard.set(true, forKey: "isAutoKey")
-                                    UserDefaults.standard.synchronize()
-                                    
-                                } else {
-                                    UserDefaults.standard.set("", forKey: "USER_NAME")
-                                    UserDefaults.standard.set("", forKey: "PASSWORD")
-                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
-                                    UserDefaults.standard.bool(forKey: "isAutoKey")
-                                    UserDefaults.standard.set(false, forKey: "isAutoKey")
-                                    UserDefaults.standard.synchronize()
-                                }
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                ProcessingIndicator.hide()
-                                
-                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
-                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                                self.navigationController?.pushViewController(homeViewController, animated: true)
-                        }
-                }
-                
+                self.themeSetupForWhiteLabel()
+
             }, andFailureBlock: { (error:Error?) -> (Void) in
                 
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                if self.isAutoLogin == true {
-                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "USER_NAME")
-                                    UserDefaults.standard.set(self.udidTextField.text, forKey: "PASSWORD")
-                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
-                                    UserDefaults.standard.bool(forKey: "isAutoKey")
-                                    UserDefaults.standard.set(true, forKey: "isAutoKey")
-                                    UserDefaults.standard.synchronize()
-                                    
-                                } else {
-                                    UserDefaults.standard.set("", forKey: "USER_NAME")
-                                    UserDefaults.standard.set("", forKey: "PASSWORD")
-                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
-                                    UserDefaults.standard.bool(forKey: "isAutoKey")
-                                    UserDefaults.standard.set(false, forKey: "isAutoKey")
-                                    UserDefaults.standard.synchronize()
-                                    self.serialTextField.text = ""
-                                    self.udidTextField.text = ""
-                                }
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                //*******************************************************************//
-                                ProcessingIndicator.hide()
-                                
-                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
-                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                                self.navigationController?.pushViewController(homeViewController, animated: true)
-                        }
-                }
-                
+                self.themeSetupForWhiteLabel()
+
             })
             
             
@@ -322,8 +256,8 @@ extension LoginViewController {
                                 UserDefaults.standard.bool(forKey: "isAutoKey")
                                 UserDefaults.standard.set(false, forKey: "isAutoKey")
                                 UserDefaults.standard.synchronize()
-                               // self.serialTextField.text = ""
-                              //  self.udidTextField.text = ""
+                                // self.serialTextField.text = ""
+                                //  self.udidTextField.text = ""
                             }
                             //*******************************************************************//
                             //*******************************************************************//
@@ -338,8 +272,105 @@ extension LoginViewController {
             }
         }
     }
-    
+    //******************************************************************************************************************//
+    //******************************************************************************************************************//
+    //******************************************************************************************************************//
+    func themeSetupForWhiteLabel(){
+        
+        var paramsDic = Dictionary<String, Any>()
+        paramsDic["contactId"] = ""
 
+        User.getThemeForWhiteLabelId(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            if status == true {
+                                ProcessingIndicator.hide()
+                                
+                                UserDefaults.standard.set("YES", forKey: "THEME")
+                                UserDefaults.standard.synchronize()
+                                
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                if self.isAutoLogin == true {
+                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "USER_NAME")
+                                    UserDefaults.standard.set(self.udidTextField.text, forKey: "PASSWORD")
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
+                                    UserDefaults.standard.set(true, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                    
+                                } else {
+                                    UserDefaults.standard.set("", forKey: "USER_NAME")
+                                    UserDefaults.standard.set("", forKey: "PASSWORD")
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
+                                    UserDefaults.standard.set(false, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                }
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                ProcessingIndicator.hide()
+                                
+                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
+                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
+                                self.navigationController?.pushViewController(homeViewController, animated: true)
+                                
+                            }
+                            else
+                            {
+                                ProcessingIndicator.hide()
+                                
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                if self.isAutoLogin == true {
+                                    UserDefaults.standard.set(self.serialTextField.text, forKey: "USER_NAME")
+                                    UserDefaults.standard.set(self.udidTextField.text, forKey: "PASSWORD")
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
+                                    UserDefaults.standard.set(true, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                    
+                                } else {
+                                    UserDefaults.standard.set("", forKey: "USER_NAME")
+                                    UserDefaults.standard.set("", forKey: "PASSWORD")
+                                    UserDefaults.standard.register(defaults: ["isAutoKey" : true])
+                                    UserDefaults.standard.bool(forKey: "isAutoKey")
+                                    UserDefaults.standard.set(false, forKey: "isAutoKey")
+                                    UserDefaults.standard.synchronize()
+                                    self.serialTextField.text = ""
+                                    self.udidTextField.text = ""
+                                }
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                //*******************************************************************//
+                                ProcessingIndicator.hide()
+                                
+                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
+                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
+                                self.navigationController?.pushViewController(homeViewController, animated: true)
+                            }
+                    }
+            }
+        }, andFailureBlock: { (error: Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                    }
+            }
+        })
+    }
+    //******************************************************************************************************************//
+    //******************************************************************************************************************//
+    //******************************************************************************************************************//
+    
 }
 
 

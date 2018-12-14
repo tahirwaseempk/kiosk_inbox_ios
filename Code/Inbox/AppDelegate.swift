@@ -47,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Photo_Texting $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         }
         
-        
         // FireBase Integration started here
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)

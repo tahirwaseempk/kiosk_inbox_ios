@@ -11,7 +11,9 @@ import Foundation
 //----------------------------------------------------------//
 //----------------------------------------------------------//
 //**********************************************************//
-let URL_TEXTING_LINE  = "https://services.textingline.com"
+//let URL_TEXTING_LINE  = "https://services.textingline.com"
+let URL_TEXTING_LINE  = "https://api.textingline.com"
+
 let URL_SMS_FACTORY   = "https://services.textingline.com"
 let URL_FANCONNECT    = "https://services.textingline.com"
 let URL_PHOTO_TEXTING = "https://services.textingline.com"
@@ -32,21 +34,10 @@ let GET_USER = "/api/v1/auth/user"
 let FORGET_PASSWORD = "/api/v1/auth/resetPassword"
 let BYPASS_MESSAGE = "/api/v1/messages/byPass"
 
+let THEME_COLOR = "/api/v1/themes/whiteLabel/"
 //----------------------------------------------------------//
-let APNS_REGISTER_URL = "https://app.textingline.com/limeApi"
-
-let PUT_TOKEN_URL = "https://api.textingline.com/api/v1/pushtoken"
-let DELETE_TOKEN_URL = "https://api.textingline.com/api/v1/pushtoken/?"
-
-let APNS_REGISTER_SERIAL = "?ev=kioskAddToken&serial="
-let APNS_REGISTER_UDID = "&uuid="
-let APNS_REGISTER_TYPE = "&type="
-let APNS_REGISTER_TOKEN = "&token="
-//----------------------------------------------------------//
-let APNS_DELETE_SERIAL = "?ev=kioskDeleteToken&serial="
-let APNS_DELETE_UDID = "&uuid="
-let APNS_DELETE_TYPE = "&type="
-let APNS_DELETE_TOKEN = "&token="
+let PUT_TOKEN_URL = "/api/v1/pushtoken"
+let DELETE_TOKEN_URL = "/api/v1/pushtoken/?"
 //**********************************************************//
 //----------------------------------------------------------//
 //----------------------------------------------------------//
@@ -188,13 +179,13 @@ class WebManager: NSObject
         
         switch environment {
         case .texting_Line:
-            finalUrl = PUT_TOKEN_URL
+            finalUrl = URL_TEXTING_LINE + PUT_TOKEN_URL
         case .sms_Factory:
-            finalUrl = PUT_TOKEN_URL
+            finalUrl = URL_SMS_FACTORY + PUT_TOKEN_URL
         case .fan_Connect:
-            finalUrl = PUT_TOKEN_URL
+            finalUrl = URL_FANCONNECT + PUT_TOKEN_URL
         case .photo_Texting:
-            finalUrl = PUT_TOKEN_URL
+            finalUrl = URL_PHOTO_TEXTING + PUT_TOKEN_URL
         }
         
         print("\n ===== >>>>> Register APNS URL  = \(finalUrl) \n")
@@ -237,13 +228,13 @@ class WebManager: NSObject
         switch environment {
 
         case .texting_Line:
-            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
+            finalUrl = URL_TEXTING_LINE + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .sms_Factory:
-            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
+            finalUrl = URL_SMS_FACTORY + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .fan_Connect:
-            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
+            finalUrl = URL_FANCONNECT + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .photo_Texting:
-            finalUrl = DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
+            finalUrl = URL_PHOTO_TEXTING + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         }
         
         print("\n ===== >>>>> Delete APNS URL = \(finalUrl) \n")
@@ -815,7 +806,44 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func getThemes(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let whiteLabelId:String = params["whiteLabelId"] as! String
+        let token:String = params["token"] as! String
+
+        var finalUrl = ""
+        
+        switch environment {
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + THEME_COLOR + whiteLabelId
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + THEME_COLOR + whiteLabelId
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + THEME_COLOR + whiteLabelId
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + THEME_COLOR + whiteLabelId
+        }
+        
+        print("\n ===== >>>>> Get Theme URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
     internal static func callNewWebService(urlStr: String, parameters: Dictionary<String,Any>, httpMethod: String, httpHeaderKey: String, httpHeaderValue: String, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void)))
     {
         

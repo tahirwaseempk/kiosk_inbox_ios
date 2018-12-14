@@ -31,20 +31,23 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
          Set settings for Application
          /////////////////////////////// */
         
-        switch environment {
-        case .texting_Line:
-            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
-            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-        case .sms_Factory:
-            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
-            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-        case .fan_Connect:
-            chatCellSettings?.setSenderBubbleColorHex(FanHex);
-            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-        case .photo_Texting:
-            chatCellSettings?.setSenderBubbleColorHex(PhotoHex);
-            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-        }
+        chatCellSettings?.setSenderBubbleColorHex(AppThemeHex);
+        chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+        
+//        switch environment {
+//        case .texting_Line:
+//            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
+//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+//        case .sms_Factory:
+//            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
+//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+//        case .fan_Connect:
+//            chatCellSettings?.setSenderBubbleColorHex(FanHex);
+//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+//        case .photo_Texting:
+//            chatCellSettings?.setSenderBubbleColorHex(PhotoHex);
+//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
+//        }
         
         chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");

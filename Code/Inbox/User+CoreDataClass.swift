@@ -1031,6 +1031,60 @@ extension User
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
+    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func getThemeForWhiteLabelId(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            paramsDic["token"] = user.token
+            paramsDic["whiteLabelId"] =  String(user.whiteLableConfigurationId)
+            
+            WebManager.getThemes(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    
+                    if (jsonDict["errorCode"] as! Int64 == 2000) {
+                        let messageErr = jsonDict["message"] as! String
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageErr]))
+                    }
+                    else {
+                        let messageErr = jsonDict["message"] as! String
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageErr]))
+                    }
+                }
+                else {
+                    
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    //---------- ---------- ---------- ---------- ---------- ----------//
+                                    let colorString = jsonDict["primaryColor"] as! String
+//                                    colorString = colorString.replacingOccurrences(of: "#", with: "")
+
+                                    AppThemeHex = colorString
+                                    AppBlueColor =  UIColor(hexString: colorString)
+
+                                    //---------- ---------- ---------- ---------- ---------- ----------//
+                                    successBlock(true)
+                            }
+                    }
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
