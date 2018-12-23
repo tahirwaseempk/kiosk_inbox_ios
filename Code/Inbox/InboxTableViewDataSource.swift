@@ -142,9 +142,16 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             
             cell.detailLabel.text = conversation.lastMessage
             
-            let dateFormatter = DateFormatter()
+            //-----------------------------------------------------------//
+            //-----------------------------------------------------------//
+            let dateFormatter =  DateFormatter()
+            dateFormatter.timeZone = TimeZone.current
             dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
-            cell.dateLabel.text = "Sent" + " " + dateFormatter.string(from: conversation.timeStamp)
+            let outStr = dateFormatter.string(from: conversation.timeStamp)
+            //-----------------------------------------------------------//
+            //-----------------------------------------------------------//
+            
+            cell.dateLabel.text = "Sent" + " " + outStr
         }
         else
         {

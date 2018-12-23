@@ -33,22 +33,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         chatCellSettings?.setSenderBubbleColorHex(AppThemeHex);
         chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-        
-//        switch environment {
-//        case .texting_Line:
-//            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
-//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-//        case .sms_Factory:
-//            chatCellSettings?.setSenderBubbleColorHex(TextingHex);
-//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-//        case .fan_Connect:
-//            chatCellSettings?.setSenderBubbleColorHex(FanHex);
-//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-//        case .photo_Texting:
-//            chatCellSettings?.setSenderBubbleColorHex(PhotoHex);
-//            chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-//        }
-        
+
         chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");
         chatCellSettings?.setSenderBubbleTimeTextColorHex("FFFFFF");
@@ -150,78 +135,28 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     {
         
         let cell : ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
-
         
         let message:Message = messages[indexPath.section]
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = DISPLAY_FORMATE_STRING
-        let outStr = formatter.string(from: message.msgTimeStamp)
+
+        //-----------------------------------------------------------//
+        //-----------------------------------------------------------//
+        let dateFormatter =  DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
+        let outStr = dateFormatter.string(from: message.msgTimeStamp)
+        //-----------------------------------------------------------//
+        //-----------------------------------------------------------//
         
         if (message.isSender == false) {
-            
-//            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatSend", for: indexPath)as? ChatTableViewCell
-//            chatCell.chatMessageLabel.text = message.messageText
-//            chatCell.chatNameLabel.text = self.selectedConversation?.receiver?.phoneNumber //"MOBILE NUMBER"//message.mobile
-//            chatCell.chatTimeLabel.text = outStr
-//            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
-//            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeReceiver
-            
             cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeReceiver, number: (self.selectedConversation?.receiver?.phoneNumber)!, dateTime: outStr)
 
         } else {
-            
-//            chatCell = tableView.dequeueReusableCell(withIdentifier: "chatReceive", for: indexPath)as? ChatTableViewCell
-//            chatCell.chatMessageLabel.text = message.messageText
-//            chatCell.chatNameLabel.text = "Me"
-//            chatCell.chatTimeLabel.text = outStr
-//            //chatCell.chatUserImage.image = UIImage(named: "defaultUser.png")
-//            chatCell.authorType = AuthorType.iMessageBubbleTableViewCellAuthorTypeSender
             
             cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeSender, number: "Me", dateTime: outStr)
         }
         
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-//    {
-//
-//        let message:Message = messages[indexPath.row]
-//
-//        var size = CGSize(width: 0, height: 0)
-//        var Namesize:CGSize
-//        var Timesize:CGSize
-//        var Messagesize:CGSize
-//
-//        var fontArray:NSArray = NSArray()
-//
-//        //Get the chal cell font settings. This is to correctly find out the height of each of the cell according to the text written in those cells which change according to their fonts and sizes.
-//        //If you want to keep the same font sizes for both sender and receiver cells then remove this code and manually enter the font name with size in Namesize, Messagesize and Timesize.
-//
-//
-//        if(message.isSender == false)
-//        {
-//            fontArray = chatCellSettings.getReceiverBubbleFontWithSize()! as NSArray;
-//        }
-//        else
-//        {
-//            fontArray = chatCellSettings.getSenderBubbleFontWithSize()! as NSArray;
-//        }
-//
-//        let nameSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-//        Namesize = ("Name" as NSString).boundingRect(with: nameSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[0]], context: nil).size
-//
-//        let messageSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-//        Messagesize = (message.messageText! as NSString).boundingRect(with: messageSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:fontArray[1]], context: nil).size
-//
-//        let timeSize = CGSize(width: 220.0, height: CGFloat.greatestFiniteMagnitude)
-//        Timesize = ("Time" as NSString).boundingRect(with: timeSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : fontArray[2]], context: nil).size
-//
-//        size.height = Messagesize.height + Namesize.height + Timesize.height + 48.0
-//
-//        return size.height
-//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
@@ -233,5 +168,21 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         header.textLabel?.textColor = UIColor.clear
     }
     
-}
+    
+    
+    func serverToLocal(date:String) -> String {
+      
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+     
+        let localDate = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
+       
+        let outStr = dateFormatter.string(from: localDate!)
 
+        
+        return outStr
+    }
+    
+}

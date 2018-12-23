@@ -61,12 +61,11 @@ class MessagesParser: NSObject {
                     var message: Message? = conversation.getMessageFromID(messID:messageId);
                     
                     var msgDate = Date()
-                    if var dateStr:String = dic["timeStamp"] as? String {
-                        if dateStr.count > 0 {
-                            dateStr = convertTimeStampToDateString(tsString: dateStr)
+                    if let dateStringFromServer:String = dic["timeStamp"] as? String {
+                        if dateStringFromServer.count > 0 {
                             let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = DATE_FORMATE_STRING
-                            msgDate = dateFormatter.date(from: dateStr)!
+                            dateFormatter.dateFormat = UTC_DATE_TIME_TZ
+                            msgDate = dateFormatter.date(from: dateStringFromServer)!
                         }
                     }
                     

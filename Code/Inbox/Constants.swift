@@ -9,9 +9,10 @@ let DATE_FORMATE_STRING = "yyyy/MM/dd HH:mm:ss"
 let DISPLAY_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
 let DATE_FORMATE_APP = "yyyy-MM-dd HH:mm:ss"
 let ONLY_DATE = "yyyy-MM-dd"
-let UTC_DATE_TIME = "yyyy-MM-dd HH:mm:ss ZZZ"
 
-let UTC_DATE_TIME_TZ = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+let UTC_DATE_TIME_AM_PM = "yyyy-MM-dd hh:mm:ss a Z"
+
+let UTC_DATE_TIME_TZ = "yyyy-MM-dd'T'HH:mm:ssZ"
 
 
 let sendMessageMaxLength = 250
@@ -28,7 +29,7 @@ enum environmentType {
     photo_Texting
 }
 
-let environment:environmentType = .fan_Connect
+let environment:environmentType = .texting_Line
 
 var AppBlueColor    = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor     = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)

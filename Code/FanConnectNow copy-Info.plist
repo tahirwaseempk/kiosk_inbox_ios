@@ -34,8 +34,6 @@
 			</dict>
 		</array>
 	</dict>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) What to access Camera for capturing picture and sending via message.</string>
 	<key>NSContactsUsageDescription</key>
@@ -68,5 +66,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>FirebaseMessagingAutoInitEnabled</key>
+	<true/>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

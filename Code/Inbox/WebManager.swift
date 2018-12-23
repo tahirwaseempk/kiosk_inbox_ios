@@ -11,8 +11,8 @@ import Foundation
 //----------------------------------------------------------//
 //----------------------------------------------------------//
 //**********************************************************//
-//let URL_TEXTING_LINE  = "https://services.textingline.com"
-let URL_TEXTING_LINE  = "https://api.textingline.com"
+let URL_TEXTING_LINE  = "https://services.textingline.com"
+//let URL_TEXTING_LINE  = "https://api.textingline.com"
 
 let URL_SMS_FACTORY   = "https://services.textingline.com"
 let URL_FANCONNECT    = "https://services.textingline.com"

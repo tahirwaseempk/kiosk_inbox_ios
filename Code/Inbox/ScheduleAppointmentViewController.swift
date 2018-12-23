@@ -243,16 +243,6 @@ class ScheduleAppointmentViewController: UIViewController
         }
         return date
     }
-    
-//    func convertToUTC(dateToConvert: Date) -> String {
-//
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = UTC_DATE_TIME
-//        //let convertedDate = formatter.string(from: dateToConvert)
-//        formatter.timeZone = TimeZone(identifier: "UTC")
-//        return formatter.string(from: dateToConvert)
-//
-//    }
 
 }
 

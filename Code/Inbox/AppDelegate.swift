@@ -208,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             badgeCount = badgeCount-1
         }
         
-        UIApplication.shared.applicationIconBadgeNumber = badgeCount
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 }
 

@@ -433,11 +433,11 @@ extension User
                     let check : Bool = true
                     
                     var msgDate = Date()
-                    if var dateStr:String = jsonDict["timeStamp"] as? String {
+                    if let dateStr:String = jsonDict["timeStamp"] as? String {
                         if dateStr.count > 0 {
-                            dateStr = convertTimeStampToDateString(tsString: dateStr)
+                           // dateStr = convertTimeStampToDateString(tsString: dateStr)
                             let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = DATE_FORMATE_STRING
+                            dateFormatter.dateFormat = UTC_DATE_TIME_TZ
                             msgDate = dateFormatter.date(from: dateStr)!
                         }
                     }
@@ -508,26 +508,6 @@ extension User
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageStr]))
                 }
                 else {
-                    
-                    /*
-                     let messageId = jsonDict["id"] as! Int64
-                     let chatId = jsonDict["chatId"] as! Int64
-                     let recipientId = jsonDict["recipientId"] as! Int64
-                     let senderId = jsonDict["senderId"] as! Int64
-                     let messageText = jsonDict["text"] as! String
-                     
-                     let check : Bool = true
-                     
-                     var msgDate = Date()
-                     if var dateStr:String = jsonDict["timeStamp"] as? String {
-                     if dateStr.count > 0 {
-                     dateStr = convertTimeStampToDateString(tsString: dateStr)
-                     let dateFormatter = DateFormatter()
-                     dateFormatter.dateFormat = DATE_FORMATE_STRING
-                     msgDate = dateFormatter.date(from: dateStr)!
-                     }
-                     }
-                     */
                     
                     DispatchQueue.global(qos: .background).async
                         {

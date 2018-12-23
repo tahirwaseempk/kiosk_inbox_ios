@@ -962,8 +962,8 @@
 				294DD87621C4698D004536D8 /* GoogleService-Info_Fan.plist */,
 				292CCE4F21C462F600996BF5 /* GoogleService-Info.plist */,
 				2952C1B8215301CF00C7C084 /* PhotoTextingLine copy-Info.plist */,
-				2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */,
 				2952C1B4215301BA00C7C084 /* SMSFactory copy-Info.plist */,
+				2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */,
 				2952C1B2215301B000C7C084 /* TextingLine Info.plist */,
 			);
 			name = "P-List";
@@ -1497,6 +1497,9 @@
 						DevelopmentTeam = G3K37RYC9A;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1506,6 +1509,9 @@
 						DevelopmentTeam = Q45D2PXF3P;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

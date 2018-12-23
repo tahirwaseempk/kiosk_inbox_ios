@@ -52,11 +52,11 @@ class UserContactsParser: NSObject
                     var contact: UserContact? = UserContact.getContactFromID(conID: contactId)
                     
                     var birth_Date = Date()
-                    if var dateStr:String = dic["birthDate"] as? String {
+                    if let dateStr:String = dic["birthDate"] as? String {
                         if dateStr.count > 0 {
-                            dateStr = convertTimeStampToDateString(tsString: dateStr)
+                            //dateStr = convertTimeStampToDateString(tsString: dateStr)
                             let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = DATE_FORMATE_STRING
+                            dateFormatter.dateFormat = UTC_DATE_TIME_TZ
                             birth_Date = dateFormatter.date(from: dateStr)!
                         }
                     }
