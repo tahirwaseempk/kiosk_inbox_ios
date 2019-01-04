@@ -7,9 +7,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var markAllAsRead_Btn: UIButton!
-
+    
     var selectedConversation:Conversation! = nil
-
+    
     var tableViewDataSource:InboxTableViewDataSource? = nil
     
     var delegate:ConversationListingViewControllerProtocol? = nil
@@ -24,20 +24,20 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
         if (self.isViewLoaded && (self.view!.window != nil))
         {
-           // ProcessingIndicator.show()
+            // ProcessingIndicator.show()
             callLastConversationsUpdate()
         }
     }
-
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
- 
-    NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
         self.setupControls()
-
+        
         self.refreshUnReadCount()
         
         ////////////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
             header_View.backgroundColor = PhotoAppColor
         }
         
-       // self.initiateMessageCall()
+        self.initiateMessageCall()
     }
     
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
@@ -70,7 +70,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     {
         self.setupTableView()
     }
-
+    
     func setupTableView()
     {
         self.tableViewDataSource = InboxTableViewDataSource(tableview: tableView, conversation: (User.getLoginedUser()?.conversations)!, delegate_: self)
@@ -88,35 +88,35 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     @IBAction func markAllRead_Tapped(_ sender: Any)
     {
         ProcessingIndicator.show()
-
+        
         User.setReadAllConversations(conversations: (User.getLoginedUser()?.conversations)!, index: 0, completionBlockSuccess: { (status:Bool) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
-            {
-                DispatchQueue.main.async
                 {
-                    self.tableViewDataSource?.reloadControls()
-                    
-                    self.refreshUnReadCount()
-                    
-                    ProcessingIndicator.hide()
-                }
+                    DispatchQueue.main.async
+                        {
+                            self.tableViewDataSource?.reloadControls()
+                            
+                            self.refreshUnReadCount()
+                            
+                            ProcessingIndicator.hide()
+                    }
             }
             
         }) { (error:Error?) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
-            {
-                DispatchQueue.main.async
                 {
-                    ProcessingIndicator.hide()
-                    
-                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                    
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    
-                    self.present(alert, animated: true, completion: nil)
-                }
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            
+                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                            
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            
+                            self.present(alert, animated: true, completion: nil)
+                    }
             }
         }
     }
@@ -133,56 +133,56 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
         User.getMessageForConversation(self.selectedConversation, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
             
-            DispatchQueue.global(qos:.background).async
-                {
-                    DispatchQueue.main.async
+            //            DispatchQueue.global(qos:.background).async
+            //                {
+            //                    DispatchQueue.main.async
+            //                        {
+            if self.selectedConversation.unreadMessages == true
+            {
+                User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+                    
+                    DispatchQueue.global(qos:.background).async
                         {
-                            if self.selectedConversation.unreadMessages == true
-                            {
-                                User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+                            DispatchQueue.main.async
+                                {
+                                    ProcessingIndicator.hide()
                                     
-                                    DispatchQueue.global(qos:.background).async
-                                        {
-                                            DispatchQueue.main.async
-                                                {
-                                                    ProcessingIndicator.hide()
-                                                    
-                                                    if self.selectedConversation.unreadMessages == true
-                                                    {
-                                                        self.selectedConversation.unreadMessages = false
-                                                        self.conversationListUpdated()
-                                                    }
-                                                    
-                                                    self.selectedConversationUpdated()
-                                            }
+                                    if self.selectedConversation.unreadMessages == true
+                                    {
+                                        self.selectedConversation.unreadMessages = false
+                                        self.conversationListUpdated()
                                     }
                                     
-                                }, andFailureBlock: { (error:Error?) -> (Void) in
-                                    
-                                    DispatchQueue.global(qos:.background).sync
-                                        {
-                                            DispatchQueue.main.sync
-                                                {
-                                                    ProcessingIndicator.hide()
-                                                    
-                                                    if self.selectedConversation.unreadMessages == true
-                                                    {
-                                                        self.selectedConversation.unreadMessages = false
-                                                        self.conversationListUpdated()
-                                                    }
-                                                    
-                                                    self.selectedConversationUpdated()
-                                            }
-                                    }
-                                })
-                            }
-                            else
-                            {
-                                ProcessingIndicator.hide()
-                                self.selectedConversationUpdated()
+                                    self.selectedConversationUpdated()
                             }
                     }
+                    
+                }, andFailureBlock: { (error:Error?) -> (Void) in
+                    
+                    DispatchQueue.global(qos:.background).sync
+                        {
+                            DispatchQueue.main.sync
+                                {
+                                    ProcessingIndicator.hide()
+                                    
+                                    if self.selectedConversation.unreadMessages == true
+                                    {
+                                        self.selectedConversation.unreadMessages = false
+                                        self.conversationListUpdated()
+                                    }
+                                    
+                                    self.selectedConversationUpdated()
+                            }
+                    }
+                })
             }
+            else
+            {
+                ProcessingIndicator.hide()
+                self.selectedConversationUpdated()
+            }
+            //                    }
+            //            }
             
         }) {(error:Error?) -> (Void) in
             
@@ -251,38 +251,7 @@ extension ConversationListingViewController
     
     func getConversationUpdate()
     {
-        //ProcessingIndicator.show()
-        
-        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
-            
-            DispatchQueue.global(qos:.background).async
-            {
-                DispatchQueue.main.async
-                {
-                    UIApplication.shared.applicationIconBadgeNumber = 0
-                    self.conversationListUpdated()
-                    ProcessingIndicator.hide()
-                   // self.initiateMessageCall()
-                }
-            }
-            
-        }) {(error:Error?) -> (Void) in
-            
-            DispatchQueue.global(qos:.background).async
-            {
-                DispatchQueue.main.async
-                {
-                    ProcessingIndicator.hide()
-
-                   // self.initiateMessageCall()
-                }
-            }
-        }
-    }
-    
-    func callLastConversationsUpdate()
-    {
-       //ProcessingIndicator.show()
+        ProcessingIndicator.show()
         
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
@@ -290,7 +259,38 @@ extension ConversationListingViewController
                 {
                     DispatchQueue.main.async
                         {
-                            UIApplication.shared.applicationIconBadgeNumber = 0
+                            //UIApplication.shared.applicationIconBadgeNumber = 0
+                            self.conversationListUpdated()
+                            ProcessingIndicator.hide()
+                            self.initiateMessageCall()
+                    }
+            }
+            
+        }) {(error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            
+                            self.initiateMessageCall()
+                    }
+            }
+        }
+    }
+    
+    func callLastConversationsUpdate()
+    {
+        //ProcessingIndicator.show()
+        
+        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            // UIApplication.shared.applicationIconBadgeNumber = 0
                             self.conversationListUpdated()
                             ProcessingIndicator.hide()
                     }
@@ -343,10 +343,10 @@ extension ConversationListingViewController
             _ = delegate.conversationSelected(conversation: self.selectedConversation)
         }
     }
-
+    
     func conversartionRemoved()
     {
-      //BLOCK TO GET THE CONVERSATIONS AGAIN
+        //BLOCK TO GET THE CONVERSATIONS AGAIN
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
@@ -363,7 +363,7 @@ extension ConversationListingViewController
                             {
                                 _ = delegate.conversationSelected(conversation: self.selectedConversation)
                             }
-
+                            
                             ProcessingIndicator.hide()
                     }
             }
@@ -373,16 +373,16 @@ extension ConversationListingViewController
             DispatchQueue.global(qos:.background).async
                 {
                     DispatchQueue.main.async
-                    {
-                        self.tableViewDataSource?.loadAfterRemoveConversation()
-                        
-                        self.refreshUnReadCount()
-
-                        ProcessingIndicator.hide()
+                        {
+                            self.tableViewDataSource?.loadAfterRemoveConversation()
+                            
+                            self.refreshUnReadCount()
+                            
+                            ProcessingIndicator.hide()
                     }
             }
         }
-     }
+    }
     
     func applySearchFiltersForSearchText(_ text:String)
     {

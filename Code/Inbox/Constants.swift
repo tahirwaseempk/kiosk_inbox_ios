@@ -121,6 +121,17 @@ enum LINE_POSITION {
 let TEXTFIELD_LINE_WIDTH = 0.5
 
 
+func updateBadgeCount()
+{
+    //        var badgeCount = UIApplication.shared.applicationIconBadgeNumber
+    //        if badgeCount > 0
+    //        {
+    //            badgeCount = badgeCount-1
+    //        }
+    
+    UIApplication.shared.applicationIconBadgeNumber = 0
+}
+
 func addLineToView(view : UIView, position : LINE_POSITION, width: Double) {
     
     let color = AppBlueColor

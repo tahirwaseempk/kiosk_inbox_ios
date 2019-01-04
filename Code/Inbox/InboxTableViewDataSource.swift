@@ -108,7 +108,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     {
         if UIDevice.current.userInterfaceIdiom == .pad
         {
-            self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as! SearchView
+            self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as? SearchView
             
             self.searchView.delegate = self
             

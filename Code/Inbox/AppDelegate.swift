@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Override point for customization after application launch.
         //application.applicationIconBadgeNumber = 0
-        self.updateBadgeCount()
+        updateBadgeCount()
         
         IQKeyboardManager.sharedManager().enable = true
         
@@ -198,17 +198,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("Token refreshed")
-    }
-    
-    func updateBadgeCount()
-    {
-        var badgeCount = UIApplication.shared.applicationIconBadgeNumber
-        if badgeCount > 0
-        {
-            badgeCount = badgeCount-1
-        }
-        
-        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 }
 

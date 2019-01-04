@@ -38,20 +38,6 @@ let THEME_COLOR = "/api/v1/themes/whiteLabel/"
 //----------------------------------------------------------//
 let PUT_TOKEN_URL = "/api/v1/pushtoken"
 let DELETE_TOKEN_URL = "/api/v1/pushtoken/?"
-//**********************************************************//
-//----------------------------------------------------------//
-//----------------------------------------------------------//
-//**********************************************************//
-
-let OPTOUT_URL_SERIAL = "?ev=kioskInboxOptOut&serial="
-let OPTOUT_URL_BEFORE_MOBILE = "&mobile="
-let OPTOUT_URL_UUID = "&uuid="
-
-let READ_URL_BEFORE_SERIAL = "?ev=kioskInboxSetReadByMobile&serial="
-let READ_URL_BEFORE_UUID = "&uuid="
-let READ_URL_BEFORE_ISREAD = "&isRead="
-let READ_URL_BEFORE_MOBILE = "&mobile="
-let READ_URL_BEFORE_SHORTCODE_END = "&shortcode="
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------//
@@ -316,17 +302,17 @@ class WebManager: NSObject
         
         var finalUrl = ""
         
-        switch environment {
-            
-        case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
-        case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
-        case .fan_Connect:
-            finalUrl = URL_FANCONNECT + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
-        case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
-        }
+//        switch environment {
+//
+//        case .texting_Line:
+//            finalUrl = URL_TEXTING_LINE + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+//        case .sms_Factory:
+//            finalUrl = URL_SMS_FACTORY + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+//        case .fan_Connect:
+//            finalUrl = URL_FANCONNECT + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+//        case .photo_Texting:
+//            finalUrl = URL_PHOTO_TEXTING + OPTOUT_URL_SERIAL + serial + OPTOUT_URL_BEFORE_MOBILE + mobile + OPTOUT_URL_UUID + uuid
+//        }
         
         print("\n ===== >>>>> OPTOUT URL = \(finalUrl) \n")
         
