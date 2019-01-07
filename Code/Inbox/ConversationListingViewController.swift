@@ -209,7 +209,8 @@ extension ConversationListingViewController
 {
     func refreshUnReadCount ()
     {
-        self.counterLabel.text = "(" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+        self.counterLabel.text = "-"
+        self.counterLabel.text = "(\(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)))"
     }
     
     func showUnReadConversationCount(_ conversations: NSSet?) -> Int
@@ -260,6 +261,7 @@ extension ConversationListingViewController
                     DispatchQueue.main.async
                         {
                             //UIApplication.shared.applicationIconBadgeNumber = 0
+                            updateBadgeCount()
                             self.conversationListUpdated()
                             ProcessingIndicator.hide()
                             self.initiateMessageCall()
@@ -273,8 +275,7 @@ extension ConversationListingViewController
                     DispatchQueue.main.async
                         {
                             ProcessingIndicator.hide()
-                            
-                            self.initiateMessageCall()
+                           self.initiateMessageCall()
                     }
             }
         }
@@ -291,11 +292,12 @@ extension ConversationListingViewController
                     DispatchQueue.main.async
                         {
                             // UIApplication.shared.applicationIconBadgeNumber = 0
+                            updateBadgeCount()
                             self.conversationListUpdated()
                             ProcessingIndicator.hide()
                     }
             }
-            
+
         }) {(error:Error?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async

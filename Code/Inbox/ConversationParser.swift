@@ -38,7 +38,10 @@ class ConversationParser: NSObject {
                     let contactId = dic["contactId"] as! Int64
                    
                     let unread : Bool
-                    if (dic["unreadMessages"] as! Int == 1){
+                   
+                    let  unreadCount = dic["unreadMessages"] as! Int
+                  
+                    if (unreadCount > 0){
                         unread = true
                     } else {
                         unread = false
