@@ -25,19 +25,19 @@ class InboxTableViewCell: UITableViewCell
         switch environment {
         case .texting_Line:
             let bgColorView = UIView()
-            bgColorView.backgroundColor = AppBlueColor
+            bgColorView.backgroundColor = AppThemeColor
             self.selectedBackgroundView = bgColorView
         case .sms_Factory:
             let bgColorView = UIView()
-            bgColorView.backgroundColor = AppBlueColor
+            bgColorView.backgroundColor = AppThemeColor
             self.selectedBackgroundView = bgColorView
         case .fan_Connect:
             let bgColorView = UIView()
-            bgColorView.backgroundColor = FanAppColor
+            bgColorView.backgroundColor = AppThemeColor
             self.selectedBackgroundView = bgColorView
         case .photo_Texting:
             let bgColorView = UIView()
-            bgColorView.backgroundColor = PhotoAppColor
+            bgColorView.backgroundColor = AppThemeColor
             self.selectedBackgroundView = bgColorView
             
         }
@@ -60,13 +60,13 @@ class InboxTableViewCell: UITableViewCell
        
         switch environment {
         case .texting_Line:
-            self.selectedBackgroundView!.backgroundColor = selected ? AppBlueColor : nil
+            self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
         case .sms_Factory:
-            self.selectedBackgroundView!.backgroundColor = selected ? AppBlueColor : nil
+            self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
         case .fan_Connect:
-            self.selectedBackgroundView!.backgroundColor = selected ? FanAppColor : nil
+            self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
         case .photo_Texting:
-            self.selectedBackgroundView!.backgroundColor = selected ? PhotoAppColor : nil
+            self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
         }
         
     }

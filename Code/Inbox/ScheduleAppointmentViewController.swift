@@ -65,16 +65,16 @@ class ScheduleAppointmentViewController: UIViewController
         
         switch environment {
         case .texting_Line:
-            scheduleAppointmentButton.backgroundColor = AppBlueColor
+            scheduleAppointmentButton.backgroundColor = AppThemeColor
             scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         case .sms_Factory:
-            scheduleAppointmentButton.backgroundColor = AppBlueColor
+            scheduleAppointmentButton.backgroundColor = AppThemeColor
             scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         case .fan_Connect:
-            scheduleAppointmentButton.backgroundColor = FanAppColor
+            scheduleAppointmentButton.backgroundColor = AppThemeColor
             scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         case .photo_Texting:
-            scheduleAppointmentButton.backgroundColor = PhotoAppColor
+            scheduleAppointmentButton.backgroundColor = AppThemeColor
             scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         }
         

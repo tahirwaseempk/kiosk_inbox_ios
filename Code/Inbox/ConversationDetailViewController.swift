@@ -10,7 +10,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet var closeView: UIView!
     
     @IBOutlet weak var inputCharacterCountLabel: UILabel!
-
+    
     /////////////////////////////////////////////////
     @IBOutlet weak var cross_Button: UIButton!
     @IBOutlet weak var delete_Button: UIButton!
@@ -35,9 +35,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
+        
         
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        
         tableView.estimatedRowHeight = 105
         
         switch environment {
@@ -45,49 +47,49 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             if UIDevice.current.userInterfaceIdiom == .pad {
                 header_View.backgroundColor = GrayHeaderColor
             } else {
-                header_View.backgroundColor = AppBlueColor
+                header_View.backgroundColor = AppThemeColor
             }
-            cross_Button.backgroundColor = AppBlueColor
-            delete_Button.backgroundColor = AppBlueColor
-            Optout_Button.backgroundColor = AppBlueColor
-            schedule_Button.backgroundColor = AppBlueColor
+            cross_Button.backgroundColor = AppThemeColor
+            delete_Button.backgroundColor = AppThemeColor
+            Optout_Button.backgroundColor = AppThemeColor
+            schedule_Button.backgroundColor = AppThemeColor
             
         case .sms_Factory:
             if UIDevice.current.userInterfaceIdiom == .pad {
                 header_View.backgroundColor = GrayHeaderColor
             } else {
-                header_View.backgroundColor = AppBlueColor
+                header_View.backgroundColor = AppThemeColor
             }
-            cross_Button.backgroundColor = AppBlueColor
-            delete_Button.backgroundColor = AppBlueColor
-            Optout_Button.backgroundColor = AppBlueColor
-            schedule_Button.backgroundColor = AppBlueColor
+            cross_Button.backgroundColor = AppThemeColor
+            delete_Button.backgroundColor = AppThemeColor
+            Optout_Button.backgroundColor = AppThemeColor
+            schedule_Button.backgroundColor = AppThemeColor
             
         case .fan_Connect:
             if UIDevice.current.userInterfaceIdiom == .pad {
                 header_View.backgroundColor = GrayHeaderColor
             } else {
-                header_View.backgroundColor = FanAppColor
+                header_View.backgroundColor = AppThemeColor
             }
-            cross_Button.backgroundColor = FanAppColor
-            delete_Button.backgroundColor = FanAppColor
-            Optout_Button.backgroundColor = FanAppColor
-            schedule_Button.backgroundColor = FanAppColor
+            cross_Button.backgroundColor = AppThemeColor
+            delete_Button.backgroundColor = AppThemeColor
+            Optout_Button.backgroundColor = AppThemeColor
+            schedule_Button.backgroundColor = AppThemeColor
             
         case .photo_Texting:
             if UIDevice.current.userInterfaceIdiom == .pad {
                 header_View.backgroundColor = GrayHeaderColor
             } else {
-                header_View.backgroundColor = PhotoAppColor
+                header_View.backgroundColor = AppThemeColor
             }
-            cross_Button.backgroundColor = PhotoAppColor
-            delete_Button.backgroundColor = PhotoAppColor
-            Optout_Button.backgroundColor = PhotoAppColor
-            schedule_Button.backgroundColor = PhotoAppColor
+            cross_Button.backgroundColor = AppThemeColor
+            delete_Button.backgroundColor = AppThemeColor
+            Optout_Button.backgroundColor = AppThemeColor
+            schedule_Button.backgroundColor = AppThemeColor
         }
         
         self.inputCharacterCountLabel.text = "Characters Count 0/250"
-
+        
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -100,6 +102,89 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         if self.selectedConversation != nil
         {
             _ = self.conversationSelected(conversation: self.selectedConversation)
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: MessageNotificationName, object: nil)
+        
+    }
+    
+    @objc func messageNotificationRecieved()
+    {
+        if self.selectedConversation != nil
+        {
+            ProcessingIndicator.show()
+            self.callAdhocMessagesWebService()
+        }
+    }
+    
+    
+    func callAdhocMessagesWebService () {
+        
+        User.getMessageForConversation(self.selectedConversation, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
+            
+            User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+                
+                DispatchQueue.global(qos:.background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                ProcessingIndicator.hide()
+                                
+                                if self.selectedConversation.unreadMessages == true
+                                {
+                                    self.selectedConversation.unreadMessages = false
+                                    
+                                    if let delegate = self.delegate
+                                    {
+                                        delegate.updateConversationList()
+                                    }
+                                    
+                                }
+                                
+                                
+                                _ = self.conversationSelected(conversation: self.selectedConversation)
+                        }
+                }
+                
+            }, andFailureBlock: { (error:Error?) -> (Void) in
+                
+                DispatchQueue.global(qos:.background).sync
+                    {
+                        DispatchQueue.main.sync
+                            {
+                                ProcessingIndicator.hide()
+                                
+                                if self.selectedConversation.unreadMessages == true
+                                {
+                                    self.selectedConversation.unreadMessages = false
+                                    
+                                    if let delegate = self.delegate
+                                    {
+                                        delegate.updateConversationList()
+                                    }
+                                    
+                                }
+                                
+                                if self.selectedConversation != nil
+                                {
+                                    _ = self.conversationSelected(conversation: self.selectedConversation)
+                                }                            }
+                }
+            })
+            
+        }) {(error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).sync
+                {
+                    DispatchQueue.main.sync
+                        {
+                            ProcessingIndicator.hide()
+                    }
+            }
         }
     }
     
@@ -495,7 +580,7 @@ extension ConversationDetailViewController {
         self.sendTextField.text = ""
         
         _ = self.tableViewDataSource?.loadConversation(conversation_: self.selectedConversation)
-        
+        //amir1122
         return true
     }
     
@@ -510,7 +595,7 @@ extension ConversationDetailViewController {
         
         // message = message.replaceEmojiWithHexa()
         //message = message.addingUnicodeEntities
-
+        
         paramsDic["message"] = message //self.encode(message)  //.replaceEmojiWithHexa()
         paramsDic["attachment"] = imageString
         paramsDic["attachmentFileSuffix"] = imageType
@@ -525,7 +610,7 @@ extension ConversationDetailViewController {
                             
                             self.sendTextField.text = ""
                             self.inputCharacterCountLabel.text = "Characters Count 0/250"
-
+                            
                             _ = self.tableViewDataSource?.reloadControls()
                     }
             }
@@ -568,15 +653,15 @@ extension ConversationDetailViewController:UITextFieldDelegate {
         let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
         let filtered = string.components(separatedBy: cs).joined(separator: "")
         let isAllowed = (string == filtered)
-
+        
         if isAllowed == false {
             return false
         }
         
-//        if str.count > sendMessageMaxLength {
-//            return false
-//        }
-
+        //        if str.count > sendMessageMaxLength {
+        //            return false
+        //        }
+        
         let reminingCount = sendMessageMaxLength - str.count
         
         if reminingCount >= 0 {

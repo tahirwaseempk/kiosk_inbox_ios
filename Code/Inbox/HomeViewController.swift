@@ -42,47 +42,47 @@ class HomeViewController: UIViewController
         
         switch environment {
         case .texting_Line:
-            header_View.backgroundColor = AppBlueColor
-            searchBar.backgroundColor = AppBlueColor
-
+            header_View.backgroundColor = AppThemeColor
+            searchBar.backgroundColor = AppThemeColor
+            
             compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
             
-            profileButton.backgroundColor = AppBlueColor
-            signOutButton.backgroundColor = AppBlueColor
-            closeInnerButton.backgroundColor = AppBlueColor
+            profileButton.backgroundColor = AppThemeColor
+            signOutButton.backgroundColor = AppThemeColor
+            closeInnerButton.backgroundColor = AppThemeColor
             
         case .sms_Factory:
-            header_View.backgroundColor = AppBlueColor
-            searchBar.backgroundColor = AppBlueColor
-
+            header_View.backgroundColor = AppThemeColor
+            searchBar.backgroundColor = AppThemeColor
+            
             compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
-
-            profileButton.backgroundColor = AppBlueColor
-            signOutButton.backgroundColor = AppBlueColor
-            closeInnerButton.backgroundColor = AppBlueColor
+            
+            profileButton.backgroundColor = AppThemeColor
+            signOutButton.backgroundColor = AppThemeColor
+            closeInnerButton.backgroundColor = AppThemeColor
             
         case .fan_Connect:
-            header_View.backgroundColor = FanAppColor
-            searchBar.backgroundColor = FanAppColor
+            header_View.backgroundColor = AppThemeColor
+            searchBar.backgroundColor = AppThemeColor
             
             compose_Button.setImage(UIImage(named: "compose_green"), for: UIControlState.normal)
-//            compose_Button.setImage(UIImage(named: "compose_purple")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-//            compose_Button.tintColor = UIColor.white
-//            compose_Button.backgroundColor = FanAppColor
-
-            profileButton.backgroundColor = FanAppColor
-            signOutButton.backgroundColor = FanAppColor
-            closeInnerButton.backgroundColor = FanAppColor
+            //            compose_Button.setImage(UIImage(named: "compose_purple")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            //            compose_Button.tintColor = UIColor.white
+            //            compose_Button.backgroundColor = FanAppColor
+            
+            profileButton.backgroundColor = AppThemeColor
+            signOutButton.backgroundColor = AppThemeColor
+            closeInnerButton.backgroundColor = AppThemeColor
             
         case .photo_Texting:
-            header_View.backgroundColor = PhotoAppColor
-            searchBar.backgroundColor = PhotoAppColor
-           
+            header_View.backgroundColor = AppThemeColor
+            searchBar.backgroundColor = AppThemeColor
+            
             compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
             
-            profileButton.backgroundColor = PhotoAppColor
-            signOutButton.backgroundColor = PhotoAppColor
-            closeInnerButton.backgroundColor = PhotoAppColor
+            profileButton.backgroundColor = AppThemeColor
+            signOutButton.backgroundColor = AppThemeColor
+            closeInnerButton.backgroundColor = AppThemeColor
         }
         
         self.setupControls()
@@ -105,8 +105,6 @@ class HomeViewController: UIViewController
         
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.apnsPushNotificationRecieved), name: APNSPushNotificationName, object: nil)
         
-        self.setupSignoutButton()
-        
         self.setupSearchbar()
         
         self.setupConversationListingView()
@@ -121,24 +119,24 @@ class HomeViewController: UIViewController
         
         User.registerUserAPNS(license: "", completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
             
-//            DispatchQueue.global(qos: .background).async
-//                {
-//                    DispatchQueue.main.async
-//                        {
-////                            ProcessingIndicator.hide()
-//
-//                    }
-//            }
+            //            DispatchQueue.global(qos: .background).async
+            //                {
+            //                    DispatchQueue.main.async
+            //                        {
+            ////                            ProcessingIndicator.hide()
+            //
+            //                    }
+            //            }
             
         }, andFailureBlock: { (error:Error?) -> (Void) in
             
-//            DispatchQueue.global(qos: .background).async
-//                {
-//                    DispatchQueue.main.async
-//                        {
-////                            ProcessingIndicator.hide()
-//                    }
-//            }
+            //            DispatchQueue.global(qos: .background).async
+            //                {
+            //                    DispatchQueue.main.async
+            //                        {
+            ////                            ProcessingIndicator.hide()
+            //                    }
+            //            }
             
         })
         
@@ -148,13 +146,10 @@ class HomeViewController: UIViewController
     {
         updateBadgeCount()
         self.conversationListingViewController.callLastConversationsUpdate()
-    }
-    
-    func setupSignoutButton()
-    {
+        
+        //aima
         
     }
-    
 
     func setupConversationListingView()
     {
@@ -197,7 +192,6 @@ class HomeViewController: UIViewController
         self.profileViewController.view.frame = self.view.bounds
     }
     
-    
     @IBAction func closeViewDismisssButtonTapped(_ sender: Any) {
         
         self.closeView?.removeFromSuperview()
@@ -210,10 +204,12 @@ class HomeViewController: UIViewController
     }
     
     @IBAction func signOut_Tapped(_ sender: Any) {
-        
+
         NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
         NotificationCenter.default.removeObserver(self, name: APNSPushNotificationName, object: nil)
+       
         self.signOutDeleteAPNS()
+        
     }
     
     func signOutDeleteAPNS () {
@@ -369,6 +365,15 @@ extension HomeViewController:UISearchBarDelegate
 
 extension HomeViewController:ConversationListingViewControllerProtocol
 {
+    func updateConversationCount(str: String) -> Bool {
+        
+        if UIDevice.current.userInterfaceIdiom == .phone
+        {
+            self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+        }
+        return true
+    }
+    
     func conversationSelected(conversation:Conversation?) -> Bool
     {
         self.selectedConversation = conversation
@@ -402,6 +407,12 @@ extension HomeViewController:ConversationDetailViewControllerProtocol
     {
         self.conversationListingViewController.conversartionRemoved()
     }
+    
+    func updateConversationList() {
+
+        self.conversationListingViewController.conversationListUpdated()
+    }
+
 }
 
 extension HomeViewController: ComposeMessageProtocol

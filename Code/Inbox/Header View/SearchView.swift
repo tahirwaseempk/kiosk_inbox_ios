@@ -34,13 +34,13 @@ extension SearchView:UISearchBarDelegate
         
         switch environment {
         case .texting_Line:
-            self.searchBar.barTintColor = AppBlueColor
+            self.searchBar.barTintColor = AppThemeColor
         case .sms_Factory:
-            self.searchBar.barTintColor = AppBlueColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
+            self.searchBar.barTintColor = AppThemeColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
         case .fan_Connect:
-            self.searchBar.barTintColor = FanAppColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
+            self.searchBar.barTintColor = AppThemeColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
         case .photo_Texting:
-            self.searchBar.barTintColor = PhotoAppColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
+            self.searchBar.barTintColor = AppThemeColor//UIColor(red: 74/255.0, green: 146/255.0, blue: 226/255.0, alpha: 1.0)
         }
      }
     

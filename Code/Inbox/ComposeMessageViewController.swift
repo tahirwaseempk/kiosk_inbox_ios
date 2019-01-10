@@ -43,36 +43,36 @@ class ComposeMessageViewController: UIViewController {
         switch environment {
 
         case .texting_Line:
-        headerView.backgroundColor = AppBlueColor
-        mobileNumberView.backgroundColor = AppBlueColor
+        headerView.backgroundColor = AppThemeColor
+        mobileNumberView.backgroundColor = AppThemeColor
 
         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = AppBlueColor
-        sendButton.layer.borderColor = AppBlueColor.cgColor
+        sendButton.tintColor = AppThemeColor
+        sendButton.layer.borderColor = AppThemeColor.cgColor
 
         case .sms_Factory:
-        headerView.backgroundColor = AppBlueColor
-        mobileNumberView.backgroundColor = AppBlueColor
+        headerView.backgroundColor = AppThemeColor
+        mobileNumberView.backgroundColor = AppThemeColor
          
         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = AppBlueColor
-        sendButton.layer.borderColor = AppBlueColor.cgColor
+        sendButton.tintColor = AppThemeColor
+        sendButton.layer.borderColor = AppThemeColor.cgColor
             
         case .fan_Connect:
-        headerView.backgroundColor = FanAppColor
-        mobileNumberView.backgroundColor = FanAppColor
+        headerView.backgroundColor = AppThemeColor
+        mobileNumberView.backgroundColor = AppThemeColor
 
         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = FanAppColor
-        sendButton.layer.borderColor = FanAppColor.cgColor
+        sendButton.tintColor = AppThemeColor
+        sendButton.layer.borderColor = AppThemeColor.cgColor
             
         case .photo_Texting:
-        headerView.backgroundColor = PhotoAppColor
-        mobileNumberView.backgroundColor = PhotoAppColor
+        headerView.backgroundColor = AppThemeColor
+        mobileNumberView.backgroundColor = AppThemeColor
 
         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = PhotoAppColor
-        sendButton.layer.borderColor = PhotoAppColor.cgColor
+        sendButton.tintColor = AppThemeColor
+        sendButton.layer.borderColor = AppThemeColor.cgColor
     }
     
         mobileTextField.text = ""

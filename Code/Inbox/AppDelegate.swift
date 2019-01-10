@@ -15,6 +15,7 @@ import Firebase
 import UserNotifications
 
 let PushNotificationName = Notification.Name("PushNotificationRecieved")
+let MessageNotificationName = Notification.Name("MessageNotificationRecieved")
 let APNSPushNotificationName = Notification.Name("APNSPushNotificationRecieved")
 
 @UIApplicationMain
@@ -187,10 +188,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case UIApplication.State.active:
             print("If needed notify user about the message")
             NotificationCenter.default.post(name: PushNotificationName, object: nil)
-
+            NotificationCenter.default.post(name: MessageNotificationName, object: nil)
         default:
             print("Run code to download content")
             NotificationCenter.default.post(name: PushNotificationName, object: nil)
+            NotificationCenter.default.post(name: MessageNotificationName, object: nil)
         }
         
         completionHandler(UIBackgroundFetchResult.newData)

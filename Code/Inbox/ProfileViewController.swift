@@ -77,13 +77,13 @@ class ProfileViewController: UIViewController {
         
         switch environment {
         case .texting_Line:
-            self.view.backgroundColor = AppBlueColor
+            self.view.backgroundColor = AppThemeColor
         case .sms_Factory:
-            self.view.backgroundColor = AppBlueColor
+            self.view.backgroundColor = AppThemeColor
         case .fan_Connect:
-            self.view.backgroundColor = FanAppColor
+            self.view.backgroundColor = AppThemeColor
         case .photo_Texting:
-            self.view.backgroundColor = PhotoAppColor
+            self.view.backgroundColor = AppThemeColor
         }
         
     }

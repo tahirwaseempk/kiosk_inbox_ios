@@ -1049,7 +1049,7 @@ extension User
 //                                    colorString = colorString.replacingOccurrences(of: "#", with: "")
 
                                     AppThemeHex = colorString
-                                    AppBlueColor =  UIColor(hexString: colorString)
+                                    AppThemeColor =  UIColor(hexString: colorString)
 
                                     //---------- ---------- ---------- ---------- ---------- ----------//
                                     successBlock(true)

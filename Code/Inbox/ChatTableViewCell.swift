@@ -75,16 +75,16 @@ class ChatTableViewCell: UITableViewCell {
             
             switch environment {
             case .texting_Line:
-                self.bubbleImageView.tintColor = AppBlueColor
+                self.bubbleImageView.tintColor = AppThemeColor
                 
             case .sms_Factory:
-                self.bubbleImageView.tintColor = AppBlueColor
+                self.bubbleImageView.tintColor = AppThemeColor
                 
             case .fan_Connect:
-                self.bubbleImageView.tintColor = FanAppColor
+                self.bubbleImageView.tintColor = AppThemeColor
 
             case .photo_Texting:
-                self.bubbleImageView.tintColor = PhotoAppColor
+                self.bubbleImageView.tintColor = AppThemeColor
             }
             
             self.messageLabel.textAlignment = .left

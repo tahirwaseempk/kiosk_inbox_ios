@@ -296,11 +296,11 @@ class WebManager: NSObject
     static func optOutMessage(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
     {
         
-        let uuid:String = params["uuid"] as! String
-        let serial:String = params["serial"] as! String
-        let mobile:String = params["mobile"] as! String
+//        let uuid:String = params["uuid"] as! String
+//        let serial:String = params["serial"] as! String
+//        let mobile:String = params["mobile"] as! String
         
-        var finalUrl = ""
+        let finalUrl = ""
         
 //        switch environment {
 //

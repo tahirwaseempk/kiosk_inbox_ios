@@ -49,18 +49,18 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         ////////////////////////////////////////////////////////////////////////////////////////
         switch environment {
         case .texting_Line:
-            header_View.backgroundColor = AppBlueColor
+            header_View.backgroundColor = AppThemeColor
         case .sms_Factory:
-            header_View.backgroundColor = AppBlueColor
+            header_View.backgroundColor = AppThemeColor
         case .fan_Connect:
-            header_View.backgroundColor = FanAppColor
+            header_View.backgroundColor = AppThemeColor
         case .photo_Texting:
-            header_View.backgroundColor = PhotoAppColor
+            header_View.backgroundColor = AppThemeColor
         }
         
         self.initiateMessageCall()
     }
-    
+        
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
         
         self.callLastConversationsUpdate()
@@ -334,6 +334,11 @@ extension ConversationListingViewController
         }
         
         self.refreshUnReadCount()
+     
+        if let delegate = self.delegate
+        {
+            _ = delegate.updateConversationCount(str:"updateConversationCount")
+        }
     }
     
     func selectedConversationUpdated()
@@ -365,6 +370,10 @@ extension ConversationListingViewController
                             {
                                 _ = delegate.conversationSelected(conversation: self.selectedConversation)
                             }
+                            if let delegate = self.delegate
+                            {
+                                _ = delegate.updateConversationCount(str:"updateConversationCount")
+                            }
                             
                             ProcessingIndicator.hide()
                     }
@@ -380,6 +389,10 @@ extension ConversationListingViewController
                             
                             self.refreshUnReadCount()
                             
+                            if let delegate = self.delegate
+                            {
+                                _ = delegate.updateConversationCount(str:"updateConversationCount")
+                            }
                             ProcessingIndicator.hide()
                     }
             }
@@ -390,5 +403,9 @@ extension ConversationListingViewController
     {
         self.tableViewDataSource?.applySearchFiltersForSearchText(text)
         self.refreshUnReadCount()
+        if let delegate = self.delegate
+        {
+            _ = delegate.updateConversationCount(str:"updateConversationCount")
+        }
     }
 }
