@@ -14,7 +14,6 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     let targetedTableView: UITableView
     var selectedConversation:Conversation? = nil
     var chatCell:ChatTableViewCell!
-    var chatCellSettings:ChatCellSettings!
     var messages:Array<Message> = Array<Message>()
     
     init(tableview:UITableView) {
@@ -23,35 +22,6 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
-        
-        //Getting singleton instances of the required classes
-        chatCellSettings = ChatCellSettings.getInstance()
-        
-        /* ///////////////////////////////
-         Set settings for Application
-         /////////////////////////////// */
-        
-        chatCellSettings?.setSenderBubbleColorHex(AppThemeHex);
-        chatCellSettings?.setReceiverBubbleColorHex(ReceiverHex);
-
-        chatCellSettings?.setSenderBubbleNameTextColorHex("FFFFFF");
-        chatCellSettings?.setSenderBubbleMessageTextColorHex("FFFFFF");
-        chatCellSettings?.setSenderBubbleTimeTextColorHex("FFFFFF");
-        
-        chatCellSettings?.setReceiverBubbleNameTextColorHex("000000");
-        chatCellSettings?.setReceiverBubbleMessageTextColorHex("000000");
-        chatCellSettings?.setReceiverBubbleTimeTextColorHex("000000");
-        
-        chatCellSettings?.setSenderBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 10))
-        chatCellSettings.setSenderBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 12))
-        chatCellSettings.setSenderBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 10))
-        
-        chatCellSettings.setReceiverBubbleFontWithSizeForName(UIFont.boldSystemFont(ofSize: 10))
-        chatCellSettings.setReceiverBubbleFontWithSizeForMessage(UIFont.systemFont(ofSize: 12))
-        chatCellSettings.setReceiverBubbleFontWithSizeForTime(UIFont.systemFont(ofSize: 10))
-        
-        chatCellSettings?.senderBubbleTailRequired(false)
-        chatCellSettings?.receiverBubbleTailRequired(false)
         
         super.init()
         

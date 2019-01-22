@@ -58,10 +58,8 @@
 		290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */; };
 		290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4391F27E24900FCC976 /* IQUIViewController+Additions.swift */; };
 		290BED9720E697EC00F30BAA /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4321F27E24900FCC976 /* IQTextView.swift */; };
-		290BED9820E697EC00F30BAA /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
 		290BED9920E697EC00F30BAA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */; };
 		290BED9A20E697EC00F30BAA /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
-		290BED9B20E697EC00F30BAA /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
 		290BED9C20E697EC00F30BAA /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
 		290BED9D20E697EC00F30BAA /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
 		290BED9E20E697EC00F30BAA /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4381F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift */; };
@@ -74,31 +72,24 @@
 		290BEDA520E697EC00F30BAA /* GCCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */; };
 		290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE43A1F27E24900FCC976 /* IQUIWindow+Hierarchy.swift */; };
 		290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
-		290BEDA820E697EC00F30BAA /* PushyNetworkException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */; };
 		290BEDA920E697EC00F30BAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
 		290BEDAA20E697EC00F30BAA /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
 		290BEDAB20E697EC00F30BAA /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
 		290BEDAC20E697EC00F30BAA /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
 		290BEDAD20E697EC00F30BAA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4361F27E24900FCC976 /* IQUITextFieldView+Additions.swift */; };
 		290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
-		290BEDAF20E697EC00F30BAA /* PushySwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE01FC60C07007889E7 /* PushySwizzler.swift */; };
 		290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD358204077F300832092 /* Mappings.swift */; };
 		290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
 		290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD359204077F300832092 /* Deprecated.swift */; };
 		290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
-		290BEDB420E697EC00F30BAA /* PushyResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE11FC60C07007889E7 /* PushyResponseException.swift */; };
 		290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
-		290BEDB620E697EC00F30BAA /* PushyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */; };
 		290BEDB720E697EC00F30BAA /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */; };
 		290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42E1F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift */; };
-		290BEDB920E697EC00F30BAA /* PushySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDD1FC60C06007889E7 /* PushySettings.swift */; };
 		290BEDBA20E697EC00F30BAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
 		290BEDBB20E697EC00F30BAA /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
 		290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */; };
 		290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4311F27E24900FCC976 /* IQPreviousNextView.swift */; };
 		290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
-		290BEDBF20E697EC00F30BAA /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
-		290BEDC020E697EC00F30BAA /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
 		290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB71FC3724700F3C42A /* Checkbox.swift */; };
 		290BEDC220E697EC00F30BAA /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
 		290BEDC320E697EC00F30BAA /* GCCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */; };
@@ -107,18 +98,14 @@
 		290BEDC620E697EC00F30BAA /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
 		290BEDC720E697EC00F30BAA /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
 		290BEDC820E697EC00F30BAA /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
-		290BEDC920E697EC00F30BAA /* PushyRegistrationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */; };
 		290BEDCA20E697EC00F30BAA /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
-		290BEDCB20E697EC00F30BAA /* PushyPubSubException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */; };
 		290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4341F27E24900FCC976 /* IQToolbar.swift */; };
 		290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
 		290BEDCE20E697EC00F30BAA /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
 		290BEDCF20E697EC00F30BAA /* GCCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */; };
 		290BEDD020E697EC00F30BAA /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
-		290BEDD120E697EC00F30BAA /* PushyKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */; };
 		290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4301F27E24900FCC976 /* IQNSArray+Sort.swift */; };
 		290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F39206017BB009C4625 /* ScheduleAppointmentViewController.swift */; };
-		290BEDD420E697EC00F30BAA /* PushyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDE1FC60C06007889E7 /* PushyConfig.swift */; };
 		290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
 		290BEDD720E697EC00F30BAA /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
@@ -189,34 +176,6 @@
 		29955C6C213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6D213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6E213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
-		29B030EA217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
-		29B030EB217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
-		29B030EC217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
-		29B030ED217E2CD2001E63BA /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E5217E2CD2001E63BA /* ActiveType.swift */; };
-		29B030EE217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
-		29B030EF217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
-		29B030F0217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
-		29B030F1217E2CD2001E63BA /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */; };
-		29B030F2217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
-		29B030F3217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
-		29B030F4217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
-		29B030F5217E2CD2001E63BA /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E7217E2CD2001E63BA /* RegexParser.swift */; };
-		29B030F6217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
-		29B030F7217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
-		29B030F8217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
-		29B030F9217E2CD2001E63BA /* StringTrimExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */; };
-		29B030FA217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
-		29B030FB217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
-		29B030FC217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
-		29B030FD217E2CD2001E63BA /* ActiveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B030E9217E2CD2001E63BA /* ActiveLabel.swift */; };
-		29B03116217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
-		29B03117217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
-		29B03118217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
-		29B03119217E37E6001E63BA /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B03115217E37E6001E63BA /* TTTAttributedLabel.m */; };
-		29B0311B217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
-		29B0311C217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
-		29B0311D217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
-		29B0311E217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */; };
 		29C5259421A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
@@ -253,10 +212,8 @@
 		29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */; };
 		29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4391F27E24900FCC976 /* IQUIViewController+Additions.swift */; };
 		29FD0F3121160D0500062362 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4321F27E24900FCC976 /* IQTextView.swift */; };
-		29FD0F3221160D0500062362 /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
 		29FD0F3321160D0500062362 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */; };
 		29FD0F3421160D0500062362 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
-		29FD0F3521160D0500062362 /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
 		29FD0F3621160D0500062362 /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
 		29FD0F3721160D0500062362 /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
 		29FD0F3821160D0500062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4381F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift */; };
@@ -269,31 +226,24 @@
 		29FD0F3F21160D0500062362 /* GCCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */; };
 		29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE43A1F27E24900FCC976 /* IQUIWindow+Hierarchy.swift */; };
 		29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
-		29FD0F4221160D0500062362 /* PushyNetworkException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */; };
 		29FD0F4321160D0500062362 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
 		29FD0F4421160D0500062362 /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
 		29FD0F4521160D0500062362 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
 		29FD0F4621160D0500062362 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
 		29FD0F4721160D0500062362 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4361F27E24900FCC976 /* IQUITextFieldView+Additions.swift */; };
 		29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
-		29FD0F4921160D0500062362 /* PushySwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE01FC60C07007889E7 /* PushySwizzler.swift */; };
 		29FD0F4A21160D0500062362 /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD358204077F300832092 /* Mappings.swift */; };
 		29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
 		29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD359204077F300832092 /* Deprecated.swift */; };
 		29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
-		29FD0F4E21160D0500062362 /* PushyResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE11FC60C07007889E7 /* PushyResponseException.swift */; };
 		29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
-		29FD0F5021160D0500062362 /* PushyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */; };
 		29FD0F5121160D0500062362 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */; };
 		29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42E1F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift */; };
-		29FD0F5321160D0500062362 /* PushySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDD1FC60C06007889E7 /* PushySettings.swift */; };
 		29FD0F5421160D0500062362 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
 		29FD0F5521160D0500062362 /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
 		29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */; };
 		29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4311F27E24900FCC976 /* IQPreviousNextView.swift */; };
 		29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
-		29FD0F5921160D0500062362 /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
-		29FD0F5A21160D0500062362 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
 		29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB71FC3724700F3C42A /* Checkbox.swift */; };
 		29FD0F5C21160D0500062362 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
 		29FD0F5D21160D0500062362 /* GCCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */; };
@@ -302,18 +252,14 @@
 		29FD0F6021160D0500062362 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
 		29FD0F6121160D0500062362 /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
 		29FD0F6221160D0500062362 /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
-		29FD0F6321160D0500062362 /* PushyRegistrationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */; };
 		29FD0F6421160D0500062362 /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
-		29FD0F6521160D0500062362 /* PushyPubSubException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */; };
 		29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4341F27E24900FCC976 /* IQToolbar.swift */; };
 		29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
 		29FD0F6821160D0500062362 /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
 		29FD0F6921160D0500062362 /* GCCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */; };
 		29FD0F6A21160D0500062362 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
-		29FD0F6B21160D0500062362 /* PushyKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */; };
 		29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4301F27E24900FCC976 /* IQNSArray+Sort.swift */; };
 		29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F39206017BB009C4625 /* ScheduleAppointmentViewController.swift */; };
-		29FD0F6E21160D0500062362 /* PushyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDE1FC60C06007889E7 /* PushyConfig.swift */; };
 		29FD0F6F21160D0500062362 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		29FD0F7021160D0500062362 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
 		29FD0F7121160D0500062362 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
@@ -360,10 +306,8 @@
 		29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */; };
 		29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4391F27E24900FCC976 /* IQUIViewController+Additions.swift */; };
 		29FD0FA621160D1000062362 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4321F27E24900FCC976 /* IQTextView.swift */; };
-		29FD0FA721160D1000062362 /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
 		29FD0FA821160D1000062362 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */; };
 		29FD0FA921160D1000062362 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
-		29FD0FAA21160D1000062362 /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
 		29FD0FAB21160D1000062362 /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
 		29FD0FAC21160D1000062362 /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
 		29FD0FAD21160D1000062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4381F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift */; };
@@ -376,31 +320,24 @@
 		29FD0FB421160D1000062362 /* GCCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */; };
 		29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE43A1F27E24900FCC976 /* IQUIWindow+Hierarchy.swift */; };
 		29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
-		29FD0FB721160D1000062362 /* PushyNetworkException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */; };
 		29FD0FB821160D1000062362 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
 		29FD0FB921160D1000062362 /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
 		29FD0FBA21160D1000062362 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
 		29FD0FBB21160D1000062362 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
 		29FD0FBC21160D1000062362 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4361F27E24900FCC976 /* IQUITextFieldView+Additions.swift */; };
 		29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
-		29FD0FBE21160D1000062362 /* PushySwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE01FC60C07007889E7 /* PushySwizzler.swift */; };
 		29FD0FBF21160D1000062362 /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD358204077F300832092 /* Mappings.swift */; };
 		29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
 		29FD0FC121160D1000062362 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD359204077F300832092 /* Deprecated.swift */; };
 		29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
-		29FD0FC321160D1000062362 /* PushyResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE11FC60C07007889E7 /* PushyResponseException.swift */; };
 		29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
-		29FD0FC521160D1000062362 /* PushyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */; };
 		29FD0FC621160D1000062362 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */; };
 		29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42E1F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift */; };
-		29FD0FC821160D1000062362 /* PushySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDD1FC60C06007889E7 /* PushySettings.swift */; };
 		29FD0FC921160D1000062362 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
 		29FD0FCA21160D1000062362 /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
 		29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */; };
 		29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4311F27E24900FCC976 /* IQPreviousNextView.swift */; };
 		29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
-		29FD0FCE21160D1000062362 /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
-		29FD0FCF21160D1000062362 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
 		29FD0FD021160D1000062362 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB71FC3724700F3C42A /* Checkbox.swift */; };
 		29FD0FD121160D1000062362 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
 		29FD0FD221160D1000062362 /* GCCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */; };
@@ -409,18 +346,14 @@
 		29FD0FD521160D1000062362 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
 		29FD0FD621160D1000062362 /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
 		29FD0FD721160D1000062362 /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
-		29FD0FD821160D1000062362 /* PushyRegistrationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */; };
 		29FD0FD921160D1000062362 /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
-		29FD0FDA21160D1000062362 /* PushyPubSubException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */; };
 		29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4341F27E24900FCC976 /* IQToolbar.swift */; };
 		29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
 		29FD0FDD21160D1000062362 /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
 		29FD0FDE21160D1000062362 /* GCCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */; };
 		29FD0FDF21160D1000062362 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
-		29FD0FE021160D1000062362 /* PushyKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */; };
 		29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4301F27E24900FCC976 /* IQNSArray+Sort.swift */; };
 		29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F39206017BB009C4625 /* ScheduleAppointmentViewController.swift */; };
-		29FD0FE321160D1000062362 /* PushyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDE1FC60C06007889E7 /* PushyConfig.swift */; };
 		29FD0FE421160D1000062362 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		29FD0FE521160D1000062362 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
 		29FD0FE621160D1000062362 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
@@ -462,8 +395,6 @@
 		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
 		750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
 		750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
-		7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */; };
-		7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518E3911EFDB01A00EF059F /* ChatCellSettings.m */; };
 		752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
 		752CE43C1F27E24900FCC976 /* IQButtonBarArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4251F27E24900FCC976 /* IQButtonBarArrowDown@2x.png */; };
 		752CE43D1F27E24900FCC976 /* IQButtonBarArrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4261F27E24900FCC976 /* IQButtonBarArrowDown@3x.png */; };
@@ -503,17 +434,6 @@
 		759BD35E204077F400832092 /* NSString+HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35A204077F400832092 /* NSString+HTMLString.swift */; };
 		759BD35F204077F400832092 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35B204077F400832092 /* HTMLString.swift */; };
 		759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */; };
-		759C5BE21FC60C08007889E7 /* Pushy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD71FC60C05007889E7 /* Pushy.swift */; };
-		759C5BE31FC60C08007889E7 /* PushyEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */; };
-		759C5BE41FC60C08007889E7 /* PushyRegistrationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */; };
-		759C5BE51FC60C08007889E7 /* PushyKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */; };
-		759C5BE61FC60C08007889E7 /* PushyHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */; };
-		759C5BE71FC60C08007889E7 /* PushyPubSubException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */; };
-		759C5BE81FC60C08007889E7 /* PushySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDD1FC60C06007889E7 /* PushySettings.swift */; };
-		759C5BE91FC60C08007889E7 /* PushyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDE1FC60C06007889E7 /* PushyConfig.swift */; };
-		759C5BEA1FC60C08007889E7 /* PushyNetworkException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */; };
-		759C5BEB1FC60C08007889E7 /* PushySwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE01FC60C07007889E7 /* PushySwizzler.swift */; };
-		759C5BEC1FC60C08007889E7 /* PushyResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BE11FC60C07007889E7 /* PushyResponseException.swift */; };
 		75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
 		75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
 		75E35F101F05853500B96018 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
@@ -521,42 +441,6 @@
 		75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
 		75F731E61F389B3D00DBDA84 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
 		89924ED1ADE889382741FD35 /* Pods_TextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE567C720718B220C71EF699 /* Pods_TextingLine.framework */; };
-		9A1638CA2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
-		9A1638CB2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
-		9A1638CC2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
-		9A1638CD2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */; };
-		9A1638D52129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
-		9A1638D62129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
-		9A1638D72129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
-		9A1638D82129CE41009A865F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CE2129CE3F009A865F /* CustomTableCell.swift */; };
-		9A1638D92129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
-		9A1638DA2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
-		9A1638DB2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
-		9A1638DC2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */; };
-		9A1638DD2129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
-		9A1638DE2129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
-		9A1638DF2129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
-		9A1638E02129CE41009A865F /* SwiftMultiSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */; };
-		9A1638E12129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
-		9A1638E22129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
-		9A1638E32129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
-		9A1638E42129CE41009A865F /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */; };
-		9A1638E52129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
-		9A1638E62129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
-		9A1638E72129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
-		9A1638E82129CE41009A865F /* ContactsLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D22129CE40009A865F /* ContactsLibrary.swift */; };
-		9A1638E92129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
-		9A1638EA2129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
-		9A1638EB2129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
-		9A1638EC2129CE41009A865F /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D32129CE41009A865F /* CustomCollectionCell.swift */; };
-		9A1638ED2129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
-		9A1638EE2129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
-		9A1638EF2129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
-		9A1638F02129CE41009A865F /* MultiSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */; };
-		9A1638F22129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
-		9A1638F32129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
-		9A1638F42129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
-		9A1638F52129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */; };
 		A677810F0B6C875EA4DA2892 /* Pods_PhotoTextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5EADEE16B9EB0544D935B0 /* Pods_PhotoTextingLine.framework */; };
 		AED556EA294AF518847BD8B5 /* Pods_SMSFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */; };
 /* End PBXBuildFile section */
@@ -670,14 +554,6 @@
 		2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnect.entitlements; sourceTree = "<group>"; };
 		29955C65213A8A1C000B733F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		29955C66213A8A1D000B733F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		29B030E5217E2CD2001E63BA /* ActiveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveType.swift; sourceTree = "<group>"; };
-		29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveBuilder.swift; sourceTree = "<group>"; };
-		29B030E7217E2CD2001E63BA /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
-		29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTrimExtension.swift; sourceTree = "<group>"; };
-		29B030E9217E2CD2001E63BA /* ActiveLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveLabel.swift; sourceTree = "<group>"; };
-		29B03114217E37E5001E63BA /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
-		29B03115217E37E6001E63BA /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
-		29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCopyPasteUITextField.swift; sourceTree = "<group>"; };
 		29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
@@ -698,10 +574,6 @@
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewProtocol.swift; sourceTree = "<group>"; };
 		750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IQButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
-		7518E38E1EFDB01A00EF059F /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
-		7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
-		7518E3901EFDB01A00EF059F /* ChatCellSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCellSettings.h; sourceTree = "<group>"; };
-		7518E3911EFDB01A00EF059F /* ChatCellSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCellSettings.m; sourceTree = "<group>"; };
 		752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQBarButtonItem.swift; sourceTree = "<group>"; };
 		752CE4251F27E24900FCC976 /* IQButtonBarArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IQButtonBarArrowDown@2x.png"; sourceTree = "<group>"; };
 		752CE4261F27E24900FCC976 /* IQButtonBarArrowDown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IQButtonBarArrowDown@3x.png"; sourceTree = "<group>"; };
@@ -741,17 +613,6 @@
 		759BD35A204077F400832092 /* NSString+HTMLString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+HTMLString.swift"; sourceTree = "<group>"; };
 		759BD35B204077F400832092 /* HTMLString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLString.swift; sourceTree = "<group>"; };
 		759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMessageProtocol.swift; sourceTree = "<group>"; };
-		759C5BD71FC60C05007889E7 /* Pushy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pushy.swift; sourceTree = "<group>"; };
-		759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyEnvironment.swift; sourceTree = "<group>"; };
-		759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyRegistrationException.swift; sourceTree = "<group>"; };
-		759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyKeychain.swift; sourceTree = "<group>"; };
-		759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyHTTP.swift; sourceTree = "<group>"; };
-		759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyPubSubException.swift; sourceTree = "<group>"; };
-		759C5BDD1FC60C06007889E7 /* PushySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushySettings.swift; sourceTree = "<group>"; };
-		759C5BDE1FC60C06007889E7 /* PushyConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyConfig.swift; sourceTree = "<group>"; };
-		759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyNetworkException.swift; sourceTree = "<group>"; };
-		759C5BE01FC60C07007889E7 /* PushySwizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushySwizzler.swift; sourceTree = "<group>"; };
-		759C5BE11FC60C07007889E7 /* PushyResponseException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushyResponseException.swift; sourceTree = "<group>"; };
 		75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationParser.swift; sourceTree = "<group>"; };
 		75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginParser.swift; sourceTree = "<group>"; };
 		75E35F0F1F05853500B96018 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -760,15 +621,6 @@
 		75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		93D8088CD9C4151380AC32D6 /* Pods-TextingLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextingLine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine.debug.xcconfig"; sourceTree = "<group>"; };
 		93E0DEB10B45741B928CADBD /* Pods-PhotoTextingLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTextingLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine.release.xcconfig"; sourceTree = "<group>"; };
-		9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContactsPickerViewController.swift; sourceTree = "<group>"; };
-		9A1638CE2129CE3F009A865F /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
-		9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionCollectionView.swift; sourceTree = "<group>"; };
-		9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMultiSelect.swift; sourceTree = "<group>"; };
-		9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableView.swift; sourceTree = "<group>"; };
-		9A1638D22129CE40009A865F /* ContactsLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsLibrary.swift; sourceTree = "<group>"; };
-		9A1638D32129CE41009A865F /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
-		9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionViewController.swift; sourceTree = "<group>"; };
-		9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppContactsPickerViewController.storyboard; sourceTree = "<group>"; };
 		A1291FB4F6C49F14C71431B5 /* Pods-TextingLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextingLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine.release.xcconfig"; sourceTree = "<group>"; };
 		AE567C720718B220C71EF699 /* Pods_TextingLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextingLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5193E471D8D240CAFEDB027 /* Pods-SMSFactory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -851,9 +703,6 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				29B0311A217E55FD001E63BA /* NoCopyPasteUITextField.swift */,
-				29B03113217E37D9001E63BA /* TTT */,
-				29B030E4217E2C9B001E63BA /* LabelAction */,
 				29E5E12A217677E100BF642C /* JVFloatLabeledTextField */,
 				29C8204D2141CD1900A47752 /* UILabel+Copyable */,
 				29C820422141CC1900A47752 /* CopyableLabel */,
@@ -861,10 +710,8 @@
 				1AE37F4420603C4D009C4625 /* Pop Over */,
 				756615CA20393D5C0087CB9D /* Emojy Manager */,
 				1AF3E5B92018D79D00A5A35F /* Underlined Text Field */,
-				759C5BED1FC60C96007889E7 /* Pushy */,
 				04EC9FB61FC3723700F3C42A /* Checkbox */,
 				752CE4231F27E23300FCC976 /* KeyBoard */,
-				7518E38D1EFDAFFA00EF059F /* iBubblesCode */,
 				754085F71F16718700CDB81F /* ActivityIndicator */,
 			);
 			name = Libraries;
@@ -1109,27 +956,6 @@
 			name = "Home View";
 			sourceTree = "<group>";
 		};
-		29B030E4217E2C9B001E63BA /* LabelAction */ = {
-			isa = PBXGroup;
-			children = (
-				29B030E6217E2CD2001E63BA /* ActiveBuilder.swift */,
-				29B030E9217E2CD2001E63BA /* ActiveLabel.swift */,
-				29B030E5217E2CD2001E63BA /* ActiveType.swift */,
-				29B030E7217E2CD2001E63BA /* RegexParser.swift */,
-				29B030E8217E2CD2001E63BA /* StringTrimExtension.swift */,
-			);
-			path = LabelAction;
-			sourceTree = "<group>";
-		};
-		29B03113217E37D9001E63BA /* TTT */ = {
-			isa = PBXGroup;
-			children = (
-				29B03114217E37E5001E63BA /* TTTAttributedLabel.h */,
-				29B03115217E37E6001E63BA /* TTTAttributedLabel.m */,
-			);
-			path = TTT;
-			sourceTree = "<group>";
-		};
 		29C820422141CC1900A47752 /* CopyableLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1172,18 +998,6 @@
 				750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		7518E38D1EFDAFFA00EF059F /* iBubblesCode */ = {
-			isa = PBXGroup;
-			children = (
-				7518E38E1EFDB01A00EF059F /* ChatTableViewCell.h */,
-				7518E38F1EFDB01A00EF059F /* ChatTableViewCell.m */,
-				7518E3901EFDB01A00EF059F /* ChatCellSettings.h */,
-				7518E3911EFDB01A00EF059F /* ChatCellSettings.m */,
-			);
-			name = iBubblesCode;
-			path = Inbox;
 			sourceTree = "<group>";
 		};
 		752CE4231F27E23300FCC976 /* KeyBoard */ = {
@@ -1312,49 +1126,14 @@
 			name = Protocol;
 			sourceTree = "<group>";
 		};
-		759C5BED1FC60C96007889E7 /* Pushy */ = {
-			isa = PBXGroup;
-			children = (
-				759C5BD71FC60C05007889E7 /* Pushy.swift */,
-				759C5BDE1FC60C06007889E7 /* PushyConfig.swift */,
-				759C5BD81FC60C05007889E7 /* PushyEnvironment.swift */,
-				759C5BDB1FC60C06007889E7 /* PushyHTTP.swift */,
-				759C5BDA1FC60C06007889E7 /* PushyKeychain.swift */,
-				759C5BDF1FC60C07007889E7 /* PushyNetworkException.swift */,
-				759C5BDC1FC60C06007889E7 /* PushyPubSubException.swift */,
-				759C5BD91FC60C05007889E7 /* PushyRegistrationException.swift */,
-				759C5BE11FC60C07007889E7 /* PushyResponseException.swift */,
-				759C5BDD1FC60C06007889E7 /* PushySettings.swift */,
-				759C5BE01FC60C07007889E7 /* PushySwizzler.swift */,
-			);
-			path = Pushy;
-			sourceTree = "<group>";
-		};
 		75E7A83F1F4F2E9100E9764C /* ComposeMessage */ = {
 			isa = PBXGroup;
 			children = (
 				759C5BCF1FC605C7007889E7 /* Protocol */,
 				75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */,
 				75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */,
-				9A1638C82129C9BA009A865F /* App Contacts Picker View */,
 			);
 			name = ComposeMessage;
-			sourceTree = "<group>";
-		};
-		9A1638C82129C9BA009A865F /* App Contacts Picker View */ = {
-			isa = PBXGroup;
-			children = (
-				9A1638C92129C9FF009A865F /* AppContactsPickerViewController.swift */,
-				9A1638F12129D0C8009A865F /* AppContactsPickerViewController.storyboard */,
-				9A1638D22129CE40009A865F /* ContactsLibrary.swift */,
-				9A1638D32129CE41009A865F /* CustomCollectionCell.swift */,
-				9A1638CE2129CE3F009A865F /* CustomTableCell.swift */,
-				9A1638CF2129CE40009A865F /* MultiSelectionCollectionView.swift */,
-				9A1638D12129CE40009A865F /* MultiSelectionTableView.swift */,
-				9A1638D42129CE41009A865F /* MultiSelectionViewController.swift */,
-				9A1638D02129CE40009A865F /* SwiftMultiSelect.swift */,
-			);
-			name = "App Contacts Picker View";
 			sourceTree = "<group>";
 		};
 		F58ACF3025347E3570B418EF /* Pods */ = {
@@ -1547,7 +1326,6 @@
 			files = (
 				2932C2BF2171F25C00D2A299 /* TextingLine Info.plist in Resources */,
 				1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */,
-				9A1638F22129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */,
 				1ADE9F881EF98E4A006C2CAC /* TextingLine.xcassets in Resources */,
 				752CE4421F27E24900FCC976 /* IQButtonBarArrowUp@3x.png in Resources */,
@@ -1593,7 +1371,6 @@
 				29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */,
 				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
 				290BEDEE20E697EC00F30BAA /* ComposeMessage.storyboard in Resources */,
-				9A1638F32129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				290BEDEF20E697EC00F30BAA /* IQButtonBarArrowRight@3x.png in Resources */,
 				290BEDF020E697EC00F30BAA /* IQButtonBarArrowLeft@2x.png in Resources */,
 				290BEDF120E697EC00F30BAA /* SearchView.xib in Resources */,
@@ -1627,7 +1404,6 @@
 				29FD0F8921160D0500062362 /* Fanconnect.xcassets in Resources */,
 				29FD0F8A21160D0500062362 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				29FD0F8B21160D0500062362 /* ComposeMessage.storyboard in Resources */,
-				9A1638F42129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				29FD0F8C21160D0500062362 /* IQButtonBarArrowRight@3x.png in Resources */,
 				29FD0F8D21160D0500062362 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				29FD0F8E21160D0500062362 /* SearchView.xib in Resources */,
@@ -1659,7 +1435,6 @@
 				29FD0FFE21160D1000062362 /* Fanconnect.xcassets in Resources */,
 				29FD0FFF21160D1000062362 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				29FD100021160D1000062362 /* ComposeMessage.storyboard in Resources */,
-				9A1638F52129D0C8009A865F /* AppContactsPickerViewController.storyboard in Resources */,
 				29FD100121160D1000062362 /* IQButtonBarArrowRight@3x.png in Resources */,
 				29FD100221160D1000062362 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				29FD100321160D1000062362 /* SearchView.xib in Resources */,
@@ -1931,19 +1706,14 @@
 				752CE4441F27E24900FCC976 /* IQKeyboardManagerConstants.swift in Sources */,
 				1AE37F3E20601992009C4625 /* CounterView.swift in Sources */,
 				752CE44A1F27E24900FCC976 /* IQTitleBarButtonItem.swift in Sources */,
-				9A1638E12129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
 				759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */,
 				752CE4461F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				1A3475252062CA6100FA0FFB /* GCCalendarDayView.swift in Sources */,
-				9A1638E52129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
 				752CE4491F27E24900FCC976 /* IQTextView.swift in Sources */,
-				7518E3931EFDB01A00EF059F /* ChatCellSettings.m in Sources */,
-				29B0311B217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				04EC9FBC1FC373C500F3C42A /* User+CoreDataProperties.swift in Sources */,
 				75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */,
-				759C5BE21FC60C08007889E7 /* Pushy.swift in Sources */,
 				75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */,
 				1AFB4A581FC32F1E001EC4D5 /* ConversationDetailViewController.swift in Sources */,
 				752CE44F1F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
@@ -1954,13 +1724,10 @@
 				755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */,
 				1A3475262062CA6100FA0FFB /* GCCalendarView.swift in Sources */,
 				1A3475282062CA6100FA0FFB /* GCCalendarConfiguration.swift in Sources */,
-				9A1638E92129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
-				29B030F2217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
-				759C5BEA1FC60C08007889E7 /* PushyNetworkException.swift in Sources */,
 				1AFB4A5B1FC32FD1001EC4D5 /* HomeViewController.swift in Sources */,
 				1A34752A2062CA6100FA0FFB /* GCCalendarWeekView.swift in Sources */,
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
@@ -1968,57 +1735,40 @@
 				752CE44D1F27E24900FCC976 /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259421A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
-				759C5BEB1FC60C08007889E7 /* PushySwizzler.swift in Sources */,
 				759BD35C204077F400832092 /* Mappings.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
 				2932C2D7217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				759BD35D204077F400832092 /* Deprecated.swift in Sources */,
-				29B030EA217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				756615CF203941670087CB9D /* CodePointSet.swift in Sources */,
-				759C5BEC1FC60C08007889E7 /* PushyResponseException.swift in Sources */,
 				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA2982120518700C1EAB2 /* UserContactsParser.swift in Sources */,
-				759C5BE61FC60C08007889E7 /* PushyHTTP.swift in Sources */,
 				2932C2CD217230FE00D2A299 /* ProfileViewController.swift in Sources */,
-				29B03116217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				04EC9FBD1FC373C500F3C42A /* Conversation+CoreDataClass.swift in Sources */,
 				752CE4451F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
-				759C5BE81FC60C08007889E7 /* PushySettings.swift in Sources */,
-				29B030EE217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
 				04EC9FBE1FC373C500F3C42A /* Conversation+CoreDataProperties.swift in Sources */,
 				752CE4481F27E24900FCC976 /* IQPreviousNextView.swift in Sources */,
 				04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */,
 				295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
-				759C5BE31FC60C08007889E7 /* PushyEnvironment.swift in Sources */,
-				7518E3921EFDB01A00EF059F /* ChatTableViewCell.m in Sources */,
 				04EC9FC01FC373D200F3C42A /* Checkbox.swift in Sources */,
 				046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				1A3475292062CA6100FA0FFB /* GCCalendarMonthView.swift in Sources */,
 				1AE37F4320603C48009C4625 /* Popover.swift in Sources */,
-				9A1638CA2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
 				04EC9FBB1FC373C500F3C42A /* User+CoreDataClass.swift in Sources */,
 				1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
-				759C5BE41FC60C08007889E7 /* PushyRegistrationException.swift in Sources */,
 				754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */,
-				9A1638DD2129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
-				759C5BE71FC60C08007889E7 /* PushyPubSubException.swift in Sources */,
 				752CE44B1F27E24900FCC976 /* IQToolbar.swift in Sources */,
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
-				29B030F6217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				754085FB1F1671AF00CDB81F /* ProcessingIndicatorView.swift in Sources */,
 				1A3475272062CA6100FA0FFB /* GCCalendarViewDelegate.swift in Sources */,
 				04EC9FBA1FC373C500F3C42A /* Message+CoreDataProperties.swift in Sources */,
-				759C5BE51FC60C08007889E7 /* PushyKeychain.swift in Sources */,
 				2932C2D2217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				752CE4471F27E24900FCC976 /* IQNSArray+Sort.swift in Sources */,
 				1AE37F3A206017BB009C4625 /* ScheduleAppointmentViewController.swift in Sources */,
 				29E5E14321767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
-				9A1638D92129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
-				759C5BE91FC60C08007889E7 /* PushyConfig.swift in Sources */,
 				750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
 				756615D0203941670087CB9D /* String+Emoji.swift in Sources */,
@@ -2026,11 +1776,8 @@
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 				295EA29321204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
-				29B030FA217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
-				9A1638D52129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820502141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
-				9A1638ED2129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 				750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2044,19 +1791,14 @@
 				290BED8F20E697EC00F30BAA /* IQKeyboardManagerConstants.swift in Sources */,
 				290BED9020E697EC00F30BAA /* CounterView.swift in Sources */,
 				290BED9120E697EC00F30BAA /* IQTitleBarButtonItem.swift in Sources */,
-				9A1638E22129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				290BED9220E697EC00F30BAA /* InboxTableViewCellProtocol.swift in Sources */,
 				290BED9320E697EC00F30BAA /* ComposeMessageProtocol.swift in Sources */,
 				290BED9420E697EC00F30BAA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */,
-				9A1638E62129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */,
 				290BED9720E697EC00F30BAA /* IQTextView.swift in Sources */,
-				290BED9820E697EC00F30BAA /* ChatCellSettings.m in Sources */,
-				29B0311C217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				290BED9920E697EC00F30BAA /* User+CoreDataProperties.swift in Sources */,
 				290BED9A20E697EC00F30BAA /* LoginParser.swift in Sources */,
-				290BED9B20E697EC00F30BAA /* Pushy.swift in Sources */,
 				290BED9C20E697EC00F30BAA /* ComposeMessageViewController.swift in Sources */,
 				290BED9D20E697EC00F30BAA /* ConversationDetailViewController.swift in Sources */,
 				290BED9E20E697EC00F30BAA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
@@ -2067,13 +1809,10 @@
 				290BEDA320E697EC00F30BAA /* MessagesParser.swift in Sources */,
 				290BEDA420E697EC00F30BAA /* GCCalendarView.swift in Sources */,
 				290BEDA520E697EC00F30BAA /* GCCalendarConfiguration.swift in Sources */,
-				9A1638EA2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
 				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
-				29B030F3217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
-				290BEDA820E697EC00F30BAA /* PushyNetworkException.swift in Sources */,
 				290BEDA920E697EC00F30BAA /* HomeViewController.swift in Sources */,
 				290BEDAA20E697EC00F30BAA /* GCCalendarWeekView.swift in Sources */,
 				290BEDAB20E697EC00F30BAA /* InboxTableViewCell.swift in Sources */,
@@ -2081,57 +1820,40 @@
 				290BEDAD20E697EC00F30BAA /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */,
-				290BEDAF20E697EC00F30BAA /* PushySwizzler.swift in Sources */,
 				290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */,
 				290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */,
 				2932C2D8217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */,
-				29B030EB217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */,
-				290BEDB420E697EC00F30BAA /* PushyResponseException.swift in Sources */,
 				290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA2992120518700C1EAB2 /* UserContactsParser.swift in Sources */,
-				290BEDB620E697EC00F30BAA /* PushyHTTP.swift in Sources */,
 				2932C2CE217230FE00D2A299 /* ProfileViewController.swift in Sources */,
-				29B03117217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				290BEDB720E697EC00F30BAA /* Conversation+CoreDataClass.swift in Sources */,
 				290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
-				290BEDB920E697EC00F30BAA /* PushySettings.swift in Sources */,
-				29B030EF217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				290BEDBA20E697EC00F30BAA /* LoginViewController.swift in Sources */,
 				290BEDBB20E697EC00F30BAA /* Inbox.xcdatamodeld in Sources */,
 				290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */,
 				290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */,
 				290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */,
 				295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
-				290BEDBF20E697EC00F30BAA /* PushyEnvironment.swift in Sources */,
-				290BEDC020E697EC00F30BAA /* ChatTableViewCell.m in Sources */,
 				290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */,
 				290BEDC220E697EC00F30BAA /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				290BEDC320E697EC00F30BAA /* GCCalendarMonthView.swift in Sources */,
 				290BEDC420E697EC00F30BAA /* Popover.swift in Sources */,
-				9A1638CB2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				290BEDC520E697EC00F30BAA /* AppDelegate.swift in Sources */,
 				290BEDC620E697EC00F30BAA /* User+CoreDataClass.swift in Sources */,
 				290BEDC720E697EC00F30BAA /* ConversationListingViewController.swift in Sources */,
 				290BEDC820E697EC00F30BAA /* InboxTableViewDataSource.swift in Sources */,
-				290BEDC920E697EC00F30BAA /* PushyRegistrationException.swift in Sources */,
 				290BEDCA20E697EC00F30BAA /* ProcessingIndicatorHandler.swift in Sources */,
-				9A1638DE2129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
-				290BEDCB20E697EC00F30BAA /* PushyPubSubException.swift in Sources */,
 				290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */,
 				290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */,
-				29B030F7217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				290BEDCE20E697EC00F30BAA /* ProcessingIndicatorView.swift in Sources */,
 				290BEDCF20E697EC00F30BAA /* GCCalendarViewDelegate.swift in Sources */,
 				290BEDD020E697EC00F30BAA /* Message+CoreDataProperties.swift in Sources */,
-				290BEDD120E697EC00F30BAA /* PushyKeychain.swift in Sources */,
 				2932C2D3217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */,
 				290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */,
 				29E5E14421767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
-				9A1638DA2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
-				290BEDD420E697EC00F30BAA /* PushyConfig.swift in Sources */,
 				290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */,
 				290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */,
 				290BEDD720E697EC00F30BAA /* String+Emoji.swift in Sources */,
@@ -2139,11 +1861,8 @@
 				290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */,
 				295EA29421204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
-				29B030FB217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
-				9A1638D62129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820512141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
-				9A1638EE2129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
 				290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2157,19 +1876,14 @@
 				29FD0F2921160D0500062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0F2A21160D0500062362 /* CounterView.swift in Sources */,
 				29FD0F2B21160D0500062362 /* IQTitleBarButtonItem.swift in Sources */,
-				9A1638E32129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				29FD0F2C21160D0500062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				29FD0F2D21160D0500062362 /* ComposeMessageProtocol.swift in Sources */,
 				29FD0F2E21160D0500062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */,
-				9A1638E72129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0F3121160D0500062362 /* IQTextView.swift in Sources */,
-				29FD0F3221160D0500062362 /* ChatCellSettings.m in Sources */,
-				29B0311D217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				29FD0F3321160D0500062362 /* User+CoreDataProperties.swift in Sources */,
 				29FD0F3421160D0500062362 /* LoginParser.swift in Sources */,
-				29FD0F3521160D0500062362 /* Pushy.swift in Sources */,
 				29FD0F3621160D0500062362 /* ComposeMessageViewController.swift in Sources */,
 				29FD0F3721160D0500062362 /* ConversationDetailViewController.swift in Sources */,
 				29FD0F3821160D0500062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
@@ -2180,13 +1894,10 @@
 				29FD0F3D21160D0500062362 /* MessagesParser.swift in Sources */,
 				29FD0F3E21160D0500062362 /* GCCalendarView.swift in Sources */,
 				29FD0F3F21160D0500062362 /* GCCalendarConfiguration.swift in Sources */,
-				9A1638EB2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
-				29B030F4217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
-				29FD0F4221160D0500062362 /* PushyNetworkException.swift in Sources */,
 				29FD0F4321160D0500062362 /* HomeViewController.swift in Sources */,
 				29FD0F4421160D0500062362 /* GCCalendarWeekView.swift in Sources */,
 				29FD0F4521160D0500062362 /* InboxTableViewCell.swift in Sources */,
@@ -2194,57 +1905,40 @@
 				29FD0F4721160D0500062362 /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */,
-				29FD0F4921160D0500062362 /* PushySwizzler.swift in Sources */,
 				29FD0F4A21160D0500062362 /* Mappings.swift in Sources */,
 				29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */,
 				2932C2D9217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */,
-				29B030EC217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */,
-				29FD0F4E21160D0500062362 /* PushyResponseException.swift in Sources */,
 				29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA29A2120518700C1EAB2 /* UserContactsParser.swift in Sources */,
-				29FD0F5021160D0500062362 /* PushyHTTP.swift in Sources */,
 				2932C2CF217230FE00D2A299 /* ProfileViewController.swift in Sources */,
-				29B03118217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				29FD0F5121160D0500062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
-				29FD0F5321160D0500062362 /* PushySettings.swift in Sources */,
-				29B030F0217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				29FD0F5421160D0500062362 /* LoginViewController.swift in Sources */,
 				29FD0F5521160D0500062362 /* Inbox.xcdatamodeld in Sources */,
 				29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */,
 				29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */,
 				295EA29121204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
-				29FD0F5921160D0500062362 /* PushyEnvironment.swift in Sources */,
-				29FD0F5A21160D0500062362 /* ChatTableViewCell.m in Sources */,
 				29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */,
 				29FD0F5C21160D0500062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				29FD0F5D21160D0500062362 /* GCCalendarMonthView.swift in Sources */,
 				29FD0F5E21160D0500062362 /* Popover.swift in Sources */,
-				9A1638CC2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				29FD0F5F21160D0500062362 /* AppDelegate.swift in Sources */,
 				29FD0F6021160D0500062362 /* User+CoreDataClass.swift in Sources */,
 				29FD0F6121160D0500062362 /* ConversationListingViewController.swift in Sources */,
 				29FD0F6221160D0500062362 /* InboxTableViewDataSource.swift in Sources */,
-				29FD0F6321160D0500062362 /* PushyRegistrationException.swift in Sources */,
 				29FD0F6421160D0500062362 /* ProcessingIndicatorHandler.swift in Sources */,
-				9A1638DF2129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
-				29FD0F6521160D0500062362 /* PushyPubSubException.swift in Sources */,
 				29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */,
 				29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */,
-				29B030F8217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				29FD0F6821160D0500062362 /* ProcessingIndicatorView.swift in Sources */,
 				29FD0F6921160D0500062362 /* GCCalendarViewDelegate.swift in Sources */,
 				29FD0F6A21160D0500062362 /* Message+CoreDataProperties.swift in Sources */,
-				29FD0F6B21160D0500062362 /* PushyKeychain.swift in Sources */,
 				2932C2D4217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */,
 				29E5E14521767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
-				9A1638DB2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
-				29FD0F6E21160D0500062362 /* PushyConfig.swift in Sources */,
 				29FD0F6F21160D0500062362 /* SearchView.swift in Sources */,
 				29FD0F7021160D0500062362 /* Reachability.swift in Sources */,
 				29FD0F7121160D0500062362 /* String+Emoji.swift in Sources */,
@@ -2252,11 +1946,8 @@
 				29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */,
 				295EA29521204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
-				29B030FC217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
-				9A1638D72129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820522141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */,
-				9A1638EF2129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				29FD0F7621160D0500062362 /* Constants.swift in Sources */,
 				29FD0F7721160D0500062362 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2270,19 +1961,14 @@
 				29FD0F9E21160D1000062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0F9F21160D1000062362 /* CounterView.swift in Sources */,
 				29FD0FA021160D1000062362 /* IQTitleBarButtonItem.swift in Sources */,
-				9A1638E42129CE41009A865F /* MultiSelectionTableView.swift in Sources */,
 				29FD0FA121160D1000062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				29FD0FA221160D1000062362 /* ComposeMessageProtocol.swift in Sources */,
 				29FD0FA321160D1000062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */,
-				9A1638E82129CE41009A865F /* ContactsLibrary.swift in Sources */,
 				29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0FA621160D1000062362 /* IQTextView.swift in Sources */,
-				29FD0FA721160D1000062362 /* ChatCellSettings.m in Sources */,
-				29B0311E217E55FD001E63BA /* NoCopyPasteUITextField.swift in Sources */,
 				29FD0FA821160D1000062362 /* User+CoreDataProperties.swift in Sources */,
 				29FD0FA921160D1000062362 /* LoginParser.swift in Sources */,
-				29FD0FAA21160D1000062362 /* Pushy.swift in Sources */,
 				29FD0FAB21160D1000062362 /* ComposeMessageViewController.swift in Sources */,
 				29FD0FAC21160D1000062362 /* ConversationDetailViewController.swift in Sources */,
 				29FD0FAD21160D1000062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
@@ -2293,13 +1979,10 @@
 				29FD0FB221160D1000062362 /* MessagesParser.swift in Sources */,
 				29FD0FB321160D1000062362 /* GCCalendarView.swift in Sources */,
 				29FD0FB421160D1000062362 /* GCCalendarConfiguration.swift in Sources */,
-				9A1638EC2129CE41009A865F /* CustomCollectionCell.swift in Sources */,
 				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
-				29B030F5217E2CD2001E63BA /* RegexParser.swift in Sources */,
 				29C820472141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				29E5E14221767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
-				29FD0FB721160D1000062362 /* PushyNetworkException.swift in Sources */,
 				29FD0FB821160D1000062362 /* HomeViewController.swift in Sources */,
 				29FD0FB921160D1000062362 /* GCCalendarWeekView.swift in Sources */,
 				29FD0FBA21160D1000062362 /* InboxTableViewCell.swift in Sources */,
@@ -2307,57 +1990,40 @@
 				29FD0FBC21160D1000062362 /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259721A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */,
-				29FD0FBE21160D1000062362 /* PushySwizzler.swift in Sources */,
 				29FD0FBF21160D1000062362 /* Mappings.swift in Sources */,
 				29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */,
 				2932C2DA217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				29FD0FC121160D1000062362 /* Deprecated.swift in Sources */,
-				29B030ED217E2CD2001E63BA /* ActiveType.swift in Sources */,
 				29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */,
-				29FD0FC321160D1000062362 /* PushyResponseException.swift in Sources */,
 				29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */,
 				295EA29B2120518700C1EAB2 /* UserContactsParser.swift in Sources */,
-				29FD0FC521160D1000062362 /* PushyHTTP.swift in Sources */,
 				2932C2D0217230FE00D2A299 /* ProfileViewController.swift in Sources */,
-				29B03119217E37E6001E63BA /* TTTAttributedLabel.m in Sources */,
 				29FD0FC621160D1000062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
-				29FD0FC821160D1000062362 /* PushySettings.swift in Sources */,
-				29B030F1217E2CD2001E63BA /* ActiveBuilder.swift in Sources */,
 				29FD0FC921160D1000062362 /* LoginViewController.swift in Sources */,
 				29FD0FCA21160D1000062362 /* Inbox.xcdatamodeld in Sources */,
 				29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */,
 				29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */,
 				295EA29221204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
-				29FD0FCE21160D1000062362 /* PushyEnvironment.swift in Sources */,
-				29FD0FCF21160D1000062362 /* ChatTableViewCell.m in Sources */,
 				29FD0FD021160D1000062362 /* Checkbox.swift in Sources */,
 				29FD0FD121160D1000062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				29FD0FD221160D1000062362 /* GCCalendarMonthView.swift in Sources */,
 				29FD0FD321160D1000062362 /* Popover.swift in Sources */,
-				9A1638CD2129C9FF009A865F /* AppContactsPickerViewController.swift in Sources */,
 				29FD0FD421160D1000062362 /* AppDelegate.swift in Sources */,
 				29FD0FD521160D1000062362 /* User+CoreDataClass.swift in Sources */,
 				29FD0FD621160D1000062362 /* ConversationListingViewController.swift in Sources */,
 				29FD0FD721160D1000062362 /* InboxTableViewDataSource.swift in Sources */,
-				29FD0FD821160D1000062362 /* PushyRegistrationException.swift in Sources */,
 				29FD0FD921160D1000062362 /* ProcessingIndicatorHandler.swift in Sources */,
-				9A1638E02129CE41009A865F /* SwiftMultiSelect.swift in Sources */,
-				29FD0FDA21160D1000062362 /* PushyPubSubException.swift in Sources */,
 				29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */,
 				29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */,
-				29B030F9217E2CD2001E63BA /* StringTrimExtension.swift in Sources */,
 				29FD0FDD21160D1000062362 /* ProcessingIndicatorView.swift in Sources */,
 				29FD0FDE21160D1000062362 /* GCCalendarViewDelegate.swift in Sources */,
 				29FD0FDF21160D1000062362 /* Message+CoreDataProperties.swift in Sources */,
-				29FD0FE021160D1000062362 /* PushyKeychain.swift in Sources */,
 				2932C2D5217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */,
 				29E5E14621767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
-				9A1638DC2129CE41009A865F /* MultiSelectionCollectionView.swift in Sources */,
-				29FD0FE321160D1000062362 /* PushyConfig.swift in Sources */,
 				29FD0FE421160D1000062362 /* SearchView.swift in Sources */,
 				29FD0FE521160D1000062362 /* Reachability.swift in Sources */,
 				29FD0FE621160D1000062362 /* String+Emoji.swift in Sources */,
@@ -2365,11 +2031,8 @@
 				29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */,
 				295EA29621204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,
-				29B030FD217E2CD2001E63BA /* ActiveLabel.swift in Sources */,
-				9A1638D82129CE41009A865F /* CustomTableCell.swift in Sources */,
 				29C820532141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */,
-				9A1638F02129CE41009A865F /* MultiSelectionViewController.swift in Sources */,
 				29FD0FEB21160D1000062362 /* Constants.swift in Sources */,
 				29FD0FEC21160D1000062362 /* SearchViewProtocol.swift in Sources */,
 			);

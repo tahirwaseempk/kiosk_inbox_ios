@@ -45,7 +45,10 @@ class HomeViewController: UIViewController
             header_View.backgroundColor = AppThemeColor
             searchBar.backgroundColor = AppThemeColor
             
-            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+//            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.tintColor = AppThemeColor
+            compose_Button.layer.borderColor = AppThemeColor.cgColor
             
             profileButton.backgroundColor = AppThemeColor
             signOutButton.backgroundColor = AppThemeColor
@@ -55,7 +58,10 @@ class HomeViewController: UIViewController
             header_View.backgroundColor = AppThemeColor
             searchBar.backgroundColor = AppThemeColor
             
-            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+//            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.tintColor = AppThemeColor
+            compose_Button.layer.borderColor = AppThemeColor.cgColor
             
             profileButton.backgroundColor = AppThemeColor
             signOutButton.backgroundColor = AppThemeColor
@@ -65,10 +71,15 @@ class HomeViewController: UIViewController
             header_View.backgroundColor = AppThemeColor
             searchBar.backgroundColor = AppThemeColor
             
-            compose_Button.setImage(UIImage(named: "compose_green"), for: UIControlState.normal)
+            //compose_Button.setImage(UIImage(named: "compose_green"), for: UIControlState.normal)
             //            compose_Button.setImage(UIImage(named: "compose_purple")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
             //            compose_Button.tintColor = UIColor.white
             //            compose_Button.backgroundColor = FanAppColor
+            
+            
+            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.tintColor = AppThemeColor
+            compose_Button.layer.borderColor = AppThemeColor.cgColor
             
             profileButton.backgroundColor = AppThemeColor
             signOutButton.backgroundColor = AppThemeColor
@@ -78,7 +89,15 @@ class HomeViewController: UIViewController
             header_View.backgroundColor = AppThemeColor
             searchBar.backgroundColor = AppThemeColor
             
-            compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
+//            compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
+            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.tintColor = AppThemeColor
+            compose_Button.layer.borderColor = AppThemeColor.cgColor
+            
+//            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+//            compose_Button.tintColor = AppThemeColor
+//            compose_Button.layer.borderColor = AppThemeColor.cgColor
+            
             
             profileButton.backgroundColor = AppThemeColor
             signOutButton.backgroundColor = AppThemeColor
@@ -145,8 +164,9 @@ class HomeViewController: UIViewController
     @objc func pushNotificationRecieved()
     {
         updateBadgeCount()
-        self.conversationListingViewController.callLastConversationsUpdate()
-        
+        //self.conversationListingViewController.callLastConversationsUpdate()
+        self.conversationListingViewController.initiateMessageCall()
+
         //aima
         
     }
@@ -258,7 +278,9 @@ class HomeViewController: UIViewController
     
     @IBAction func refreshButton_Tapped(_ sender: Any)
     {
-        self.conversationListingViewController.callLastConversationsUpdate()
+        //self.conversationListingViewController.callLastConversationsUpdate()
+        
+        self.conversationListingViewController.initiateMessageCall()
     }
     
     @IBAction func searchButton_Tapped(_ sender: Any)

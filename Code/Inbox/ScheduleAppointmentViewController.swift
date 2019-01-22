@@ -156,7 +156,7 @@ class ScheduleAppointmentViewController: UIViewController
         }
         //--------------------------------------------------------------------------------//
         let utcFormatter = DateFormatter()
-        utcFormatter.dateFormat = UTC_DATE_TIME_TZ
+        utcFormatter.dateFormat = UTC_DATE_TIME_APPOINTMENT
         utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
         let utcTimeZoneStr = utcFormatter.string(from: selectedFullDate)
         //utcTimeZoneStr = convertUTCToJsonString(tsString: utcTimeZoneStr)

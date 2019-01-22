@@ -63,7 +63,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
         
-        self.callLastConversationsUpdate()
+        //self.callLastConversationsUpdate()
+        self.initiateMessageCall()
+
         refreshControl.endRefreshing()
     }
     func setupControls()
@@ -82,7 +84,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     @IBAction func refresh_Tapped(_ sender: Any)
     {
-        self.callLastConversationsUpdate()
+       // self.callLastConversationsUpdate()
+        self.initiateMessageCall()
+
     }
     
     @IBAction func markAllRead_Tapped(_ sender: Any)
@@ -242,17 +246,20 @@ extension ConversationListingViewController
 {
     func initiateMessageCall()
     {
-        let dispatchTime = DispatchTime.now() + .seconds(30)
-        
-        DispatchQueue.main.asyncAfter(deadline: dispatchTime)
-        {
-            self.getConversationUpdate()
-        }
+//        if (self.isViewLoaded && (self.view!.window != nil))
+//        {
+            let dispatchTime = DispatchTime.now() + .seconds(30)
+            
+            DispatchQueue.main.asyncAfter(deadline: dispatchTime)
+            {
+                self.getConversationUpdate()
+            }
+//        }
     }
     
     func getConversationUpdate()
     {
-        ProcessingIndicator.show()
+       // ProcessingIndicator.show()
         
         User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
             
@@ -264,7 +271,10 @@ extension ConversationListingViewController
                             updateBadgeCount()
                             self.conversationListUpdated()
                             ProcessingIndicator.hide()
-                            self.initiateMessageCall()
+                            if (self.isViewLoaded && (self.view!.window != nil))
+                            {
+                                self.initiateMessageCall()
+                            }
                     }
             }
             
@@ -275,7 +285,10 @@ extension ConversationListingViewController
                     DispatchQueue.main.async
                         {
                             ProcessingIndicator.hide()
-                           self.initiateMessageCall()
+                            if (self.isViewLoaded && (self.view!.window != nil))
+                            {
+                                self.initiateMessageCall()
+                            }
                     }
             }
         }

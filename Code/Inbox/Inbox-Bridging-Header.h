@@ -3,7 +3,5 @@
 //
 
 #import "Reachability.h"
-#import "ChatTableViewCell.h"
-#import "ChatCellSettings.h"
 #include <ifaddrs.h>
 
