@@ -75,6 +75,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let filePath = Bundle.main.path(forResource: "GoogleService-Info_Photo", ofType: "plist")!
             let options = FirebaseOptions(contentsOfFile: filePath)
             FirebaseApp.configure(options: options!)
+        case .text_Attendant:
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Text_Attendant $$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+            let filePath = Bundle.main.path(forResource: "GoogleService-Info-com.inbox.textattendant", ofType: "plist")!
+            let options = FirebaseOptions(contentsOfFile: filePath)
+            FirebaseApp.configure(options: options!)
         }
         application.registerForRemoteNotifications()
         

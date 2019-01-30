@@ -40,6 +40,22 @@ class HomeViewController: UIViewController
     {
         super.viewDidLoad()
         
+        /////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////
+        header_View.backgroundColor = AppThemeColor
+        searchBar.backgroundColor = AppThemeColor
+        
+        compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        compose_Button.tintColor = AppThemeColor
+        compose_Button.layer.borderColor = AppThemeColor.cgColor
+        
+        profileButton.backgroundColor = AppThemeColor
+        signOutButton.backgroundColor = AppThemeColor
+        closeInnerButton.backgroundColor = AppThemeColor
+        /////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////
+        
+        /*
         switch environment {
         case .texting_Line:
             header_View.backgroundColor = AppThemeColor
@@ -103,7 +119,8 @@ class HomeViewController: UIViewController
             signOutButton.backgroundColor = AppThemeColor
             closeInnerButton.backgroundColor = AppThemeColor
         }
-        
+ 
+ */
         self.setupControls()
         
         

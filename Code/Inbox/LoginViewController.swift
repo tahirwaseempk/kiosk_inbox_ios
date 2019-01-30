@@ -44,6 +44,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate
 //                   serialTextField.text = "8443712030"
         //           serialTextField.text = "8006999130"
 //                   udidTextField.text = "lime123"
+        
+        //Text Attendent
+//        serialTextField.text = "8558687830"
+//        udidTextField.text = "wwbtgf"
+        
     }
     
     override func viewDidLoad()
@@ -79,6 +84,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
             serialLabel.textColor = PhotoAppColor
             udidLabel.textColor = PhotoAppColor
+        case .text_Attendant:
+            loginImageView.image = UIImage(named: "Login_Page_Logo")
+            self.view.backgroundColor = UIColor.white
+            loginButton.backgroundColor = TextAttendantColor
+            loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+            serialLabel.textColor = TextAttendantColor
+            udidLabel.textColor = TextAttendantColor
         }
         
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)

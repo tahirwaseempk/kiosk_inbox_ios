@@ -73,19 +73,21 @@ class ChatTableViewCell: UITableViewCell {
             self.trailingContraintEqual.isActive = true
             self.leadingContraintEqual.isActive = false
             
-            switch environment {
-            case .texting_Line:
-                self.bubbleImageView.tintColor = AppThemeColor
-                
-            case .sms_Factory:
-                self.bubbleImageView.tintColor = AppThemeColor
-                
-            case .fan_Connect:
-                self.bubbleImageView.tintColor = AppThemeColor
+            self.bubbleImageView.tintColor = AppThemeColor
 
-            case .photo_Texting:
-                self.bubbleImageView.tintColor = AppThemeColor
-            }
+            //            switch environment {
+            //            case .texting_Line:
+            //                self.bubbleImageView.tintColor = AppThemeColor
+            //
+            //            case .sms_Factory:
+            //                self.bubbleImageView.tintColor = AppThemeColor
+            //
+            //            case .fan_Connect:
+            //                self.bubbleImageView.tintColor = AppThemeColor
+            //
+            //            case .photo_Texting:
+            //                self.bubbleImageView.tintColor = AppThemeColor
+            //            }
             
             self.messageLabel.textAlignment = .left
             

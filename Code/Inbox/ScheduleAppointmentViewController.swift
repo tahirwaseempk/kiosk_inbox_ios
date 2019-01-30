@@ -63,6 +63,9 @@ class ScheduleAppointmentViewController: UIViewController
         
         self.calendarLogoButton.layer.borderColor = UIColor.lightGray.cgColor
         
+        scheduleAppointmentButton.backgroundColor = AppThemeColor
+        scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        /*
         switch environment {
         case .texting_Line:
             scheduleAppointmentButton.backgroundColor = AppThemeColor
@@ -77,6 +80,7 @@ class ScheduleAppointmentViewController: UIViewController
             scheduleAppointmentButton.backgroundColor = AppThemeColor
             scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         }
+         */
         
         self.addCheckboxSubviews()
     }

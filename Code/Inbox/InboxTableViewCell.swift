@@ -22,6 +22,11 @@ class InboxTableViewCell: UITableViewCell
     {
         super.awakeFromNib()
         
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = AppThemeColor
+        self.selectedBackgroundView = bgColorView
+
+        /*
         switch environment {
         case .texting_Line:
             let bgColorView = UIView()
@@ -41,6 +46,7 @@ class InboxTableViewCell: UITableViewCell
             self.selectedBackgroundView = bgColorView
             
         }
+ */
         
         //        bgColorView.layer.cornerRadius = 15;
 
@@ -58,6 +64,9 @@ class InboxTableViewCell: UITableViewCell
     {
         super.setSelected(selected, animated: animated)
        
+        self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
+
+        /*
         switch environment {
         case .texting_Line:
             self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
@@ -68,6 +77,7 @@ class InboxTableViewCell: UITableViewCell
         case .photo_Texting:
             self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
         }
+ */
         
     }
 }

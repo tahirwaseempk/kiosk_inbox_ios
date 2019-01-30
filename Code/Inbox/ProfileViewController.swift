@@ -75,16 +75,19 @@ class ProfileViewController: UIViewController {
         self.stateTextField.isEnabled    = false
         self.countryTextField.isEnabled  = false
         
-        switch environment {
-        case .texting_Line:
-            self.view.backgroundColor = AppThemeColor
-        case .sms_Factory:
-            self.view.backgroundColor = AppThemeColor
-        case .fan_Connect:
-            self.view.backgroundColor = AppThemeColor
-        case .photo_Texting:
-            self.view.backgroundColor = AppThemeColor
-        }
+        self.view.backgroundColor = AppThemeColor
+        /*
+                switch environment {
+                case .texting_Line:
+                    self.view.backgroundColor = AppThemeColor
+                case .sms_Factory:
+                    self.view.backgroundColor = AppThemeColor
+                case .fan_Connect:
+                    self.view.backgroundColor = AppThemeColor
+                case .photo_Texting:
+                    self.view.backgroundColor = AppThemeColor
+                }
+         */
         
     }
 

@@ -117,6 +117,8 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + LOGIN
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + LOGIN
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + LOGIN
         }
         
         print("\n ===== >>>>> login URL = \(finalUrl) \n")
@@ -172,6 +174,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + PUT_TOKEN_URL
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + PUT_TOKEN_URL
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + PUT_TOKEN_URL
+
         }
         
         print("\n ===== >>>>> Register APNS URL  = \(finalUrl) \n")
@@ -221,6 +226,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
+
         }
         
         print("\n ===== >>>>> Delete APNS URL = \(finalUrl) \n")
@@ -260,6 +268,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + GET_CONVERSATIONS + GET_CONVERSATIONS_LIMIT + LIMIT + GET_CONVERSATIONS_EMOJI + EMOJI
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + GET_CONVERSATIONS + GET_CONVERSATIONS_LIMIT + LIMIT + GET_CONVERSATIONS_EMOJI + EMOJI
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + GET_CONVERSATIONS + GET_CONVERSATIONS_LIMIT + LIMIT + GET_CONVERSATIONS_EMOJI + EMOJI
+
         }
         
         print("\n ===== >>>>> Conversations URL = \(finalUrl) \n")
@@ -350,6 +361,9 @@ class WebManager: NSObject
             finalUrl =  URL_FANCONNECT + DELETE_CONVERSATION + chatId
         case .photo_Texting:
             finalUrl =  URL_PHOTO_TEXTING + DELETE_CONVERSATION + chatId
+        case .text_Attendant:
+            finalUrl =  URL_PHOTO_TEXTING + DELETE_CONVERSATION + chatId
+
         }
         
         print("\n ===== >>>>> Delete Conversation URL = \(finalUrl) \n")
@@ -388,6 +402,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + READ_MESSAGES + chatId
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + READ_MESSAGES + chatId
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + READ_MESSAGES + chatId
+
         }
         
         print("\n ===== >>>>> Read Receipt URL = \(finalUrl) \n")
@@ -427,6 +444,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + GET_MESSAGES + chatID
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + GET_MESSAGES + chatID
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + GET_MESSAGES + chatID
+
         }
         
         print("\n ===== >>>>> Get Message URL = \(finalUrl) \n")
@@ -482,6 +502,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + SEND_MESSAGE
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + SEND_MESSAGE
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + SEND_MESSAGE
+
         }
         
         print("\n ===== >>>>> Send Message URL = \(finalUrl) \n")
@@ -531,6 +554,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + COMPOSE_MESSAGE
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + COMPOSE_MESSAGE
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + COMPOSE_MESSAGE
+
         }
         
         print("\n ===== >>>>> Compose Message URL = \(finalUrl) \n")
@@ -575,6 +601,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + CREATE_APPOINTMENT
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + CREATE_APPOINTMENT
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + CREATE_APPOINTMENT
+
         }
         
         print("\n ===== >>>>> Create Appoinment URL = \(finalUrl) \n")
@@ -612,6 +641,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + GET_CONTACTS + CONTACTSWITHCHAT
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + GET_CONTACTS + CONTACTSWITHCHAT
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + GET_CONTACTS + CONTACTSWITHCHAT
+
         }
         
         print("\n ===== >>>>> Get Contacts URL = \(finalUrl) \n")
@@ -689,6 +721,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + PUT_USER
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + PUT_USER
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + PUT_USER
+
         }
         
         print("\n ===== >>>>> Put User URL = \(finalUrl) \n")
@@ -730,6 +765,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + FORGET_PASSWORD
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + FORGET_PASSWORD
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + FORGET_PASSWORD
+
         }
         
         print("\n ===== >>>>> Forget Password URL = \(finalUrl) \n")
@@ -771,6 +809,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + BYPASS_MESSAGE
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + BYPASS_MESSAGE
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + BYPASS_MESSAGE
+
         }
         
         print("\n ===== >>>>> By Pass Message URL = \(finalUrl) \n")
@@ -814,6 +855,9 @@ class WebManager: NSObject
             finalUrl = URL_FANCONNECT + THEME_COLOR + whiteLabelId
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + THEME_COLOR + whiteLabelId
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + THEME_COLOR + whiteLabelId
+
         }
         
         print("\n ===== >>>>> Get Theme URL = \(finalUrl) \n")

@@ -139,8 +139,8 @@
 		290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		290BEDFE20E6999200F30BAA /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
+		29240B172201604500673485 /* GoogleService-Info-com.inbox.textattendant.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29240B162201604500673485 /* GoogleService-Info-com.inbox.textattendant.plist */; };
 		292CCE5021C462F600996BF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 292CCE4F21C462F600996BF5 /* GoogleService-Info.plist */; };
-		2932C2BF2171F25C00D2A299 /* TextingLine Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B2215301B000C7C084 /* TextingLine Info.plist */; };
 		2932C2CD217230FE00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2CC217230FE00D2A299 /* ProfileViewController.swift */; };
 		2932C2CE217230FE00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2CC217230FE00D2A299 /* ProfileViewController.swift */; };
 		2932C2CF217230FE00D2A299 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2CC217230FE00D2A299 /* ProfileViewController.swift */; };
@@ -176,6 +176,117 @@
 		29955C6C213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6D213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
 		29955C6E213A8A1D000B733F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
+		299DC93E21FB9906001F2861 /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
+		299DC93F21FB9906001F2861 /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42D1F27E24900FCC976 /* IQKeyboardManagerConstants.swift */; };
+		299DC94021FB9906001F2861 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F3D20601992009C4625 /* CounterView.swift */; };
+		299DC94121FB9906001F2861 /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4331F27E24900FCC976 /* IQTitleBarButtonItem.swift */; };
+		299DC94221FB9906001F2861 /* InboxTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665D1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift */; };
+		299DC94321FB9906001F2861 /* ComposeMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5BD01FC605E0007889E7 /* ComposeMessageProtocol.swift */; };
+		299DC94421FB9906001F2861 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42F1F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift */; };
+		299DC94521FB9906001F2861 /* GCCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */; };
+		299DC94621FB9906001F2861 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4391F27E24900FCC976 /* IQUIViewController+Additions.swift */; };
+		299DC94721FB9906001F2861 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4321F27E24900FCC976 /* IQTextView.swift */; };
+		299DC94821FB9906001F2861 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB21FC371D300F3C42A /* User+CoreDataProperties.swift */; };
+		299DC94921FB9906001F2861 /* LoginParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F2B1F3B41FE004EEDF1 /* LoginParser.swift */; };
+		299DC94A21FB9906001F2861 /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
+		299DC94B21FB9906001F2861 /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A571FC32F1D001EC4D5 /* ConversationDetailViewController.swift */; };
+		299DC94C21FB9906001F2861 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4381F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift */; };
+		299DC94D21FB9906001F2861 /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42C1F27E24900FCC976 /* IQKeyboardManager.swift */; };
+		299DC94E21FB9906001F2861 /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4371F27E24900FCC976 /* IQUIView+Hierarchy.swift */; };
+		299DC94F21FB9906001F2861 /* NSString+HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35A204077F400832092 /* NSString+HTMLString.swift */; };
+		299DC95021FB9906001F2861 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
+		299DC95121FB9906001F2861 /* MessagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C665A1EFA897800A3F74A /* MessagesParser.swift */; };
+		299DC95221FB9906001F2861 /* GCCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475202062CA6100FA0FFB /* GCCalendarView.swift */; };
+		299DC95321FB9906001F2861 /* GCCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475222062CA6100FA0FFB /* GCCalendarConfiguration.swift */; };
+		299DC95421FB9906001F2861 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE43A1F27E24900FCC976 /* IQUIWindow+Hierarchy.swift */; };
+		299DC95521FB9906001F2861 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3E5BA2018D7BA00A5A35F /* UnderlinedTextField.swift */; };
+		299DC95621FB9906001F2861 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
+		299DC95721FB9906001F2861 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
+		299DC95821FB9906001F2861 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5A1FC32FD1001EC4D5 /* HomeViewController.swift */; };
+		299DC95921FB9906001F2861 /* GCCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475242062CA6100FA0FFB /* GCCalendarWeekView.swift */; };
+		299DC95A21FB9906001F2861 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAC1EF99E9F006C2CAC /* InboxTableViewCell.swift */; };
+		299DC95B21FB9906001F2861 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
+		299DC95C21FB9906001F2861 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4361F27E24900FCC976 /* IQUITextFieldView+Additions.swift */; };
+		299DC95D21FB9906001F2861 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
+		299DC95E21FB9906001F2861 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4241F27E24900FCC976 /* IQBarButtonItem.swift */; };
+		299DC95F21FB9906001F2861 /* Mappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD358204077F300832092 /* Mappings.swift */; };
+		299DC96021FB9906001F2861 /* MessageTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB71EF9A5AE006C2CAC /* MessageTableViewDataSource.swift */; };
+		299DC96121FB9906001F2861 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */; };
+		299DC96221FB9906001F2861 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD359204077F300832092 /* Deprecated.swift */; };
+		299DC96321FB9906001F2861 /* CodePointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CD203941670087CB9D /* CodePointSet.swift */; };
+		299DC96421FB9906001F2861 /* ProcessingIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F91F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift */; };
+		299DC96521FB9906001F2861 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
+		299DC96621FB9906001F2861 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2CC217230FE00D2A299 /* ProfileViewController.swift */; };
+		299DC96721FB9906001F2861 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */; };
+		299DC96821FB9906001F2861 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42E1F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift */; };
+		299DC96921FB9906001F2861 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9D1EF98F8E006C2CAC /* LoginViewController.swift */; };
+		299DC96A21FB9906001F2861 /* Inbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */; };
+		299DC96B21FB9906001F2861 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */; };
+		299DC96C21FB9906001F2861 /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4311F27E24900FCC976 /* IQPreviousNextView.swift */; };
+		299DC96D21FB9906001F2861 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
+		299DC96E21FB9906001F2861 /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */; };
+		299DC96F21FB9906001F2861 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB71FC3724700F3C42A /* Checkbox.swift */; };
+		299DC97021FB9906001F2861 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
+		299DC97121FB9906001F2861 /* GCCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475232062CA6100FA0FFB /* GCCalendarMonthView.swift */; };
+		299DC97221FB9906001F2861 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F4220603C48009C4625 /* Popover.swift */; };
+		299DC97321FB9906001F2861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F7D1EF98E48006C2CAC /* AppDelegate.swift */; };
+		299DC97421FB9906001F2861 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
+		299DC97521FB9906001F2861 /* ConversationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4A541FC32EED001EC4D5 /* ConversationListingViewController.swift */; };
+		299DC97621FB9906001F2861 /* InboxTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FB91EF9A821006C2CAC /* InboxTableViewDataSource.swift */; };
+		299DC97721FB9906001F2861 /* ProcessingIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FA1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift */; };
+		299DC97821FB9906001F2861 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4341F27E24900FCC976 /* IQToolbar.swift */; };
+		299DC97921FB9906001F2861 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */; };
+		299DC97A21FB9906001F2861 /* ProcessingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085F81F1671AF00CDB81F /* ProcessingIndicatorView.swift */; };
+		299DC97B21FB9906001F2861 /* GCCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */; };
+		299DC97C21FB9906001F2861 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
+		299DC97D21FB9906001F2861 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D1217235EF00D2A299 /* ForgetPasswordViewController.swift */; };
+		299DC97E21FB9906001F2861 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4301F27E24900FCC976 /* IQNSArray+Sort.swift */; };
+		299DC97F21FB9906001F2861 /* ScheduleAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE37F39206017BB009C4625 /* ScheduleAppointmentViewController.swift */; };
+		299DC98021FB9906001F2861 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13E21767A5E00BF642C /* FloatLabelTextField.swift */; };
+		299DC98121FB9906001F2861 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
+		299DC98221FB9906001F2861 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E35F0F1F05853500B96018 /* Reachability.swift */; };
+		299DC98321FB9906001F2861 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756615CE203941670087CB9D /* String+Emoji.swift */; };
+		299DC98421FB9906001F2861 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD35B204077F400832092 /* HTMLString.swift */; };
+		299DC98521FB9906001F2861 /* JsonPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FC11EF9AD63006C2CAC /* JsonPrinting.swift */; };
+		299DC98621FB9906001F2861 /* UserContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */; };
+		299DC98721FB9906001F2861 /* ConversationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */; };
+		299DC98821FB9906001F2861 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
+		299DC98921FB9906001F2861 /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4351F27E24900FCC976 /* IQUIScrollView+Additions.swift */; };
+		299DC98A21FB9906001F2861 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085FE1F16743000CDB81F /* Constants.swift */; };
+		299DC98B21FB9906001F2861 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
+		299DC98D21FB9906001F2861 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684151F03F59F00D24264 /* UIKit.framework */; };
+		299DC98E21FB9906001F2861 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C66213A8A1D000B733F /* Crashlytics.framework */; };
+		299DC98F21FB9906001F2861 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
+		299DC99021FB9906001F2861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
+		299DC99121FB9906001F2861 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C65213A8A1C000B733F /* Fabric.framework */; };
+		299DC99221FB9906001F2861 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
+		299DC99421FB9906001F2861 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
+		299DC99521FB9906001F2861 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
+		299DC99621FB9906001F2861 /* TextingLine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */; };
+		299DC99721FB9906001F2861 /* SmsFactory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */; };
+		299DC99821FB9906001F2861 /* IQButtonBarArrowUp@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42B1F27E24900FCC976 /* IQButtonBarArrowUp@3x.png */; };
+		299DC99921FB9906001F2861 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
+		299DC99A21FB9906001F2861 /* PhotoTexting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F232114C30600062362 /* PhotoTexting.xcassets */; };
+		299DC99B21FB9906001F2861 /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
+		299DC99C21FB9906001F2861 /* FanConnectNow copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */; };
+		299DC99D21FB9906001F2861 /* IQButtonBarArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4251F27E24900FCC976 /* IQButtonBarArrowDown@2x.png */; };
+		299DC99E21FB9906001F2861 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */; };
+		299DC99F21FB9906001F2861 /* GoogleService-Info_Fan.plist in Resources */ = {isa = PBXBuildFile; fileRef = 294DD87621C4698D004536D8 /* GoogleService-Info_Fan.plist */; };
+		299DC9A021FB9906001F2861 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */; };
+		299DC9A121FB9906001F2861 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F9F1EF98F9E006C2CAC /* Login.storyboard */; };
+		299DC9A221FB9906001F2861 /* Fanconnect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F202114C2A400062362 /* Fanconnect.xcassets */; };
+		299DC9A321FB9906001F2861 /* IQButtonBarArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4281F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png */; };
+		299DC9A421FB9906001F2861 /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
+		299DC9A521FB9906001F2861 /* IQButtonBarArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4291F27E24900FCC976 /* IQButtonBarArrowRight@3x.png */; };
+		299DC9A621FB9906001F2861 /* IQButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4271F27E24900FCC976 /* IQButtonBarArrowLeft@2x.png */; };
+		299DC9A721FB9906001F2861 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
+		299DC9A821FB9906001F2861 /* CounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F40206019C0009C4625 /* CounterView.xib */; };
+		299DC9A921FB9906001F2861 /* IQButtonBarArrowDown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE4261F27E24900FCC976 /* IQButtonBarArrowDown@3x.png */; };
+		299DC9AA21FB9906001F2861 /* IQButtonBarArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752CE42A1F27E24900FCC976 /* IQButtonBarArrowUp@2x.png */; };
+		299DC9AB21FB9906001F2861 /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
+		299DC9AC21FB9906001F2861 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
+		299DC9AD21FB9906001F2861 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
+		299DC9B721FB9A3E001F2861 /* TextAttendant.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299DC9B621FB9A3E001F2861 /* TextAttendant.xcassets */; };
 		29C5259421A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
@@ -456,6 +567,16 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		299DC9AE21FB9906001F2861 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		29FD0F9521160D0500062362 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,6 +656,7 @@
 		29017325211666B600D00E06 /* SMSFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMSFactory.entitlements; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
+		29240B162201604500673485 /* GoogleService-Info-com.inbox.textattendant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-com.inbox.textattendant.plist"; sourceTree = "<group>"; };
 		292CCE4F21C462F600996BF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2932C2CC217230FE00D2A299 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2932C2D1217235EF00D2A299 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -552,8 +674,12 @@
 		295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataProperties.swift"; path = "../UserContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		295EA2972120518700C1EAB2 /* UserContactsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactsParser.swift; sourceTree = "<group>"; };
 		2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnect.entitlements; sourceTree = "<group>"; };
+		2981430E2200E230007D4495 /* Text_Attendant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Text_Attendant.entitlements; sourceTree = "<group>"; };
 		29955C65213A8A1C000B733F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		29955C66213A8A1D000B733F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		299DC9B421FB9906001F2861 /* Text_Attendant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Text_Attendant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		299DC9B521FB9906001F2861 /* TextAttendant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TextAttendant-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/TextAttendant-Info.plist"; sourceTree = "<absolute>"; };
+		299DC9B621FB9A3E001F2861 /* TextAttendant.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TextAttendant.xcassets; sourceTree = "<group>"; };
 		29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
@@ -655,6 +781,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		299DC98C21FB9906001F2861 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				299DC98D21FB9906001F2861 /* UIKit.framework in Frameworks */,
+				299DC98E21FB9906001F2861 /* Crashlytics.framework in Frameworks */,
+				299DC98F21FB9906001F2861 /* CoreGraphics.framework in Frameworks */,
+				299DC99021FB9906001F2861 /* Foundation.framework in Frameworks */,
+				299DC99121FB9906001F2861 /* Fabric.framework in Frameworks */,
+				299DC99221FB9906001F2861 /* Pods_FanConnectNow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		29FD0F7821160D0500062362 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -742,6 +881,7 @@
 		1ADE9F711EF98E46006C2CAC = {
 			isa = PBXGroup;
 			children = (
+				2981430E2200E230007D4495 /* Text_Attendant.entitlements */,
 				2934F3922191776F003ACE4E /* PhotoTextingLine.entitlements */,
 				29472EFC2137190500DC2747 /* TextingLine.entitlements */,
 				2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */,
@@ -761,6 +901,7 @@
 				290BEDFB20E697EC00F30BAA /* SMSFactory.app */,
 				29FD0F9921160D0500062362 /* FanConnectNow.app */,
 				29FD100E21160D1000062362 /* PhotoTextingLine.app */,
+				299DC9B421FB9906001F2861 /* Text_Attendant.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -794,6 +935,7 @@
 			children = (
 				04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */,
 				1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */,
+				299DC9B621FB9A3E001F2861 /* TextAttendant.xcassets */,
 				29FD0F1D2114BADF00062362 /* GenericImages.xcassets */,
 				290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */,
 				29FD0F202114C2A400062362 /* Fanconnect.xcassets */,
@@ -805,6 +947,7 @@
 		1ADE9F941EF98E69006C2CAC /* P-List */ = {
 			isa = PBXGroup;
 			children = (
+				29240B162201604500673485 /* GoogleService-Info-com.inbox.textattendant.plist */,
 				294DD87421C4697E004536D8 /* GoogleService-Info_Photo.plist */,
 				294DD87621C4698D004536D8 /* GoogleService-Info_Fan.plist */,
 				292CCE4F21C462F600996BF5 /* GoogleService-Info.plist */,
@@ -812,6 +955,7 @@
 				2952C1B4215301BA00C7C084 /* SMSFactory copy-Info.plist */,
 				2952C1B6215301C600C7C084 /* FanConnectNow copy-Info.plist */,
 				2952C1B2215301B000C7C084 /* TextingLine Info.plist */,
+				299DC9B521FB9906001F2861 /* TextAttendant-Info.plist */,
 			);
 			name = "P-List";
 			sourceTree = "<group>";
@@ -1196,6 +1340,27 @@
 			productReference = 290BEDFB20E697EC00F30BAA /* SMSFactory.app */;
 			productType = "com.apple.product-type.application";
 		};
+		299DC93B21FB9906001F2861 /* Text_Attendant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 299DC9B121FB9906001F2861 /* Build configuration list for PBXNativeTarget "Text_Attendant" */;
+			buildPhases = (
+				299DC93C21FB9906001F2861 /* [CP] Check Pods Manifest.lock */,
+				299DC93D21FB9906001F2861 /* Sources */,
+				299DC98C21FB9906001F2861 /* Frameworks */,
+				299DC99321FB9906001F2861 /* Resources */,
+				299DC9AE21FB9906001F2861 /* Embed Frameworks */,
+				299DC9AF21FB9906001F2861 /* ShellScript */,
+				299DC9B021FB9906001F2861 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Text_Attendant;
+			productName = Inbox;
+			productReference = 299DC9B421FB9906001F2861 /* Text_Attendant.app */;
+			productType = "com.apple.product-type.application";
+		};
 		29FD0F2621160D0500062362 /* FanConnectNow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnectNow" */;
@@ -1245,7 +1410,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Amir Akram";
 				TargetAttributes = {
 					1ADE9F791EF98E48006C2CAC = {
@@ -1267,6 +1432,18 @@
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					299DC93B21FB9906001F2861 = {
+						DevelopmentTeam = 8WST3FRYWK;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1315,6 +1492,7 @@
 				290BED8C20E697EC00F30BAA /* SMSFactory */,
 				29FD0F2621160D0500062362 /* FanConnectNow */,
 				29FD0F9B21160D1000062362 /* PhotoTextingLine */,
+				299DC93B21FB9906001F2861 /* Text_Attendant */,
 			);
 		};
 /* End PBXProject section */
@@ -1324,7 +1502,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2932C2BF2171F25C00D2A299 /* TextingLine Info.plist in Resources */,
 				1ADE9FAF1EF99E9F006C2CAC /* InboxTableViewCell.xib in Resources */,
 				1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */,
 				1ADE9F881EF98E4A006C2CAC /* TextingLine.xcassets in Resources */,
@@ -1380,6 +1557,41 @@
 				290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */,
 				290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */,
 				29FD0F1F2114BADF00062362 /* GenericImages.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		299DC99321FB9906001F2861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				299DC99421FB9906001F2861 /* InboxTableViewCell.xib in Resources */,
+				299DC99521FB9906001F2861 /* ConversationDetail.storyboard in Resources */,
+				299DC99621FB9906001F2861 /* TextingLine.xcassets in Resources */,
+				299DC99721FB9906001F2861 /* SmsFactory.xcassets in Resources */,
+				299DC99821FB9906001F2861 /* IQButtonBarArrowUp@3x.png in Resources */,
+				299DC99921FB9906001F2861 /* Home.storyboard in Resources */,
+				299DC99A21FB9906001F2861 /* PhotoTexting.xcassets in Resources */,
+				299DC99B21FB9906001F2861 /* ConversationListing.storyboard in Resources */,
+				299DC99C21FB9906001F2861 /* FanConnectNow copy-Info.plist in Resources */,
+				299DC99D21FB9906001F2861 /* IQButtonBarArrowDown@2x.png in Resources */,
+				299DC99E21FB9906001F2861 /* Splash.storyboard in Resources */,
+				299DC99F21FB9906001F2861 /* GoogleService-Info_Fan.plist in Resources */,
+				299DC9A021FB9906001F2861 /* Default-568h@2x.png in Resources */,
+				29240B172201604500673485 /* GoogleService-Info-com.inbox.textattendant.plist in Resources */,
+				299DC9A121FB9906001F2861 /* Login.storyboard in Resources */,
+				299DC9A221FB9906001F2861 /* Fanconnect.xcassets in Resources */,
+				299DC9A321FB9906001F2861 /* IQButtonBarArrowLeft@3x.png in Resources */,
+				299DC9A421FB9906001F2861 /* ComposeMessage.storyboard in Resources */,
+				299DC9A521FB9906001F2861 /* IQButtonBarArrowRight@3x.png in Resources */,
+				299DC9A621FB9906001F2861 /* IQButtonBarArrowLeft@2x.png in Resources */,
+				299DC9A721FB9906001F2861 /* SearchView.xib in Resources */,
+				299DC9A821FB9906001F2861 /* CounterView.xib in Resources */,
+				299DC9A921FB9906001F2861 /* IQButtonBarArrowDown@3x.png in Resources */,
+				299DC9AA21FB9906001F2861 /* IQButtonBarArrowUp@2x.png in Resources */,
+				299DC9AB21FB9906001F2861 /* ScheduleAppointment.storyboard in Resources */,
+				299DC9AC21FB9906001F2861 /* IQButtonBarArrowRight@2x.png in Resources */,
+				299DC9B721FB9A3E001F2861 /* TextAttendant.xcassets in Resources */,
+				299DC9AD21FB9906001F2861 /* GenericImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,6 +1688,67 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
+		};
+		299DC93C21FB9906001F2861 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FanConnectNow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		299DC9AF21FB9906001F2861 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c";
+		};
+		299DC9B021FB9906001F2861 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		29CE4294214D936F008D0CD8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1865,6 +2138,91 @@
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
 				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
 				290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		299DC93D21FB9906001F2861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				299DC93E21FB9906001F2861 /* WebManager.swift in Sources */,
+				299DC93F21FB9906001F2861 /* IQKeyboardManagerConstants.swift in Sources */,
+				299DC94021FB9906001F2861 /* CounterView.swift in Sources */,
+				299DC94121FB9906001F2861 /* IQTitleBarButtonItem.swift in Sources */,
+				299DC94221FB9906001F2861 /* InboxTableViewCellProtocol.swift in Sources */,
+				299DC94321FB9906001F2861 /* ComposeMessageProtocol.swift in Sources */,
+				299DC94421FB9906001F2861 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				299DC94521FB9906001F2861 /* GCCalendarDayView.swift in Sources */,
+				299DC94621FB9906001F2861 /* IQUIViewController+Additions.swift in Sources */,
+				299DC94721FB9906001F2861 /* IQTextView.swift in Sources */,
+				299DC94821FB9906001F2861 /* User+CoreDataProperties.swift in Sources */,
+				299DC94921FB9906001F2861 /* LoginParser.swift in Sources */,
+				299DC94A21FB9906001F2861 /* ComposeMessageViewController.swift in Sources */,
+				299DC94B21FB9906001F2861 /* ConversationDetailViewController.swift in Sources */,
+				299DC94C21FB9906001F2861 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				299DC94D21FB9906001F2861 /* IQKeyboardManager.swift in Sources */,
+				299DC94E21FB9906001F2861 /* IQUIView+Hierarchy.swift in Sources */,
+				299DC94F21FB9906001F2861 /* NSString+HTMLString.swift in Sources */,
+				299DC95021FB9906001F2861 /* CoreDataManager.swift in Sources */,
+				299DC95121FB9906001F2861 /* MessagesParser.swift in Sources */,
+				299DC95221FB9906001F2861 /* GCCalendarView.swift in Sources */,
+				299DC95321FB9906001F2861 /* GCCalendarConfiguration.swift in Sources */,
+				299DC95421FB9906001F2861 /* IQUIWindow+Hierarchy.swift in Sources */,
+				299DC95521FB9906001F2861 /* UnderlinedTextField.swift in Sources */,
+				299DC95621FB9906001F2861 /* CopyableLabel.swift in Sources */,
+				299DC95721FB9906001F2861 /* FloatLabelTextView.swift in Sources */,
+				299DC95821FB9906001F2861 /* HomeViewController.swift in Sources */,
+				299DC95921FB9906001F2861 /* GCCalendarWeekView.swift in Sources */,
+				299DC95A21FB9906001F2861 /* InboxTableViewCell.swift in Sources */,
+				299DC95B21FB9906001F2861 /* ConversationListingViewControllerProtocol.swift in Sources */,
+				299DC95C21FB9906001F2861 /* IQUITextFieldView+Additions.swift in Sources */,
+				299DC95D21FB9906001F2861 /* ChatTableViewCell.swift in Sources */,
+				299DC95E21FB9906001F2861 /* IQBarButtonItem.swift in Sources */,
+				299DC95F21FB9906001F2861 /* Mappings.swift in Sources */,
+				299DC96021FB9906001F2861 /* MessageTableViewDataSource.swift in Sources */,
+				299DC96121FB9906001F2861 /* VerifyCodeViewController.swift in Sources */,
+				299DC96221FB9906001F2861 /* Deprecated.swift in Sources */,
+				299DC96321FB9906001F2861 /* CodePointSet.swift in Sources */,
+				299DC96421FB9906001F2861 /* ProcessingIndicatorProtocol.swift in Sources */,
+				299DC96521FB9906001F2861 /* UserContactsParser.swift in Sources */,
+				299DC96621FB9906001F2861 /* ProfileViewController.swift in Sources */,
+				299DC96721FB9906001F2861 /* Conversation+CoreDataClass.swift in Sources */,
+				299DC96821FB9906001F2861 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				299DC96921FB9906001F2861 /* LoginViewController.swift in Sources */,
+				299DC96A21FB9906001F2861 /* Inbox.xcdatamodeld in Sources */,
+				299DC96B21FB9906001F2861 /* Conversation+CoreDataProperties.swift in Sources */,
+				299DC96C21FB9906001F2861 /* IQPreviousNextView.swift in Sources */,
+				299DC96D21FB9906001F2861 /* Message+CoreDataClass.swift in Sources */,
+				299DC96E21FB9906001F2861 /* UserContact+CoreDataClass.swift in Sources */,
+				299DC96F21FB9906001F2861 /* Checkbox.swift in Sources */,
+				299DC97021FB9906001F2861 /* ConversationDetailViewControllerProtocol.swift in Sources */,
+				299DC97121FB9906001F2861 /* GCCalendarMonthView.swift in Sources */,
+				299DC97221FB9906001F2861 /* Popover.swift in Sources */,
+				299DC97321FB9906001F2861 /* AppDelegate.swift in Sources */,
+				299DC97421FB9906001F2861 /* User+CoreDataClass.swift in Sources */,
+				299DC97521FB9906001F2861 /* ConversationListingViewController.swift in Sources */,
+				299DC97621FB9906001F2861 /* InboxTableViewDataSource.swift in Sources */,
+				299DC97721FB9906001F2861 /* ProcessingIndicatorHandler.swift in Sources */,
+				299DC97821FB9906001F2861 /* IQToolbar.swift in Sources */,
+				299DC97921FB9906001F2861 /* SplashViewController.swift in Sources */,
+				299DC97A21FB9906001F2861 /* ProcessingIndicatorView.swift in Sources */,
+				299DC97B21FB9906001F2861 /* GCCalendarViewDelegate.swift in Sources */,
+				299DC97C21FB9906001F2861 /* Message+CoreDataProperties.swift in Sources */,
+				299DC97D21FB9906001F2861 /* ForgetPasswordViewController.swift in Sources */,
+				299DC97E21FB9906001F2861 /* IQNSArray+Sort.swift in Sources */,
+				299DC97F21FB9906001F2861 /* ScheduleAppointmentViewController.swift in Sources */,
+				299DC98021FB9906001F2861 /* FloatLabelTextField.swift in Sources */,
+				299DC98121FB9906001F2861 /* SearchView.swift in Sources */,
+				299DC98221FB9906001F2861 /* Reachability.swift in Sources */,
+				299DC98321FB9906001F2861 /* String+Emoji.swift in Sources */,
+				299DC98421FB9906001F2861 /* HTMLString.swift in Sources */,
+				299DC98521FB9906001F2861 /* JsonPrinting.swift in Sources */,
+				299DC98621FB9906001F2861 /* UserContact+CoreDataProperties.swift in Sources */,
+				299DC98721FB9906001F2861 /* ConversationParser.swift in Sources */,
+				299DC98821FB9906001F2861 /* UILabel+Copyable.m in Sources */,
+				299DC98921FB9906001F2861 /* IQUIScrollView+Additions.swift in Sources */,
+				299DC98A21FB9906001F2861 /* Constants.swift in Sources */,
+				299DC98B21FB9906001F2861 /* SearchViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2281,6 +2639,65 @@
 			};
 			name = Release;
 		};
+		299DC9B221FB9906001F2861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BD4B485F4DD689B64A2E2C8 /* Pods-FanConnectNow.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Text_Attendant.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobiletivity, Inc. (8WST3FRYWK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobiletivity, Inc. (8WST3FRYWK)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8WST3FRYWK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/TextAttendant-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.textattendant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e0b7087f-e9ff-4397-bea8-efde4e556409";
+				PROVISIONING_PROFILE_SPECIFIER = AppStoreIDTextAttendant;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		299DC9B321FB9906001F2861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CF862C08643BDC0B421A490 /* Pods-FanConnectNow.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Text_Attendant.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobiletivity, Inc. (8WST3FRYWK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobiletivity, Inc. (8WST3FRYWK)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8WST3FRYWK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/TextAttendant-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.textattendant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e0b7087f-e9ff-4397-bea8-efde4e556409";
+				PROVISIONING_PROFILE_SPECIFIER = AppStoreIDTextAttendant;
+				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		29FD0F9721160D0500062362 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6BD4B485F4DD689B64A2E2C8 /* Pods-FanConnectNow.debug.xcconfig */;
@@ -2425,6 +2842,15 @@
 			buildConfigurations = (
 				290BEDF920E697EC00F30BAA /* Debug */,
 				290BEDFA20E697EC00F30BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		299DC9B121FB9906001F2861 /* Build configuration list for PBXNativeTarget "Text_Attendant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				299DC9B221FB9906001F2861 /* Debug */,
+				299DC9B321FB9906001F2861 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

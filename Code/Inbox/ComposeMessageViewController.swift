@@ -35,6 +35,14 @@ class ComposeMessageViewController: UIViewController {
         
         super.viewDidLoad()
         
+        
+        headerView.backgroundColor = AppThemeColor
+        mobileNumberView.backgroundColor = AppThemeColor
+        
+        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        sendButton.tintColor = AppThemeColor
+        sendButton.layer.borderColor = AppThemeColor.cgColor
+        /*
         switch environment {
 
         case .texting_Line:
@@ -69,6 +77,7 @@ class ComposeMessageViewController: UIViewController {
         sendButton.tintColor = AppThemeColor
         sendButton.layer.borderColor = AppThemeColor.cgColor
     }
+ */
     
         mobileTextField.text = ""
         mobileTextField.delegate = self

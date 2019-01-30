@@ -47,6 +47,8 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         tableView.refreshControl = refreshControl
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
+        header_View.backgroundColor = AppThemeColor
+/*
         switch environment {
         case .texting_Line:
             header_View.backgroundColor = AppThemeColor
@@ -57,7 +59,8 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         case .photo_Texting:
             header_View.backgroundColor = AppThemeColor
         }
-        
+
+ */
         self.initiateMessageCall()
     }
         

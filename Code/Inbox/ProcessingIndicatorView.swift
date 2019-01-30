@@ -42,6 +42,8 @@ class ProcessingIndicatorView: UIView
             centerImage = UIImage(named:"Fan_Spinner")
         case .photo_Texting:
             centerImage = UIImage(named:"Photo_Spinner")
+        case .text_Attendant:
+            centerImage = UIImage(named:"Logo_Spinner")
         }
         
         self.commonInit()

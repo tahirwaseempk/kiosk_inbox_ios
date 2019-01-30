@@ -42,6 +42,20 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         tableView.estimatedRowHeight = 105
         
+        ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            header_View.backgroundColor = GrayHeaderColor
+        } else {
+            header_View.backgroundColor = AppThemeColor
+        }
+        cross_Button.backgroundColor = AppThemeColor
+        delete_Button.backgroundColor = AppThemeColor
+        Optout_Button.backgroundColor = AppThemeColor
+        schedule_Button.backgroundColor = AppThemeColor
+        ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        /*
         switch environment {
         case .texting_Line:
             if UIDevice.current.userInterfaceIdiom == .pad {
@@ -87,6 +101,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             Optout_Button.backgroundColor = AppThemeColor
             schedule_Button.backgroundColor = AppThemeColor
         }
+ */
         
         self.inputCharacterCountLabel.text = "Characters Count 0/250"
         
