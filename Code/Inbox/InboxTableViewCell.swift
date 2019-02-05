@@ -64,9 +64,6 @@ class InboxTableViewCell: UITableViewCell
     {
         super.setSelected(selected, animated: animated)
        
-        self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
-
-        /*
         switch environment {
         case .texting_Line:
             self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
@@ -76,8 +73,9 @@ class InboxTableViewCell: UITableViewCell
             self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
         case .photo_Texting:
             self.selectedBackgroundView!.backgroundColor = selected ? AppThemeColor : nil
+        case .text_Attendant:
+            self.selectedBackgroundView!.backgroundColor = selected ? TextAttendantColor : nil
         }
- */
         
     }
 }

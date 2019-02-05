@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="73.666666666666686" width="414" height="612.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="101" id="oat-5J-GP0" customClass="ChatTableViewCell" customModule="ChatCell" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="101" id="oat-5J-GP0" customClass="ChatTableViewCell" customModule="FanConnectNow" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oat-5J-GP0" id="Cxs-qb-JwG">
@@ -645,7 +645,7 @@
                             <rect key="frame" x="157" y="131" width="203" height="42"/>
                             <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <state key="normal" title="     Schedule Appointment"/>
+                            <state key="normal" title="     Schedule Reminder"/>
                             <variation key="heightClass=compact-widthClass=regular">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             </variation>

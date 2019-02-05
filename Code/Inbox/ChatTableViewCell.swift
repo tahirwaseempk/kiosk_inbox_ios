@@ -51,8 +51,7 @@ class ChatTableViewCell: UITableViewCell {
         self.numberLabel.text  = number
         self.messageLabel.text = text
         self.dateLabel.text    = dateTime
-
-
+        
         //self.messageLabel.translatesAutoresizingMaskIntoConstraints = true
         self.messageLabel.sizeToFit()
         self.messageLabel.isScrollEnabled = false
@@ -65,6 +64,12 @@ class ChatTableViewCell: UITableViewCell {
         
         if type == .ChatCellAuthorTypeSender {
            
+            if environment == .text_Attendant {
+                self.numberLabel.textColor  = UIColor.white
+                self.messageLabel.textColor = UIColor.white
+                self.dateLabel.textColor    = UIColor.white
+            }
+            
             changeImage("chat_bubble_sent")
 
             self.leadingConstraint.isActive = true
@@ -92,6 +97,12 @@ class ChatTableViewCell: UITableViewCell {
             self.messageLabel.textAlignment = .left
             
         } else {
+            
+            if environment == .text_Attendant {
+                self.numberLabel.textColor  = UIColor.black
+                self.messageLabel.textColor = UIColor.black
+                self.dateLabel.textColor    = UIColor.black
+            }
             
             changeImage("chat_bubble_received")
 
