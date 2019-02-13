@@ -24,7 +24,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
         if (self.isViewLoaded && (self.view!.window != nil))
         {
-            // ProcessingIndicator.show()
             callLastConversationsUpdate()
         }
     }
@@ -48,27 +47,27 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
         header_View.backgroundColor = AppThemeColor
-/*
-        switch environment {
-        case .texting_Line:
-            header_View.backgroundColor = AppThemeColor
-        case .sms_Factory:
-            header_View.backgroundColor = AppThemeColor
-        case .fan_Connect:
-            header_View.backgroundColor = AppThemeColor
-        case .photo_Texting:
-            header_View.backgroundColor = AppThemeColor
-        }
-
- */
+        /*
+         switch environment {
+         case .texting_Line:
+         header_View.backgroundColor = AppThemeColor
+         case .sms_Factory:
+         header_View.backgroundColor = AppThemeColor
+         case .fan_Connect:
+         header_View.backgroundColor = AppThemeColor
+         case .photo_Texting:
+         header_View.backgroundColor = AppThemeColor
+         }
+         
+         */
         self.initiateMessageCall()
     }
-        
+    
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
         
-        //self.callLastConversationsUpdate()
-        self.initiateMessageCall()
-
+        self.callLastConversationsUpdate()
+        //        self.initiateMessageCall()
+        
         refreshControl.endRefreshing()
     }
     func setupControls()
@@ -87,9 +86,9 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     @IBAction func refresh_Tapped(_ sender: Any)
     {
-       // self.callLastConversationsUpdate()
-        self.initiateMessageCall()
-
+        self.callLastConversationsUpdate()
+        //        self.initiateMessageCall()
+        
     }
     
     @IBAction func markAllRead_Tapped(_ sender: Any)
@@ -249,47 +248,46 @@ extension ConversationListingViewController
 {
     func initiateMessageCall()
     {
-//        if (self.isViewLoaded && (self.view!.window != nil))
-//        {
-            let dispatchTime = DispatchTime.now() + .seconds(30)
-            
-            DispatchQueue.main.asyncAfter(deadline: dispatchTime)
-            {
-                self.getConversationUpdate()
-            }
-//        }
+        // ProcessingIndicator.show()
+        
+        //        if (self.isViewLoaded && (self.view!.window != nil))
+        //        {
+        let dispatchTime = DispatchTime.now() + .seconds(30)
+        
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime)
+        {
+            self.updateConversationOnTimer()
+        }
+        //        }
     }
     
-    func getConversationUpdate()
+    func updateConversationOnTimer()
     {
-       // ProcessingIndicator.show()
+        ProcessingIndicator.show()
         
-        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
+        User.syncContacts(completionBlockSuccess: { () -> (Void) in
             
             DispatchQueue.global(qos:.background).async
                 {
                     DispatchQueue.main.async
                         {
                             //UIApplication.shared.applicationIconBadgeNumber = 0
-                            updateBadgeCount()
+                            //updateBadgeCount()
                             self.conversationListUpdated()
                             ProcessingIndicator.hide()
-                            if (self.isViewLoaded && (self.view!.window != nil))
-                            {
+                            if (self.isViewLoaded && (self.view!.window != nil)) {
                                 self.initiateMessageCall()
                             }
                     }
             }
             
-        }) {(error:Error?) -> (Void) in
-            
+        }) { (error:Error?) -> (Void) in
             DispatchQueue.global(qos:.background).async
                 {
                     DispatchQueue.main.async
                         {
                             ProcessingIndicator.hide()
-                            if (self.isViewLoaded && (self.view!.window != nil))
-                            {
+                            if (self.isViewLoaded && (self.view!.window != nil)) {
                                 self.initiateMessageCall()
                             }
                     }
@@ -299,9 +297,9 @@ extension ConversationListingViewController
     
     func callLastConversationsUpdate()
     {
-        //ProcessingIndicator.show()
+        ProcessingIndicator.show()
         
-        User.getLatestConversations(completionBlockSuccess: {(conversations:Array<Conversation>?) -> (Void) in
+        User.syncContacts(completionBlockSuccess: { () -> (Void) in
             
             DispatchQueue.global(qos:.background).async
                 {
@@ -313,8 +311,8 @@ extension ConversationListingViewController
                             ProcessingIndicator.hide()
                     }
             }
-
-        }) {(error:Error?) -> (Void) in
+            
+        }) { (error:Error?) -> (Void) in
             
             DispatchQueue.global(qos:.background).async
                 {
@@ -322,9 +320,10 @@ extension ConversationListingViewController
                         {
                             ProcessingIndicator.hide()
                     }
-            }
+            }            
         }
     }
+    
 }
 
 extension ConversationListingViewController
@@ -350,7 +349,7 @@ extension ConversationListingViewController
         }
         
         self.refreshUnReadCount()
-     
+        
         if let delegate = self.delegate
         {
             _ = delegate.updateConversationCount(str:"updateConversationCount")

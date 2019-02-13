@@ -65,13 +65,10 @@ public class User: NSManagedObject {
         self.zipCode = zipCode_
     }
     
-    
-    
     func updateMobile(mobile_: String)
     {
         self.mobile = mobile_
     }
-    
     
     static func getLoginedUser()-> User?
     {
@@ -111,7 +108,6 @@ public class User: NSManagedObject {
         return nil;
     }
 }
-
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------//
@@ -256,6 +252,7 @@ extension User
     {
         if let user = User.getLoginedUser()
         {
+
             var paramsDic = Dictionary<String, Any>()
             paramsDic["token"] = user.token
             
@@ -792,14 +789,12 @@ extension User
             var paramsDic = Dictionary<String, Any>()
             paramsDic["token"] = user.token
             
-            //(params:paramsDic, conversationParser: ConversationParser(),completionBlockSuccess:{(conversations:Array<Conversation>?) -> (Void) in
-            
             WebManager.getAllContacs(params: paramsDic, contactParser: UserContactsParser(), completionBlockSuccess:{(response:Array<UserContact>?) -> (Void) in
                 
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
+//                DispatchQueue.global(qos: .background).async
+//                    {
+//                        DispatchQueue.main.async
+//                            {
                                 self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
                                     
                                     DispatchQueue.global(qos: .background).async
@@ -807,7 +802,6 @@ extension User
                                             DispatchQueue.main.async
                                                 {
                                                     CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                                    
                                                     successBlock()
                                             }
                                     }
@@ -816,8 +810,8 @@ extension User
                                     
                                     failureBlock(error)
                                 })
-                        }
-                    }.self
+//                        }
+//                    }
                 
             }) { (error: Error?) -> (Void) in
                 
@@ -1110,7 +1104,7 @@ extension User
                     
                     if isSenderFound == false
                     {
-                        //conv.sender = contact
+                        NSLog("===== ----- >>>>> FAIL TO ATTACH CONTACT WITH CONVERSATION <<<<< ----- =====")
                     }
                 }
             }

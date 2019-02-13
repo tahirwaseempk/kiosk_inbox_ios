@@ -181,8 +181,8 @@ class HomeViewController: UIViewController
     @objc func pushNotificationRecieved()
     {
         updateBadgeCount()
-        //self.conversationListingViewController.callLastConversationsUpdate()
-        self.conversationListingViewController.initiateMessageCall()
+        self.conversationListingViewController.callLastConversationsUpdate()
+        //self.conversationListingViewController.initiateMessageCall()
 
         //aima
         
@@ -295,9 +295,9 @@ class HomeViewController: UIViewController
     
     @IBAction func refreshButton_Tapped(_ sender: Any)
     {
-        //self.conversationListingViewController.callLastConversationsUpdate()
+        self.conversationListingViewController.callLastConversationsUpdate()
         
-        self.conversationListingViewController.initiateMessageCall()
+        //self.conversationListingViewController.initiateMessageCall()
     }
     
     @IBAction func searchButton_Tapped(_ sender: Any)

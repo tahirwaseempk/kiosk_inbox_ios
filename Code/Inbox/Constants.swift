@@ -21,7 +21,7 @@ let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15
 let CODE_MAX_LENGTH = 6
 
-let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?><' "
+let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?>< "
 let ACCEPTABLE_DIGITS = "0123456789"
 
 enum environmentType {
@@ -32,7 +32,7 @@ enum environmentType {
     text_Attendant
 }
 
-let environment:environmentType = .text_Attendant
+let environment:environmentType = .texting_Line
 
 var AppBlueColor    = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor     = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)

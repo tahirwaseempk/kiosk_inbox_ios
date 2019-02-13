@@ -32,6 +32,7 @@ class ScheduleAppointmentViewController: UIViewController
         
 //        self.headerLabel.text =  self.splitNumber(str: self.headerTitleString)// "Schedule Appointment with " + self.headerTitleString
         
+        self.headerLabel.textColor = AppThemeColor
         
         if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
         {
@@ -65,6 +66,11 @@ class ScheduleAppointmentViewController: UIViewController
         
         scheduleAppointmentButton.backgroundColor = AppThemeColor
         scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+    
+        
+        
+        
+        
         /*
         switch environment {
         case .texting_Line:
@@ -82,7 +88,7 @@ class ScheduleAppointmentViewController: UIViewController
         }
          */
         
-        self.addCheckboxSubviews()
+       // self.addCheckboxSubviews()
     }
     
     func addCheckboxSubviews() {
