@@ -172,7 +172,7 @@ class ScheduleAppointmentViewController: UIViewController
         //utcTimeZoneStr = convertUTCToJsonString(tsString: utcTimeZoneStr)
         //--------------------------------------------------------------------------------//
 
-        let timeWithoutHrs = self.timeCounterView.valueLabel.tag // Does Not Contain hrs at end like 12
+        //let timeWithoutHrs = self.timeCounterView.valueLabel.tag // Does Not Contain hrs at end like 12
         
         ProcessingIndicator.show()
         
@@ -180,7 +180,7 @@ class ScheduleAppointmentViewController: UIViewController
         paramsDic["contactId"] = selectedConversation.contactId //Int
         paramsDic["date"] = utcTimeZoneStr
         paramsDic["endDate"] = ""
-        paramsDic["reminderTime"] = Int64(timeWithoutHrs) //Int
+       // paramsDic["reminderTime"] = Int64(timeWithoutHrs) //Int
         paramsDic["message"] = "Appointment"
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
@@ -190,8 +190,7 @@ class ScheduleAppointmentViewController: UIViewController
                         {
                             if status == true {
                                 ProcessingIndicator.hide()
-                                
-                                let alert = UIAlertController(title: "Success", message: "Appointment created sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Success", message: "Reminder created sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
                                     self.view.removeFromSuperview()
                                 }))
@@ -201,7 +200,7 @@ class ScheduleAppointmentViewController: UIViewController
                             else
                             {
                                 ProcessingIndicator.hide()
-                                let alert = UIAlertController(title: "Error", message: "Appointment not created sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Error", message: "Reminder not created sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 self.present(alert, animated: true, completion: nil)
                             }

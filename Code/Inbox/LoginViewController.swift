@@ -169,6 +169,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             self.isAutoLogin = true
         } else {
             self.isAutoLogin = false
+            self.serialTextField.text = ""
+            self.udidTextField.text =  ""
+            
             UserDefaults.standard.set("", forKey: "USER_NAME")
             UserDefaults.standard.set("", forKey: "PASSWORD")
             UserDefaults.standard.bool(forKey: "isAutoKey")
@@ -193,11 +196,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         
         self.view.addSubview(self.forgetPasswordViewController.view)
         self.forgetPasswordViewController.view.frame = self.view.bounds
-        
-        //        self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
-        //
-        //        self.view.addSubview(self.verifyCodeViewController.view)
-        //        self.verifyCodeViewController.view.frame = self.view.bounds
         
     }
     
