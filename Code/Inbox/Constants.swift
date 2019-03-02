@@ -32,7 +32,7 @@ enum environmentType {
     text_Attendant
 }
 
-let environment:environmentType = .texting_Line
+let environment:environmentType = .text_Attendant
 
 var AppBlueColor    = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor     = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)

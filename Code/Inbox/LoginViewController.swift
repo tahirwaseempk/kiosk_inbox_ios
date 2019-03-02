@@ -41,13 +41,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         udidTextField.resignFirstResponder()
         serialTextField.resignFirstResponder()
         
-                   serialTextField.text = "8443712030"
-//                   serialTextField.text = "8006999130"
-                   udidTextField.text = "lime123"
+        //                   serialTextField.text = "8443712030"
+        //                   serialTextField.text = "8006999130"
+        //                   udidTextField.text = "lime123"
         
         //Text Attendent
-//        serialTextField.text = "8558687830"
-//        udidTextField.text = "wwbtgf"
+        //        serialTextField.text = "8558687830"
+        //        udidTextField.text = "wwbtgf"
         
     }
     
@@ -232,11 +232,11 @@ extension LoginViewController {
             User.registerUserAPNS(license: (user?.license)!, completionBlockSuccess: { (deviceRegistered:Bool) -> (Void) in
                 
                 self.themeSetupForWhiteLabel()
-
+                
             }, andFailureBlock: { (error:Error?) -> (Void) in
                 
                 self.themeSetupForWhiteLabel()
-
+                
             })
             
             
@@ -289,7 +289,7 @@ extension LoginViewController {
         
         var paramsDic = Dictionary<String, Any>()
         paramsDic["contactId"] = ""
-
+        
         User.getThemeForWhiteLabelId(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {

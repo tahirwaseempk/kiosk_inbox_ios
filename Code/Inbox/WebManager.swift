@@ -586,7 +586,7 @@ class WebManager: NSObject
         var paramsDictionary = Dictionary<String, Any>()
         paramsDictionary["contactId"] = params["contactId"] as! Int64
         paramsDictionary["date"] = params["date"] as! String
-        paramsDictionary["endDate"] = params["endDate"] as! String
+        //paramsDictionary["endDate"] = params["endDate"] as! String
         //paramsDictionary["reminderTime"] = params["reminderTime"] as! Int64
         paramsDictionary["message"] = params["message"] as! String
         

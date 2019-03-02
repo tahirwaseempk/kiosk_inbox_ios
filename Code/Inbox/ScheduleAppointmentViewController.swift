@@ -14,6 +14,9 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var calendarLogoButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
     
+    @IBOutlet weak var messageTextView: UITextView!
+
+    
     @IBOutlet weak var btnCheckBox: UIButton!
     
     var tickBox:Checkbox? = nil
@@ -67,10 +70,15 @@ class ScheduleAppointmentViewController: UIViewController
         scheduleAppointmentButton.backgroundColor = AppThemeColor
         scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     
+        messageTextView.delegate = self
+        messageTextView.text = "Enter your message"
+        messageTextView.textColor = UIColor.lightGray
+        messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
+        messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
+        messageTextView.isScrollEnabled = false
         
-        
-        
-        
+//        self.inputCharacterCountLabel.text = "Characters Count 0/250"
+
         /*
         switch environment {
         case .texting_Line:
@@ -129,6 +137,16 @@ class ScheduleAppointmentViewController: UIViewController
     @IBAction func scheduleButtonTapped(_ sender: Any)
     {
         
+        if ((messageTextView.text == "Enter your message") ||
+            (messageTextView.text.count == 0)) {
+            
+            let alert = UIAlertController(title: "Error", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        
         var hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
         var minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
         /////////////////////////////////////////////////////////////////////////////////////
@@ -179,9 +197,9 @@ class ScheduleAppointmentViewController: UIViewController
         var paramsDic = Dictionary<String, Any>()
         paramsDic["contactId"] = selectedConversation.contactId //Int
         paramsDic["date"] = utcTimeZoneStr
-        paramsDic["endDate"] = ""
+        //paramsDic["endDate"] = ""
        // paramsDic["reminderTime"] = Int64(timeWithoutHrs) //Int
-        paramsDic["message"] = "Appointment"
+        paramsDic["message"] = messageTextView.text //"Appointment"
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
@@ -290,4 +308,49 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         
         return returningStr
     }
+}
+
+extension ScheduleAppointmentViewController : UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if textView.text.isEmpty {
+            textView.text = "Enter your message"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+        
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = text.components(separatedBy: cs).joined(separator: "")
+        let isAllowed = (text == filtered)
+        
+        if isAllowed == false {
+            return false
+        }
+        
+        let reminingCount = sendMessageMaxLength - str.count
+        
+        if reminingCount >= 0 {
+           // self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
+        }
+        
+        if str.count > sendMessageMaxLength {
+            return false
+        }
+        
+        return true
+    }
+    
 }

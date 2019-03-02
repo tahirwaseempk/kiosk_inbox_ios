@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INj-yO-lZf">
-                                <rect key="frame" x="5" y="203" width="365" height="261"/>
+                                <rect key="frame" x="5" y="165" width="365" height="366"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule a reminder to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSz-e3-d1a">
                                         <rect key="frame" x="10" y="9" width="345" height="20.5"/>
@@ -215,7 +215,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFu-Z3-8Gi">
-                                        <rect key="frame" x="73" y="174" width="219" height="40"/>
+                                        <rect key="frame" x="73" y="292" width="219" height="40"/>
                                         <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="dgd-6g-ySz"/>
@@ -227,16 +227,23 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This can be undone from the computer dashboard" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YST-TZ-Oun">
-                                        <rect key="frame" x="10" y="234" width="345" height="12"/>
+                                        <rect key="frame" x="10" y="340" width="345" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" red="0.45485765220000002" green="0.45685324560000001" blue="0.46284002590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vP-BT-aG1">
+                                        <rect key="frame" x="8" y="157" width="349" height="121"/>
+                                        <color key="backgroundColor" red="0.75902441740000004" green="0.75902441740000004" blue="0.75902441740000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="kFu-Z3-8Gi" firstAttribute="width" secondItem="INj-yO-lZf" secondAttribute="width" multiplier="60%" id="0RQ-4H-6PH"/>
-                                    <constraint firstAttribute="bottom" secondItem="YST-TZ-Oun" secondAttribute="bottom" constant="15" id="1Xe-hS-QYt"/>
+                                    <constraint firstAttribute="bottom" secondItem="YST-TZ-Oun" secondAttribute="bottom" constant="14" id="1Xe-hS-QYt"/>
+                                    <constraint firstItem="kFu-Z3-8Gi" firstAttribute="top" secondItem="6vP-BT-aG1" secondAttribute="bottom" constant="14" id="6qX-dB-Bam"/>
                                     <constraint firstItem="kFu-Z3-8Gi" firstAttribute="centerX" secondItem="LIY-Yr-zb0" secondAttribute="centerX" id="AcJ-3J-jWc"/>
                                     <constraint firstItem="LIY-Yr-zb0" firstAttribute="leading" secondItem="INj-yO-lZf" secondAttribute="leading" constant="10" id="C79-vq-Zaq"/>
                                     <constraint firstItem="5np-By-HTZ" firstAttribute="leading" secondItem="INj-yO-lZf" secondAttribute="leading" id="DAj-LR-8pM"/>
@@ -244,10 +251,14 @@
                                     <constraint firstItem="RSz-e3-d1a" firstAttribute="top" secondItem="INj-yO-lZf" secondAttribute="top" constant="9" id="GUn-np-g6f"/>
                                     <constraint firstAttribute="trailing" secondItem="RSz-e3-d1a" secondAttribute="trailing" constant="10" id="J27-gJ-D1i"/>
                                     <constraint firstAttribute="trailing" secondItem="5np-By-HTZ" secondAttribute="trailing" id="KP6-qD-cWm"/>
-                                    <constraint firstItem="kFu-Z3-8Gi" firstAttribute="top" secondItem="5np-By-HTZ" secondAttribute="bottom" constant="25" id="NDp-tF-lAM"/>
+                                    <constraint firstItem="kFu-Z3-8Gi" firstAttribute="top" secondItem="5np-By-HTZ" secondAttribute="bottom" constant="143" id="NDp-tF-lAM"/>
+                                    <constraint firstItem="6vP-BT-aG1" firstAttribute="top" secondItem="INj-yO-lZf" secondAttribute="top" constant="157" id="NL7-sM-qZh"/>
+                                    <constraint firstItem="6vP-BT-aG1" firstAttribute="top" secondItem="5np-By-HTZ" secondAttribute="bottom" constant="8" id="Zod-u9-yWv"/>
                                     <constraint firstItem="YST-TZ-Oun" firstAttribute="leading" secondItem="INj-yO-lZf" secondAttribute="leading" constant="10" id="eHm-je-bee"/>
+                                    <constraint firstItem="6vP-BT-aG1" firstAttribute="centerX" secondItem="kFu-Z3-8Gi" secondAttribute="centerX" id="lhH-DV-jFN"/>
                                     <constraint firstItem="RSz-e3-d1a" firstAttribute="leading" secondItem="INj-yO-lZf" secondAttribute="leading" constant="10" id="nhj-6N-w03"/>
-                                    <constraint firstItem="YST-TZ-Oun" firstAttribute="top" secondItem="kFu-Z3-8Gi" secondAttribute="bottom" constant="20" id="pQd-yW-lDg"/>
+                                    <constraint firstItem="6vP-BT-aG1" firstAttribute="leading" secondItem="INj-yO-lZf" secondAttribute="leadingMargin" id="ou3-m4-eAo"/>
+                                    <constraint firstItem="YST-TZ-Oun" firstAttribute="top" secondItem="kFu-Z3-8Gi" secondAttribute="bottom" constant="8" id="pQd-yW-lDg"/>
                                     <constraint firstAttribute="trailing" secondItem="YST-TZ-Oun" secondAttribute="trailing" constant="10" id="qTx-6H-F3B"/>
                                     <constraint firstAttribute="trailing" secondItem="LIY-Yr-zb0" secondAttribute="trailing" constant="10" id="uV7-ae-vXg"/>
                                     <constraint firstItem="LIY-Yr-zb0" firstAttribute="top" secondItem="RSz-e3-d1a" secondAttribute="bottom" constant="4" id="vJZ-Aa-gwe"/>
@@ -258,7 +269,7 @@
                         <constraints>
                             <constraint firstItem="INj-yO-lZf" firstAttribute="centerX" secondItem="PRM-wm-fye" secondAttribute="centerX" id="T9F-cL-k0f"/>
                             <constraint firstItem="INj-yO-lZf" firstAttribute="leading" secondItem="oZ0-3r-f4p" secondAttribute="leading" constant="5" id="UBZ-ip-sQn"/>
-                            <constraint firstItem="INj-yO-lZf" firstAttribute="centerY" secondItem="PRM-wm-fye" secondAttribute="centerY" id="wh5-rT-oYG"/>
+                            <constraint firstItem="INj-yO-lZf" firstAttribute="centerY" secondItem="PRM-wm-fye" secondAttribute="centerY" constant="14.5" id="wh5-rT-oYG"/>
                             <constraint firstItem="oZ0-3r-f4p" firstAttribute="trailing" secondItem="INj-yO-lZf" secondAttribute="trailing" constant="5" id="xFk-9U-g1K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oZ0-3r-f4p"/>
@@ -270,6 +281,7 @@
                         <outlet property="dateControlsContainer" destination="JZn-BI-Mam" id="OcM-Ez-wvy"/>
                         <outlet property="headerLabel" destination="LIY-Yr-zb0" id="InQ-Qk-4Qr"/>
                         <outlet property="hourCounterView" destination="Els-uw-Yue" id="SyQ-gi-QhZ"/>
+                        <outlet property="messageTextView" destination="6vP-BT-aG1" id="8ca-H6-3y4"/>
                         <outlet property="minuteCounterView" destination="5kJ-w0-jSS" id="c8b-km-D9z"/>
                         <outlet property="scheduleAppointmentButton" destination="kFu-Z3-8Gi" id="nJl-8p-Mg4"/>
                         <outlet property="whiteBackgroundView" destination="INj-yO-lZf" id="AHu-Db-TON"/>
