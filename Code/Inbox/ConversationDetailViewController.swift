@@ -14,8 +14,32 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     /////////////////////////////////////////////////
     @IBOutlet weak var cross_Button: UIButton!
     @IBOutlet weak var delete_Button: UIButton!
-    @IBOutlet weak var Optout_Button: UIButton!
+    @IBOutlet weak var Optout_Button: UIButton! // Profile View
     @IBOutlet weak var schedule_Button: UIButton!
+
+    
+    // MARK: - Profile View Outlets
+    @IBOutlet var profileV: UIView!
+
+    @IBOutlet weak var profileHeadingLabel: UILabel!
+    @IBOutlet weak var profileUsernameLabel: UILabel!
+    @IBOutlet weak var profileEmailTextField: FloatLabelTextField!
+    @IBOutlet weak var profileFirstNameTextField: FloatLabelTextField!
+    @IBOutlet weak var profileLastNameTextField: FloatLabelTextField!
+    @IBOutlet weak var profileDOBTextField: FloatLabelTextField!
+    @IBOutlet weak var profileGenderTextField: FloatLabelTextField!
+    @IBOutlet weak var profileAddressTextField: FloatLabelTextField!
+    @IBOutlet weak var profileStateTextField: FloatLabelTextField!
+    @IBOutlet weak var profileZipCodeTextField: FloatLabelTextField!
+    
+    @IBAction func profileBackButtonTapped(_ sender: Any) {
+        
+        self.profileV.removeFromSuperview()
+
+        
+    }
+
+    // MARK: -
     /////////////////////////////////////////////////
     
     @IBOutlet weak var header_View: UIView!
@@ -203,6 +227,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
     }
     
+    // MARK: - Button Tapped Methods
+
     @IBAction func closeButtonTapped(_ sender: Any) {
         
         self.closeView.frame = self.view.bounds
@@ -257,10 +283,17 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
         else
         {
-            let alert = UIAlertController(title: "Message", message: "Opt Out functionality is coming soon.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            return
+            self.closeView.removeFromSuperview()
+
+            self.profileV.frame = self.view.bounds
+            
+            self.view.addSubview(self.profileV)
+            
+//
+//            let alert = UIAlertController(title: "Message", message: "Opt Out functionality is coming soon.", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//            return
             
             /*
              ProcessingIndicator.show()
@@ -425,7 +458,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             present(imagePicker, animated: true, completion: nil)
         }
     }
-    
+
+    // MARK: -
+
 }
 
 extension ConversationDetailViewController {

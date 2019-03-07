@@ -24,6 +24,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var zipCodeTextField: FloatLabelTextField!
     @IBOutlet weak var countryTextField: FloatLabelTextField!
     
+    @IBOutlet weak var profileDoneButton: UIButton!
+    @IBOutlet weak var profileNavHeaderLabel: UILabel!    
+    @IBOutlet weak var profileBackButton: UIButton!
+    @IBOutlet weak var profileNavView: UIView!
+    
+    
     //MARK: View life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,19 +81,30 @@ class ProfileViewController: UIViewController {
         self.stateTextField.isEnabled    = false
         self.countryTextField.isEnabled  = false
         
+        
+        
         self.view.backgroundColor = AppThemeColor
-        /*
-                switch environment {
-                case .texting_Line:
-                    self.view.backgroundColor = AppThemeColor
-                case .sms_Factory:
-                    self.view.backgroundColor = AppThemeColor
-                case .fan_Connect:
-                    self.view.backgroundColor = AppThemeColor
-                case .photo_Texting:
-                    self.view.backgroundColor = AppThemeColor
-                }
-         */
+        self.profileNavView.backgroundColor = AppThemeColor
+        
+        
+//                switch environment {
+//                case .texting_Line:
+//                    self.view.backgroundColor = AppThemeColor
+//                    profileBackButton.setTitleColor(.white, for: .normal)
+//                case .sms_Factory:
+//                    self.view.backgroundColor = AppThemeColor
+//                    profileBackButton.setTitleColor(.white, for: .normal)
+//                case .fan_Connect:
+//                    self.view.backgroundColor = AppThemeColor
+//                    profileBackButton.setTitleColor(.white, for: .normal)
+//                case .photo_Texting:
+//                    self.view.backgroundColor = AppThemeColor
+//                    profileBackButton.setTitleColor(.white, for: .normal)
+//                case .text_Attendant:
+//                    self.view.backgroundColor = AppThemeColor
+//                    profileBackButton.setTitleColor(.white, for: .normal)
+//
+//        }
         
     }
 
