@@ -508,7 +508,18 @@
                         <outlet property="inputCharacterCountLabel" destination="s5D-Pf-o8n" id="3cg-Bo-w7G"/>
                         <outlet property="messageFromLabel" destination="1lw-Pb-4JC" id="ZxG-gp-QdG"/>
                         <outlet property="messageNumberLabel" destination="Tuk-KQ-TZn" id="EBi-NY-A3E"/>
+                        <outlet property="profileAddressTextField" destination="Bej-vO-Oo5" id="sI4-28-rgg"/>
+                        <outlet property="profileDOBTextField" destination="iWf-Ay-tDI" id="b8a-zB-XOf"/>
+                        <outlet property="profileEmailTextField" destination="Ehz-dP-xMX" id="MhD-Zn-rPE"/>
+                        <outlet property="profileFirstNameTextField" destination="i3Y-Y5-DDd" id="wqX-cT-W0n"/>
+                        <outlet property="profileGenderTextField" destination="XlD-b3-X21" id="y9Y-ye-M7c"/>
+                        <outlet property="profileHeadingLabel" destination="CrQ-QK-d0o" id="Dj0-nZ-bXP"/>
+                        <outlet property="profileLastNameTextField" destination="NFe-3Z-aOa" id="5lW-IS-lIT"/>
+                        <outlet property="profileNavView" destination="Hgd-yW-phr" id="fa1-d7-Hch"/>
+                        <outlet property="profileStateTextField" destination="lWe-aj-Glt" id="qCz-ca-MYB"/>
+                        <outlet property="profileUsernameLabel" destination="jnT-uo-j78" id="vNI-sM-6fD"/>
                         <outlet property="profileV" destination="A13-FA-p1M" id="iEb-Uh-ubF"/>
+                        <outlet property="profileZipCodeTextField" destination="ICD-Oh-j5C" id="qZa-zb-hbu"/>
                         <outlet property="schedule_Button" destination="Qe9-Z4-Z3p" id="Uce-2j-38f"/>
                         <outlet property="sendTextField" destination="g4e-vj-aG3" id="KGG-Lg-kXR"/>
                         <outlet property="shortCodeLabel" destination="hDw-se-gWa" id="z66-Cs-E1I"/>
@@ -687,8 +698,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgd-yW-phr" userLabel="Nav Bar View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Contact Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMZ-zL-8iK">
+                                    <rect key="frame" x="100.66666666666669" y="21.666666666666664" width="174" height="21.666666666666664"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBx-hX-jtf">
-                                    <rect key="frame" x="20" y="15" width="35" height="35"/>
+                                    <rect key="frame" x="8" y="15" width="35" height="35"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="WBx-hX-jtf" secondAttribute="height" multiplier="1:1" id="vXR-0O-VN6"/>
@@ -700,12 +717,6 @@
                                         <action selector="profileBackButtonTapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="HNF-Eo-BVq"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Contact Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMZ-zL-8iK">
-                                    <rect key="frame" x="100.66666666666669" y="21.666666666666664" width="174" height="21.666666666666664"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -713,7 +724,7 @@
                                 <constraint firstItem="JMZ-zL-8iK" firstAttribute="centerY" secondItem="WBx-hX-jtf" secondAttribute="centerY" id="EmB-zt-N1P"/>
                                 <constraint firstAttribute="height" constant="60" id="R6y-Y2-V0c"/>
                                 <constraint firstItem="JMZ-zL-8iK" firstAttribute="centerX" secondItem="Hgd-yW-phr" secondAttribute="centerX" id="TMU-oI-Hca"/>
-                                <constraint firstItem="WBx-hX-jtf" firstAttribute="leading" secondItem="Hgd-yW-phr" secondAttribute="leading" constant="20" id="Z6u-Yz-5BV"/>
+                                <constraint firstItem="WBx-hX-jtf" firstAttribute="leading" secondItem="Hgd-yW-phr" secondAttribute="leading" constant="8" id="Z6u-Yz-5BV"/>
                                 <constraint firstAttribute="bottom" secondItem="WBx-hX-jtf" secondAttribute="bottom" constant="10" id="s75-Hc-is2"/>
                             </constraints>
                         </view>
@@ -764,7 +775,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Yo-Qa-K4G">
                                             <rect key="frame" x="0.0" y="288" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICD-Oh-j5C" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICD-Oh-j5C" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
@@ -782,7 +793,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTW-an-sbt">
                                             <rect key="frame" x="0.0" y="36" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-dP-xMX" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-dP-xMX" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
@@ -801,12 +812,12 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6o-EG-4Ab">
                                             <rect key="frame" x="0.0" y="72" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-Y5-DDd" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-Y5-DDd" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -819,12 +830,12 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9x-ru-dmg">
                                             <rect key="frame" x="0.0" y="108" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-3Z-aOa" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-3Z-aOa" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -837,7 +848,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-6E-ndQ">
                                             <rect key="frame" x="0.0" y="144" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iWf-Ay-tDI" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iWf-Ay-tDI" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
@@ -855,7 +866,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2O-wf-28I">
                                             <rect key="frame" x="0.0" y="180" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XlD-b3-X21" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XlD-b3-X21" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
@@ -883,12 +894,12 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXC-vI-jqS">
                                             <rect key="frame" x="0.0" y="216" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bej-vO-Oo5" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bej-vO-Oo5" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -901,12 +912,12 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEA-cx-7Vq">
                                             <rect key="frame" x="0.0" y="252" width="375" height="35"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-aj-Glt" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-aj-Glt" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftArrow" translatesAutoresizingMaskIntoConstraints="NO" id="ZV1-nM-h4K">
                                                     <rect key="frame" x="350" y="10" width="15" height="15"/>

@@ -20,9 +20,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     // MARK: - Profile View Outlets
     @IBOutlet var profileV: UIView!
-
+    @IBOutlet weak var profileNavView: UIView!
+    
     @IBOutlet weak var profileHeadingLabel: UILabel!
     @IBOutlet weak var profileUsernameLabel: UILabel!
+    
     @IBOutlet weak var profileEmailTextField: FloatLabelTextField!
     @IBOutlet weak var profileFirstNameTextField: FloatLabelTextField!
     @IBOutlet weak var profileLastNameTextField: FloatLabelTextField!
@@ -35,7 +37,18 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBAction func profileBackButtonTapped(_ sender: Any) {
         
         self.profileV.removeFromSuperview()
+        
+        profileHeadingLabel.text = ""
+        profileUsernameLabel.text = ""
 
+        profileEmailTextField.text = ""
+        profileFirstNameTextField.text = ""
+        profileLastNameTextField.text = ""
+        profileDOBTextField.text = ""
+        profileGenderTextField.text = ""
+        profileAddressTextField.text = ""
+        profileStateTextField.text = ""
+        profileZipCodeTextField.text = ""
         
     }
 
@@ -73,6 +86,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         } else {
             header_View.backgroundColor = AppThemeColor
         }
+        profileNavView.backgroundColor = AppThemeColor
         cross_Button.backgroundColor = AppThemeColor
         delete_Button.backgroundColor = AppThemeColor
         Optout_Button.backgroundColor = AppThemeColor
@@ -285,6 +299,53 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         {
             self.closeView.removeFromSuperview()
 
+            
+            if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
+                self.selectedConversation.receiver?.lastName?.isEmpty == false)
+            {
+                var headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
+                headingStr = headingStr.uppercased()
+                profileHeadingLabel.text = headingStr
+            }
+            else {
+                profileHeadingLabel.text = ""
+
+            }
+            
+
+            
+            profileUsernameLabel.text = "Phone Number " + (self.selectedConversation.receiver?.phoneNumber)!
+            
+            profileEmailTextField.text = self.selectedConversation.receiver?.email
+            profileFirstNameTextField.text = self.selectedConversation.receiver?.firstName
+            profileLastNameTextField.text = self.selectedConversation.receiver?.lastName
+     
+//            if (self.selectedConversation.receiver?.birthDate = nil)
+//            {
+//                //-----------------------------------------------------------//
+//                //-----------------------------------------------------------//
+//                let dateFormatter =  DateFormatter()
+//                dateFormatter.timeZone = TimeZone.current
+//                dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
+//                let outStr = dateFormatter.string(from: (self.selectedConversation.receiver?.birthDate)!)
+//                //-----------------------------------------------------------//
+//                //-----------------------------------------------------------//
+//                profileDOBTextField.text = outStr//self.selectedConversation.receiver?.birthDate
+//
+//            }
+//            else {
+//                profileHeadingLabel.text = ""
+//
+//            }
+            
+            profileDOBTextField.text = ""//self.selectedConversation.receiver?.birthDate
+
+            profileGenderTextField.text = self.selectedConversation.receiver?.gender
+            profileAddressTextField.text = self.selectedConversation.receiver?.address
+            profileStateTextField.text = self.selectedConversation.receiver?.state
+            profileZipCodeTextField.text = self.selectedConversation.receiver?.zipCode
+            
+            
             self.profileV.frame = self.view.bounds
             
             self.view.addSubview(self.profileV)
