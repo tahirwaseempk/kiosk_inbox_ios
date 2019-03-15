@@ -64,11 +64,11 @@ class ChatTableViewCell: UITableViewCell {
         
         if type == .ChatCellAuthorTypeSender {
            
-            if environment == .text_Attendant {
-                self.numberLabel.textColor  = UIColor.white
-                self.messageLabel.textColor = UIColor.white
-                self.dateLabel.textColor    = UIColor.white
-            }
+//            if environment == .text_Attendant {
+//                self.numberLabel.textColor  = UIColor.white
+//                self.messageLabel.textColor = UIColor.white
+//                self.dateLabel.textColor    = UIColor.white
+//            }
             
             changeImage("chat_bubble_sent")
 
@@ -78,31 +78,37 @@ class ChatTableViewCell: UITableViewCell {
             self.trailingContraintEqual.isActive = true
             self.leadingContraintEqual.isActive = false
             
-            self.bubbleImageView.tintColor = AppThemeColor
+//            self.bubbleImageView.tintColor = AppThemeColor
 
-            //            switch environment {
-            //            case .texting_Line:
-            //                self.bubbleImageView.tintColor = AppThemeColor
-            //
-            //            case .sms_Factory:
-            //                self.bubbleImageView.tintColor = AppThemeColor
-            //
-            //            case .fan_Connect:
-            //                self.bubbleImageView.tintColor = AppThemeColor
-            //
-            //            case .photo_Texting:
-            //                self.bubbleImageView.tintColor = AppThemeColor
-            //            }
+//            switch environment {
+//            case .texting_Line:
+//                self.bubbleImageView.tintColor = AppThemeColor
+//            case .sms_Factory:
+//                self.bubbleImageView.tintColor = AppThemeColor
+//            case .fan_Connect:
+//                self.bubbleImageView.tintColor = AppThemeColor
+//            case .photo_Texting:
+//                self.bubbleImageView.tintColor = AppThemeColor
+//            case .text_Attendant:
+//                self.bubbleImageView.tintColor = TextAttendantColor
+//            }
+            
+            if environment == .text_Attendant {
+                self.bubbleImageView.tintColor = TextAttendantColor
+            } else {
+                self.bubbleImageView.tintColor = AppThemeColor
+            }
+            
             
             self.messageLabel.textAlignment = .left
             
         } else {
             
-            if environment == .text_Attendant {
-                self.numberLabel.textColor  = UIColor.black
-                self.messageLabel.textColor = UIColor.black
-                self.dateLabel.textColor    = UIColor.black
-            }
+//            if environment == .text_Attendant {
+//                self.numberLabel.textColor  = UIColor.black
+//                self.messageLabel.textColor = UIColor.black
+//                self.dateLabel.textColor    = UIColor.black
+//            }
             
             changeImage("chat_bubble_received")
 

@@ -145,7 +145,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
-        self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+//        self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.sendTextField.delegate = self
         
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView)
@@ -197,7 +197,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                                     }
                                     
                                 }
-                                
                                 
                                 _ = self.conversationSelected(conversation: self.selectedConversation)
                         }

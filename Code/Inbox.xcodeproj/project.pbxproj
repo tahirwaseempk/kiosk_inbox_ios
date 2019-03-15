@@ -1674,7 +1674,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c";
+			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
 		};
 		29955C64213A89E1000B733F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1722,7 +1722,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c";
+			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
 		};
 		299DC9B021FB9906001F2861 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1774,7 +1774,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c";
+			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
 		};
 		778B9C4AA0A83E4272753A13 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
