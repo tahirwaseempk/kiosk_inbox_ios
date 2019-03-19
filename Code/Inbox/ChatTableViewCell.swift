@@ -95,6 +95,10 @@ class ChatTableViewCell: UITableViewCell {
             
             if environment == .text_Attendant {
                 self.bubbleImageView.tintColor = TextAttendantColor
+                self.numberLabel.textColor  = UIColor.white
+                self.messageLabel.textColor = UIColor.white
+                self.dateLabel.textColor    = UIColor.white
+
             } else {
                 self.bubbleImageView.tintColor = AppThemeColor
             }

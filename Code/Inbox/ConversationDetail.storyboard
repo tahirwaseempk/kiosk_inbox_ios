@@ -39,23 +39,23 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj8-DR-ujD">
-                                                            <rect key="frame" x="15" y="5" width="384" height="12"/>
+                                                            <rect key="frame" x="15" y="5" width="384" height="11"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-KU-atd">
-                                                            <rect key="frame" x="15" y="22" width="384" height="57"/>
+                                                            <rect key="frame" x="15" y="21" width="384" height="59"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-4K-dm6">
-                                                            <rect key="frame" x="15" y="84" width="384" height="12"/>
+                                                            <rect key="frame" x="15" y="85" width="384" height="11"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -385,26 +385,26 @@
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your message here" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-vj-aG3">
-                                        <rect key="frame" x="8" y="5" width="342" height="34"/>
+                                        <rect key="frame" x="8" y="5" width="361" height="34"/>
                                         <color key="backgroundColor" red="0.85069775579999996" green="0.86635738610000002" blue="0.89012497660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         </variation>
                                         <connections>
                                             <outlet property="delegate" destination="nXl-5u-ZEJ" id="Uh9-bQ-Jba"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-9z-iaV">
-                                        <rect key="frame" x="358" y="5" width="50" height="37"/>
+                                        <rect key="frame" x="374" y="5" width="35" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="unR-6B-myJ"/>
+                                            <constraint firstAttribute="width" constant="35" id="unR-6B-myJ"/>
                                         </constraints>
                                         <state key="normal" image="SendMessageIcon2">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -420,32 +420,32 @@
                                             <constraint firstAttribute="height" constant="1" id="kUA-Rz-NqX"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-Pf-o8n">
-                                        <rect key="frame" x="283.66666666666669" y="37" width="66.333333333333314" height="14"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-Pf-o8n">
+                                        <rect key="frame" x="306" y="39" width="66" height="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="5"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="4"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="6"/>
                                         </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="g4e-vj-aG3" secondAttribute="bottom" constant="11" id="6DD-hg-O4H"/>
-                                    <constraint firstAttribute="bottom" secondItem="s5D-Pf-o8n" secondAttribute="bottom" constant="-1" id="6vI-BZ-e3B"/>
-                                    <constraint firstAttribute="bottom" secondItem="q2D-9z-iaV" secondAttribute="bottom" constant="8" id="DEn-MK-Kki"/>
-                                    <constraint firstAttribute="trailing" secondItem="q2D-9z-iaV" secondAttribute="trailing" constant="6" id="DPx-da-aXg"/>
+                                    <constraint firstAttribute="bottom" secondItem="s5D-Pf-o8n" secondAttribute="bottom" id="6vI-BZ-e3B"/>
+                                    <constraint firstAttribute="bottom" secondItem="q2D-9z-iaV" secondAttribute="bottom" constant="11" id="DEn-MK-Kki"/>
+                                    <constraint firstAttribute="trailing" secondItem="q2D-9z-iaV" secondAttribute="trailing" constant="5" id="DPx-da-aXg"/>
                                     <constraint firstItem="g4e-vj-aG3" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" constant="5" id="Kng-rl-9vb"/>
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" id="Rep-jx-mvv"/>
                                     <constraint firstItem="s5D-Pf-o8n" firstAttribute="trailing" secondItem="g4e-vj-aG3" secondAttribute="trailing" id="SvA-LX-NVO"/>
                                     <constraint firstAttribute="trailing" secondItem="j5v-i9-RST" secondAttribute="trailing" id="VR5-bZ-3KK"/>
                                     <constraint firstItem="g4e-vj-aG3" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" constant="8" id="ajk-RF-SKd"/>
-                                    <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="g4e-vj-aG3" secondAttribute="trailing" constant="8" id="bQx-N7-o8L"/>
-                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="top" secondItem="g4e-vj-aG3" secondAttribute="bottom" constant="-2" id="bjO-BL-SOD"/>
+                                    <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="g4e-vj-aG3" secondAttribute="trailing" constant="5" id="bQx-N7-o8L"/>
+                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="top" secondItem="g4e-vj-aG3" secondAttribute="bottom" id="bjO-BL-SOD"/>
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" id="kmc-FR-BFA"/>
                                     <constraint firstAttribute="height" constant="50" id="vOS-Sv-PLR"/>
                                     <constraint firstItem="q2D-9z-iaV" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" constant="5" id="vVk-Rp-W0c"/>
@@ -504,6 +504,7 @@
                         <outlet property="profileV" destination="A13-FA-p1M" id="iEb-Uh-ubF"/>
                         <outlet property="profileZipCodeTextField" destination="ICD-Oh-j5C" id="qZa-zb-hbu"/>
                         <outlet property="schedule_Button" destination="Qe9-Z4-Z3p" id="Uce-2j-38f"/>
+                        <outlet property="sendButton" destination="q2D-9z-iaV" id="FIH-1O-bY9"/>
                         <outlet property="sendTextField" destination="g4e-vj-aG3" id="KGG-Lg-kXR"/>
                         <outlet property="shortCodeLabel" destination="hDw-se-gWa" id="z66-Cs-E1I"/>
                         <outlet property="tableView" destination="WR1-rU-Qz7" id="T9b-C1-luR"/>
@@ -998,7 +999,7 @@
     <resources>
         <image name="CloseButtonIcon" width="72" height="72"/>
         <image name="LeftArrow" width="72" height="72"/>
-        <image name="SendMessageIcon2" width="512" height="512"/>
+        <image name="SendMessageIcon2" width="72" height="72"/>
         <image name="menuButtonIcon" width="72" height="72"/>
         <image name="searchIcon" width="18" height="18"/>
     </resources>

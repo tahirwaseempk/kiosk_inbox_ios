@@ -39,7 +39,7 @@ class ComposeMessageViewController: UIViewController {
         headerView.backgroundColor = AppThemeColor
         mobileNumberView.backgroundColor = AppThemeColor
         
-        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        sendButton.setImage(UIImage(named:"SendMessageIcon2")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
         sendButton.tintColor = AppThemeColor
         sendButton.layer.borderColor = AppThemeColor.cgColor
         /*
@@ -88,7 +88,7 @@ class ComposeMessageViewController: UIViewController {
         self.view.addSubview(backView)
         
         messageTextView.delegate = self
-        messageTextView.text = "Enter your message"
+        messageTextView.text = "Enter your message here"
         messageTextView.textColor = UIColor.lightGray
         messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
         messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -115,7 +115,7 @@ class ComposeMessageViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        else if ((messageTextView.text == "Enter your message") ||
+        else if ((messageTextView.text == "Enter your message here") ||
             (messageTextView.text.count == 0)) {
             
             let alert = UIAlertController(title: "Compose Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)

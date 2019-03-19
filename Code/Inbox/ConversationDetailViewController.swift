@@ -17,6 +17,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var Optout_Button: UIButton! // Profile View
     @IBOutlet weak var schedule_Button: UIButton!
 
+    @IBOutlet weak var sendButton: UIButton!
     
     // MARK: - Profile View Outlets
     @IBOutlet var profileV: UIView!
@@ -93,6 +94,13 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         schedule_Button.backgroundColor = AppThemeColor
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
+        
+        sendButton.setImage(UIImage(named:"SendMessageIcon2")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        sendButton.backgroundColor = AppThemeColor
+        sendButton.tintColor = UIColor.white
+        sendButton.layer.borderColor =  UIColor.white.cgColor
+        
+        
         /*
         switch environment {
         case .texting_Line:
