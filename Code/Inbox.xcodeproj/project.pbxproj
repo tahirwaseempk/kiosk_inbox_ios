@@ -259,7 +259,6 @@
 		299DC98F21FB9906001F2861 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684131F03F59300D24264 /* CoreGraphics.framework */; };
 		299DC99021FB9906001F2861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753684111F03F58A00D24264 /* Foundation.framework */; };
 		299DC99121FB9906001F2861 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C65213A8A1C000B733F /* Fabric.framework */; };
-		299DC99221FB9906001F2861 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
 		299DC99421FB9906001F2861 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9FAD1EF99E9F006C2CAC /* InboxTableViewCell.xib */; };
 		299DC99521FB9906001F2861 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
 		299DC99621FB9906001F2861 /* TextingLine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE9F871EF98E4A006C2CAC /* TextingLine.xcassets */; };
@@ -501,6 +500,7 @@
 		29FD100721160D1000062362 /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		29FD100821160D1000062362 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		29FD100921160D1000062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
+		490B5DEB2C418E3FD2833903 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
 		6B42F88795B04544C9CD2061 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
 		750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
@@ -653,6 +653,7 @@
 		1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationListing.storyboard; sourceTree = "<group>"; };
 		1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
+		266DCCD6A1F8E2E6E24DB85F /* Pods-FanConnectNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.debug.xcconfig"; sourceTree = "<group>"; };
 		29017325211666B600D00E06 /* SMSFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMSFactory.entitlements; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
@@ -691,11 +692,10 @@
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
 		29FD0F9921160D0500062362 /* FanConnectNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnectNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD100E21160D1000062362 /* PhotoTextingLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTextingLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B9C5153738254402C58D7AD /* Pods-FanConnectNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.release.xcconfig"; sourceTree = "<group>"; };
 		5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMSFactory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51802A377AA752A4C760FBA3 /* Pods-SMSFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.release.xcconfig"; path = "Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory.release.xcconfig"; sourceTree = "<group>"; };
-		5CF862C08643BDC0B421A490 /* Pods-FanConnectNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.release.xcconfig"; sourceTree = "<group>"; };
 		6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanConnectNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BD4B485F4DD689B64A2E2C8 /* Pods-FanConnectNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.debug.xcconfig"; sourceTree = "<group>"; };
 		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewProtocol.swift; sourceTree = "<group>"; };
@@ -790,7 +790,6 @@
 				299DC98F21FB9906001F2861 /* CoreGraphics.framework in Frameworks */,
 				299DC99021FB9906001F2861 /* Foundation.framework in Frameworks */,
 				299DC99121FB9906001F2861 /* Fabric.framework in Frameworks */,
-				299DC99221FB9906001F2861 /* Pods_FanConnectNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +803,7 @@
 				29FD0F7B21160D0500062362 /* Foundation.framework in Frameworks */,
 				29955C69213A8A1D000B733F /* Fabric.framework in Frameworks */,
 				6B42F88795B04544C9CD2061 /* Pods_FanConnectNow.framework in Frameworks */,
+				490B5DEB2C418E3FD2833903 /* Pods_FanConnectNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1283,14 +1283,14 @@
 		F58ACF3025347E3570B418EF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6BD4B485F4DD689B64A2E2C8 /* Pods-FanConnectNow.debug.xcconfig */,
-				5CF862C08643BDC0B421A490 /* Pods-FanConnectNow.release.xcconfig */,
 				B72314BB1AAA85BDC9C0DA7D /* Pods-PhotoTextingLine.debug.xcconfig */,
 				93E0DEB10B45741B928CADBD /* Pods-PhotoTextingLine.release.xcconfig */,
 				B5193E471D8D240CAFEDB027 /* Pods-SMSFactory.debug.xcconfig */,
 				51802A377AA752A4C760FBA3 /* Pods-SMSFactory.release.xcconfig */,
 				93D8088CD9C4151380AC32D6 /* Pods-TextingLine.debug.xcconfig */,
 				A1291FB4F6C49F14C71431B5 /* Pods-TextingLine.release.xcconfig */,
+				266DCCD6A1F8E2E6E24DB85F /* Pods-FanConnectNow.debug.xcconfig */,
+				2B9C5153738254402C58D7AD /* Pods-FanConnectNow.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1344,13 +1344,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 299DC9B121FB9906001F2861 /* Build configuration list for PBXNativeTarget "Text_Attendant" */;
 			buildPhases = (
-				299DC93C21FB9906001F2861 /* [CP] Check Pods Manifest.lock */,
 				299DC93D21FB9906001F2861 /* Sources */,
 				299DC98C21FB9906001F2861 /* Frameworks */,
 				299DC99321FB9906001F2861 /* Resources */,
 				299DC9AE21FB9906001F2861 /* Embed Frameworks */,
 				299DC9AF21FB9906001F2861 /* ShellScript */,
-				299DC9B021FB9906001F2861 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1689,28 +1687,6 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
 		};
-		299DC93C21FB9906001F2861 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FanConnectNow-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		299DC9AF21FB9906001F2861 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1723,32 +1699,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
-		};
-		299DC9B021FB9906001F2861 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		29CE4294214D936F008D0CD8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2641,7 +2591,6 @@
 		};
 		299DC9B221FB9906001F2861 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BD4B485F4DD689B64A2E2C8 /* Pods-FanConnectNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2671,7 +2620,6 @@
 		};
 		299DC9B321FB9906001F2861 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CF862C08643BDC0B421A490 /* Pods-FanConnectNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2700,7 +2648,7 @@
 		};
 		29FD0F9721160D0500062362 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BD4B485F4DD689B64A2E2C8 /* Pods-FanConnectNow.debug.xcconfig */;
+			baseConfigurationReference = 266DCCD6A1F8E2E6E24DB85F /* Pods-FanConnectNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2730,7 +2678,7 @@
 		};
 		29FD0F9821160D0500062362 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CF862C08643BDC0B421A490 /* Pods-FanConnectNow.release.xcconfig */;
+			baseConfigurationReference = 2B9C5153738254402C58D7AD /* Pods-FanConnectNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
 				CLANG_ENABLE_MODULES = YES;

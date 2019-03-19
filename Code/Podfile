@@ -8,7 +8,6 @@ target 'FanConnectNow' do
   # Pods for FanConnectNow
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-
 end
 
 target 'PhotoTextingLine' do
@@ -18,7 +17,6 @@ target 'PhotoTextingLine' do
   # Pods for PhotoTextingLine
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-
 end
 
 target 'SMSFactory' do
@@ -28,7 +26,6 @@ target 'SMSFactory' do
   # Pods for SMSFactory
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-
 end
 
 target 'TextingLine' do
@@ -38,5 +35,4 @@ target 'TextingLine' do
   # Pods for TextingLine
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-  
 end
