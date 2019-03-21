@@ -35,24 +35,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var profileStateTextField: FloatLabelTextField!
     @IBOutlet weak var profileZipCodeTextField: FloatLabelTextField!
     
-    @IBAction func profileBackButtonTapped(_ sender: Any) {
-        
-        self.profileV.removeFromSuperview()
-        
-        profileHeadingLabel.text = ""
-        profileUsernameLabel.text = ""
-
-        profileEmailTextField.text = ""
-        profileFirstNameTextField.text = ""
-        profileLastNameTextField.text = ""
-        profileDOBTextField.text = ""
-        profileGenderTextField.text = ""
-        profileAddressTextField.text = ""
-        profileStateTextField.text = ""
-        profileZipCodeTextField.text = ""
-        
-    }
-
     // MARK: -
     /////////////////////////////////////////////////
     
@@ -68,6 +50,92 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     var isShowActivityIndicator:Bool = false
     
     let imagePicker = UIImagePickerController()
+    
+    /////////////////////////////////////////////////
+    // MARK: - Profile View Methods
+    @IBAction func profileBackButtonTapped(_ sender: Any) {
+        
+        self.profileV.removeFromSuperview()
+        
+        self.profileHeadingLabel.text = ""
+        self.profileUsernameLabel.text = ""
+
+        self.profileEmailTextField.text = ""
+        self.profileFirstNameTextField.text = ""
+        self.profileLastNameTextField.text = ""
+        self.profileDOBTextField.text = ""
+        self.profileGenderTextField.text = ""
+        self.profileAddressTextField.text = ""
+        self.profileStateTextField.text = ""
+        self.profileZipCodeTextField.text = ""
+        
+    }
+    
+    
+    @IBAction func profileDoneButton_Tapped(_ sender: Any) {
+        
+        self.profileEmailTextField.resignFirstResponder()
+        self.profileFirstNameTextField.resignFirstResponder()
+        self.profileLastNameTextField.resignFirstResponder()
+        self.profileDOBTextField.resignFirstResponder()
+        self.profileGenderTextField.resignFirstResponder()
+        self.profileAddressTextField.resignFirstResponder()
+        self.profileStateTextField.resignFirstResponder()
+        self.profileZipCodeTextField.resignFirstResponder()
+        
+        ProcessingIndicator.show()
+        
+        var paramsDic = Dictionary<String, Any>()
+        paramsDic["firstName"]   = self.profileFirstNameTextField.text
+        paramsDic["lastName"]    = self.profileLastNameTextField.text
+        paramsDic["birthDate"]   = self.profileDOBTextField.text
+        paramsDic["gender"]      = self.profileGenderTextField.text
+        paramsDic["email"]       = self.profileEmailTextField.text
+        paramsDic["address"]     = self.profileAddressTextField.text
+        paramsDic["state"]       = self.profileStateTextField.text
+        paramsDic["zipCode"]     = self.profileZipCodeTextField.text
+
+        paramsDic["contactID"]   = String((self.selectedConversation.receiver?.contactId)!)
+
+        User.updateContact(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            if status == true {
+                                
+                                ProcessingIndicator.hide()
+                                let alert = UIAlertController(title: "Success", message: "Contact updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else
+                            {
+                                ProcessingIndicator.hide()
+                                let alert = UIAlertController(title: "Error", message: "Some error occured, please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                    }
+            }
+        }, andFailureBlock: { (error: Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                    }
+            }
+        })
+    }
+    // MARK: -
+    /////////////////////////////////////////////////
+
     
     override func viewDidLoad() {
         
@@ -164,6 +232,27 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         {
             _ = self.conversationSelected(conversation: self.selectedConversation)
         }
+        
+        //////////////////////////////////////////////////////////////////////
+        self.profileEmailTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
+        self.profileFirstNameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.profileLastNameTextField.layer.sublayerTransform  = CATransform3DMakeTranslation(8, 0, 0)
+        self.profileDOBTextField.layer.sublayerTransform       = CATransform3DMakeTranslation(8, 0, 0)
+        self.profileGenderTextField.layer.sublayerTransform    = CATransform3DMakeTranslation(8, 0, 0)
+        self.profileAddressTextField.layer.sublayerTransform   = CATransform3DMakeTranslation(8, 0, 0)
+        self.profileStateTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
+        self.profileZipCodeTextField.layer.sublayerTransform   = CATransform3DMakeTranslation(8, 0, 0)
+        
+        self.profileEmailTextField.isEnabled     = true
+        self.profileFirstNameTextField.isEnabled = true
+        self.profileLastNameTextField.isEnabled  = true
+        self.profileDOBTextField.isEnabled       = true
+        self.profileGenderTextField.isEnabled    = true
+        self.profileAddressTextField.isEnabled   = true
+        self.profileStateTextField.isEnabled     = true
+        self.profileZipCodeTextField.isEnabled   = true
+        //////////////////////////////////////////////////////////////////////
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -321,11 +410,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             
 
             
-            profileUsernameLabel.text = "Phone Number " + (self.selectedConversation.receiver?.phoneNumber)!
+            self.profileUsernameLabel.text = "Phone Number " + (self.selectedConversation.receiver?.phoneNumber)!
             
-            profileEmailTextField.text = self.selectedConversation.receiver?.email
-            profileFirstNameTextField.text = self.selectedConversation.receiver?.firstName
-            profileLastNameTextField.text = self.selectedConversation.receiver?.lastName
+            self.profileEmailTextField.text = self.selectedConversation.receiver?.email
+            self.profileFirstNameTextField.text = self.selectedConversation.receiver?.firstName
+            self.profileLastNameTextField.text = self.selectedConversation.receiver?.lastName
      
 //            if (self.selectedConversation.receiver?.birthDate = nil)
 //            {
@@ -345,12 +434,12 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 //
 //            }
             
-            profileDOBTextField.text = ""//self.selectedConversation.receiver?.birthDate
+            self.profileDOBTextField.text = ""//self.selectedConversation.receiver?.birthDate
 
-            profileGenderTextField.text = self.selectedConversation.receiver?.gender
-            profileAddressTextField.text = self.selectedConversation.receiver?.address
-            profileStateTextField.text = self.selectedConversation.receiver?.state
-            profileZipCodeTextField.text = self.selectedConversation.receiver?.zipCode
+            self.profileGenderTextField.text = self.selectedConversation.receiver?.gender
+            self.profileAddressTextField.text = self.selectedConversation.receiver?.address
+            self.profileStateTextField.text = self.selectedConversation.receiver?.state
+            self.profileZipCodeTextField.text = self.selectedConversation.receiver?.zipCode
             
             
             self.profileV.frame = self.view.bounds

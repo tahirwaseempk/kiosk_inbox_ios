@@ -33,7 +33,7 @@ let PUT_USER = "/api/v1/user/"
 let GET_USER = "/api/v1/auth/user"
 let FORGET_PASSWORD = "/api/v1/auth/resetPassword"
 let BYPASS_MESSAGE = "/api/v1/messages/byPass"
-
+let PUT_CONTACT = "/api/v1/contacts/"
 let THEME_COLOR = "/api/v1/themes/whiteLabel/"
 //----------------------------------------------------------//
 let PUT_TOKEN_URL = "/api/v1/pushtoken"
@@ -723,7 +723,7 @@ class WebManager: NSObject
             finalUrl = URL_PHOTO_TEXTING + PUT_USER
         case .text_Attendant:
             finalUrl = URL_PHOTO_TEXTING + PUT_USER
-
+            
         }
         
         print("\n ===== >>>>> Put User URL = \(finalUrl) \n")
@@ -740,7 +740,78 @@ class WebManager: NSObject
             }
         })
     }
-    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    // MARK: - UPDATE CONTACT INFORMATION
+    static func putContact(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let token:String = params["token"] as! String
+        
+        var paramsDictionary = Dictionary<String, Any>()
+        
+
+        if (params["firstName"] != nil) {
+            paramsDictionary["firstName"] = params["firstName"] as! String
+        }
+        if (params["lastName"] != nil) {
+            paramsDictionary["lastName"] = params["lastName"] as! String
+        }
+        if (params["birthDate"] != nil) {
+            paramsDictionary["birthDate"] = params["birthDate"] as! String
+        }
+        if (params["gender"] != nil) {
+            paramsDictionary["gender"] = params["gender"] as! String
+        }
+        if (params["email"] != nil) {
+            paramsDictionary["email"] = params["email"] as! String
+        }
+        if (params["address"] != nil) {
+            paramsDictionary["address"] = params["address"] as! String
+        }
+        if (params["state"] != nil) {
+            paramsDictionary["state"] = params["state"] as! String
+        }
+        if (params["zipCode"] != nil) {
+            paramsDictionary["zipCode"] = params["zipCode"] as! String
+        }
+        
+        let contactId:String = params["contactID"] as! String
+
+   
+        var finalUrl = ""
+        
+        switch environment {
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + PUT_CONTACT + contactId
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + PUT_CONTACT + contactId
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + PUT_CONTACT + contactId
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + PUT_CONTACT + contactId
+        case .text_Attendant:
+            finalUrl = URL_PHOTO_TEXTING + PUT_CONTACT + contactId
+        }
+        
+        print("\n ===== >>>>> Put User URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "PUT", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    // MARK: -
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//

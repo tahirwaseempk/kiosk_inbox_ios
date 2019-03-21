@@ -500,7 +500,6 @@
 		29FD100721160D1000062362 /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		29FD100821160D1000062362 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		29FD100921160D1000062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
-		490B5DEB2C418E3FD2833903 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
 		6B42F88795B04544C9CD2061 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
 		750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
@@ -554,6 +553,7 @@
 		89924ED1ADE889382741FD35 /* Pods_TextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE567C720718B220C71EF699 /* Pods_TextingLine.framework */; };
 		A677810F0B6C875EA4DA2892 /* Pods_PhotoTextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5EADEE16B9EB0544D935B0 /* Pods_PhotoTextingLine.framework */; };
 		AED556EA294AF518847BD8B5 /* Pods_SMSFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */; };
+		F7C192C8B95629BBF617AAAE /* Pods_Text_Attendant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA100ECF6185AFADE693ABE /* Pods_Text_Attendant.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -620,6 +620,7 @@
 		04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04EC9FB71FC3724700F3C42A /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Checkbox.swift; path = Inbox/Checkbox.swift; sourceTree = "<group>"; };
 		04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Inbox/Default-568h@2x.png"; sourceTree = "<group>"; };
+		175EDD9B568709D49313B81F /* Pods-Text_Attendant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text_Attendant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant.debug.xcconfig"; sourceTree = "<group>"; };
 		1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarDayView.swift; sourceTree = "<group>"; };
 		1A3475202062CA6100FA0FFB /* GCCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarView.swift; sourceTree = "<group>"; };
 		1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarViewDelegate.swift; sourceTree = "<group>"; };
@@ -685,6 +686,8 @@
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
+		29C874FF22408F51000C7760 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C8750122408F69000C7760 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		29E5E13E21767A5E00BF642C /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
@@ -693,6 +696,8 @@
 		29FD0F9921160D0500062362 /* FanConnectNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnectNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD100E21160D1000062362 /* PhotoTextingLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTextingLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9C5153738254402C58D7AD /* Pods-FanConnectNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.release.xcconfig"; sourceTree = "<group>"; };
+		2D88C09E1DD4E78068407FB3 /* Pods-Text_Attendant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text_Attendant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant.release.xcconfig"; sourceTree = "<group>"; };
+		3AA100ECF6185AFADE693ABE /* Pods_Text_Attendant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Attendant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMSFactory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51802A377AA752A4C760FBA3 /* Pods-SMSFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.release.xcconfig"; path = "Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory.release.xcconfig"; sourceTree = "<group>"; };
 		6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanConnectNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -790,6 +795,7 @@
 				299DC98F21FB9906001F2861 /* CoreGraphics.framework in Frameworks */,
 				299DC99021FB9906001F2861 /* Foundation.framework in Frameworks */,
 				299DC99121FB9906001F2861 /* Fabric.framework in Frameworks */,
+				F7C192C8B95629BBF617AAAE /* Pods_Text_Attendant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,7 +809,6 @@
 				29FD0F7B21160D0500062362 /* Foundation.framework in Frameworks */,
 				29955C69213A8A1D000B733F /* Fabric.framework in Frameworks */,
 				6B42F88795B04544C9CD2061 /* Pods_FanConnectNow.framework in Frameworks */,
-				490B5DEB2C418E3FD2833903 /* Pods_FanConnectNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1179,6 +1184,8 @@
 		753684101F03F58900D24264 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29C8750122408F69000C7760 /* FirebaseMessaging.framework */,
+				29C874FF22408F51000C7760 /* FirebaseCore.framework */,
 				29955C66213A8A1D000B733F /* Crashlytics.framework */,
 				29955C65213A8A1C000B733F /* Fabric.framework */,
 				2949C60120C3196B000A4BB8 /* PhoneNumberKit */,
@@ -1189,6 +1196,7 @@
 				CF5EADEE16B9EB0544D935B0 /* Pods_PhotoTextingLine.framework */,
 				5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */,
 				AE567C720718B220C71EF699 /* Pods_TextingLine.framework */,
+				3AA100ECF6185AFADE693ABE /* Pods_Text_Attendant.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1291,6 +1299,8 @@
 				A1291FB4F6C49F14C71431B5 /* Pods-TextingLine.release.xcconfig */,
 				266DCCD6A1F8E2E6E24DB85F /* Pods-FanConnectNow.debug.xcconfig */,
 				2B9C5153738254402C58D7AD /* Pods-FanConnectNow.release.xcconfig */,
+				175EDD9B568709D49313B81F /* Pods-Text_Attendant.debug.xcconfig */,
+				2D88C09E1DD4E78068407FB3 /* Pods-Text_Attendant.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1344,11 +1354,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 299DC9B121FB9906001F2861 /* Build configuration list for PBXNativeTarget "Text_Attendant" */;
 			buildPhases = (
+				4D03BDEB817ADCE152C11172 /* [CP] Check Pods Manifest.lock */,
 				299DC93D21FB9906001F2861 /* Sources */,
 				299DC98C21FB9906001F2861 /* Frameworks */,
 				299DC99321FB9906001F2861 /* Resources */,
 				299DC9AE21FB9906001F2861 /* Embed Frameworks */,
 				299DC9AF21FB9906001F2861 /* ShellScript */,
+				DE6E1191A184F03C47E7BE0A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1726,6 +1738,28 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
 		};
+		4D03BDEB817ADCE152C11172 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Text_Attendant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		778B9C4AA0A83E4272753A13 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1735,9 +1769,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS10.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS10.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS10.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1783,9 +1817,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS10.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS10.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS10.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1844,6 +1878,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DE6E1191A184F03C47E7BE0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E2349B096DDA888D8E04ADE7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1853,9 +1913,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS10.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS10.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS10.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1879,9 +1939,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS10.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS10.0/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS10.0/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -2591,6 +2651,7 @@
 		};
 		299DC9B221FB9906001F2861 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 175EDD9B568709D49313B81F /* Pods-Text_Attendant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2604,7 +2665,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TextAttendant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.textattendant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2620,6 +2681,7 @@
 		};
 		299DC9B321FB9906001F2861 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D88C09E1DD4E78068407FB3 /* Pods-Text_Attendant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2633,7 +2695,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TextAttendant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.textattendant;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -912,6 +912,74 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    static func updateContact(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = params
+            paramsDic["token"] = user.token
+            
+            WebManager.putContact(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                var tempDictionary = Dictionary<String,Any>()
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil {
+                    
+                    if jsonDict["errorCode"] as! Int == 200 {
+                        
+                        //                                                let user = User.getLoginedUser()
+                        //                                                if (params.count == 1) {
+                        //                                                } else {
+                        //
+                        //                                                    user?.update(firstName_: paramsDic["firstName"] as! String,
+                        //                                                                 lastName_: paramsDic["lastName"] as! String,
+                        //                                                                 email_: paramsDic["email"] as! String,
+                        //                                                                 mobile_: paramsDic["mobile"] as! String,
+                        //                                                                 companyName_: paramsDic["companyName"] as! String,
+                        //                                                                 address_: paramsDic["address"] as! String,
+                        //                                                                 city_: paramsDic["city"] as! String,
+                        //                                                                 country_: paramsDic["country"] as! String,
+                        //                                                                 state_: paramsDic["state"] as! String,
+                        //                                                                 zipCode_: paramsDic["zipCode"] as! String)
+                        //                                                }
+                        
+                        DispatchQueue.global(qos: .background).async
+                            {
+                                DispatchQueue.main.async
+                                    {
+                                        successBlock(true)
+                                }
+                        }
+                    }
+                    else if jsonDict["errorCode"] as! Int == 400 {
+                        
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:jsonDict["message"] as! String]))
+                        
+                    } else {
+                        tempDictionary["name"] = jsonDict["name"] as! String
+                        tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int64
+                        tempDictionary["message"] = jsonDict["message"] as! String
+                        tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int64
+                        
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                    }
+                }
+                else {
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Request_Completed_Error]))
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+            
+        }
+        else {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     static func forgetUserPassword(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         //        if let user = User.getLoginedUser()
