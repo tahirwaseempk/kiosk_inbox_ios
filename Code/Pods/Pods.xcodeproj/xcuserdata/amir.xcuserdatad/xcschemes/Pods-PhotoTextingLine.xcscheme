@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "955C8921CAE60C3A932C9555BC2A5F03"
+               BlueprintIdentifier = "964978EC0719C441F0DB43F125734665"
                BuildableName = "Pods_PhotoTextingLine.framework"
                BlueprintName = "Pods-PhotoTextingLine"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "955C8921CAE60C3A932C9555BC2A5F03"
+            BlueprintIdentifier = "964978EC0719C441F0DB43F125734665"
             BuildableName = "Pods_PhotoTextingLine.framework"
             BlueprintName = "Pods-PhotoTextingLine"
             ReferencedContainer = "container:Pods.xcodeproj">

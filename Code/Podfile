@@ -8,6 +8,7 @@ target 'FanConnectNow' do
   # Pods for FanConnectNow
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+
 end
 
 target 'PhotoTextingLine' do
@@ -17,6 +18,7 @@ target 'PhotoTextingLine' do
   # Pods for PhotoTextingLine
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+
 end
 
 target 'SMSFactory' do
@@ -26,6 +28,7 @@ target 'SMSFactory' do
   # Pods for SMSFactory
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+
 end
 
 target 'TextingLine' do
@@ -35,13 +38,5 @@ target 'TextingLine' do
   # Pods for TextingLine
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-end
-
-target 'Text_Attendant' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for Text_Attendant
-  pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
+  
 end

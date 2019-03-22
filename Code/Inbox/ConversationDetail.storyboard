@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -419,8 +420,8 @@
                                             <constraint firstAttribute="height" constant="1" id="kUA-Rz-NqX"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-Pf-o8n">
-                                        <rect key="frame" x="306" y="39" width="66" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-Pf-o8n">
+                                        <rect key="frame" x="311.33333333333331" y="39" width="57.666666666666686" height="11"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="5"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -442,6 +443,7 @@
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" id="Rep-jx-mvv"/>
                                     <constraint firstItem="s5D-Pf-o8n" firstAttribute="top" secondItem="g4e-vj-aG3" secondAttribute="bottom" id="UPi-70-R8p"/>
                                     <constraint firstAttribute="trailing" secondItem="j5v-i9-RST" secondAttribute="trailing" id="VR5-bZ-3KK"/>
+                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="trailing" secondItem="g4e-vj-aG3" secondAttribute="trailing" id="dfi-EP-5ML"/>
                                     <constraint firstItem="j5v-i9-RST" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" id="kmc-FR-BFA"/>
                                     <constraint firstItem="g4e-vj-aG3" firstAttribute="top" secondItem="q2D-9z-iaV" secondAttribute="top" id="q01-ic-AR0"/>
                                     <constraint firstItem="g4e-vj-aG3" firstAttribute="bottom" secondItem="q2D-9z-iaV" secondAttribute="bottom" id="sso-8L-3fh"/>

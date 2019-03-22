@@ -14,11 +14,11 @@ enum ChatCellTypeEnum: Int {
 }
 
 class ChatTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet weak var bubbleImageView: UIImageView!
     @IBOutlet weak var bubbleHeightConstraint: NSLayoutConstraint!
-
+    
     @IBOutlet weak var backgroundCellView: UIView!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var messageLabel: UITextView!
@@ -29,7 +29,7 @@ class ChatTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-
+    
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
@@ -40,7 +40,7 @@ class ChatTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     @IBOutlet var leadingConstraint: NSLayoutConstraint!
     @IBOutlet var trailingConstraint: NSLayoutConstraint!
     @IBOutlet var trailingContraintEqual: NSLayoutConstraint!
@@ -57,50 +57,32 @@ class ChatTableViewCell: UITableViewCell {
         self.messageLabel.isScrollEnabled = false
         
         //        let contentSize1 = messageLabel.sizeThatFits(messageLabel.bounds.size)
-
+        
         //        var frame = self.messageLabel.frame
         //        frame.size.height = contentSize1.height
         //        self.messageLabel.frame = frame
         
         if type == .ChatCellAuthorTypeSender {
-           
-//            if environment == .text_Attendant {
-//                self.numberLabel.textColor  = UIColor.white
-//                self.messageLabel.textColor = UIColor.white
-//                self.dateLabel.textColor    = UIColor.white
-//            }
-            
-            changeImage("chat_bubble_sent")
 
+            changeImage("chat_bubble_sent")
+            
             self.leadingConstraint.isActive = true
             self.trailingConstraint.isActive = false
             
             self.trailingContraintEqual.isActive = true
             self.leadingContraintEqual.isActive = false
             
-//            self.bubbleImageView.tintColor = AppThemeColor
-
-//            switch environment {
-//            case .texting_Line:
-//                self.bubbleImageView.tintColor = AppThemeColor
-//            case .sms_Factory:
-//                self.bubbleImageView.tintColor = AppThemeColor
-//            case .fan_Connect:
-//                self.bubbleImageView.tintColor = AppThemeColor
-//            case .photo_Texting:
-//                self.bubbleImageView.tintColor = AppThemeColor
-//            case .text_Attendant:
-//                self.bubbleImageView.tintColor = TextAttendantColor
-//            }
-            
             if environment == .text_Attendant {
                 self.bubbleImageView.tintColor = TextAttendantColor
                 self.numberLabel.textColor  = UIColor.white
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
-
+                
             } else {
                 self.bubbleImageView.tintColor = AppThemeColor
+                self.numberLabel.textColor  = UIColor.black
+                self.messageLabel.textColor = UIColor.black
+                self.dateLabel.textColor    = UIColor.black
             }
             
             
@@ -108,22 +90,20 @@ class ChatTableViewCell: UITableViewCell {
             
         } else {
             
-//            if environment == .text_Attendant {
-//                self.numberLabel.textColor  = UIColor.black
-//                self.messageLabel.textColor = UIColor.black
-//                self.dateLabel.textColor    = UIColor.black
-//            }
+            self.numberLabel.textColor  = UIColor.black
+            self.messageLabel.textColor = UIColor.black
+            self.dateLabel.textColor    = UIColor.black
             
             changeImage("chat_bubble_received")
-
+            
             self.leadingConstraint.isActive = false
             self.trailingConstraint.isActive = true
             self.trailingContraintEqual.isActive = false
             self.leadingContraintEqual.isActive = true
-
+            
             self.bubbleImageView.tintColor = GrayHeaderColor
             self.messageLabel.textAlignment = .left
-
+            
         }
         
     }
@@ -134,11 +114,11 @@ class ChatTableViewCell: UITableViewCell {
         if let image = UIImage(named: name)
         {
             bubbleImageView.image = image
-             .resizableImage(withCapInsets:
-                            UIEdgeInsets(top: 17, left: 21, bottom: 17, right: 21),
-                                        resizingMode: .stretch)
-                        .withRenderingMode(.alwaysTemplate)
-
+                .resizableImage(withCapInsets:
+                    UIEdgeInsets(top: 17, left: 21, bottom: 17, right: 21),
+                                resizingMode: .stretch)
+                .withRenderingMode(.alwaysTemplate)
+            
         }
         else
         {
@@ -150,5 +130,5 @@ class ChatTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-
+    
 }
