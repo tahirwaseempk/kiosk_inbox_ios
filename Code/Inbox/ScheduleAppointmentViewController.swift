@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyPickerPopover
 
 class ScheduleAppointmentViewController: UIViewController
 {
@@ -27,7 +28,51 @@ class ScheduleAppointmentViewController: UIViewController
     
     var checkBoxMessage = "Reminder"
     
-    var selectedDate = Date()
+    var reminderSelectedDate = Date()
+    var reminderTimeInterval = TimeInterval()
+    
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var minuteLabel: UILabel!
+    
+    @IBAction func hourButton_Tapped(_ sender: UIButton) {
+        // CountdownPickerPopover appears:
+        CountdownPickerPopover(title: "")
+            .setSelectedTimeInterval(self.reminderTimeInterval)
+            .setValueChange(action: { _, timeInterval in
+                print("current interval \(timeInterval)")
+            })
+            .setDoneButton(action: { popover, timeInterval in
+                print("timeInterval \(timeInterval)")
+                
+             self.reminderTimeInterval = timeInterval
+             self.hourLabel.text =  timeInterval.hoursFromTimeInterval()
+             self.minuteLabel.text =  timeInterval.minutesFromTimeInterval()
+                
+            })
+            .setCancelButton(action: { _, _ in print("cancel")})
+            .setClearButton(action: { popover, timeInterval in print("Clear")
+                popover.setSelectedTimeInterval(TimeInterval()).reload()
+            })
+            .appear(originView: sender, baseViewController: self)
+    }
+    
+//    @IBAction func MinuteButton_Tapped(_ sender: UIButton) {
+//        // CountdownPickerPopover appears:
+//        CountdownPickerPopover(title: "")
+//            .setSelectedTimeInterval(TimeInterval())
+//            .setValueChange(action: { _, timeInterval in
+//                print("current interval \(timeInterval)")
+//            })
+//            .setDoneButton(action: { popover, timeInterval in
+//                print("timeInterval \(timeInterval)")
+//                self.reminderTimeInterval = timeInterval
+//            })
+//            .setCancelButton(action: { _, _ in print("cancel")})
+//            .setClearButton(action: { popover, timeInterval in print("Clear")
+//                popover.setSelectedTimeInterval(TimeInterval()).reload()
+//            })
+//            .appear(originView: sender, baseViewController: self)
+//    }
     
     override func viewDidLoad()
     {
@@ -146,25 +191,26 @@ class ScheduleAppointmentViewController: UIViewController
             return
         }
         
-        
-        var hoursWithoutMString = String(self.hourCounterView.tempValue) // Does Not Contain m at end like 12
-        var minutesWithoutMString = String(self.minuteCounterView.valueLabel.tag) // Does Not Contain m at end like 12
+        /////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////
+        let hoursWithoutMString = hourLabel.text!
+        let minutesWithoutMString = minuteLabel.text!
         /////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.dateFormat = ONLY_DATE
-        var selectedDateStr = dateFormatter.string(from: self.selectedDate)
-        
-        if (minutesWithoutMString == "0") {
-            minutesWithoutMString = "00"
-        }
-        if (hoursWithoutMString == "24") {
-            hoursWithoutMString = "23"
-        }
-        else if (hoursWithoutMString == "0") {
-            hoursWithoutMString = "00"
-        }
+        var selectedDateStr = dateFormatter.string(from: self.reminderSelectedDate)
+//
+//        if (minutesWithoutMString == "0") {
+//            minutesWithoutMString = "00"
+//        }
+//        if (hoursWithoutMString == "24") {
+//            hoursWithoutMString = "23"
+//        }
+//        else if (hoursWithoutMString == "0") {
+//            hoursWithoutMString = "00"
+//        }
         
         selectedDateStr = selectedDateStr + " " + hoursWithoutMString + ":" + minutesWithoutMString  + ":00"
         /////////////////////////////////////////////////////////////////////////////////////
@@ -239,29 +285,45 @@ class ScheduleAppointmentViewController: UIViewController
         })
     }
     
+    
     @IBAction func calendarButtonTapped(_ sender: UIButton)
     {
-        self.calendarView.delegate = self
+        DatePickerPopover(title: "")
+            .setDateMode(.date)
+            .setSelectedDate(Date())
+            .setDoneButton(action: { (popOver, selectDate) in
+                print(selectDate)
+                
+                self.reminderSelectedDate = selectDate
+                let dateFormatter =  DateFormatter()
+                //dateFormatter.timeZone = TimeZone.current
+                dateFormatter.dateFormat = "MMM dd, yyyy"
+                self.calendarLabel.text = dateFormatter.string(from: self.reminderSelectedDate)
+                
+            })
+            .setCancelButton(action: { _, _ in print("cancel")})
+            .appear(originView: sender, baseViewController: self)
         
-        self.calendarView.displayMode = .month
         
-        self.view.addSubview(self.calendarView)
+        //        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMM, yyyy", options: 0, locale: calendar.locale)
+        //        self.calendarLabel.text = dateFormatter.string(from: self.selectedDate)
+        //        self.selectedDate = selectDate
         
-        let width = self.view.frame.size.width - 40
+        //        self.calendarView.delegate = self
+        //        self.calendarView.displayMode = .month
+        //        self.view.addSubview(self.calendarView)
+        //        let width = self.view.frame.size.width - 40
+        //        self.calendarView.frame = CGRect(x: 0, y: 0, width: width, height: width)
+        //        let options = [
+        //            .type(.down),
+        //            .cornerRadius(1 / 1),
+        //            .animationIn(0.35),
+        //            .blackOverlayColor(UIColor.clear),
+        //            .arrowSize(CGSize(width: 10, height: 10))
+        //            ] as [PopoverOption]
+        //        let popover = Popover(options: options, showHandler: nil, dismissHandler: nil)
+        //        popover.show(self.calendarView, fromView: self.calendarLabel)
         
-        self.calendarView.frame = CGRect(x: 0, y: 0, width: width, height: width)
-        
-        let options = [
-            .type(.down),
-            .cornerRadius(1 / 1),
-            .animationIn(0.35),
-            .blackOverlayColor(UIColor.clear),
-            .arrowSize(CGSize(width: 10, height: 10))
-            ] as [PopoverOption]
-        
-        let popover = Popover(options: options, showHandler: nil, dismissHandler: nil)
-        
-        popover.show(self.calendarView, fromView: self.calendarLabel)
     }
     
     func removeTimeStamp(fromDate: Date) -> Date {
@@ -275,6 +337,7 @@ class ScheduleAppointmentViewController: UIViewController
 
 extension ScheduleAppointmentViewController : GCCalendarViewDelegate
 {
+
     func calendarView(_ calendarView: GCCalendarView, didSelectDate date: Date, inCalendar calendar: Calendar)
     {
         let dateFormatter = DateFormatter()
@@ -285,7 +348,7 @@ extension ScheduleAppointmentViewController : GCCalendarViewDelegate
         
         self.calendarLabel.text = dateFormatter.string(from: date)
         
-        self.selectedDate = date
+        self.reminderSelectedDate = date
     }
     
     func splitNumber(str:String) -> String

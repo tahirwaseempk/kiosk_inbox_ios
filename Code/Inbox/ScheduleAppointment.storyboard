@@ -47,21 +47,25 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izk-ak-UVt" userLabel="MinuteView">
                                                 <rect key="frame" x="283" y="0.0" width="82" height="70"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kJ-w0-jSS" customClass="CounterView" customModule="FanConnectNow" customModuleProvider="target">
-                                                        <rect key="frame" x="5" y="28" width="72" height="37"/>
-                                                        <color key="backgroundColor" red="0.9294143319" green="0.92941170930000006" blue="0.92940384149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                                <integer key="value" value="60"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                                                <integer key="value" value="0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="postfixString" value="m"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0md-pO-zFT">
-                                                        <rect key="frame" x="5" y="5" width="51" height="18"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHK-WI-NeP" userLabel="MinuteButton">
+                                                        <rect key="frame" x="5" y="32" width="72" height="32"/>
+                                                        <color key="backgroundColor" red="0.83529645204544067" green="0.83529406785964966" blue="0.83528697490692139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <connections>
+                                                            <action selector="hourButton_Tapped:" destination="B8B-tO-yVE" eventType="touchUpInside" id="jmK-ZC-Fz9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdY-LU-GEa" userLabel="HourLabel">
+                                                        <rect key="frame" x="5" y="30" width="72" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="ipx-Gh-K54"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Minute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0md-pO-zFT" userLabel="MinuteHeaderLabel">
+                                                        <rect key="frame" x="5" y="2" width="69" height="25"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -69,12 +73,18 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="5kJ-w0-jSS" secondAttribute="trailing" constant="5" id="0Iw-7f-Sjo"/>
-                                                    <constraint firstItem="0md-pO-zFT" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" constant="5" id="7iM-xU-yMZ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="5kJ-w0-jSS" secondAttribute="bottom" constant="5" id="Yti-pm-Eok"/>
-                                                    <constraint firstItem="5kJ-w0-jSS" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" constant="5" id="bIJ-aF-wTF"/>
-                                                    <constraint firstItem="0md-pO-zFT" firstAttribute="top" secondItem="izk-ak-UVt" secondAttribute="top" constant="5" id="oTp-c4-SbS"/>
-                                                    <constraint firstItem="5kJ-w0-jSS" firstAttribute="top" secondItem="0md-pO-zFT" secondAttribute="bottom" constant="5" id="scO-VR-jWO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HHK-WI-NeP" secondAttribute="bottom" constant="6" id="4Po-7j-iPk"/>
+                                                    <constraint firstItem="HHK-WI-NeP" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" constant="5" id="4Zd-7u-2NJ"/>
+                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" constant="5" id="5oI-lB-fqr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wdY-LU-GEa" secondAttribute="bottom" constant="5" id="DBp-f6-jHu"/>
+                                                    <constraint firstItem="0md-pO-zFT" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" constant="5" id="FgX-D1-smQ"/>
+                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="top" secondItem="0md-pO-zFT" secondAttribute="bottom" constant="2" id="RU9-Lj-NKN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HHK-WI-NeP" secondAttribute="trailing" constant="5" id="UxP-XQ-OMP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wdY-LU-GEa" secondAttribute="trailing" constant="5" id="Wvj-hb-cWa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0md-pO-zFT" secondAttribute="trailing" constant="8" id="ZYH-rc-PhD"/>
+                                                    <constraint firstItem="HHK-WI-NeP" firstAttribute="top" secondItem="0md-pO-zFT" secondAttribute="bottom" constant="4" id="fHj-B7-bCG"/>
+                                                    <constraint firstItem="0md-pO-zFT" firstAttribute="top" secondItem="izk-ak-UVt" secondAttribute="top" constant="2" id="nif-H9-fGf"/>
+                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="top" secondItem="0md-pO-zFT" secondAttribute="bottom" constant="2" id="pI0-jM-huD"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="minValue">
@@ -109,7 +119,7 @@
                                                                 <state key="normal" image="ic_date_range"/>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.9294143319" green="0.92941170930000006" blue="0.92940384149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.83529645200000002" green="0.83529406790000005" blue="0.83528697490000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="jvA-K9-QsZ" secondAttribute="bottom" id="C10-LG-sFB"/>
                                                             <constraint firstAttribute="trailing" secondItem="yJ1-0D-3GW" secondAttribute="trailing" id="DFT-d1-AOW"/>
@@ -152,38 +162,45 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6og-B9-eid" userLabel="HourView">
                                                 <rect key="frame" x="201" y="0.0" width="82" height="70"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Els-uw-Yue" customClass="CounterView" customModule="FanConnectNow" customModuleProvider="target">
-                                                        <rect key="frame" x="5" y="28" width="72" height="37"/>
-                                                        <color key="backgroundColor" red="0.9294143319" green="0.92941170930000006" blue="0.92940384149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                                <integer key="value" value="24"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                                                <integer key="value" value="0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="postfixString" value=" AM"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewType" value="hours"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="tempValue">
-                                                                <integer key="value" value="0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmU-nd-sfJ">
-                                                        <rect key="frame" x="5" y="5" width="37" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmU-nd-sfJ" userLabel="HourHeaderLabel">
+                                                        <rect key="frame" x="5" y="2" width="37" height="26"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34b-nR-kMJ" userLabel="HourButton">
+                                                        <rect key="frame" x="5" y="30" width="72" height="35"/>
+                                                        <color key="backgroundColor" red="0.83529645200000002" green="0.83529406790000005" blue="0.83528697490000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="2Hg-6I-sOh"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="hourButton_Tapped:" destination="B8B-tO-yVE" eventType="touchUpInside" id="Qdn-7n-NbQ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-pE-56g" userLabel="HourLabel">
+                                                        <rect key="frame" x="5" y="30" width="72" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="9ae-Gl-rNL"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="34b-nR-kMJ" secondAttribute="bottom" constant="5" id="3fw-uP-Mxf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vSQ-pE-56g" secondAttribute="bottom" constant="5" id="JZw-pi-ugS"/>
+                                                    <constraint firstItem="34b-nR-kMJ" firstAttribute="top" secondItem="kmU-nd-sfJ" secondAttribute="bottom" constant="1" id="Mh3-3V-ZHY"/>
                                                     <constraint firstItem="kmU-nd-sfJ" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="leading" constant="5" id="NV9-Ff-bPG"/>
-                                                    <constraint firstItem="Els-uw-Yue" firstAttribute="leading" secondItem="kmU-nd-sfJ" secondAttribute="leading" id="YLE-XJ-TL7"/>
-                                                    <constraint firstItem="Els-uw-Yue" firstAttribute="top" secondItem="kmU-nd-sfJ" secondAttribute="bottom" constant="5" id="Yse-Xa-Wpq"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Els-uw-Yue" secondAttribute="bottom" constant="5" id="ZyC-vu-NfP"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Els-uw-Yue" secondAttribute="trailing" constant="5" id="w1g-wm-H3V"/>
-                                                    <constraint firstItem="kmU-nd-sfJ" firstAttribute="top" secondItem="6og-B9-eid" secondAttribute="top" constant="5" id="wkW-R9-tvf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="34b-nR-kMJ" secondAttribute="trailing" constant="5" id="gOM-dT-DJ7"/>
+                                                    <constraint firstItem="34b-nR-kMJ" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="leading" constant="5" id="jfG-6W-HqA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vSQ-pE-56g" secondAttribute="trailing" constant="5" id="nuq-G5-OwR"/>
+                                                    <constraint firstItem="vSQ-pE-56g" firstAttribute="top" secondItem="kmU-nd-sfJ" secondAttribute="bottom" constant="1" id="qKN-O2-96D"/>
+                                                    <constraint firstItem="vSQ-pE-56g" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="leading" constant="5" id="vto-YE-mfn"/>
+                                                    <constraint firstItem="kmU-nd-sfJ" firstAttribute="top" secondItem="6og-B9-eid" secondAttribute="top" constant="2" id="wkW-R9-tvf"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="minValue">
@@ -234,7 +251,7 @@
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vP-BT-aG1">
                                         <rect key="frame" x="8" y="157" width="349" height="121"/>
-                                        <color key="backgroundColor" red="0.75902441740000004" green="0.75902441740000004" blue="0.75902441740000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.83529645200000002" green="0.83529406790000005" blue="0.83528697490000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -280,9 +297,9 @@
                         <outlet property="calendarView" destination="hG6-x6-Zf5" id="xn6-Fg-gFH"/>
                         <outlet property="dateControlsContainer" destination="JZn-BI-Mam" id="OcM-Ez-wvy"/>
                         <outlet property="headerLabel" destination="LIY-Yr-zb0" id="InQ-Qk-4Qr"/>
-                        <outlet property="hourCounterView" destination="Els-uw-Yue" id="SyQ-gi-QhZ"/>
+                        <outlet property="hourLabel" destination="vSQ-pE-56g" id="72I-7I-cQV"/>
                         <outlet property="messageTextView" destination="6vP-BT-aG1" id="8ca-H6-3y4"/>
-                        <outlet property="minuteCounterView" destination="5kJ-w0-jSS" id="c8b-km-D9z"/>
+                        <outlet property="minuteLabel" destination="wdY-LU-GEa" id="flh-VX-TyV"/>
                         <outlet property="scheduleAppointmentButton" destination="kFu-Z3-8Gi" id="nJl-8p-Mg4"/>
                         <outlet property="whiteBackgroundView" destination="INj-yO-lZf" id="AHu-Db-TON"/>
                     </connections>

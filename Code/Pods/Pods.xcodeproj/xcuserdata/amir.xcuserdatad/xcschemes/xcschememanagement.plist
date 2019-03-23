@@ -46,19 +46,33 @@
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>Pods-TextingLine.xcscheme</key>
+		<key>Pods-Text_Attendant.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>Protobuf.xcscheme</key>
+		<key>Pods-TextingLine.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>SwiftyPickerPopover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>

@@ -60,10 +60,12 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
+  - SwiftyPickerPopover (6.6.4)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
+  - SwiftyPickerPopover
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -77,6 +79,7 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - Protobuf
+    - SwiftyPickerPopover
 
 SPEC CHECKSUMS:
   Firebase: 6df9a6114bc9f106a98fe83d5438d4d9833c2019
@@ -89,7 +92,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SwiftyPickerPopover: 6d08cbae133c80743654f4e977607cd1553947e6
 
-PODFILE CHECKSUM: 737929053f00c6bf5a3b9cd1091602a4922ad24a
+PODFILE CHECKSUM: 49041ce2efc767d0a61f08b107b1fec80ee2e904
 
 COCOAPODS: 1.5.3

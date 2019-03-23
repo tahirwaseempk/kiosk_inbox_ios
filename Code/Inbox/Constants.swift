@@ -161,6 +161,8 @@ func addLineToView(view : UIView, position : LINE_POSITION, width: Double) {
 }
 
 
+
+
 // Return IP address of WiFi interface (en0) as a String, or `nil`
 func getWiFiAddress() -> String? {
     var address : String?
@@ -224,3 +226,32 @@ extension UIColor {
         return String(format:"#%06x", rgb)
     }
 }
+
+extension TimeInterval{
+    
+    func hoursFromTimeInterval() -> String {
+        
+        let time = NSInteger(self)
+        
+       // let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        //let seconds = time % 60
+       //let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+        
+        return String(format: "%0.2d",hours)
+    }
+    
+    func minutesFromTimeInterval() -> String {
+        
+        let time = NSInteger(self)
+        
+        // let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        //let seconds = time % 60
+        let minutes = (time / 60) % 60
+        //let hours = (time / 3600)
+        
+        return String(format: "%0.2d",minutes)
+        
+    }
+}
+
