@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyPickerPopover
 
 class ConversationDetailViewController: UIViewController, ConversationListingTableCellProtocol
 {
@@ -34,7 +35,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var profileAddressTextField: FloatLabelTextField!
     @IBOutlet weak var profileStateTextField: FloatLabelTextField!
     @IBOutlet weak var profileZipCodeTextField: FloatLabelTextField!
-    
+    // for keeping selectedRow
+    private var selectedRow: Int = 0
     // MARK: -
     /////////////////////////////////////////////////
     
@@ -70,7 +72,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileZipCodeTextField.text = ""
         
     }
-    
     
     @IBAction func profileDoneButton_Tapped(_ sender: Any) {
         
@@ -133,6 +134,89 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             }
         })
     }
+    
+    @IBAction func profileDOBButton_Tapped(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func profileGenderButton_Tapped(_ sender: UIButton) {
+        
+//        /// Replace a string with the string to be display.
+//        let displayStringFor:((String?)->String?)? = { string in
+//            if let s = string {
+//                switch(s){
+//                case "M":
+//                    return "M"
+//                case "F":
+//                    return "F"
+//                default:
+//                    return s
+//                }
+//            }
+//            return nil
+//        }
+        
+        /// Create StringPickerPopover:
+        let p = StringPickerPopover(title: "Select Gender", choices: ["M","F"])
+            //.setDisplayStringFor(displayStringFor)
+            .setValueChange(action: { _, _, selectedString in
+                print("current string: \(selectedString)")
+            })
+            //.setFontSize(16)
+            .setDoneButton(
+                action: { popover, selectedRow, selectedString in
+                    print("done row \(selectedRow) \(selectedString)")
+                    self.selectedRow = selectedRow
+                    self.profileGenderTextField.text = selectedString
+                    
+            })
+            .setCancelButton(action: {_, _, _ in
+                print("cancel") })
+            .setSelectedRow(selectedRow)
+        p.appear(originView: sender, baseViewController: self)
+        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
+    }
+    
+    
+    @IBAction func profileStateButton_Tapped(_ sender: UIButton) {
+        
+        /// Replace a string with the string to be display.
+//        let displayStringFor:((String?)->String?)? = { string in
+//            if let s = string {
+//                switch(s){
+//                case "M":
+//                    return "M"
+//                case "F":
+//                    return "F"
+//                default:
+//                    return s
+//                }
+//            }
+//            return nil
+//        }
+        
+        /// Create StringPickerPopover:
+        let p = StringPickerPopover(title: "Select State", choices: ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"])
+           // .setDisplayStringFor(displayStringFor)
+            .setValueChange(action: { _, _, selectedString in
+                print("current string: \(selectedString)")
+            })
+            //.setFontSize(16)
+            .setDoneButton(
+                action: { popover, selectedRow, selectedString in
+                    print("done row \(selectedRow) \(selectedString)")
+                    self.selectedRow = selectedRow
+                    self.profileStateTextField.text = selectedString
+                    
+            })
+            .setCancelButton(action: {_, _, _ in
+                print("cancel") })
+            .setSelectedRow(selectedRow)
+        p.appear(originView: sender, baseViewController: self)
+        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
+
+    }
+    
     // MARK: -
     /////////////////////////////////////////////////
 
@@ -247,9 +331,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileFirstNameTextField.isEnabled = true
         self.profileLastNameTextField.isEnabled  = true
         self.profileDOBTextField.isEnabled       = true
-        self.profileGenderTextField.isEnabled    = true
+        self.profileGenderTextField.isEnabled    = false
         self.profileAddressTextField.isEnabled   = true
-        self.profileStateTextField.isEnabled     = true
+        self.profileStateTextField.isEnabled     = false
         self.profileZipCodeTextField.isEnabled   = true
         //////////////////////////////////////////////////////////////////////
 
@@ -270,6 +354,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             self.callAdhocMessagesWebService()
         }
     }
+    
+ 
     
     
     func callAdhocMessagesWebService () {
