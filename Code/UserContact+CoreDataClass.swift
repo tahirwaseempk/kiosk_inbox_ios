@@ -13,15 +13,32 @@ import CoreData
 //@objc(UserContact)
 public class UserContact: NSManagedObject
 {
-
-  static func getContactFromID(conID: Int64) -> UserContact? {
+    
+    static func getContactFromID(conID: Int64) -> UserContact? {
         
-        //        let filteredMessages = messages?.filter { ($0 as! Message).messageId == messID }
+        //        let filteredContacts = UserContact?.filter { ($0 as! UserContact).contactId == conID }
         //
-        //        if (filteredMessages?.count)! > 0 {
-        //            return filteredMessages?.first as? Message
+        //        if (filteredContacts?.count)! > 0 {
+        //            return filteredContacts?.first as? UserContact
         //        }
-        //
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserContact")
+        let predicate = NSPredicate(format: "contactId == %d", conID)
+        request.predicate = predicate
+        request.fetchLimit = 1
+        
+        do{
+            let result = try DEFAULT_CONTEXT.fetch(request) as! Array<UserContact>
+            
+            if(result.count > 0)
+            {
+                return result.first
+            }
+        }
+        catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
         return nil;
     }
 }

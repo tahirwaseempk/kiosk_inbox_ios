@@ -48,19 +48,30 @@ class UserContactsParser: NSObject
                     let address = checkStringForNull(value: (locationDict["address"] as AnyObject))
                     let city = checkStringForNull(value: (locationDict["city"] as AnyObject))
                     let state = checkStringForNull(value: (locationDict["state"] as AnyObject))
+                    //let birth_Date = checkStringForNull(value: (locationDict["birthDate"] as AnyObject))
                     
                     var contact: UserContact? = UserContact.getContactFromID(conID: contactId)
                     
-                    var birth_Date = Date()
+                    var birth_Date = Date(timeIntervalSinceReferenceDate: -2209014432000) // Feb 2, 1997, 10:26 AM
+                    
+//                    var birth_Date:Date? = nil
+//                    var birth_Date = Date(timeIntervalSinceReferenceDate: 0) //Date(timeInterval: 0, since: Date())
+                    
                     if let dateStr:String = dic["birthDate"] as? String {
                         if dateStr.count > 0 {
-                            //dateStr = convertTimeStampToDateString(tsString: dateStr)
+
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = UTC_DATE_TIME_TZ
                             birth_Date = dateFormatter.date(from: dateStr)!
+                            print(birth_Date)
                         }
                     }
-            
+                    else {
+                        //birth_Date = nil
+                    }
+                    
+                   // "birthDate": "199 0-06-14T00:00:00Z",
+
                     if contact == nil {
                         
                         contact = UserContact.create(context: DEFAULT_CONTEXT,
@@ -115,7 +126,7 @@ class UserContactsParser: NSObject
                                                     address_: (currentUser?.address)!,
                                                     city_: (currentUser?.city)!,
                                                     state_: (currentUser?.state)!,
-                                                    birthDate_:  Date(),
+                                                    birthDate_: Date(),
                                                     email_: (currentUser?.email)!,
                                                     contactId_: (currentUser?.userId)!)
                 contactsArr.append(currentContact!)
