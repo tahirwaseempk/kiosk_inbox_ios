@@ -53,6 +53,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     /////////////////////////////////////////////////
     // MARK: - Profile View Methods
+    
+    
     @IBAction func profileBackButtonTapped(_ sender: Any) {
         
         self.profileV.removeFromSuperview()
@@ -68,7 +70,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileAddressTextField.text = ""
         self.profileStateTextField.text = ""
         self.profileZipCodeTextField.text = ""
-        
     }
     
     
@@ -803,7 +804,7 @@ extension ConversationDetailViewController {
         // message = message.replaceEmojiWithHexa()
         //message = message.addingUnicodeEntities
         
-        paramsDic["message"] = message //self.encode(message)  //.replaceEmojiWithHexa()
+        paramsDic["message"] = message.replaceApostropheFromString(str: message) //self.encode(message)  //.replaceEmojiWithHexa()
         paramsDic["attachment"] = imageString
         paramsDic["attachmentFileSuffix"] = imageType
         

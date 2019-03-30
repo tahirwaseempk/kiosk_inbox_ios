@@ -849,6 +849,10 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-6E-ndQ" userLabel="DOBView">
                                             <rect key="frame" x="0.0" y="144" width="375" height="35"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-6f-8Tq" userLabel="DOBButton">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iWf-Ay-tDI" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -859,14 +863,22 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="IYV-6f-8Tq" secondAttribute="trailing" id="5fI-EJ-nFf"/>
                                                 <constraint firstAttribute="bottom" secondItem="iWf-Ay-tDI" secondAttribute="bottom" id="7wH-o3-AeD"/>
+                                                <constraint firstAttribute="bottom" secondItem="IYV-6f-8Tq" secondAttribute="bottom" id="JYc-Aw-F2p"/>
                                                 <constraint firstAttribute="trailing" secondItem="iWf-Ay-tDI" secondAttribute="trailing" id="Klh-8f-W6A"/>
+                                                <constraint firstItem="IYV-6f-8Tq" firstAttribute="top" secondItem="yzy-6E-ndQ" secondAttribute="top" id="olq-Uw-o5N"/>
+                                                <constraint firstItem="IYV-6f-8Tq" firstAttribute="leading" secondItem="yzy-6E-ndQ" secondAttribute="leading" id="r17-MK-1sT"/>
                                                 <constraint firstItem="iWf-Ay-tDI" firstAttribute="top" secondItem="yzy-6E-ndQ" secondAttribute="top" id="we0-bv-fqr"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2O-wf-28I" userLabel="GenderView">
                                             <rect key="frame" x="0.0" y="180" width="375" height="35"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9b-SU-zge" userLabel="GenderButton">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XlD-b3-X21" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -884,8 +896,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="v9b-SU-zge" firstAttribute="top" secondItem="B2O-wf-28I" secondAttribute="top" id="1Ej-Ql-mSx"/>
+                                                <constraint firstAttribute="trailing" secondItem="v9b-SU-zge" secondAttribute="trailing" id="CVO-Ct-uCe"/>
+                                                <constraint firstItem="v9b-SU-zge" firstAttribute="leading" secondItem="B2O-wf-28I" secondAttribute="leading" id="MQ1-q8-Lp7"/>
                                                 <constraint firstItem="GEc-QH-7bG" firstAttribute="trailing" secondItem="XlD-b3-X21" secondAttribute="trailing" constant="-10" id="N3M-so-GHW"/>
                                                 <constraint firstItem="GEc-QH-7bG" firstAttribute="bottom" secondItem="XlD-b3-X21" secondAttribute="bottom" constant="-10" id="NRM-Oj-Rne"/>
+                                                <constraint firstAttribute="bottom" secondItem="v9b-SU-zge" secondAttribute="bottom" id="PxJ-80-irx"/>
                                                 <constraint firstItem="GEc-QH-7bG" firstAttribute="top" secondItem="XlD-b3-X21" secondAttribute="top" constant="10" id="QMt-aH-GR0"/>
                                                 <constraint firstAttribute="trailing" secondItem="XlD-b3-X21" secondAttribute="trailing" id="Rcg-32-OvG"/>
                                                 <constraint firstItem="XlD-b3-X21" firstAttribute="top" secondItem="B2O-wf-28I" secondAttribute="top" id="S0O-vK-le3"/>
@@ -913,7 +929,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEA-cx-7Vq" userLabel="StateView">
                                             <rect key="frame" x="0.0" y="252" width="375" height="35"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raB-ms-9E5">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raB-ms-9E5" userLabel="StateButton">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                                     <state key="normal" title="Button"/>
                                                 </button>
@@ -935,15 +951,15 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="lWe-aj-Glt" firstAttribute="top" secondItem="uEA-cx-7Vq" secondAttribute="top" id="0BD-Rk-1gI"/>
-                                                <constraint firstItem="raB-ms-9E5" firstAttribute="width" secondItem="lWe-aj-Glt" secondAttribute="width" id="3mI-ow-DML"/>
                                                 <constraint firstItem="ZV1-nM-h4K" firstAttribute="bottom" secondItem="lWe-aj-Glt" secondAttribute="bottom" constant="-10" id="Ehu-sn-Njo"/>
-                                                <constraint firstItem="raB-ms-9E5" firstAttribute="height" secondItem="lWe-aj-Glt" secondAttribute="height" id="KdQ-GR-z76"/>
-                                                <constraint firstItem="raB-ms-9E5" firstAttribute="top" secondItem="lWe-aj-Glt" secondAttribute="top" id="NeA-Vd-nvG"/>
+                                                <constraint firstItem="raB-ms-9E5" firstAttribute="top" secondItem="uEA-cx-7Vq" secondAttribute="top" id="JJc-wn-BNH"/>
+                                                <constraint firstItem="raB-ms-9E5" firstAttribute="leading" secondItem="uEA-cx-7Vq" secondAttribute="leading" id="LJN-WQ-T9W"/>
                                                 <constraint firstAttribute="bottom" secondItem="lWe-aj-Glt" secondAttribute="bottom" id="UdR-ib-5op"/>
+                                                <constraint firstAttribute="trailing" secondItem="raB-ms-9E5" secondAttribute="trailing" id="W3v-i9-s83"/>
                                                 <constraint firstAttribute="trailing" secondItem="lWe-aj-Glt" secondAttribute="trailing" id="cv9-kv-Xmy"/>
+                                                <constraint firstAttribute="bottom" secondItem="raB-ms-9E5" secondAttribute="bottom" id="g46-XF-b92"/>
                                                 <constraint firstItem="ZV1-nM-h4K" firstAttribute="top" secondItem="lWe-aj-Glt" secondAttribute="top" constant="10" id="glU-Tf-5q6"/>
                                                 <constraint firstItem="ZV1-nM-h4K" firstAttribute="trailing" secondItem="lWe-aj-Glt" secondAttribute="trailing" constant="-10" id="pS5-AU-mKC"/>
-                                                <constraint firstItem="raB-ms-9E5" firstAttribute="bottom" secondItem="lWe-aj-Glt" secondAttribute="bottom" id="t4B-7I-SGh"/>
                                             </constraints>
                                         </view>
                                     </subviews>

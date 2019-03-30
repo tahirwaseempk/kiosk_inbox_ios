@@ -21,7 +21,7 @@ let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15
 let CODE_MAX_LENGTH = 6
 
-let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?>< "
+let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?><' "
 let ACCEPTABLE_DIGITS = "0123456789"
 
 enum environmentType {
@@ -198,6 +198,15 @@ func getWiFiAddress() -> String? {
     return address
 }
 
+extension String {
+    
+    func replaceApostropheFromString(str: String) -> String {
+        
+        return str.replacingOccurrences(of: "’", with: "'")
+    }
+    
+}
+
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
         let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -227,7 +236,7 @@ extension UIColor {
     }
 }
 
-extension TimeInterval{
+extension TimeInterval {
     
     func hoursFromTimeInterval() -> String {
         
