@@ -100,19 +100,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                 utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
                 let utcTimeZoneStr = utcFormatter.string(from: self.profileDateOfBirth)
                 
-//                let dateFormatter        = DateFormatter()
-//                dateFormatter.dateFormat = UTC_DATE_TIME_TZ
-//                let _date = dateFormatter.date(from: dateStr)!
-//
-//                dateFormatter.dateStyle  = .short
-//                dateFormatter.dateFormat = ONLY_DATE
-//                let selectedDateStr      = dateFormatter.string(from: _date)
                 paramsDic["birthDate"]   = utcTimeZoneStr
             }
         }
-        
-        //        paramsDic["birthDate"]   = self.profileDOBTextField.text
-        
         
         paramsDic["gender"]      = self.profileGenderTextField.text
         paramsDic["email"]       = self.profileEmailTextField.text
@@ -122,7 +112,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         paramsDic["contactID"]   = String((self.selectedConversation.receiver?.contactId)!)
         
-        User.updateContact(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
+        User.updateContact(params:paramsDic, conversationObj: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {
                     DispatchQueue.main.async
@@ -130,6 +120,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                             if status == true {
                                 
                                 ProcessingIndicator.hide()
+                                
+//                                self.selectedConversation.receiver.
                                 let alert = UIAlertController(title: "Success", message: "Contact updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 
@@ -172,12 +164,31 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                 let dateFormatter =  DateFormatter()
                 dateFormatter.dateFormat = DOB_FORMATE
                 self.profileDOBTextField.text = dateFormatter.string(from: selectDate)
-                
+
             })
             .setCancelButton(action: { _, _ in print("cancel")})
             .appear(originView: sender, baseViewController: self)
         
         
+        
+        
+        DatePickerPopover(title: "")
+            .setDateMode(.time)
+            .setMinuteInterval(1)
+            .setPermittedArrowDirections(.down)
+            .setValueChange(action: { _, selectedDate in
+                print(selectedDate)
+                
+                self.profileDateOfBirth = selectedDate
+                
+                let dateFormatter =  DateFormatter()
+                dateFormatter.dateFormat = DOB_FORMATE
+                self.profileDOBTextField.text = dateFormatter.string(from: selectedDate)
+                
+            })
+            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")} )
+            .setCancelButton(action: { _, _ in print("cancel")})
+            .appear(originView: sender, baseViewController: self)
         
     }
     
@@ -908,14 +919,35 @@ extension ConversationDetailViewController {
         return String(data: data, encoding: .utf8)!
     }
     
+    
+    func utf8DecodedString(str: String)-> String {
+        let data = str.data(using: .utf8)
+        if let message = String(data: data!, encoding: .nonLossyASCII){
+            return message
+        }
+        return ""
+    }
+    
+    func utf8EncodedString(str: String)-> String {
+        let messageData = str.data(using: .nonLossyASCII)
+        let text = String(data: messageData!, encoding: .utf8)
+        return text!
+    }
+    
     func sendMessageToConversation(conversation: Conversation, message: String, imageType: String, imageString: String) -> Bool {
         
         var paramsDic = Dictionary<String, Any>()
         
         // message = message.replaceEmojiWithHexa()
-        //message = message.addingUnicodeEntities
+      // var message2 = message.utf8 //.addingUnicodeEntities
         
-        paramsDic["message"] = message //self.encode(message)  //.replaceEmojiWithHexa()
+    
+        
+       // text2 = text2.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal, range: nil)
+        
+        
+        paramsDic["message"] = message.replaceAppospherewithAllowableString()
+        //self.utf8EncodedString(str: message) //self.encode(message)  //.replaceEmojiWithHexa()
         paramsDic["attachment"] = imageString
         paramsDic["attachmentFileSuffix"] = imageType
         

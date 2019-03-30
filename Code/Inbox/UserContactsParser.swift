@@ -54,9 +54,6 @@ class UserContactsParser: NSObject
                     
                     var birth_Date = Date(timeIntervalSinceReferenceDate: -2209014432000) // Feb 2, 1997, 10:26 AM
                     
-//                    var birth_Date:Date? = nil
-//                    var birth_Date = Date(timeIntervalSinceReferenceDate: 0) //Date(timeInterval: 0, since: Date())
-                    
                     if let dateStr:String = dic["birthDate"] as? String {
                         if dateStr.count > 0 {
 
@@ -66,12 +63,7 @@ class UserContactsParser: NSObject
                             print(birth_Date)
                         }
                     }
-                    else {
-                        //birth_Date = nil
-                    }
                     
-                   // "birthDate": "199 0-06-14T00:00:00Z",
-
                     if contact == nil {
                         
                         contact = UserContact.create(context: DEFAULT_CONTEXT,

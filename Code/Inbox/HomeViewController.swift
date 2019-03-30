@@ -43,7 +43,23 @@ class HomeViewController: UIViewController
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
         header_View.backgroundColor = AppThemeColor
-        searchBar.backgroundColor = AppThemeColor
+       
+        if environment == .text_Attendant {
+            //searchBar.barTintColor = UIColor.white
+            //searchBar.backgroundColor = UIColor.white
+            //searchBar.tintColor = UIColor.white
+            searchBar.backgroundColor = AppThemeColor
+
+            
+            if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
+                
+                textFieldInsideSearchBar.textColor = UIColor.white
+            }
+            
+        } else {
+            searchBar.backgroundColor = AppThemeColor
+        }
+        
         
         compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
         compose_Button.tintColor = AppThemeColor
@@ -308,6 +324,7 @@ class HomeViewController: UIViewController
             
             if self.searchBar.isHidden == true
             {
+                self.searchBar.text = ""
                 self.searchBar.resignFirstResponder()
                 self.conversationListingViewController.applySearchFiltersForSearchText("")
             }
@@ -316,6 +333,7 @@ class HomeViewController: UIViewController
                 self.searchBar.becomeFirstResponder()
             }
         }
+        
     }
     
     func refreshUnReadCount ()
@@ -376,6 +394,7 @@ extension HomeViewController:UISearchBarDelegate
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
     {
+        searchBar.text = ""
         
     }
     
