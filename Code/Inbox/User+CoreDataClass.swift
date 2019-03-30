@@ -912,7 +912,7 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func updateContact(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func updateContact(params: Dictionary<String,Any>, conversationObj: Conversation, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
@@ -928,26 +928,54 @@ extension User
                     
                     if jsonDict["errorCode"] as! Int == 200 {
                         
-                        //                                                let user = User.getLoginedUser()
-                        //                                                if (params.count == 1) {
-                        //                                                } else {
-                        //
-                        //                                                    user?.update(firstName_: paramsDic["firstName"] as! String,
-                        //                                                                 lastName_: paramsDic["lastName"] as! String,
-                        //                                                                 email_: paramsDic["email"] as! String,
-                        //                                                                 mobile_: paramsDic["mobile"] as! String,
-                        //                                                                 companyName_: paramsDic["companyName"] as! String,
-                        //                                                                 address_: paramsDic["address"] as! String,
-                        //                                                                 city_: paramsDic["city"] as! String,
-                        //                                                                 country_: paramsDic["country"] as! String,
-                        //                                                                 state_: paramsDic["state"] as! String,
-                        //                                                                 zipCode_: paramsDic["zipCode"] as! String)
-                        //                                                }
-                        
                         DispatchQueue.global(qos: .background).async
                             {
                                 DispatchQueue.main.async
                                     {
+                                        if let recviver = conversationObj.receiver
+                                        {
+                                            if let firstName = paramsDic["firstName"] as? String {
+                                                recviver.firstName = firstName
+                                            }
+                                            
+                                            if let lastName = paramsDic["lastName"] as? String {
+                                                recviver.lastName = lastName
+                                            }
+                                            
+                                            if let email = paramsDic["email"] as? String {
+                                                recviver.email = email
+                                            }
+                                            
+                                            if let gender = paramsDic["gender"] as? String {
+                                                recviver.gender = gender
+                                            }
+                                            
+                                            if let birthDate = paramsDic["birthDate"] as? String {
+                                                
+                                                var birth_Date = Date(timeIntervalSinceReferenceDate: -2209014432000)
+                                                
+                                                        let dateFormatter = DateFormatter()
+                                                        dateFormatter.dateFormat = UTC_DATE_TIME_TZ
+                                                        birth_Date = dateFormatter.date(from: birthDate)!
+                                                        print(birth_Date)
+                                                
+                                                recviver.birthDate = birth_Date
+                                            }
+                                                                                        
+                                            if let address = paramsDic["address"] as? String {
+                                                recviver.address = address
+                                            }
+                                            if let state = paramsDic["state"] as? String {
+                                                recviver.state = state
+                                            }
+                                            if let zipCode = paramsDic["zipCode"] as? String {
+                                                recviver.zipCode = zipCode
+                                            }
+                                            
+                                        }
+                                        
+                                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                        
                                         successBlock(true)
                                 }
                         }

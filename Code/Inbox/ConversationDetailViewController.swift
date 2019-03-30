@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyPickerPopover
 
 class ConversationDetailViewController: UIViewController, ConversationListingTableCellProtocol
 {
@@ -16,7 +17,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var delete_Button: UIButton!
     @IBOutlet weak var Optout_Button: UIButton! // Profile View
     @IBOutlet weak var schedule_Button: UIButton!
-
+    
     @IBOutlet weak var sendButton: UIButton!
     
     // MARK: - Profile View Outlets
@@ -34,6 +35,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var profileAddressTextField: FloatLabelTextField!
     @IBOutlet weak var profileStateTextField: FloatLabelTextField!
     @IBOutlet weak var profileZipCodeTextField: FloatLabelTextField!
+    // for keeping selectedRow
+    private var selectedRow: Int = 0
+    var profileDateOfBirth = Date()
     
     // MARK: -
     /////////////////////////////////////////////////
@@ -59,7 +63,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         self.profileHeadingLabel.text = ""
         self.profileUsernameLabel.text = ""
-
+        
         self.profileEmailTextField.text = ""
         self.profileFirstNameTextField.text = ""
         self.profileLastNameTextField.text = ""
@@ -70,7 +74,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileZipCodeTextField.text = ""
         
     }
-    
     
     @IBAction func profileDoneButton_Tapped(_ sender: Any) {
         
@@ -88,16 +91,28 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         var paramsDic = Dictionary<String, Any>()
         paramsDic["firstName"]   = self.profileFirstNameTextField.text
         paramsDic["lastName"]    = self.profileLastNameTextField.text
-        paramsDic["birthDate"]   = self.profileDOBTextField.text
+        
+        if let dateStr:String = self.profileDOBTextField.text {
+            if dateStr.count > 0 {
+                
+                let utcFormatter = DateFormatter()
+                utcFormatter.dateFormat = UTC_DATE_TIME_APPOINTMENT
+                utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
+                let utcTimeZoneStr = utcFormatter.string(from: self.profileDateOfBirth)
+                
+                paramsDic["birthDate"]   = utcTimeZoneStr
+            }
+        }
+        
         paramsDic["gender"]      = self.profileGenderTextField.text
         paramsDic["email"]       = self.profileEmailTextField.text
         paramsDic["address"]     = self.profileAddressTextField.text
         paramsDic["state"]       = self.profileStateTextField.text
         paramsDic["zipCode"]     = self.profileZipCodeTextField.text
-
+        
         paramsDic["contactID"]   = String((self.selectedConversation.receiver?.contactId)!)
-
-        User.updateContact(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
+        
+        User.updateContact(params:paramsDic, conversationObj: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {
                     DispatchQueue.main.async
@@ -105,9 +120,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                             if status == true {
                                 
                                 ProcessingIndicator.hide()
+                                
+//                                self.selectedConversation.receiver.
                                 let alert = UIAlertController(title: "Success", message: "Contact updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-
+                                
                                 self.present(alert, animated: true, completion: nil)
                             }
                             else
@@ -133,9 +150,100 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             }
         })
     }
+    
+    @IBAction func profileDOBButton_Tapped(_ sender: UIButton) {
+        
+        DatePickerPopover(title: "")
+            .setDateMode(.date)
+            .setSelectedDate(self.profileDateOfBirth)
+            .setDoneButton(action: { (popOver, selectDate) in
+                print(selectDate)
+
+                self.profileDateOfBirth = selectDate
+
+                let dateFormatter =  DateFormatter()
+                dateFormatter.dateFormat = DOB_FORMATE
+                self.profileDOBTextField.text = dateFormatter.string(from: selectDate)
+
+            })
+            .setCancelButton(action: { _, _ in print("cancel")})
+            .appear(originView: sender, baseViewController: self)
+        
+        
+        
+        
+        DatePickerPopover(title: "")
+            .setDateMode(.time)
+            .setMinuteInterval(1)
+            .setPermittedArrowDirections(.down)
+            .setValueChange(action: { _, selectedDate in
+                print(selectedDate)
+                
+                self.profileDateOfBirth = selectedDate
+                
+                let dateFormatter =  DateFormatter()
+                dateFormatter.dateFormat = DOB_FORMATE
+                self.profileDOBTextField.text = dateFormatter.string(from: selectedDate)
+                
+            })
+            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")} )
+            .setCancelButton(action: { _, _ in print("cancel")})
+            .appear(originView: sender, baseViewController: self)
+        
+    }
+    
+    
+    @IBAction func profileGenderButton_Tapped(_ sender: UIButton) {
+        
+        /// Create StringPickerPopover:
+        let p = StringPickerPopover(title: "Select Gender", choices: ["M","F"])
+            //.setDisplayStringFor(displayStringFor)
+            .setValueChange(action: { _, _, selectedString in
+                print("current string: \(selectedString)")
+            })
+            //.setFontSize(16)
+            .setDoneButton(
+                action: { popover, selectedRow, selectedString in
+                    print("done row \(selectedRow) \(selectedString)")
+                    self.selectedRow = selectedRow
+                    self.profileGenderTextField.text = selectedString
+                    
+            })
+            .setCancelButton(action: {_, _, _ in
+                print("cancel") })
+            .setSelectedRow(selectedRow)
+        p.appear(originView: sender, baseViewController: self)
+        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
+    }
+    
+    
+    @IBAction func profileStateButton_Tapped(_ sender: UIButton) {
+        
+        /// Create StringPickerPopover:
+        let p = StringPickerPopover(title: "Select State", choices: ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"])
+            // .setDisplayStringFor(displayStringFor)
+            .setValueChange(action: { _, _, selectedString in
+                print("current string: \(selectedString)")
+            })
+            //.setFontSize(16)
+            .setDoneButton(
+                action: { popover, selectedRow, selectedString in
+                    print("done row \(selectedRow) \(selectedString)")
+                    self.selectedRow = selectedRow
+                    self.profileStateTextField.text = selectedString
+                    
+            })
+            .setCancelButton(action: {_, _, _ in
+                print("cancel") })
+            .setSelectedRow(selectedRow)
+        p.appear(originView: sender, baseViewController: self)
+        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
+        
+    }
+    
     // MARK: -
     /////////////////////////////////////////////////
-
+    
     
     override func viewDidLoad() {
         
@@ -170,58 +278,58 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         
         /*
-        switch environment {
-        case .texting_Line:
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                header_View.backgroundColor = GrayHeaderColor
-            } else {
-                header_View.backgroundColor = AppThemeColor
-            }
-            cross_Button.backgroundColor = AppThemeColor
-            delete_Button.backgroundColor = AppThemeColor
-            Optout_Button.backgroundColor = AppThemeColor
-            schedule_Button.backgroundColor = AppThemeColor
-            
-        case .sms_Factory:
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                header_View.backgroundColor = GrayHeaderColor
-            } else {
-                header_View.backgroundColor = AppThemeColor
-            }
-            cross_Button.backgroundColor = AppThemeColor
-            delete_Button.backgroundColor = AppThemeColor
-            Optout_Button.backgroundColor = AppThemeColor
-            schedule_Button.backgroundColor = AppThemeColor
-            
-        case .fan_Connect:
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                header_View.backgroundColor = GrayHeaderColor
-            } else {
-                header_View.backgroundColor = AppThemeColor
-            }
-            cross_Button.backgroundColor = AppThemeColor
-            delete_Button.backgroundColor = AppThemeColor
-            Optout_Button.backgroundColor = AppThemeColor
-            schedule_Button.backgroundColor = AppThemeColor
-            
-        case .photo_Texting:
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                header_View.backgroundColor = GrayHeaderColor
-            } else {
-                header_View.backgroundColor = AppThemeColor
-            }
-            cross_Button.backgroundColor = AppThemeColor
-            delete_Button.backgroundColor = AppThemeColor
-            Optout_Button.backgroundColor = AppThemeColor
-            schedule_Button.backgroundColor = AppThemeColor
-        }
- */
+         switch environment {
+         case .texting_Line:
+         if UIDevice.current.userInterfaceIdiom == .pad {
+         header_View.backgroundColor = GrayHeaderColor
+         } else {
+         header_View.backgroundColor = AppThemeColor
+         }
+         cross_Button.backgroundColor = AppThemeColor
+         delete_Button.backgroundColor = AppThemeColor
+         Optout_Button.backgroundColor = AppThemeColor
+         schedule_Button.backgroundColor = AppThemeColor
+         
+         case .sms_Factory:
+         if UIDevice.current.userInterfaceIdiom == .pad {
+         header_View.backgroundColor = GrayHeaderColor
+         } else {
+         header_View.backgroundColor = AppThemeColor
+         }
+         cross_Button.backgroundColor = AppThemeColor
+         delete_Button.backgroundColor = AppThemeColor
+         Optout_Button.backgroundColor = AppThemeColor
+         schedule_Button.backgroundColor = AppThemeColor
+         
+         case .fan_Connect:
+         if UIDevice.current.userInterfaceIdiom == .pad {
+         header_View.backgroundColor = GrayHeaderColor
+         } else {
+         header_View.backgroundColor = AppThemeColor
+         }
+         cross_Button.backgroundColor = AppThemeColor
+         delete_Button.backgroundColor = AppThemeColor
+         Optout_Button.backgroundColor = AppThemeColor
+         schedule_Button.backgroundColor = AppThemeColor
+         
+         case .photo_Texting:
+         if UIDevice.current.userInterfaceIdiom == .pad {
+         header_View.backgroundColor = GrayHeaderColor
+         } else {
+         header_View.backgroundColor = AppThemeColor
+         }
+         cross_Button.backgroundColor = AppThemeColor
+         delete_Button.backgroundColor = AppThemeColor
+         Optout_Button.backgroundColor = AppThemeColor
+         schedule_Button.backgroundColor = AppThemeColor
+         }
+         */
         
         self.inputCharacterCountLabel.text = "Characters Count 0/250"
         
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
-//        self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        //        self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.sendTextField.delegate = self
         
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView)
@@ -246,13 +354,13 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileEmailTextField.isEnabled     = true
         self.profileFirstNameTextField.isEnabled = true
         self.profileLastNameTextField.isEnabled  = true
-        self.profileDOBTextField.isEnabled       = true
-        self.profileGenderTextField.isEnabled    = true
+        self.profileDOBTextField.isEnabled       = false
+        self.profileGenderTextField.isEnabled    = false
         self.profileAddressTextField.isEnabled   = true
-        self.profileStateTextField.isEnabled     = true
+        self.profileStateTextField.isEnabled     = false
         self.profileZipCodeTextField.isEnabled   = true
         //////////////////////////////////////////////////////////////////////
-
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -270,6 +378,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             self.callAdhocMessagesWebService()
         }
     }
+    
+    
     
     
     func callAdhocMessagesWebService () {
@@ -338,7 +448,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     }
     
     // MARK: - Button Tapped Methods
-
+    
     @IBAction func closeButtonTapped(_ sender: Any) {
         
         self.closeView.frame = self.view.bounds
@@ -394,7 +504,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         else
         {
             self.closeView.removeFromSuperview()
-
+            
             
             if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
                 self.selectedConversation.receiver?.lastName?.isEmpty == false)
@@ -405,37 +515,50 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             }
             else {
                 profileHeadingLabel.text = ""
-
+                
             }
             
-
+            
             
             self.profileUsernameLabel.text = "Phone Number " + (self.selectedConversation.receiver?.phoneNumber)!
             
             self.profileEmailTextField.text = self.selectedConversation.receiver?.email
             self.profileFirstNameTextField.text = self.selectedConversation.receiver?.firstName
             self.profileLastNameTextField.text = self.selectedConversation.receiver?.lastName
-     
-//            if (self.selectedConversation.receiver?.birthDate = nil)
-//            {
-//                //-----------------------------------------------------------//
-//                //-----------------------------------------------------------//
-//                let dateFormatter =  DateFormatter()
-//                dateFormatter.timeZone = TimeZone.current
-//                dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
-//                let outStr = dateFormatter.string(from: (self.selectedConversation.receiver?.birthDate)!)
-//                //-----------------------------------------------------------//
-//                //-----------------------------------------------------------//
-//                profileDOBTextField.text = outStr//self.selectedConversation.receiver?.birthDate
-//
-//            }
-//            else {
-//                profileHeadingLabel.text = ""
-//
-//            }
             
-            self.profileDOBTextField.text = ""//self.selectedConversation.receiver?.birthDate
-
+            
+            
+            //    "birthDate": "1990-06-13T17:00:00Z",
+            
+            let dateFormatter =  DateFormatter()
+            dateFormatter.dateFormat = DOB_FORMATE
+            let outStr = dateFormatter.string(from: (self.selectedConversation.receiver?.birthDate)!)
+            
+            if (outStr == "07/10/68000") {
+                self.profileDOBTextField.text = ""
+            } else {
+                self.profileDOBTextField.text = outStr
+                self.profileDateOfBirth = (self.selectedConversation.receiver?.birthDate)!
+            }
+            //            if ((self.selectedConversation.receiver?.birthDate)
+            //            {
+            //                //-----------------------------------------------------------//
+            //                //-----------------------------------------------------------//
+            //                let dateFormatter =  DateFormatter()
+            //                //dateFormatter.timeZone = TimeZone.current
+            //                dateFormatter.dateFormat = DOB_FORMATE
+            //                let outStr = dateFormatter.string(from: (self.selectedConversation.receiver?.birthDate)!)
+            //                //-----------------------------------------------------------//
+            //            //    "birthDate": "1990-06-13T17:00:00Z",
+            //
+            //                //-----------------------------------------------------------//
+            //                self.profileDOBTextField.text = outStr
+            //                self.profileDobDate = (self.selectedConversation.receiver?.birthDate)!
+            //            }
+            //            else {
+            //                self.profileDOBTextField.text = ""
+            //            }
+            
             self.profileGenderTextField.text = self.selectedConversation.receiver?.gender
             self.profileAddressTextField.text = self.selectedConversation.receiver?.address
             self.profileStateTextField.text = self.selectedConversation.receiver?.state
@@ -446,11 +569,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             
             self.view.addSubview(self.profileV)
             
-//
-//            let alert = UIAlertController(title: "Message", message: "Opt Out functionality is coming soon.", preferredStyle: UIAlertControllerStyle.alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//            return
+            //
+            //            let alert = UIAlertController(title: "Message", message: "Opt Out functionality is coming soon.", preferredStyle: UIAlertControllerStyle.alert)
+            //            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            //            self.present(alert, animated: true, completion: nil)
+            //            return
             
             /*
              ProcessingIndicator.show()
@@ -615,9 +738,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             present(imagePicker, animated: true, completion: nil)
         }
     }
-
+    
     // MARK: -
-
+    
 }
 
 extension ConversationDetailViewController {
@@ -796,14 +919,35 @@ extension ConversationDetailViewController {
         return String(data: data, encoding: .utf8)!
     }
     
+    
+    func utf8DecodedString(str: String)-> String {
+        let data = str.data(using: .utf8)
+        if let message = String(data: data!, encoding: .nonLossyASCII){
+            return message
+        }
+        return ""
+    }
+    
+    func utf8EncodedString(str: String)-> String {
+        let messageData = str.data(using: .nonLossyASCII)
+        let text = String(data: messageData!, encoding: .utf8)
+        return text!
+    }
+    
     func sendMessageToConversation(conversation: Conversation, message: String, imageType: String, imageString: String) -> Bool {
         
         var paramsDic = Dictionary<String, Any>()
         
         // message = message.replaceEmojiWithHexa()
-        //message = message.addingUnicodeEntities
+      // var message2 = message.utf8 //.addingUnicodeEntities
         
-        paramsDic["message"] = message //self.encode(message)  //.replaceEmojiWithHexa()
+    
+        
+       // text2 = text2.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal, range: nil)
+        
+        
+        paramsDic["message"] = message.replaceAppospherewithAllowableString()
+        //self.utf8EncodedString(str: message) //self.encode(message)  //.replaceEmojiWithHexa()
         paramsDic["attachment"] = imageString
         paramsDic["attachmentFileSuffix"] = imageType
         

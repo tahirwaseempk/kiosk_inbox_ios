@@ -21,7 +21,7 @@ let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15
 let CODE_MAX_LENGTH = 6
 
-let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?>< "
+let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?><' "
 let ACCEPTABLE_DIGITS = "0123456789"
 
 enum environmentType {
@@ -227,7 +227,17 @@ extension UIColor {
     }
 }
 
-extension TimeInterval{
+
+extension String {
+    
+    func replaceAppospherewithAllowableString()-> String {
+        
+       return self.replacingOccurrences(of: "’", with: "'")
+        
+    }
+}
+
+extension TimeInterval {
     
     func hoursFromTimeInterval() -> String {
         
