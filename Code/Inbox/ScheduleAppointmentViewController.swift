@@ -4,6 +4,8 @@ import SwiftyPickerPopover
 class ScheduleAppointmentViewController: UIViewController
 {
     
+    @IBOutlet var calendarView: GCCalendarView!
+    
     @IBOutlet weak var calendarLabel: UILabel!
     @IBOutlet weak var whiteBackgroundView: UIView!
     @IBOutlet weak var scheduleAppointmentButton: UIButton!
@@ -45,11 +47,6 @@ class ScheduleAppointmentViewController: UIViewController
                 popover.setSelectedTimeInterval(TimeInterval()).reload()
             })
             .appear(originView: sender, baseViewController: self)
-        
-        
-        
-        
-        
     }
     
     override func viewDidLoad()
@@ -168,7 +165,10 @@ class ScheduleAppointmentViewController: UIViewController
         var paramsDic = Dictionary<String, Any>()
         paramsDic["contactId"] = selectedConversation.contactId
         paramsDic["date"] = utcTimeZoneStr
-        paramsDic["message"] = messageTextView.text
+        
+        let messagetxt = messageTextView.text.replaceAppospherewithAllowableString()
+
+        paramsDic["message"] = messagetxt
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async

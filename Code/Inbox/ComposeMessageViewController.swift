@@ -123,6 +123,7 @@ class ComposeMessageViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else {
+            
             _ = self.sendMessageToConversation(mobile: self.mobileTextField.text!, message: self.messageTextView.text!)
         }
     }
@@ -367,8 +368,10 @@ extension ComposeMessageViewController {
         ProcessingIndicator.show()
         
        let mobileString  = removeSpecialCharsFromString(mobile)
+
+        let messagetxt = message.replaceAppospherewithAllowableString()
         
-        User.composeNewMessage(mobile: mobileString, message: message, contactId: 0, completionBlockSuccess: { (status: Bool) -> (Void) in
+        User.composeNewMessage(mobile: mobileString, message: messagetxt, contactId: 0, completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {
                     DispatchQueue.main.async
