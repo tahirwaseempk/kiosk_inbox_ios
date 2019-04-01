@@ -17,6 +17,7 @@ let UTC_DATE_TIME_AM_PM = "yyyy-MM-dd hh:mm:ss a Z"
 let UTC_DATE_TIME_TZ = "yyyy-MM-dd'T'HH:mm:ssZ"
 let UTC_DATE_TIME_APPOINTMENT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
+let SCHEDULE_DATE_FORMATE = "dd MMM, yyyy"
 
 let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15

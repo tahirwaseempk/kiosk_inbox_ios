@@ -24,29 +24,57 @@ class ScheduleAppointmentViewController: UIViewController
     var reminderSelectedDate = Date()
     var reminderTimeInterval = TimeInterval()
     
+    var selectedHours = String()
+    var selectedMins = String()
+    var scheduleSelectedDate = Date()
+
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     
     @IBAction func hourButton_Tapped(_ sender: UIButton) {
-        // CountdownPickerPopover appears:
-        CountdownPickerPopover(title: "")
-            .setSelectedTimeInterval(self.reminderTimeInterval)
-            .setValueChange(action: { _, timeInterval in
-                print("current interval \(timeInterval)")
+//        // CountdownPickerPopover appears:
+//        CountdownPickerPopover(title: "")
+//
+//            .setSelectedTimeInterval(self.reminderTimeInterval)
+//            .setValueChange(action: { _, timeInterval in
+//                print("current interval \(timeInterval)")
+//            })
+//            .setDoneButton(action: { popover, timeInterval in
+//                print("timeInterval \(timeInterval)")
+//
+//             self.reminderTimeInterval = timeInterval
+//             self.hourLabel.text =  timeInterval.hoursFromTimeInterval()
+//             self.minuteLabel.text =  timeInterval.minutesFromTimeInterval()
+//
+//            })
+//            .setCancelButton(action: { _, _ in print("cancel")})
+//            .setClearButton(action: { popover, timeInterval in print("Clear")
+//                popover.setSelectedTimeInterval(TimeInterval()).reload()
+//            })
+//            .appear(originView: sender, baseViewController: self)
+        
+        DatePickerPopover(title: "")
+            .setDateMode(.time)
+            .setMinuteInterval(1)
+            .setPermittedArrowDirections(.any)
+            .setValueChange(action: { _, selectedDate in
+                print("current date \(selectedDate)")
             })
-            .setDoneButton(action: { popover, timeInterval in
-                print("timeInterval \(timeInterval)")
+            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")
                 
-             self.reminderTimeInterval = timeInterval
-             self.hourLabel.text =  timeInterval.hoursFromTimeInterval()
-             self.minuteLabel.text =  timeInterval.minutesFromTimeInterval()
+                let calendar = Calendar.current
+                let hour = calendar.component(.hour, from: selectedDate)
+                let minutes = calendar.component(.minute, from: selectedDate)
+                self.scheduleSelectedDate = selectedDate
+                self.selectedHours = String(hour)
+                self.selectedMins = String(minutes)
+                self.hourLabel.text = self.convertTimeInto12Hours(str: String(hour))
+                self.minuteLabel.text = String(minutes)
                 
-            })
+            } )
             .setCancelButton(action: { _, _ in print("cancel")})
-            .setClearButton(action: { popover, timeInterval in print("Clear")
-                popover.setSelectedTimeInterval(TimeInterval()).reload()
-            })
             .appear(originView: sender, baseViewController: self)
+        
     }
     
     override func viewDidLoad()
@@ -68,40 +96,98 @@ class ScheduleAppointmentViewController: UIViewController
         }
         
         let dateFormatter = DateFormatter()
-        
+        let currentDate = Date()
         dateFormatter.calendar = NSCalendar.current
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: SCHEDULE_DATE_FORMATE, options: 0, locale: dateFormatter.calendar.locale)
         
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd MMM, yyyy", options: 0, locale: dateFormatter.calendar.locale)
-        
-        self.calendarLabel.text = dateFormatter.string(from: Date())
+        self.calendarLabel.text = dateFormatter.string(from: currentDate)
         
         self.whiteBackgroundView.layer.cornerRadius =  self.whiteBackgroundView.frame.size.width / 25.0
-        
         self.scheduleAppointmentButton.layer.cornerRadius =  self.scheduleAppointmentButton.frame.size.width / 30.0
-        
-        self.dateControlsContainer.layer.borderWidth = 1.0
-        
-        self.dateControlsContainer.layer.borderColor = UIColor.lightGray.cgColor
-        
+
         self.calendarLogoButton.layer.borderWidth = 1.0
-        
         self.calendarLogoButton.layer.borderColor = UIColor.lightGray.cgColor
-        
-        scheduleAppointmentButton.backgroundColor = AppThemeColor
-        scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+
+        self.dateControlsContainer.layer.borderWidth = 1.0
+        self.dateControlsContainer.layer.borderColor = UIColor.lightGray.cgColor
+
+        self.scheduleAppointmentButton.backgroundColor = AppThemeColor
+        self.scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     
-        messageTextView.delegate = self
-        messageTextView.text = "Enter your message"
-        messageTextView.textColor = UIColor.lightGray
-        messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
-        messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
-        messageTextView.isScrollEnabled = false
+        self.messageTextView.delegate = self
+        self.messageTextView.text = "Enter your message"
+        self.messageTextView.textColor = UIColor.lightGray
+        self.messageTextView.layer.sublayerTransform = CATransform3DMakeTranslation(4, 0, 0)
+        self.messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
+        self.messageTextView.isScrollEnabled = false
         
 //        self.inputCharacterCountLabel.text = "Characters Count 0/250"
+//        dateFormatter.dateFormat = "hh:mm a"
+//        let newDateString = dateFormatter.string(from: Date())
         
+        
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: currentDate)
+        let minutes = calendar.component(.minute, from: currentDate)
+        self.scheduleSelectedDate = currentDate
+        self.selectedHours = String(hour)
+        self.selectedMins = String(minutes)
+        self.hourLabel.text = self.convertTimeInto12Hours(str: String(hour))
+        self.minuteLabel.text = String(minutes)
+
     }
     
-    
+    func convertTimeInto12Hours(str: String) -> String {
+        
+        if (str == "12"){
+        return "12 PM"
+        }
+        else if (str == "13"){
+            return "1 PM"
+        }
+        else if (str == "14"){
+            return "2 PM"
+        }
+        else if (str == "15"){
+            return "3 PM"
+        }
+        else if (str == "16"){
+            return "4 PM"
+        }
+        else if (str == "17"){
+            return "5 PM"
+        }
+        else if (str == "18"){
+            return "6 PM"
+        }
+        else if (str == "19"){
+            return "7 PM"
+        }
+        else if (str == "20"){
+            return "8 PM"
+        }
+        else if (str == "21"){
+            return "9 PM"
+        }
+        else if (str == "22"){
+            return "10 PM"
+        }
+        else if (str == "23"){
+            return "11 PM"
+        }
+        else if (str == "24"){
+            self.selectedHours = "00"
+            return "00 AM"
+        }
+        else if (str == "0"){
+            self.selectedHours = "00"
+            return "00 AM"
+        }
+        else {
+            return (str + " AM")
+            
+        }
+    }
     
     @IBAction func dismisButtonTapped(_ sender: Any)
     {
@@ -124,8 +210,8 @@ class ScheduleAppointmentViewController: UIViewController
 
         
         /////////////////////////////////////////////////////////////////////////////////////
-        let hoursWithoutMString = hourLabel.text!
-        let minutesWithoutMString = minuteLabel.text!
+        let hoursWithoutMString = self.selectedHours
+        let minutesWithoutMString = self.selectedMins
         /////////////////////////////////////////////////////////////////////////////////////
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -223,7 +309,7 @@ class ScheduleAppointmentViewController: UIViewController
                 self.reminderSelectedDate = selectDate
                 let dateFormatter =  DateFormatter()
                 //dateFormatter.timeZone = TimeZone.current
-                dateFormatter.dateFormat = "MMM dd, yyyy"
+                dateFormatter.dateFormat = SCHEDULE_DATE_FORMATE
                 self.calendarLabel.text = dateFormatter.string(from: self.reminderSelectedDate)
                 
             })
