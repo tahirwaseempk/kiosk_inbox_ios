@@ -62,6 +62,8 @@ class UserContactsParser: NSObject
                             birth_Date = dateFormatter.date(from: dateStr)!
                             print(birth_Date)
                         }
+                    } else {
+//                       birth_Date = nil
                     }
                     
                     if contact == nil {

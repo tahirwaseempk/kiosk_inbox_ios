@@ -10,6 +10,7 @@ let DATE_FORMATE_STRING = "yyyy/MM/dd HH:mm:ss"
 let DISPLAY_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
 let DATE_FORMATE_APP = "yyyy-MM-dd HH:mm:ss"
 let ONLY_DATE = "yyyy-MM-dd"
+let DOB_FORMATE = "MM/dd/yyyy"
 
 let UTC_DATE_TIME_AM_PM = "yyyy-MM-dd hh:mm:ss a Z"
 

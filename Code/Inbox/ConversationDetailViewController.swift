@@ -91,27 +91,27 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         var paramsDic = Dictionary<String, Any>()
         paramsDic["firstName"]   = self.profileFirstNameTextField.text
         paramsDic["lastName"]    = self.profileLastNameTextField.text
-        
+        /////////////////////////////////////////////////
         if let dateStr:String = self.profileDOBTextField.text {
+            /////////////////////////////////////////////////
             if dateStr.count > 0 {
-                
                 let utcFormatter = DateFormatter()
                 utcFormatter.dateFormat = UTC_DATE_TIME_APPOINTMENT
                 utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
                 let utcTimeZoneStr = utcFormatter.string(from: self.profileDateOfBirth)
-                
                 paramsDic["birthDate"]   = utcTimeZoneStr
             }
+            /////////////////////////////////////////////////
         }
-        
+        /////////////////////////////////////////////////
         paramsDic["gender"]      = self.profileGenderTextField.text
         paramsDic["email"]       = self.profileEmailTextField.text
         paramsDic["address"]     = self.profileAddressTextField.text
         paramsDic["state"]       = self.profileStateTextField.text
         paramsDic["zipCode"]     = self.profileZipCodeTextField.text
-        
+        /////////////////////////////////////////////////
         paramsDic["contactID"]   = String((self.selectedConversation.receiver?.contactId)!)
-        
+        /////////////////////////////////////////////////
         User.updateContact(params:paramsDic, conversationObj: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
                 {

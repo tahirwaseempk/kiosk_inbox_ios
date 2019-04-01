@@ -26,7 +26,7 @@ extension UserContact {
     @NSManaged public var address: String?
     @NSManaged public var city: String?
     @NSManaged public var state: String?
-    @NSManaged public var birthDate: Date
+    @NSManaged public var birthDate: Date?
     @NSManaged public var email: String?
     
     @NSManaged public var contactId: Int64
