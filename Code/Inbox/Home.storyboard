@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -500,7 +499,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npM-vi-b4M">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Rz-ay1" userLabel="MainHeaderView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Rz-ay1" userLabel="ContactHeaderView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Contact Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6r-pl-7mC">
@@ -527,10 +526,10 @@
                                                     <constraint firstItem="m6r-pl-7mC" firstAttribute="centerX" secondItem="Jmq-Rz-ay1" secondAttribute="centerX" id="sGs-0b-Sc5"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoe-EU-zlY" userLabel="View1">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoe-EU-zlY" userLabel="Contact View">
                                                 <rect key="frame" x="0.0" y="52" width="375" height="216"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-8P-B8p">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-8P-B8p" userLabel="UsernameView">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username: 0000000000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-yY-fYz">
@@ -550,7 +549,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="0B3-yY-fYz" secondAttribute="bottom" id="hvh-X9-M17"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-su-jHZ">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-su-jHZ" userLabel="LastView">
                                                         <rect key="frame" x="0.0" y="72" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-oq-oUJ" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -568,7 +567,7 @@
                                                             <constraint firstItem="cHc-oq-oUJ" firstAttribute="top" secondItem="tQ1-su-jHZ" secondAttribute="top" id="vUK-VK-xkR"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YF0-Vp-CjP">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YF0-Vp-CjP" userLabel="EmailView">
                                                         <rect key="frame" x="0.0" y="108" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qID-dG-49b" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -586,7 +585,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="qID-dG-49b" secondAttribute="bottom" id="yMZ-h0-a42"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPc-uW-F6N">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPc-uW-F6N" userLabel="TimeZoneView">
                                                         <rect key="frame" x="0.0" y="180" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time Zone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VgF-mI-0iy" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -615,7 +614,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="VgF-mI-0iy" secondAttribute="bottom" id="QhF-7V-RLg"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-ZA-xTI">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-ZA-xTI" userLabel="NameView">
                                                         <rect key="frame" x="0.0" y="36" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3g-Z5-N82" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -633,7 +632,7 @@
                                                             <constraint firstItem="C3g-Z5-N82" firstAttribute="top" secondItem="CK4-ZA-xTI" secondAttribute="top" id="VAg-EB-Z9V"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzf-Dh-s0m">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzf-Dh-s0m" userLabel="MobileView">
                                                         <rect key="frame" x="0.0" y="144" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eX5-QM-QcH" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -685,7 +684,7 @@
                                                     <constraint firstItem="YF0-Vp-CjP" firstAttribute="top" secondItem="tQ1-su-jHZ" secondAttribute="bottom" constant="1" id="ykL-HS-wCz"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-yF-E4w" userLabel="HeaderView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-yF-E4w" userLabel="BusinessHeaderView">
                                                 <rect key="frame" x="0.0" y="266" width="375" height="55"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-kd-FPg">
@@ -713,10 +712,10 @@
                                                     <constraint firstItem="6Db-kd-FPg" firstAttribute="top" secondItem="0rr-Yi-8Sn" secondAttribute="bottom" constant="5" id="zqH-r4-lnT"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEA-95-UgB" userLabel="View2">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEA-95-UgB" userLabel="Business View">
                                                 <rect key="frame" x="0.0" y="321" width="375" height="180"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0f-gd-Bpq">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0f-gd-Bpq" userLabel="AddressView">
                                                         <rect key="frame" x="0.0" y="36" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-yw-3mV" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -734,12 +733,19 @@
                                                             <constraint firstAttribute="bottom" secondItem="xS8-yw-3mV" secondAttribute="bottom" id="Rx1-cE-ODm"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYV-Sx-BBu">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYV-Sx-BBu" userLabel="StateZip">
                                                         <rect key="frame" x="1" y="108" width="374" height="35"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-Ji-Oub">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-Ji-Oub" userLabel="State">
                                                                 <rect key="frame" x="-1" y="0.0" width="187" height="35"/>
                                                                 <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smy-bv-DCf" userLabel="StateButton">
+                                                                        <rect key="frame" x="10" y="0.0" width="177" height="35"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <connections>
+                                                                            <action selector="stateButton_Tapped:" destination="0mi-MI-8Gv" eventType="touchUpInside" id="p7P-S2-opl"/>
+                                                                        </connections>
+                                                                    </button>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7mf-He-Lj8" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                                         <rect key="frame" x="10" y="0.0" width="177" height="35"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -750,12 +756,16 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="smy-bv-DCf" firstAttribute="height" secondItem="7mf-He-Lj8" secondAttribute="height" id="0LG-Lw-bWN"/>
+                                                                    <constraint firstItem="smy-bv-DCf" firstAttribute="width" secondItem="7mf-He-Lj8" secondAttribute="width" id="EUI-dO-jd9"/>
                                                                     <constraint firstAttribute="trailing" secondItem="7mf-He-Lj8" secondAttribute="trailing" id="LyD-Hj-2LJ"/>
                                                                     <constraint firstItem="7mf-He-Lj8" firstAttribute="top" secondItem="eLx-Ji-Oub" secondAttribute="top" id="P7X-Tw-4UM"/>
+                                                                    <constraint firstItem="smy-bv-DCf" firstAttribute="trailing" secondItem="7mf-He-Lj8" secondAttribute="trailing" id="aZs-M0-Bz7"/>
                                                                     <constraint firstAttribute="bottom" secondItem="7mf-He-Lj8" secondAttribute="bottom" id="c7Z-bV-v9b"/>
+                                                                    <constraint firstItem="smy-bv-DCf" firstAttribute="top" secondItem="7mf-He-Lj8" secondAttribute="top" id="yhk-Li-n7R"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxM-TW-S27">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxM-TW-S27" userLabel="Zip">
                                                                 <rect key="frame" x="187" y="0.0" width="187" height="35"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w8l-Ep-HWo" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -794,7 +804,7 @@
                                                             <constraint firstAttribute="width" secondItem="LBT-ov-kzm" secondAttribute="height" multiplier="1:1" id="kfS-iN-1qs"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSu-Ji-ita">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSu-Ji-ita" userLabel="CompanyName">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Pj-DJ-njT" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -812,7 +822,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="5Pj-DJ-njT" secondAttribute="bottom" id="kl8-a7-OxI"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njK-GF-au5">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njK-GF-au5" userLabel="City">
                                                         <rect key="frame" x="0.0" y="72" width="375" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wqI-cw-sQc" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
@@ -830,9 +840,16 @@
                                                             <constraint firstItem="wqI-cw-sQc" firstAttribute="top" secondItem="njK-GF-au5" secondAttribute="top" id="ucP-4t-WA4"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PN-dS-Sre">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PN-dS-Sre" userLabel="CountryView">
                                                         <rect key="frame" x="0.0" y="144" width="375" height="35"/>
                                                         <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGV-2Y-JkM" userLabel="CountryButton">
+                                                                <rect key="frame" x="5" y="0.0" width="365" height="35"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <connections>
+                                                                    <action selector="countryButton_Tapped:" destination="0mi-MI-8Gv" eventType="touchUpInside" id="vcK-FY-sgo"/>
+                                                                </connections>
+                                                            </button>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dkL-2v-uHE" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="0.0" width="365" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -843,9 +860,13 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="iGV-2Y-JkM" firstAttribute="height" secondItem="dkL-2v-uHE" secondAttribute="height" id="0nk-LA-NJv"/>
+                                                            <constraint firstItem="iGV-2Y-JkM" firstAttribute="width" secondItem="dkL-2v-uHE" secondAttribute="width" id="CLB-Ax-G1K"/>
                                                             <constraint firstAttribute="trailing" secondItem="dkL-2v-uHE" secondAttribute="trailing" id="Eoc-M8-zZ3"/>
                                                             <constraint firstItem="dkL-2v-uHE" firstAttribute="top" secondItem="9PN-dS-Sre" secondAttribute="top" id="KxP-R9-CQm"/>
+                                                            <constraint firstItem="iGV-2Y-JkM" firstAttribute="centerX" secondItem="9PN-dS-Sre" secondAttribute="centerX" id="VWp-bG-CaM"/>
                                                             <constraint firstAttribute="bottom" secondItem="dkL-2v-uHE" secondAttribute="bottom" id="W1x-jy-Enp"/>
+                                                            <constraint firstItem="iGV-2Y-JkM" firstAttribute="centerY" secondItem="dkL-2v-uHE" secondAttribute="centerY" id="gg8-rZ-hzO"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>

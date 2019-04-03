@@ -75,6 +75,18 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
     }
     
+    func updateFirstLastName (_ convObj: Conversation)-> Bool{
+        
+        var headingStr = (convObj.receiver?.firstName)! + " " + (convObj.receiver?.lastName)!
+        headingStr = headingStr.uppercased()
+        
+        self.profileHeadingLabel.text = headingStr
+        self.messageFromLabel.text = headingStr
+
+        return true
+    }
+    
+        
     @IBAction func profileDoneButton_Tapped(_ sender: Any) {
         
         self.profileEmailTextField.resignFirstResponder()
@@ -122,6 +134,12 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                                 ProcessingIndicator.hide()
                                 
 //                                self.selectedConversation.receiver.
+                                if self.selectedConversation != nil {
+                                    
+                                 _ =  self.updateFirstLastName(self.selectedConversation)
+                                    
+                                }
+                                
                                 let alert = UIAlertController(title: "Success", message: "Contact updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                                 
@@ -511,11 +529,10 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             {
                 var headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
                 headingStr = headingStr.uppercased()
-                profileHeadingLabel.text = headingStr
+                self.profileHeadingLabel.text = headingStr
             }
             else {
-                profileHeadingLabel.text = ""
-                
+                self.profileHeadingLabel.text = ""
             }
             
             
@@ -876,7 +893,7 @@ extension ConversationDetailViewController {
             {
                 if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
-                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!)
+                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!).uppercased()
                     
                     self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
@@ -889,7 +906,7 @@ extension ConversationDetailViewController {
                 // If Device is iPhone/iPod
                 if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
-                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!)
+                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!).uppercased()
                     
                     self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }

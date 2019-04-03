@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPickerPopover
 
 class ProfileViewController: UIViewController {
     
@@ -29,6 +30,57 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileBackButton: UIButton!
     @IBOutlet weak var profileNavView: UIView!
     
+    private var selectedStateRow: Int = 0
+    private var selectedCountryRow: Int = 0
+
+    
+    @IBAction func stateButton_Tapped(_ sender: UIButton) {
+        
+        let p = StringPickerPopover(title: "Select State", choices: ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"])
+            // .setDisplayStringFor(displayStringFor)
+            .setValueChange(action: { _, _, selectedString in
+                print("current string: \(selectedString)")
+            })
+            //.setFontSize(16)
+            .setDoneButton(
+                action: { popover, selectedRow, selectedString in
+                    print("done row \(selectedRow) \(selectedString)")
+                    self.selectedStateRow = selectedRow
+                    self.stateTextField.text = selectedString
+                    
+            })
+            .setCancelButton(action: {_, _, _ in
+                print("cancel") })
+            .setSelectedRow(self.selectedStateRow)
+        p.appear(originView: sender, baseViewController: self)
+        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
+        
+        
+    }
+    
+    
+    @IBAction func countryButton_Tapped(_ sender: UIButton) {
+        
+        let p = StringPickerPopover(title: "Select State", choices: ["Canada","United States of America"])
+            // .setDisplayStringFor(displayStringFor)
+            .setValueChange(action: { _, _, selectedString in
+                print("current string: \(selectedString)")
+            })
+            //.setFontSize(16)
+            .setDoneButton(
+                action: { popover, selectedRow, selectedString in
+                    print("done row \(selectedRow) \(selectedString)")
+                    self.selectedCountryRow = selectedRow
+                    self.countryTextField.text = selectedString
+                    
+            })
+            .setCancelButton(action: {_, _, _ in
+                print("cancel") })
+            .setSelectedRow(self.selectedCountryRow)
+        p.appear(originView: sender, baseViewController: self)
+        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
+        
+    }
     
     //MARK: View life Cycle
     override func viewDidLoad() {
