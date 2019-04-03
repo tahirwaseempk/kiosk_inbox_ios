@@ -188,11 +188,11 @@ extension InboxTableViewDataSource:SearchViewProtocol
         {
             filteredConversations = conversations.filter({ (conversation1) -> Bool in
                 
-                if ((conversation1.sender?.phoneNumber?.contains(text))! ||
-                    (conversation1.receiver?.phoneNumber?.contains(text))! ||
-                    (conversation1.lastMessage?.contains(text))! ||
-                    (conversation1.receiver?.firstName?.contains(text))! ||
-                    (conversation1.receiver?.lastName?.contains(text))!)
+                if ((conversation1.sender?.phoneNumber?.containsText(text))! ||
+                    (conversation1.receiver?.phoneNumber?.containsText(text))! ||
+                    (conversation1.lastMessage?.containsText(text))! ||
+                    (conversation1.receiver?.firstName?.containsText(text))! ||
+                    (conversation1.receiver?.lastName?.containsText(text))!)
                 {
                     selectedConversation = nil
                     return true

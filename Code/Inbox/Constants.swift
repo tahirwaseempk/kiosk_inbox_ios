@@ -235,8 +235,17 @@ extension String {
     func replaceAppospherewithAllowableString()-> String {
         
        return self.replacingOccurrences(of: "’", with: "'")
-        
     }
+    
+    func containsText(_ text2Search: String)-> Bool {
+        
+        if self.range(of: text2Search, options: .caseInsensitive) != nil {
+            return true
+        }
+        
+        return false
+    }
+    
 }
 
 extension TimeInterval {

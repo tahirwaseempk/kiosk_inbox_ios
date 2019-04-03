@@ -907,7 +907,7 @@ extension ConversationDetailViewController {
             self.shortCodeLabel.text = ""
         }
         
-        self.sendTextField.text = ""
+        //self.sendTextField.text = ""
         
         _ = self.tableViewDataSource?.loadConversation(conversation_: self.selectedConversation)
         //amir1122
@@ -939,12 +939,8 @@ extension ConversationDetailViewController {
         var paramsDic = Dictionary<String, Any>()
         
         // message = message.replaceEmojiWithHexa()
-      // var message2 = message.utf8 //.addingUnicodeEntities
-        
-    
-        
+        // var message2 = message.utf8 //.addingUnicodeEntities
        // text2 = text2.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal, range: nil)
-        
         
         paramsDic["message"] = message.replaceAppospherewithAllowableString()
         //self.utf8EncodedString(str: message) //self.encode(message)  //.replaceEmojiWithHexa()
