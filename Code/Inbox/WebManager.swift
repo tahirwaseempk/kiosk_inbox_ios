@@ -11,12 +11,13 @@ import Foundation
 //----------------------------------------------------------//
 //----------------------------------------------------------//
 //**********************************************************//
-let URL_TEXTING_LINE  = "https://services.textingline.com"
 //let URL_TEXTING_LINE  = "https://api.textingline.com"
 
-let URL_SMS_FACTORY   = "https://services.textingline.com"
-let URL_FANCONNECT    = "https://services.textingline.com"
-let URL_PHOTO_TEXTING = "https://services.textingline.com"
+let URL_TEXTING_LINE   = "https://services.textingline.com"
+let URL_SMS_FACTORY    = "https://services.textingline.com"
+let URL_FANCONNECT     = "https://services.textingline.com"
+let URL_PHOTO_TEXTING  = "https://services.textingline.com"
+let URL_TEXT_ATTENDANT = "https://services.textingline.com"
 //----------------------------------------------------------//
 let LOGIN = "/api/v1/auth/login"
 let GET_CONVERSATIONS = "/api/v1/chats/"
@@ -118,7 +119,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + LOGIN
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + LOGIN
+            finalUrl = URL_TEXT_ATTENDANT + LOGIN
         }
         
         print("\n ===== >>>>> login URL = \(finalUrl) \n")
@@ -175,7 +176,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + PUT_TOKEN_URL
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + PUT_TOKEN_URL
+            finalUrl = URL_TEXT_ATTENDANT + PUT_TOKEN_URL
 
         }
         
@@ -227,7 +228,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
+            finalUrl = URL_TEXT_ATTENDANT + DELETE_TOKEN_URL + "pushToken=" + pushToken + "&pushTokenProvider=" + tokenProvider
 
         }
         
@@ -269,7 +270,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + GET_CONVERSATIONS + GET_CONVERSATIONS_LIMIT + LIMIT + GET_CONVERSATIONS_EMOJI + EMOJI
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + GET_CONVERSATIONS + GET_CONVERSATIONS_LIMIT + LIMIT + GET_CONVERSATIONS_EMOJI + EMOJI
+            finalUrl = URL_TEXT_ATTENDANT + GET_CONVERSATIONS + GET_CONVERSATIONS_LIMIT + LIMIT + GET_CONVERSATIONS_EMOJI + EMOJI
 
         }
         
@@ -362,7 +363,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl =  URL_PHOTO_TEXTING + DELETE_CONVERSATION + chatId
         case .text_Attendant:
-            finalUrl =  URL_PHOTO_TEXTING + DELETE_CONVERSATION + chatId
+            finalUrl =  URL_TEXT_ATTENDANT + DELETE_CONVERSATION + chatId
 
         }
         
@@ -403,7 +404,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + READ_MESSAGES + chatId
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + READ_MESSAGES + chatId
+            finalUrl = URL_TEXT_ATTENDANT + READ_MESSAGES + chatId
 
         }
         
@@ -445,7 +446,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + GET_MESSAGES + chatID
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + GET_MESSAGES + chatID
+            finalUrl = URL_TEXT_ATTENDANT + GET_MESSAGES + chatID
 
         }
         
@@ -503,7 +504,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + SEND_MESSAGE
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + SEND_MESSAGE
+            finalUrl = URL_TEXT_ATTENDANT + SEND_MESSAGE
 
         }
         
@@ -555,7 +556,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + COMPOSE_MESSAGE
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + COMPOSE_MESSAGE
+            finalUrl = URL_TEXT_ATTENDANT + COMPOSE_MESSAGE
 
         }
         
@@ -602,7 +603,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + CREATE_APPOINTMENT
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + CREATE_APPOINTMENT
+            finalUrl = URL_TEXT_ATTENDANT + CREATE_APPOINTMENT
 
         }
         
@@ -642,7 +643,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + GET_CONTACTS + CONTACTSWITHCHAT
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + GET_CONTACTS + CONTACTSWITHCHAT
+            finalUrl = URL_TEXT_ATTENDANT + GET_CONTACTS + CONTACTSWITHCHAT
 
         }
         
@@ -722,7 +723,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + PUT_USER
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + PUT_USER
+            finalUrl = URL_TEXT_ATTENDANT + PUT_USER
             
         }
         
@@ -794,7 +795,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + PUT_CONTACT + contactId
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + PUT_CONTACT + contactId
+            finalUrl = URL_TEXT_ATTENDANT + PUT_CONTACT + contactId
         }
         
         print("\n ===== >>>>> Put User URL = \(finalUrl) \n")
@@ -837,7 +838,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + FORGET_PASSWORD
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + FORGET_PASSWORD
+            finalUrl = URL_TEXT_ATTENDANT + FORGET_PASSWORD
 
         }
         
@@ -881,7 +882,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + BYPASS_MESSAGE
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + BYPASS_MESSAGE
+            finalUrl = URL_TEXT_ATTENDANT + BYPASS_MESSAGE
 
         }
         
@@ -927,7 +928,7 @@ class WebManager: NSObject
         case .photo_Texting:
             finalUrl = URL_PHOTO_TEXTING + THEME_COLOR + whiteLabelId
         case .text_Attendant:
-            finalUrl = URL_PHOTO_TEXTING + THEME_COLOR + whiteLabelId
+            finalUrl = URL_TEXT_ATTENDANT + THEME_COLOR + whiteLabelId
 
         }
         
@@ -992,8 +993,6 @@ class WebManager: NSObject
                 request.httpBody = postString.data(using: String.Encoding.utf8)
             }
         }
-        
-        
         
         if httpHeaderValue.isEmpty == false {
             request.setValue(httpHeaderValue, forHTTPHeaderField: httpHeaderKey)
@@ -1128,57 +1127,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //------------------------------------------------------------------------------------------------//
-    //************************************************************************************************//
-    // We'll need a completion block that returns an error if we run into any problems
-//    func submitPost(post: Dictionary<String,Any>, completion:((Error?) -> Void)?) {
-//        var urlComponents = URLComponents()
-//        urlComponents.scheme = "https"
-//        urlComponents.host = "jsonplaceholder.typicode.com"
-//        urlComponents.path = "/posts"
-//        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-//
-//        // Specify this request as being a POST method
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        // Make sure that we include headers specifying that our request's HTTP body
-//        // will be JSON encoded
-//        var headers = request.allHTTPHeaderFields ?? [:]
-//        headers["Content-Type"] = "application/json"
-//        request.allHTTPHeaderFields = headers
-//
-//        // Now let's encode out Post struct into JSON data...
-//        let encoder = JSONEncoder()
-//        do {
-//            let jsonData = try encoder.encode(post)
-//            // ... and set our request's HTTP body
-//            request.httpBody = jsonData
-//            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
-//        } catch {
-//            completion?(error)
-//        }
-//
-//        // Create and run a URLSession data task with our JSON encoded POST request
-//        let config = URLSessionConfiguration.default
-//        let session = URLSession(configuration: config)
-//        let task = session.dataTask(with: request) { (responseData, response, responseError) in
-//            guard responseError == nil else {
-//                completion?(responseError!)
-//                return
-//            }
-//
-//            // APIs usually respond with the data you just sent in your POST request
-//            if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
-//                print("response: ", utf8Representation)
-//            } else {
-//                print("no readable data received in response")
-//            }
-//        }
-//        task.resume()
-//    }
+
 }
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

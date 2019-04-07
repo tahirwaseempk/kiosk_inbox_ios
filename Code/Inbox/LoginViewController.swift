@@ -41,13 +41,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         udidTextField.resignFirstResponder()
         serialTextField.resignFirstResponder()
         
-//                           serialTextField.text = "8443712030"
-        //                   serialTextField.text = "8006999130"
-//                           udidTextField.text = "lime123"
+//                      serialTextField.text = "8443712030"
+        //              serialTextField.text = "8006999130"
+//                      udidTextField.text = "lime123"
         
         //Text Attendent
-//            serialTextField.text = "8558687830"
-//            udidTextField.text = "lime123"
+        //            serialTextField.text = "8558687830"
+        //            udidTextField.text = "lime123"
         
     }
     
@@ -415,52 +415,7 @@ extension LoginViewController {
         return true;
     }
     
-    /*
-     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-     
-     let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-     
-     //        if textField == serialTextField{
-     //
-     //            return checkEnglishPhoneNumberFormat(string: string, str: str)
-     //
-     //        } else {
-     //
-     return true
-     //        }
-     }
-     
-     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
-     
-     if string == ""
-     {
-     //BackSpace
-     
-     if str!.count == 4
-     {
-     let truncated = str!.substring(to: str!.index(before: str!.endIndex))
-     
-     serialTextField.text =  truncated
-     
-     return false
-     }
-     
-     return true
-     }
-     else if str!.count == 4
-     {
-     serialTextField.text = serialTextField.text! + string! + "-"
-     
-     return false
-     
-     }else if str!.count > 9 {
-     
-     return false
-     }
-     
-     return true
-     }*/
-    
+   
     
 }
 
