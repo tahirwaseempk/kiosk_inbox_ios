@@ -34,7 +34,7 @@ enum environmentType {
     text_Attendant
 }
 
-let environment:environmentType = .fan_Connect
+let environment:environmentType = .text_Attendant
 
 var AppBlueColor       = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor        = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
@@ -56,28 +56,6 @@ let EMOJI = "true"
 let CONTACTSWITHCHAT = "true"
 
 //c8c176a0ed82274194f917b82b4df907714079959b88c0a3dea53eb2e8014750 FanConnect
-
-func convertTimeStampToDateString(tsString: String) -> String {
-    
-    let splitString = tsString.components(separatedBy: "T")
-    let datePart    = splitString[0]
-    var timePart    = splitString[1]
-    let delCharSet  = CharacterSet(charactersIn: "Z")
-    timePart        = timePart.trimmingCharacters(in: delCharSet as CharacterSet)
-    
-    return (datePart + " " + timePart)
-}
-
-func convertUTCToJsonString(tsString: String) -> String {
-    
-    let splitString = tsString.components(separatedBy: " ")
-    let datePart    = splitString[0]
-    let timePart    = splitString[1]
-    //    let delCharSet = CharacterSet(charactersIn: "Z")
-    //    timePart = timePart.trimmingCharacters(in: delCharSet as CharacterSet)
-    
-    return (datePart + "T" + timePart + "Z")
-}
 
 
 func removeSpecialCharsFromString(_ text: String) -> String

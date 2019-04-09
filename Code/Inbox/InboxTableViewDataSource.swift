@@ -188,19 +188,83 @@ extension InboxTableViewDataSource:SearchViewProtocol
         {
             filteredConversations = conversations.filter({ (conversation1) -> Bool in
                 
-                if ((conversation1.sender?.phoneNumber?.containsText(text))! ||
-                    (conversation1.receiver?.phoneNumber?.containsText(text))! ||
-                    (conversation1.lastMessage?.containsText(text))! ||
-                    (conversation1.receiver?.firstName?.containsText(text))! ||
-                    (conversation1.receiver?.lastName?.containsText(text))!)
+//                if ((conversation1.sender?.phoneNumber?.containsText(text))! ||
+//                    (conversation1.receiver?.phoneNumber?.containsText(text))! ||
+//                    (conversation1.lastMessage?.containsText(text))! ||
+//                    (conversation1.receiver?.firstName?.containsText(text))! ||
+//                    (conversation1.receiver?.lastName?.containsText(text))!)
+//                {
+//                    selectedConversation = nil
+//                    return true
+//                }
+//                else{
+//                    return false
+//                }
+                
+            
+//                print("Sender" + conversation1.sender!.phoneNumber!)
+//                print("Receiver" + conversation1.receiver!.phoneNumber!)
+                
+                if let receiver = conversation1.receiver
                 {
-                    selectedConversation = nil
-                    return true
+                    if let phoneNumber = receiver.phoneNumber
+                    {
+                        if phoneNumber.containsText(text){
+                            selectedConversation = nil
+                            return true
+                        }
+                    }
+                    
+                    if let firstName = receiver.firstName
+                    {
+                        if firstName.containsText(text){
+                            selectedConversation = nil
+                            return true
+                        }
+                    }
+                    
+                    if let lastName = receiver.lastName
+                    {
+                        if lastName.containsText(text){
+                            selectedConversation = nil
+                            return true
+                        }
+                    }
+                    
                 }
-                else
+                
+                if let sender = conversation1.sender
                 {
-                    return false
+                    if let phoneNumber = sender.phoneNumber
+                    {
+                        if phoneNumber.containsText(text){
+                            selectedConversation = nil
+                            return true
+                        }
+                    }
                 }
+                
+                if let lastMessage = conversation1.lastMessage
+                {
+                    if lastMessage.containsText(text){
+                        selectedConversation = nil
+                        return true
+                    }
+                }
+                
+                //                if ((conversation1.sender?.phoneNumber?.contains(text))! ||
+                //                    (conversation1.receiver?.phoneNumber?.containsText(text))! ||
+                //                    (conversation1.lastMessage?.containsText(text))! ||
+                //                    (conversation1.receiver?.firstName?.containsText(text))! ||
+                //                    (conversation1.receiver?.lastName?.containsText(text))!)
+                //                {
+                //                    selectedConversation = nil
+                //                    return true
+                //                }
+                //                else
+                //                {
+                return false
+                //                }
             })
         }
         else

@@ -28,6 +28,14 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableViewDataSource?.reloadControls()
+
+        
+    }
+    
     
     override func viewDidLoad()
     {

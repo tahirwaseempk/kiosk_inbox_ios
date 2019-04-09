@@ -434,7 +434,6 @@ extension User
                     var msgDate = Date()
                     if let dateStr:String = jsonDict["timeStamp"] as? String {
                         if dateStr.count > 0 {
-                           // dateStr = convertTimeStampToDateString(tsString: dateStr)
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = UTC_DATE_TIME_TZ
                             msgDate = dateFormatter.date(from: dateStr)!
@@ -454,6 +453,8 @@ extension User
                                                                  messageText_:messageText,
                                                                  isSender_: check)
                                     
+                                    conversation.lastMessage = messageText
+
                                     CoreDataManager.coreDataManagerSharedInstance.saveContext()
                                     
                                     conversation.addToMessages(message)
@@ -1181,21 +1182,36 @@ extension User
                 for conv in chats
                 {
                     var isSenderFound = false
+                   
+//                    print(" ===== ===== ===== Conversation ID ===== ===== ===== ", conv.chatId)
                     
                     for contact in contracts
                     {
+                        
                         if conv.senderId == contact.contactId
                         {
+//                            print("SenderID ===== ===== ===== )", conv.senderId)
+
                             conv.sender = contact
-                            
+                            isSenderFound = true
+                        }
+                        
+                        if conv.contactId == contact.contactId
+                        {
+//                            print("ReceiverID ===== ===== ===== (", conv.contactId)
+
+                            conv.receiver = contact
                             isSenderFound = true
                         }
                         
                         
-                        if conv.contactId == contact.contactId
-                        {
-                            conv.receiver = contact
-                        }
+//                        if conv.receiver == nil {
+//                            NSLog("========== ========== ReceiverID ========== ========== ")
+//                        }
+//                        
+//                        if conv.sender == nil {
+//                            NSLog("========== ========== SenderID ========== ========== ")
+//                        }
                     }
                     
                     if isSenderFound == false
