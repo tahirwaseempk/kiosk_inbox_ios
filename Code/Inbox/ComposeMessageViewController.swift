@@ -107,7 +107,7 @@ class ComposeMessageViewController: UIViewController {
         //        _ = self.testMethod(mobile: "", message: "");
         //        return;
         
-        self.view .endEditing(true)
+        self.view.endEditing(true)
         
         if (mobileTextField.text?.isEmpty)! {
             

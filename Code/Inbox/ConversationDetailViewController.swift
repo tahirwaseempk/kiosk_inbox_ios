@@ -171,6 +171,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBAction func profileDOBButton_Tapped(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+        
         DatePickerPopover(title: "")
             .setDateMode(.date)
             .setSelectedDate(self.profileDateOfBirth)
@@ -213,6 +215,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBAction func profileGenderButton_Tapped(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+
+        
         /// Create StringPickerPopover:
         let p = StringPickerPopover(title: "Select Gender", choices: ["M","F"])
             //.setDisplayStringFor(displayStringFor)
@@ -237,6 +242,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBAction func profileStateButton_Tapped(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+
         /// Create StringPickerPopover:
         let p = StringPickerPopover(title: "Select State", choices: ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"])
             // .setDisplayStringFor(displayStringFor)
