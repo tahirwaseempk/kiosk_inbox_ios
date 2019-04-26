@@ -28,6 +28,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         }
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -74,7 +75,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
         
         self.callLastConversationsUpdate()
-        //        self.initiateMessageCall()
         
         refreshControl.endRefreshing()
     }
@@ -95,7 +95,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     @IBAction func refresh_Tapped(_ sender: Any)
     {
         self.callLastConversationsUpdate()
-        //        self.initiateMessageCall()
         
     }
     
@@ -256,79 +255,95 @@ extension ConversationListingViewController
 {
     func initiateMessageCall()
     {
-        // ProcessingIndicator.show()
-        
-        //        if (self.isViewLoaded && (self.view!.window != nil))
-        //        {
+
         let dispatchTime = DispatchTime.now() + .seconds(30)
         
         DispatchQueue.main.asyncAfter(deadline: dispatchTime)
         {
             self.updateConversationOnTimer()
         }
-        //        }
     }
     
     func updateConversationOnTimer()
     {
-        ProcessingIndicator.show()
-        
-        User.syncContacts(completionBlockSuccess: { () -> (Void) in
+        if (IS_LISTING_SERVICE_CALLED ==  false) {
             
-            DispatchQueue.global(qos:.background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            //UIApplication.shared.applicationIconBadgeNumber = 0
-                            //updateBadgeCount()
-                            self.conversationListUpdated()
-                            ProcessingIndicator.hide()
-                            if (self.isViewLoaded && (self.view!.window != nil)) {
-                                self.initiateMessageCall()
-                            }
-                    }
+            IS_LISTING_SERVICE_CALLED = true
+
+            ProcessingIndicator.show()
+            
+            User.syncContacts(completionBlockSuccess: { () -> (Void) in
+                
+                DispatchQueue.global(qos:.background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+
+                                self.conversationListUpdated()
+                                IS_LISTING_SERVICE_CALLED = false
+
+                                ProcessingIndicator.hide()
+                                if (self.isViewLoaded && (self.view!.window != nil)) {
+                                    self.initiateMessageCall()
+                                }
+                        }
+                }
+                
+            }) { (error:Error?) -> (Void) in
+                DispatchQueue.global(qos:.background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                IS_LISTING_SERVICE_CALLED = false
+
+                                ProcessingIndicator.hide()
+                                if (self.isViewLoaded && (self.view!.window != nil)) {
+                                    self.initiateMessageCall()
+                                }
+                        }
+                }
             }
+        } else {
             
-        }) { (error:Error?) -> (Void) in
-            DispatchQueue.global(qos:.background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            ProcessingIndicator.hide()
-                            if (self.isViewLoaded && (self.view!.window != nil)) {
-                                self.initiateMessageCall()
-                            }
-                    }
+            if (self.isViewLoaded && (self.view!.window != nil)) {
+                self.initiateMessageCall()
             }
         }
     }
     
     func callLastConversationsUpdate()
     {
-        ProcessingIndicator.show()
-        
-        User.syncContacts(completionBlockSuccess: { () -> (Void) in
+        if (IS_LISTING_SERVICE_CALLED ==  false) {
             
-            DispatchQueue.global(qos:.background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            // UIApplication.shared.applicationIconBadgeNumber = 0
-                            updateBadgeCount()
-                            self.conversationListUpdated()
-                            ProcessingIndicator.hide()
-                    }
+            IS_LISTING_SERVICE_CALLED = true
+
+            ProcessingIndicator.show()
+            
+            User.syncContacts(completionBlockSuccess: { () -> (Void) in
+                
+                DispatchQueue.global(qos:.background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                updateBadgeCount()
+                                self.conversationListUpdated()
+                                IS_LISTING_SERVICE_CALLED = false
+
+                                ProcessingIndicator.hide()
+                        }
+                }
+                
+            }) { (error:Error?) -> (Void) in
+                
+                DispatchQueue.global(qos:.background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                IS_LISTING_SERVICE_CALLED = false
+                                ProcessingIndicator.hide()
+                        }
+                }
             }
-            
-        }) { (error:Error?) -> (Void) in
-            
-            DispatchQueue.global(qos:.background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            ProcessingIndicator.hide()
-                    }
-            }            
         }
     }
     

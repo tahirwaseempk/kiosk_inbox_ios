@@ -200,14 +200,12 @@ extension InboxTableViewDataSource:SearchViewProtocol
 //                else{
 //                    return false
 //                }
-                
-            
 //                print("Sender" + conversation1.sender!.phoneNumber!)
 //                print("Receiver" + conversation1.receiver!.phoneNumber!)
                 
                 if let receiver = conversation1.receiver
                 {
-                    if let phoneNumber = receiver.phoneNumber
+                    if let phoneNumber:String = removeSpecialCharsFromString(receiver.phoneNumber!)
                     {
                         if phoneNumber.containsText(text){
                             selectedConversation = nil
@@ -235,8 +233,9 @@ extension InboxTableViewDataSource:SearchViewProtocol
                 
                 if let sender = conversation1.sender
                 {
-                    if let phoneNumber = sender.phoneNumber
+                    if let phoneNumber:String = removeSpecialCharsFromString(sender.phoneNumber!)
                     {
+                        
                         if phoneNumber.containsText(text){
                             selectedConversation = nil
                             return true

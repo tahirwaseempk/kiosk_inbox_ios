@@ -195,10 +195,6 @@ class HomeViewController: UIViewController
     {
         updateBadgeCount()
         self.conversationListingViewController.callLastConversationsUpdate()
-        //self.conversationListingViewController.initiateMessageCall()
-
-        //aima
-        
     }
 
     func setupConversationListingView()
@@ -257,7 +253,9 @@ class HomeViewController: UIViewController
 
         NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
         NotificationCenter.default.removeObserver(self, name: APNSPushNotificationName, object: nil)
-       
+        
+    
+        
         self.signOutDeleteAPNS()
         
     }
@@ -310,7 +308,6 @@ class HomeViewController: UIViewController
     {
         self.conversationListingViewController.callLastConversationsUpdate()
         
-        //self.conversationListingViewController.initiateMessageCall()
     }
     
     @IBAction func searchButton_Tapped(_ sender: Any)

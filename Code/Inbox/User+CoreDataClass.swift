@@ -75,6 +75,12 @@ public class User: NSManagedObject {
         return loginedUser
     }
     
+    func logOutUser() -> Bool {
+        
+        User.loginedUser = nil
+        return true
+    }
+    
     func getConverstaionFromID(chatID_: Int64) -> Conversation? {
         
         let filteredConversations = self.conversations?.allObjects.filter { ($0 as! Conversation).chatId == chatID_ }
@@ -234,11 +240,14 @@ extension User
             
             WebManager.deleteAPNS(params: paramsDic, completionBlockSuccess: { (response: Dictionary<String, Any>?) -> (Void) in
                 
+              _ = user.logOutUser()
                 successBlock(true)
                 
             }) { (error: Error?) -> (Void) in
-                
-                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+              
+              _ =  user.logOutUser()
+
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
             }
         }
         else {

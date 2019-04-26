@@ -78,6 +78,12 @@ class ChatTableViewCell: UITableViewCell {
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
                 
+            } else if environment == .photo_Texting {
+                self.bubbleImageView.tintColor = AppThemeColor
+                self.numberLabel.textColor  = UIColor.white
+                self.messageLabel.textColor = UIColor.white
+                self.dateLabel.textColor    = UIColor.white
+                
             } else {
                 self.bubbleImageView.tintColor = AppThemeColor
                 self.numberLabel.textColor  = UIColor.black
