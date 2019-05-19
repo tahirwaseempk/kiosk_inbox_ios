@@ -144,14 +144,18 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             
             //-----------------------------------------------------------//
             //-----------------------------------------------------------//
-            let dateFormatter =  DateFormatter()
-            dateFormatter.timeZone = TimeZone.current
-            dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
-            let outStr = dateFormatter.string(from: conversation.timeStamp)
+//            let dateFormatter =  DateFormatter()
+//            dateFormatter.timeZone = TimeZone.current
+//            dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
+//            let outStr = dateFormatter.string(from: conversation.timeStamp)
+            
+            let outStr = self.relativePast(for: conversation.timeStamp)
+            
+            
             //-----------------------------------------------------------//
             //-----------------------------------------------------------//
             
-            cell.dateLabel.text = "Sent" + " " + outStr
+            cell.dateLabel.text = outStr
         }
         else
         {
@@ -175,6 +179,45 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     {
         selectedConversation = filteredConversations [indexPath.row]
         _ = self.delegate.conversationSelected(conversation: selectedConversation)
+    }
+    
+    func relativePast(for date : Date) -> String {
+        
+        let units = Set<Calendar.Component>([.year, .month, .day, .hour, .minute, .second, .weekOfYear])
+        let components = Calendar.current.dateComponents(units, from: date, to: Date())
+        
+        if components.year! > 0 {
+            return "\(components.year!) " + (components.year! > 1 ? "years ago" : "year ago")
+            
+        } else if components.month! > 0 {
+            return "\(components.month!) " + (components.month! > 1 ? "months ago" : "month ago")
+            
+        } else if components.weekOfYear! > 0 {
+            
+//            if (components.weekOfYear! == 1) {
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeZone = TimeZone.current
+//                dateFormatter.dateFormat = "dd-MM-yyyy"
+                dateFormatter.dateFormat = "EEEE"
+                return dateFormatter.string(from: date)
+                
+//            } else {
+//            return "\(components.weekOfYear!) " + (components.weekOfYear! > 1 ? "weeks ago" : "week ago")
+//
+//            }
+            
+        } else if (components.day! > 0) {
+            return (components.day! > 1 ? "\(components.day!) days ago" : "Yesterday")
+            
+        } else if components.hour! > 0 {
+            return "\(components.hour!) " + (components.hour! > 1 ? "hours ago" : "hour ago")
+            
+        } else if components.minute! > 0 {
+            return "\(components.minute!) " + (components.minute! > 1 ? "minutes ago" : "minute ago")
+            
+        } else {
+            return "\(components.second!) " + (components.second! > 1 ? "seconds ago" : "second ago")
+        }
     }
 }
 

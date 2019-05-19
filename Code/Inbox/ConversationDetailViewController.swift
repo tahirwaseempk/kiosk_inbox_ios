@@ -389,8 +389,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
         
+        super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: MessageNotificationName, object: nil)
         
     }
@@ -427,7 +427,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                                     {
                                         delegate.updateConversationList()
                                     }
-                                    
                                 }
                                 
                                 _ = self.conversationSelected(conversation: self.selectedConversation)

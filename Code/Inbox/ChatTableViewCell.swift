@@ -48,9 +48,9 @@ class ChatTableViewCell: UITableViewCell {
     
     func loadCellData (text: String, type: ChatCellTypeEnum, number: String, dateTime: String) {
         
-        self.numberLabel.text  = number
+        self.numberLabel.text  = ""//number
         self.messageLabel.text = text
-        self.dateLabel.text    = dateTime
+        self.dateLabel.text    = "1:07 AM" //dateTime
         
         //self.messageLabel.translatesAutoresizingMaskIntoConstraints = true
         self.messageLabel.sizeToFit()
