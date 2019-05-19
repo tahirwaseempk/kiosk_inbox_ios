@@ -31,7 +31,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         self.targetedTableView.delegate = self
         self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
         
-        self.targetedTableView.register(UINib(nibName: "SearchView", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchView")
+       // self.targetedTableView.register(UINib(nibName: "SearchView", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchView")
 
         self.applySearchFiltersForSearchText("")
         //self.reloadControls()
@@ -93,30 +93,30 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     {
         return filteredConversations.count
     }
+//    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+//    {
+//        if UIDevice.current.userInterfaceIdiom == .pad
+//        {
+//            return 50.0;
+//        }
+//        
+//        return 1.0;
+//    }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-    {
-        if UIDevice.current.userInterfaceIdiom == .pad
-        {
-            return 50.0;
-        }
-        
-        return 1.0;
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
-        if UIDevice.current.userInterfaceIdiom == .pad
-        {
-            self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as? SearchView
-            
-            self.searchView.delegate = self
-            
-            return self.searchView
-        }
-        
-        return UIView()
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+//    {
+//        if UIDevice.current.userInterfaceIdiom == .pad
+//        {
+//            self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as? SearchView
+//
+//            self.searchView.delegate = self
+//
+//            return self.searchView
+//        }
+//
+//        return UIView()
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {

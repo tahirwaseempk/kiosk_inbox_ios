@@ -2,11 +2,11 @@ import UIKit
 
 class ConversationListingViewController: UIViewController, ConversationListingTableCellProtocol
 {
-    @IBOutlet weak var counterLabel: UILabel!
+//    @IBOutlet weak var counterLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var markAllAsRead_Btn: UIButton!
+//    @IBOutlet weak var markAllAsRead_Btn: UIButton!
     
     var selectedConversation:Conversation! = nil
     
@@ -14,7 +14,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     var delegate:ConversationListingViewControllerProtocol? = nil
     
-    @IBOutlet weak var header_View: UIView!
+//    @IBOutlet weak var header_View: UIView!
     
     @IBOutlet weak var nomessageImage: UIImageView!
     
@@ -55,7 +55,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         tableView.refreshControl = refreshControl
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
-        header_View.backgroundColor = AppThemeColor
+       // header_View.backgroundColor = AppThemeColor
         /*
          switch environment {
          case .texting_Line:
@@ -222,8 +222,8 @@ extension ConversationListingViewController
 {
     func refreshUnReadCount ()
     {
-        self.counterLabel.text = "-"
-        self.counterLabel.text = "(\(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)))"
+//        self.counterLabel.text = "-"
+//        self.counterLabel.text = "(\(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)))"
     }
     
     func showUnReadConversationCount(_ conversations: NSSet?) -> Int
