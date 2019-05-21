@@ -269,24 +269,26 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     // MARK: -
     /////////////////////////////////////////////////
     
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
         
-        
         tableView.rowHeight = UITableViewAutomaticDimension
-        
         tableView.estimatedRowHeight = 105
-        
+        tableView.clipsToBounds = false
+
+        header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
+        closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
+
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
         if UIDevice.current.userInterfaceIdiom == .pad {
-            header_View.backgroundColor = GrayHeaderColor
+//            header_View.backgroundColor = GrayHeaderColor
         } else {
-            header_View.backgroundColor = AppThemeColor
+//            header_View.backgroundColor = AppThemeColor
         }
         profileNavView.backgroundColor = AppThemeColor
         cross_Button.backgroundColor = AppThemeColor
@@ -385,7 +387,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileStateTextField.isEnabled     = false
         self.profileZipCodeTextField.isEnabled   = true
         //////////////////////////////////////////////////////////////////////
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -403,9 +404,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             self.callAdhocMessagesWebService()
         }
     }
-    
-    
-    
     
     func callAdhocMessagesWebService () {
         
@@ -901,11 +899,11 @@ extension ConversationDetailViewController {
                 {
                     self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!).uppercased()
                     
-                    self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
+                   // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
                 else {
                     self.messageFromLabel.text = self.selectedConversation.receiver?.phoneNumber
-                    self.messageNumberLabel.text = ""
+                   // self.messageNumberLabel.text = ""
                 }
             }
             else {
@@ -914,20 +912,20 @@ extension ConversationDetailViewController {
                 {
                     self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!).uppercased()
                     
-                    self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
+                   // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
                 else {
                     self.messageFromLabel.text = self.selectedConversation.receiver?.phoneNumber
-                    self.messageNumberLabel.text = ""
+                  //  self.messageNumberLabel.text = ""
                 }
             }
-            self.shortCodeLabel.text = ""
+            //self.shortCodeLabel.text = ""
         }
         else
         {
             self.messageFromLabel.text =  ""
-            self.messageNumberLabel.text = ""
-            self.shortCodeLabel.text = ""
+           // self.messageNumberLabel.text = ""
+           // self.shortCodeLabel.text = ""
         }
         
         //self.sendTextField.text = ""

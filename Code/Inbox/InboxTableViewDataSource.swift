@@ -93,16 +93,16 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     {
         return filteredConversations.count
     }
-//    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-//    {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
 //        if UIDevice.current.userInterfaceIdiom == .pad
 //        {
 //            return 50.0;
 //        }
-//        
-//        return 1.0;
-//    }
+        
+        return 1.0;
+    }
     
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
 //    {

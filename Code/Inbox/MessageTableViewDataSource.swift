@@ -15,6 +15,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     var selectedConversation:Conversation? = nil
     var chatCell:ChatTableViewCell!
     var messages:Array<Message> = Array<Message>()
+    var timeStampedMessagesDictionary = Dictionary<Date,Array<Message>>()
+    var timeStampedMessagesList = Array<Date>()
+
+    
     
     init(tableview:UITableView) {
         
@@ -58,6 +62,8 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             messages.removeAll()
         }
         
+        self.filterMessages()
+        
         self.targetedTableView.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
@@ -72,6 +78,75 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             }
         }
     }
+    
+    
+    private func formattedDateFromDate(_ date:Date) -> Date
+    {
+        let dateFormatter =  DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
+        
+        let strDate = dateFormatter.string(from: date)
+        dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
+
+        return dateFormatter.date(from: strDate)!
+    }
+    
+    
+    private func stringFromDate(_ date:Date) -> String
+    {
+        let dateFormatter =  DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
+        
+        return dateFormatter.string(from: date)
+    }
+    
+    private func filterMessages()
+    {
+        for message in self.messages
+        {
+            let date = self.formattedDateFromDate(message.msgTimeStamp)
+            
+            if var list = timeStampedMessagesDictionary[date]
+            {
+                list.append(message)
+            }
+            else
+            {
+                var newList = Array<Message>()
+                
+                newList.append(message)
+
+                timeStampedMessagesDictionary[date] = newList
+            }
+        }
+        
+        timeStampedMessagesList = Array(timeStampedMessagesDictionary.keys)
+       
+//      timeStampedMessagesList = timeStampedMessagesList.sorted(by: <)
+        
+        
+        
+        timeStampedMessagesList = timeStampedMessagesList.sorted(by: { (key1, key2) -> Bool in
+            
+            if key1.compare(key2) == .orderedAscending
+            {
+                return true
+            }
+            else if key1.compare(key2) == .orderedDescending
+            {
+                return false
+            }
+            else
+            {
+                return false
+            }
+        })
+        
+        
+    }
+    
     
     func loadConversation(conversation_: Conversation?) -> Bool {
         self.selectedConversation = conversation_;
@@ -90,7 +165,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
 
     func numberOfSections(in tableView: UITableView) -> Int
     {
+        return self.timeStampedMessagesList.count
+        
         guard (self.selectedConversation == nil) else {
+            
             return (self.selectedConversation!.messages!.count)
         }
         return 0
@@ -98,7 +176,14 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 1
+        let key = self.timeStampedMessagesList[section]
+        
+        if let list = self.timeStampedMessagesDictionary[key] as? Array<Message>
+        {
+            return list.count
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -106,53 +191,57 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         let cell : ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
         
-        let message:Message = messages[indexPath.section]
-
-        //-----------------------------------------------------------//
-        //-----------------------------------------------------------//
-        let dateFormatter =  DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
-        let outStr = dateFormatter.string(from: message.msgTimeStamp)
-        //-----------------------------------------------------------//
-        //-----------------------------------------------------------//
+        let key = self.timeStampedMessagesList[indexPath.section]
         
-        if (message.isSender == false) {
-            cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeReceiver, number: (self.selectedConversation?.receiver?.phoneNumber)!, dateTime: outStr)
+        var message:Message? = nil
 
-        } else {
-            
-            cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeSender, number: "Me", dateTime: outStr)
+        if let list = self.timeStampedMessagesDictionary[key] as? Array<Message>
+        {
+            message = list[indexPath.row]
         }
+
+        if let message = message
+        {
+            //-----------------------------------------------------------//
+            //-----------------------------------------------------------//
+            let dateFormatter =  DateFormatter()
+            dateFormatter.timeZone = TimeZone.current
+            dateFormatter.dateFormat = DISPLAY_FORMATE_TIME_ONLY
+            let outStr = dateFormatter.string(from: message.msgTimeStamp)
+            //-----------------------------------------------------------//
+            //-----------------------------------------------------------//
+            
+            if (message.isSender == false) {
+                cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeReceiver, number: (self.selectedConversation?.receiver?.phoneNumber)!, dateTime: outStr)
+                
+            } else {
+                
+                cell.loadCellData(text: message.messageText!, type: .ChatCellAuthorTypeSender, number: "Me", dateTime: outStr)
+            }
+            
+        }
+     
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 16.0
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         view.tintColor = UIColor.clear
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.clear
+        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.font = UIFont.systemFont(ofSize: 8.0)
+        header.textLabel?.text = self.stringFromDate(timeStampedMessagesList[section])
+        header.textLabel?.textAlignment = .center
     }
     
     
     
-    func serverToLocal(date:String) -> String {
-      
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-     
-        let localDate = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
-       
-        let outStr = dateFormatter.string(from: localDate!)
-
-        
-        return outStr
-    }
-    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        return UIView()
+//    }
 }

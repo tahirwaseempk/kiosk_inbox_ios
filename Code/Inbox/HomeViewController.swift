@@ -42,25 +42,28 @@ class HomeViewController: UIViewController
         
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
-        header_View.backgroundColor = AppThemeColor
+        //header_View.backgroundColor = AppThemeColor
        
         /////////////////////////////////////////////////////
         if environment == .text_Attendant {
             //searchBar.barTintColor = UIColor.white
             //searchBar.backgroundColor = UIColor.white
             //searchBar.tintColor = UIColor.white
-            searchBar.backgroundColor = AppThemeColor
-            if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
-                textFieldInsideSearchBar.textColor = UIColor.white
-            }
+//            searchBar.backgroundColor = uicolor//AppThemeColor
+//            if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
+//                textFieldInsideSearchBar.textColor = UIColor.white
+//            }
             /////////////////////////////////////////////////////
         } else {
-            searchBar.backgroundColor = AppThemeColor
+//            searchBar.backgroundColor = AppThemeColor
         }
         /////////////////////////////////////////////////////
-        compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        compose_Button.tintColor = AppThemeColor
-        compose_Button.layer.borderColor = AppThemeColor.cgColor
+//        compose_Button.setImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        
+        compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
+        
+//        compose_Button.tintColor = AppThemeColor
+//        compose_Button.layer.borderColor = AppThemeColor.cgColor
         
         profileButton.backgroundColor = AppThemeColor
         signOutButton.backgroundColor = AppThemeColor
@@ -332,8 +335,8 @@ class HomeViewController: UIViewController
     
     func refreshUnReadCount ()
     {
-        if UIDevice.current.userInterfaceIdiom == .pad
-        {
+//        if UIDevice.current.userInterfaceIdiom == .pad
+//        {
             if (User.getLoginedUser()?.firstName!.isEmpty == false &&
                 User.getLoginedUser()?.lastName!.isEmpty == false)
             {
@@ -342,11 +345,11 @@ class HomeViewController: UIViewController
             else {
                 self.userNameLabel.text = User.getLoginedUser()?.username
             }
-        }
-        else
-        {
-            self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
-        }
+//        }
+//        else
+//        {
+//            self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+//        }
     }
     
     func showUnReadConversationCount(_ conversations: NSSet?) -> Int
@@ -421,7 +424,7 @@ extension HomeViewController:ConversationListingViewControllerProtocol
         
         if UIDevice.current.userInterfaceIdiom == .phone
         {
-            self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+           // self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
         }
         return true
     }

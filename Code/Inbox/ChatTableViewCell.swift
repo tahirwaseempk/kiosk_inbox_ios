@@ -50,7 +50,7 @@ class ChatTableViewCell: UITableViewCell {
         
         self.numberLabel.text  = ""//number
         self.messageLabel.text = text
-        self.dateLabel.text    = "1:07 AM" //dateTime
+        self.dateLabel.text    = dateTime
         
         //self.messageLabel.translatesAutoresizingMaskIntoConstraints = true
         self.messageLabel.sizeToFit()

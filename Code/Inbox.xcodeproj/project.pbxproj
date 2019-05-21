@@ -169,6 +169,11 @@
 		295EA2992120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
 		295EA29A2120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
 		295EA29B2120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
+		298F506222947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
+		298F506322947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
+		298F506422947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
+		298F506522947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
+		298F506622947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
 		29955C67213A8A1D000B733F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C65213A8A1C000B733F /* Fabric.framework */; };
 		29955C68213A8A1D000B733F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C65213A8A1C000B733F /* Fabric.framework */; };
 		29955C69213A8A1D000B733F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29955C65213A8A1C000B733F /* Fabric.framework */; };
@@ -291,6 +296,11 @@
 		29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259721A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
+		29C7254522934E9000BE41B3 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C7254422934E8F00BE41B3 /* UIView+Blur.swift */; };
+		29C7254622934E9000BE41B3 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C7254422934E8F00BE41B3 /* UIView+Blur.swift */; };
+		29C7254722934E9000BE41B3 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C7254422934E8F00BE41B3 /* UIView+Blur.swift */; };
+		29C7254822934E9000BE41B3 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C7254422934E8F00BE41B3 /* UIView+Blur.swift */; };
+		29C7254922934E9000BE41B3 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C7254422934E8F00BE41B3 /* UIView+Blur.swift */; };
 		29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
 		29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C820432141CC3C00A47752 /* CopyableLabel.swift */; };
@@ -676,12 +686,14 @@
 		295EA2972120518700C1EAB2 /* UserContactsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactsParser.swift; sourceTree = "<group>"; };
 		2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnect.entitlements; sourceTree = "<group>"; };
 		2981430E2200E230007D4495 /* Text_Attendant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Text_Attendant.entitlements; sourceTree = "<group>"; };
+		298F506122947DEA001414EC /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		29955C65213A8A1C000B733F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		29955C66213A8A1D000B733F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		299DC9B421FB9906001F2861 /* Text_Attendant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Text_Attendant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		299DC9B521FB9906001F2861 /* TextAttendant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TextAttendant-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/TextAttendant-Info.plist"; sourceTree = "<absolute>"; };
 		299DC9B621FB9A3E001F2861 /* TextAttendant.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TextAttendant.xcassets; sourceTree = "<group>"; };
 		29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		29C7254422934E8F00BE41B3 /* UIView+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
@@ -847,6 +859,8 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				298F506022947DD4001414EC /* GradientButtonSwift */,
+				29C7254322934E7300BE41B3 /* UIView+Blur */,
 				29E5E12A217677E100BF642C /* JVFloatLabeledTextField */,
 				29C8204D2141CD1900A47752 /* UILabel+Copyable */,
 				29C820422141CC1900A47752 /* CopyableLabel */,
@@ -1103,6 +1117,22 @@
 				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		298F506022947DD4001414EC /* GradientButtonSwift */ = {
+			isa = PBXGroup;
+			children = (
+				298F506122947DEA001414EC /* GradientButton.swift */,
+			);
+			path = GradientButtonSwift;
+			sourceTree = "<group>";
+		};
+		29C7254322934E7300BE41B3 /* UIView+Blur */ = {
+			isa = PBXGroup;
+			children = (
+				29C7254422934E8F00BE41B3 /* UIView+Blur.swift */,
+			);
+			path = "UIView+Blur";
 			sourceTree = "<group>";
 		};
 		29C820422141CC1900A47752 /* CopyableLabel */ = {
@@ -2019,6 +2049,7 @@
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
 				29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */,
+				298F506222947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				1AFB4A5B1FC32FD1001EC4D5 /* HomeViewController.swift in Sources */,
 				1A34752A2062CA6100FA0FFB /* GCCalendarWeekView.swift in Sources */,
@@ -2065,6 +2096,7 @@
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
 				756615D0203941670087CB9D /* String+Emoji.swift in Sources */,
 				759BD35F204077F400832092 /* HTMLString.swift in Sources */,
+				29C7254522934E9000BE41B3 /* UIView+Blur.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
 				295EA29321204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
@@ -2104,6 +2136,7 @@
 				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
 				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
 				29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */,
+				298F506322947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				290BEDA920E697EC00F30BAA /* HomeViewController.swift in Sources */,
 				290BEDAA20E697EC00F30BAA /* GCCalendarWeekView.swift in Sources */,
@@ -2150,6 +2183,7 @@
 				290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */,
 				290BEDD720E697EC00F30BAA /* String+Emoji.swift in Sources */,
 				290BEDD820E697EC00F30BAA /* HTMLString.swift in Sources */,
+				29C7254622934E9000BE41B3 /* UIView+Blur.swift in Sources */,
 				290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */,
 				295EA29421204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
@@ -2189,6 +2223,7 @@
 				299DC95421FB9906001F2861 /* IQUIWindow+Hierarchy.swift in Sources */,
 				299DC95521FB9906001F2861 /* UnderlinedTextField.swift in Sources */,
 				299DC95621FB9906001F2861 /* CopyableLabel.swift in Sources */,
+				298F506622947DEA001414EC /* GradientButton.swift in Sources */,
 				299DC95721FB9906001F2861 /* FloatLabelTextView.swift in Sources */,
 				299DC95821FB9906001F2861 /* HomeViewController.swift in Sources */,
 				299DC95921FB9906001F2861 /* GCCalendarWeekView.swift in Sources */,
@@ -2235,6 +2270,7 @@
 				299DC98221FB9906001F2861 /* Reachability.swift in Sources */,
 				299DC98321FB9906001F2861 /* String+Emoji.swift in Sources */,
 				299DC98421FB9906001F2861 /* HTMLString.swift in Sources */,
+				29C7254922934E9000BE41B3 /* UIView+Blur.swift in Sources */,
 				299DC98521FB9906001F2861 /* JsonPrinting.swift in Sources */,
 				299DC98621FB9906001F2861 /* UserContact+CoreDataProperties.swift in Sources */,
 				299DC98721FB9906001F2861 /* ConversationParser.swift in Sources */,
@@ -2274,6 +2310,7 @@
 				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
 				29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */,
+				298F506422947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				29FD0F4321160D0500062362 /* HomeViewController.swift in Sources */,
 				29FD0F4421160D0500062362 /* GCCalendarWeekView.swift in Sources */,
@@ -2320,6 +2357,7 @@
 				29FD0F7021160D0500062362 /* Reachability.swift in Sources */,
 				29FD0F7121160D0500062362 /* String+Emoji.swift in Sources */,
 				29FD0F7221160D0500062362 /* HTMLString.swift in Sources */,
+				29C7254722934E9000BE41B3 /* UIView+Blur.swift in Sources */,
 				29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */,
 				295EA29521204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
@@ -2359,6 +2397,7 @@
 				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
 				29C820472141CC3C00A47752 /* CopyableLabel.swift in Sources */,
+				298F506522947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14221767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
 				29FD0FB821160D1000062362 /* HomeViewController.swift in Sources */,
 				29FD0FB921160D1000062362 /* GCCalendarWeekView.swift in Sources */,
@@ -2405,6 +2444,7 @@
 				29FD0FE521160D1000062362 /* Reachability.swift in Sources */,
 				29FD0FE621160D1000062362 /* String+Emoji.swift in Sources */,
 				29FD0FE721160D1000062362 /* HTMLString.swift in Sources */,
+				29C7254822934E9000BE41B3 /* UIView+Blur.swift in Sources */,
 				29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */,
 				295EA29621204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,

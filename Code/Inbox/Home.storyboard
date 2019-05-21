@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,45 +15,42 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xIz-XR-nNT" customClass="HomeViewController" customModule="FanConnectNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OC1-1Y-81s">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twT-UD-oUk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
-                                <color key="backgroundColor" name="chat_bubble_color_sent"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="138.66666666666666"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-EV-VEn" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="111.5"/>
+                                <rect key="frame" x="0.0" y="20.000000000000007" width="414" height="118.66666666666669"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-ws-FRy" userLabel="Menu Button">
-                                        <rect key="frame" x="331" y="6" width="39" height="39"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="373" y="10.666666666666668" width="36" height="36"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="26N-IO-Y9h"/>
                                             <constraint firstAttribute="width" secondItem="2bl-ws-FRy" secondAttribute="height" multiplier="1:1" id="Ifz-Al-jkQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" image="menuButtonIcon">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
+                                        <state key="normal" backgroundImage="menuBlack"/>
                                         <connections>
                                             <action selector="closeButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="QDD-KF-O8q"/>
                                         </connections>
                                     </button>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Messages" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-p8-Cn7">
-                                        <rect key="frame" x="5" y="50.5" width="365" height="56"/>
-                                        <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-p8-Cn7">
+                                        <rect key="frame" x="5" y="57.666666666666671" width="404" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-90-UsF">
-                                        <rect key="frame" x="5" y="0.0" width="93.5" height="50.5"/>
+                                        <rect key="frame" x="5" y="0.0" width="93.333333333333329" height="57.666666666666664"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJy-SW-JZU" userLabel="Name Container">
-                                                <rect key="frame" x="0.0" y="8.5" width="93.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="11.666666666666668" width="93.333333333333329" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-nY-myW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="12"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="heightClass=compact-widthClass=regular">
                                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="10"/>
@@ -63,9 +60,9 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lime Cellular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2w-7I-lLm">
-                                                        <rect key="frame" x="0.0" y="17" width="93.5" height="17"/>
+                                                        <rect key="frame" x="0.0" y="16.999999999999996" width="93.333333333333329" height="17.000000000000004"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="heightClass=compact-widthClass=regular">
                                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
@@ -75,7 +72,7 @@
                                                         </variation>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="C2w-7I-lLm" firstAttribute="leading" secondItem="pJy-SW-JZU" secondAttribute="leading" id="0Bt-O5-MtU"/>
                                                     <constraint firstAttribute="bottom" secondItem="C2w-7I-lLm" secondAttribute="bottom" id="Aao-mE-zgV"/>
@@ -87,7 +84,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="pJy-SW-JZU" firstAttribute="centerY" secondItem="aN2-90-UsF" secondAttribute="centerY" id="8P8-PR-I8N"/>
                                             <constraint firstItem="pJy-SW-JZU" firstAttribute="leading" secondItem="aN2-90-UsF" secondAttribute="leading" id="eHa-OF-NtP"/>
@@ -95,12 +92,10 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.29207086563110352" green="0.56385505199432373" blue="0.88705593347549438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="2bl-ws-FRy" secondAttribute="trailing" constant="5" id="2cA-C4-1S0"/>
                                     <constraint firstItem="M8d-p8-Cn7" firstAttribute="top" secondItem="aN2-90-UsF" secondAttribute="bottom" id="6HC-7z-8RS"/>
                                     <constraint firstItem="M8d-p8-Cn7" firstAttribute="leading" secondItem="aN2-90-UsF" secondAttribute="leading" id="AnM-WQ-2Zo"/>
-                                    <constraint firstItem="2bl-ws-FRy" firstAttribute="height" secondItem="aaL-EV-VEn" secondAttribute="height" multiplier="35%" id="ERx-6x-NrL"/>
                                     <constraint firstItem="2bl-ws-FRy" firstAttribute="centerY" secondItem="pJy-SW-JZU" secondAttribute="centerY" id="OKJ-zJ-m6c"/>
                                     <constraint firstItem="aN2-90-UsF" firstAttribute="leading" secondItem="aaL-EV-VEn" secondAttribute="leading" constant="5" id="jka-V2-Nb9"/>
                                     <constraint firstItem="aN2-90-UsF" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="top" id="q7N-AP-A8L"/>
@@ -109,10 +104,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOR-GB-SQM" userLabel="BodyView">
-                                <rect key="frame" x="0.0" y="131.5" width="375" height="535.5"/>
+                                <rect key="frame" x="0.0" y="138.66666666666669" width="414" height="597.33333333333326"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MT2-An-B82">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="535.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="597.33333333333337"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="9lr-72-aRc"/>
                                         </constraints>
@@ -128,7 +123,7 @@
                                         </variation>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqw-vv-Nsf">
-                                        <rect key="frame" x="375" y="0.0" width="0.0" height="535.5"/>
+                                        <rect key="frame" x="414" y="0.0" width="0.0" height="597.33333333333337"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="IMW-IZ-Vsb"/>
                                         </constraints>
@@ -159,21 +154,34 @@
                                     <constraint firstItem="Yqw-vv-Nsf" firstAttribute="leading" secondItem="MT2-An-B82" secondAttribute="trailing" id="zCP-oG-Fbu"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-TJ-d6L">
-                                <rect key="frame" x="309" y="602" width="56" height="55"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-TJ-d6L" customClass="GradientButton">
+                                <rect key="frame" x="264" y="681.33333333333337" width="140" height="44.666666666666629"/>
+                                <color key="backgroundColor" name="chat_bubble_color_sent"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="aWK-TJ-d6L" secondAttribute="height" multiplier="46:45" id="TNo-it-Mk6"/>
+                                    <constraint firstAttribute="width" secondItem="aWK-TJ-d6L" secondAttribute="height" multiplier="91:29" id="65u-zk-X1Q"/>
+                                    <constraint firstAttribute="width" constant="140" id="DZ2-Ii-eaa"/>
                                 </constraints>
-                                <state key="normal">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="New Message">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                        <color key="value" red="0.38431372549019605" green="0.74117647058823533" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                        <color key="value" red="0.28627450980392155" green="0.61568627450980395" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createMessage_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="ojC-qF-04J"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ilV-y9-te3" firstAttribute="trailing" secondItem="nOR-GB-SQM" secondAttribute="trailing" id="2Ra-Kv-yGM"/>
                             <constraint firstItem="twT-UD-oUk" firstAttribute="leading" secondItem="OC1-1Y-81s" secondAttribute="leading" id="3tb-f3-wr7"/>
@@ -184,13 +192,11 @@
                             <constraint firstItem="ilV-y9-te3" firstAttribute="bottom" secondItem="nOR-GB-SQM" secondAttribute="bottom" id="bFC-Nd-pzU"/>
                             <constraint firstAttribute="trailing" secondItem="twT-UD-oUk" secondAttribute="trailing" id="dul-8Y-Sfe"/>
                             <constraint firstItem="nOR-GB-SQM" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="bottom" id="gF8-Eh-pZk"/>
-                            <constraint firstItem="aWK-TJ-d6L" firstAttribute="width" secondItem="nOR-GB-SQM" secondAttribute="width" multiplier="10%" id="ig0-er-6uZ"/>
                             <constraint firstItem="aWK-TJ-d6L" firstAttribute="bottom" secondItem="MT2-An-B82" secondAttribute="bottom" constant="-10" id="lfs-Ff-uHW"/>
                             <constraint firstItem="aaL-EV-VEn" firstAttribute="height" secondItem="OC1-1Y-81s" secondAttribute="height" multiplier="8%" constant="45" id="o3H-CC-1b3"/>
                             <constraint firstItem="aaL-EV-VEn" firstAttribute="height" secondItem="OC1-1Y-81s" secondAttribute="height" multiplier="10%" constant="45" id="uqK-kE-fUo"/>
                             <constraint firstItem="twT-UD-oUk" firstAttribute="top" secondItem="OC1-1Y-81s" secondAttribute="top" id="wg0-B9-6H1"/>
                             <constraint firstItem="nOR-GB-SQM" firstAttribute="leading" secondItem="ilV-y9-te3" secondAttribute="leading" id="zSs-u1-eeE"/>
-                            <constraint firstItem="aWK-TJ-d6L" firstAttribute="width" secondItem="OC1-1Y-81s" secondAttribute="width" multiplier="15%" id="zX5-cL-gXd"/>
                             <constraint firstItem="aaL-EV-VEn" firstAttribute="top" secondItem="ilV-y9-te3" secondAttribute="top" id="zdi-ow-cfp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ilV-y9-te3"/>
@@ -198,26 +204,21 @@
                             <mask key="constraints">
                                 <exclude reference="o3H-CC-1b3"/>
                                 <exclude reference="uqK-kE-fUo"/>
-                                <exclude reference="ig0-er-6uZ"/>
-                                <exclude reference="zX5-cL-gXd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
                                 <include reference="uqK-kE-fUo"/>
-                                <include reference="zX5-cL-gXd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="uqK-kE-fUo"/>
-                                <include reference="zX5-cL-gXd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
                                 <include reference="o3H-CC-1b3"/>
-                                <include reference="ig0-er-6uZ"/>
                             </mask>
                         </variation>
                     </view>
@@ -232,7 +233,7 @@
                         <outlet property="profileButton" destination="Veq-jL-SP1" id="bHU-lP-7F9"/>
                         <outlet property="searchBar" destination="M8d-p8-Cn7" id="GYT-K8-8HZ"/>
                         <outlet property="signOutButton" destination="aee-zL-8DT" id="GLB-br-VC0"/>
-                        <outlet property="userNameLabel" destination="Q4j-nY-myW" id="UkI-uI-1HB"/>
+                        <outlet property="userNameLabel" destination="C2w-7I-lLm" id="Oyv-bE-biy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4N-7h-dWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -383,21 +384,21 @@
                     <viewLayoutGuide key="safeArea" id="zAL-b9-hBh"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1123.1884057971015" y="-216.29464285714286"/>
+            <point key="canvasLocation" x="-1123.1884057971015" y="-216.84782608695653"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="NOW-CI-uCh">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="0mi-MI-8Gv" customClass="ProfileViewController" customModule="FanConnectNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="is9-zE-Xkh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1w-6x-ys3" userLabel="Nav Bar View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiR-FJ-FmS" userLabel="Done Button">
-                                        <rect key="frame" x="307" y="15" width="48" height="35"/>
+                                        <rect key="frame" x="346" y="15" width="48" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Done">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -407,7 +408,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSo-b6-53k" userLabel="Header Title">
-                                        <rect key="frame" x="159" y="21.5" width="57" height="22"/>
+                                        <rect key="frame" x="178.66666666666666" y="21.666666666666664" width="57" height="22"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -441,22 +442,22 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQz-NN-4rv">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="80" width="414" height="656"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npM-vi-b4M">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmq-Rz-ay1" userLabel="ContactHeaderView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Contact Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6r-pl-7mC">
-                                                        <rect key="frame" x="127.5" y="10" width="120" height="20"/>
+                                                        <rect key="frame" x="147" y="10" width="120" height="20"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be the main point contact on this account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhY-by-soQ">
-                                                        <rect key="frame" x="8" y="35" width="359" height="11"/>
+                                                        <rect key="frame" x="8" y="35" width="398" height="11"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -474,13 +475,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoe-EU-zlY" userLabel="Contact View">
-                                                <rect key="frame" x="0.0" y="52" width="375" height="216"/>
+                                                <rect key="frame" x="0.0" y="52" width="414" height="216"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-8P-B8p" userLabel="UsernameView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username: 0000000000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-yY-fYz">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 <nil key="textColor"/>
@@ -497,10 +498,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-su-jHZ" userLabel="LastView">
-                                                        <rect key="frame" x="0.0" y="72" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="72" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-oq-oUJ" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -515,10 +516,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YF0-Vp-CjP" userLabel="EmailView">
-                                                        <rect key="frame" x="0.0" y="108" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="108" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qID-dG-49b" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -533,17 +534,17 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPc-uW-F6N" userLabel="TimeZoneView">
-                                                        <rect key="frame" x="0.0" y="180" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="180" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time Zone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VgF-mI-0iy" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftArrow" translatesAutoresizingMaskIntoConstraints="NO" id="t02-EI-hcK">
-                                                                <rect key="frame" x="350" y="10" width="15" height="15"/>
+                                                                <rect key="frame" x="389" y="10" width="15" height="15"/>
                                                                 <color key="backgroundColor" red="0.91580742390000003" green="0.36912244500000002" blue="0.41731825420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="t02-EI-hcK" secondAttribute="height" multiplier="1:1" id="rv1-50-mhg"/>
@@ -562,10 +563,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-ZA-xTI" userLabel="NameView">
-                                                        <rect key="frame" x="0.0" y="36" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="36" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3g-Z5-N82" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -580,10 +581,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzf-Dh-s0m" userLabel="MobileView">
-                                                        <rect key="frame" x="0.0" y="144" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="144" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eX5-QM-QcH" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -632,10 +633,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-yF-E4w" userLabel="BusinessHeaderView">
-                                                <rect key="frame" x="0.0" y="266" width="375" height="55"/>
+                                                <rect key="frame" x="0.0" y="266" width="414" height="55.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-kd-FPg">
-                                                        <rect key="frame" x="8" y="35" width="365" height="21.5"/>
+                                                        <rect key="frame" x="8" y="35" width="404" height="21.666666666666671"/>
                                                         <string key="text">Use this section to personalize your business information
 </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
@@ -643,7 +644,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rr-Yi-8Sn">
-                                                        <rect key="frame" x="105" y="10" width="165" height="20"/>
+                                                        <rect key="frame" x="124.66666666666669" y="10" width="165" height="20"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -660,13 +661,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEA-95-UgB" userLabel="Business View">
-                                                <rect key="frame" x="0.0" y="321" width="375" height="180"/>
+                                                <rect key="frame" x="0.0" y="321.33333333333331" width="414" height="180"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0f-gd-Bpq" userLabel="AddressView">
-                                                        <rect key="frame" x="0.0" y="36" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="36" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-yw-3mV" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -681,20 +682,20 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYV-Sx-BBu" userLabel="StateZip">
-                                                        <rect key="frame" x="1" y="108" width="374" height="35"/>
+                                                        <rect key="frame" x="1" y="108" width="413" height="35"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-Ji-Oub" userLabel="State">
-                                                                <rect key="frame" x="-1" y="0.0" width="187" height="35"/>
+                                                                <rect key="frame" x="-1" y="0.0" width="206.66666666666666" height="35"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smy-bv-DCf" userLabel="StateButton">
-                                                                        <rect key="frame" x="10" y="0.0" width="177" height="35"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="196.66666666666666" height="35"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <connections>
                                                                             <action selector="stateButton_Tapped:" destination="0mi-MI-8Gv" eventType="touchUpInside" id="p7P-S2-opl"/>
                                                                         </connections>
                                                                     </button>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7mf-He-Lj8" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="177" height="35"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="196.66666666666666" height="35"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -713,10 +714,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxM-TW-S27" userLabel="Zip">
-                                                                <rect key="frame" x="187" y="0.0" width="187" height="35"/>
+                                                                <rect key="frame" x="206.66666666666663" y="0.0" width="206.33333333333337" height="35"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w8l-Ep-HWo" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="177" height="35"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="196.33333333333334" height="35"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -745,17 +746,17 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftArrow" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-ov-kzm">
-                                                        <rect key="frame" x="162" y="118" width="15" height="15"/>
+                                                        <rect key="frame" x="181.66666666666666" y="118.00000000000006" width="15" height="15"/>
                                                         <color key="backgroundColor" red="0.91580742390000003" green="0.36912244500000002" blue="0.41731825420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="LBT-ov-kzm" secondAttribute="height" multiplier="1:1" id="kfS-iN-1qs"/>
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSu-Ji-ita" userLabel="CompanyName">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Pj-DJ-njT" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -770,10 +771,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njK-GF-au5" userLabel="City">
-                                                        <rect key="frame" x="0.0" y="72" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="72" width="414" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wqI-cw-sQc" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -788,17 +789,17 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PN-dS-Sre" userLabel="CountryView">
-                                                        <rect key="frame" x="0.0" y="144" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="144.00000000000006" width="414" height="35"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGV-2Y-JkM" userLabel="CountryButton">
-                                                                <rect key="frame" x="5" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="5" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <connections>
                                                                     <action selector="countryButton_Tapped:" destination="0mi-MI-8Gv" eventType="touchUpInside" id="vcK-FY-sgo"/>
                                                                 </connections>
                                                             </button>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dkL-2v-uHE" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="0.0" width="365" height="35"/>
+                                                                <rect key="frame" x="10" y="0.0" width="404" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -919,7 +920,7 @@
     <resources>
         <image name="CloseButtonIcon" width="24" height="24"/>
         <image name="LeftArrow" width="24" height="24"/>
-        <image name="menuButtonIcon" width="24" height="24"/>
+        <image name="menuBlack" width="48" height="48"/>
         <namedColor name="chat_bubble_color_sent">
             <color red="0.0" green="0.53700000047683716" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

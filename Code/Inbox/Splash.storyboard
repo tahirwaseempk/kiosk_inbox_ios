@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eZh-ts-gx1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eZh-ts-gx1">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,17 +28,13 @@
         <!--Splash View Controller-->
         <scene sceneID="t2B-Nt-3ok">
             <objects>
-                <viewController restorationIdentifier="SplashViewController" storyboardIdentifier="SplashViewController" id="4rJ-H3-g8v" customClass="SplashViewController" customModule="SMSFactory" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="587-5m-3Ir"/>
-                        <viewControllerLayoutGuide type="bottom" id="VBw-MV-dU3"/>
-                    </layoutGuides>
+                <viewController restorationIdentifier="SplashViewController" storyboardIdentifier="SplashViewController" id="4rJ-H3-g8v" customClass="SplashViewController" customModule="FanConnectNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rGN-ho-uVo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sms_splash" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-7y-YJZ">
-                                <rect key="frame" x="72" y="128" width="176" height="176"/>
+                                <rect key="frame" x="72" y="137" width="176" height="176"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OZq-7y-YJZ" secondAttribute="height" multiplier="1:1" id="ka9-n3-399"/>
@@ -49,10 +43,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerX" secondItem="rGN-ho-uVo" secondAttribute="centerX" id="B6g-Ib-mcf"/>
-                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerY" secondItem="rGN-ho-uVo" secondAttribute="centerY" multiplier="0.9" id="p4c-Jf-Pgo"/>
-                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="width" secondItem="rGN-ho-uVo" secondAttribute="width" multiplier="0.55" id="uSA-IY-JZR"/>
+                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerX" secondItem="gTg-CN-hpr" secondAttribute="centerX" id="B6g-Ib-mcf"/>
+                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="centerY" secondItem="gTg-CN-hpr" secondAttribute="centerY" multiplier="0.9" id="p4c-Jf-Pgo"/>
+                            <constraint firstItem="OZq-7y-YJZ" firstAttribute="width" secondItem="gTg-CN-hpr" secondAttribute="width" multiplier="0.55" id="uSA-IY-JZR"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="gTg-CN-hpr"/>
                     </view>
                     <navigationItem key="navigationItem" id="SgO-Yx-vam"/>
                     <connections>
