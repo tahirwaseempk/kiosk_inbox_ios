@@ -58,9 +58,9 @@ class HomeViewController: UIViewController
 //            searchBar.backgroundColor = AppThemeColor
         }
         /////////////////////////////////////////////////////
-//        compose_Button.setImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        //compose_Button.setImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
         
-        compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
+        //compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
         
 //        compose_Button.tintColor = AppThemeColor
 //        compose_Button.layer.borderColor = AppThemeColor.cgColor

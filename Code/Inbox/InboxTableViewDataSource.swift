@@ -148,10 +148,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
 //            dateFormatter.timeZone = TimeZone.current
 //            dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
 //            let outStr = dateFormatter.string(from: conversation.timeStamp)
-            
-            let outStr = self.relativePast(for: conversation.timeStamp)
-            
-            
+            let outStr = self.relativePast(for: conversation.timeStamp)            
             //-----------------------------------------------------------//
             //-----------------------------------------------------------//
             

@@ -20,7 +20,7 @@ let UTC_DATE_TIME_APPOINTMENT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
 
 let DISPLAY_FORMATE_TIME_ONLY = "hh:mm a"
-let DISPLAY_FORMATE_DATE_ONLY = "dd MMM, yyyy"
+let DISPLAY_FORMATE_DATE_ONLY = "MMM dd, yyyy"
 
 
 let SCHEDULE_DATE_FORMATE = "dd MMM, yyyy"

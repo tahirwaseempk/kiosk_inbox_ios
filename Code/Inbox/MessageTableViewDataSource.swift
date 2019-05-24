@@ -144,7 +144,6 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             }
         })
         
-        
     }
     
     
@@ -167,18 +166,18 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     {
         return self.timeStampedMessagesList.count
         
-        guard (self.selectedConversation == nil) else {
-            
-            return (self.selectedConversation!.messages!.count)
-        }
-        return 0
+    //        guard (self.selectedConversation == nil) else {
+    //
+    //            return (self.selectedConversation!.messages!.count)
+    //        }
+    //        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         let key = self.timeStampedMessagesList[section]
         
-        if let list = self.timeStampedMessagesDictionary[key] as? Array<Message>
+        if let list = self.timeStampedMessagesDictionary[key]
         {
             return list.count
         }
@@ -195,7 +194,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         var message:Message? = nil
 
-        if let list = self.timeStampedMessagesDictionary[key] as? Array<Message>
+        if let list = self.timeStampedMessagesDictionary[key]
         {
             message = list[indexPath.row]
         }
@@ -226,7 +225,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 16.0
+        return 22.0
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
@@ -238,10 +237,4 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         header.textLabel?.textAlignment = .center
     }
     
-    
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        return UIView()
-//    }
 }

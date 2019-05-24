@@ -531,8 +531,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
                 self.selectedConversation.receiver?.lastName?.isEmpty == false)
             {
-                var headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
-                headingStr = headingStr.uppercased()
+                let headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
+                //headingStr = headingStr.uppercased()
                 self.profileHeadingLabel.text = headingStr
             }
             else {
