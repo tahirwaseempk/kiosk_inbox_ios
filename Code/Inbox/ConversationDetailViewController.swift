@@ -21,12 +21,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var sendButton: UIButton!
     
     // MARK: - Profile View Outlets
+    
     @IBOutlet var profileV: UIView!
     @IBOutlet weak var profileNavView: UIView!
     
     @IBOutlet weak var profileHeadingLabel: UILabel!
     @IBOutlet weak var profileUsernameLabel: UILabel!
     
+    @IBOutlet weak var profileSaveButton: UIButton!
     @IBOutlet weak var profileEmailTextField: FloatLabelTextField!
     @IBOutlet weak var profileFirstNameTextField: FloatLabelTextField!
     @IBOutlet weak var profileLastNameTextField: FloatLabelTextField!
@@ -61,7 +63,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         self.profileV.removeFromSuperview()
         
-        self.profileHeadingLabel.text = ""
+        //self.profileHeadingLabel.text = ""
         self.profileUsernameLabel.text = ""
         
         self.profileEmailTextField.text = ""
@@ -77,10 +79,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     func updateFirstLastName (_ convObj: Conversation)-> Bool{
         
-        var headingStr = (convObj.receiver?.firstName)! + " " + (convObj.receiver?.lastName)!
-        headingStr = headingStr.uppercased()
-        
-        self.profileHeadingLabel.text = headingStr
+        let headingStr = (convObj.receiver?.firstName)! + " " + (convObj.receiver?.lastName)!
+        //headingStr = headingStr.uppercased()
+        //self.profileHeadingLabel.text = headingStr
         self.messageFromLabel.text = headingStr
 
         return true
@@ -281,7 +282,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         tableView.clipsToBounds = false
 
         header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
-        closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
+       // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
 
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
@@ -290,7 +291,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         } else {
 //            header_View.backgroundColor = AppThemeColor
         }
-        profileNavView.backgroundColor = AppThemeColor
+        //profileNavView.backgroundColor = AppThemeColor
         cross_Button.backgroundColor = AppThemeColor
         delete_Button.backgroundColor = AppThemeColor
         Optout_Button.backgroundColor = AppThemeColor
@@ -298,12 +299,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
         
-        sendButton.setImage(UIImage(named:"SendMessageIcon2")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.backgroundColor = AppThemeColor
-        sendButton.tintColor = UIColor.white
-        sendButton.layer.borderColor =  UIColor.white.cgColor
+        //sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+        //sendButton.backgroundColor = AppThemeColor
+        //sendButton.tintColor = UIColor.white
+        //sendButton.layer.borderColor =  UIColor.white.cgColor
         
         
+        profileSaveButton.layer.cornerRadius = profileSaveButton.bounds.height/3
+
         /*
          switch environment {
          case .texting_Line:
@@ -356,8 +359,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
-        //        self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         self.sendTextField.delegate = self
+        self.sendTextField.layer.cornerRadius =  self.sendTextField.bounds.height/2
+
+        
         
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView)
         
@@ -528,20 +534,18 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             self.closeView.removeFromSuperview()
             
             
-            if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
-                self.selectedConversation.receiver?.lastName?.isEmpty == false)
-            {
-                let headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
-                //headingStr = headingStr.uppercased()
-                self.profileHeadingLabel.text = headingStr
-            }
-            else {
-                self.profileHeadingLabel.text = ""
-            }
+//            if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
+//                self.selectedConversation.receiver?.lastName?.isEmpty == false)
+//            {
+//                let headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
+//                headingStr = headingStr.uppercased()
+//                self.profileHeadingLabel.text = headingStr
+//            }
+//            else {
+//                self.profileHeadingLabel.text = ""
+//            }
             
-            
-            
-            self.profileUsernameLabel.text = "Phone Number " + (self.selectedConversation.receiver?.phoneNumber)!
+            self.profileUsernameLabel.text = (self.selectedConversation.receiver?.phoneNumber)!
             
             self.profileEmailTextField.text = self.selectedConversation.receiver?.email
             self.profileFirstNameTextField.text = self.selectedConversation.receiver?.firstName
@@ -897,7 +901,7 @@ extension ConversationDetailViewController {
             {
                 if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
-                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!).uppercased()
+                    self.messageFromLabel.text = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
                     
                    // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
@@ -910,7 +914,7 @@ extension ConversationDetailViewController {
                 // If Device is iPhone/iPod
                 if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
                 {
-                    self.messageFromLabel.text = ((self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!).uppercased()
+                    self.messageFromLabel.text = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
                     
                    // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }

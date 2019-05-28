@@ -154,14 +154,14 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-TJ-d6L" customClass="GradientButton">
-                                <rect key="frame" x="264" y="681.33333333333337" width="140" height="44.666666666666629"/>
+                                <rect key="frame" x="284" y="687.66666666666663" width="120" height="38.333333333333371"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aWK-TJ-d6L" secondAttribute="height" multiplier="91:29" id="65u-zk-X1Q"/>
-                                    <constraint firstAttribute="width" constant="140" id="DZ2-Ii-eaa"/>
+                                    <constraint firstAttribute="width" constant="120" id="DZ2-Ii-eaa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
+                                <inset key="titleEdgeInsets" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="New Message" backgroundImage="composeIconNew">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

@@ -52,6 +52,9 @@ let TextAttendantColor = UIColor(red: 255/256, green: 80/256, blue: 1/256, alpha
 let GrayHeaderColor = UIColor(red: 206/256, green: 205/256, blue: 210/256, alpha: 1.0)
 
 var AppThemeColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
+
+var BubbleColor = UIColor(red: 98/256, green: 189/256, blue: 225/256, alpha: 1.0)
+
 var AppThemeHex   = "007AFF"
 
 var TextingHex  = "007AFF"

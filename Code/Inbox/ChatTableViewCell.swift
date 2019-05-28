@@ -48,11 +48,10 @@ class ChatTableViewCell: UITableViewCell {
     
     func loadCellData (text: String, type: ChatCellTypeEnum, number: String, dateTime: String) {
         
-        self.numberLabel.text  = ""//number
+        self.numberLabel.text  = ""
         self.messageLabel.text = text
         self.dateLabel.text    = dateTime
         
-        //self.messageLabel.translatesAutoresizingMaskIntoConstraints = true
         self.messageLabel.sizeToFit()
         self.messageLabel.isScrollEnabled = false
         
@@ -85,20 +84,16 @@ class ChatTableViewCell: UITableViewCell {
                 self.dateLabel.textColor    = UIColor.white
                 
             } else {
-                self.bubbleImageView.tintColor = AppThemeColor
-                self.numberLabel.textColor  = UIColor.black
-                self.messageLabel.textColor = UIColor.black
-                self.dateLabel.textColor    = UIColor.black
+                self.bubbleImageView.tintColor = BubbleColor
+                self.numberLabel.textColor  = UIColor.white
+                self.messageLabel.textColor = UIColor.white
+                self.dateLabel.textColor    = UIColor.white
             }
             
             
             self.messageLabel.textAlignment = .left
             
         } else {
-            
-            self.numberLabel.textColor  = UIColor.black
-            self.messageLabel.textColor = UIColor.black
-            self.dateLabel.textColor    = UIColor.black
             
             changeImage("chat_bubble_received")
             
@@ -107,8 +102,14 @@ class ChatTableViewCell: UITableViewCell {
             self.trailingContraintEqual.isActive = false
             self.leadingContraintEqual.isActive = true
             
-            self.bubbleImageView.tintColor = GrayHeaderColor
+            //self.bubbleImageView.tintColor = GrayHeaderColor
             self.messageLabel.textAlignment = .left
+            
+            self.bubbleImageView.tintColor = UIColor.white
+            self.numberLabel.textColor  = UIColor.black
+            self.messageLabel.textColor = UIColor.black
+            self.dateLabel.textColor    = UIColor.black
+
             
         }
         

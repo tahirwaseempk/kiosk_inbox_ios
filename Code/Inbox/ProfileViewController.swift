@@ -55,9 +55,7 @@ class ProfileViewController: UIViewController {
         p.appear(originView: sender, baseViewController: self)
         p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
         
-        
     }
-    
     
     @IBAction func countryButton_Tapped(_ sender: UIButton) {
         
@@ -97,7 +95,6 @@ class ProfileViewController: UIViewController {
         timeZones[6] = "Hawaiian Time"
         timeZones[7] = "Arizona Time"
         
-        
         if let user = User.getLoginedUser()
         {
             self.usernameLabel.text        = " Username: " + user.username!
@@ -117,17 +114,17 @@ class ProfileViewController: UIViewController {
             self.countryTextField.text     = user.country!
         }
         
-        self.nameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.lastnameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.emailTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.timeZoneTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.nameTextField.layer.sublayerTransform        = CATransform3DMakeTranslation(8, 0, 0)
+        self.lastnameTextField.layer.sublayerTransform    = CATransform3DMakeTranslation(8, 0, 0)
+        self.emailTextField.layer.sublayerTransform       = CATransform3DMakeTranslation(8, 0, 0)
+        self.mobileTextField.layer.sublayerTransform      = CATransform3DMakeTranslation(8, 0, 0)
+        self.timeZoneTextField.layer.sublayerTransform    = CATransform3DMakeTranslation(8, 0, 0)
         self.companyNameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.addressTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.cityTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.stateTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.zipCodeTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.countryTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.addressTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
+        self.cityTextField.layer.sublayerTransform        = CATransform3DMakeTranslation(8, 0, 0)
+        self.stateTextField.layer.sublayerTransform       = CATransform3DMakeTranslation(8, 0, 0)
+        self.zipCodeTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
+        self.countryTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
 
         self.timeZoneTextField.isEnabled = false
         self.stateTextField.isEnabled    = false
