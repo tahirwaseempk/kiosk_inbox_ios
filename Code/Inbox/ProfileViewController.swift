@@ -97,7 +97,7 @@ class ProfileViewController: UIViewController {
         
         if let user = User.getLoginedUser()
         {
-            self.usernameLabel.text        = " Username: " + user.username!
+            self.usernameLabel.text        = user.formattedUsername!
             
             self.nameTextField.text        = user.firstName!
             self.lastnameTextField.text    = user.lastName!
@@ -132,8 +132,8 @@ class ProfileViewController: UIViewController {
         
         
         
-        self.view.backgroundColor = AppThemeColor
-        self.profileNavView.backgroundColor = AppThemeColor
+        //self.view.backgroundColor = AppThemeColor
+       // self.profileNavView.backgroundColor = AppThemeColor
         
         
 //                switch environment {
