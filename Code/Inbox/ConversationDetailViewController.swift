@@ -12,6 +12,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBOutlet weak var inputCharacterCountLabel: UILabel!
     
+    @IBOutlet weak var chawalView: UIView!
     /////////////////////////////////////////////////
     @IBOutlet weak var cross_Button: UIButton!
     @IBOutlet weak var delete_Button: UIButton!
@@ -293,9 +294,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
         //profileNavView.backgroundColor = AppThemeColor
         cross_Button.backgroundColor = AppThemeColor
-        delete_Button.backgroundColor = AppThemeColor
-        Optout_Button.backgroundColor = AppThemeColor
-        schedule_Button.backgroundColor = AppThemeColor
+      //  delete_Button.backgroundColor = AppThemeColor
+       // Optout_Button.backgroundColor = AppThemeColor
+       // schedule_Button.backgroundColor = AppThemeColor
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
         
@@ -361,7 +362,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         self.sendTextField.delegate = self
-        self.sendTextField.layer.cornerRadius =  self.sendTextField.bounds.height/2
+        self.chawalView.layer.cornerRadius =  self.chawalView.bounds.height/2
 
         
         
@@ -521,7 +522,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
     }
     
-    @IBAction func optOut_Tapped(_ sender: Any) {
+    @IBAction func profileButton_Tapped(_ sender: Any) {
         
         if (self.selectedConversation == nil)
         {

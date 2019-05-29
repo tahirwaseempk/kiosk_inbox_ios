@@ -53,19 +53,19 @@
                                         </scopeButtonTitles>
                                     </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-90-UsF" userLabel="WelcomeView">
-                                        <rect key="frame" x="16" y="0.0" width="129.66666666666666" height="70"/>
+                                        <rect key="frame" x="16.000000000000007" y="0.0" width="127.66666666666669" height="70"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJy-SW-JZU" userLabel="Name Container">
-                                                <rect key="frame" x="0.0" y="10.000000000000004" width="129.66666666666666" height="50.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="10.000000000000004" width="127.66666666666667" height="50.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-nY-myW">
-                                                        <rect key="frame" x="0.0" y="5" width="129.66666666666666" height="14"/>
+                                                        <rect key="frame" x="0.0" y="5" width="127.66666666666667" height="14"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lime Cellular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2w-7I-lLm">
-                                                        <rect key="frame" x="0.0" y="24" width="129.66666666666666" height="26.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="24" width="127.66666666666667" height="26.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -543,7 +543,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftArrow" translatesAutoresizingMaskIntoConstraints="NO" id="t02-EI-hcK">
+                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t02-EI-hcK">
                                                                 <rect key="frame" x="389" y="10" width="15" height="15"/>
                                                                 <color key="backgroundColor" red="0.91580742390000003" green="0.36912244500000002" blue="0.41731825420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -745,7 +745,7 @@
                                                             <constraint firstItem="fxM-TW-S27" firstAttribute="width" secondItem="eLx-Ji-Oub" secondAttribute="width" id="pEu-rR-F1s"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeftArrow" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-ov-kzm">
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-ov-kzm">
                                                         <rect key="frame" x="181.66666666666666" y="118.00000000000006" width="15" height="15"/>
                                                         <color key="backgroundColor" red="0.91580742390000003" green="0.36912244500000002" blue="0.41731825420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>

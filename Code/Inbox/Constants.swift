@@ -54,6 +54,7 @@ let GrayHeaderColor = UIColor(red: 206/256, green: 205/256, blue: 210/256, alpha
 var AppThemeColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 
 var BubbleColor = UIColor(red: 98/256, green: 189/256, blue: 225/256, alpha: 1.0)
+var BubbleColor2 = UIColor(red: 73/256, green: 157/256, blue: 255/256, alpha: 1.0)
 
 var AppThemeHex   = "007AFF"
 

@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Inbox/ConversationListingViewController.swift"
-            timestampString = "580681293.9993761"
+            filePath = "Inbox/ChatTableViewCell.swift"
+            timestampString = "580848178.261091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "initiateMessageCall()"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "loadCellData(text:type:number:dateTime:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,78 +25,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Inbox/ConversationListingViewController.swift"
-            timestampString = "580681293.9994431"
+            filePath = "Inbox/ChatTableViewCell.swift"
+            timestampString = "580848178.261373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "callLastConversationsUpdate()"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "loadCellData(text:type:number:dateTime:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/ConversationListingViewController.swift"
-            timestampString = "580681293.999486"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
-            landmarkName = "updateConversationOnTimer()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/ConversationListingViewController.swift"
-            timestampString = "580681293.999525"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "callMessagesWebService()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoTextingLine.ConversationListingViewController.callMessagesWebService() -&gt; ()"
-                  moduleName = "PhotoTextingLine"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amir/Desktop/a/Code/Inbox/ConversationListingViewController.swift"
-                  timestampString = "577985742.159785"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;PhotoTextingLine.Message&gt;&gt;) -&gt; () in PhotoTextingLine.ConversationListingViewController.callMessagesWebService() -&gt; ()"
-                  moduleName = "PhotoTextingLine"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amir/Desktop/a/Code/Inbox/ConversationListingViewController.swift"
-                  timestampString = "577985742.162354"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -105,45 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Inbox/ConversationDetailViewController.swift"
-            timestampString = "580756724.308906"
+            filePath = "Inbox/ChatTableViewCell.swift"
+            timestampString = "580848178.261507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "messageNotificationRecieved()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/InboxTableViewDataSource.swift"
-            timestampString = "580255462.803589"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "relativePast(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Inbox/MessageTableViewDataSource.swift"
-            timestampString = "580756515.1130559"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "filterMessages()"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "changeImage(imageName:imageMode:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
