@@ -95,6 +95,9 @@ class ProfileViewController: UIViewController {
         timeZones[6] = "Hawaiian Time"
         timeZones[7] = "Arizona Time"
         
+        self.profileDoneButton.layer.cornerRadius = self.profileDoneButton.bounds.height/3
+
+        
         if let user = User.getLoginedUser()
         {
             self.usernameLabel.text        = user.formattedUsername!

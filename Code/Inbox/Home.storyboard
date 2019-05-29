@@ -40,9 +40,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="exit_48pt"/>
+                                        <state key="normal" backgroundImage="profile_black"/>
                                         <connections>
-                                            <action selector="signOut_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="Tea-TF-ufc"/>
+                                            <action selector="closeButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="Ri2-0z-YVW"/>
                                         </connections>
                                     </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Messages" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-p8-Cn7">
@@ -91,14 +91,10 @@
                                             <constraint firstAttribute="trailing" secondItem="pJy-SW-JZU" secondAttribute="trailing" id="f94-Hx-Znd"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSY-QG-bsL" userLabel="Menu Button">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSY-QG-bsL" userLabel="Menu Button">
                                         <rect key="frame" x="328" y="20" width="30" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" backgroundImage="profile_black"/>
-                                        <connections>
-                                            <action selector="closeButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="lIs-Rq-yDN"/>
-                                            <action selector="profileButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="bU0-YY-wWg"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -262,10 +258,10 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WE5-gp-532" userLabel="Top Header View">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="10" width="375" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSd-8T-Pqw">
-                                    <rect key="frame" x="337" y="23" width="24" height="24"/>
+                                    <rect key="frame" x="335" y="23" width="24" height="24"/>
                                     <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="uSd-8T-Pqw" secondAttribute="height" multiplier="1:1" id="DTh-9E-zpp"/>
@@ -304,7 +300,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="uSd-8T-Pqw" firstAttribute="height" secondItem="WE5-gp-532" secondAttribute="height" multiplier="40%" id="K6f-zo-wFA"/>
-                                <constraint firstAttribute="trailing" secondItem="uSd-8T-Pqw" secondAttribute="trailing" constant="14" id="XXJ-bX-7Fa"/>
+                                <constraint firstAttribute="trailing" secondItem="uSd-8T-Pqw" secondAttribute="trailing" constant="16" id="XXJ-bX-7Fa"/>
                                 <constraint firstItem="uSd-8T-Pqw" firstAttribute="centerY" secondItem="WE5-gp-532" secondAttribute="centerY" id="ZYz-F3-Zlf"/>
                                 <constraint firstItem="uSd-8T-Pqw" firstAttribute="centerY" secondItem="WE5-gp-532" secondAttribute="centerY" constant="5" id="aeq-YH-si4"/>
                                 <constraint firstAttribute="height" constant="90" id="cAz-0Y-q97"/>
@@ -343,7 +339,7 @@
                             </variation>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veq-jL-SP1">
-                            <rect key="frame" x="158" y="47" width="203" height="42"/>
+                            <rect key="frame" x="156" y="57" width="203" height="42"/>
                             <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="SHY-nP-L0q"/>
@@ -357,9 +353,12 @@
                             <variation key="heightClass=regular-widthClass=compact">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             </variation>
+                            <connections>
+                                <action selector="profileButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="Isi-H6-Iqf"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aee-zL-8DT">
-                            <rect key="frame" x="158" y="89" width="203" height="42"/>
+                            <rect key="frame" x="156" y="99" width="203" height="42"/>
                             <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="     Sign Out"/>
@@ -369,6 +368,9 @@
                             <variation key="heightClass=regular-widthClass=compact">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             </variation>
+                            <connections>
+                                <action selector="signOut_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="0fX-9k-Cxm"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -384,7 +386,7 @@
                         <constraint firstItem="wBf-JS-GuY" firstAttribute="leading" secondItem="Wjd-X4-0yL" secondAttribute="leading" id="fif-t0-sSx"/>
                         <constraint firstItem="aee-zL-8DT" firstAttribute="top" secondItem="Veq-jL-SP1" secondAttribute="bottom" id="mDu-nY-Ocm"/>
                         <constraint firstItem="Veq-jL-SP1" firstAttribute="trailing" secondItem="uSd-8T-Pqw" secondAttribute="trailing" id="neI-M2-6U5"/>
-                        <constraint firstItem="WE5-gp-532" firstAttribute="top" secondItem="Wjd-X4-0yL" secondAttribute="top" id="pGU-gn-5Ed"/>
+                        <constraint firstItem="WE5-gp-532" firstAttribute="top" secondItem="Wjd-X4-0yL" secondAttribute="top" constant="10" id="pGU-gn-5Ed"/>
                         <constraint firstItem="Veq-jL-SP1" firstAttribute="top" secondItem="uSd-8T-Pqw" secondAttribute="bottom" id="rhY-Rq-lda"/>
                         <constraint firstItem="WE5-gp-532" firstAttribute="height" secondItem="Wjd-X4-0yL" secondAttribute="height" multiplier="12%" id="yi3-nR-ebF"/>
                     </constraints>
@@ -836,7 +838,6 @@
         <image name="CloseButtonIcon" width="24" height="24"/>
         <image name="black" width="48" height="48"/>
         <image name="composeIconNew" width="140" height="41"/>
-        <image name="exit_48pt" width="48" height="48"/>
         <image name="profile_black" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
 </document>
