@@ -6,6 +6,8 @@ let activityWidth = 60
 let ACTIVITY_VIEW_TAG = 100001
 let ACTIVITY_OVERLAY_TAG = 100002
 
+let BUTTON_RADIUS = 3
+
 let DATE_FORMATE_STRING = "yyyy/MM/dd HH:mm:ss"
 let DISPLAY_FORMATE_STRING = "MM/dd/yyyy hh:mm:ss a"
 let DATE_FORMATE_APP = "yyyy-MM-dd HH:mm:ss"

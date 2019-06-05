@@ -94,7 +94,7 @@ class ComposeMessageViewController: UIViewController {
         messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
         messageTextView.isScrollEnabled = false
         
-        self.inputCharacterCountLabel.text = "Characters Count 0/250"
+        self.inputCharacterCountLabel.text = "Character Count 0/250"
     }
     
     @IBAction func cancel_Tapped(_ sender: Any) {
@@ -280,7 +280,7 @@ extension ComposeMessageViewController : UITextViewDelegate {
         let reminingCount = sendMessageMaxLength - str.count
         
         if reminingCount >= 0 {
-            self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
+            self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
         }
         
 //        var frame = self.messageTextView.frame

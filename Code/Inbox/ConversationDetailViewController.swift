@@ -275,7 +275,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         super.viewDidLoad()
         
-        
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -306,7 +305,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //sendButton.layer.borderColor =  UIColor.white.cgColor
         
         
-        profileSaveButton.layer.cornerRadius = profileSaveButton.bounds.height/3
+        self.profileSaveButton.layer.cornerRadius = self.profileSaveButton.bounds.height/BUTTON_RADIUS
 
         /*
          switch environment {
@@ -356,7 +355,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
          }
          */
         
-        self.inputCharacterCountLabel.text = "Characters Count 0/250"
+        self.inputCharacterCountLabel.text = "Character Count 0/250"
         
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
@@ -399,6 +398,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     override func viewDidDisappear(_ animated: Bool) {
         
         super.viewDidDisappear(animated)
+
         NotificationCenter.default.removeObserver(self, name: MessageNotificationName, object: nil)
         
     }
@@ -982,7 +982,7 @@ extension ConversationDetailViewController {
                             ProcessingIndicator.hide()
                             
                             self.sendTextField.text = ""
-                            self.inputCharacterCountLabel.text = "Characters Count 0/250"
+                            self.inputCharacterCountLabel.text = "Character Count 0/250"
                             
                             _ = self.tableViewDataSource?.reloadControls()
                     }
@@ -1038,7 +1038,7 @@ extension ConversationDetailViewController:UITextFieldDelegate {
         let reminingCount = sendMessageMaxLength - str.count
         
         if reminingCount >= 0 {
-            self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
+            self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
         }
         
         if str.count > sendMessageMaxLength {
