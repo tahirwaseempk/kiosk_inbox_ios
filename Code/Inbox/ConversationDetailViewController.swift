@@ -305,7 +305,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //sendButton.layer.borderColor =  UIColor.white.cgColor
         
         
-        self.profileSaveButton.layer.cornerRadius = self.profileSaveButton.bounds.height/BUTTON_RADIUS
+        profileSaveButton.layer.cornerRadius = profileSaveButton.bounds.height/BUTTON_RADIUS
 
         /*
          switch environment {

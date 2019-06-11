@@ -5,10 +5,10 @@ import Crashlytics
 class LoginViewController: UIViewController,UITextFieldDelegate
 {
     
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: GradientButton!
     @IBOutlet weak var rememberMeButton: UIButton!
-    @IBOutlet weak var udidTextField: UnderlinedTextField!
-    @IBOutlet weak var serialTextField: UnderlinedTextField!
+    @IBOutlet weak var udidTextField: FloatLabelTextField!
+    @IBOutlet weak var serialTextField: FloatLabelTextField!
     @IBOutlet weak var fieldsView: UIView!
     
     @IBOutlet weak var loginImageView: UIImageView!
@@ -75,9 +75,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         
         switch environment {
         case .texting_Line:
-            loginImageView.image = UIImage(named: "LoginImage")
+            loginImageView.image = UIImage(named: "TextingLine_Logo")
             self.view.backgroundColor = UIColor.white
-            loginButton.backgroundColor = AppBlueColor
+            //loginButton.backgroundColor = AppBlueColor
             loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
             serialLabel.textColor = AppBlueColor
             udidLabel.textColor = AppBlueColor
@@ -114,16 +114,18 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
-        self.udidTextField.isEnabled = true
-        self.serialTextField.delegate = self
-        self.udidTextField.delegate = self
+        self.serialTextField.isEnabled = true
+        self.udidTextField.isEnabled   = true
+        self.serialTextField.delegate  = self
+        self.udidTextField.delegate    = self
         
         self.rememberMeButton.backgroundColor = UIColor.clear
         
-        self.loginButton.clipsToBounds = true
+        //self.loginButton.clipsToBounds = true
+        self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2.0
         
-        self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 8.0
-        
+//        loginButton.layer.cornerRadius = loginButton.bounds.height/BUTTON_RADIUS
+
         if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {
                 print("########## >>>>>>>>> Auto Login Enabled <<<<<<<<<< ##########")
@@ -234,7 +236,18 @@ extension LoginViewController {
         
         if (self.serialTextField.text?.isEmpty)!
         {
-            let alert = UIAlertController(title:"Warning",message:"Please enter phone number",preferredStyle:UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title:"Warning",message:"Please enter phone number.",preferredStyle:UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if (self.udidTextField.text?.isEmpty)!
+        {
+            let alert = UIAlertController(title:"Warning",message:"Please enter password.",preferredStyle:UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
             
@@ -424,16 +437,13 @@ extension LoginViewController {
         
         return true
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         udidTextField.resignFirstResponder()
-        
         serialTextField.resignFirstResponder()
-        
         return true;
     }
-    
-   
     
 }
 

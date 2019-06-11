@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Bold.otf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Forget Password View Controller-->
         <scene sceneID="c4b-6L-YkZ">
@@ -168,7 +175,7 @@
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Z5Q-jI-A0w" userLabel="ImageHolderView">
                                 <rect key="frame" x="72.333333333333343" y="58.999999999999986" width="269.33333333333326" height="177.66666666666663"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smsfactory" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-IB-BSM">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextingLine_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-IB-BSM">
                                         <rect key="frame" x="0.0" y="0.0" width="269.33333333333331" height="177.66666666666666"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
@@ -183,14 +190,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJm-8t-skK" userLabel="FieldsView">
-                                <rect key="frame" x="41.333333333333343" y="276.66666666666669" width="331.33333333333326" height="249.33333333333331"/>
+                                <rect key="frame" x="41.333333333333343" y="276.66666666666663" width="331.33333333333326" height="259.66666666666663"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ClX-JQ-leO" customClass="UnderlinedTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96" width="331.33333333333331" height="35"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ClX-JQ-leO" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="89.666666666666629" width="331.33333333333331" height="45"/>
+                                        <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                <real key="value" value="55"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                <real key="value" value="55"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=compact-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         </variation>
@@ -198,23 +213,23 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         </variation>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHONE NUMBER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asW-pB-hiy">
-                                        <rect key="frame" x="0.0" y="0.0" width="122.66666666666667" height="18"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHONE NUMBER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asW-pB-hiy">
+                                        <rect key="frame" x="0.0" y="0.0" width="123.66666666666667" height="19.333333333333332"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         </variation>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gky-tF-I3k" customClass="UnderlinedTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="18" width="331.33333333333331" height="35"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gky-tF-I3k" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="19.333333333333314" width="331.33333333333331" height="45"/>
+                                        <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="Kxy-Rj-a76"/>
+                                            <constraint firstAttribute="height" constant="45" id="Kxy-Rj-a76"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Q8t-Et-tYC"/>
                                         </constraints>
                                         <nil key="textColor"/>
@@ -248,68 +263,79 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jx1-V6-64r">
-                                        <rect key="frame" x="0.0" y="156" width="19.333333333333332" height="19.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="159.66666666666663" width="24.666666666666668" height="25"/>
                                         <color key="backgroundColor" red="1" green="0.12928691940000001" blue="0.12707211409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jx1-V6-64r" secondAttribute="height" multiplier="1:1" id="BUN-B9-I7x"/>
                                         </constraints>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember this login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvW-nA-Ufe">
-                                        <rect key="frame" x="29.333333333333336" y="159" width="107.66666666666666" height="13.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <rect key="frame" x="34.666666666666664" y="165" width="102.66666666666669" height="14.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDv-VD-o6N">
-                                        <rect key="frame" x="0.0" y="200.33333333333331" width="331.33333333333331" height="49"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDv-VD-o6N" customClass="GradientButton" customModule="FanConnectNow" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="214.66666666666663" width="331.33333333333331" height="45"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <state key="normal" title="GET STARTED">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                <color key="value" red="0.28627450980392155" green="0.61568627450980395" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                <color key="value" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         </variation>
                                         <connections>
                                             <action selector="loginButton_Tapped:" destination="1yS-C4-6mo" eventType="touchUpInside" id="PU4-pq-xLH"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4S-IO-bG3">
-                                        <rect key="frame" x="0.0" y="78" width="87" height="18"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4S-IO-bG3">
+                                        <rect key="frame" x="0.0" y="69.333333333333314" width="88.333333333333329" height="20.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="J4S-IO-bG3" firstAttribute="top" secondItem="gky-tF-I3k" secondAttribute="bottom" constant="25" id="10j-Ac-GwM"/>
+                                    <constraint firstItem="J4S-IO-bG3" firstAttribute="top" secondItem="gky-tF-I3k" secondAttribute="bottom" constant="5" id="10j-Ac-GwM"/>
                                     <constraint firstAttribute="trailing" secondItem="gky-tF-I3k" secondAttribute="trailing" id="5TF-6q-9eN"/>
                                     <constraint firstAttribute="bottom" secondItem="hDv-VD-o6N" secondAttribute="bottom" id="6O1-WR-re3"/>
                                     <constraint firstItem="ClX-JQ-leO" firstAttribute="height" secondItem="gky-tF-I3k" secondAttribute="height" id="9ss-TQ-I3m"/>
                                     <constraint firstItem="hDv-VD-o6N" firstAttribute="trailing" secondItem="ClX-JQ-leO" secondAttribute="trailing" id="B30-NP-f2B"/>
                                     <constraint firstItem="asW-pB-hiy" firstAttribute="leading" secondItem="iJm-8t-skK" secondAttribute="leading" id="B8Q-Fm-l7s"/>
-                                    <constraint firstItem="hDv-VD-o6N" firstAttribute="height" secondItem="ClX-JQ-leO" secondAttribute="height" multiplier="1.4" id="ER4-Kv-PIH"/>
+                                    <constraint firstItem="hDv-VD-o6N" firstAttribute="height" secondItem="ClX-JQ-leO" secondAttribute="height" id="ER4-Kv-PIH"/>
                                     <constraint firstItem="gky-tF-I3k" firstAttribute="leading" secondItem="iJm-8t-skK" secondAttribute="leading" id="EX5-VE-PbX"/>
                                     <constraint firstItem="QvW-nA-Ufe" firstAttribute="centerY" secondItem="jx1-V6-64r" secondAttribute="centerY" id="GUQ-JC-CqN"/>
                                     <constraint firstItem="jx1-V6-64r" firstAttribute="leading" secondItem="iJm-8t-skK" secondAttribute="leading" id="IjI-De-ibI"/>
                                     <constraint firstItem="asW-pB-hiy" firstAttribute="top" secondItem="iJm-8t-skK" secondAttribute="top" id="L6C-he-tDC"/>
-                                    <constraint firstItem="hDv-VD-o6N" firstAttribute="top" secondItem="jx1-V6-64r" secondAttribute="bottom" constant="25" id="XBw-Ko-OeC"/>
+                                    <constraint firstItem="hDv-VD-o6N" firstAttribute="top" secondItem="jx1-V6-64r" secondAttribute="bottom" constant="30" id="XBw-Ko-OeC"/>
                                     <constraint firstItem="jx1-V6-64r" firstAttribute="top" secondItem="ClX-JQ-leO" secondAttribute="bottom" constant="25" id="ae5-bX-7Xg"/>
                                     <constraint firstItem="J4S-IO-bG3" firstAttribute="leading" secondItem="iJm-8t-skK" secondAttribute="leading" id="b6d-uZ-jRw"/>
                                     <constraint firstItem="gky-tF-I3k" firstAttribute="top" secondItem="asW-pB-hiy" secondAttribute="bottom" id="bMI-Gj-28V"/>
@@ -347,27 +373,27 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRq-xN-dzu">
-                                <rect key="frame" x="41" y="536" width="331.66666666666669" height="30"/>
+                                <rect key="frame" x="41" y="546.33333333333337" width="331.66666666666669" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="C75-QU-Y2r"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                 <state key="normal" title="Forgot Password">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="14"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="14"/>
                                 </variation>
                                 <connections>
                                     <action selector="forgetPwdButton_Tapped:" destination="1yS-C4-6mo" eventType="touchUpInside" id="mUc-MD-hsY"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.36078431370000003" green="0.56470588239999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Z5Q-jI-A0w" firstAttribute="centerX" secondItem="bSc-Yf-HCp" secondAttribute="centerX" id="5PS-3c-tMJ"/>
                             <constraint firstItem="hDv-VD-o6N" firstAttribute="leading" secondItem="BRq-xN-dzu" secondAttribute="leading" constant="0.5" id="AIx-Nh-ja2"/>
@@ -664,7 +690,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="black" width="144" height="144"/>
-        <image name="smsfactory" width="800" height="520"/>
+        <image name="TextingLine_Logo" width="171" height="134"/>
+        <image name="black" width="48" height="48"/>
     </resources>
 </document>

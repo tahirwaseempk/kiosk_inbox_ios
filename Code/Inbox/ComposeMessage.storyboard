@@ -83,7 +83,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Uvi-iD-5oS" secondAttribute="height" multiplier="1:1" id="QcQ-GJ-EQ0"/>
                                                 </constraints>
-                                                <state key="normal" image="ic_person_add_white">
+                                                <state key="normal" image="person_add_white">
                                                     <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -201,8 +201,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LeftArrow" width="24" height="24"/>
+        <image name="LeftArrow" width="36" height="36"/>
         <image name="SendMessageIcon2" width="36" height="36"/>
-        <image name="ic_person_add_white" width="48" height="48"/>
+        <image name="person_add_white" width="48" height="48"/>
     </resources>
 </document>
