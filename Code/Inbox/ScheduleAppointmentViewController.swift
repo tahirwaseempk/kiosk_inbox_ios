@@ -102,8 +102,8 @@ class ScheduleAppointmentViewController: UIViewController
         
         self.calendarLabel.text = dateFormatter.string(from: currentDate)
         
-        self.whiteBackgroundView.layer.cornerRadius =  self.whiteBackgroundView.frame.size.width / 25.0
-        self.scheduleAppointmentButton.layer.cornerRadius =  self.scheduleAppointmentButton.frame.size.width / 30.0
+        //self.whiteBackgroundView.layer.cornerRadius =  self.whiteBackgroundView.frame.size.width / 25.0
+        //self.scheduleAppointmentButton.layer.cornerRadius =  self.scheduleAppointmentButton.frame.size.width / 30.0
 
         self.calendarLogoButton.layer.borderWidth = 1.0
         self.calendarLogoButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -111,7 +111,7 @@ class ScheduleAppointmentViewController: UIViewController
         self.dateControlsContainer.layer.borderWidth = 1.0
         self.dateControlsContainer.layer.borderColor = UIColor.lightGray.cgColor
 
-        self.scheduleAppointmentButton.backgroundColor = AppThemeColor
+        //self.scheduleAppointmentButton.backgroundColor = AppThemeColor
         self.scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     
         self.messageTextView.delegate = self

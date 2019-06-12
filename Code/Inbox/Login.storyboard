@@ -190,20 +190,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJm-8t-skK" userLabel="FieldsView">
-                                <rect key="frame" x="41.333333333333343" y="276.66666666666663" width="331.33333333333326" height="259.66666666666663"/>
+                                <rect key="frame" x="41.333333333333343" y="276.66666666666669" width="331.33333333333326" height="258.00000000000006"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ClX-JQ-leO" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="89.666666666666629" width="331.33333333333331" height="45"/>
+                                        <rect key="frame" x="0.0" y="88" width="331.33333333333331" height="45"/>
                                         <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                                <real key="value" value="55"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
-                                                <real key="value" value="55"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=compact-widthClass=regular">
@@ -235,6 +235,14 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" textContentType="username"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Kxy-Rj-a76"/>
@@ -263,14 +271,14 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jx1-V6-64r">
-                                        <rect key="frame" x="0.0" y="159.66666666666663" width="24.666666666666668" height="25"/>
-                                        <color key="backgroundColor" red="1" green="0.12928691940000001" blue="0.12707211409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="158" width="24.666666666666668" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jx1-V6-64r" secondAttribute="height" multiplier="1:1" id="BUN-B9-I7x"/>
                                         </constraints>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember this login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvW-nA-Ufe">
-                                        <rect key="frame" x="34.666666666666664" y="165" width="102.66666666666669" height="14.333333333333343"/>
+                                        <rect key="frame" x="34.666666666666664" y="163.66666666666663" width="102.66666666666669" height="14"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -282,7 +290,7 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDv-VD-o6N" customClass="GradientButton" customModule="FanConnectNow" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="214.66666666666663" width="331.33333333333331" height="45"/>
+                                        <rect key="frame" x="0.0" y="213" width="331.33333333333331" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <state key="normal" title="GET STARTED">
@@ -310,7 +318,7 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4S-IO-bG3">
-                                        <rect key="frame" x="0.0" y="69.333333333333314" width="88.333333333333329" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="69.333333333333314" width="88.333333333333329" height="18.666666666666671"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="12"/>
                                         <nil key="highlightedColor"/>
@@ -373,7 +381,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRq-xN-dzu">
-                                <rect key="frame" x="41" y="546.33333333333337" width="331.66666666666669" height="30"/>
+                                <rect key="frame" x="41" y="544.66666666666663" width="331.66666666666669" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="C75-QU-Y2r"/>

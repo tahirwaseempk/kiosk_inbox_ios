@@ -29,6 +29,9 @@ class ComposeMessageViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var mobileNumberView: UIView!
     
+    @IBOutlet weak var chawalView: UIView!
+
+    
     var delegate : ComposeMessageProtocol? = nil
     
     override func viewDidLoad() {
@@ -36,12 +39,15 @@ class ComposeMessageViewController: UIViewController {
         super.viewDidLoad()
         
         
-        headerView.backgroundColor = AppThemeColor
-        mobileNumberView.backgroundColor = AppThemeColor
+        //headerView.backgroundColor = AppThemeColor
+       // mobileNumberView.backgroundColor = AppThemeColor
         
-        sendButton.setImage(UIImage(named:"SendMessageIcon2")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = AppThemeColor
-        sendButton.layer.borderColor = AppThemeColor.cgColor
+        //sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+       // sendButton.tintColor = AppThemeColor
+       // sendButton.layer.borderColor = AppThemeColor.cgColor
+       
+        self.chawalView.layer.cornerRadius =  self.chawalView.bounds.height/2
+
         /*
         switch environment {
 
@@ -84,7 +90,7 @@ class ComposeMessageViewController: UIViewController {
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
 
         
-        backView.layer.cornerRadius = 5;
+        //backView.layer.cornerRadius = 5;
         self.view.addSubview(backView)
         
         messageTextView.delegate = self
@@ -352,9 +358,9 @@ extension ComposeMessageViewController : UITextFieldDelegate {
             
             mobileTextField.text = mobileTextField.text! + "-"
             
-        }else if str!.count > 14{
+        }else if str!.count > 15{
             
-            //return false
+            return false
         }
         
         return true

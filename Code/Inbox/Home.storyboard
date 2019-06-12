@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="131"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-ws-FRy" userLabel="Menu Button">
-                                        <rect key="frame" x="368" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="368" y="22.666666666666664" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="26N-IO-Y9h"/>
                                             <constraint firstAttribute="width" secondItem="2bl-ws-FRy" secondAttribute="height" multiplier="1:1" id="Ifz-Al-jkQ"/>
@@ -54,10 +54,10 @@
                                         </scopeButtonTitles>
                                     </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-90-UsF" userLabel="WelcomeView">
-                                        <rect key="frame" x="16" y="0.0" width="129.66666666666666" height="70"/>
+                                        <rect key="frame" x="16" y="5" width="129.66666666666666" height="65"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJy-SW-JZU" userLabel="Name Container">
-                                                <rect key="frame" x="0.0" y="10.000000000000004" width="129.66666666666666" height="50.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="7.3333333333333321" width="129.66666666666666" height="50.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-nY-myW">
                                                         <rect key="frame" x="0.0" y="5" width="129.66666666666666" height="14"/>
@@ -92,7 +92,7 @@
                                         </constraints>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSY-QG-bsL" userLabel="Menu Button">
-                                        <rect key="frame" x="328" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="328" y="22.666666666666664" width="30" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" backgroundImage="profile_black"/>
                                     </button>
@@ -105,7 +105,7 @@
                                     <constraint firstItem="2bl-ws-FRy" firstAttribute="centerY" secondItem="pJy-SW-JZU" secondAttribute="centerY" id="OKJ-zJ-m6c"/>
                                     <constraint firstItem="aN2-90-UsF" firstAttribute="leading" secondItem="aaL-EV-VEn" secondAttribute="leading" constant="16" id="jka-V2-Nb9"/>
                                     <constraint firstItem="pSY-QG-bsL" firstAttribute="centerY" secondItem="2bl-ws-FRy" secondAttribute="centerY" id="mu1-LY-RCp"/>
-                                    <constraint firstItem="aN2-90-UsF" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="top" id="q7N-AP-A8L"/>
+                                    <constraint firstItem="aN2-90-UsF" firstAttribute="top" secondItem="aaL-EV-VEn" secondAttribute="top" constant="5" id="q7N-AP-A8L"/>
                                     <constraint firstAttribute="bottom" secondItem="M8d-p8-Cn7" secondAttribute="bottom" constant="5" id="qsJ-D4-NfU"/>
                                     <constraint firstItem="pSY-QG-bsL" firstAttribute="width" secondItem="2bl-ws-FRy" secondAttribute="width" id="rqa-Ee-PBG"/>
                                     <constraint firstItem="M8d-p8-Cn7" firstAttribute="trailing" secondItem="2bl-ws-FRy" secondAttribute="trailing" id="waP-DP-yw3"/>
