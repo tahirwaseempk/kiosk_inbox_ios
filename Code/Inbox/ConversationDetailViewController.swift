@@ -284,6 +284,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
        // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
 
+        
+        
+         sendTextField.inputAccessoryView = UIView()
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
         if UIDevice.current.userInterfaceIdiom == .pad {
