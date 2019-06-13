@@ -75,7 +75,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         
         switch environment {
         case .texting_Line:
-            loginImageView.image = UIImage(named: "TextingLine_Logo")
+            loginImageView.image = UIImage(named: "ChatLogo")
             self.view.backgroundColor = UIColor.white
             //loginButton.backgroundColor = AppBlueColor
             loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
