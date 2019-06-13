@@ -4,26 +4,15 @@ import SwiftyPickerPopover
 class ScheduleAppointmentViewController: UIViewController
 {
     
-    @IBOutlet var calendarView: GCCalendarView!
-    
     @IBOutlet weak var calendarLabel: UILabel!
     @IBOutlet weak var whiteBackgroundView: UIView!
-    @IBOutlet weak var scheduleAppointmentButton: UIButton!
-    @IBOutlet weak var dateControlsContainer: UIView!
-    @IBOutlet weak var calendarLogoButton: UIButton!
+    @IBOutlet weak var scheduleAppointmentButton: GradientButton!
     @IBOutlet weak var headerLabel: UILabel!
-    
     @IBOutlet weak var messageTextView: UITextView!
 
     var selectedConversation:Conversation! = nil
-    
     var headerTitleString = ""
-    
-    var checkBoxMessage = "Reminder"
-    
     var reminderSelectedDate = Date()
-    var reminderTimeInterval = TimeInterval()
-    
     var selectedHours = String()
     var selectedMins = String()
     var scheduleSelectedDate = Date()
@@ -32,26 +21,6 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var minuteLabel: UILabel!
     
     @IBAction func hourButton_Tapped(_ sender: UIButton) {
-//        // CountdownPickerPopover appears:
-//        CountdownPickerPopover(title: "")
-//
-//            .setSelectedTimeInterval(self.reminderTimeInterval)
-//            .setValueChange(action: { _, timeInterval in
-//                print("current interval \(timeInterval)")
-//            })
-//            .setDoneButton(action: { popover, timeInterval in
-//                print("timeInterval \(timeInterval)")
-//
-//             self.reminderTimeInterval = timeInterval
-//             self.hourLabel.text =  timeInterval.hoursFromTimeInterval()
-//             self.minuteLabel.text =  timeInterval.minutesFromTimeInterval()
-//
-//            })
-//            .setCancelButton(action: { _, _ in print("cancel")})
-//            .setClearButton(action: { popover, timeInterval in print("Clear")
-//                popover.setSelectedTimeInterval(TimeInterval()).reload()
-//            })
-//            .appear(originView: sender, baseViewController: self)
         
         DatePickerPopover(title: "")
             .setDateMode(.time)
@@ -81,10 +50,6 @@ class ScheduleAppointmentViewController: UIViewController
     {
         super.viewDidLoad()
         
-//        self.headerLabel.text =  self.splitNumber(str: self.headerTitleString)// "Schedule Appointment with " + self.headerTitleString
-        
-        self.headerLabel.textColor = AppThemeColor
-        
         if self.selectedConversation.receiver?.firstName?.isEmpty == false && self.selectedConversation.receiver?.lastName?.isEmpty == false
         {
             self.headerLabel.text = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
@@ -92,7 +57,6 @@ class ScheduleAppointmentViewController: UIViewController
         else
         {
             self.headerLabel.text = (self.selectedConversation.receiver?.phoneNumber)!
-            
         }
         
         let dateFormatter = DateFormatter()
@@ -102,17 +66,10 @@ class ScheduleAppointmentViewController: UIViewController
         
         self.calendarLabel.text = dateFormatter.string(from: currentDate)
         
-        //self.whiteBackgroundView.layer.cornerRadius =  self.whiteBackgroundView.frame.size.width / 25.0
-        //self.scheduleAppointmentButton.layer.cornerRadius =  self.scheduleAppointmentButton.frame.size.width / 30.0
-
-        self.calendarLogoButton.layer.borderWidth = 1.0
-        self.calendarLogoButton.layer.borderColor = UIColor.lightGray.cgColor
-
-        self.dateControlsContainer.layer.borderWidth = 1.0
-        self.dateControlsContainer.layer.borderColor = UIColor.lightGray.cgColor
+        //scheduleAppointmentButton.layer.cornerRadius = scheduleAppointmentButton.frame.size.height / 2.0
 
         //self.scheduleAppointmentButton.backgroundColor = AppThemeColor
-        self.scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+       //self.scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     
         self.messageTextView.delegate = self
         self.messageTextView.text = "Enter your message"
@@ -122,9 +79,6 @@ class ScheduleAppointmentViewController: UIViewController
         self.messageTextView.isScrollEnabled = false
         
 //        self.inputCharacterCountLabel.text = "Characters Count 0/250"
-//        dateFormatter.dateFormat = "hh:mm a"
-//        let newDateString = dateFormatter.string(from: Date())
-        
         
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: currentDate)
@@ -137,6 +91,13 @@ class ScheduleAppointmentViewController: UIViewController
 
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+      //  self.scheduleAppointmentButton.layer.cornerRadius = self.scheduleAppointmentButton.frame.size.height / 25.0
+
+        
+    }
     func convertTimeInto12Hours(str: String) -> String {
         
         if (str == "12"){
