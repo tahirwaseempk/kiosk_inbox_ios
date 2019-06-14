@@ -65,9 +65,9 @@ class HomeViewController: UIViewController
 //        compose_Button.tintColor = AppThemeColor
 //        compose_Button.layer.borderColor = AppThemeColor.cgColor
         
-        profileButton.backgroundColor = AppThemeColor
-        signOutButton.backgroundColor = AppThemeColor
-        closeInnerButton.backgroundColor = AppThemeColor
+        //profileButton.backgroundColor = AppThemeColor
+        //signOutButton.backgroundColor = AppThemeColor
+        //closeInnerButton.backgroundColor = AppThemeColor
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
         

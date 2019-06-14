@@ -156,7 +156,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="izk-ak-UVt" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="trailing" constant="20" id="0hu-gr-dUH"/>
                                             <constraint firstItem="izk-ak-UVt" firstAttribute="top" secondItem="5np-By-HTZ" secondAttribute="top" id="IUa-E9-m4E"/>

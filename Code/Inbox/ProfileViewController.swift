@@ -95,7 +95,7 @@ class ProfileViewController: UIViewController {
         timeZones[6] = "Hawaiian Time"
         timeZones[7] = "Arizona Time"
         
-        profileDoneButton.layer.cornerRadius = profileDoneButton.bounds.height/BUTTON_RADIUS
+       // profileDoneButton.layer.cornerRadius = profileDoneButton.bounds.height/BUTTON_RADIUS
 
         
         if let user = User.getLoginedUser()

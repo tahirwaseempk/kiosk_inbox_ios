@@ -44,8 +44,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
 //        switch environment {
 //        case .texting_Line:
 //            serialTextField.text = "8443712030"
-//            serialTextField.text = "8006999130"
-//            udidTextField.text = "lime123"
+            serialTextField.text = "8006999130"
+            udidTextField.text = "lime123"
 //        case .sms_Factory:
 //            serialTextField.text = ""
 //            udidTextField.text   = ""
@@ -122,7 +122,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.rememberMeButton.backgroundColor = UIColor.clear
         
         //self.loginButton.clipsToBounds = true
-        self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2.0
+       // self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2.0
         
 //        loginButton.layer.cornerRadius = loginButton.bounds.height/BUTTON_RADIUS
 
