@@ -264,14 +264,16 @@
                             <rect key="frame" x="0.0" y="10" width="375" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSd-8T-Pqw">
-                                    <rect key="frame" x="335" y="23" width="24" height="24"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <rect key="frame" x="330.33333333333331" y="23" width="28.666666666666686" height="24"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="uSd-8T-Pqw" secondAttribute="height" multiplier="1:1" id="DTh-9E-zpp"/>
+                                        <constraint firstAttribute="width" secondItem="uSd-8T-Pqw" secondAttribute="height" multiplier="1.2:1" id="DTh-9E-zpp"/>
                                         <constraint firstAttribute="width" constant="38" id="W28-xV-p8c"/>
                                         <constraint firstAttribute="width" secondItem="uSd-8T-Pqw" secondAttribute="height" multiplier="1:1" id="clu-5I-Z1i"/>
                                     </constraints>
-                                    <state key="normal" image="CloseButtonIcon"/>
+                                    <state key="normal" image="close-ios-black">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="DTh-9E-zpp"/>
@@ -343,14 +345,14 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veq-jL-SP1">
                             <rect key="frame" x="156" y="57" width="203" height="42"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="SHY-nP-L0q"/>
                                 <constraint firstAttribute="width" constant="203" id="oJ7-KU-N4q"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                             <state key="normal" title="     Profile">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <variation key="heightClass=compact-widthClass=regular">
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
@@ -364,10 +366,10 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aee-zL-8DT">
                             <rect key="frame" x="156" y="99" width="203" height="42"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                             <state key="normal" title="     Sign Out">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <variation key="heightClass=compact-widthClass=regular">
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="14"/>
@@ -853,8 +855,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CloseButtonIcon" width="24" height="24"/>
         <image name="black" width="48" height="48"/>
+        <image name="close-ios-black" width="48" height="48"/>
         <image name="composeIconNew" width="140" height="41"/>
         <image name="profile_black" width="170.66667175292969" height="170.66667175292969"/>
     </resources>

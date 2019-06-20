@@ -86,30 +86,30 @@
                                         <rect key="frame" x="40" y="194.5" width="295" height="45"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6og-B9-eid" userLabel="Hour_Sub_View">
-                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34b-nR-kMJ" userLabel="HourButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <action selector="hourButton_Tapped:" destination="B8B-tO-yVE" eventType="touchUpInside" id="Qdn-7n-NbQ"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-pE-56g" userLabel="HourLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="45"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-pE-56g" userLabel="HourLabel">
+                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="45"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="34b-nR-kMJ" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="leading" id="Jbd-x1-ghz"/>
                                                     <constraint firstAttribute="bottom" secondItem="vSQ-pE-56g" secondAttribute="bottom" id="PV8-BX-KZT"/>
                                                     <constraint firstAttribute="bottom" secondItem="34b-nR-kMJ" secondAttribute="bottom" id="Pwd-dc-dbM"/>
                                                     <constraint firstAttribute="trailing" secondItem="34b-nR-kMJ" secondAttribute="trailing" id="SNT-MD-Hn2"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vSQ-pE-56g" secondAttribute="trailing" id="T6s-cu-r7Y"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vSQ-pE-56g" secondAttribute="trailing" constant="20" id="T6s-cu-r7Y"/>
                                                     <constraint firstItem="34b-nR-kMJ" firstAttribute="top" secondItem="6og-B9-eid" secondAttribute="top" id="tDC-G0-phU"/>
                                                     <constraint firstItem="vSQ-pE-56g" firstAttribute="top" secondItem="6og-B9-eid" secondAttribute="top" id="tbl-zQ-rlo"/>
                                                     <constraint firstItem="vSQ-pE-56g" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="leading" id="txv-e3-6M0"/>
@@ -121,33 +121,44 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izk-ak-UVt" userLabel="Minute_Sub_View">
-                                                <rect key="frame" x="157.5" y="0.0" width="137.5" height="45"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="147.5" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHK-WI-NeP" userLabel="MinuteButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <action selector="hourButton_Tapped:" destination="B8B-tO-yVE" eventType="touchUpInside" id="jmK-ZC-Fz9"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdY-LU-GEa" userLabel="HourLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="45"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdY-LU-GEa" userLabel="MinuteLabel">
+                                                        <rect key="frame" x="0.0" y="0.0" width="24.5" height="45"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzo-3y-J3x" userLabel="MinLabel">
+                                                        <rect key="frame" x="25" y="0.0" width="122.5" height="45"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="top" secondItem="izk-ak-UVt" secondAttribute="top" id="3eH-41-vie"/>
-                                                    <constraint firstAttribute="trailing" secondItem="wdY-LU-GEa" secondAttribute="trailing" id="7GJ-Zc-WoH"/>
-                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" id="PH8-bU-j09"/>
+                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" id="Ea9-tm-27K"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Xzo-3y-J3x" secondAttribute="bottom" id="FhN-o8-XuL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wdY-LU-GEa" secondAttribute="bottom" id="OUI-W3-Sul"/>
+                                                    <constraint firstItem="Xzo-3y-J3x" firstAttribute="width" secondItem="HHK-WI-NeP" secondAttribute="width" multiplier="83%" id="OWn-xy-hvz"/>
                                                     <constraint firstItem="HHK-WI-NeP" firstAttribute="leading" secondItem="izk-ak-UVt" secondAttribute="leading" id="RBd-BV-nbJ"/>
+                                                    <constraint firstItem="Xzo-3y-J3x" firstAttribute="top" secondItem="izk-ak-UVt" secondAttribute="top" id="TwV-gl-9ve"/>
                                                     <constraint firstItem="HHK-WI-NeP" firstAttribute="top" secondItem="izk-ak-UVt" secondAttribute="top" id="UVC-Nh-t53"/>
+                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="width" secondItem="Xzo-3y-J3x" secondAttribute="width" multiplier="0.2:1" id="cbk-sc-adW"/>
+                                                    <constraint firstItem="wdY-LU-GEa" firstAttribute="top" secondItem="izk-ak-UVt" secondAttribute="top" id="eAI-4R-GW3"/>
                                                     <constraint firstAttribute="trailing" secondItem="HHK-WI-NeP" secondAttribute="trailing" id="kAG-xJ-4ry"/>
                                                     <constraint firstAttribute="bottom" secondItem="HHK-WI-NeP" secondAttribute="bottom" id="qG9-Ch-8SU"/>
-                                                    <constraint firstAttribute="bottom" secondItem="wdY-LU-GEa" secondAttribute="bottom" id="vP7-HE-MmZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Xzo-3y-J3x" secondAttribute="trailing" id="uVR-9A-9wE"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="minValue">
@@ -158,7 +169,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="izk-ak-UVt" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="trailing" constant="20" id="0hu-gr-dUH"/>
+                                            <constraint firstItem="izk-ak-UVt" firstAttribute="leading" secondItem="6og-B9-eid" secondAttribute="trailing" id="0hu-gr-dUH"/>
                                             <constraint firstItem="izk-ak-UVt" firstAttribute="top" secondItem="5np-By-HTZ" secondAttribute="top" id="IUa-E9-m4E"/>
                                             <constraint firstAttribute="bottom" secondItem="izk-ak-UVt" secondAttribute="bottom" id="K6A-De-78G"/>
                                             <constraint firstItem="izk-ak-UVt" firstAttribute="width" secondItem="6og-B9-eid" secondAttribute="width" id="M5U-Qp-FN3"/>

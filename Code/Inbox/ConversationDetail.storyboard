@@ -152,7 +152,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-xs-oUe" userLabel="ReminderButton">
                                         <rect key="frame" x="329" y="36.666666666666664" width="30" height="29.999999999999993"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="bell"/>
+                                        <state key="normal" image="calendar_icon"/>
                                         <connections>
                                             <action selector="scheduleAppointment_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="MAA-fp-2J8"/>
                                         </connections>
@@ -830,9 +830,9 @@
     </scenes>
     <resources>
         <image name="CloseButtonIcon" width="24" height="24"/>
-        <image name="bell" width="20" height="22"/>
         <image name="black" width="48" height="48"/>
-        <image name="profile_blue" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="calendar_icon" width="20" height="22"/>
+        <image name="profile_blue" width="32" height="32"/>
         <image name="send-message" width="37" height="37"/>
     </resources>
 </document>
