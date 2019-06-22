@@ -68,7 +68,6 @@ class ChatTableViewCell: UITableViewCell {
             if environment == .text_Attendant {
                 
                 self.bubbleImageView.tintColor = TextAttendantColor
-                //self.numberLabel.textColor  = UIColor.white
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
                 
@@ -76,14 +75,12 @@ class ChatTableViewCell: UITableViewCell {
                 
             } else if environment == .photo_Texting {
                 self.bubbleImageView.tintColor = AppThemeColor
-                //self.numberLabel.textColor  = UIColor.white
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
 
                 changeImage(imageName: "chat_bubble_sent", imageMode: .alwaysTemplate)
                 
             } else {
-               // self.numberLabel.textColor  = UIColor.white
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
                 
@@ -104,7 +101,6 @@ class ChatTableViewCell: UITableViewCell {
 
             self.messageLabel.textAlignment = .left
             
-            //self.numberLabel.textColor  = UIColor.black
             self.messageLabel.textColor = UIColor.black
             self.dateLabel.textColor    = UIColor.black
             
