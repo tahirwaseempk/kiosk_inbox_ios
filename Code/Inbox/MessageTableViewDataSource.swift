@@ -68,11 +68,22 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         self.targetedTableView.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-            let numberOfRows = 0 //self.targetedTableView.numberOfRows(inSection: numberOfSections)
+            
             let numberOfSections = self.targetedTableView.numberOfSections
 
+            var numberOfRows = 0
+            //self.targetedTableView.numberOfRows(inSection: numberOfSections) //0 //self.targetedTableView.numberOfRows(inSection: targetedTableView.numberOfSectionsInTableView)
+
+            
+            let key = self.timeStampedMessagesList[numberOfSections-1]
+            
+            if let list = self.timeStampedMessagesDictionary[key]
+            {
+                numberOfRows =  list.count
+            }
+            
             if numberOfSections > 0 {
-                let indexPath = IndexPath(row: numberOfRows, section: numberOfSections-1)
+                let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
                 self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
                 
 //                self.targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.bottom)
@@ -122,19 +133,15 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         for message in self.messages
         {
             let date = self.formattedDateFromDate(message.msgTimeStamp)
-            print(date)
 
             if var list = timeStampedMessagesDictionary[date]
             {
-                print("Append")
-
                 list.append(message)
                 timeStampedMessagesDictionary[date] = list
 
             }
             else
             {
-                print("Add New")
                 var newList = Array<Message>()
                 newList.append(message)
                 timeStampedMessagesDictionary[date] = newList
@@ -209,14 +216,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         let cell : ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
         
         let key = timeStampedMessagesList[indexPath.section]
-        print(key)
-        
         var message:Message? = nil
 
         if let list = timeStampedMessagesDictionary[key]
         {
-            print(list.count)
-
             message = list[indexPath.row]
         }
 

@@ -49,7 +49,8 @@ class ChatTableViewCell: UITableViewCell {
         
         self.messageLabel.text = text
         self.dateLabel.text    = dateTime
-        
+        self.messageLabel.textAlignment = .left
+
         self.messageLabel.sizeToFit()
         self.messageLabel.isScrollEnabled = false
         
@@ -60,30 +61,22 @@ class ChatTableViewCell: UITableViewCell {
 
             self.leadingContraintEqual.isActive = false
             self.trailingContraintEqual.isActive = true
-            
-            self.messageLabel.textAlignment = .left
 
             self.leadingConstraint.constant = self.frame.size.width/2.5
             
             if environment == .text_Attendant {
-                
                 self.bubbleImageView.tintColor = TextAttendantColor
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
-                
                 changeImage(imageName: "chat_bubble_sent", imageMode: .alwaysTemplate)
-                
             } else if environment == .photo_Texting {
                 self.bubbleImageView.tintColor = AppThemeColor
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
-
                 changeImage(imageName: "chat_bubble_sent", imageMode: .alwaysTemplate)
-                
             } else {
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
-                
                 changeImage(imageName: "chat_bubble_sent", imageMode: .alwaysOriginal)
             }
             
@@ -93,13 +86,11 @@ class ChatTableViewCell: UITableViewCell {
             
             self.leadingConstraint.isActive = false
             self.trailingConstraint.isActive = true
-           
+
             self.leadingContraintEqual.isActive = true
             self.trailingContraintEqual.isActive = false
             
             self.trailingConstraint.constant = self.frame.size.width/2.5
-
-            self.messageLabel.textAlignment = .left
             
             self.messageLabel.textColor = UIColor.black
             self.dateLabel.textColor    = UIColor.black
