@@ -37,28 +37,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KEb-VT-ed5">
-                                                    <rect key="frame" x="5" y="0.0" width="406" height="101"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="411" height="101"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHg-fq-lHY">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                                     <subviews>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj8-DR-ujD">
-                                                            <rect key="frame" x="15" y="5.0000000000000009" width="384" height="13.333333333333336"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="11"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Text" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-KU-atd">
-                                                            <rect key="frame" x="15" y="23.333333333333332" width="384" height="55.666666666666671"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-KU-atd" userLabel="MessageTextView">
+                                                            <rect key="frame" x="10" y="10" width="389" height="69"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="13"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-4K-dm6">
-                                                            <rect key="frame" x="15" y="84" width="384" height="12"/>
+                                                            <rect key="frame" x="10" y="84" width="389" height="12"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
                                                             <nil key="textColor"/>
@@ -68,18 +61,15 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Gta-KU-atd" secondAttribute="trailing" constant="15" id="1Of-5I-oHM"/>
-                                                        <constraint firstItem="Wj8-DR-ujD" firstAttribute="top" secondItem="eHg-fq-lHY" secondAttribute="top" constant="5" id="AWj-rG-GPG"/>
-                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eHg-fq-lHY" secondAttribute="leading" constant="15" id="GMT-YT-7uD"/>
-                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="top" secondItem="Wj8-DR-ujD" secondAttribute="bottom" constant="5" id="I7H-3I-xH0"/>
+                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eHg-fq-lHY" secondAttribute="leading" constant="10" id="GMT-YT-7uD"/>
                                                         <constraint firstItem="i6v-4K-dm6" firstAttribute="trailing" secondItem="Gta-KU-atd" secondAttribute="trailing" id="KFe-uI-g3m"/>
                                                         <constraint firstItem="i6v-4K-dm6" firstAttribute="leading" secondItem="Gta-KU-atd" secondAttribute="leading" id="TW2-eG-u0t"/>
-                                                        <constraint firstItem="Wj8-DR-ujD" firstAttribute="trailing" secondItem="Gta-KU-atd" secondAttribute="trailing" id="VU8-XL-jgk"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gta-KU-atd" secondAttribute="trailing" constant="15" id="aqy-f0-CrF"/>
+                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="top" secondItem="eHg-fq-lHY" secondAttribute="top" constant="10" id="dWE-7c-tUU"/>
                                                         <constraint firstAttribute="bottom" secondItem="i6v-4K-dm6" secondAttribute="bottom" constant="5" id="gmN-sb-LKe"/>
-                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="leading" secondItem="eHg-fq-lHY" secondAttribute="leading" constant="15" id="vWQ-S3-g6l"/>
+                                                        <constraint firstItem="Gta-KU-atd" firstAttribute="leading" secondItem="eHg-fq-lHY" secondAttribute="leading" constant="10" id="vWQ-S3-g6l"/>
                                                         <constraint firstItem="i6v-4K-dm6" firstAttribute="top" secondItem="Gta-KU-atd" secondAttribute="bottom" constant="5" id="ySy-C8-038"/>
                                                         <constraint firstItem="i6v-4K-dm6" firstAttribute="top" secondItem="Gta-KU-atd" secondAttribute="bottom" constant="5" id="zd1-OR-xwi"/>
-                                                        <constraint firstItem="Wj8-DR-ujD" firstAttribute="leading" secondItem="Gta-KU-atd" secondAttribute="leading" id="znw-kB-ayz"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -102,7 +92,6 @@
                                             <outlet property="leadingConstraint" destination="GMT-YT-7uD" id="r6p-Mh-95n"/>
                                             <outlet property="leadingContraintEqual" destination="vWQ-S3-g6l" id="301-xf-Gr2"/>
                                             <outlet property="messageLabel" destination="Gta-KU-atd" id="9t5-mO-OuZ"/>
-                                            <outlet property="numberLabel" destination="Wj8-DR-ujD" id="wVr-U1-NYj"/>
                                             <outlet property="trailingConstraint" destination="aqy-f0-CrF" id="9Vv-V4-coz"/>
                                             <outlet property="trailingContraintEqual" destination="1Of-5I-oHM" id="d0m-HG-vdU"/>
                                         </connections>
@@ -110,10 +99,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ba-wH-bdk" userLabel="Top Header View">
-                                <rect key="frame" x="0.0" y="20" width="414" height="103"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkB-Eg-uP9" userLabel="ProfileButton">
-                                        <rect key="frame" x="374" y="36.666666666666664" width="30" height="29.999999999999993"/>
+                                        <rect key="frame" x="374" y="47.666666666666664" width="30" height="29.999999999999993"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MkB-Eg-uP9" secondAttribute="height" multiplier="1:1" id="Ij3-xi-cmR"/>
@@ -125,7 +114,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsn-iu-Q7J">
-                                        <rect key="frame" x="10" y="37.666666666666664" width="28" height="27.999999999999993"/>
+                                        <rect key="frame" x="10" y="48.666666666666664" width="28" height="27.999999999999993"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rsn-iu-Q7J" secondAttribute="height" multiplier="1:1" id="dTz-f6-2t4"/>
                                             <constraint firstAttribute="width" constant="28" id="f0m-ch-myj"/>
@@ -137,7 +126,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-Pb-4JC">
-                                        <rect key="frame" x="46.000000000000014" y="41.333333333333336" width="179.33333333333337" height="20.333333333333336"/>
+                                        <rect key="frame" x="46.000000000000014" y="52.333333333333336" width="179.33333333333337" height="20.333333333333336"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -150,7 +139,7 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-xs-oUe" userLabel="ReminderButton">
-                                        <rect key="frame" x="329" y="36.666666666666664" width="30" height="29.999999999999993"/>
+                                        <rect key="frame" x="329" y="47.666666666666664" width="30" height="29.999999999999993"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="calendar_icon"/>
                                         <connections>
@@ -263,13 +252,13 @@
                             <constraint firstItem="cDL-99-2f8" firstAttribute="trailing" secondItem="0ba-wH-bdk" secondAttribute="trailing" id="6pn-rS-GzS"/>
                             <constraint firstItem="cDL-99-2f8" firstAttribute="bottom" secondItem="A4c-qG-2Lb" secondAttribute="bottom" id="8pN-sT-F9q"/>
                             <constraint firstItem="0ba-wH-bdk" firstAttribute="leading" secondItem="cDL-99-2f8" secondAttribute="leading" id="Gy5-NI-tQd"/>
-                            <constraint firstItem="0ba-wH-bdk" firstAttribute="height" secondItem="WfG-t2-tpB" secondAttribute="height" multiplier="14%" id="KGW-4W-uCR"/>
+                            <constraint firstItem="0ba-wH-bdk" firstAttribute="height" secondItem="WfG-t2-tpB" secondAttribute="height" multiplier="17%" id="KGW-4W-uCR"/>
                             <constraint firstItem="A4c-qG-2Lb" firstAttribute="leading" secondItem="cDL-99-2f8" secondAttribute="leading" id="PEm-TY-6Si"/>
                             <constraint firstItem="WR1-rU-Qz7" firstAttribute="top" secondItem="0ba-wH-bdk" secondAttribute="bottom" id="SJh-Xd-FWV"/>
                             <constraint firstItem="A4c-qG-2Lb" firstAttribute="top" secondItem="WR1-rU-Qz7" secondAttribute="bottom" id="XRA-7Z-6VJ"/>
                             <constraint firstItem="cDL-99-2f8" firstAttribute="trailing" secondItem="WR1-rU-Qz7" secondAttribute="trailing" id="ben-n8-c0x"/>
                             <constraint firstItem="WR1-rU-Qz7" firstAttribute="leading" secondItem="cDL-99-2f8" secondAttribute="leading" id="ibB-XV-ePW"/>
-                            <constraint firstItem="0ba-wH-bdk" firstAttribute="top" secondItem="cDL-99-2f8" secondAttribute="top" id="oCG-MG-Is8"/>
+                            <constraint firstItem="0ba-wH-bdk" firstAttribute="top" secondItem="cDL-99-2f8" secondAttribute="top" constant="-20" id="oCG-MG-Is8"/>
                             <constraint firstItem="cDL-99-2f8" firstAttribute="trailing" secondItem="A4c-qG-2Lb" secondAttribute="trailing" id="oSV-fe-9Ij"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cDL-99-2f8"/>
@@ -831,8 +820,8 @@
     <resources>
         <image name="CloseButtonIcon" width="24" height="24"/>
         <image name="black" width="48" height="48"/>
-        <image name="calendar_icon" width="20" height="22"/>
-        <image name="profile_blue" width="32" height="32"/>
+        <image name="calendar_icon" width="29" height="29"/>
+        <image name="profile_blue" width="29" height="29"/>
         <image name="send-message" width="37" height="37"/>
     </resources>
 </document>

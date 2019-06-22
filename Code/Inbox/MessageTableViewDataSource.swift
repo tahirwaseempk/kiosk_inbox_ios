@@ -15,8 +15,8 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     var selectedConversation:Conversation? = nil
     var chatCell:ChatTableViewCell!
     var messages:Array<Message> = Array<Message>()
-    var timeStampedMessagesDictionary = Dictionary<Date,Array<Message>>()
-    var timeStampedMessagesList = Array<Date>()
+    var timeStampedMessagesDictionary = Dictionary<String,Array<Message>>()
+    var timeStampedMessagesList = Array<String>()
 
     
     
@@ -62,6 +62,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             messages.removeAll()
         }
         
+        
         self.filterMessages()
         
         self.targetedTableView.reloadData()
@@ -80,16 +81,27 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     }
     
     
-    private func formattedDateFromDate(_ date:Date) -> Date
+    private func formattedDateFromDate(_ date:Date) -> String
     {
         let dateFormatter =  DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
+        //dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
         
-        let strDate = dateFormatter.string(from: date)
-        dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
+        //let strDate = dateFormatter.string(from: date)
+        //dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
 
-        return dateFormatter.date(from: strDate)!
+        return dateFormatter.string(from: date) //dateFormatter.date(from: strDate)!
+    }
+    
+    
+    
+    private func formattedDateFromString(_ str:String) -> Date
+    {
+        let dateFormatter =  DateFormatter()
+        //dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
+        return dateFormatter.date(from: str) ?? Date()
+        
     }
     
     
@@ -104,37 +116,43 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     private func filterMessages()
     {
+        timeStampedMessagesDictionary.removeAll()
+        timeStampedMessagesList.removeAll()
+        
         for message in self.messages
         {
             let date = self.formattedDateFromDate(message.msgTimeStamp)
-            
+            print(date)
+
             if var list = timeStampedMessagesDictionary[date]
             {
+                print("Append")
+
                 list.append(message)
+                timeStampedMessagesDictionary[date] = list
+
             }
             else
             {
+                print("Add New")
                 var newList = Array<Message>()
-                
                 newList.append(message)
-
                 timeStampedMessagesDictionary[date] = newList
             }
         }
         
         timeStampedMessagesList = Array(timeStampedMessagesDictionary.keys)
-       
-//      timeStampedMessagesList = timeStampedMessagesList.sorted(by: <)
-        
-        
-        
+
         timeStampedMessagesList = timeStampedMessagesList.sorted(by: { (key1, key2) -> Bool in
             
-            if key1.compare(key2) == .orderedAscending
+            let date1 = self.formattedDateFromString(key1)
+            let date2 = self.formattedDateFromString(key2)
+
+            if date1.compare(date2) == .orderedAscending
             {
                 return true
             }
-            else if key1.compare(key2) == .orderedDescending
+            else if date1.compare(date2) == .orderedDescending
             {
                 return false
             }
@@ -190,12 +208,15 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         let cell : ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
         
-        let key = self.timeStampedMessagesList[indexPath.section]
+        let key = timeStampedMessagesList[indexPath.section]
+        print(key)
         
         var message:Message? = nil
 
-        if let list = self.timeStampedMessagesDictionary[key]
+        if let list = timeStampedMessagesDictionary[key]
         {
+            print(list.count)
+
             message = list[indexPath.row]
         }
 
@@ -233,7 +254,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.black
         header.textLabel?.font = UIFont.systemFont(ofSize: 8.0)
-        header.textLabel?.text = self.stringFromDate(timeStampedMessagesList[section])
+        header.textLabel?.text = timeStampedMessagesList[section] //self.stringFromDate(timeStampedMessagesList[section])
         header.textLabel?.textAlignment = .center
     }
     

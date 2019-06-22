@@ -47,33 +47,28 @@ class ChatTableViewCell: UITableViewCell {
     
     func loadCellData (text: String, type: ChatCellTypeEnum, number: String, dateTime: String) {
         
-        self.numberLabel.text  = "111111111111111"
         self.messageLabel.text = text
         self.dateLabel.text    = dateTime
         
         self.messageLabel.sizeToFit()
         self.messageLabel.isScrollEnabled = false
         
-        //        let contentSize1 = messageLabel.sizeThatFits(messageLabel.bounds.size)
-        
-        //        var frame = self.messageLabel.frame
-        //        frame.size.height = contentSize1.height
-        //        self.messageLabel.frame = frame
-        
         if type == .ChatCellAuthorTypeSender {
             
             self.leadingConstraint.isActive = true
             self.trailingConstraint.isActive = false
-            
-            self.trailingContraintEqual.isActive = true
+
             self.leadingContraintEqual.isActive = false
+            self.trailingContraintEqual.isActive = true
             
             self.messageLabel.textAlignment = .left
 
+            self.leadingConstraint.constant = self.frame.size.width/2.5
+            
             if environment == .text_Attendant {
                 
                 self.bubbleImageView.tintColor = TextAttendantColor
-                self.numberLabel.textColor  = UIColor.white
+                //self.numberLabel.textColor  = UIColor.white
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
                 
@@ -81,14 +76,14 @@ class ChatTableViewCell: UITableViewCell {
                 
             } else if environment == .photo_Texting {
                 self.bubbleImageView.tintColor = AppThemeColor
-                self.numberLabel.textColor  = UIColor.white
+                //self.numberLabel.textColor  = UIColor.white
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
 
                 changeImage(imageName: "chat_bubble_sent", imageMode: .alwaysTemplate)
                 
             } else {
-                self.numberLabel.textColor  = UIColor.white
+               // self.numberLabel.textColor  = UIColor.white
                 self.messageLabel.textColor = UIColor.white
                 self.dateLabel.textColor    = UIColor.white
                 
@@ -101,12 +96,15 @@ class ChatTableViewCell: UITableViewCell {
             
             self.leadingConstraint.isActive = false
             self.trailingConstraint.isActive = true
-            self.trailingContraintEqual.isActive = false
+           
             self.leadingContraintEqual.isActive = true
+            self.trailingContraintEqual.isActive = false
             
+            self.trailingConstraint.constant = self.frame.size.width/2.5
+
             self.messageLabel.textAlignment = .left
             
-            self.numberLabel.textColor  = UIColor.black
+            //self.numberLabel.textColor  = UIColor.black
             self.messageLabel.textColor = UIColor.black
             self.dateLabel.textColor    = UIColor.black
             
