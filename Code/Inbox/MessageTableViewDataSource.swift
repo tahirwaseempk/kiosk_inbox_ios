@@ -72,8 +72,6 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             let numberOfSections = self.targetedTableView.numberOfSections
 
             var numberOfRows = 0
-            //self.targetedTableView.numberOfRows(inSection: numberOfSections) //0 //self.targetedTableView.numberOfRows(inSection: targetedTableView.numberOfSectionsInTableView)
-
             
             let key = self.timeStampedMessagesList[numberOfSections-1]
             
@@ -86,7 +84,6 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
                 let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
                 self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
                 
-//                self.targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.bottom)
             }
         }
     }

@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Inbox/MessageTableViewDataSource.swift"
-            timestampString = "582920997.131789"
+            timestampString = "582922293.53449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "reloadControls()"
             landmarkType = "7">
          </BreakpointContent>

@@ -185,10 +185,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Enter your message" translatesAutoresizingMaskIntoConstraints="NO" id="6vP-BT-aG1">
-                                        <rect key="frame" x="40" y="269.5" width="295" height="120"/>
+                                        <rect key="frame" x="40" y="269.5" width="295" height="160"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="faz-yC-1j2"/>
+                                            <constraint firstAttribute="height" constant="160" id="faz-yC-1j2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -199,7 +199,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFu-Z3-8Gi" customClass="GradientButton" customModule="FanConnectNow" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="419.5" width="295" height="45"/>
+                                        <rect key="frame" x="40" y="459.5" width="295" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         <state key="normal" title="Schedule Reminder"/>
@@ -218,6 +218,18 @@
                                             <action selector="scheduleButtonTapped:" destination="B8B-tO-yVE" eventType="touchUpInside" id="UHP-S7-ISb"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrx-Fz-PVR">
+                                        <rect key="frame" x="255" y="434.5" width="80" height="12"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.97647058823529409" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -230,6 +242,7 @@
                                     <constraint firstItem="kFu-Z3-8Gi" firstAttribute="top" secondItem="6vP-BT-aG1" secondAttribute="bottom" constant="30" id="KVu-8K-GTb"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RSz-e3-d1a" secondAttribute="trailing" id="KXU-8R-8qq"/>
                                     <constraint firstItem="Fns-9v-Waz" firstAttribute="leading" secondItem="RSz-e3-d1a" secondAttribute="leading" id="NuS-47-A7C"/>
+                                    <constraint firstItem="Xrx-Fz-PVR" firstAttribute="trailing" secondItem="6vP-BT-aG1" secondAttribute="trailing" id="SPm-16-w3q"/>
                                     <constraint firstItem="Cqn-b2-XxD" firstAttribute="leading" secondItem="INj-yO-lZf" secondAttribute="leading" constant="40" id="TqX-6t-XaJ"/>
                                     <constraint firstItem="kFu-Z3-8Gi" firstAttribute="height" secondItem="5np-By-HTZ" secondAttribute="height" id="cLY-MF-Cze"/>
                                     <constraint firstItem="Cqn-b2-XxD" firstAttribute="top" secondItem="Fns-9v-Waz" secondAttribute="bottom" constant="40" id="cXq-K0-9iS"/>
@@ -244,6 +257,7 @@
                                     <constraint firstItem="Fns-9v-Waz" firstAttribute="top" secondItem="RSz-e3-d1a" secondAttribute="bottom" constant="10" id="skb-eu-Z5O"/>
                                     <constraint firstItem="5np-By-HTZ" firstAttribute="height" secondItem="Cqn-b2-XxD" secondAttribute="height" id="tZx-16-cSF"/>
                                     <constraint firstItem="kFu-Z3-8Gi" firstAttribute="trailing" secondItem="5np-By-HTZ" secondAttribute="trailing" id="yTV-CE-Vzq"/>
+                                    <constraint firstItem="Xrx-Fz-PVR" firstAttribute="top" secondItem="6vP-BT-aG1" secondAttribute="bottom" constant="5" id="z51-3p-NhX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -260,6 +274,7 @@
                         <outlet property="calendarLabel" destination="jvA-K9-QsZ" id="S27-xI-XPD"/>
                         <outlet property="headerLabel" destination="Fns-9v-Waz" id="fp6-Yh-GjE"/>
                         <outlet property="hourLabel" destination="vSQ-pE-56g" id="72I-7I-cQV"/>
+                        <outlet property="inputCharacterCountLabel" destination="Xrx-Fz-PVR" id="Gsi-Fl-fDk"/>
                         <outlet property="messageTextView" destination="6vP-BT-aG1" id="8ca-H6-3y4"/>
                         <outlet property="minuteLabel" destination="wdY-LU-GEa" id="flh-VX-TyV"/>
                         <outlet property="scheduleAppointmentButton" destination="kFu-Z3-8Gi" id="04p-Tj-YVD"/>

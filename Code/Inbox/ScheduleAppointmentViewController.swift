@@ -10,6 +10,8 @@ class ScheduleAppointmentViewController: UIViewController
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
 
+    @IBOutlet weak var inputCharacterCountLabel: UILabel!
+    
     var selectedConversation:Conversation! = nil
     var headerTitleString = ""
     var reminderSelectedDate = Date()
@@ -78,7 +80,7 @@ class ScheduleAppointmentViewController: UIViewController
         self.messageTextView.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.messageTextView.isScrollEnabled = false
         
-//        self.inputCharacterCountLabel.text = "Characters Count 0/250"
+        self.inputCharacterCountLabel.text = "Character Count 0/250"
         
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: currentDate)
@@ -315,7 +317,7 @@ extension ScheduleAppointmentViewController : UITextViewDelegate {
         let reminingCount = sendMessageMaxLength - str.count
         
         if reminingCount >= 0 {
-           // self.inputCharacterCountLabel.text = "Characters Count " + String(str.count) + "/250"
+            self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
         }
         
         if str.count > sendMessageMaxLength {
