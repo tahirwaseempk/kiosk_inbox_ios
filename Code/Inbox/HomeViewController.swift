@@ -151,6 +151,13 @@ class HomeViewController: UIViewController
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.refreshUnReadCount()
+        }
+        
+    
     func setupControls()
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.pushNotificationRecieved), name: PushNotificationName, object: nil)
@@ -164,6 +171,9 @@ class HomeViewController: UIViewController
         self.setupConversationDetailView()
         
         self.refreshUnReadCount()
+
+        self.searchBar.text = ""
+
     }
     
     @objc func apnsPushNotificationRecieved()
@@ -307,32 +317,6 @@ class HomeViewController: UIViewController
         self.view.addSubview(self.composeMessageViewController.view)
     }
     
-    @IBAction func refreshButton_Tapped(_ sender: Any)
-    {
-        self.conversationListingViewController.callLastConversationsUpdate()
-        
-    }
-    
-    @IBAction func searchButton_Tapped(_ sender: Any)
-    {
-        UIView.animate(withDuration: 0.35)
-        {
-            self.searchBar.isHidden = !self.searchBar.isHidden
-            
-            if self.searchBar.isHidden == true
-            {
-                self.searchBar.text = ""
-                self.searchBar.resignFirstResponder()
-                self.conversationListingViewController.applySearchFiltersForSearchText("")
-            }
-            else
-            {
-                self.searchBar.becomeFirstResponder()
-            }
-        }
-        
-    }
-    
     func refreshUnReadCount ()
     {
 //        if UIDevice.current.userInterfaceIdiom == .pad
@@ -409,7 +393,7 @@ extension HomeViewController:UISearchBarDelegate
     {
         searchBar.resignFirstResponder()
         
-        self.searchBar.isHidden = true
+        //self.searchBar.isHidden = true
     }
     
     func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String)

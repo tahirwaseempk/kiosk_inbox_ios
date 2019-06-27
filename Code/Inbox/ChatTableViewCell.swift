@@ -47,12 +47,6 @@ class ChatTableViewCell: UITableViewCell {
     
     func loadCellData (text: String, type: ChatCellTypeEnum, number: String, dateTime: String) {
         
-        self.messageLabel.text = text
-        self.dateLabel.text    = dateTime
-        self.messageLabel.textAlignment = .left
-
-        self.messageLabel.sizeToFit()
-        self.messageLabel.isScrollEnabled = false
         
         if type == .ChatCellAuthorTypeSender {
             
@@ -99,6 +93,12 @@ class ChatTableViewCell: UITableViewCell {
 
         }
         
+        self.messageLabel.text = text
+        self.dateLabel.text    = dateTime
+        self.messageLabel.textAlignment = .left
+        
+        //self.messageLabel.sizeToFit()
+        self.messageLabel.isScrollEnabled = false
     }
     
     

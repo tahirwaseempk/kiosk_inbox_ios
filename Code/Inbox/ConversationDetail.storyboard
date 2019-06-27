@@ -125,18 +125,12 @@
                                             <action selector="backButton_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="RX8-iX-uu8"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-Pb-4JC">
-                                        <rect key="frame" x="46.000000000000014" y="52.333333333333336" width="179.33333333333337" height="20.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-Pb-4JC">
+                                        <rect key="frame" x="46.000000000000014" y="51.666666666666664" width="182.33333333333337" height="21.666666666666664"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=compact-widthClass=regular">
-                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-xs-oUe" userLabel="ReminderButton">
                                         <rect key="frame" x="329" y="47.666666666666664" width="30" height="29.999999999999993"/>
@@ -153,6 +147,7 @@
                                     <constraint firstItem="dv3-xs-oUe" firstAttribute="centerY" secondItem="MkB-Eg-uP9" secondAttribute="centerY" id="BqC-D3-PLT"/>
                                     <constraint firstItem="rsn-iu-Q7J" firstAttribute="leading" secondItem="0ba-wH-bdk" secondAttribute="leading" constant="10" id="D4Z-0L-hWY"/>
                                     <constraint firstAttribute="trailing" secondItem="MkB-Eg-uP9" secondAttribute="trailing" constant="10" id="IaS-A4-eWR"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1lw-Pb-4JC" secondAttribute="trailing" constant="10" id="Rea-ZA-vGv"/>
                                     <constraint firstItem="MkB-Eg-uP9" firstAttribute="centerY" secondItem="rsn-iu-Q7J" secondAttribute="centerY" id="XfB-4d-UZt"/>
                                     <constraint firstItem="rsn-iu-Q7J" firstAttribute="centerY" secondItem="0ba-wH-bdk" secondAttribute="centerY" id="aWa-PP-qXP"/>
                                     <constraint firstItem="dv3-xs-oUe" firstAttribute="height" secondItem="MkB-Eg-uP9" secondAttribute="height" id="e1L-Og-Vbu"/>
@@ -822,6 +817,6 @@
         <image name="black" width="48" height="48"/>
         <image name="calendar_icon" width="29" height="29"/>
         <image name="profile_blue" width="29" height="29"/>
-        <image name="send-message" width="37" height="37"/>
+        <image name="send-message" width="29" height="29"/>
     </resources>
 </document>
