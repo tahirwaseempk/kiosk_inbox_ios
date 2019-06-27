@@ -53,7 +53,7 @@ class ChatTableViewCell: UITableViewCell {
         self.dateLabel.text    = dateTime
         
         //self.messageLabel.translatesAutoresizingMaskIntoConstraints = true
-        self.messageLabel.sizeToFit()
+        //self.messageLabel.sizeToFit()
         self.messageLabel.isScrollEnabled = false
         
         //        let contentSize1 = messageLabel.sizeThatFits(messageLabel.bounds.size)
@@ -93,6 +93,7 @@ class ChatTableViewCell: UITableViewCell {
             
             
             self.messageLabel.textAlignment = .left
+            self.leadingConstraint.constant = self.frame.size.width/2.5
             
         } else {
             
@@ -109,6 +110,7 @@ class ChatTableViewCell: UITableViewCell {
             
             self.bubbleImageView.tintColor = GrayHeaderColor
             self.messageLabel.textAlignment = .left
+            self.trailingConstraint.constant = self.frame.size.width/2.5
             
         }
         
