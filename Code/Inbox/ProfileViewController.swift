@@ -9,6 +9,13 @@
 import UIKit
 import SwiftyPickerPopover
 
+protocol ProfileViewControllerProtocol
+{
+    func updateHeaderViewData()
+    
+}
+
+
 class ProfileViewController: UIViewController {
     
     //MARK: IBOutlets
@@ -32,6 +39,8 @@ class ProfileViewController: UIViewController {
     
     private var selectedStateRow: Int = 0
     private var selectedCountryRow: Int = 0
+
+    var delegate:ProfileViewControllerProtocol? = nil
 
     
     @IBAction func stateButton_Tapped(_ sender: UIButton) {
@@ -218,6 +227,13 @@ extension ProfileViewController {
                     DispatchQueue.main.async
                         {
                             if status == true {
+                                
+                                
+                                if let delegate = self.delegate
+                                {
+                                    delegate.updateHeaderViewData()
+                                }
+                                
                                 
                                 ProcessingIndicator.hide()
                                 let alert = UIAlertController(title: "Success", message: "User updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)

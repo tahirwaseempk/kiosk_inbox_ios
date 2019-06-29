@@ -276,8 +276,6 @@
                     <connections>
                         <outlet property="chawalView" destination="XEa-K9-Oat" id="8Du-dL-PDH"/>
                         <outlet property="closeView" destination="h6B-n2-H6I" id="aXg-ga-mI6"/>
-                        <outlet property="cross_Button" destination="Sr7-FW-YkZ" id="jyQ-vx-1Ub"/>
-                        <outlet property="delete_Button" destination="ICx-QA-FLV" id="hur-xh-XKP"/>
                         <outlet property="header_View" destination="0ba-wH-bdk" id="hm3-6n-ybU"/>
                         <outlet property="inputCharacterCountLabel" destination="s5D-Pf-o8n" id="3cg-Bo-w7G"/>
                         <outlet property="messageFromLabel" destination="1lw-Pb-4JC" id="ZxG-gp-QdG"/>
@@ -345,9 +343,6 @@
                                             <include reference="YU6-JJ-oUi"/>
                                         </mask>
                                     </variation>
-                                    <connections>
-                                        <action selector="closeViewDismisssButtonTapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="S0f-US-Be3"/>
-                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -430,9 +425,6 @@
                             <variation key="heightClass=regular-widthClass=compact">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             </variation>
-                            <connections>
-                                <action selector="deleteMessage_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="E23-oA-x4E"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -479,16 +471,19 @@
                                         <action selector="profileBackButtonTapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="HNF-Eo-BVq"/>
                                     </connections>
                                 </button>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2J2-eN-PIQ" userLabel="Done Button">
-                                    <rect key="frame" x="316.33333333333331" y="17" width="48.666666666666686" height="34"/>
-                                    <color key="backgroundColor" red="0.35721293091773987" green="0.55951386690139771" blue="0.86209458112716675" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2J2-eN-PIQ" userLabel="Delete Button">
+                                    <rect key="frame" x="333.66666666666669" y="22" width="26.333333333333314" height="24"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="2J2-eN-PIQ" secondAttribute="height" multiplier="10:7" id="azM-xH-NY9"/>
+                                        <constraint firstAttribute="width" secondItem="2J2-eN-PIQ" secondAttribute="height" multiplier="1.1:1" id="mSD-WO-p7r"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
-                                    <state key="normal" title="Save">
+                                    <state key="normal" backgroundImage="delete_icon">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="deleteMessage_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="FAe-aq-5BW"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Contact Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMZ-zL-8iK">
                                     <rect key="frame" x="50.999999999999993" y="24.666666666666664" width="112.33333333333331" height="18.666666666666664"/>
@@ -512,11 +507,11 @@
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CrQ-QK-d0o" secondAttribute="trailing" id="64O-YR-MyP"/>
                                 <constraint firstItem="WBx-hX-jtf" firstAttribute="top" secondItem="Hgd-yW-phr" secondAttribute="top" constant="20" id="6aI-Am-Ib5"/>
                                 <constraint firstItem="CrQ-QK-d0o" firstAttribute="leading" secondItem="JMZ-zL-8iK" secondAttribute="leading" id="WGG-JX-5HH"/>
-                                <constraint firstItem="2J2-eN-PIQ" firstAttribute="width" secondItem="Hgd-yW-phr" secondAttribute="width" multiplier="13%" id="YCZ-qu-MMb"/>
+                                <constraint firstItem="2J2-eN-PIQ" firstAttribute="width" secondItem="Hgd-yW-phr" secondAttribute="width" multiplier="7%" id="YCZ-qu-MMb"/>
                                 <constraint firstItem="CrQ-QK-d0o" firstAttribute="centerX" secondItem="Hgd-yW-phr" secondAttribute="centerX" id="ZGj-OG-9Rp"/>
                                 <constraint firstItem="2J2-eN-PIQ" firstAttribute="centerY" secondItem="JMZ-zL-8iK" secondAttribute="centerY" id="cpi-57-gHI"/>
                                 <constraint firstAttribute="bottom" secondItem="CrQ-QK-d0o" secondAttribute="bottom" constant="5" id="hXP-Bl-o80"/>
-                                <constraint firstAttribute="trailing" secondItem="2J2-eN-PIQ" secondAttribute="trailing" constant="10" id="nf0-Oj-8eC"/>
+                                <constraint firstAttribute="trailing" secondItem="2J2-eN-PIQ" secondAttribute="trailing" constant="15" id="nf0-Oj-8eC"/>
                                 <constraint firstItem="JMZ-zL-8iK" firstAttribute="leading" secondItem="WBx-hX-jtf" secondAttribute="trailing" constant="13" id="pnC-Xn-TWE"/>
                             </constraints>
                         </view>
@@ -816,6 +811,7 @@
         <image name="CloseButtonIcon" width="24" height="24"/>
         <image name="black" width="48" height="48"/>
         <image name="calendar_icon" width="29" height="29"/>
+        <image name="delete_icon" width="26" height="29.333333969116211"/>
         <image name="profile_blue" width="29" height="29"/>
         <image name="send-message" width="29" height="29"/>
     </resources>

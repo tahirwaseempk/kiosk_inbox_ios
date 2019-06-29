@@ -15,7 +15,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var chawalView: UIView!
     /////////////////////////////////////////////////
     @IBOutlet weak var cross_Button: UIButton!
-    @IBOutlet weak var delete_Button: UIButton!
     @IBOutlet weak var Optout_Button: UIButton! // Profile View
     @IBOutlet weak var schedule_Button: UIButton!
     
@@ -28,7 +27,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBOutlet weak var profileHeadingLabel: UILabel!
     @IBOutlet weak var profileUsernameLabel: UILabel!
-    
+
+    @IBOutlet weak var delete_Button: UIButton!
+
     @IBOutlet weak var profileSaveButton: UIButton!
     @IBOutlet weak var profileEmailTextField: FloatLabelTextField!
     @IBOutlet weak var profileFirstNameTextField: FloatLabelTextField!
@@ -295,7 +296,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 //            header_View.backgroundColor = AppThemeColor
         }
         //profileNavView.backgroundColor = AppThemeColor
-        cross_Button.backgroundColor = AppThemeColor
+      //  cross_Button.backgroundColor = AppThemeColor
       //  delete_Button.backgroundColor = AppThemeColor
        // Optout_Button.backgroundColor = AppThemeColor
        // schedule_Button.backgroundColor = AppThemeColor
@@ -673,7 +674,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                     {
                         DispatchQueue.main.async
                             {
-                                //ProcessingIndicator.hide()
+                                ProcessingIndicator.hide()
                                 
                                 if status == true
                                 {

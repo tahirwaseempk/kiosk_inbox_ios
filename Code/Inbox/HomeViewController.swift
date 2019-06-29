@@ -151,13 +151,6 @@ class HomeViewController: UIViewController
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.refreshUnReadCount()
-        }
-        
-    
     func setupControls()
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.pushNotificationRecieved), name: PushNotificationName, object: nil)
@@ -247,7 +240,10 @@ class HomeViewController: UIViewController
         self.closeView.removeFromSuperview()
 
         self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        
+        self.profileViewController.delegate = self 
         self.view.addSubview(self.profileViewController.view)
+        
         self.profileViewController.view.frame = self.view.bounds
     }
     
@@ -460,4 +456,14 @@ extension HomeViewController: ComposeMessageProtocol
     {
         self.conversationListingViewController.callLastConversationsUpdate()
     }
+}
+
+extension HomeViewController:ProfileViewControllerProtocol
+{
+    func updateHeaderViewData()
+    {
+        self.refreshUnReadCount()
+        
+    }
+    
 }
