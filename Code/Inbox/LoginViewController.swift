@@ -41,32 +41,26 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         udidTextField.resignFirstResponder()
         serialTextField.resignFirstResponder()
         
-//        switch environment {
-//        case .texting_Line:
-//            serialTextField.text = "8443712030"
-//            serialTextField.text = "8006999130"
-//            udidTextField.text = "lime123"
-//        case .sms_Factory:
-//            serialTextField.text = ""
-//            udidTextField.text   = ""
-//        case .fan_Connect:
-//            serialTextField.text = "8885118948"
-//            udidTextField.text   = "dqm3jk"
-//        case .photo_Texting:
-//        serialTextField.text = "8444022556"
-//        udidTextField.text   = "fqkuiu"
-
-//            serialTextField.text = "8885117033"
-//            udidTextField.text   = "lime123"
-//        case .text_Attendant:
-//            serialTextField.text = "8558687830"
-//            udidTextField.text   = "lime123"
-//        }
-        
-        
-//                    serialTextField.text = "8582835626"
-//                    udidTextField.text   = "1234demo"
-
+        //        switch environment {
+        //        case .texting_Line:
+        //            serialTextField.text = "8443712030"
+        //            serialTextField.text = "8006999130"
+        //            udidTextField.text = "lime123"
+        //        case .sms_Factory:
+        //            serialTextField.text = ""
+        //            udidTextField.text   = ""
+        //        case .fan_Connect:
+        //            serialTextField.text = "8885118948"
+        //            udidTextField.text   = "dqm3jk"
+        //        case .photo_Texting:
+        //        serialTextField.text = "8444022556"
+        //        udidTextField.text   = "fqkuiu"
+        //            serialTextField.text = "8885117033"
+        //            udidTextField.text   = "lime123"
+        //        case .text_Attendant:
+        //            serialTextField.text = "8558687830"
+        //            udidTextField.text   = "lime123"
+        //        }
     }
     
     override func viewDidLoad()
