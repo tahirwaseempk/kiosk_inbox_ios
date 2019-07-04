@@ -70,20 +70,22 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
             
             let numberOfSections = self.targetedTableView.numberOfSections
-
+            
             var numberOfRows = 0
             
-            let key = self.timeStampedMessagesList[numberOfSections-1]
-            
-            if let list = self.timeStampedMessagesDictionary[key]
-            {
-                numberOfRows =  list.count
-            }
-            
             if numberOfSections > 0 {
-                let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
-                self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
                 
+                let key = self.timeStampedMessagesList[numberOfSections-1]
+                if let list = self.timeStampedMessagesDictionary[key]
+                {
+                    numberOfRows =  list.count
+                }
+                
+                if numberOfSections > 0 {
+                    let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
+                    self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+                    
+                }
             }
         }
     }

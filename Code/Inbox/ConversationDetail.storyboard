@@ -472,10 +472,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2J2-eN-PIQ" userLabel="Delete Button">
-                                    <rect key="frame" x="333.66666666666669" y="22" width="26.333333333333314" height="24"/>
+                                    <rect key="frame" x="333.66666666666669" y="18.333333333333336" width="26.333333333333314" height="31.333333333333336"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="2J2-eN-PIQ" secondAttribute="height" multiplier="1.1:1" id="mSD-WO-p7r"/>
+                                        <constraint firstAttribute="width" secondItem="2J2-eN-PIQ" secondAttribute="height" multiplier="1:1.2" id="mSD-WO-p7r"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                     <state key="normal" backgroundImage="delete_icon">
