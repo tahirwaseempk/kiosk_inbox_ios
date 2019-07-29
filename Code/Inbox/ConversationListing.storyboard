@@ -27,6 +27,10 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoMessageBox" translatesAutoresizingMaskIntoConstraints="NO" id="Bgh-Ab-1nL">
                                 <rect key="frame" x="57" y="268" width="300" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="I97-CJ-1LQ"/>
+                                    <constraint firstAttribute="width" secondItem="Bgh-Ab-1nL" secondAttribute="height" multiplier="3:2" id="KeV-Lg-cjE"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.97647058823529409" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

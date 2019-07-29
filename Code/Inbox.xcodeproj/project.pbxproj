@@ -393,6 +393,11 @@
 		29C820512141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
 		29C820522141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
 		29C820532141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
+		29DA419022E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
+		29DA419122E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
+		29DA419222E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
+		29DA419322E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
+		29DA419422E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
 		29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
 		29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
 		29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
@@ -793,6 +798,7 @@
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
+		29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		29E5E13E21767A5E00BF642C /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
@@ -1099,6 +1105,7 @@
 			children = (
 				1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */,
 				1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */,
+				29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */,
 				1ADE9F9C1EF98F5C006C2CAC /* Login  View */,
 			);
 			name = "Splash View";
@@ -1692,6 +1699,7 @@
 				752CE43D1F27E24900FCC976 /* IQButtonBarArrowDown@3x.png in Resources */,
 				2944331B2295E09700370FF3 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				752CE4411F27E24900FCC976 /* IQButtonBarArrowUp@2x.png in Resources */,
+				29DA419022E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				1AE37F3C206017D0009C4625 /* ScheduleAppointment.storyboard in Resources */,
 				750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */,
 			);
@@ -1740,6 +1748,7 @@
 				290BEDF420E697EC00F30BAA /* IQButtonBarArrowUp@2x.png in Resources */,
 				2944331C2295E09700370FF3 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */,
+				29DA419122E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */,
 				29FD0F1F2114BADF00062362 /* GenericImages.xcassets in Resources */,
 			);
@@ -1758,6 +1767,7 @@
 				299DC99721FB9906001F2861 /* SmsFactory.xcassets in Resources */,
 				299DC99821FB9906001F2861 /* IQButtonBarArrowUp@3x.png in Resources */,
 				299DC99921FB9906001F2861 /* Home.storyboard in Resources */,
+				29DA419422E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				299DC99A21FB9906001F2861 /* PhotoTexting.xcassets in Resources */,
 				294433102295E09700370FF3 /* SF-Pro-Display-MediumItalic.otf in Resources */,
 				299DC99B21FB9906001F2861 /* ConversationListing.storyboard in Resources */,
@@ -1810,6 +1820,7 @@
 				29FD0F8021160D0500062362 /* SmsFactory.xcassets in Resources */,
 				29FD0F8121160D0500062362 /* IQButtonBarArrowUp@3x.png in Resources */,
 				29FD0F8221160D0500062362 /* Home.storyboard in Resources */,
+				29DA419222E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				294433362295E09700370FF3 /* SF-Pro-Display-Regular.otf in Resources */,
 				29FD0F8321160D0500062362 /* PhotoTexting.xcassets in Resources */,
 				29FD0F8421160D0500062362 /* ConversationListing.storyboard in Resources */,
@@ -1867,6 +1878,7 @@
 				29FD0FF921160D1000062362 /* ConversationListing.storyboard in Resources */,
 				29FD0FFA21160D1000062362 /* IQButtonBarArrowDown@2x.png in Resources */,
 				29FD0FFB21160D1000062362 /* Splash.storyboard in Resources */,
+				29DA419322E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				29FD0FFC21160D1000062362 /* Default-568h@2x.png in Resources */,
 				294432E22295E09700370FF3 /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				29FD0FFD21160D1000062362 /* Login.storyboard in Resources */,

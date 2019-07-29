@@ -34,6 +34,14 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
         self.tableViewDataSource?.reloadControls()
 
+        if (User.getLoginedUser()?.conversations)!.count > 0
+        {
+            self.nomessageImage.isHidden = true
+        }
+        else
+        {
+            self.nomessageImage.isHidden = false
+        }
         
     }
     
@@ -224,6 +232,15 @@ extension ConversationListingViewController
     {
 //        self.counterLabel.text = "-"
 //        self.counterLabel.text = "(\(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)))"
+    
+        if (User.getLoginedUser()?.conversations)!.count > 0
+        {
+            self.nomessageImage.isHidden = true
+        }
+        else
+        {
+            self.nomessageImage.isHidden = false
+        }
     }
     
     func showUnReadConversationCount(_ conversations: NSSet?) -> Int

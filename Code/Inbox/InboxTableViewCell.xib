@@ -25,10 +25,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="66.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-SG-Rtp" userLabel="LineView">
-                        <rect key="frame" x="32" y="66" width="293" height="1"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-SG-Rtp" userLabel="LineView">
+                        <rect key="frame" x="32" y="65" width="268" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="ngW-qL-U2j"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" text="I would like to update you on the behalf of my teachers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms2-XB-BB8">
                         <rect key="frame" x="32" y="27" width="260" height="20"/>
@@ -61,6 +63,11 @@
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="mPI-SG-Rtp" secondAttribute="trailing" id="TDL-qg-fqG"/>
+                    <constraint firstItem="mPI-SG-Rtp" firstAttribute="leading" secondItem="4OU-Gv-2Py" secondAttribute="leading" constant="32" id="Z2F-Lc-ZT6"/>
+                    <constraint firstAttribute="bottom" secondItem="mPI-SG-Rtp" secondAttribute="bottom" constant="0.5" id="kMq-7s-vYW"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>

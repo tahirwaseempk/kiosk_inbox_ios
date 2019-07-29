@@ -653,6 +653,65 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
              */
         }
     }
+    func deleteMessageFromConverstaion() {
+        
+        ProcessingIndicator.show()
+        
+        User.deleteLocalConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            
+                            if status == true
+                            {
+                                
+                                if let delegate = self.delegate
+                                {
+                                    delegate.conversationRemoved()
+                                }
+                                
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            else if status == false
+                            {
+                                let alert = UIAlertController(title: "Error", message: "Conversation has been failed to be deleted.", preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                    }
+            }
+        }, andFailureBlock: { (error: Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                        {
+                            ProcessingIndicator.hide()
+                            
+                            if error != nil{
+                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(alert, animated: true, completion: nil)
+                                
+                            } else {
+                                
+                                if let delegate = self.delegate
+                                {
+                                    delegate.conversationRemoved()
+                                }
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                    }
+            }
+        })
+    }
     
     @IBAction func deleteMessage_Tapped(_ sender: Any) {
         
@@ -666,62 +725,17 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
         else
         {
-            ProcessingIndicator.show()
             
-            User.deleteLocalConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                ProcessingIndicator.hide()
-                                
-                                if status == true
-                                {
-                                    
-                                    if let delegate = self.delegate
-                                    {
-                                        delegate.conversationRemoved()
-                                    }
-                                    
-                                    self.navigationController?.popViewController(animated: true)
-                                }
-                                else if status == false
-                                {
-                                    let alert = UIAlertController(title: "Error", message: "Conversation has been failed to be deleted.", preferredStyle: UIAlertControllerStyle.alert)
-                                    
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    
-                                    self.present(alert, animated: true, completion: nil)
-                                }
-                        }
-                }
-            }, andFailureBlock: { (error: Error?) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                ProcessingIndicator.hide()
-                                
-                                if error != nil{
-                                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                                    
-                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                    
-                                    self.present(alert, animated: true, completion: nil)
-                                    
-                                } else {
-                                    
-                                    if let delegate = self.delegate
-                                    {
-                                        delegate.conversationRemoved()
-                                    }
-                                    self.navigationController?.popViewController(animated: true)
-                                }
-                        }
-                }
-            })
+            let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete this contact?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler: { (_) in
+                self.deleteMessageFromConverstaion()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+
+            self.present(alert, animated: true, completion: nil)
+            
         }
     }
     
