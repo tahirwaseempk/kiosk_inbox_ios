@@ -298,6 +298,11 @@
 		29C820512141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
 		29C820522141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
 		29C820532141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
+		29D4795522F68754006F8937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D4795422F68754006F8937 /* LaunchScreen.storyboard */; };
+		29D4795622F68754006F8937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D4795422F68754006F8937 /* LaunchScreen.storyboard */; };
+		29D4795722F68754006F8937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D4795422F68754006F8937 /* LaunchScreen.storyboard */; };
+		29D4795822F68754006F8937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D4795422F68754006F8937 /* LaunchScreen.storyboard */; };
+		29D4795922F68754006F8937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D4795422F68754006F8937 /* LaunchScreen.storyboard */; };
 		29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
 		29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
 		29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
@@ -684,6 +689,7 @@
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
+		29D4795422F68754006F8937 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		29E5E13E21767A5E00BF642C /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		29F68ED122C56D390020C8F3 /* GoogleService-Info_Photo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_Photo.plist"; sourceTree = "<group>"; };
@@ -988,6 +994,7 @@
 			children = (
 				1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */,
 				1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */,
+				29D4795422F68754006F8937 /* LaunchScreen.storyboard */,
 				1ADE9F9C1EF98F5C006C2CAC /* Login  View */,
 			);
 			name = "Splash View";
@@ -1519,6 +1526,7 @@
 				1AFB4A5F1FC33026001EC4D5 /* ConversationListing.storyboard in Resources */,
 				752CE43C1F27E24900FCC976 /* IQButtonBarArrowDown@2x.png in Resources */,
 				1ADE9F9B1EF98ED9006C2CAC /* Splash.storyboard in Resources */,
+				29D4795522F68754006F8937 /* LaunchScreen.storyboard in Resources */,
 				04EC9FBF1FC373CA00F3C42A /* Default-568h@2x.png in Resources */,
 				1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */,
 				29FD0F1E2114BADF00062362 /* GenericImages.xcassets in Resources */,
@@ -1550,6 +1558,7 @@
 				290BEDE720E697EC00F30BAA /* Home.storyboard in Resources */,
 				29FD0F252114C30600062362 /* PhotoTexting.xcassets in Resources */,
 				290BEDE820E697EC00F30BAA /* ConversationListing.storyboard in Resources */,
+				29D4795622F68754006F8937 /* LaunchScreen.storyboard in Resources */,
 				290BEDE920E697EC00F30BAA /* IQButtonBarArrowDown@2x.png in Resources */,
 				290BEDEA20E697EC00F30BAA /* Splash.storyboard in Resources */,
 				290BEDEB20E697EC00F30BAA /* Default-568h@2x.png in Resources */,
@@ -1591,6 +1600,7 @@
 				299DC9A221FB9906001F2861 /* Fanconnect.xcassets in Resources */,
 				299DC9A321FB9906001F2861 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				299DC9A421FB9906001F2861 /* ComposeMessage.storyboard in Resources */,
+				29D4795922F68754006F8937 /* LaunchScreen.storyboard in Resources */,
 				299DC9A521FB9906001F2861 /* IQButtonBarArrowRight@3x.png in Resources */,
 				299DC9A621FB9906001F2861 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				299DC9A721FB9906001F2861 /* SearchView.xib in Resources */,
@@ -1608,6 +1618,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29D4795722F68754006F8937 /* LaunchScreen.storyboard in Resources */,
 				29FD0F7D21160D0500062362 /* InboxTableViewCell.xib in Resources */,
 				29FD0F7E21160D0500062362 /* ConversationDetail.storyboard in Resources */,
 				29FD0F7F21160D0500062362 /* TextingLine.xcassets in Resources */,
@@ -1648,6 +1659,7 @@
 				29FD0FF621160D1000062362 /* IQButtonBarArrowUp@3x.png in Resources */,
 				29FD0FF721160D1000062362 /* Home.storyboard in Resources */,
 				29FD0FF821160D1000062362 /* PhotoTexting.xcassets in Resources */,
+				29D4795822F68754006F8937 /* LaunchScreen.storyboard in Resources */,
 				29FD0FF921160D1000062362 /* ConversationListing.storyboard in Resources */,
 				29F68ED222C56D390020C8F3 /* GoogleService-Info_Photo.plist in Resources */,
 				29FD0FFA21160D1000062362 /* IQButtonBarArrowDown@2x.png in Resources */,
