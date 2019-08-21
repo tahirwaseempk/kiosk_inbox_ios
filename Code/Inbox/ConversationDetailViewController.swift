@@ -10,6 +10,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var closeView: UIView!
     
+    
+    
     @IBOutlet weak var inputCharacterCountLabel: UILabel!
     
     @IBOutlet weak var chawalView: UIView!
@@ -55,10 +57,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     var selectedConversation:Conversation! = nil
     
+//    var scrollListener:PaginatedTableScrollListener!
+    
     var isShowActivityIndicator:Bool = false
     
     let imagePicker = UIImagePickerController()
     
+    let refreshControl = UIRefreshControl()
+
     /////////////////////////////////////////////////
     // MARK: - Profile View Methods
     @IBAction func profileBackButtonTapped(_ sender: Any) {
@@ -368,10 +374,30 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.chawalView.layer.cornerRadius =  self.chawalView.bounds.height/2
 
         
-        
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
+        //tableView.refreshControl = refreshControl
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        // header_View.backgroundColor = AppThemeColor
+        /*
+         switch environment {
+         case .texting_Line:
+         header_View.backgroundColor = AppThemeColor
+         case .sms_Factory:
+         header_View.backgroundColor = AppThemeColor
+         case .fan_Connect:
+         header_View.backgroundColor = AppThemeColor
+         case .photo_Texting:
+         header_View.backgroundColor = AppThemeColor
+         }
+         */
+      
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView)
         
         tableView.dataSource = tableViewDataSource
+        
+        
         
         if self.selectedConversation != nil
         {
@@ -415,17 +441,26 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             self.callAdhocMessagesWebService()
         }
     }
-    
+
+    @objc func refreshListingTable(refreshControl: UIRefreshControl) {
+        
+
+        self.callAdhocMessagesWebService()
+        
+       // self.selectedConversation.messages.a
+    }
+
     func callAdhocMessagesWebService () {
         
-        User.getMessageForConversation(self.selectedConversation, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
+        
+        User.getMessageForConversation(conversation:self.selectedConversation, lastMessageId:"", completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
             
             User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
                 
                 DispatchQueue.global(qos:.background).async
                     {
                         DispatchQueue.main.async
-                            {
+                        {
                                 ProcessingIndicator.hide()
                                 
                                 if self.selectedConversation.unreadMessages == true
@@ -439,13 +474,15 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                                 }
                                 
                                 _ = self.conversationSelected(conversation: self.selectedConversation)
+                                
+                                self.refreshControl.endRefreshing()
                         }
                 }
                 
             }, andFailureBlock: { (error:Error?) -> (Void) in
                 
                 DispatchQueue.global(qos:.background).sync
-                    {
+                {
                         DispatchQueue.main.sync
                             {
                                 ProcessingIndicator.hide()
@@ -464,7 +501,10 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                                 if self.selectedConversation != nil
                                 {
                                     _ = self.conversationSelected(conversation: self.selectedConversation)
-                                }                            }
+                                }
+                                
+                                self.refreshControl.endRefreshing()
+                    }
                 }
             })
             
@@ -474,6 +514,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                 {
                     DispatchQueue.main.sync
                         {
+                            self.refreshControl.endRefreshing()
+
                             ProcessingIndicator.hide()
                     }
             }
@@ -1067,3 +1109,4 @@ extension ConversationDetailViewController:UITextFieldDelegate {
     }
     
 }
+

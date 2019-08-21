@@ -150,6 +150,121 @@
 		2932C2D8217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */; };
 		2932C2D9217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */; };
 		2932C2DA217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */; };
+		293EC0D5230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C6230C1E39001912D1 /* PaginatedListScrollListener.swift */; };
+		293EC0D6230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C6230C1E39001912D1 /* PaginatedListScrollListener.swift */; };
+		293EC0D7230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C6230C1E39001912D1 /* PaginatedListScrollListener.swift */; };
+		293EC0D8230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C6230C1E39001912D1 /* PaginatedListScrollListener.swift */; };
+		293EC0D9230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C6230C1E39001912D1 /* PaginatedListScrollListener.swift */; };
+		293EC0DA230C1E3B001912D1 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C7230C1E39001912D1 /* BaseCell.swift */; };
+		293EC0DB230C1E3B001912D1 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C7230C1E39001912D1 /* BaseCell.swift */; };
+		293EC0DC230C1E3B001912D1 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C7230C1E39001912D1 /* BaseCell.swift */; };
+		293EC0DD230C1E3B001912D1 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C7230C1E39001912D1 /* BaseCell.swift */; };
+		293EC0DE230C1E3B001912D1 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C7230C1E39001912D1 /* BaseCell.swift */; };
+		293EC0DF230C1E3B001912D1 /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C8230C1E39001912D1 /* ListAdapter.swift */; };
+		293EC0E0230C1E3B001912D1 /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C8230C1E39001912D1 /* ListAdapter.swift */; };
+		293EC0E1230C1E3B001912D1 /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C8230C1E39001912D1 /* ListAdapter.swift */; };
+		293EC0E2230C1E3B001912D1 /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C8230C1E39001912D1 /* ListAdapter.swift */; };
+		293EC0E3230C1E3B001912D1 /* ListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C8230C1E39001912D1 /* ListAdapter.swift */; };
+		293EC0E4230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C9230C1E3A001912D1 /* UICollectionViewStaggeredLayout.swift */; };
+		293EC0E5230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C9230C1E3A001912D1 /* UICollectionViewStaggeredLayout.swift */; };
+		293EC0E6230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C9230C1E3A001912D1 /* UICollectionViewStaggeredLayout.swift */; };
+		293EC0E7230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C9230C1E3A001912D1 /* UICollectionViewStaggeredLayout.swift */; };
+		293EC0E8230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0C9230C1E3A001912D1 /* UICollectionViewStaggeredLayout.swift */; };
+		293EC0E9230C1E3B001912D1 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CA230C1E3A001912D1 /* Filterable.swift */; };
+		293EC0EA230C1E3B001912D1 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CA230C1E3A001912D1 /* Filterable.swift */; };
+		293EC0EB230C1E3B001912D1 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CA230C1E3A001912D1 /* Filterable.swift */; };
+		293EC0EC230C1E3B001912D1 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CA230C1E3A001912D1 /* Filterable.swift */; };
+		293EC0ED230C1E3B001912D1 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CA230C1E3A001912D1 /* Filterable.swift */; };
+		293EC0EE230C1E3B001912D1 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CB230C1E3A001912D1 /* Diffable.swift */; };
+		293EC0EF230C1E3B001912D1 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CB230C1E3A001912D1 /* Diffable.swift */; };
+		293EC0F0230C1E3B001912D1 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CB230C1E3A001912D1 /* Diffable.swift */; };
+		293EC0F1230C1E3B001912D1 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CB230C1E3A001912D1 /* Diffable.swift */; };
+		293EC0F2230C1E3B001912D1 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CB230C1E3A001912D1 /* Diffable.swift */; };
+		293EC0F3230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CC230C1E3A001912D1 /* CollectionViewAdapter.swift */; };
+		293EC0F4230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CC230C1E3A001912D1 /* CollectionViewAdapter.swift */; };
+		293EC0F5230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CC230C1E3A001912D1 /* CollectionViewAdapter.swift */; };
+		293EC0F6230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CC230C1E3A001912D1 /* CollectionViewAdapter.swift */; };
+		293EC0F7230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CC230C1E3A001912D1 /* CollectionViewAdapter.swift */; };
+		293EC0F8230C1E3B001912D1 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CD230C1E3A001912D1 /* TableViewAdapter.swift */; };
+		293EC0F9230C1E3B001912D1 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CD230C1E3A001912D1 /* TableViewAdapter.swift */; };
+		293EC0FA230C1E3B001912D1 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CD230C1E3A001912D1 /* TableViewAdapter.swift */; };
+		293EC0FB230C1E3B001912D1 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CD230C1E3A001912D1 /* TableViewAdapter.swift */; };
+		293EC0FC230C1E3B001912D1 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CD230C1E3A001912D1 /* TableViewAdapter.swift */; };
+		293EC0FD230C1E3B001912D1 /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CE230C1E3A001912D1 /* Collapsible.swift */; };
+		293EC0FE230C1E3B001912D1 /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CE230C1E3A001912D1 /* Collapsible.swift */; };
+		293EC0FF230C1E3B001912D1 /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CE230C1E3A001912D1 /* Collapsible.swift */; };
+		293EC100230C1E3B001912D1 /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CE230C1E3A001912D1 /* Collapsible.swift */; };
+		293EC101230C1E3B001912D1 /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CE230C1E3A001912D1 /* Collapsible.swift */; };
+		293EC102230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CF230C1E3A001912D1 /* UICollectionViewSnappingFlowLayout.swift */; };
+		293EC103230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CF230C1E3A001912D1 /* UICollectionViewSnappingFlowLayout.swift */; };
+		293EC104230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CF230C1E3A001912D1 /* UICollectionViewSnappingFlowLayout.swift */; };
+		293EC105230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CF230C1E3A001912D1 /* UICollectionViewSnappingFlowLayout.swift */; };
+		293EC106230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0CF230C1E3A001912D1 /* UICollectionViewSnappingFlowLayout.swift */; };
+		293EC107230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D0230C1E3A001912D1 /* UITableView+LoadingFooter.swift */; };
+		293EC108230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D0230C1E3A001912D1 /* UITableView+LoadingFooter.swift */; };
+		293EC109230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D0230C1E3A001912D1 /* UITableView+LoadingFooter.swift */; };
+		293EC10A230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D0230C1E3A001912D1 /* UITableView+LoadingFooter.swift */; };
+		293EC10B230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D0230C1E3A001912D1 /* UITableView+LoadingFooter.swift */; };
+		293EC10C230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D1230C1E3A001912D1 /* UICollectionViewFullWidthFlowLayout.swift */; };
+		293EC10D230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D1230C1E3A001912D1 /* UICollectionViewFullWidthFlowLayout.swift */; };
+		293EC10E230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D1230C1E3A001912D1 /* UICollectionViewFullWidthFlowLayout.swift */; };
+		293EC10F230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D1230C1E3A001912D1 /* UICollectionViewFullWidthFlowLayout.swift */; };
+		293EC110230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D1230C1E3A001912D1 /* UICollectionViewFullWidthFlowLayout.swift */; };
+		293EC111230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D2230C1E3A001912D1 /* UICollectionViewJustifiedFlowLayout.swift */; };
+		293EC112230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D2230C1E3A001912D1 /* UICollectionViewJustifiedFlowLayout.swift */; };
+		293EC113230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D2230C1E3A001912D1 /* UICollectionViewJustifiedFlowLayout.swift */; };
+		293EC114230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D2230C1E3A001912D1 /* UICollectionViewJustifiedFlowLayout.swift */; };
+		293EC115230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D2230C1E3A001912D1 /* UICollectionViewJustifiedFlowLayout.swift */; };
+		293EC116230C1E3B001912D1 /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D3230C1E3B001912D1 /* ListHelper.swift */; };
+		293EC117230C1E3B001912D1 /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D3230C1E3B001912D1 /* ListHelper.swift */; };
+		293EC118230C1E3B001912D1 /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D3230C1E3B001912D1 /* ListHelper.swift */; };
+		293EC119230C1E3B001912D1 /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D3230C1E3B001912D1 /* ListHelper.swift */; };
+		293EC11A230C1E3B001912D1 /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D3230C1E3B001912D1 /* ListHelper.swift */; };
+		293EC11B230C1E3B001912D1 /* ListUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D4230C1E3B001912D1 /* ListUpdater.swift */; };
+		293EC11C230C1E3B001912D1 /* ListUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D4230C1E3B001912D1 /* ListUpdater.swift */; };
+		293EC11D230C1E3B001912D1 /* ListUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D4230C1E3B001912D1 /* ListUpdater.swift */; };
+		293EC11E230C1E3B001912D1 /* ListUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D4230C1E3B001912D1 /* ListUpdater.swift */; };
+		293EC11F230C1E3B001912D1 /* ListUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC0D4230C1E3B001912D1 /* ListUpdater.swift */; };
+		293EC126230C3A51001912D1 /* RSPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC121230C3A50001912D1 /* RSPagination.swift */; };
+		293EC127230C3A51001912D1 /* RSPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC121230C3A50001912D1 /* RSPagination.swift */; };
+		293EC128230C3A51001912D1 /* RSPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC121230C3A50001912D1 /* RSPagination.swift */; };
+		293EC129230C3A51001912D1 /* RSPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC121230C3A50001912D1 /* RSPagination.swift */; };
+		293EC12A230C3A51001912D1 /* RSPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC121230C3A50001912D1 /* RSPagination.swift */; };
+		293EC12B230C3A51001912D1 /* RSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC122230C3A50001912D1 /* RSTableViewCell.swift */; };
+		293EC12C230C3A51001912D1 /* RSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC122230C3A50001912D1 /* RSTableViewCell.swift */; };
+		293EC12D230C3A51001912D1 /* RSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC122230C3A50001912D1 /* RSTableViewCell.swift */; };
+		293EC12E230C3A51001912D1 /* RSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC122230C3A50001912D1 /* RSTableViewCell.swift */; };
+		293EC12F230C3A51001912D1 /* RSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC122230C3A50001912D1 /* RSTableViewCell.swift */; };
+		293EC130230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC123230C3A51001912D1 /* RSTableViewDataSource.swift */; };
+		293EC131230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC123230C3A51001912D1 /* RSTableViewDataSource.swift */; };
+		293EC132230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC123230C3A51001912D1 /* RSTableViewDataSource.swift */; };
+		293EC133230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC123230C3A51001912D1 /* RSTableViewDataSource.swift */; };
+		293EC134230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC123230C3A51001912D1 /* RSTableViewDataSource.swift */; };
+		293EC135230C3A51001912D1 /* RSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC124230C3A51001912D1 /* RSTableView.swift */; };
+		293EC136230C3A51001912D1 /* RSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC124230C3A51001912D1 /* RSTableView.swift */; };
+		293EC137230C3A51001912D1 /* RSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC124230C3A51001912D1 /* RSTableView.swift */; };
+		293EC138230C3A51001912D1 /* RSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC124230C3A51001912D1 /* RSTableView.swift */; };
+		293EC139230C3A51001912D1 /* RSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC124230C3A51001912D1 /* RSTableView.swift */; };
+		293EC13A230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC125230C3A51001912D1 /* RSSearchBarDelegate.swift */; };
+		293EC13B230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC125230C3A51001912D1 /* RSSearchBarDelegate.swift */; };
+		293EC13C230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC125230C3A51001912D1 /* RSSearchBarDelegate.swift */; };
+		293EC13D230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC125230C3A51001912D1 /* RSSearchBarDelegate.swift */; };
+		293EC13E230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC125230C3A51001912D1 /* RSSearchBarDelegate.swift */; };
+		293EC141230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC13F230C3C9B001912D1 /* RSEmptyDataView.swift */; };
+		293EC142230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC13F230C3C9B001912D1 /* RSEmptyDataView.swift */; };
+		293EC143230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC13F230C3C9B001912D1 /* RSEmptyDataView.swift */; };
+		293EC144230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC13F230C3C9B001912D1 /* RSEmptyDataView.swift */; };
+		293EC145230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC13F230C3C9B001912D1 /* RSEmptyDataView.swift */; };
+		293EC146230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 293EC140230C3C9B001912D1 /* RSEmptyDataView.xib */; };
+		293EC147230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 293EC140230C3C9B001912D1 /* RSEmptyDataView.xib */; };
+		293EC148230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 293EC140230C3C9B001912D1 /* RSEmptyDataView.xib */; };
+		293EC149230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 293EC140230C3C9B001912D1 /* RSEmptyDataView.xib */; };
+		293EC14A230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 293EC140230C3C9B001912D1 /* RSEmptyDataView.xib */; };
+		293EC14D230CC7E2001912D1 /* PaginatedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC14C230CC7E2001912D1 /* PaginatedTableView.swift */; };
+		293EC14E230CC7E2001912D1 /* PaginatedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC14C230CC7E2001912D1 /* PaginatedTableView.swift */; };
+		293EC14F230CC7E2001912D1 /* PaginatedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC14C230CC7E2001912D1 /* PaginatedTableView.swift */; };
+		293EC150230CC7E2001912D1 /* PaginatedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC14C230CC7E2001912D1 /* PaginatedTableView.swift */; };
+		293EC151230CC7E2001912D1 /* PaginatedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC14C230CC7E2001912D1 /* PaginatedTableView.swift */; };
 		294432B72295E09700370FF3 /* SF-Pro-Display-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 294432992295E09400370FF3 /* SF-Pro-Display-HeavyItalic.otf */; };
 		294432B82295E09700370FF3 /* SF-Pro-Display-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 294432992295E09400370FF3 /* SF-Pro-Display-HeavyItalic.otf */; };
 		294432B92295E09700370FF3 /* SF-Pro-Display-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 294432992295E09400370FF3 /* SF-Pro-Display-HeavyItalic.otf */; };
@@ -756,6 +871,29 @@
 		2932C2D1217235EF00D2A299 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		2932C2D6217237AA00D2A299 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
 		2934F3922191776F003ACE4E /* PhotoTextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoTextingLine.entitlements; sourceTree = "<group>"; };
+		293EC0C6230C1E39001912D1 /* PaginatedListScrollListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedListScrollListener.swift; sourceTree = "<group>"; };
+		293EC0C7230C1E39001912D1 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		293EC0C8230C1E39001912D1 /* ListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAdapter.swift; sourceTree = "<group>"; };
+		293EC0C9230C1E3A001912D1 /* UICollectionViewStaggeredLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewStaggeredLayout.swift; sourceTree = "<group>"; };
+		293EC0CA230C1E3A001912D1 /* Filterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filterable.swift; sourceTree = "<group>"; };
+		293EC0CB230C1E3A001912D1 /* Diffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diffable.swift; sourceTree = "<group>"; };
+		293EC0CC230C1E3A001912D1 /* CollectionViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapter.swift; sourceTree = "<group>"; };
+		293EC0CD230C1E3A001912D1 /* TableViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
+		293EC0CE230C1E3A001912D1 /* Collapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collapsible.swift; sourceTree = "<group>"; };
+		293EC0CF230C1E3A001912D1 /* UICollectionViewSnappingFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewSnappingFlowLayout.swift; sourceTree = "<group>"; };
+		293EC0D0230C1E3A001912D1 /* UITableView+LoadingFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+LoadingFooter.swift"; sourceTree = "<group>"; };
+		293EC0D1230C1E3A001912D1 /* UICollectionViewFullWidthFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFullWidthFlowLayout.swift; sourceTree = "<group>"; };
+		293EC0D2230C1E3A001912D1 /* UICollectionViewJustifiedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewJustifiedFlowLayout.swift; sourceTree = "<group>"; };
+		293EC0D3230C1E3B001912D1 /* ListHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHelper.swift; sourceTree = "<group>"; };
+		293EC0D4230C1E3B001912D1 /* ListUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListUpdater.swift; sourceTree = "<group>"; };
+		293EC121230C3A50001912D1 /* RSPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSPagination.swift; sourceTree = "<group>"; };
+		293EC122230C3A50001912D1 /* RSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSTableViewCell.swift; sourceTree = "<group>"; };
+		293EC123230C3A51001912D1 /* RSTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSTableViewDataSource.swift; sourceTree = "<group>"; };
+		293EC124230C3A51001912D1 /* RSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSTableView.swift; sourceTree = "<group>"; };
+		293EC125230C3A51001912D1 /* RSSearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSearchBarDelegate.swift; sourceTree = "<group>"; };
+		293EC13F230C3C9B001912D1 /* RSEmptyDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSEmptyDataView.swift; sourceTree = "<group>"; };
+		293EC140230C3C9B001912D1 /* RSEmptyDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSEmptyDataView.xib; sourceTree = "<group>"; };
+		293EC14C230CC7E2001912D1 /* PaginatedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedTableView.swift; sourceTree = "<group>"; };
 		294432992295E09400370FF3 /* SF-Pro-Display-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-HeavyItalic.otf"; sourceTree = "<group>"; };
 		2944329A2295E09400370FF3 /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		2944329B2295E09400370FF3 /* SF-Pro-Display-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-UltralightItalic.otf"; sourceTree = "<group>"; };
@@ -961,6 +1099,9 @@
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				293EC14B230CC7C4001912D1 /* PaginatedTableView */,
+				293EC120230C3A1B001912D1 /* RSTableView */,
+				293EC0C5230C1E16001912D1 /* PaginationClasses */,
 				298F506022947DD4001414EC /* GradientButtonSwift */,
 				29C7254322934E7300BE41B3 /* UIView+Blur */,
 				29E5E12A217677E100BF642C /* JVFloatLabeledTextField */,
@@ -1211,6 +1352,50 @@
 				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		293EC0C5230C1E16001912D1 /* PaginationClasses */ = {
+			isa = PBXGroup;
+			children = (
+				293EC0C7230C1E39001912D1 /* BaseCell.swift */,
+				293EC0CE230C1E3A001912D1 /* Collapsible.swift */,
+				293EC0CC230C1E3A001912D1 /* CollectionViewAdapter.swift */,
+				293EC0CB230C1E3A001912D1 /* Diffable.swift */,
+				293EC0CA230C1E3A001912D1 /* Filterable.swift */,
+				293EC0C8230C1E39001912D1 /* ListAdapter.swift */,
+				293EC0D3230C1E3B001912D1 /* ListHelper.swift */,
+				293EC0D4230C1E3B001912D1 /* ListUpdater.swift */,
+				293EC0C6230C1E39001912D1 /* PaginatedListScrollListener.swift */,
+				293EC0CD230C1E3A001912D1 /* TableViewAdapter.swift */,
+				293EC0D1230C1E3A001912D1 /* UICollectionViewFullWidthFlowLayout.swift */,
+				293EC0D2230C1E3A001912D1 /* UICollectionViewJustifiedFlowLayout.swift */,
+				293EC0CF230C1E3A001912D1 /* UICollectionViewSnappingFlowLayout.swift */,
+				293EC0C9230C1E3A001912D1 /* UICollectionViewStaggeredLayout.swift */,
+				293EC0D0230C1E3A001912D1 /* UITableView+LoadingFooter.swift */,
+			);
+			path = PaginationClasses;
+			sourceTree = "<group>";
+		};
+		293EC120230C3A1B001912D1 /* RSTableView */ = {
+			isa = PBXGroup;
+			children = (
+				293EC13F230C3C9B001912D1 /* RSEmptyDataView.swift */,
+				293EC140230C3C9B001912D1 /* RSEmptyDataView.xib */,
+				293EC121230C3A50001912D1 /* RSPagination.swift */,
+				293EC125230C3A51001912D1 /* RSSearchBarDelegate.swift */,
+				293EC124230C3A51001912D1 /* RSTableView.swift */,
+				293EC122230C3A50001912D1 /* RSTableViewCell.swift */,
+				293EC123230C3A51001912D1 /* RSTableViewDataSource.swift */,
+			);
+			path = RSTableView;
+			sourceTree = "<group>";
+		};
+		293EC14B230CC7C4001912D1 /* PaginatedTableView */ = {
+			isa = PBXGroup;
+			children = (
+				293EC14C230CC7E2001912D1 /* PaginatedTableView.swift */,
+			);
+			path = PaginatedTableView;
 			sourceTree = "<group>";
 		};
 		294432982295E07A00370FF3 /* SFProDisplay */ = {
@@ -1686,6 +1871,7 @@
 				292CCE5021C462F600996BF5 /* GoogleService-Info.plist in Resources */,
 				752CE43F1F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */,
+				293EC146230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */,
 				294432F32295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
 				294432B72295E09700370FF3 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
 				752CE4401F27E24900FCC976 /* IQButtonBarArrowRight@3x.png in Resources */,
@@ -1735,6 +1921,7 @@
 				290BEDEC20E697EC00F30BAA /* Login.storyboard in Resources */,
 				29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */,
 				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
+				293EC147230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */,
 				294432F42295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
 				294432B82295E09700370FF3 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
 				290BEDEE20E697EC00F30BAA /* ComposeMessage.storyboard in Resources */,
@@ -1798,6 +1985,7 @@
 				299DC9A721FB9906001F2861 /* SearchView.xib in Resources */,
 				294432F72295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
 				294432CF2295E09700370FF3 /* SF-Pro-Display-Black.otf in Resources */,
+				293EC14A230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */,
 				299DC9A921FB9906001F2861 /* IQButtonBarArrowDown@3x.png in Resources */,
 				299DC9AA21FB9906001F2861 /* IQButtonBarArrowUp@2x.png in Resources */,
 				299DC9AB21FB9906001F2861 /* ScheduleAppointment.storyboard in Resources */,
@@ -1845,6 +2033,7 @@
 				294432E12295E09700370FF3 /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				29FD0F9021160D0500062362 /* IQButtonBarArrowDown@3x.png in Resources */,
 				29FD0F9121160D0500062362 /* IQButtonBarArrowUp@2x.png in Resources */,
+				293EC148230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */,
 				29FD0F9221160D0500062362 /* ScheduleAppointment.storyboard in Resources */,
 				294432C82295E09700370FF3 /* SF-Pro-Display-Bold.otf in Resources */,
 				29FD0F9321160D0500062362 /* IQButtonBarArrowRight@2x.png in Resources */,
@@ -1903,6 +2092,7 @@
 				294432BF2295E09700370FF3 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
 				29FD100721160D1000062362 /* ScheduleAppointment.storyboard in Resources */,
 				29FD100821160D1000062362 /* IQButtonBarArrowRight@2x.png in Resources */,
+				293EC149230C3C9B001912D1 /* RSEmptyDataView.xib in Resources */,
 				294433372295E09700370FF3 /* SF-Pro-Display-Regular.otf in Resources */,
 				29FD100921160D1000062362 /* GenericImages.xcassets in Resources */,
 			);
@@ -2242,6 +2432,7 @@
 				1A3475252062CA6100FA0FFB /* GCCalendarDayView.swift in Sources */,
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
 				752CE4491F27E24900FCC976 /* IQTextView.swift in Sources */,
+				293EC11B230C1E3B001912D1 /* ListUpdater.swift in Sources */,
 				04EC9FBC1FC373C500F3C42A /* User+CoreDataProperties.swift in Sources */,
 				75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */,
 				75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */,
@@ -2256,6 +2447,7 @@
 				1A3475282062CA6100FA0FFB /* GCCalendarConfiguration.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
+				293EC135230C3A51001912D1 /* RSTableView.swift in Sources */,
 				29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506222947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2263,12 +2455,17 @@
 				1A34752A2062CA6100FA0FFB /* GCCalendarWeekView.swift in Sources */,
 				1ADE9FAE1EF99E9F006C2CAC /* InboxTableViewCell.swift in Sources */,
 				046560BF1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift in Sources */,
+				293EC0FD230C1E3B001912D1 /* Collapsible.swift in Sources */,
 				752CE44D1F27E24900FCC976 /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259421A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
 				759BD35C204077F400832092 /* Mappings.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
+				293EC0DF230C1E3B001912D1 /* ListAdapter.swift in Sources */,
+				293EC116230C1E3B001912D1 /* ListHelper.swift in Sources */,
+				293EC102230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */,
 				2932C2D7217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				293EC0E9230C1E3B001912D1 /* Filterable.swift in Sources */,
 				759BD35D204077F400832092 /* Deprecated.swift in Sources */,
 				756615CF203941670087CB9D /* CodePointSet.swift in Sources */,
 				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2276,12 +2473,16 @@
 				2932C2CD217230FE00D2A299 /* ProfileViewController.swift in Sources */,
 				04EC9FBD1FC373C500F3C42A /* Conversation+CoreDataClass.swift in Sources */,
 				752CE4451F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				293EC0E4230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
+				293EC130230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */,
 				04EC9FBE1FC373C500F3C42A /* Conversation+CoreDataProperties.swift in Sources */,
+				293EC0D5230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */,
 				752CE4481F27E24900FCC976 /* IQPreviousNextView.swift in Sources */,
 				04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */,
 				295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
+				293EC107230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */,
 				04EC9FC01FC373D200F3C42A /* Checkbox.swift in Sources */,
 				046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				1A3475292062CA6100FA0FFB /* GCCalendarMonthView.swift in Sources */,
@@ -2291,24 +2492,35 @@
 				1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */,
+				293EC14D230CC7E2001912D1 /* PaginatedTableView.swift in Sources */,
+				293EC141230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */,
 				752CE44B1F27E24900FCC976 /* IQToolbar.swift in Sources */,
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
 				754085FB1F1671AF00CDB81F /* ProcessingIndicatorView.swift in Sources */,
+				293EC0F8230C1E3B001912D1 /* TableViewAdapter.swift in Sources */,
 				1A3475272062CA6100FA0FFB /* GCCalendarViewDelegate.swift in Sources */,
 				04EC9FBA1FC373C500F3C42A /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D2217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				752CE4471F27E24900FCC976 /* IQNSArray+Sort.swift in Sources */,
 				1AE37F3A206017BB009C4625 /* ScheduleAppointmentViewController.swift in Sources */,
+				293EC0EE230C1E3B001912D1 /* Diffable.swift in Sources */,
+				293EC0DA230C1E3B001912D1 /* BaseCell.swift in Sources */,
 				29E5E14321767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
+				293EC10C230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */,
+				293EC111230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */,
 				750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
 				756615D0203941670087CB9D /* String+Emoji.swift in Sources */,
+				293EC13A230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */,
 				759BD35F204077F400832092 /* HTMLString.swift in Sources */,
 				29C7254522934E9000BE41B3 /* UIView+Blur.swift in Sources */,
+				293EC126230C3A51001912D1 /* RSPagination.swift in Sources */,
 				1ADE9FC21EF9AD63006C2CAC /* JsonPrinting.swift in Sources */,
+				293EC12B230C3A51001912D1 /* RSTableViewCell.swift in Sources */,
 				295EA29321204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
 				29C820502141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
+				293EC0F3230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 				750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */,
@@ -2328,6 +2540,7 @@
 				290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */,
 				290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */,
 				290BED9720E697EC00F30BAA /* IQTextView.swift in Sources */,
+				293EC11C230C1E3B001912D1 /* ListUpdater.swift in Sources */,
 				290BED9920E697EC00F30BAA /* User+CoreDataProperties.swift in Sources */,
 				290BED9A20E697EC00F30BAA /* LoginParser.swift in Sources */,
 				290BED9C20E697EC00F30BAA /* ComposeMessageViewController.swift in Sources */,
@@ -2342,6 +2555,7 @@
 				290BEDA520E697EC00F30BAA /* GCCalendarConfiguration.swift in Sources */,
 				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
 				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
+				293EC136230C3A51001912D1 /* RSTableView.swift in Sources */,
 				29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506322947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2349,12 +2563,17 @@
 				290BEDAA20E697EC00F30BAA /* GCCalendarWeekView.swift in Sources */,
 				290BEDAB20E697EC00F30BAA /* InboxTableViewCell.swift in Sources */,
 				290BEDAC20E697EC00F30BAA /* ConversationListingViewControllerProtocol.swift in Sources */,
+				293EC0FE230C1E3B001912D1 /* Collapsible.swift in Sources */,
 				290BEDAD20E697EC00F30BAA /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */,
 				290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */,
 				290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */,
+				293EC0E0230C1E3B001912D1 /* ListAdapter.swift in Sources */,
+				293EC117230C1E3B001912D1 /* ListHelper.swift in Sources */,
+				293EC103230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */,
 				2932C2D8217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				293EC0EA230C1E3B001912D1 /* Filterable.swift in Sources */,
 				290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */,
 				290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */,
 				290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2362,12 +2581,16 @@
 				2932C2CE217230FE00D2A299 /* ProfileViewController.swift in Sources */,
 				290BEDB720E697EC00F30BAA /* Conversation+CoreDataClass.swift in Sources */,
 				290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				293EC0E5230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */,
 				290BEDBA20E697EC00F30BAA /* LoginViewController.swift in Sources */,
 				290BEDBB20E697EC00F30BAA /* Inbox.xcdatamodeld in Sources */,
+				293EC131230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */,
 				290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */,
+				293EC0D6230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */,
 				290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */,
 				290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */,
 				295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
+				293EC108230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */,
 				290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */,
 				290BEDC220E697EC00F30BAA /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				290BEDC320E697EC00F30BAA /* GCCalendarMonthView.swift in Sources */,
@@ -2377,24 +2600,35 @@
 				290BEDC720E697EC00F30BAA /* ConversationListingViewController.swift in Sources */,
 				290BEDC820E697EC00F30BAA /* InboxTableViewDataSource.swift in Sources */,
 				290BEDCA20E697EC00F30BAA /* ProcessingIndicatorHandler.swift in Sources */,
+				293EC14E230CC7E2001912D1 /* PaginatedTableView.swift in Sources */,
+				293EC142230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */,
 				290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */,
 				290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */,
 				290BEDCE20E697EC00F30BAA /* ProcessingIndicatorView.swift in Sources */,
+				293EC0F9230C1E3B001912D1 /* TableViewAdapter.swift in Sources */,
 				290BEDCF20E697EC00F30BAA /* GCCalendarViewDelegate.swift in Sources */,
 				290BEDD020E697EC00F30BAA /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D3217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */,
 				290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */,
+				293EC0EF230C1E3B001912D1 /* Diffable.swift in Sources */,
+				293EC0DB230C1E3B001912D1 /* BaseCell.swift in Sources */,
 				29E5E14421767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
+				293EC10D230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */,
+				293EC112230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */,
 				290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */,
 				290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */,
 				290BEDD720E697EC00F30BAA /* String+Emoji.swift in Sources */,
+				293EC13B230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */,
 				290BEDD820E697EC00F30BAA /* HTMLString.swift in Sources */,
 				29C7254622934E9000BE41B3 /* UIView+Blur.swift in Sources */,
+				293EC127230C3A51001912D1 /* RSPagination.swift in Sources */,
 				290BEDD920E697EC00F30BAA /* JsonPrinting.swift in Sources */,
+				293EC12C230C3A51001912D1 /* RSTableViewCell.swift in Sources */,
 				295EA29421204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
 				29C820512141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
+				293EC0F4230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */,
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
 				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
 				290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */,
@@ -2414,6 +2648,7 @@
 				299DC94521FB9906001F2861 /* GCCalendarDayView.swift in Sources */,
 				299DC94621FB9906001F2861 /* IQUIViewController+Additions.swift in Sources */,
 				299DC94721FB9906001F2861 /* IQTextView.swift in Sources */,
+				293EC11F230C1E3B001912D1 /* ListUpdater.swift in Sources */,
 				299DC94821FB9906001F2861 /* User+CoreDataProperties.swift in Sources */,
 				299DC94921FB9906001F2861 /* LoginParser.swift in Sources */,
 				299DC94A21FB9906001F2861 /* ComposeMessageViewController.swift in Sources */,
@@ -2428,6 +2663,7 @@
 				299DC95321FB9906001F2861 /* GCCalendarConfiguration.swift in Sources */,
 				299DC95421FB9906001F2861 /* IQUIWindow+Hierarchy.swift in Sources */,
 				299DC95521FB9906001F2861 /* UnderlinedTextField.swift in Sources */,
+				293EC139230C3A51001912D1 /* RSTableView.swift in Sources */,
 				299DC95621FB9906001F2861 /* CopyableLabel.swift in Sources */,
 				298F506622947DEA001414EC /* GradientButton.swift in Sources */,
 				299DC95721FB9906001F2861 /* FloatLabelTextView.swift in Sources */,
@@ -2435,12 +2671,17 @@
 				299DC95921FB9906001F2861 /* GCCalendarWeekView.swift in Sources */,
 				299DC95A21FB9906001F2861 /* InboxTableViewCell.swift in Sources */,
 				299DC95B21FB9906001F2861 /* ConversationListingViewControllerProtocol.swift in Sources */,
+				293EC101230C1E3B001912D1 /* Collapsible.swift in Sources */,
 				299DC95C21FB9906001F2861 /* IQUITextFieldView+Additions.swift in Sources */,
 				299DC95D21FB9906001F2861 /* ChatTableViewCell.swift in Sources */,
 				299DC95E21FB9906001F2861 /* IQBarButtonItem.swift in Sources */,
 				299DC95F21FB9906001F2861 /* Mappings.swift in Sources */,
 				299DC96021FB9906001F2861 /* MessageTableViewDataSource.swift in Sources */,
+				293EC0E3230C1E3B001912D1 /* ListAdapter.swift in Sources */,
+				293EC11A230C1E3B001912D1 /* ListHelper.swift in Sources */,
+				293EC106230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */,
 				299DC96121FB9906001F2861 /* VerifyCodeViewController.swift in Sources */,
+				293EC0ED230C1E3B001912D1 /* Filterable.swift in Sources */,
 				299DC96221FB9906001F2861 /* Deprecated.swift in Sources */,
 				299DC96321FB9906001F2861 /* CodePointSet.swift in Sources */,
 				299DC96421FB9906001F2861 /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2448,12 +2689,16 @@
 				299DC96621FB9906001F2861 /* ProfileViewController.swift in Sources */,
 				299DC96721FB9906001F2861 /* Conversation+CoreDataClass.swift in Sources */,
 				299DC96821FB9906001F2861 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				293EC0E8230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */,
 				299DC96921FB9906001F2861 /* LoginViewController.swift in Sources */,
 				299DC96A21FB9906001F2861 /* Inbox.xcdatamodeld in Sources */,
+				293EC134230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */,
 				299DC96B21FB9906001F2861 /* Conversation+CoreDataProperties.swift in Sources */,
+				293EC0D9230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */,
 				299DC96C21FB9906001F2861 /* IQPreviousNextView.swift in Sources */,
 				299DC96D21FB9906001F2861 /* Message+CoreDataClass.swift in Sources */,
 				299DC96E21FB9906001F2861 /* UserContact+CoreDataClass.swift in Sources */,
+				293EC10B230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */,
 				299DC96F21FB9906001F2861 /* Checkbox.swift in Sources */,
 				299DC97021FB9906001F2861 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				299DC97121FB9906001F2861 /* GCCalendarMonthView.swift in Sources */,
@@ -2463,24 +2708,35 @@
 				299DC97521FB9906001F2861 /* ConversationListingViewController.swift in Sources */,
 				299DC97621FB9906001F2861 /* InboxTableViewDataSource.swift in Sources */,
 				299DC97721FB9906001F2861 /* ProcessingIndicatorHandler.swift in Sources */,
+				293EC151230CC7E2001912D1 /* PaginatedTableView.swift in Sources */,
+				293EC145230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */,
 				299DC97821FB9906001F2861 /* IQToolbar.swift in Sources */,
 				299DC97921FB9906001F2861 /* SplashViewController.swift in Sources */,
 				299DC97A21FB9906001F2861 /* ProcessingIndicatorView.swift in Sources */,
+				293EC0FC230C1E3B001912D1 /* TableViewAdapter.swift in Sources */,
 				299DC97B21FB9906001F2861 /* GCCalendarViewDelegate.swift in Sources */,
 				299DC97C21FB9906001F2861 /* Message+CoreDataProperties.swift in Sources */,
 				299DC97D21FB9906001F2861 /* ForgetPasswordViewController.swift in Sources */,
 				299DC97E21FB9906001F2861 /* IQNSArray+Sort.swift in Sources */,
 				299DC97F21FB9906001F2861 /* ScheduleAppointmentViewController.swift in Sources */,
+				293EC0F2230C1E3B001912D1 /* Diffable.swift in Sources */,
+				293EC0DE230C1E3B001912D1 /* BaseCell.swift in Sources */,
 				299DC98021FB9906001F2861 /* FloatLabelTextField.swift in Sources */,
+				293EC110230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */,
+				293EC115230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */,
 				299DC98121FB9906001F2861 /* SearchView.swift in Sources */,
 				299DC98221FB9906001F2861 /* Reachability.swift in Sources */,
 				299DC98321FB9906001F2861 /* String+Emoji.swift in Sources */,
+				293EC13E230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */,
 				299DC98421FB9906001F2861 /* HTMLString.swift in Sources */,
 				29C7254922934E9000BE41B3 /* UIView+Blur.swift in Sources */,
+				293EC12A230C3A51001912D1 /* RSPagination.swift in Sources */,
 				299DC98521FB9906001F2861 /* JsonPrinting.swift in Sources */,
+				293EC12F230C3A51001912D1 /* RSTableViewCell.swift in Sources */,
 				299DC98621FB9906001F2861 /* UserContact+CoreDataProperties.swift in Sources */,
 				299DC98721FB9906001F2861 /* ConversationParser.swift in Sources */,
 				299DC98821FB9906001F2861 /* UILabel+Copyable.m in Sources */,
+				293EC0F7230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */,
 				299DC98921FB9906001F2861 /* IQUIScrollView+Additions.swift in Sources */,
 				299DC98A21FB9906001F2861 /* Constants.swift in Sources */,
 				299DC98B21FB9906001F2861 /* SearchViewProtocol.swift in Sources */,
@@ -2500,6 +2756,7 @@
 				29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */,
 				29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0F3121160D0500062362 /* IQTextView.swift in Sources */,
+				293EC11D230C1E3B001912D1 /* ListUpdater.swift in Sources */,
 				29FD0F3321160D0500062362 /* User+CoreDataProperties.swift in Sources */,
 				29FD0F3421160D0500062362 /* LoginParser.swift in Sources */,
 				29FD0F3621160D0500062362 /* ComposeMessageViewController.swift in Sources */,
@@ -2514,6 +2771,7 @@
 				29FD0F3F21160D0500062362 /* GCCalendarConfiguration.swift in Sources */,
 				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
+				293EC137230C3A51001912D1 /* RSTableView.swift in Sources */,
 				29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506422947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2521,12 +2779,17 @@
 				29FD0F4421160D0500062362 /* GCCalendarWeekView.swift in Sources */,
 				29FD0F4521160D0500062362 /* InboxTableViewCell.swift in Sources */,
 				29FD0F4621160D0500062362 /* ConversationListingViewControllerProtocol.swift in Sources */,
+				293EC0FF230C1E3B001912D1 /* Collapsible.swift in Sources */,
 				29FD0F4721160D0500062362 /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0F4A21160D0500062362 /* Mappings.swift in Sources */,
 				29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */,
+				293EC0E1230C1E3B001912D1 /* ListAdapter.swift in Sources */,
+				293EC118230C1E3B001912D1 /* ListHelper.swift in Sources */,
+				293EC104230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */,
 				2932C2D9217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				293EC0EB230C1E3B001912D1 /* Filterable.swift in Sources */,
 				29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */,
 				29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */,
 				29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2534,12 +2797,16 @@
 				2932C2CF217230FE00D2A299 /* ProfileViewController.swift in Sources */,
 				29FD0F5121160D0500062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				293EC0E6230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */,
 				29FD0F5421160D0500062362 /* LoginViewController.swift in Sources */,
 				29FD0F5521160D0500062362 /* Inbox.xcdatamodeld in Sources */,
+				293EC132230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */,
 				29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */,
+				293EC0D7230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */,
 				29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */,
 				295EA29121204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
+				293EC109230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */,
 				29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */,
 				29FD0F5C21160D0500062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				29FD0F5D21160D0500062362 /* GCCalendarMonthView.swift in Sources */,
@@ -2549,24 +2816,35 @@
 				29FD0F6121160D0500062362 /* ConversationListingViewController.swift in Sources */,
 				29FD0F6221160D0500062362 /* InboxTableViewDataSource.swift in Sources */,
 				29FD0F6421160D0500062362 /* ProcessingIndicatorHandler.swift in Sources */,
+				293EC14F230CC7E2001912D1 /* PaginatedTableView.swift in Sources */,
+				293EC143230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */,
 				29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */,
 				29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */,
 				29FD0F6821160D0500062362 /* ProcessingIndicatorView.swift in Sources */,
+				293EC0FA230C1E3B001912D1 /* TableViewAdapter.swift in Sources */,
 				29FD0F6921160D0500062362 /* GCCalendarViewDelegate.swift in Sources */,
 				29FD0F6A21160D0500062362 /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D4217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				293EC0F0230C1E3B001912D1 /* Diffable.swift in Sources */,
+				293EC0DC230C1E3B001912D1 /* BaseCell.swift in Sources */,
 				29E5E14521767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
+				293EC10E230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */,
+				293EC113230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */,
 				29FD0F6F21160D0500062362 /* SearchView.swift in Sources */,
 				29FD0F7021160D0500062362 /* Reachability.swift in Sources */,
 				29FD0F7121160D0500062362 /* String+Emoji.swift in Sources */,
+				293EC13C230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */,
 				29FD0F7221160D0500062362 /* HTMLString.swift in Sources */,
 				29C7254722934E9000BE41B3 /* UIView+Blur.swift in Sources */,
+				293EC128230C3A51001912D1 /* RSPagination.swift in Sources */,
 				29FD0F7321160D0500062362 /* JsonPrinting.swift in Sources */,
+				293EC12D230C3A51001912D1 /* RSTableViewCell.swift in Sources */,
 				295EA29521204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
 				29C820522141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
+				293EC0F5230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */,
 				29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */,
 				29FD0F7621160D0500062362 /* Constants.swift in Sources */,
 				29FD0F7721160D0500062362 /* SearchViewProtocol.swift in Sources */,
@@ -2586,6 +2864,7 @@
 				29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */,
 				29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */,
 				29FD0FA621160D1000062362 /* IQTextView.swift in Sources */,
+				293EC11E230C1E3B001912D1 /* ListUpdater.swift in Sources */,
 				29FD0FA821160D1000062362 /* User+CoreDataProperties.swift in Sources */,
 				29FD0FA921160D1000062362 /* LoginParser.swift in Sources */,
 				29FD0FAB21160D1000062362 /* ComposeMessageViewController.swift in Sources */,
@@ -2600,6 +2879,7 @@
 				29FD0FB421160D1000062362 /* GCCalendarConfiguration.swift in Sources */,
 				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
+				293EC138230C3A51001912D1 /* RSTableView.swift in Sources */,
 				29C820472141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506522947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14221767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2607,12 +2887,17 @@
 				29FD0FB921160D1000062362 /* GCCalendarWeekView.swift in Sources */,
 				29FD0FBA21160D1000062362 /* InboxTableViewCell.swift in Sources */,
 				29FD0FBB21160D1000062362 /* ConversationListingViewControllerProtocol.swift in Sources */,
+				293EC100230C1E3B001912D1 /* Collapsible.swift in Sources */,
 				29FD0FBC21160D1000062362 /* IQUITextFieldView+Additions.swift in Sources */,
 				29C5259721A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */,
 				29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0FBF21160D1000062362 /* Mappings.swift in Sources */,
 				29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */,
+				293EC0E2230C1E3B001912D1 /* ListAdapter.swift in Sources */,
+				293EC119230C1E3B001912D1 /* ListHelper.swift in Sources */,
+				293EC105230C1E3B001912D1 /* UICollectionViewSnappingFlowLayout.swift in Sources */,
 				2932C2DA217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				293EC0EC230C1E3B001912D1 /* Filterable.swift in Sources */,
 				29FD0FC121160D1000062362 /* Deprecated.swift in Sources */,
 				29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */,
 				29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2620,12 +2905,16 @@
 				2932C2D0217230FE00D2A299 /* ProfileViewController.swift in Sources */,
 				29FD0FC621160D1000062362 /* Conversation+CoreDataClass.swift in Sources */,
 				29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				293EC0E7230C1E3B001912D1 /* UICollectionViewStaggeredLayout.swift in Sources */,
 				29FD0FC921160D1000062362 /* LoginViewController.swift in Sources */,
 				29FD0FCA21160D1000062362 /* Inbox.xcdatamodeld in Sources */,
+				293EC133230C3A51001912D1 /* RSTableViewDataSource.swift in Sources */,
 				29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */,
+				293EC0D8230C1E3B001912D1 /* PaginatedListScrollListener.swift in Sources */,
 				29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */,
 				295EA29221204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
+				293EC10A230C1E3B001912D1 /* UITableView+LoadingFooter.swift in Sources */,
 				29FD0FD021160D1000062362 /* Checkbox.swift in Sources */,
 				29FD0FD121160D1000062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
 				29FD0FD221160D1000062362 /* GCCalendarMonthView.swift in Sources */,
@@ -2635,24 +2924,35 @@
 				29FD0FD621160D1000062362 /* ConversationListingViewController.swift in Sources */,
 				29FD0FD721160D1000062362 /* InboxTableViewDataSource.swift in Sources */,
 				29FD0FD921160D1000062362 /* ProcessingIndicatorHandler.swift in Sources */,
+				293EC150230CC7E2001912D1 /* PaginatedTableView.swift in Sources */,
+				293EC144230C3C9B001912D1 /* RSEmptyDataView.swift in Sources */,
 				29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */,
 				29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */,
 				29FD0FDD21160D1000062362 /* ProcessingIndicatorView.swift in Sources */,
+				293EC0FB230C1E3B001912D1 /* TableViewAdapter.swift in Sources */,
 				29FD0FDE21160D1000062362 /* GCCalendarViewDelegate.swift in Sources */,
 				29FD0FDF21160D1000062362 /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D5217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				293EC0F1230C1E3B001912D1 /* Diffable.swift in Sources */,
+				293EC0DD230C1E3B001912D1 /* BaseCell.swift in Sources */,
 				29E5E14621767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
+				293EC10F230C1E3B001912D1 /* UICollectionViewFullWidthFlowLayout.swift in Sources */,
+				293EC114230C1E3B001912D1 /* UICollectionViewJustifiedFlowLayout.swift in Sources */,
 				29FD0FE421160D1000062362 /* SearchView.swift in Sources */,
 				29FD0FE521160D1000062362 /* Reachability.swift in Sources */,
 				29FD0FE621160D1000062362 /* String+Emoji.swift in Sources */,
+				293EC13D230C3A51001912D1 /* RSSearchBarDelegate.swift in Sources */,
 				29FD0FE721160D1000062362 /* HTMLString.swift in Sources */,
 				29C7254822934E9000BE41B3 /* UIView+Blur.swift in Sources */,
+				293EC129230C3A51001912D1 /* RSPagination.swift in Sources */,
 				29FD0FE821160D1000062362 /* JsonPrinting.swift in Sources */,
+				293EC12E230C3A51001912D1 /* RSTableViewCell.swift in Sources */,
 				295EA29621204FB800C1EAB2 /* UserContact+CoreDataProperties.swift in Sources */,
 				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,
 				29C820532141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
+				293EC0F6230C1E3B001912D1 /* CollectionViewAdapter.swift in Sources */,
 				29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */,
 				29FD0FEB21160D1000062362 /* Constants.swift in Sources */,
 				29FD0FEC21160D1000062362 /* SearchViewProtocol.swift in Sources */,
