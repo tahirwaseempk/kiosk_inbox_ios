@@ -22,7 +22,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xIz-XR-nNT" customClass="HomeViewController" customModule="FanConnectNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OC1-1Y-81s">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twT-UD-oUk">
@@ -54,20 +54,20 @@
                                         </scopeButtonTitles>
                                     </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-90-UsF" userLabel="WelcomeView">
-                                        <rect key="frame" x="16.000000000000007" y="5" width="127.66666666666669" height="65"/>
+                                        <rect key="frame" x="16" y="5" width="164.66666666666666" height="65"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJy-SW-JZU" userLabel="Name Container">
-                                                <rect key="frame" x="0.0" y="7.3333333333333321" width="127.66666666666667" height="50.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="1" width="164.66666666666666" height="63"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-nY-myW">
-                                                        <rect key="frame" x="0.0" y="5" width="127.66666666666667" height="14"/>
-                                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="5" width="164.66666666666666" height="19.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lime Cellular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2w-7I-lLm">
-                                                        <rect key="frame" x="0.0" y="24" width="127.66666666666667" height="26.333333333333329"/>
-                                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="22"/>
+                                                        <rect key="frame" x="0.0" y="29.333333333333339" width="164.66666666666666" height="33.666666666666657"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -164,13 +164,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-TJ-d6L" customClass="GradientButton">
-                                <rect key="frame" x="284" y="687.66666666666663" width="120" height="38.333333333333371"/>
+                                <rect key="frame" x="254" y="678.33333333333337" width="150" height="47.666666666666629"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aWK-TJ-d6L" secondAttribute="height" multiplier="91:29" id="65u-zk-X1Q"/>
-                                    <constraint firstAttribute="width" constant="120" id="DZ2-Ii-eaa"/>
+                                    <constraint firstAttribute="width" constant="150" id="DZ2-Ii-eaa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="15"/>
                                 <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="New Message" backgroundImage="composeIconNew">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
