@@ -66,7 +66,11 @@ let PhotoHex    = "1590D3"//"8D8FC7"
 let ReceiverHex = "DFDEE5"
 
 let LIMIT = "0"
+let LIMIT_MESSAGES = "50"
 let EMOJI = "true"
+let EMOJI_MESSAGES = "true"
+let INDEX_FROM_MESSAGES = "old"
+
 let CONTACTSWITHCHAT = "true"
 
 var IS_LISTING_SERVICE_CALLED = false

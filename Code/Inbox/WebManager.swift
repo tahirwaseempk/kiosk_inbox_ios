@@ -23,7 +23,13 @@ let LOGIN = "/api/v1/auth/login"
 let GET_CONVERSATIONS = "/api/v1/chats/"
 let GET_CONVERSATIONS_LIMIT = "?limit="
 let GET_CONVERSATIONS_EMOJI = "&isEmojiAliases="
+
 let GET_MESSAGES = "/api/v1/messages/"
+let GET_MESSAGES_LIMIT = "?limit="
+let GET_MESSAGES_EMOJI = "&isEmojiAliases="
+let GET_MESSAGES_INDEX = "&index="
+let GET_MESSAGESFROM_INDEX = "&messagesFromIndex="
+
 let DELETE_CONVERSATION = "/api/v1/chats/"
 let SEND_MESSAGE = "/api/v1/messages/"
 let COMPOSE_MESSAGE = "/api/v1/messages/startNewChatMsg"
@@ -432,13 +438,13 @@ class WebManager: NSObject
         
         let chatID:String = params["chatID"] as! String
         let token:String = params["token"] as! String
-
+        
         var finalUrl = ""
         
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + GET_MESSAGES + chatID
+            finalUrl = URL_TEXTING_LINE + GET_MESSAGES + chatID + GET_MESSAGES_LIMIT + LIMIT_MESSAGES + GET_MESSAGES_EMOJI + EMOJI_MESSAGES
         case .sms_Factory:
             finalUrl = URL_SMS_FACTORY + GET_MESSAGES + chatID
         case .fan_Connect:
@@ -477,6 +483,63 @@ class WebManager: NSObject
             }
         })
     }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    static func getMessagesPagination(params: Dictionary<String,Any>,messageParser:MessagesParser,completionBlockSuccess successBlock: @escaping ((Array<Message>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let chatID:String = params["chatID"] as! String
+        let token:String = params["token"] as! String
+        let messageIndex:String = params["lastMessageID"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + GET_MESSAGES + chatID + GET_MESSAGES_LIMIT + LIMIT_MESSAGES + GET_MESSAGES_EMOJI + EMOJI_MESSAGES + GET_MESSAGES_INDEX + messageIndex + GET_MESSAGESFROM_INDEX + INDEX_FROM_MESSAGES
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + GET_MESSAGES + chatID
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + GET_MESSAGES + chatID
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + GET_MESSAGES + chatID
+        case .text_Attendant:
+            finalUrl = URL_TEXT_ATTENDANT + GET_MESSAGES + chatID
+            
+        }
+        
+        print("\n ===== >>>>> Get Message Pagination URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                let responseDict = response as! Dictionary<String,Any>
+                                if responseDict["statusCode"] != nil {
+                                    let errorMessage = responseDict["message"] as! String
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:errorMessage]))
+                                } else {
+                                    successBlock(messageParser.parseMessages(json:response as! Dictionary<String, Any>))
+                                }
+                        }
+                }
+                
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//

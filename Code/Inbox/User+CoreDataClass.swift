@@ -317,7 +317,7 @@ extension User
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func getMessageForConversation(_ conversation: Conversation, completionBlockSuccess successBlock: @escaping ((Array<Message>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func getMessageForConversation(conversation: Conversation, lastMessageId: String, completionBlockSuccess successBlock: @escaping ((Array<Message>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
@@ -325,26 +325,52 @@ extension User
             paramsDic["token"] = user.token
             paramsDic["chatID"] = String(conversation.chatId)
             
-            WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
-                
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                for message in messages!
+            if (lastMessageId != "") {
+                paramsDic["lastMessageID"] = lastMessageId
+                WebManager.getMessagesPagination(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
+                    
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
                                 {
-                                    message.conversation = conversation
-                                }
-                                
-                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                
-                                successBlock(messages)
-                        }
+                                    for message in messages!
+                                    {
+                                        message.conversation = conversation
+                                    }
+                                    
+                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                    
+                                    successBlock(messages)
+                            }
+                    }
+                    
+                }){(error:Error?) -> (Void) in
+                    
+                    failureBlock(error)
                 }
                 
-            }){(error:Error?) -> (Void) in
-                
-                failureBlock(error)
+            } else {
+                WebManager.getMessages(params:paramsDic,messageParser:MessagesParser(conversation),completionBlockSuccess:{(messages:Array<Message>?) -> (Void) in
+                    
+                    DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                                {
+                                    for message in messages!
+                                    {
+                                        message.conversation = conversation
+                                    }
+                                    
+                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                    
+                                    successBlock(messages)
+                            }
+                    }
+                    
+                }){(error:Error?) -> (Void) in
+                    
+                    failureBlock(error)
+                }
             }
         }
         else

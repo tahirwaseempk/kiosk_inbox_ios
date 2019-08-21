@@ -152,7 +152,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     func callMessagesWebService () {
         
-        User.getMessageForConversation(self.selectedConversation, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
+        User.getMessageForConversation(conversation:self.selectedConversation, lastMessageId:"", completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
             
             //            DispatchQueue.global(qos:.background).async
             //                {
