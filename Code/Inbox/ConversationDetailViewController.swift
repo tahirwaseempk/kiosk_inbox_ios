@@ -94,7 +94,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 
         return true
     }
-    
         
     @IBAction func profileDoneButton_Tapped(_ sender: Any) {
         
@@ -221,7 +220,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
     }
     
-    
     @IBAction func profileGenderButton_Tapped(_ sender: UIButton) {
         
         self.view.endEditing(true)
@@ -247,7 +245,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         p.appear(originView: sender, baseViewController: self)
         p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
     }
-    
     
     @IBAction func profileStateButton_Tapped(_ sender: UIButton) {
         
@@ -284,28 +281,24 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 105
-        tableView.clipsToBounds = false
-
+        
         header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
-       // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
-
+        // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
         
         
-         sendTextField.inputAccessoryView = UIView()
+        sendTextField.inputAccessoryView = UIView()
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
         if UIDevice.current.userInterfaceIdiom == .pad {
-//            header_View.backgroundColor = GrayHeaderColor
+            //            header_View.backgroundColor = GrayHeaderColor
         } else {
-//            header_View.backgroundColor = AppThemeColor
+            //            header_View.backgroundColor = AppThemeColor
         }
         //profileNavView.backgroundColor = AppThemeColor
-      //  cross_Button.backgroundColor = AppThemeColor
-      //  delete_Button.backgroundColor = AppThemeColor
-       // Optout_Button.backgroundColor = AppThemeColor
-       // schedule_Button.backgroundColor = AppThemeColor
+        //  cross_Button.backgroundColor = AppThemeColor
+        //  delete_Button.backgroundColor = AppThemeColor
+        // Optout_Button.backgroundColor = AppThemeColor
+        // schedule_Button.backgroundColor = AppThemeColor
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
         
@@ -316,7 +309,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         
         profileSaveButton.layer.cornerRadius = profileSaveButton.bounds.height/BUTTON_RADIUS
-
+        
         /*
          switch environment {
          case .texting_Line:
@@ -372,12 +365,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.sendTextField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         self.sendTextField.delegate = self
         self.chawalView.layer.cornerRadius =  self.chawalView.bounds.height/2
-
         
-        ////////////////////////////////////////////////////////////////////////////////////////
-        //refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
-        //tableView.refreshControl = refreshControl
-        ////////////////////////////////////////////////////////////////////////////////////////
+        
         ////////////////////////////////////////////////////////////////////////////////////////
         // header_View.backgroundColor = AppThemeColor
         /*
@@ -392,18 +381,23 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
          header_View.backgroundColor = AppThemeColor
          }
          */
-      
-        tableViewDataSource = MessageTableViewDataSource(tableview: tableView)
-        
-        tableView.dataSource = tableViewDataSource
         
         
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        self.setupTableView()
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
         
         if self.selectedConversation != nil
         {
             _ = self.conversationSelected(conversation: self.selectedConversation)
         }
         
+        self.setupProfileViewThings()
+    }
+    
+    func setupProfileViewThings() {
         //////////////////////////////////////////////////////////////////////
         self.profileEmailTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
         self.profileFirstNameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -422,6 +416,20 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileAddressTextField.isEnabled   = true
         self.profileStateTextField.isEnabled     = false
         self.profileZipCodeTextField.isEnabled   = true
+        //////////////////////////////////////////////////////////////////////
+    }
+    
+    func setupTableView () {
+        //////////////////////////////////////////////////////////////////////
+        //refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
+        //tableView.refreshControl = refreshControl
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 105
+        tableView.clipsToBounds = false
+        
+        tableViewDataSource  = MessageTableViewDataSource(tableview: tableView)
+        tableView.dataSource = tableViewDataSource
         //////////////////////////////////////////////////////////////////////
     }
     

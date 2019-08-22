@@ -1035,7 +1035,6 @@ class WebManager: NSObject
                     print("JSON string = \(theJSONText!)")
                 }
                 
-                
                 //                let jsonString = String(data: jsonData!, encoding: .utf8)
                 //                print(jsonString)
                 //                let jsonEncoder = JSONEncoder()
