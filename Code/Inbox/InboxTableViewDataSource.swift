@@ -175,7 +175,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
     {
         selectedConversation = filteredConversations [indexPath.row]
-        _ = self.delegate.conversationSelected(conversation: selectedConversation)
+        _ = self.delegate.conversationSelected(conversation: selectedConversation, shouldScroll: true)
     }
     
     func relativePast(for date : Date) -> String {

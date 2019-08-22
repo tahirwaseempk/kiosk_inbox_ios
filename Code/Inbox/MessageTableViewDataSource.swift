@@ -44,10 +44,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         self.targetedTableView.delegate = self
         
         
-        self.reloadControls()
+        self.reloadControls(shouldScroll: true)
     }
     
-    func reloadControls()
+    func reloadControls(shouldScroll:Bool)
     {
         if self.selectedConversation != nil
         {
@@ -78,6 +78,9 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView.reloadData()
         
+        
+        if shouldScroll == true {
+            
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300))
         {
             let numberOfSections = self.targetedTableView.numberOfSections
@@ -100,6 +103,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
                     self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
                 }
             }
+        }
         }
     }
     
@@ -183,9 +187,9 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     }
     
     
-    func loadConversation(conversation_: Conversation?) -> Bool {
+    func loadConversation(conversation_: Conversation?, shouldTableViewScroll: Bool) -> Bool {
         self.selectedConversation = conversation_;
-        self.reloadControls()
+        self.reloadControls(shouldScroll: shouldTableViewScroll)
         return true
     }
     //************************************************************************************************//
@@ -299,11 +303,6 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
     {
-        //let height = scrollView.frame.size.height
-        
-        //let contentYoffset = scrollView.contentOffset.y
-        
-        //let distanceFromBottom = scrollView.contentSize.height - contentYoffset
         
         if scrollView.contentOffset.y == 0 //distanceFromBottom < height
         {
@@ -328,13 +327,11 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
                 delegate.loadMoreMessages(messageId:String(message.messageId), completionBlockSuccess: { (newMessages:Array<Message>) -> (Void) in
                     
                     // New Messages Recvd From Server
-                    
                     self.isCallAlreadySent = false
                     
                 }, andFailureBlock: { (error:Error?) -> (Void) in
                     
                     // Failed To Rcv New Messages From Server
-                    
                     self.isCallAlreadySent = false
                 })
             }

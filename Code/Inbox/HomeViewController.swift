@@ -415,7 +415,7 @@ extension HomeViewController:ConversationListingViewControllerProtocol
         
         if UIDevice.current.userInterfaceIdiom == .pad
         {
-            _ = self.conversationDetailViewController.conversationSelected(conversation: self.selectedConversation)
+//            _ = self.conversationDetailViewController.conversationSelected(conversation: self.selectedConversation, shouldScroll: true)
         }
         else
         {
