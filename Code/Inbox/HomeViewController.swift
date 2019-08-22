@@ -5,7 +5,7 @@ class HomeViewController: UIViewController
     @IBOutlet weak var signOutButton: UIButton!
     
     @IBOutlet weak var profileButton: UIButton!
-
+    
     @IBOutlet weak var closeInnerButton: UIButton!
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -21,13 +21,13 @@ class HomeViewController: UIViewController
     @IBOutlet weak var compose_Button: UIButton!
     
     @IBOutlet weak var closeButtonButton: UIButton!
-
+    
     @IBOutlet var closeView: UIView!
-
+    
     var verifyCodeViewController:VerifyCodeViewController!
-
+    
     var profileViewController:ProfileViewController!
-
+    
     var composeMessageViewController:ComposeMessageViewController!
     
     var conversationListingViewController:ConversationListingViewController!
@@ -43,27 +43,27 @@ class HomeViewController: UIViewController
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
         //header_View.backgroundColor = AppThemeColor
-       
+        
         /////////////////////////////////////////////////////
         if environment == .text_Attendant {
             //searchBar.barTintColor = UIColor.white
             //searchBar.backgroundColor = UIColor.white
             //searchBar.tintColor = UIColor.white
-//            searchBar.backgroundColor = uicolor//AppThemeColor
-//            if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
-//                textFieldInsideSearchBar.textColor = UIColor.white
-//            }
+            //            searchBar.backgroundColor = uicolor//AppThemeColor
+            //            if let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField {
+            //                textFieldInsideSearchBar.textColor = UIColor.white
+            //            }
             /////////////////////////////////////////////////////
         } else {
-//            searchBar.backgroundColor = AppThemeColor
+            //            searchBar.backgroundColor = AppThemeColor
         }
         /////////////////////////////////////////////////////
         //compose_Button.setImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
         
         //compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
         
-//        compose_Button.tintColor = AppThemeColor
-//        compose_Button.layer.borderColor = AppThemeColor.cgColor
+        //        compose_Button.tintColor = AppThemeColor
+        //        compose_Button.layer.borderColor = AppThemeColor.cgColor
         
         //profileButton.backgroundColor = AppThemeColor
         //signOutButton.backgroundColor = AppThemeColor
@@ -72,71 +72,71 @@ class HomeViewController: UIViewController
         /////////////////////////////////////////////////////
         
         /*
-        switch environment {
-        case .texting_Line:
-            header_View.backgroundColor = AppThemeColor
-            searchBar.backgroundColor = AppThemeColor
-            
-//            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
-            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            compose_Button.tintColor = AppThemeColor
-            compose_Button.layer.borderColor = AppThemeColor.cgColor
-            
-            profileButton.backgroundColor = AppThemeColor
-            signOutButton.backgroundColor = AppThemeColor
-            closeInnerButton.backgroundColor = AppThemeColor
-            
-        case .sms_Factory:
-            header_View.backgroundColor = AppThemeColor
-            searchBar.backgroundColor = AppThemeColor
-            
-//            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
-            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            compose_Button.tintColor = AppThemeColor
-            compose_Button.layer.borderColor = AppThemeColor.cgColor
-            
-            profileButton.backgroundColor = AppThemeColor
-            signOutButton.backgroundColor = AppThemeColor
-            closeInnerButton.backgroundColor = AppThemeColor
-            
-        case .fan_Connect:
-            header_View.backgroundColor = AppThemeColor
-            searchBar.backgroundColor = AppThemeColor
-            
-            //compose_Button.setImage(UIImage(named: "compose_green"), for: UIControlState.normal)
-            //            compose_Button.setImage(UIImage(named: "compose_purple")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            //            compose_Button.tintColor = UIColor.white
-            //            compose_Button.backgroundColor = FanAppColor
-            
-            
-            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            compose_Button.tintColor = AppThemeColor
-            compose_Button.layer.borderColor = AppThemeColor.cgColor
-            
-            profileButton.backgroundColor = AppThemeColor
-            signOutButton.backgroundColor = AppThemeColor
-            closeInnerButton.backgroundColor = AppThemeColor
-            
-        case .photo_Texting:
-            header_View.backgroundColor = AppThemeColor
-            searchBar.backgroundColor = AppThemeColor
-            
-//            compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
-            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            compose_Button.tintColor = AppThemeColor
-            compose_Button.layer.borderColor = AppThemeColor.cgColor
-            
-//            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-//            compose_Button.tintColor = AppThemeColor
-//            compose_Button.layer.borderColor = AppThemeColor.cgColor
-            
-            
-            profileButton.backgroundColor = AppThemeColor
-            signOutButton.backgroundColor = AppThemeColor
-            closeInnerButton.backgroundColor = AppThemeColor
-        }
- 
- */
+         switch environment {
+         case .texting_Line:
+         header_View.backgroundColor = AppThemeColor
+         searchBar.backgroundColor = AppThemeColor
+         
+         //            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+         compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         compose_Button.tintColor = AppThemeColor
+         compose_Button.layer.borderColor = AppThemeColor.cgColor
+         
+         profileButton.backgroundColor = AppThemeColor
+         signOutButton.backgroundColor = AppThemeColor
+         closeInnerButton.backgroundColor = AppThemeColor
+         
+         case .sms_Factory:
+         header_View.backgroundColor = AppThemeColor
+         searchBar.backgroundColor = AppThemeColor
+         
+         //            compose_Button.setImage(UIImage(named: "compose_blue"), for: UIControlState.normal)
+         compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         compose_Button.tintColor = AppThemeColor
+         compose_Button.layer.borderColor = AppThemeColor.cgColor
+         
+         profileButton.backgroundColor = AppThemeColor
+         signOutButton.backgroundColor = AppThemeColor
+         closeInnerButton.backgroundColor = AppThemeColor
+         
+         case .fan_Connect:
+         header_View.backgroundColor = AppThemeColor
+         searchBar.backgroundColor = AppThemeColor
+         
+         //compose_Button.setImage(UIImage(named: "compose_green"), for: UIControlState.normal)
+         //            compose_Button.setImage(UIImage(named: "compose_purple")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         //            compose_Button.tintColor = UIColor.white
+         //            compose_Button.backgroundColor = FanAppColor
+         
+         
+         compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         compose_Button.tintColor = AppThemeColor
+         compose_Button.layer.borderColor = AppThemeColor.cgColor
+         
+         profileButton.backgroundColor = AppThemeColor
+         signOutButton.backgroundColor = AppThemeColor
+         closeInnerButton.backgroundColor = AppThemeColor
+         
+         case .photo_Texting:
+         header_View.backgroundColor = AppThemeColor
+         searchBar.backgroundColor = AppThemeColor
+         
+         //            compose_Button.setImage(UIImage(named: "compose_purple"), for: UIControlState.normal)
+         compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         compose_Button.tintColor = AppThemeColor
+         compose_Button.layer.borderColor = AppThemeColor.cgColor
+         
+         //            compose_Button.setImage(UIImage(named: "compose_all")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         //            compose_Button.tintColor = AppThemeColor
+         //            compose_Button.layer.borderColor = AppThemeColor.cgColor
+         
+         
+         profileButton.backgroundColor = AppThemeColor
+         signOutButton.backgroundColor = AppThemeColor
+         closeInnerButton.backgroundColor = AppThemeColor
+         }
+         
+         */
         self.setupControls()
         
         
@@ -164,9 +164,9 @@ class HomeViewController: UIViewController
         self.setupConversationDetailView()
         
         self.refreshUnReadCount()
-
+        
         self.searchBar.text = ""
-
+        
     }
     
     @objc func apnsPushNotificationRecieved()
@@ -202,7 +202,7 @@ class HomeViewController: UIViewController
         updateBadgeCount()
         self.conversationListingViewController.callLastConversationsUpdate()
     }
-
+    
     func setupConversationListingView()
     {
         let storyboard = UIStoryboard.init(name: "ConversationListing", bundle: nil)
@@ -238,10 +238,10 @@ class HomeViewController: UIViewController
     @IBAction func profileButtonTapped(_ sender: Any) {
         
         self.closeView.removeFromSuperview()
-
+        
         self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
         
-        self.profileViewController.delegate = self 
+        self.profileViewController.delegate = self
         self.view.addSubview(self.profileViewController.view)
         
         self.profileViewController.view.frame = self.view.bounds
@@ -259,11 +259,11 @@ class HomeViewController: UIViewController
     }
     
     @IBAction func signOut_Tapped(_ sender: Any) {
-
+        
         NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
         NotificationCenter.default.removeObserver(self, name: APNSPushNotificationName, object: nil)
         
-    
+        
         
         self.signOutDeleteAPNS()
         
@@ -280,7 +280,7 @@ class HomeViewController: UIViewController
                         {
                             ProcessingIndicator.hide()
                             self.navigationController?.popToRootViewController(animated: true)
-
+                            
                     }
             }
             
@@ -292,7 +292,7 @@ class HomeViewController: UIViewController
                         {
                             ProcessingIndicator.hide()
                             self.navigationController?.popToRootViewController(animated: true)
-
+                            
                     }
             }
             
@@ -301,7 +301,7 @@ class HomeViewController: UIViewController
     }
     
     // MARK: CLOSE VIEW ACTIONS - END
-
+    
     @IBAction func createMessage_Tapped(_ sender: Any)
     {
         let storyboard = UIStoryboard.init(name: "ComposeMessage", bundle: nil)
@@ -315,21 +315,21 @@ class HomeViewController: UIViewController
     
     func refreshUnReadCount ()
     {
-//        if UIDevice.current.userInterfaceIdiom == .pad
-//        {
-            if (User.getLoginedUser()?.firstName!.isEmpty == false &&
-                User.getLoginedUser()?.lastName!.isEmpty == false)
-            {
-                self.userNameLabel.text = ((User.getLoginedUser()?.firstName)! + " " + (User.getLoginedUser()?.lastName)!)
-            }
-            else {
-                self.userNameLabel.text = User.getLoginedUser()?.username
-            }
-//        }
-//        else
-//        {
-//            self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
-//        }
+        //        if UIDevice.current.userInterfaceIdiom == .pad
+        //        {
+        if (User.getLoginedUser()?.firstName!.isEmpty == false &&
+            User.getLoginedUser()?.lastName!.isEmpty == false)
+        {
+            self.userNameLabel.text = ((User.getLoginedUser()?.firstName)! + " " + (User.getLoginedUser()?.lastName)!)
+        }
+        else {
+            self.userNameLabel.text = User.getLoginedUser()?.username
+        }
+        //        }
+        //        else
+        //        {
+        //            self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+        //        }
     }
     
     func showUnReadConversationCount(_ conversations: NSSet?) -> Int
@@ -404,7 +404,7 @@ extension HomeViewController:ConversationListingViewControllerProtocol
         
         if UIDevice.current.userInterfaceIdiom == .phone
         {
-           // self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
+            // self.userNameLabel.text = "Messages (" + String(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)) + ")"
         }
         return true
     }
@@ -415,7 +415,7 @@ extension HomeViewController:ConversationListingViewControllerProtocol
         
         if UIDevice.current.userInterfaceIdiom == .pad
         {
-//            _ = self.conversationDetailViewController.conversationSelected(conversation: self.selectedConversation, shouldScroll: true)
+            _ = self.conversationDetailViewController.conversationSelected(conversation: self.selectedConversation)
         }
         else
         {
@@ -444,10 +444,10 @@ extension HomeViewController:ConversationDetailViewControllerProtocol
     }
     
     func updateConversationList() {
-
+        
         self.conversationListingViewController.conversationListUpdated()
     }
-
+    
 }
 
 extension HomeViewController: ComposeMessageProtocol

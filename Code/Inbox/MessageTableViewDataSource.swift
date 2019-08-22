@@ -44,10 +44,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         self.targetedTableView.delegate = self
         
         
-        self.reloadControls(shouldScroll: true)
+        self.reloadControls()
     }
     
-    func reloadControls(shouldScroll:Bool)
+    func reloadControls()
     {
         if self.selectedConversation != nil
         {
@@ -78,32 +78,36 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         self.targetedTableView.reloadData()
         
+        if ((UserDefaults.standard.object(forKey:"SHOULD_SCROLL") as? String) != nil) {
+            if ((UserDefaults.standard.object(forKey:"SHOULD_SCROLL") as? String) != "true") {
         
-        if shouldScroll == true {
-            
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300))
-        {
-            let numberOfSections = self.targetedTableView.numberOfSections
-            
-            var numberOfRows = 0
-            
-            if numberOfSections > 0
-            {
-                let key = self.timeStampedMessagesList[numberOfSections-1]
+                UserDefaults.standard.set("", forKey: "SHOULD_SCROLL")
+                UserDefaults.standard.synchronize()
                 
-                if let list = self.timeStampedMessagesDictionary[key]
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300))
                 {
-                    numberOfRows =  list.count
-                }
-                
-                if numberOfSections > 0
-                {
-                    let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
+                    let numberOfSections = self.targetedTableView.numberOfSections
                     
-                    self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+                    var numberOfRows = 0
+                    
+                    if numberOfSections > 0
+                    {
+                        let key = self.timeStampedMessagesList[numberOfSections-1]
+                        
+                        if let list = self.timeStampedMessagesDictionary[key]
+                        {
+                            numberOfRows =  list.count
+                        }
+                        
+                        if numberOfSections > 0
+                        {
+                            let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
+                            
+                            self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+                        }
+                    }
                 }
             }
-        }
         }
     }
     
@@ -187,9 +191,9 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     }
     
     
-    func loadConversation(conversation_: Conversation?, shouldTableViewScroll: Bool) -> Bool {
+    func loadConversation(conversation_: Conversation?) -> Bool {
         self.selectedConversation = conversation_;
-        self.reloadControls(shouldScroll: shouldTableViewScroll)
+        self.reloadControls()
         return true
     }
     //************************************************************************************************//
@@ -303,6 +307,11 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
     {
+        //let height = scrollView.frame.size.height
+        
+        //let contentYoffset = scrollView.contentOffset.y
+        
+        //let distanceFromBottom = scrollView.contentSize.height - contentYoffset
         
         if scrollView.contentOffset.y == 0 //distanceFromBottom < height
         {
@@ -327,11 +336,13 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
                 delegate.loadMoreMessages(messageId:String(message.messageId), completionBlockSuccess: { (newMessages:Array<Message>) -> (Void) in
                     
                     // New Messages Recvd From Server
+                    
                     self.isCallAlreadySent = false
                     
                 }, andFailureBlock: { (error:Error?) -> (Void) in
                     
                     // Failed To Rcv New Messages From Server
+                    
                     self.isCallAlreadySent = false
                 })
             }

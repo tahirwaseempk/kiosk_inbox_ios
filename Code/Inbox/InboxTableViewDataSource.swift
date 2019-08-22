@@ -31,8 +31,8 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         self.targetedTableView.delegate = self
         self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
         
-       // self.targetedTableView.register(UINib(nibName: "SearchView", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchView")
-
+        // self.targetedTableView.register(UINib(nibName: "SearchView", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchView")
+        
         self.applySearchFiltersForSearchText("")
         //self.reloadControls()
     }
@@ -43,26 +43,26 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         //------------------------------------------------------------------------------------------------//
         //************************************************************************************************//
         filteredConversations = filteredConversations.sorted(by: { (conversation1, conversation2) -> Bool in
-
+            
             //print(conversation1.isRead, conversation2.isRead)
-//            if conversation1.isRead == conversation2.isRead {
-                        
-                if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedDescending
-                {
-                    return true
-                }
-                else if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedAscending
-                {
-                    return false
-                }
-                else
-                {
-                    return false
-                }
-//            }
-//            else  {
-//                return conversation1.isRead
-//            }
+            //            if conversation1.isRead == conversation2.isRead {
+            
+            if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedDescending
+            {
+                return true
+            }
+            else if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedAscending
+            {
+                return false
+            }
+            else
+            {
+                return false
+            }
+            //            }
+            //            else  {
+            //                return conversation1.isRead
+            //            }
         })
         //************************************************************************************************//
         //------------------------------------------------------------------------------------------------//
@@ -74,11 +74,11 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             
             let index = filteredConversations.index(of: selectedConversation)
             let indexPath = IndexPath(row:index!, section: 0)
-   
+            
             targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
         else {
-          
+            
             let indexPath = IndexPath(row:-1, section: 0)
             targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
@@ -96,27 +96,27 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-//        if UIDevice.current.userInterfaceIdiom == .pad
-//        {
-//            return 50.0;
-//        }
+        //        if UIDevice.current.userInterfaceIdiom == .pad
+        //        {
+        //            return 50.0;
+        //        }
         
         return 1.0;
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-//    {
-//        if UIDevice.current.userInterfaceIdiom == .pad
-//        {
-//            self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as? SearchView
-//
-//            self.searchView.delegate = self
-//
-//            return self.searchView
-//        }
-//
-//        return UIView()
-//    }
+    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    //    {
+    //        if UIDevice.current.userInterfaceIdiom == .pad
+    //        {
+    //            self.searchView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchView" ) as? SearchView
+    //
+    //            self.searchView.delegate = self
+    //
+    //            return self.searchView
+    //        }
+    //
+    //        return UIView()
+    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
@@ -128,7 +128,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         
         if conversation.lastMessage != nil
         {
-           
+            
             if conversation.receiver?.firstName?.isEmpty == false &&
                 conversation.receiver?.lastName?.isEmpty == false
             {
@@ -144,11 +144,11 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             
             //-----------------------------------------------------------//
             //-----------------------------------------------------------//
-//            let dateFormatter =  DateFormatter()
-//            dateFormatter.timeZone = TimeZone.current
-//            dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
-//            let outStr = dateFormatter.string(from: conversation.timeStamp)
-            let outStr = self.relativePast(for: conversation.timeStamp)            
+            //            let dateFormatter =  DateFormatter()
+            //            dateFormatter.timeZone = TimeZone.current
+            //            dateFormatter.dateFormat = DISPLAY_FORMATE_STRING
+            //            let outStr = dateFormatter.string(from: conversation.timeStamp)
+            let outStr = self.relativePast(for: conversation.timeStamp)
             //-----------------------------------------------------------//
             //-----------------------------------------------------------//
             
@@ -175,7 +175,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView:UITableView,didSelectRowAt indexPath:IndexPath)
     {
         selectedConversation = filteredConversations [indexPath.row]
-        _ = self.delegate.conversationSelected(conversation: selectedConversation, shouldScroll: true)
+        _ = self.delegate.conversationSelected(conversation: selectedConversation)
     }
     
     func relativePast(for date : Date) -> String {
@@ -191,17 +191,17 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
             
         } else if components.weekOfYear! > 0 {
             
-//            if (components.weekOfYear! == 1) {
-                let dateFormatter = DateFormatter()
-                dateFormatter.timeZone = TimeZone.current
-//                dateFormatter.dateFormat = "dd-MM-yyyy"
-                dateFormatter.dateFormat = "EEEE"
-                return dateFormatter.string(from: date)
-                
-//            } else {
-//            return "\(components.weekOfYear!) " + (components.weekOfYear! > 1 ? "weeks ago" : "week ago")
-//
-//            }
+            //            if (components.weekOfYear! == 1) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone.current
+            //                dateFormatter.dateFormat = "dd-MM-yyyy"
+            dateFormatter.dateFormat = "EEEE"
+            return dateFormatter.string(from: date)
+            
+            //            } else {
+            //            return "\(components.weekOfYear!) " + (components.weekOfYear! > 1 ? "weeks ago" : "week ago")
+            //
+            //            }
             
         } else if (components.day! > 0) {
             return (components.day! > 1 ? "\(components.day!) days ago" : "Yesterday")
@@ -219,7 +219,7 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
 }
 
 extension InboxTableViewDataSource:SearchViewProtocol
-{    
+{
     func applySearchFiltersForSearchText(_ text:String)
     {
         conversations = (User.getLoginedUser()?.conversations?.allObjects as? Array<Conversation>)!
@@ -228,20 +228,20 @@ extension InboxTableViewDataSource:SearchViewProtocol
         {
             filteredConversations = conversations.filter({ (conversation1) -> Bool in
                 
-//                if ((conversation1.sender?.phoneNumber?.containsText(text))! ||
-//                    (conversation1.receiver?.phoneNumber?.containsText(text))! ||
-//                    (conversation1.lastMessage?.containsText(text))! ||
-//                    (conversation1.receiver?.firstName?.containsText(text))! ||
-//                    (conversation1.receiver?.lastName?.containsText(text))!)
-//                {
-//                    selectedConversation = nil
-//                    return true
-//                }
-//                else{
-//                    return false
-//                }
-//                print("Sender" + conversation1.sender!.phoneNumber!)
-//                print("Receiver" + conversation1.receiver!.phoneNumber!)
+                //                if ((conversation1.sender?.phoneNumber?.containsText(text))! ||
+                //                    (conversation1.receiver?.phoneNumber?.containsText(text))! ||
+                //                    (conversation1.lastMessage?.containsText(text))! ||
+                //                    (conversation1.receiver?.firstName?.containsText(text))! ||
+                //                    (conversation1.receiver?.lastName?.containsText(text))!)
+                //                {
+                //                    selectedConversation = nil
+                //                    return true
+                //                }
+                //                else{
+                //                    return false
+                //                }
+                //                print("Sender" + conversation1.sender!.phoneNumber!)
+                //                print("Receiver" + conversation1.receiver!.phoneNumber!)
                 
                 if let receiver = conversation1.receiver
                 {
@@ -322,5 +322,5 @@ extension InboxTableViewDataSource:SearchViewProtocol
         self.reloadControls()
         
     }
-
+    
 }

@@ -2,11 +2,11 @@ import UIKit
 
 class ConversationListingViewController: UIViewController, ConversationListingTableCellProtocol
 {
-//    @IBOutlet weak var counterLabel: UILabel!
+    //    @IBOutlet weak var counterLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
-//    @IBOutlet weak var markAllAsRead_Btn: UIButton!
+    //    @IBOutlet weak var markAllAsRead_Btn: UIButton!
     
     var selectedConversation:Conversation! = nil
     
@@ -14,7 +14,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     
     var delegate:ConversationListingViewControllerProtocol? = nil
     
-//    @IBOutlet weak var header_View: UIView!
+    //    @IBOutlet weak var header_View: UIView!
     
     @IBOutlet weak var nomessageImage: UIImageView!
     
@@ -33,7 +33,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         super.viewWillAppear(animated)
         
         self.tableViewDataSource?.reloadControls()
-
+        
         if (User.getLoginedUser()?.conversations)!.count > 0
         {
             self.nomessageImage.isHidden = true
@@ -63,7 +63,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         tableView.refreshControl = refreshControl
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
-       // header_View.backgroundColor = AppThemeColor
+        // header_View.backgroundColor = AppThemeColor
         /*
          switch environment {
          case .texting_Line:
@@ -230,9 +230,9 @@ extension ConversationListingViewController
 {
     func refreshUnReadCount ()
     {
-//        self.counterLabel.text = "-"
-//        self.counterLabel.text = "(\(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)))"
-    
+        //        self.counterLabel.text = "-"
+        //        self.counterLabel.text = "(\(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)))"
+        
         if (User.getLoginedUser()?.conversations)!.count > 0
         {
             self.nomessageImage.isHidden = true
@@ -272,7 +272,6 @@ extension ConversationListingViewController
 {
     func initiateMessageCall()
     {
-
         let dispatchTime = DispatchTime.now() + .seconds(30)
         
         DispatchQueue.main.asyncAfter(deadline: dispatchTime)
@@ -286,7 +285,7 @@ extension ConversationListingViewController
         if (IS_LISTING_SERVICE_CALLED ==  false) {
             
             IS_LISTING_SERVICE_CALLED = true
-
+            
             ProcessingIndicator.show()
             
             User.syncContacts(completionBlockSuccess: { () -> (Void) in
@@ -295,10 +294,10 @@ extension ConversationListingViewController
                     {
                         DispatchQueue.main.async
                             {
-
+                                
                                 self.conversationListUpdated()
                                 IS_LISTING_SERVICE_CALLED = false
-
+                                
                                 ProcessingIndicator.hide()
                                 if (self.isViewLoaded && (self.view!.window != nil)) {
                                     self.initiateMessageCall()
@@ -312,7 +311,7 @@ extension ConversationListingViewController
                         DispatchQueue.main.async
                             {
                                 IS_LISTING_SERVICE_CALLED = false
-
+                                
                                 ProcessingIndicator.hide()
                                 if (self.isViewLoaded && (self.view!.window != nil)) {
                                     self.initiateMessageCall()
@@ -333,7 +332,7 @@ extension ConversationListingViewController
         if (IS_LISTING_SERVICE_CALLED ==  false) {
             
             IS_LISTING_SERVICE_CALLED = true
-
+            
             ProcessingIndicator.show()
             
             User.syncContacts(completionBlockSuccess: { () -> (Void) in
@@ -345,7 +344,7 @@ extension ConversationListingViewController
                                 updateBadgeCount()
                                 self.conversationListUpdated()
                                 IS_LISTING_SERVICE_CALLED = false
-
+                                
                                 ProcessingIndicator.hide()
                         }
                 }

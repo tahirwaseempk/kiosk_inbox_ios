@@ -29,9 +29,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBOutlet weak var profileHeadingLabel: UILabel!
     @IBOutlet weak var profileUsernameLabel: UILabel!
-
+    
     @IBOutlet weak var delete_Button: UIButton!
-
+    
     @IBOutlet weak var profileSaveButton: UIButton!
     @IBOutlet weak var profileEmailTextField: FloatLabelTextField!
     @IBOutlet weak var profileFirstNameTextField: FloatLabelTextField!
@@ -285,9 +285,15 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
         
-         header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 105
+        tableView.clipsToBounds = false
+        
+        header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
         // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
- 
+        
+        
+        
         sendTextField.inputAccessoryView = UIView()
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
@@ -388,14 +394,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
          }
          */
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 105
-        tableView.clipsToBounds = false
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView, delegate_:self)
         
         if self.selectedConversation != nil
         {
-            _ = self.conversationSelected(conversation: self.selectedConversation, shouldScroll: true)
+            _ = self.conversationSelected(conversation: self.selectedConversation)
         }
         
         //////////////////////////////////////////////////////////////////////
@@ -443,7 +446,12 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         // self.selectedConversation.messages.a
     }
     
+    
+    
+    
+    
     // MARK: - Button Tapped Methods
+    
     @IBAction func closeButtonTapped(_ sender: Any) {
         
         self.closeView.frame = self.view.bounds
@@ -873,8 +881,7 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
 // MARK: - Service Calling Methods
 extension ConversationDetailViewController {
     
-    func conversationSelected(conversation:Conversation?, shouldScroll: Bool) -> Bool {
-       
+    func conversationSelected(conversation:Conversation?) -> Bool {
         self.selectedConversation = conversation
         
         if self.selectedConversation != nil
@@ -916,7 +923,7 @@ extension ConversationDetailViewController {
         
         //self.sendTextField.text = ""
         
-        _ = self.tableViewDataSource?.loadConversation(conversation_: self.selectedConversation, shouldTableViewScroll: shouldScroll)
+        _ = self.tableViewDataSource?.loadConversation(conversation_: self.selectedConversation)
         //amir1122
         return true
     }
@@ -965,7 +972,7 @@ extension ConversationDetailViewController {
                             self.sendTextField.text = ""
                             self.inputCharacterCountLabel.text = "Character Count 0/250"
                             
-                            _ = self.tableViewDataSource?.reloadControls(shouldScroll: true)
+                            _ = self.tableViewDataSource?.reloadControls()
                     }
             }
             
@@ -1036,14 +1043,16 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
     func loadMoreMessages(messageId:String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         ProcessingIndicator.show()
-        //Method Called For Pagination
+        UserDefaults.standard.set("true", forKey: "SHOULD_SCROLL")
+        UserDefaults.standard.synchronize()
         
-        self.callAdhocMessagesWebServiceCallBackBased(messageId, shouldScroll:false, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
+        self.callAdhocMessagesWebServiceCallBackBased(messageId, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
+        
     }
     
     func callAdhocMessagesWebService (_ lastMsgId: String)
     {
-        self.callAdhocMessagesWebServiceCallBackBased(lastMsgId, shouldScroll:true, completionBlockSuccess: { (messages:Array<Message>) -> (Void) in
+        self.callAdhocMessagesWebServiceCallBackBased(lastMsgId, completionBlockSuccess: { (messages:Array<Message>) -> (Void) in
             
             // No Need to handle stuff
             
@@ -1052,7 +1061,7 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
         }
     }
     
-    func callAdhocMessagesWebServiceCallBackBased (_ lastMsgId: String, shouldScroll: Bool, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    func callAdhocMessagesWebServiceCallBackBased (_ lastMsgId: String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         User.getMessageForConversation(conversation:self.selectedConversation, lastMessageId:lastMsgId, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
             
@@ -1073,10 +1082,11 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
                                         delegate.updateConversationList()
                                     }
                                 }
-
-                                _ = self.conversationSelected(conversation: self.selectedConversation, shouldScroll: shouldScroll)
+                                
+                                _ = self.conversationSelected(conversation: self.selectedConversation)
+                                
                                 self.refreshControl.endRefreshing()
-
+                                
                                 successBlock(messages!)
                         }
                 }
@@ -1101,7 +1111,7 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
                                 
                                 if self.selectedConversation != nil
                                 {
-                                    _ = self.conversationSelected(conversation: self.selectedConversation, shouldScroll: shouldScroll)
+                                    _ = self.conversationSelected(conversation: self.selectedConversation)
                                 }
                                 
                                 self.refreshControl.endRefreshing()

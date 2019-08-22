@@ -201,6 +201,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     @IBAction func loginButton_Tapped(_ sender: Any)
     {
         //Crashlytics.sharedInstance().crash()
+        
+        UserDefaults.standard.set("", forKey: "SHOULD_SCROLL")
+        UserDefaults.standard.synchronize()
+
         self.login()
     }
     
