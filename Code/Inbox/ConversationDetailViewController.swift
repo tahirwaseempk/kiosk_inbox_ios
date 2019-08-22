@@ -285,15 +285,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 105
-        tableView.clipsToBounds = false
-        
-        header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
+         header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
         // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
-        
-        
-        
+ 
         sendTextField.inputAccessoryView = UIView()
         ////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////
@@ -394,11 +388,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
          }
          */
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 105
+        tableView.clipsToBounds = false
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView, delegate_:self)
         
         if self.selectedConversation != nil
         {
-            _ = self.conversationSelected(conversation: self.selectedConversation)
+            _ = self.conversationSelected(conversation: self.selectedConversation, shouldScroll: true)
         }
         
         //////////////////////////////////////////////////////////////////////
@@ -446,12 +443,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         // self.selectedConversation.messages.a
     }
     
-    
-    
-    
-    
     // MARK: - Button Tapped Methods
-    
     @IBAction func closeButtonTapped(_ sender: Any) {
         
         self.closeView.frame = self.view.bounds
@@ -881,7 +873,8 @@ extension ConversationDetailViewController : UIImagePickerControllerDelegate,UIN
 // MARK: - Service Calling Methods
 extension ConversationDetailViewController {
     
-    func conversationSelected(conversation:Conversation?) -> Bool {
+    func conversationSelected(conversation:Conversation?, shouldScroll: Bool) -> Bool {
+       
         self.selectedConversation = conversation
         
         if self.selectedConversation != nil
@@ -923,7 +916,7 @@ extension ConversationDetailViewController {
         
         //self.sendTextField.text = ""
         
-        _ = self.tableViewDataSource?.loadConversation(conversation_: self.selectedConversation)
+        _ = self.tableViewDataSource?.loadConversation(conversation_: self.selectedConversation, shouldTableViewScroll: shouldScroll)
         //amir1122
         return true
     }
@@ -972,7 +965,7 @@ extension ConversationDetailViewController {
                             self.sendTextField.text = ""
                             self.inputCharacterCountLabel.text = "Character Count 0/250"
                             
-                            _ = self.tableViewDataSource?.reloadControls()
+                            _ = self.tableViewDataSource?.reloadControls(shouldScroll: true)
                     }
             }
             
@@ -1043,13 +1036,14 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
     func loadMoreMessages(messageId:String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         ProcessingIndicator.show()
+        //Method Called For Pagination
         
-        self.callAdhocMessagesWebServiceCallBackBased(messageId, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
+        self.callAdhocMessagesWebServiceCallBackBased(messageId, shouldScroll:false, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
     }
     
     func callAdhocMessagesWebService (_ lastMsgId: String)
     {
-        self.callAdhocMessagesWebServiceCallBackBased(lastMsgId, completionBlockSuccess: { (messages:Array<Message>) -> (Void) in
+        self.callAdhocMessagesWebServiceCallBackBased(lastMsgId, shouldScroll:true, completionBlockSuccess: { (messages:Array<Message>) -> (Void) in
             
             // No Need to handle stuff
             
@@ -1058,7 +1052,7 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
         }
     }
     
-    func callAdhocMessagesWebServiceCallBackBased (_ lastMsgId: String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    func callAdhocMessagesWebServiceCallBackBased (_ lastMsgId: String, shouldScroll: Bool, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         User.getMessageForConversation(conversation:self.selectedConversation, lastMessageId:lastMsgId, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
             
@@ -1079,11 +1073,10 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
                                         delegate.updateConversationList()
                                     }
                                 }
-                                
-                                _ = self.conversationSelected(conversation: self.selectedConversation)
-                                
+
+                                _ = self.conversationSelected(conversation: self.selectedConversation, shouldScroll: shouldScroll)
                                 self.refreshControl.endRefreshing()
-                                
+
                                 successBlock(messages!)
                         }
                 }
@@ -1108,7 +1101,7 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
                                 
                                 if self.selectedConversation != nil
                                 {
-                                    _ = self.conversationSelected(conversation: self.selectedConversation)
+                                    _ = self.conversationSelected(conversation: self.selectedConversation, shouldScroll: shouldScroll)
                                 }
                                 
                                 self.refreshControl.endRefreshing()
