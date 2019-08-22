@@ -57,14 +57,14 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     var selectedConversation:Conversation! = nil
     
-//    var scrollListener:PaginatedTableScrollListener!
+    //    var scrollListener:PaginatedTableScrollListener!
     
     var isShowActivityIndicator:Bool = false
     
     let imagePicker = UIImagePickerController()
     
     let refreshControl = UIRefreshControl()
-
+    
     /////////////////////////////////////////////////
     // MARK: - Profile View Methods
     @IBAction func profileBackButtonTapped(_ sender: Any) {
@@ -91,10 +91,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //headingStr = headingStr.uppercased()
         //self.profileHeadingLabel.text = headingStr
         self.messageFromLabel.text = headingStr
-
+        
         return true
     }
-        
+    
+    
     @IBAction func profileDoneButton_Tapped(_ sender: Any) {
         
         self.profileEmailTextField.resignFirstResponder()
@@ -141,10 +142,10 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
                                 
                                 ProcessingIndicator.hide()
                                 
-//                                self.selectedConversation.receiver.
+                                //                                self.selectedConversation.receiver.
                                 if self.selectedConversation != nil {
                                     
-                                 _ =  self.updateFirstLastName(self.selectedConversation)
+                                    _ =  self.updateFirstLastName(self.selectedConversation)
                                     
                                 }
                                 
@@ -186,13 +187,13 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             .setSelectedDate(self.profileDateOfBirth)
             .setDoneButton(action: { (popOver, selectDate) in
                 print(selectDate)
-
+                
                 self.profileDateOfBirth = selectDate
-
+                
                 let dateFormatter =  DateFormatter()
                 dateFormatter.dateFormat = DOB_FORMATE
                 self.profileDOBTextField.text = dateFormatter.string(from: selectDate)
-
+                
             })
             .setCancelButton(action: { _, _ in print("cancel")})
             .appear(originView: sender, baseViewController: self)
@@ -220,10 +221,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
     }
     
+    
     @IBAction func profileGenderButton_Tapped(_ sender: UIButton) {
         
         self.view.endEditing(true)
-
+        
         
         /// Create StringPickerPopover:
         let p = StringPickerPopover(title: "Select Gender", choices: ["M","F"])
@@ -246,10 +248,11 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
     }
     
+    
     @IBAction func profileStateButton_Tapped(_ sender: UIButton) {
         
         self.view.endEditing(true)
-
+        
         /// Create StringPickerPopover:
         let p = StringPickerPopover(title: "Select State", choices: ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"])
             // .setDisplayStringFor(displayStringFor)
@@ -274,6 +277,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     // MARK: -
     /////////////////////////////////////////////////
+    // MARK: - MAIN VIEW CONTROLLER STARTS HERE
     
     override func viewDidLoad() {
         
@@ -281,9 +285,13 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 105
+        tableView.clipsToBounds = false
         
         header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
         // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
+        
         
         
         sendTextField.inputAccessoryView = UIView()
@@ -368,6 +376,10 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         
         ////////////////////////////////////////////////////////////////////////////////////////
+        //refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
+        //tableView.refreshControl = refreshControl
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
         // header_View.backgroundColor = AppThemeColor
         /*
          switch environment {
@@ -382,22 +394,13 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
          }
          */
         
-        
-        ////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////
-        self.setupTableView()
-        ////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////
+        tableViewDataSource = MessageTableViewDataSource(tableview: tableView, delegate_:self)
         
         if self.selectedConversation != nil
         {
             _ = self.conversationSelected(conversation: self.selectedConversation)
         }
         
-        self.setupProfileViewThings()
-    }
-    
-    func setupProfileViewThings() {
         //////////////////////////////////////////////////////////////////////
         self.profileEmailTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
         self.profileFirstNameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
@@ -419,24 +422,10 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //////////////////////////////////////////////////////////////////////
     }
     
-    func setupTableView () {
-        //////////////////////////////////////////////////////////////////////
-        //refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
-        //tableView.refreshControl = refreshControl
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 105
-        tableView.clipsToBounds = false
-        
-        tableViewDataSource  = MessageTableViewDataSource(tableview: tableView)
-        tableView.dataSource = tableViewDataSource
-        //////////////////////////////////////////////////////////////////////
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         
         super.viewDidDisappear(animated)
-
+        
         NotificationCenter.default.removeObserver(self, name: MessageNotificationName, object: nil)
         
     }
@@ -446,89 +435,20 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         if self.selectedConversation != nil
         {
             ProcessingIndicator.show()
-            self.callAdhocMessagesWebService()
+            self.callAdhocMessagesWebService("")
         }
     }
-
+    
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
         
-
-        self.callAdhocMessagesWebService()
+        self.callAdhocMessagesWebService("")
         
-       // self.selectedConversation.messages.a
+        // self.selectedConversation.messages.a
     }
-
-    func callAdhocMessagesWebService () {
-        
-        
-        User.getMessageForConversation(conversation:self.selectedConversation, lastMessageId:"", completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
-            
-            User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-                
-                DispatchQueue.global(qos:.background).async
-                    {
-                        DispatchQueue.main.async
-                        {
-                                ProcessingIndicator.hide()
-                                
-                                if self.selectedConversation.unreadMessages == true
-                                {
-                                    self.selectedConversation.unreadMessages = false
-                                    
-                                    if let delegate = self.delegate
-                                    {
-                                        delegate.updateConversationList()
-                                    }
-                                }
-                                
-                                _ = self.conversationSelected(conversation: self.selectedConversation)
-                                
-                                self.refreshControl.endRefreshing()
-                        }
-                }
-                
-            }, andFailureBlock: { (error:Error?) -> (Void) in
-                
-                DispatchQueue.global(qos:.background).sync
-                {
-                        DispatchQueue.main.sync
-                            {
-                                ProcessingIndicator.hide()
-                                
-                                if self.selectedConversation.unreadMessages == true
-                                {
-                                    self.selectedConversation.unreadMessages = false
-                                    
-                                    if let delegate = self.delegate
-                                    {
-                                        delegate.updateConversationList()
-                                    }
-                                    
-                                }
-                                
-                                if self.selectedConversation != nil
-                                {
-                                    _ = self.conversationSelected(conversation: self.selectedConversation)
-                                }
-                                
-                                self.refreshControl.endRefreshing()
-                    }
-                }
-            })
-            
-        }) {(error:Error?) -> (Void) in
-            
-            DispatchQueue.global(qos:.background).sync
-                {
-                    DispatchQueue.main.sync
-                        {
-                            self.refreshControl.endRefreshing()
-
-                            ProcessingIndicator.hide()
-                    }
-            }
-        }
-    }
+    
+    
+    
+    
     
     // MARK: - Button Tapped Methods
     
@@ -589,16 +509,16 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             self.closeView.removeFromSuperview()
             
             
-//            if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
-//                self.selectedConversation.receiver?.lastName?.isEmpty == false)
-//            {
-//                let headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
-//                headingStr = headingStr.uppercased()
-//                self.profileHeadingLabel.text = headingStr
-//            }
-//            else {
-//                self.profileHeadingLabel.text = ""
-//            }
+            //            if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
+            //                self.selectedConversation.receiver?.lastName?.isEmpty == false)
+            //            {
+            //                let headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
+            //                headingStr = headingStr.uppercased()
+            //                self.profileHeadingLabel.text = headingStr
+            //            }
+            //            else {
+            //                self.profileHeadingLabel.text = ""
+            //            }
             
             self.profileUsernameLabel.text = (self.selectedConversation.receiver?.phoneNumber)!
             
@@ -783,7 +703,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             }))
             
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-
+            
             self.present(alert, animated: true, completion: nil)
             
         }
@@ -972,11 +892,11 @@ extension ConversationDetailViewController {
                 {
                     self.messageFromLabel.text = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
                     
-                   // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
+                    // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
                 else {
                     self.messageFromLabel.text = self.selectedConversation.receiver?.phoneNumber
-                   // self.messageNumberLabel.text = ""
+                    // self.messageNumberLabel.text = ""
                 }
             }
             else {
@@ -985,11 +905,11 @@ extension ConversationDetailViewController {
                 {
                     self.messageFromLabel.text = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
                     
-                   // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
+                    // self.messageNumberLabel.text = self.selectedConversation.receiver?.phoneNumber
                 }
                 else {
                     self.messageFromLabel.text = self.selectedConversation.receiver?.phoneNumber
-                  //  self.messageNumberLabel.text = ""
+                    //  self.messageNumberLabel.text = ""
                 }
             }
             //self.shortCodeLabel.text = ""
@@ -997,8 +917,8 @@ extension ConversationDetailViewController {
         else
         {
             self.messageFromLabel.text =  ""
-           // self.messageNumberLabel.text = ""
-           // self.shortCodeLabel.text = ""
+            // self.messageNumberLabel.text = ""
+            // self.shortCodeLabel.text = ""
         }
         
         //self.sendTextField.text = ""
@@ -1034,7 +954,7 @@ extension ConversationDetailViewController {
         
         // message = message.replaceEmojiWithHexa()
         // var message2 = message.utf8 //.addingUnicodeEntities
-       // text2 = text2.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal, range: nil)
+        // text2 = text2.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal, range: nil)
         
         paramsDic["message"] = message.replaceAppospherewithAllowableString()
         //self.utf8EncodedString(str: message) //self.encode(message)  //.replaceEmojiWithHexa()
@@ -1118,3 +1038,99 @@ extension ConversationDetailViewController:UITextFieldDelegate {
     
 }
 
+extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
+{
+    func loadMoreMessages(messageId:String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        ProcessingIndicator.show()
+        
+        self.callAdhocMessagesWebServiceCallBackBased(messageId, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
+    }
+    
+    func callAdhocMessagesWebService (_ lastMsgId: String)
+    {
+        self.callAdhocMessagesWebServiceCallBackBased(lastMsgId, completionBlockSuccess: { (messages:Array<Message>) -> (Void) in
+            
+            // No Need to handle stuff
+            
+        }) { (error:Error?) -> (Void) in
+            
+        }
+    }
+    
+    func callAdhocMessagesWebServiceCallBackBased (_ lastMsgId: String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        User.getMessageForConversation(conversation:self.selectedConversation, lastMessageId:lastMsgId, completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
+            
+            User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
+                
+                DispatchQueue.global(qos:.background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                ProcessingIndicator.hide()
+                                
+                                if self.selectedConversation.unreadMessages == true
+                                {
+                                    self.selectedConversation.unreadMessages = false
+                                    
+                                    if let delegate = self.delegate
+                                    {
+                                        delegate.updateConversationList()
+                                    }
+                                }
+                                
+                                _ = self.conversationSelected(conversation: self.selectedConversation)
+                                
+                                self.refreshControl.endRefreshing()
+                                
+                                successBlock(messages!)
+                        }
+                }
+                
+            }, andFailureBlock: { (error:Error?) -> (Void) in
+                
+                DispatchQueue.global(qos:.background).sync
+                    {
+                        DispatchQueue.main.sync
+                            {
+                                ProcessingIndicator.hide()
+                                
+                                if self.selectedConversation.unreadMessages == true
+                                {
+                                    self.selectedConversation.unreadMessages = false
+                                    
+                                    if let delegate = self.delegate
+                                    {
+                                        delegate.updateConversationList()
+                                    }
+                                }
+                                
+                                if self.selectedConversation != nil
+                                {
+                                    _ = self.conversationSelected(conversation: self.selectedConversation)
+                                }
+                                
+                                self.refreshControl.endRefreshing()
+                                
+                                failureBlock(error)
+                        }
+                }
+            })
+            
+        }) {(error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos:.background).sync
+                {
+                    DispatchQueue.main.sync
+                        {
+                            self.refreshControl.endRefreshing()
+                            
+                            ProcessingIndicator.hide()
+                            
+                            failureBlock(error)
+                    }
+            }
+        }
+    }
+}

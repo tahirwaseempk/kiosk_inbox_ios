@@ -9,36 +9,48 @@
 import Foundation
 import UIKit
 
-class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSource {
-    
+protocol MessageTableViewDataSourceProtocol
+{
+    func loadMoreMessages(messageId:String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+}
+
+
+class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSource, UIScrollViewDelegate
+{
     let targetedTableView: UITableView
+    let delegate: ConversationDetailViewController?
     var selectedConversation:Conversation? = nil
     var chatCell:ChatTableViewCell!
     var messages:Array<Message> = Array<Message>()
     var timeStampedMessagesDictionary = Dictionary<String,Array<Message>>()
     var timeStampedMessagesList = Array<String>()
-
+    var isCallAlreadySent = false
+    var isFirstTime = true
     
-    
-    init(tableview:UITableView) {
-        
+    init(tableview:UITableView, delegate_: ConversationDetailViewController)
+    {
         self.targetedTableView = tableview
         
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatSend")
+        
         self.targetedTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatReceive")
+        
+        self.delegate = delegate_
         
         super.init()
         
         self.targetedTableView.dataSource = self
+        
         self.targetedTableView.delegate = self
+        
         
         self.reloadControls()
     }
     
-    func reloadControls() {
-        
-        if self.selectedConversation != nil{
-            
+    func reloadControls()
+    {
+        if self.selectedConversation != nil
+        {
             messages = selectedConversation?.messages?.allObjects as! Array<Message>
             
             messages = messages.sorted(by: { (mesage1, message2) -> Bool in
@@ -62,34 +74,34 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             messages.removeAll()
         }
         
-        
         self.filterMessages()
         
         self.targetedTableView.reloadData()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300))
+        {
             let numberOfSections = self.targetedTableView.numberOfSections
             
             var numberOfRows = 0
             
-            if numberOfSections > 0 {
-                
+            if numberOfSections > 0
+            {
                 let key = self.timeStampedMessagesList[numberOfSections-1]
+                
                 if let list = self.timeStampedMessagesDictionary[key]
                 {
                     numberOfRows =  list.count
                 }
                 
-                if numberOfSections > 0 {
+                if numberOfSections > 0
+                {
                     let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
-                    self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
                     
+                    self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
                 }
             }
         }
     }
-    
     
     private func formattedDateFromDate(_ date:Date) -> String
     {
@@ -99,7 +111,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         //let strDate = dateFormatter.string(from: date)
         //dateFormatter.dateFormat = DISPLAY_FORMATE_DATE_ONLY
-
+        
         return dateFormatter.string(from: date) //dateFormatter.date(from: strDate)!
     }
     
@@ -132,12 +144,12 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         for message in self.messages
         {
             let date = self.formattedDateFromDate(message.msgTimeStamp)
-
+            
             if var list = timeStampedMessagesDictionary[date]
             {
                 list.append(message)
                 timeStampedMessagesDictionary[date] = list
-
+                
             }
             else
             {
@@ -148,12 +160,12 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         }
         
         timeStampedMessagesList = Array(timeStampedMessagesDictionary.keys)
-
+        
         timeStampedMessagesList = timeStampedMessagesList.sorted(by: { (key1, key2) -> Bool in
             
             let date1 = self.formattedDateFromString(key1)
             let date2 = self.formattedDateFromString(key2)
-
+            
             if date1.compare(date2) == .orderedAscending
             {
                 return true
@@ -185,16 +197,16 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     //************************************************************************************************//
     
     //MARK: -  TableView Data Source
-
+    
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return self.timeStampedMessagesList.count
         
-    //        guard (self.selectedConversation == nil) else {
-    //
-    //            return (self.selectedConversation!.messages!.count)
-    //        }
-    //        return 0
+        //        guard (self.selectedConversation == nil) else {
+        //
+        //            return (self.selectedConversation!.messages!.count)
+        //        }
+        //        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -216,12 +228,12 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         let key = timeStampedMessagesList[indexPath.section]
         var message:Message? = nil
-
+        
         if let list = timeStampedMessagesDictionary[key]
         {
             message = list[indexPath.row]
         }
-
+        
         if let message = message
         {
             //-----------------------------------------------------------//
@@ -242,7 +254,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             }
             
         }
-     
+        
         
         return cell
     }
@@ -260,4 +272,72 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         header.textLabel?.textAlignment = .center
     }
     
+    //************************************************************************************************//
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    //************************************************************************************************//
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        //        let firstSection = 0
+        //        let lastMessageDate = timeStampedMessagesList[firstSection]
+        //        let lastDateMessagesArray = timeStampedMessagesDictionary[lastMessageDate]
+        //        let totalNumberOfRows = (lastDateMessagesArray!.count - 1)
+        //
+        //        if indexPath.section == firstSection && indexPath.row == totalNumberOfRows
+        //        {
+        //            if let message = lastDateMessagesArray?.last
+        //            {
+        //                //self.loadMoreData(messageId:String(message.messageId))
+        //            }
+        //
+        //        }
+    }
+    
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
+    {
+        //let height = scrollView.frame.size.height
+        
+        //let contentYoffset = scrollView.contentOffset.y
+        
+        //let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        
+        if scrollView.contentOffset.y == 0 //distanceFromBottom < height
+        {
+            self.loadMoreData()
+        }
+    }
+    
+    func loadMoreData()
+    {
+        if isCallAlreadySent == false, let delegate = self.delegate
+        {
+            let firstSection = 0
+            
+            let lastMessageDate = timeStampedMessagesList[firstSection]
+            
+            let lastDateMessagesArray = timeStampedMessagesDictionary[lastMessageDate]
+            
+            if let message = lastDateMessagesArray?.last
+            {
+                isCallAlreadySent = true
+                
+                delegate.loadMoreMessages(messageId:String(message.messageId), completionBlockSuccess: { (newMessages:Array<Message>) -> (Void) in
+                    
+                    // New Messages Recvd From Server
+                    
+                    self.isCallAlreadySent = false
+                    
+                }, andFailureBlock: { (error:Error?) -> (Void) in
+                    
+                    // Failed To Rcv New Messages From Server
+                    
+                    self.isCallAlreadySent = false
+                })
+            }
+        }
+    }
 }
