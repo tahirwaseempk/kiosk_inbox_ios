@@ -11,7 +11,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet var closeView: UIView!
     
     
-    
+    @IBOutlet weak var scrollButton: UIButton!
+
     @IBOutlet weak var inputCharacterCountLabel: UILabel!
     
     @IBOutlet weak var chawalView: UIView!
@@ -1048,6 +1049,42 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
         
         self.callAdhocMessagesWebServiceCallBackBased(messageId, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
         
+    }
+    
+    @IBAction func scrollButtonTapped(_ sender: Any)
+    {
+//        if let lastRow = self.selectedConversation.messages?.count, (lastRow - 1 ) > 0
+//        {
+//            //            self.tableView.scrollToRow(at: IndexPath(row:lastRow-1, section:0), at: .bottom, animated:true)
+//            //            DispatchQueue.main.async {
+//            let indexPath = IndexPath(row: 0, section: 0)
+//            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+//
+//            //            }
+//        }
+        
+        self.tableViewDataSource?.scrollTableViewtoBottom()
+        self.scrollButton.isHidden = true
+    }
+    
+    func updateScrollButtonVisibility()
+    {
+        let threshold: CGFloat = 76.0
+        
+        self.scrollButton.isHidden = true
+        
+        let contentOffset = self.tableView.contentOffset.y
+        
+        let maximumOffset = self.tableView.contentSize.height - self.tableView.frame.size.height;
+        
+        if  maximumOffset - contentOffset <= threshold
+        {
+            self.scrollButton.isHidden = true
+        }
+        else
+        {
+            self.scrollButton.isHidden = false
+        }
     }
     
     func callAdhocMessagesWebService (_ lastMsgId: String)

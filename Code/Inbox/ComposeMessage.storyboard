@@ -43,30 +43,30 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYP-xP-H0N" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                        <rect key="frame" x="46" y="77" width="230" height="30"/>
+                                        <rect key="frame" x="52.5" y="77" width="217.5" height="36"/>
                                         <color key="backgroundColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flk-IB-FHG">
-                                        <rect key="frame" x="10" y="77" width="32" height="30"/>
+                                        <rect key="frame" x="10" y="77" width="38.5" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="flk-IB-FHG" secondAttribute="height" multiplier="15:14" id="VfF-S9-MGw"/>
-                                            <constraint firstAttribute="height" constant="30" id="hWM-XY-Bqo"/>
+                                            <constraint firstAttribute="height" constant="36" id="hWM-XY-Bqo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compose Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiW-Yh-tms">
-                                        <rect key="frame" x="53" y="27.5" width="157.5" height="21.5"/>
+                                        <rect key="frame" x="53" y="22.5" width="227" height="31.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="26"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axl-Ib-aja" userLabel="ContactsButton">
-                                        <rect key="frame" x="280" y="77" width="30" height="30"/>
+                                        <rect key="frame" x="274" y="77" width="36" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Axl-Ib-aja" secondAttribute="height" multiplier="1:1" id="IRf-Iv-vQ9"/>
@@ -101,10 +101,10 @@
                                 <rect key="frame" x="0.0" y="151" width="320" height="329"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-Qf-MNQ" userLabel="BottomView">
-                                        <rect key="frame" x="4" y="286" width="312" height="43"/>
+                                        <rect key="frame" x="4" y="278" width="312" height="43"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ug-oL-tYW">
-                                                <rect key="frame" x="12" y="5" width="263" height="30"/>
+                                                <rect key="frame" x="12" y="5" width="258" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="mGD-UN-LFT"/>
@@ -125,10 +125,10 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAV-bb-VpN">
-                                                <rect key="frame" x="279" y="8.5" width="23" height="23"/>
+                                                <rect key="frame" x="274" y="6" width="28" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="23" id="EOr-MF-miB"/>
+                                                    <constraint firstAttribute="height" constant="28" id="EOr-MF-miB"/>
                                                     <constraint firstAttribute="width" secondItem="UAV-bb-VpN" secondAttribute="height" multiplier="1:1" id="KBJ-1W-7J6"/>
                                                 </constraints>
                                                 <state key="normal" image="send-message">
@@ -156,7 +156,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="j8D-Qf-MNQ" secondAttribute="trailing" constant="4" id="Z5J-0z-7bU"/>
                                     <constraint firstItem="j8D-Qf-MNQ" firstAttribute="leading" secondItem="b5P-05-YoR" secondAttribute="leading" constant="4" id="foV-gS-jTr"/>
-                                    <constraint firstAttribute="bottom" secondItem="j8D-Qf-MNQ" secondAttribute="bottom" id="q7X-Yg-p35"/>
+                                    <constraint firstAttribute="bottom" secondItem="j8D-Qf-MNQ" secondAttribute="bottom" constant="8" id="q7X-Yg-p35"/>
                                 </constraints>
                             </view>
                         </subviews>

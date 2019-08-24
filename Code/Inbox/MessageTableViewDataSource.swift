@@ -12,6 +12,9 @@ import UIKit
 protocol MessageTableViewDataSourceProtocol
 {
     func loadMoreMessages(messageId:String, completionBlockSuccess successBlock: @escaping ((_ messages:Array<Message>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    
+    func updateScrollButtonVisibility()
+
 }
 
 
@@ -26,6 +29,10 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     var timeStampedMessagesList = Array<String>()
     var isCallAlreadySent = false
     var isFirstTime = true
+    
+    var savedSection = 0
+    var savedSectionRow = 0
+    var savedMessageDate = ""
     
     init(tableview:UITableView, delegate_: ConversationDetailViewController)
     {
@@ -80,7 +87,7 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
         
         if ((UserDefaults.standard.object(forKey:"SHOULD_SCROLL") as? String) != nil) {
             if ((UserDefaults.standard.object(forKey:"SHOULD_SCROLL") as? String) != "true") {
-        
+                
                 UserDefaults.standard.set("", forKey: "SHOULD_SCROLL")
                 UserDefaults.standard.synchronize()
                 
@@ -93,7 +100,6 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
                     if numberOfSections > 0
                     {
                         let key = self.timeStampedMessagesList[numberOfSections-1]
-                        
                         if let list = self.timeStampedMessagesDictionary[key]
                         {
                             numberOfRows =  list.count
@@ -102,14 +108,53 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
                         if numberOfSections > 0
                         {
                             let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
-                            
                             self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
                         }
                     }
                 }
+            } else {
+                
+                UserDefaults.standard.set("", forKey: "SHOULD_SCROLL")
+                UserDefaults.standard.synchronize()
+                
+                if self.savedMessageDate != ""
+                {
+                    self.savedSection = timeStampedMessagesList.index(of: self.savedMessageDate)!
+                    self.savedMessageDate = ""
+                    
+                    let indexPath = IndexPath(row: self.savedSectionRow, section: self.savedSection)
+                    self.targetedTableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                }
             }
         }
     }
+    func scrollTableViewtoBottom() {
+        
+        let numberOfSections = self.targetedTableView.numberOfSections
+        
+        var numberOfRows = 0
+        
+        if numberOfSections > 0
+        {
+            let key = self.timeStampedMessagesList[numberOfSections-1]
+            if let list = self.timeStampedMessagesDictionary[key]
+            {
+                numberOfRows =  list.count
+            }
+            
+            if numberOfSections > 0
+            {
+                let indexPath = IndexPath(row: numberOfRows-1, section: numberOfSections-1)
+                self.targetedTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
+        }
+    }
+//    func scrollTableViewtoCell (cellSection: Int, cellRow: Int, position: UITableViewScrollPosition, shouldAnimate: Bool) {
+//
+//        let indexPath = IndexPath(row: cellSection, section: cellRow)
+//        self.targetedTableView.scrollToRow(at: indexPath, at: position, animated: shouldAnimate)
+//
+//    }
     
     private func formattedDateFromDate(_ date:Date) -> String
     {
@@ -289,34 +334,36 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     //************************************************************************************************//
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
-        //        let firstSection = 0
-        //        let lastMessageDate = timeStampedMessagesList[firstSection]
-        //        let lastDateMessagesArray = timeStampedMessagesDictionary[lastMessageDate]
-        //        let totalNumberOfRows = (lastDateMessagesArray!.count - 1)
-        //
-        //        if indexPath.section == firstSection && indexPath.row == totalNumberOfRows
-        //        {
+        //                let firstSection = 0
+        //                let lastMessageDate = timeStampedMessagesList[firstSection]
+        //                let lastDateMessagesArray = timeStampedMessagesDictionary[lastMessageDate]
+        //                let totalNumberOfRows = (lastDateMessagesArray!.count - 1)
+        
+        //                if indexPath.section == firstSection && indexPath.row == totalNumberOfRows
+        //                {
         //            if let message = lastDateMessagesArray?.last
         //            {
         //                //self.loadMoreData(messageId:String(message.messageId))
         //            }
-        //
-        //        }
+        //                }
+        if let delegate = self.delegate
+        {
+            delegate.updateScrollButtonVisibility()
+        }
     }
     
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
     {
-        //let height = scrollView.frame.size.height
-        
-        //let contentYoffset = scrollView.contentOffset.y
-        
-        //let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-        
-        if scrollView.contentOffset.y == 0 //distanceFromBottom < height
+        if scrollView.contentOffset.y == 0
         {
             self.loadMoreData()
         }
+        
+//        if let delegate = self.delegate
+//        {
+//            delegate.updateScrollButtonVisibility()
+//        }
     }
     
     func loadMoreData()
@@ -332,6 +379,8 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
             if let message = lastDateMessagesArray?.last
             {
                 isCallAlreadySent = true
+                
+                self.savedMessageDate = lastMessageDate
                 
                 delegate.loadMoreMessages(messageId:String(message.messageId), completionBlockSuccess: { (newMessages:Array<Message>) -> (Void) in
                     
