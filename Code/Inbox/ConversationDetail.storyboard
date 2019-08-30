@@ -25,8 +25,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-rU-Qz7">
-                                <rect key="frame" x="0.0" y="123" width="414" height="560"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-rU-Qz7">
+                                <rect key="frame" x="0.0" y="123" width="414" height="550"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.97647058823529409" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="101" id="oat-5J-GP0" customClass="ChatTableViewCell" customModule="FanConnectNow" customModuleProvider="target">
@@ -44,16 +44,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-KU-atd" userLabel="MessageTextView">
-                                                            <rect key="frame" x="10" y="10" width="389" height="69"/>
+                                                            <rect key="frame" x="10" y="10" width="389" height="67"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="13"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-4K-dm6">
-                                                            <rect key="frame" x="10" y="84" width="389" height="12"/>
+                                                            <rect key="frame" x="10" y="82" width="389" height="14"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -99,7 +99,7 @@
                                 </prototypes>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLW-4u-Xo0">
-                                <rect key="frame" x="354" y="621" width="50" height="50"/>
+                                <rect key="frame" x="354" y="614" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="dty-0e-VjA"/>
@@ -180,34 +180,28 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A4c-qG-2Lb" userLabel="Bottom Input View">
-                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEa-K9-Oat" userLabel="ChawalView">
-                                        <rect key="frame" x="10" y="5" width="394" height="33"/>
+                                        <rect key="frame" x="4" y="0.0" width="406" height="45"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your message here" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-vj-aG3">
-                                                <rect key="frame" x="5" y="3" width="346" height="27"/>
+                                                <rect key="frame" x="12" y="3" width="341" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <variation key="heightClass=compact-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                </variation>
                                                 <connections>
                                                     <outlet property="delegate" destination="nXl-5u-ZEJ" id="Uh9-bQ-Jba"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-9z-iaV">
-                                                <rect key="frame" x="366" y="5" width="23" height="23"/>
+                                                <rect key="frame" x="368" y="6" width="28" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="q2D-9z-iaV" secondAttribute="height" multiplier="1:1" id="MKk-tV-7MN"/>
                                                 </constraints>
-                                                <state key="normal" image="send-message">
+                                                <state key="normal" backgroundImage="send-message">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -218,16 +212,16 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="g4e-vj-aG3" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="top" constant="3" id="4Mo-o0-x5x"/>
-                                            <constraint firstItem="q2D-9z-iaV" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="top" constant="5" id="6Sw-Ch-hLh"/>
-                                            <constraint firstAttribute="trailing" secondItem="q2D-9z-iaV" secondAttribute="trailing" constant="5" id="L9u-2H-gHS"/>
+                                            <constraint firstItem="q2D-9z-iaV" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="top" constant="6" id="6Sw-Ch-hLh"/>
+                                            <constraint firstAttribute="trailing" secondItem="q2D-9z-iaV" secondAttribute="trailing" constant="10" id="L9u-2H-gHS"/>
                                             <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="g4e-vj-aG3" secondAttribute="trailing" constant="15" id="adx-sP-2Ax"/>
-                                            <constraint firstAttribute="bottom" secondItem="q2D-9z-iaV" secondAttribute="bottom" constant="5" id="fhH-0u-M1Z"/>
-                                            <constraint firstAttribute="bottom" secondItem="g4e-vj-aG3" secondAttribute="bottom" constant="3" id="g0h-ds-EwL"/>
-                                            <constraint firstItem="g4e-vj-aG3" firstAttribute="leading" secondItem="XEa-K9-Oat" secondAttribute="leading" constant="5" id="j8z-sC-ovh"/>
+                                            <constraint firstAttribute="bottom" secondItem="q2D-9z-iaV" secondAttribute="bottom" constant="11" id="fhH-0u-M1Z"/>
+                                            <constraint firstAttribute="bottom" secondItem="g4e-vj-aG3" secondAttribute="bottom" constant="2" id="g0h-ds-EwL"/>
+                                            <constraint firstItem="g4e-vj-aG3" firstAttribute="leading" secondItem="XEa-K9-Oat" secondAttribute="leading" constant="12" id="j8z-sC-ovh"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-Pf-o8n">
-                                        <rect key="frame" x="303.33333333333331" y="40" width="57.666666666666686" height="10"/>
+                                        <rect key="frame" x="299.33333333333331" y="45" width="57.666666666666686" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="dDW-WT-UvB"/>
                                         </constraints>
@@ -245,26 +239,26 @@
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.97647058823529409" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="s5D-Pf-o8n" secondAttribute="bottom" id="6vI-BZ-e3B"/>
-                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="bottom" constant="2" id="OpG-b9-ZhH"/>
-                                    <constraint firstAttribute="trailing" secondItem="XEa-K9-Oat" secondAttribute="trailing" constant="10" id="Vod-L2-lyu"/>
-                                    <constraint firstItem="XEa-K9-Oat" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" constant="5" id="e9F-9u-Fms"/>
+                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="bottom" id="OpG-b9-ZhH"/>
+                                    <constraint firstAttribute="trailing" secondItem="XEa-K9-Oat" secondAttribute="trailing" constant="4" id="Vod-L2-lyu"/>
+                                    <constraint firstItem="XEa-K9-Oat" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" id="e9F-9u-Fms"/>
                                     <constraint firstItem="s5D-Pf-o8n" firstAttribute="trailing" secondItem="g4e-vj-aG3" secondAttribute="trailing" id="fSO-pK-xrp"/>
-                                    <constraint firstItem="XEa-K9-Oat" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" constant="10" id="n4s-fZ-jaR"/>
-                                    <constraint firstAttribute="height" constant="50" id="vOS-Sv-PLR"/>
+                                    <constraint firstItem="XEa-K9-Oat" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" constant="4" id="n4s-fZ-jaR"/>
+                                    <constraint firstAttribute="height" constant="55" id="vOS-Sv-PLR"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.96862745098039216" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="cDL-99-2f8" firstAttribute="trailing" secondItem="0ba-wH-bdk" secondAttribute="trailing" id="6pn-rS-GzS"/>
                             <constraint firstItem="cDL-99-2f8" firstAttribute="bottom" secondItem="A4c-qG-2Lb" secondAttribute="bottom" id="8pN-sT-F9q"/>
                             <constraint firstItem="0ba-wH-bdk" firstAttribute="leading" secondItem="cDL-99-2f8" secondAttribute="leading" id="Gy5-NI-tQd"/>
                             <constraint firstItem="0ba-wH-bdk" firstAttribute="height" secondItem="WfG-t2-tpB" secondAttribute="height" multiplier="17%" id="KGW-4W-uCR"/>
                             <constraint firstItem="A4c-qG-2Lb" firstAttribute="leading" secondItem="cDL-99-2f8" secondAttribute="leading" id="PEm-TY-6Si"/>
-                            <constraint firstItem="WR1-rU-Qz7" firstAttribute="top" secondItem="0ba-wH-bdk" secondAttribute="bottom" id="SJh-Xd-FWV"/>
-                            <constraint firstItem="A4c-qG-2Lb" firstAttribute="top" secondItem="WR1-rU-Qz7" secondAttribute="bottom" id="XRA-7Z-6VJ"/>
+                            <constraint firstItem="WR1-rU-Qz7" firstAttribute="top" secondItem="0ba-wH-bdk" secondAttribute="bottom" constant="-2" id="SJh-Xd-FWV"/>
+                            <constraint firstItem="A4c-qG-2Lb" firstAttribute="top" secondItem="WR1-rU-Qz7" secondAttribute="bottom" constant="8" id="XRA-7Z-6VJ"/>
                             <constraint firstItem="cDL-99-2f8" firstAttribute="trailing" secondItem="WR1-rU-Qz7" secondAttribute="trailing" id="ben-n8-c0x"/>
-                            <constraint firstItem="vLW-4u-Xo0" firstAttribute="bottom" secondItem="WR1-rU-Qz7" secondAttribute="bottom" constant="-15" id="fs4-nf-pcv"/>
+                            <constraint firstItem="vLW-4u-Xo0" firstAttribute="bottom" secondItem="WR1-rU-Qz7" secondAttribute="bottom" constant="-9" id="fs4-nf-pcv"/>
                             <constraint firstItem="WR1-rU-Qz7" firstAttribute="leading" secondItem="cDL-99-2f8" secondAttribute="leading" id="ibB-XV-ePW"/>
                             <constraint firstItem="0ba-wH-bdk" firstAttribute="top" secondItem="cDL-99-2f8" secondAttribute="top" constant="-20" id="oCG-MG-Is8"/>
                             <constraint firstItem="cDL-99-2f8" firstAttribute="trailing" secondItem="A4c-qG-2Lb" secondAttribute="trailing" id="oSV-fe-9Ij"/>
@@ -408,38 +402,20 @@
                                 <constraint firstAttribute="width" constant="203" id="NDB-sx-7c0"/>
                                 <constraint firstAttribute="height" constant="42" id="ieB-Eu-a9i"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                             <state key="normal" title="     Profile"/>
-                            <variation key="heightClass=compact-widthClass=regular">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            </variation>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-Z4-Z3p">
                             <rect key="frame" x="159" y="106" width="203" height="42"/>
                             <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                             <state key="normal" title="     Schedule Reminder"/>
-                            <variation key="heightClass=compact-widthClass=regular">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            </variation>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICx-QA-FLV">
                             <rect key="frame" x="159" y="148" width="203" height="42"/>
                             <color key="backgroundColor" red="0.29207086560000001" green="0.56385505199999997" blue="0.8870559335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
                             <state key="normal" title="     Delete Number"/>
-                            <variation key="heightClass=compact-widthClass=regular">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            </variation>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -508,7 +484,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="(000) 000 - 0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrQ-QK-d0o">
-                                    <rect key="frame" x="51" y="50.333333333333321" width="273" height="28.666666666666664"/>
+                                    <rect key="frame" x="51" y="51" width="273" height="28"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
                                     <nil key="textColor"/>
@@ -542,11 +518,11 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6o-EG-4Ab" userLabel="FirstNameView">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="39.666666666666664"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-Y5-DDd" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="i3Y-Y5-DDd" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                         </textField>
                                                     </subviews>
@@ -561,11 +537,11 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9x-ru-dmg" userLabel="LastNameView">
                                                     <rect key="frame" x="0.0" y="41.666666666666657" width="375" height="39.666666666666657"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-3Z-aOa" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-3Z-aOa" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                         </textField>
                                                     </subviews>
@@ -585,11 +561,11 @@
                                                                 <action selector="profileDOBButton_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="Gl9-kv-SCQ"/>
                                                             </connections>
                                                         </button>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iWf-Ay-tDI" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="iWf-Ay-tDI" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -606,11 +582,11 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTW-an-sbt" userLabel="EmailView">
                                                     <rect key="frame" x="0.0" y="83.333333333333343" width="375" height="39.666666666666657"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-dP-xMX" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-dP-xMX" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -630,11 +606,11 @@
                                                                 <action selector="profileGenderButton_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="7Ru-XV-eGE"/>
                                                             </connections>
                                                         </button>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XlD-b3-X21" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="XlD-b3-X21" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -651,11 +627,11 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXC-vI-jqS" userLabel="AddressView">
                                                     <rect key="frame" x="0.0" y="236.33333333333329" width="375" height="39.666666666666657"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bej-vO-Oo5" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Bej-vO-Oo5" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                         </textField>
                                                     </subviews>
@@ -668,11 +644,11 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Yo-Qa-K4G" userLabel="ZipCodeView">
                                                     <rect key="frame" x="0.0" y="319.66666666666669" width="375" height="39.666666666666686"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICD-Oh-j5C" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="ICD-Oh-j5C" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
@@ -715,11 +691,11 @@
                                                                 <action selector="profileStateButton_Tapped:" destination="nXl-5u-ZEJ" eventType="touchUpInside" id="CkF-o3-cLI"/>
                                                             </connections>
                                                         </button>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-aj-Glt" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-aj-Glt" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="39.666666666666664"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                         </textField>
                                                     </subviews>

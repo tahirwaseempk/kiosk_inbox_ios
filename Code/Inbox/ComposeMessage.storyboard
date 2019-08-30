@@ -109,7 +109,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="mGD-UN-LFT"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYb-kZ-VHO">
@@ -125,13 +125,13 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAV-bb-VpN">
-                                                <rect key="frame" x="274" y="6" width="28" height="28"/>
+                                                <rect key="frame" x="274" y="6" width="26" height="26"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="EOr-MF-miB"/>
+                                                    <constraint firstAttribute="height" constant="26" id="EOr-MF-miB"/>
                                                     <constraint firstAttribute="width" secondItem="UAV-bb-VpN" secondAttribute="height" multiplier="1:1" id="KBJ-1W-7J6"/>
                                                 </constraints>
-                                                <state key="normal" image="send-message">
+                                                <state key="normal" backgroundImage="send-message">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -144,10 +144,10 @@
                                             <constraint firstItem="DYb-kZ-VHO" firstAttribute="top" secondItem="j8D-Qf-MNQ" secondAttribute="top" constant="-10" id="4oT-0W-9Yp"/>
                                             <constraint firstItem="UAV-bb-VpN" firstAttribute="leading" secondItem="7ug-oL-tYW" secondAttribute="trailing" constant="4" id="9py-Po-mtX"/>
                                             <constraint firstItem="7ug-oL-tYW" firstAttribute="leading" secondItem="j8D-Qf-MNQ" secondAttribute="leading" constant="12" id="HFg-nj-0je"/>
-                                            <constraint firstItem="UAV-bb-VpN" firstAttribute="centerY" secondItem="7ug-oL-tYW" secondAttribute="centerY" id="JXI-cJ-Sap"/>
+                                            <constraint firstItem="UAV-bb-VpN" firstAttribute="centerY" secondItem="7ug-oL-tYW" secondAttribute="centerY" constant="-1" id="JXI-cJ-Sap"/>
                                             <constraint firstAttribute="trailing" secondItem="DYb-kZ-VHO" secondAttribute="trailing" constant="5" id="LP5-W3-bNM"/>
                                             <constraint firstItem="7ug-oL-tYW" firstAttribute="top" secondItem="j8D-Qf-MNQ" secondAttribute="top" constant="5" id="aET-am-KFJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="UAV-bb-VpN" secondAttribute="trailing" constant="10" id="ejy-Nt-35D"/>
+                                            <constraint firstAttribute="trailing" secondItem="UAV-bb-VpN" secondAttribute="trailing" constant="12" id="ejy-Nt-35D"/>
                                             <constraint firstAttribute="bottom" secondItem="7ug-oL-tYW" secondAttribute="bottom" constant="8" id="txB-nc-20H"/>
                                         </constraints>
                                     </view>

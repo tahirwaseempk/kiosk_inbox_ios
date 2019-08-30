@@ -25,39 +25,36 @@ class InboxTableViewCell: UITableViewCell
         let bgColorView = UIView()
         bgColorView.backgroundColor = AppThemeColor
         self.selectedBackgroundView = bgColorView
-
+        
         /*
-        switch environment {
-        case .texting_Line:
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = AppThemeColor
-            self.selectedBackgroundView = bgColorView
-        case .sms_Factory:
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = AppThemeColor
-            self.selectedBackgroundView = bgColorView
-        case .fan_Connect:
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = AppThemeColor
-            self.selectedBackgroundView = bgColorView
-        case .photo_Texting:
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = AppThemeColor
-            self.selectedBackgroundView = bgColorView
-            
-        }
- */
+         switch environment {
+         case .texting_Line:
+         let bgColorView = UIView()
+         bgColorView.backgroundColor = AppThemeColor
+         self.selectedBackgroundView = bgColorView
+         case .sms_Factory:
+         let bgColorView = UIView()
+         bgColorView.backgroundColor = AppThemeColor
+         self.selectedBackgroundView = bgColorView
+         case .fan_Connect:
+         let bgColorView = UIView()
+         bgColorView.backgroundColor = AppThemeColor
+         self.selectedBackgroundView = bgColorView
+         case .photo_Texting:
+         let bgColorView = UIView()
+         bgColorView.backgroundColor = AppThemeColor
+         self.selectedBackgroundView = bgColorView
+         }
+         */
         
         //        bgColorView.layer.cornerRadius = 15;
-
         //        self.backgroundView = bgColorView
+        //        self.selectedBackgroundView = UIView()
+        //        self.selectionStyle = .default // you can also take this line out
         
-//        self.selectedBackgroundView = UIView()
-//        self.selectionStyle = .default // you can also take this line out
-        
-//        let backgroundView = UIView()
-//        backgroundView.backgroundColor = UIColor.red
-//        self.self.selectionStyle = backgroundView
+        //        let backgroundView = UIView()
+        //        backgroundView.backgroundColor = UIColor.red
+        //        self.selectionStyle = backgroundView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)
@@ -76,6 +73,6 @@ class InboxTableViewCell: UITableViewCell
         case .text_Attendant:
             self.selectedBackgroundView!.backgroundColor = selected ? TextAttendantColor : nil
         }
-        
     }
+    
 }
