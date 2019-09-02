@@ -296,12 +296,13 @@ extension ConversationListingViewController
                             {
                                 
                                 self.conversationListUpdated()
-                                IS_LISTING_SERVICE_CALLED = false
                                 
-                                ProcessingIndicator.hide()
                                 if (self.isViewLoaded && (self.view!.window != nil)) {
                                     self.initiateMessageCall()
                                 }
+                                ProcessingIndicator.hide()
+                                IS_LISTING_SERVICE_CALLED = false
+
                         }
                 }
                 
@@ -310,12 +311,12 @@ extension ConversationListingViewController
                     {
                         DispatchQueue.main.async
                             {
-                                IS_LISTING_SERVICE_CALLED = false
                                 
-                                ProcessingIndicator.hide()
                                 if (self.isViewLoaded && (self.view!.window != nil)) {
                                     self.initiateMessageCall()
                                 }
+                                ProcessingIndicator.hide()
+                                IS_LISTING_SERVICE_CALLED = false
                         }
                 }
             }
@@ -323,6 +324,8 @@ extension ConversationListingViewController
             
             if (self.isViewLoaded && (self.view!.window != nil)) {
                 self.initiateMessageCall()
+                ProcessingIndicator.hide()
+                IS_LISTING_SERVICE_CALLED = false
             }
         }
     }
