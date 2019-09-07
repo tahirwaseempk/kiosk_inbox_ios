@@ -46,7 +46,7 @@
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-KU-atd" userLabel="MessageTextView">
                                                             <rect key="frame" x="10" y="10" width="389" height="67"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                                         </textView>
@@ -138,7 +138,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-Pb-4JC">
-                                        <rect key="frame" x="46" y="47" width="263" height="31.333333333333329"/>
+                                        <rect key="frame" x="46" y="47" width="275" height="31.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="26"/>
                                         <nil key="textColor"/>
@@ -159,7 +159,7 @@
                                     <constraint firstItem="dv3-xs-oUe" firstAttribute="centerY" secondItem="MkB-Eg-uP9" secondAttribute="centerY" id="BqC-D3-PLT"/>
                                     <constraint firstItem="rsn-iu-Q7J" firstAttribute="leading" secondItem="0ba-wH-bdk" secondAttribute="leading" constant="10" id="D4Z-0L-hWY"/>
                                     <constraint firstAttribute="trailing" secondItem="MkB-Eg-uP9" secondAttribute="trailing" constant="10" id="IaS-A4-eWR"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1lw-Pb-4JC" secondAttribute="trailing" constant="60" id="Rea-ZA-vGv"/>
+                                    <constraint firstItem="dv3-xs-oUe" firstAttribute="leading" secondItem="1lw-Pb-4JC" secondAttribute="trailing" constant="8" id="Nen-pc-roN"/>
                                     <constraint firstItem="MkB-Eg-uP9" firstAttribute="centerY" secondItem="rsn-iu-Q7J" secondAttribute="centerY" id="XfB-4d-UZt"/>
                                     <constraint firstItem="rsn-iu-Q7J" firstAttribute="centerY" secondItem="0ba-wH-bdk" secondAttribute="centerY" id="aWa-PP-qXP"/>
                                     <constraint firstItem="dv3-xs-oUe" firstAttribute="height" secondItem="MkB-Eg-uP9" secondAttribute="height" id="e1L-Og-Vbu"/>
@@ -189,7 +189,7 @@
                                                 <rect key="frame" x="12" y="3" width="341" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="nXl-5u-ZEJ" id="Uh9-bQ-Jba"/>

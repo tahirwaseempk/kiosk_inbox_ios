@@ -58,8 +58,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         //            serialTextField.text = "8885117033"
         //            udidTextField.text   = "lime123"
         //        case .text_Attendant:
-        //            serialTextField.text = "8558687830"
-        //            udidTextField.text   = "lime123"
+//                    serialTextField.text = "8558687830"
+//                    udidTextField.text   = "lime123"
         //        }
     }
     
