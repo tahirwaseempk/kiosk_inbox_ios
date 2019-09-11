@@ -355,19 +355,23 @@ class MessageTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSou
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
     {
-        if scrollView.contentOffset.y == 0
+        if self.selectedConversation != nil
         {
-            self.loadMoreData()
+            if scrollView.contentOffset.y == 0
+            {
+                self.loadMoreData()
+            }
         }
         
-//        if let delegate = self.delegate
-//        {
-//            delegate.updateScrollButtonVisibility()
-//        }
+        //        if let delegate = self.delegate
+        //        {
+        //            delegate.updateScrollButtonVisibility()
+        //        }
     }
     
     func loadMoreData()
     {
+        
         if isCallAlreadySent == false, let delegate = self.delegate
         {
             let firstSection = 0
