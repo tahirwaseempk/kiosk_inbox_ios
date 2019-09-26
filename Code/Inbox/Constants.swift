@@ -19,11 +19,8 @@ let UTC_DATE_TIME_AM_PM = "yyyy-MM-dd hh:mm:ss a Z"
 let UTC_DATE_TIME_TZ = "yyyy-MM-dd'T'HH:mm:ssZ"
 let UTC_DATE_TIME_APPOINTMENT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
-
-
 let DISPLAY_FORMATE_TIME_ONLY = "hh:mm a"
 let DISPLAY_FORMATE_DATE_ONLY = "MMM dd, yyyy"
-
 
 let SCHEDULE_DATE_FORMATE = "dd MMM, yyyy"
 
@@ -31,7 +28,7 @@ let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15
 let CODE_MAX_LENGTH = 6
 
-let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?><' "
+let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?><' \""
 let ACCEPTABLE_DIGITS = "0123456789"
 
 enum environmentType {
@@ -228,9 +225,29 @@ extension UIColor {
 
 extension String {
     
-    func replaceAppospherewithAllowableString()-> String {
+    func replaceApposphereStartWithAllowableString()-> String {
         
        return self.replacingOccurrences(of: "’", with: "'")
+    }
+    
+    func replaceApposphereEndWithAllowableString()-> String {
+        
+       return self.replacingOccurrences(of: "‘", with: "'")
+    }
+    
+    func replaceDotsWithAllowableString()-> String {
+        
+        return self.replacingOccurrences(of: "\"", with: "\"")
+    }
+       
+    func replaceFDotsAllowableString()-> String {
+        
+       return self.replacingOccurrences(of: "“", with: "\"")
+    }
+    
+    func replaceBDotsAllowableString()-> String {
+        
+       return self.replacingOccurrences(of: "”", with: "\"")
     }
     
     func containsText(_ text2Search: String)-> Bool {
@@ -241,7 +258,7 @@ extension String {
         
         return false
     }
-    
+
 }
 
 extension TimeInterval {
@@ -270,5 +287,7 @@ extension TimeInterval {
         return String(format: "%0.2d",minutes)
         
     }
+    
+    
 }
 

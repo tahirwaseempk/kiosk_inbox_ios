@@ -957,7 +957,12 @@ extension ConversationDetailViewController {
         // var message2 = message.utf8 //.addingUnicodeEntities
         // text2 = text2.replacingOccurrences(of: "\\", with: "", options: NSString.CompareOptions.literal, range: nil)
         
-        paramsDic["message"] = message.replaceAppospherewithAllowableString()
+        var tempMessage = message.replaceApposphereStartWithAllowableString()
+        tempMessage = tempMessage.replaceApposphereEndWithAllowableString()
+        tempMessage = tempMessage.replaceBDotsAllowableString()
+        paramsDic["message"] = tempMessage.replaceFDotsAllowableString()
+
+        
         //self.utf8EncodedString(str: message) //self.encode(message)  //.replaceEmojiWithHexa()
         paramsDic["attachment"] = imageString
         paramsDic["attachmentFileSuffix"] = imageType
@@ -1033,6 +1038,10 @@ extension ConversationDetailViewController:UITextFieldDelegate {
         if str.count > sendMessageMaxLength {
             return false
         }
+//        if (str == "\""){
+//            
+//            textField.text = str.replaceDotsWithAllowableString()
+//        }
         
         return true
     }

@@ -375,7 +375,13 @@ extension ComposeMessageViewController {
         
        let mobileString  = removeSpecialCharsFromString(mobile)
 
-        let messagetxt = message.replaceAppospherewithAllowableString()
+        
+        var messagetxt = message.replaceApposphereStartWithAllowableString()
+        messagetxt = messagetxt.replaceApposphereEndWithAllowableString()
+        messagetxt = messagetxt.replaceBDotsAllowableString()
+        messagetxt = messagetxt.replaceFDotsAllowableString()
+
+        //let messagetxt = message.replaceAppospherewithAllowableString()
         
         User.composeNewMessage(mobile: mobileString, message: messagetxt, contactId: 0, completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async

@@ -215,9 +215,12 @@ class ScheduleAppointmentViewController: UIViewController
         paramsDic["contactId"] = selectedConversation.contactId
         paramsDic["date"] = utcTimeZoneStr
         
-        let messagetxt = messageTextView.text.replaceAppospherewithAllowableString()
-
-        paramsDic["message"] = messagetxt
+        
+        
+        var tempMessage = messageTextView.text.replaceApposphereStartWithAllowableString()
+        tempMessage = tempMessage.replaceApposphereEndWithAllowableString()
+        tempMessage = tempMessage.replaceBDotsAllowableString()
+        paramsDic["message"] = tempMessage.replaceFDotsAllowableString()
         
         User.createAppointment(params:paramsDic , completionBlockSuccess: { (status: Bool) -> (Void) in
             DispatchQueue.global(qos: .background).async
