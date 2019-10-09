@@ -256,7 +256,10 @@ extension VerifyCodeViewController {
         if textField == self.codeTextField {
             if textField.text?.count == 6 {
               _ = self.checkVerificationCode(inputCode: textField.text!)
-                
+            } else {
+                let alert = UIAlertController(title: "Error", message:"You have entered wrong code, please enter again.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
             }
         }
     }
