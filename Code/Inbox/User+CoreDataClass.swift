@@ -1108,7 +1108,7 @@ extension User
                 
                 if jsonDict["statusCode"] != nil {
                     
-                    if (jsonDict["statusCode"] as! Int64 == 200) {
+                    if (jsonDict["statusCode"] as! Int == 200) {
 
                         DispatchQueue.global(qos: .background).async
                             {
@@ -1117,7 +1117,7 @@ extension User
                                         successBlock(true)
                                 }
                         }
-                    } else if (jsonDict["statusCode"] as! Int64 == 400) {
+                    } else if (jsonDict["statusCode"] as! Int == 400) {
                         successBlock(false)
                         
                     } else {

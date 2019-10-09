@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,24 +27,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6B-pM-kK8">
-                                <rect key="frame" x="138" y="58" width="138" height="21"/>
+                                <rect key="frame" x="138" y="38" width="138" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your phone number and we'll send you a new password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDz-ca-aUW">
-                                <rect key="frame" x="40" y="102" width="334" height="31.333333333333343"/>
+                                <rect key="frame" x="40" y="82" width="334" height="31.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aog-Jp-HHk" userLabel="PhoneNumberView">
-                                <rect key="frame" x="41.333333333333343" y="147.33333333333334" width="331.33333333333326" height="37"/>
+                                <rect key="frame" x="41.333333333333343" y="127.33333333333331" width="331.33333333333326" height="37"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7Y-Mz-iPs" userLabel="Mobile Text Field" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                         <rect key="frame" x="35" y="0.0" width="296.33333333333331" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" textContentType="username"/>
                                         <variation key="heightClass=compact-widthClass=regular">
@@ -100,7 +97,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iav-YO-rIV">
-                                <rect key="frame" x="0.0" y="20" width="35" height="35"/>
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="2TA-rd-p5P"/>
@@ -114,7 +111,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fC9-Ao-tei">
-                                <rect key="frame" x="344" y="20" width="70" height="35"/>
+                                <rect key="frame" x="344" y="0.0" width="70" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Done">
@@ -195,7 +192,6 @@
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ClX-JQ-leO" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="331.33333333333331" height="45"/>
                                         <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
@@ -232,7 +228,6 @@
                                             <constraint firstAttribute="height" constant="45" id="Kxy-Rj-a76"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Q8t-Et-tYC"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" textContentType="username"/>
                                         <userDefinedRuntimeAttributes>
@@ -474,24 +469,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iud-t9-B9t">
-                                <rect key="frame" x="125.33333333333333" y="78" width="163.33333333333337" height="21"/>
+                                <rect key="frame" x="125.33333333333333" y="58" width="163.33333333333337" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're almost here! Please confirm your phone number." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTJ-Gj-S4s">
-                                <rect key="frame" x="40" y="121.99999999999999" width="334" height="31.333333333333329"/>
+                                <rect key="frame" x="40" y="102" width="334" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVj-rr-cCA" userLabel="PhoneNumberView">
-                                <rect key="frame" x="41.333333333333343" y="169.33333333333334" width="331.33333333333326" height="37"/>
+                                <rect key="frame" x="41.333333333333343" y="149.33333333333334" width="331.33333333333326" height="37"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-ej-usb" userLabel="Mobile Text Field" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                         <rect key="frame" x="35" y="0.0" width="296.33333333333331" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" textContentType="username"/>
                                         <variation key="heightClass=compact-widthClass=regular">
@@ -545,7 +539,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWB-2u-zWU">
-                                <rect key="frame" x="0.0" y="40" width="35" height="35"/>
+                                <rect key="frame" x="0.0" y="20" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bWB-2u-zWU" secondAttribute="height" multiplier="1:1" id="Ej4-C6-rpF"/>
@@ -559,7 +553,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHO-hi-2h7">
-                                <rect key="frame" x="344" y="40" width="70" height="35"/>
+                                <rect key="frame" x="344" y="20" width="70" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Done">
@@ -604,7 +598,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMi-TO-vVJ" userLabel="PhoneNumberView">
+                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxb-10-FHv" userLabel="BackGroundView">
+                            <rect key="frame" x="-48" y="131" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMi-TO-vVJ" userLabel="CodeView1">
                             <rect key="frame" x="10" y="250" width="300" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -612,7 +611,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES" textContentType="one-time-code"/>
                                     <variation key="heightClass=compact-widthClass=regular">
@@ -626,7 +624,7 @@
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHj-6d-A6H">
-                            <rect key="frame" x="78" y="77" width="164" height="21"/>
+                            <rect key="frame" x="78" y="78" width="164" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
@@ -662,10 +660,13 @@
                                 <action selector="resendButton_Tapped:" destination="sWj-Ra-K5u" eventType="touchUpInside" id="Ze7-vj-vE2"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBX-Jk-EvK">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBX-Jk-EvK">
                             <rect key="frame" x="0.0" y="20" width="35" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="uBX-Jk-EvK" secondAttribute="height" multiplier="1:1" id="W0C-MA-F9r"/>
+                                <constraint firstAttribute="width" constant="35" id="ZhH-CB-TUo"/>
+                            </constraints>
                             <state key="normal" image="black">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -673,10 +674,13 @@
                                 <action selector="innerBackButton_Tapped:" destination="sWj-Ra-K5u" eventType="touchUpInside" id="XeB-56-uFI"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bef-e9-rQn">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bef-e9-rQn">
                             <rect key="frame" x="250" y="20" width="70" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="jNe-wh-lde"/>
+                                <constraint firstAttribute="width" secondItem="Bef-e9-rQn" secondAttribute="height" multiplier="2:1" id="yod-aE-PhX"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="Done">
                                 <color key="titleColor" red="0.20251864189999999" green="0.47172242399999997" blue="0.96769219640000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -685,13 +689,20 @@
                                 <action selector="innerDoneButton_Tapped:" destination="sWj-Ra-K5u" eventType="touchUpInside" id="ImA-yB-yCJ"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xk-J1-b7o" userLabel="PhoneNumberView">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xk-J1-b7o" userLabel="CodeView2">
                             <rect key="frame" x="10" y="354" width="300" height="2"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Bef-e9-rQn" firstAttribute="top" secondItem="7AO-2A-WD0" secondAttribute="top" constant="20" id="c2U-Rt-QpK"/>
+                        <constraint firstItem="Bef-e9-rQn" firstAttribute="centerY" secondItem="uBX-Jk-EvK" secondAttribute="centerY" id="eM4-QX-ypN"/>
+                        <constraint firstItem="uBX-Jk-EvK" firstAttribute="leading" secondItem="7AO-2A-WD0" secondAttribute="leading" id="fhW-e0-BQU"/>
+                        <constraint firstAttribute="trailing" secondItem="Bef-e9-rQn" secondAttribute="trailing" id="w86-c7-DRR"/>
+                        <constraint firstItem="uBX-Jk-EvK" firstAttribute="top" secondItem="7AO-2A-WD0" secondAttribute="top" constant="20" id="zk6-SG-uo1"/>
+                    </constraints>
                 </view>
             </objects>
             <point key="canvasLocation" x="543" y="-947"/>
