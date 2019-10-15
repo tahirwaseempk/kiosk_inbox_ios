@@ -284,6 +284,12 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationDetailViewController.messageNotificationRecieved), name: MessageNotificationName, object: nil)
         
         tableView.rowHeight = UITableViewAutomaticDimension

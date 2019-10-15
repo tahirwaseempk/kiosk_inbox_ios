@@ -67,6 +67,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
+        
         switch environment {
         case .texting_Line:
             loginImageView.image = UIImage(named: "ChatLogo")

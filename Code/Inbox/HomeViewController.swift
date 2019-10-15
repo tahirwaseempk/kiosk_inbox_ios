@@ -39,7 +39,11 @@ class HomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         /////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
         //header_View.backgroundColor = AppThemeColor

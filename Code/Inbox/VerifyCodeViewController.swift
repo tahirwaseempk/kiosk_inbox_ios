@@ -26,6 +26,12 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
+        
         self.numberTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.numberTextField.delegate = self
         
