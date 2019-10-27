@@ -166,7 +166,7 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
                                 if status == true {
                                     
                                     ProcessingIndicator.hide()
-                                    let alert = UIAlertController(title: "Success", message:"Thank you, your mobile number is now confimred.", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Success", message:"Thank you, your mobile number is now confirmed.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
                                         self.view.removeFromSuperview()
                                     }))
