@@ -1,19 +1,10 @@
-//
-//  UserContact+CoreDataProperties.swift
-//  Inbox
-//
-//  Created by Amir Akram on 12/08/2018.
-//  Copyright © 2018 Amir Akram. All rights reserved.
-//
-//
-
 import Foundation
 import CoreData
 
-
-extension UserContact {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<UserContact> {
+extension UserContact
+{
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<UserContact>
+    {
         return NSFetchRequest<UserContact>(entityName: "UserContact")
     }
 
@@ -28,9 +19,21 @@ extension UserContact {
     @NSManaged public var state: String?
     @NSManaged public var birthDate: Date?
     @NSManaged public var email: String?
-    
     @NSManaged public var contactId: Int64
+    @NSManaged public var tags: NSSet?
 }
 
+extension UserContact
+{
+    @objc(addContactTagsObject:)
+    @NSManaged public func addToContactTags(_ value: ContactTag)
 
+    @objc(removeContactTagsObject:)
+    @NSManaged public func removeFromContactTags(_ value: ContactTag)
 
+    @objc(addContactTags:)
+    @NSManaged public func addToContactTags(_ values: NSSet)
+
+    @objc(removeContactTags:)
+    @NSManaged public func removeFromContactTags(_ values: NSSet)
+}

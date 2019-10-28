@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,14 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twT-UD-oUk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-EV-VEn" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="20" width="414" height="131"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-ws-FRy" userLabel="Menu Button">
-                                        <rect key="frame" x="368" y="22.666666666666664" width="30" height="30"/>
+                                        <rect key="frame" x="368" y="22.666666666666671" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="26N-IO-Y9h"/>
                                             <constraint firstAttribute="width" secondItem="2bl-ws-FRy" secondAttribute="height" multiplier="1:1" id="Ifz-Al-jkQ"/>
@@ -92,7 +90,7 @@
                                         </constraints>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSY-QG-bsL" userLabel="Menu Button">
-                                        <rect key="frame" x="328" y="22.666666666666664" width="30" height="30"/>
+                                        <rect key="frame" x="328" y="22.666666666666671" width="30" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" backgroundImage="profile_black"/>
                                     </button>
@@ -113,10 +111,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOR-GB-SQM" userLabel="BodyView">
-                                <rect key="frame" x="0.0" y="151" width="414" height="585"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="605"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MT2-An-B82">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="605"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="9lr-72-aRc"/>
                                         </constraints>
@@ -132,7 +130,7 @@
                                         </variation>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqw-vv-Nsf">
-                                        <rect key="frame" x="414" y="18" width="0.0" height="567"/>
+                                        <rect key="frame" x="414" y="18" width="0.0" height="587"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="IMW-IZ-Vsb"/>
                                         </constraints>
@@ -236,12 +234,13 @@
                         <outlet property="closeInnerButton" destination="uSd-8T-Pqw" id="xNc-VJ-v2T"/>
                         <outlet property="closeView" destination="Wjd-X4-0yL" id="rcI-YW-TXo"/>
                         <outlet property="compose_Button" destination="aWK-TJ-d6L" id="z62-3e-3ga"/>
+                        <outlet property="contactsButton" destination="vkr-3y-Xp3" id="zgR-lz-fAU"/>
                         <outlet property="conversationDetailContainer" destination="Yqw-vv-Nsf" id="hx7-jL-4wn"/>
                         <outlet property="conversationListingContainer" destination="MT2-An-B82" id="7uz-JZ-N1B"/>
                         <outlet property="header_View" destination="aaL-EV-VEn" id="tlK-Ri-jTp"/>
                         <outlet property="profileButton" destination="Veq-jL-SP1" id="bHU-lP-7F9"/>
                         <outlet property="searchBar" destination="M8d-p8-Cn7" id="GYT-K8-8HZ"/>
-                        <outlet property="signOutButton" destination="aee-zL-8DT" id="GLB-br-VC0"/>
+                        <outlet property="signOutButton" destination="LN6-Rn-fRk" id="sWS-pM-1Rg"/>
                         <outlet property="userNameLabel" destination="C2w-7I-lLm" id="Oyv-bE-biy"/>
                     </connections>
                 </viewController>
@@ -343,48 +342,154 @@
                                 </mask>
                             </variation>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veq-jL-SP1">
-                            <rect key="frame" x="156" y="57" width="203" height="42"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agA-qb-cDj" userLabel="Profile View">
+                            <rect key="frame" x="174" y="57" width="185" height="50"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-nj-h5Y">
+                                    <rect key="frame" x="5" y="5" width="38.666666666666664" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="fIV-nj-h5Y" secondAttribute="height" multiplier="33:34" id="gYp-wG-mmV"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-ek-UmC">
+                                    <rect key="frame" x="53.66666666666665" y="0.0" width="121.33333333333331" height="50"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="19"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veq-jL-SP1">
+                                    <rect key="frame" x="0.0" y="0.0" width="185" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="profileButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="Isi-H6-Iqf"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="42" id="SHY-nP-L0q"/>
-                                <constraint firstAttribute="width" constant="203" id="oJ7-KU-N4q"/>
+                                <constraint firstItem="fIV-nj-h5Y" firstAttribute="top" secondItem="agA-qb-cDj" secondAttribute="top" constant="5" id="DrL-zh-HvT"/>
+                                <constraint firstItem="fIV-nj-h5Y" firstAttribute="leading" secondItem="agA-qb-cDj" secondAttribute="leading" constant="5" id="Gt9-PK-kpX"/>
+                                <constraint firstAttribute="width" constant="185" id="QWG-Y6-HGA"/>
+                                <constraint firstAttribute="bottom" secondItem="fIV-nj-h5Y" secondAttribute="bottom" constant="5" id="Sh5-GB-4AE"/>
+                                <constraint firstAttribute="trailing" secondItem="Veq-jL-SP1" secondAttribute="trailing" id="WPX-Ru-kSh"/>
+                                <constraint firstItem="Veq-jL-SP1" firstAttribute="top" secondItem="agA-qb-cDj" secondAttribute="top" id="atK-f7-Wzr"/>
+                                <constraint firstAttribute="bottom" secondItem="Veq-jL-SP1" secondAttribute="bottom" id="b9K-ad-UNt"/>
+                                <constraint firstAttribute="trailing" secondItem="RDa-ek-UmC" secondAttribute="trailing" constant="10" id="bNH-e6-AEA"/>
+                                <constraint firstItem="RDa-ek-UmC" firstAttribute="top" secondItem="agA-qb-cDj" secondAttribute="top" id="c5Q-1j-KqJ"/>
+                                <constraint firstAttribute="height" constant="50" id="cpL-f6-iNU"/>
+                                <constraint firstItem="RDa-ek-UmC" firstAttribute="leading" secondItem="fIV-nj-h5Y" secondAttribute="trailing" constant="10" id="mVg-Wx-pMM"/>
+                                <constraint firstAttribute="bottom" secondItem="RDa-ek-UmC" secondAttribute="bottom" id="py2-vQ-vGI"/>
+                                <constraint firstItem="Veq-jL-SP1" firstAttribute="leading" secondItem="agA-qb-cDj" secondAttribute="leading" id="uqp-wM-QJl"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
-                            <state key="normal" title="     Profile">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="profileButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="Isi-H6-Iqf"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aee-zL-8DT">
-                            <rect key="frame" x="156" y="99" width="203" height="42"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
-                            <state key="normal" title="     Sign Out">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="signOut_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="0fX-9k-Cxm"/>
-                            </connections>
-                        </button>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K84-qg-50t" userLabel="Contacts View">
+                            <rect key="frame" x="174" y="108" width="185" height="50"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-aj-rLB">
+                                    <rect key="frame" x="5" y="5" width="38.666666666666664" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="iaf-aj-rLB" secondAttribute="height" multiplier="33:34" id="B9P-sH-rIJ"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GJ-qm-Oje">
+                                    <rect key="frame" x="53.66666666666665" y="0.0" width="121.33333333333331" height="50"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="19"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkr-3y-Xp3">
+                                    <rect key="frame" x="0.0" y="0.0" width="185" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="contactsButtonTapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="hQa-AU-4mm"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="iaf-aj-rLB" firstAttribute="top" secondItem="K84-qg-50t" secondAttribute="top" constant="5" id="2a7-LF-ABE"/>
+                                <constraint firstItem="vkr-3y-Xp3" firstAttribute="leading" secondItem="K84-qg-50t" secondAttribute="leading" id="5IV-Bu-RIH"/>
+                                <constraint firstItem="2GJ-qm-Oje" firstAttribute="leading" secondItem="iaf-aj-rLB" secondAttribute="trailing" constant="10" id="J1u-sr-ZKU"/>
+                                <constraint firstAttribute="trailing" secondItem="vkr-3y-Xp3" secondAttribute="trailing" id="Ji8-c3-rVM"/>
+                                <constraint firstAttribute="bottom" secondItem="iaf-aj-rLB" secondAttribute="bottom" constant="5" id="RRw-oQ-XLe"/>
+                                <constraint firstItem="iaf-aj-rLB" firstAttribute="leading" secondItem="K84-qg-50t" secondAttribute="leading" constant="5" id="TfR-Kh-v5J"/>
+                                <constraint firstItem="vkr-3y-Xp3" firstAttribute="top" secondItem="K84-qg-50t" secondAttribute="top" id="TjG-Di-i1z"/>
+                                <constraint firstAttribute="trailing" secondItem="2GJ-qm-Oje" secondAttribute="trailing" constant="10" id="gt8-qD-JSI"/>
+                                <constraint firstAttribute="bottom" secondItem="vkr-3y-Xp3" secondAttribute="bottom" id="kew-RL-L8f"/>
+                                <constraint firstAttribute="bottom" secondItem="2GJ-qm-Oje" secondAttribute="bottom" id="swd-GG-m0P"/>
+                                <constraint firstItem="2GJ-qm-Oje" firstAttribute="top" secondItem="K84-qg-50t" secondAttribute="top" id="tYS-Iz-11c"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FB4-eL-FJD" userLabel="Signout View">
+                            <rect key="frame" x="174" y="159" width="185" height="50"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crossIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wCk-gP-2ht">
+                                    <rect key="frame" x="10" y="13" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="wCk-gP-2ht" secondAttribute="height" multiplier="1:1" id="1jX-cE-WSk"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHA-0H-nbB">
+                                    <rect key="frame" x="44" y="0.0" width="131" height="50"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="19"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN6-Rn-fRk">
+                                    <rect key="frame" x="0.0" y="0.0" width="185" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="signOut_Tapped:" destination="xIz-XR-nNT" eventType="touchUpInside" id="CIQ-ri-0P5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="LN6-Rn-fRk" secondAttribute="trailing" id="Afx-Bh-CXE"/>
+                                <constraint firstItem="LN6-Rn-fRk" firstAttribute="leading" secondItem="FB4-eL-FJD" secondAttribute="leading" id="Ayl-k3-zNg"/>
+                                <constraint firstItem="EHA-0H-nbB" firstAttribute="top" secondItem="FB4-eL-FJD" secondAttribute="top" id="Bxf-6E-DF6"/>
+                                <constraint firstItem="wCk-gP-2ht" firstAttribute="top" secondItem="FB4-eL-FJD" secondAttribute="top" constant="13" id="GLy-mp-Jc9"/>
+                                <constraint firstAttribute="bottom" secondItem="wCk-gP-2ht" secondAttribute="bottom" constant="13" id="ZhK-Gs-Ylh"/>
+                                <constraint firstAttribute="bottom" secondItem="EHA-0H-nbB" secondAttribute="bottom" id="iU7-xI-ylg"/>
+                                <constraint firstAttribute="trailing" secondItem="EHA-0H-nbB" secondAttribute="trailing" constant="10" id="obx-ac-ycI"/>
+                                <constraint firstItem="wCk-gP-2ht" firstAttribute="leading" secondItem="FB4-eL-FJD" secondAttribute="leading" constant="10" id="pA1-1w-3CA"/>
+                                <constraint firstAttribute="bottom" secondItem="LN6-Rn-fRk" secondAttribute="bottom" id="pdI-8c-nGv"/>
+                                <constraint firstItem="EHA-0H-nbB" firstAttribute="leading" secondItem="wCk-gP-2ht" secondAttribute="trailing" constant="10" id="ruP-y8-1p8"/>
+                                <constraint firstItem="LN6-Rn-fRk" firstAttribute="top" secondItem="FB4-eL-FJD" secondAttribute="top" id="vYb-ZK-esA"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="aee-zL-8DT" firstAttribute="trailing" secondItem="Veq-jL-SP1" secondAttribute="trailing" id="6Ae-z8-Jcp"/>
+                        <constraint firstItem="K84-qg-50t" firstAttribute="top" secondItem="agA-qb-cDj" secondAttribute="bottom" constant="1" id="1rD-PB-Odd"/>
+                        <constraint firstItem="agA-qb-cDj" firstAttribute="trailing" secondItem="uSd-8T-Pqw" secondAttribute="trailing" id="8D1-Pa-32Z"/>
+                        <constraint firstItem="K84-qg-50t" firstAttribute="height" secondItem="agA-qb-cDj" secondAttribute="height" id="ASS-o4-sEW"/>
                         <constraint firstAttribute="trailing" secondItem="wBf-JS-GuY" secondAttribute="trailing" id="Evc-0f-QvS"/>
+                        <constraint firstItem="K84-qg-50t" firstAttribute="trailing" secondItem="agA-qb-cDj" secondAttribute="trailing" id="FdO-m4-kbj"/>
                         <constraint firstItem="WE5-gp-532" firstAttribute="leading" secondItem="Wjd-X4-0yL" secondAttribute="leading" id="GfY-gM-uCk"/>
-                        <constraint firstItem="aee-zL-8DT" firstAttribute="leading" secondItem="Veq-jL-SP1" secondAttribute="leading" id="Hmo-a3-HYJ"/>
                         <constraint firstAttribute="trailing" secondItem="WE5-gp-532" secondAttribute="trailing" id="JWN-NX-lJ0"/>
-                        <constraint firstItem="aee-zL-8DT" firstAttribute="height" secondItem="Veq-jL-SP1" secondAttribute="height" id="Nw9-th-M83"/>
+                        <constraint firstItem="FB4-eL-FJD" firstAttribute="height" secondItem="agA-qb-cDj" secondAttribute="height" id="PLU-WO-yfA"/>
+                        <constraint firstItem="FB4-eL-FJD" firstAttribute="trailing" secondItem="agA-qb-cDj" secondAttribute="trailing" id="YpC-Zz-Vao"/>
                         <constraint firstItem="wBf-JS-GuY" firstAttribute="top" secondItem="Wjd-X4-0yL" secondAttribute="top" id="baE-9H-RGf"/>
                         <constraint firstAttribute="bottom" secondItem="wBf-JS-GuY" secondAttribute="bottom" id="dCu-Tk-ne6"/>
                         <constraint firstItem="wBf-JS-GuY" firstAttribute="leading" secondItem="Wjd-X4-0yL" secondAttribute="leading" id="fif-t0-sSx"/>
-                        <constraint firstItem="aee-zL-8DT" firstAttribute="top" secondItem="Veq-jL-SP1" secondAttribute="bottom" id="mDu-nY-Ocm"/>
-                        <constraint firstItem="Veq-jL-SP1" firstAttribute="trailing" secondItem="uSd-8T-Pqw" secondAttribute="trailing" id="neI-M2-6U5"/>
                         <constraint firstItem="WE5-gp-532" firstAttribute="top" secondItem="Wjd-X4-0yL" secondAttribute="top" constant="10" id="pGU-gn-5Ed"/>
-                        <constraint firstItem="Veq-jL-SP1" firstAttribute="top" secondItem="uSd-8T-Pqw" secondAttribute="bottom" id="rhY-Rq-lda"/>
+                        <constraint firstItem="agA-qb-cDj" firstAttribute="top" secondItem="uSd-8T-Pqw" secondAttribute="bottom" id="ri5-fB-fM3"/>
+                        <constraint firstItem="FB4-eL-FJD" firstAttribute="leading" secondItem="agA-qb-cDj" secondAttribute="leading" id="uYd-R2-2vh"/>
+                        <constraint firstItem="FB4-eL-FJD" firstAttribute="top" secondItem="K84-qg-50t" secondAttribute="bottom" constant="1" id="vGk-IH-vdw"/>
+                        <constraint firstItem="K84-qg-50t" firstAttribute="leading" secondItem="agA-qb-cDj" secondAttribute="leading" id="yFs-BO-U1Q"/>
                         <constraint firstItem="WE5-gp-532" firstAttribute="height" secondItem="Wjd-X4-0yL" secondAttribute="height" multiplier="12%" id="yi3-nR-ebF"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="zAL-b9-hBh"/>
@@ -401,7 +506,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1w-6x-ys3" userLabel="Nav Bar View">
-                                <rect key="frame" x="0.0" y="20" width="414" height="103"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSo-b6-53k" userLabel="Profile Label">
                                         <rect key="frame" x="51.000000000000014" y="18" width="163.33333333333337" height="31.333333333333329"/>
@@ -444,24 +549,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1L-qv-bU2" userLabel="Body Main View">
-                                <rect key="frame" x="0.0" y="123" width="414" height="613"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="633"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQz-NN-4rv">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="613"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="633"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npM-vi-b4M" userLabel="Child Views">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="666.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="685.66666666666663"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoe-EU-zlY" userLabel="Contact Views">
-                                                        <rect key="frame" x="0.0" y="20.000000000000014" width="414" height="253.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="20" width="414" height="261.33333333333331"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-ZA-xTI" userLabel="FirstNameView">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.666666666666664"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3g-Z5-N82" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -475,12 +579,11 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-su-jHZ" userLabel="LastView">
-                                                                <rect key="frame" x="0.0" y="51" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="52.666666666666657" width="414" height="50.666666666666657"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-oq-oUJ" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -494,12 +597,11 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YF0-Vp-CjP" userLabel="EmailView">
-                                                                <rect key="frame" x="0.0" y="102" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="105.33333333333336" width="414" height="50.666666666666671"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qID-dG-49b" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -513,12 +615,11 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPc-uW-F6N" userLabel="TimeZoneView">
-                                                                <rect key="frame" x="0.0" y="204.33333333333331" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="210.66666666666669" width="414" height="50.666666666666686"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time Zone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VgF-mI-0iy" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -532,12 +633,11 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzf-Dh-s0m" userLabel="MobileView">
-                                                                <rect key="frame" x="0.0" y="153" width="414" height="49.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="158" width="414" height="50.666666666666657"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eX5-QM-QcH" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49.333333333333336"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -576,15 +676,14 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEA-95-UgB" userLabel="Business Views">
-                                                        <rect key="frame" x="0.0" y="293.33333333333331" width="414" height="303.99999999999994"/>
+                                                        <rect key="frame" x="0.0" y="301.33333333333326" width="414" height="313.66666666666674"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSu-Ji-ita" userLabel="CompanyName">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.666666666666664"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Pj-DJ-njT" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -598,12 +697,11 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0f-gd-Bpq" userLabel="AddressView">
-                                                                <rect key="frame" x="0.0" y="51" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="52.666666666666686" width="414" height="50.333333333333343"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-yw-3mV" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.333333333333336"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -617,19 +715,18 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-Ji-Oub" userLabel="StateView">
-                                                                <rect key="frame" x="0.0" y="153.00000000000006" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="157.66666666666669" width="414" height="50.666666666666657"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smy-bv-DCf" userLabel="StateButton">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" red="0.3572129309" green="0.55951386690000005" blue="0.86209458110000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <connections>
                                                                             <action selector="stateButton_Tapped:" destination="0mi-MI-8Gv" eventType="touchUpInside" id="p7P-S2-opl"/>
                                                                         </connections>
                                                                     </button>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7mf-He-Lj8" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -647,12 +744,11 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njK-GF-au5" userLabel="City">
-                                                                <rect key="frame" x="0.0" y="102.00000000000006" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="105.00000000000001" width="414" height="50.666666666666671"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wqI-cw-sQc" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -666,19 +762,18 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PN-dS-Sre" userLabel="CountryView">
-                                                                <rect key="frame" x="0.0" y="255.00000000000006" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="263.00000000000006" width="414" height="50.666666666666686"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGV-2Y-JkM" userLabel="CountryButton">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" red="0.3572129309" green="0.55951386690000005" blue="0.86209458110000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <connections>
                                                                             <action selector="countryButton_Tapped:" destination="0mi-MI-8Gv" eventType="touchUpInside" id="vcK-FY-sgo"/>
                                                                         </connections>
                                                                     </button>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dkL-2v-uHE" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -696,12 +791,11 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1g-gv-hxh" userLabel="ZipView">
-                                                                <rect key="frame" x="0.0" y="204.00000000000006" width="414" height="49"/>
+                                                                <rect key="frame" x="0.0" y="210.33333333333331" width="414" height="50.666666666666686"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w8l-Ep-HWo" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
-                                                                        <rect key="frame" x="10" y="0.0" width="404" height="49"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="404" height="50.666666666666664"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -744,7 +838,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiR-FJ-FmS" userLabel="Done Button" customClass="GradientButton" customModule="FanConnectNow" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="607.33333333333337" width="382" height="49"/>
+                                                        <rect key="frame" x="16" y="625" width="382" height="50.666666666666629"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="12"/>
                                                         <state key="normal" title="Save Details">
@@ -846,6 +940,8 @@
         <image name="black" width="48" height="48"/>
         <image name="close-ios-black" width="48" height="48"/>
         <image name="composeIconNew" width="140" height="41"/>
+        <image name="contactIcon" width="38" height="22"/>
+        <image name="crossIcon" width="20" height="20"/>
         <image name="profile_black" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
 </document>
