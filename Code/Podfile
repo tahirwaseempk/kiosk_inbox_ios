@@ -9,6 +9,7 @@ target 'FanConnectNow' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'SwiftyPickerPopover'
+  pod 'SwiftyContacts'
 
 end
 
@@ -42,7 +43,7 @@ target 'TextingLine' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'SwiftyPickerPopover'
-  
+
   end
   
   target 'Text_Attendant' do
@@ -53,5 +54,5 @@ target 'TextingLine' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'SwiftyPickerPopover'
-	
+
 end

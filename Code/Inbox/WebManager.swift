@@ -34,7 +34,6 @@ let DELETE_CONVERSATION = "/api/v1/chats/"
 let SEND_MESSAGE = "/api/v1/messages/"
 let COMPOSE_MESSAGE = "/api/v1/messages/startNewChatMsg"
 let CREATE_APPOINTMENT = "/api/v1/appointments/"
-let GET_CONTACTS = "/api/v1/contacts/?onlyWithChat="
 let READ_MESSAGES = "/api/v1/chats/clearUnreadMsgs/"
 let PUT_USER = "/api/v1/user/"
 let GET_USER = "/api/v1/auth/user"
@@ -42,6 +41,20 @@ let FORGET_PASSWORD = "/api/v1/auth/resetPassword"
 let BYPASS_MESSAGE = "/api/v1/messages/byPass"
 let PUT_CONTACT = "/api/v1/contacts/"
 let THEME_COLOR = "/api/v1/themes/whiteLabel/"
+
+
+//OCTOBER START HERE..
+let GET_CONTACTS = "/api/v1/contacts/?onlyWithChat="
+let GET_ALL_TAGS_DETAIL = "/api/v1/tags/"
+let GET_ALL_CONTACTS_TAGS = "/api/v1/contacts/tags/"
+let CREATE_NEW_TAG = "/api/v1/tags/"
+
+let ADD_TAG_TO_CONTACTS = "/api/v1/tags/"
+let ADD_TAG_TO_CONTACTS_2 = "/contacts/"
+let DELETE_TAG = "/api/v1/tags/"
+let UPLOAD_CONTACTS = "/api/v1/contacts/upload"
+let DELETE_CONTACT = "/api/v1/contacts/"
+
 //----------------------------------------------------------//
 let PUT_TOKEN_URL = "/api/v1/pushtoken"
 let DELETE_TOKEN_URL = "/api/v1/pushtoken/?"
@@ -71,6 +84,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+    // MARK: -
     static func requestLogin(params: Dictionary<String,Any>,loginParser:LoginParser, completionBlockSuccess successBlock: @escaping ((Dictionary<String,Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
@@ -559,15 +573,15 @@ class WebManager: NSObject
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + SEND_MESSAGE
+            finalUrl = URL_TEXTING_LINE + CREATE_NEW_TAG
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + SEND_MESSAGE
+            finalUrl = URL_SMS_FACTORY + CREATE_NEW_TAG
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT + SEND_MESSAGE
+            finalUrl = URL_FANCONNECT + CREATE_NEW_TAG
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + SEND_MESSAGE
+            finalUrl = URL_PHOTO_TEXTING + CREATE_NEW_TAG
         case .text_Attendant:
-            finalUrl = URL_TEXT_ATTENDANT + SEND_MESSAGE
+            finalUrl = URL_TEXT_ATTENDANT + CREATE_NEW_TAG
 
         }
         
@@ -809,7 +823,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    // MARK: - UPDATE CONTACT INFORMATION
+    // MARK: UPDATE CONTACT INFORMATION
     static func putContact(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         
@@ -875,7 +889,6 @@ class WebManager: NSObject
             }
         })
     }
-    // MARK: -
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -1009,6 +1022,344 @@ class WebManager: NSObject
             }
         })
     }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    // MARK: -
+    // MARK: GET ALL TAGS API
+    static func getAllTags(params: Dictionary<String,Any>,tagsParser:ContactTagParser, completionBlockSuccess successBlock: @escaping ((Array<ContactTag>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let token:String = params["token"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + GET_ALL_TAGS_DETAIL
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + GET_ALL_TAGS_DETAIL
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + GET_ALL_TAGS_DETAIL
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + GET_ALL_TAGS_DETAIL
+        case .text_Attendant:
+            finalUrl = URL_TEXT_ATTENDANT + GET_ALL_TAGS_DETAIL
+            
+        }
+        
+        print("\n ===== >>>>> Get All Tags URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                let responseDict = response as! Dictionary<String,Any>
+                                if responseDict["statusCode"] != nil {
+                                    let errorMessage = responseDict["message"] as! String
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:errorMessage]))
+                                } else {
+                                    successBlock(tagsParser.parseContactTag(json:response as! Dictionary<String, Any>))
+                                }
+                        }
+                }
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+   // MARK: GET ALL CONTACTS TAGS API
+    static func getContactsTags(params: Dictionary<String,Any>,contactTagsParser:ConversationParser, completionBlockSuccess successBlock: @escaping ((Array<Conversation>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let token:String = params["token"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + GET_ALL_CONTACTS_TAGS
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + GET_ALL_CONTACTS_TAGS
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + GET_ALL_CONTACTS_TAGS
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + GET_ALL_CONTACTS_TAGS
+        case .text_Attendant:
+            finalUrl = URL_TEXT_ATTENDANT + GET_ALL_CONTACTS_TAGS
+            
+        }
+        
+        print("\n ===== >>>>> Get Contacts Tags URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                let responseDict = response as! Dictionary<String,Any>
+                                if responseDict["statusCode"] != nil {
+                                    let errorMessage = responseDict["message"] as! String
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:errorMessage]))
+                                } else {
+                                    successBlock(contactTagsParser.parseConversations(json:response as! Dictionary<String, Any>))
+                                }
+                        }
+                }
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+   // MARK: CREATE TAGS API
+    static func createTag(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let token:String = params["token"] as! String
+        
+        var paramsDictionary = Dictionary<String, Any>()
+        
+        paramsDictionary["name"] = params["tagName"] as! String
+        //paramsDictionary["autoResponse"] = params["autoResponse"] as! Int64
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + CREATE_NEW_TAG
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + CREATE_NEW_TAG
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + CREATE_NEW_TAG
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + CREATE_NEW_TAG
+        case .text_Attendant:
+            finalUrl = URL_TEXT_ATTENDANT + CREATE_NEW_TAG
+
+        }
+        
+        print("\n ===== >>>>> Create Tag URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    // MARK: ADD TAGS TO CONTACTS API
+    static func addTagToContact(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let token:String = params["token"] as! String
+                
+        let tagId:String = params["tagId"] as! String
+        let contactIds:String = params["contactsID"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+        case .text_Attendant:
+            finalUrl = URL_TEXT_ATTENDANT + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+
+        }
+        
+        print("\n ===== >>>>> Create Tag URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    // MARK: DELETE TAGS API
+    static func deleteTags(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let token:String = params["token"] as! String
+        let tagId:String = params["tagId"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+        case .texting_Line:
+            finalUrl =  URL_TEXTING_LINE + DELETE_TAG + tagId
+        case .sms_Factory:
+            finalUrl =  URL_SMS_FACTORY + DELETE_TAG + tagId
+        case .fan_Connect:
+            finalUrl =  URL_FANCONNECT + DELETE_TAG + tagId
+        case .photo_Texting:
+            finalUrl =  URL_PHOTO_TEXTING + DELETE_TAG + tagId
+        case .text_Attendant:
+            finalUrl =  URL_TEXT_ATTENDANT + DELETE_TAG + tagId
+
+        }
+        
+        print("\n ===== >>>>> Delete Tags URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "DELETE", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary<String, Any>)
+            }
+            else
+            {
+                andFailureBlock(error)
+            }
+        })
+    }
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    // MARK: UPLOAD CONTACTS API
+    static func uploadContacts(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let token:String = params["token"] as! String
+        
+        var paramsDictionary = Dictionary<String, Any>()
+        
+        paramsDictionary["text"] = params["contactsCSV"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + UPLOAD_CONTACTS
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + UPLOAD_CONTACTS
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + UPLOAD_CONTACTS
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + UPLOAD_CONTACTS
+        case .text_Attendant:
+            finalUrl = URL_TEXT_ATTENDANT + UPLOAD_CONTACTS
+
+        }
+        
+        print("\n ===== >>>>> Send Message URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
+    // MARK: DELETE CONTACT API
+    static func deleteContact(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
+    {
+        
+        let token:String = params["token"] as! String
+        let contactIds:String = params["contactId"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+        case .texting_Line:
+            finalUrl =  URL_TEXTING_LINE + DELETE_CONTACT + contactIds
+        case .sms_Factory:
+            finalUrl =  URL_SMS_FACTORY + DELETE_CONTACT + contactIds
+        case .fan_Connect:
+            finalUrl =  URL_FANCONNECT + DELETE_CONTACT + contactIds
+        case .photo_Texting:
+            finalUrl =  URL_PHOTO_TEXTING + DELETE_CONTACT + contactIds
+        case .text_Attendant:
+            finalUrl =  URL_TEXT_ATTENDANT + DELETE_CONTACT + contactIds
+
+        }
+        
+        print("\n ===== >>>>> Delete Contact URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "DELETE", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary<String, Any>)
+            }
+            else
+            {
+                andFailureBlock(error)
+            }
+        })
+    }
+
+    //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //************************************************************************************************//
     internal static func callNewWebService(urlStr: String, parameters: Dictionary<String,Any>, httpMethod: String, httpHeaderKey: String, httpHeaderValue: String, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void)))
     {
         
@@ -1185,6 +1536,9 @@ class WebManager: NSObject
     }
     
     //************************************************************************************************//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
+    //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//

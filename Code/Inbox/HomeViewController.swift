@@ -6,6 +6,8 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var profileButton: UIButton!
     
+    @IBOutlet weak var contactsButton: UIButton!
+
     @IBOutlet weak var closeInnerButton: UIButton!
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -19,15 +21,15 @@ class HomeViewController: UIViewController
     @IBOutlet weak var header_View: UIView!
     
     @IBOutlet weak var compose_Button: UIButton!
-    
-    @IBOutlet weak var closeButtonButton: UIButton!
-    
+        
     @IBOutlet var closeView: UIView!
     
     var verifyCodeViewController:VerifyCodeViewController!
     
     var profileViewController:ProfileViewController!
     
+    var contactsListViewController:ContactsListViewController!
+
     var composeMessageViewController:ComposeMessageViewController!
     
     var conversationListingViewController:ConversationListingViewController!
@@ -237,40 +239,17 @@ class HomeViewController: UIViewController
             self.conversationDetailViewController.view.frame = self.conversationDetailContainer.bounds
         }
     }
-    
-    // MARK: CLOSE VIEW ACTIONS - START
-    @IBAction func profileButtonTapped(_ sender: Any) {
         
-        self.closeView.removeFromSuperview()
-        
-        self.profileViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-        
-        self.profileViewController.delegate = self
-        self.view.addSubview(self.profileViewController.view)
-        
-        self.profileViewController.view.frame = self.view.bounds
-    }
-    
-    @IBAction func closeViewDismisssButtonTapped(_ sender: Any) {
-        
+    @IBAction func closeViewDismisssButtonTapped(_ sender: Any)
+    {
         self.closeView?.removeFromSuperview()
     }
     
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        
+    @IBAction func closeButtonTapped(_ sender: Any)
+    {
         self.view.addSubview(self.closeView)
+        
         self.closeView.frame = self.view.bounds
-    }
-    
-    @IBAction func signOut_Tapped(_ sender: Any) {
-        
-        NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
-        NotificationCenter.default.removeObserver(self, name: APNSPushNotificationName, object: nil)
-        
-        
-        
-        self.signOutDeleteAPNS()
-        
     }
     
     func signOutDeleteAPNS () {
@@ -467,7 +446,45 @@ extension HomeViewController:ProfileViewControllerProtocol
     func updateHeaderViewData()
     {
         self.refreshUnReadCount()
+    }
+}
+
+// Top Menu Items Tapped
+extension HomeViewController
+{
+    @IBAction func profileButtonTapped(_ sender: Any)
+    {
+        self.closeView.removeFromSuperview()
         
+        self.profileViewController = UIStoryboard(name:"Home",bundle: nil).instantiateViewController(withIdentifier:"ProfileViewController") as? ProfileViewController
+        
+        self.profileViewController.delegate = self
+        
+        self.view.addSubview(self.profileViewController.view)
+        
+        self.profileViewController.view.frame = self.view.bounds
     }
     
+    @IBAction func contactsButtonTapped(_ sender: Any)
+    {
+        self.closeView.removeFromSuperview()
+        
+        self.contactsListViewController = UIStoryboard(name:"Contacts",bundle: nil).instantiateViewController(withIdentifier:"ContactsListViewController") as? ContactsListViewController
+        
+        self.contactsListViewController.currentNavigationController = self.navigationController
+        
+        self.view.addSubview(self.contactsListViewController.view)
+        
+        self.contactsListViewController.view.frame = self.view.bounds
+    }
+
+    @IBAction func signOut_Tapped(_ sender: Any)
+    {
+        NotificationCenter.default.removeObserver(self, name: PushNotificationName, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: APNSPushNotificationName, object: nil)
+                
+        self.signOutDeleteAPNS()
+    }
 }
+

@@ -7,6 +7,91 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0440EB6B236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
+		0440EB6C236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
+		0440EB6D236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
+		0440EB6E236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
+		0440EB6F236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
+		0440EB70236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
+		0440EB71236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
+		0440EB72236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
+		0440EB73236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
+		0440EB74236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
+		0440EB762366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
+		0440EB772366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
+		0440EB782366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
+		0440EB792366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
+		0440EB7A2366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
+		0440EB7D2366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
+		0440EB7E2366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
+		0440EB7F2366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
+		0440EB802366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
+		0440EB812366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
+		0440EB822366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
+		0440EB832366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
+		0440EB842366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
+		0440EB852366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
+		0440EB862366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
+		0440EB892366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
+		0440EB8A2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
+		0440EB8B2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
+		0440EB8C2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
+		0440EB8D2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
+		0440EB8E2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
+		0440EB8F2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
+		0440EB902366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
+		0440EB912366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
+		0440EB922366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
+		0440EB952366165C00B8D738 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB932366165C00B8D738 /* ContactsManager.swift */; };
+		0440EB962366165C00B8D738 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB932366165C00B8D738 /* ContactsManager.swift */; };
+		0440EB972366165C00B8D738 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB932366165C00B8D738 /* ContactsManager.swift */; };
+		0440EB982366165C00B8D738 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB932366165C00B8D738 /* ContactsManager.swift */; };
+		0440EB992366165C00B8D738 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB932366165C00B8D738 /* ContactsManager.swift */; };
+		0440EB9A2366165C00B8D738 /* UploadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB942366165C00B8D738 /* UploadContactViewController.swift */; };
+		0440EB9B2366165C00B8D738 /* UploadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB942366165C00B8D738 /* UploadContactViewController.swift */; };
+		0440EB9C2366165C00B8D738 /* UploadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB942366165C00B8D738 /* UploadContactViewController.swift */; };
+		0440EB9D2366165C00B8D738 /* UploadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB942366165C00B8D738 /* UploadContactViewController.swift */; };
+		0440EB9E2366165C00B8D738 /* UploadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB942366165C00B8D738 /* UploadContactViewController.swift */; };
+		0440EBA12366167800B8D738 /* CreateTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB9F2366167800B8D738 /* CreateTagView.xib */; };
+		0440EBA22366167800B8D738 /* CreateTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB9F2366167800B8D738 /* CreateTagView.xib */; };
+		0440EBA32366167800B8D738 /* CreateTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB9F2366167800B8D738 /* CreateTagView.xib */; };
+		0440EBA42366167800B8D738 /* CreateTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB9F2366167800B8D738 /* CreateTagView.xib */; };
+		0440EBA52366167800B8D738 /* CreateTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB9F2366167800B8D738 /* CreateTagView.xib */; };
+		0440EBA62366167800B8D738 /* CreateTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBA02366167800B8D738 /* CreateTagView.swift */; };
+		0440EBA72366167800B8D738 /* CreateTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBA02366167800B8D738 /* CreateTagView.swift */; };
+		0440EBA82366167800B8D738 /* CreateTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBA02366167800B8D738 /* CreateTagView.swift */; };
+		0440EBA92366167800B8D738 /* CreateTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBA02366167800B8D738 /* CreateTagView.swift */; };
+		0440EBAA2366167800B8D738 /* CreateTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBA02366167800B8D738 /* CreateTagView.swift */; };
+		0440EBAC2366168400B8D738 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBAB2366168300B8D738 /* ContactDetailViewController.swift */; };
+		0440EBAD2366168400B8D738 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBAB2366168300B8D738 /* ContactDetailViewController.swift */; };
+		0440EBAE2366168400B8D738 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBAB2366168300B8D738 /* ContactDetailViewController.swift */; };
+		0440EBAF2366168400B8D738 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBAB2366168300B8D738 /* ContactDetailViewController.swift */; };
+		0440EBB02366168400B8D738 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBAB2366168300B8D738 /* ContactDetailViewController.swift */; };
+		0440EBB32366169700B8D738 /* ContactNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB12366169600B8D738 /* ContactNameTableViewCell.swift */; };
+		0440EBB42366169700B8D738 /* ContactNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB12366169600B8D738 /* ContactNameTableViewCell.swift */; };
+		0440EBB52366169700B8D738 /* ContactNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB12366169600B8D738 /* ContactNameTableViewCell.swift */; };
+		0440EBB62366169700B8D738 /* ContactNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB12366169600B8D738 /* ContactNameTableViewCell.swift */; };
+		0440EBB72366169700B8D738 /* ContactNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB12366169600B8D738 /* ContactNameTableViewCell.swift */; };
+		0440EBB82366169700B8D738 /* ContactTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB22366169700B8D738 /* ContactTagTableViewCell.swift */; };
+		0440EBB92366169700B8D738 /* ContactTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB22366169700B8D738 /* ContactTagTableViewCell.swift */; };
+		0440EBBA2366169700B8D738 /* ContactTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB22366169700B8D738 /* ContactTagTableViewCell.swift */; };
+		0440EBBB2366169700B8D738 /* ContactTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB22366169700B8D738 /* ContactTagTableViewCell.swift */; };
+		0440EBBC2366169700B8D738 /* ContactTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBB22366169700B8D738 /* ContactTagTableViewCell.swift */; };
+		0440EBC0236616A100B8D738 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBD236616A100B8D738 /* TagListView.swift */; };
+		0440EBC1236616A100B8D738 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBD236616A100B8D738 /* TagListView.swift */; };
+		0440EBC2236616A100B8D738 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBD236616A100B8D738 /* TagListView.swift */; };
+		0440EBC3236616A100B8D738 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBD236616A100B8D738 /* TagListView.swift */; };
+		0440EBC4236616A100B8D738 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBD236616A100B8D738 /* TagListView.swift */; };
+		0440EBC5236616A100B8D738 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBE236616A100B8D738 /* CloseButton.swift */; };
+		0440EBC6236616A100B8D738 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBE236616A100B8D738 /* CloseButton.swift */; };
+		0440EBC7236616A100B8D738 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBE236616A100B8D738 /* CloseButton.swift */; };
+		0440EBC8236616A100B8D738 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBE236616A100B8D738 /* CloseButton.swift */; };
+		0440EBC9236616A100B8D738 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBE236616A100B8D738 /* CloseButton.swift */; };
+		0440EBCA236616A100B8D738 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBF236616A100B8D738 /* TagView.swift */; };
+		0440EBCB236616A100B8D738 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBF236616A100B8D738 /* TagView.swift */; };
+		0440EBCC236616A100B8D738 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBF236616A100B8D738 /* TagView.swift */; };
+		0440EBCD236616A100B8D738 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBF236616A100B8D738 /* TagView.swift */; };
+		0440EBCE236616A100B8D738 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBF236616A100B8D738 /* TagView.swift */; };
 		046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
 		046560BF1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
 		04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
@@ -46,7 +131,6 @@
 		1AFB4A5D1FC32FFD001EC4D5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */; };
 		1AFB4A5F1FC33026001EC4D5 /* ConversationListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */; };
 		1AFB4A611FC3303E001EC4D5 /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */; };
-		21CD709A973E54127EC07FE2 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
 		290BED8E20E697EC00F30BAA /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE9FBB1EF9AA84006C2CAC /* WebManager.swift */; };
 		290BED8F20E697EC00F30BAA /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE42D1F27E24900FCC976 /* IQKeyboardManagerConstants.swift */; };
 		290BED9120E697EC00F30BAA /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752CE4331F27E24900FCC976 /* IQTitleBarButtonItem.swift */; };
@@ -596,7 +680,9 @@
 		29FD100721160D1000062362 /* ScheduleAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE37F3B206017D0009C4625 /* ScheduleAppointment.storyboard */; };
 		29FD100821160D1000062362 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		29FD100921160D1000062362 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
-		6B42F88795B04544C9CD2061 /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */; };
+		3FC36C2D37C7F1E74B6CC2DC /* Pods_FanConnectNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333846545214FF9602B4CFF6 /* Pods_FanConnectNow.framework */; };
+		4A0CF74CF8894CCF2EC7ECD0 /* Pods_TextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7D3F96FF619A8C225DF0A4 /* Pods_TextingLine.framework */; };
+		6AAD5607A26D9FC591F1B6BE /* Pods_SMSFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B57C016DEDF2998F7317965 /* Pods_SMSFactory.framework */; };
 		750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE41FCF05E600B38AA5 /* SearchView.swift */; };
 		750EFFE71FCF05F200B38AA5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750EFFE61FCF05F200B38AA5 /* SearchView.xib */; };
 		750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */; };
@@ -646,10 +732,8 @@
 		75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */; };
 		75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */; };
 		75F731E61F389B3D00DBDA84 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */; };
-		7E51E1EF27B7FAB457FA6A5D /* Pods_Text_Attendant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B155FA4EF345C6D991098844 /* Pods_Text_Attendant.framework */; };
-		89924ED1ADE889382741FD35 /* Pods_TextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE567C720718B220C71EF699 /* Pods_TextingLine.framework */; };
-		A677810F0B6C875EA4DA2892 /* Pods_PhotoTextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5EADEE16B9EB0544D935B0 /* Pods_PhotoTextingLine.framework */; };
-		AED556EA294AF518847BD8B5 /* Pods_SMSFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */; };
+		AE0FE8B008469B0961CC58EE /* Pods_Text_Attendant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3EDD72590E475D5668571 /* Pods_Text_Attendant.framework */; };
+		C1D5501DB7FC0D49DB7AC512 /* Pods_PhotoTextingLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1388859DEC779BECABBA8D09 /* Pods_PhotoTextingLine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -706,6 +790,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		012D4F6358948843A7AC0535 /* Pods-SMSFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.release.xcconfig"; path = "Target Support Files/Pods-SMSFactory/Pods-SMSFactory.release.xcconfig"; sourceTree = "<group>"; };
+		0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactTag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0440EB752366098F00B8D738 /* ContactTagParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTagParser.swift; sourceTree = "<group>"; };
+		0440EB7B2366163900B8D738 /* ContactsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsListViewController.swift; path = "Contacts Listing View/ContactsListViewController.swift"; sourceTree = "<group>"; };
+		0440EB7C2366163900B8D738 /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Contacts.storyboard; path = "Contacts Listing View/Contacts.storyboard"; sourceTree = "<group>"; };
+		0440EB872366164900B8D738 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = "Contacts Listing View/Contact List Cell/Contact.swift"; sourceTree = "<group>"; };
+		0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsListTableViewCell.swift; path = "Contacts Listing View/Contact List Cell/ContactsListTableViewCell.swift"; sourceTree = "<group>"; };
+		0440EB932366165C00B8D738 /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsManager.swift; path = "Contacts Listing View/Upload Contact View/ContactsManager.swift"; sourceTree = "<group>"; };
+		0440EB942366165C00B8D738 /* UploadContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadContactViewController.swift; path = "Contacts Listing View/Upload Contact View/UploadContactViewController.swift"; sourceTree = "<group>"; };
+		0440EB9F2366167800B8D738 /* CreateTagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateTagView.xib; path = "Contacts Listing View/Create Tag View/CreateTagView.xib"; sourceTree = "<group>"; };
+		0440EBA02366167800B8D738 /* CreateTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTagView.swift; path = "Contacts Listing View/Create Tag View/CreateTagView.swift"; sourceTree = "<group>"; };
+		0440EBAB2366168300B8D738 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactDetailViewController.swift; path = "Contacts Listing View/Contact Detail View/ContactDetailViewController.swift"; sourceTree = "<group>"; };
+		0440EBB12366169600B8D738 /* ContactNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactNameTableViewCell.swift; path = "Contacts Listing View/Contact Detail View/Table View Cells/ContactNameTableViewCell.swift"; sourceTree = "<group>"; };
+		0440EBB22366169700B8D738 /* ContactTagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactTagTableViewCell.swift; path = "Contacts Listing View/Contact Detail View/Table View Cells/ContactTagTableViewCell.swift"; sourceTree = "<group>"; };
+		0440EBBD236616A100B8D738 /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagListView.swift; path = "Contacts Listing View/Contact Detail View/Table View Cells/Tag List View/TagListView.swift"; sourceTree = "<group>"; };
+		0440EBBE236616A100B8D738 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloseButton.swift; path = "Contacts Listing View/Contact Detail View/Table View Cells/Tag List View/CloseButton.swift"; sourceTree = "<group>"; };
+		0440EBBF236616A100B8D738 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagView.swift; path = "Contacts Listing View/Contact Detail View/Table View Cells/Tag List View/TagView.swift"; sourceTree = "<group>"; };
 		046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailViewControllerProtocol.swift; sourceTree = "<group>"; };
 		046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListingViewControllerProtocol.swift; sourceTree = "<group>"; };
 		04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -716,6 +818,10 @@
 		04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04EC9FB71FC3724700F3C42A /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Checkbox.swift; path = Inbox/Checkbox.swift; sourceTree = "<group>"; };
 		04EC9FB81FC3728F00F3C42A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Inbox/Default-568h@2x.png"; sourceTree = "<group>"; };
+		06D6DF71CBC9CD9681829E72 /* Pods-PhotoTextingLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTextingLine.debug.xcconfig"; path = "Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine.debug.xcconfig"; sourceTree = "<group>"; };
+		0B86E61F86D166061BDBD1C5 /* Pods-TextingLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextingLine.debug.xcconfig"; path = "Target Support Files/Pods-TextingLine/Pods-TextingLine.debug.xcconfig"; sourceTree = "<group>"; };
+		127E4818CF49A8DF6F6A730A /* Pods-FanConnectNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.debug.xcconfig"; path = "Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.debug.xcconfig"; sourceTree = "<group>"; };
+		1388859DEC779BECABBA8D09 /* Pods_PhotoTextingLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoTextingLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A34751F2062CA6100FA0FFB /* GCCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarDayView.swift; sourceTree = "<group>"; };
 		1A3475202062CA6100FA0FFB /* GCCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarView.swift; sourceTree = "<group>"; };
 		1A3475212062CA6100FA0FFB /* GCCalendarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCCalendarViewDelegate.swift; sourceTree = "<group>"; };
@@ -747,6 +853,8 @@
 		1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1AFB4A5E1FC33026001EC4D5 /* ConversationListing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationListing.storyboard; sourceTree = "<group>"; };
 		1AFB4A601FC3303E001EC4D5 /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
+		249FF3B1B1DFE31795EB2398 /* Pods-Text_Attendant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text_Attendant.release.xcconfig"; path = "Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant.release.xcconfig"; sourceTree = "<group>"; };
+		25D2249FA21DE007C06003C5 /* Pods-PhotoTextingLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTextingLine.release.xcconfig"; path = "Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine.release.xcconfig"; sourceTree = "<group>"; };
 		29017325211666B600D00E06 /* SMSFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMSFactory.entitlements; sourceTree = "<group>"; };
 		290BEDFB20E697EC00F30BAA /* SMSFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290BEDFD20E6999200F30BAA /* SmsFactory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmsFactory.xcassets; sourceTree = "<group>"; };
@@ -806,10 +914,10 @@
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
 		29FD0F9921160D0500062362 /* FanConnectNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanConnectNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29FD100E21160D1000062362 /* PhotoTextingLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTextingLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMSFactory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51802A377AA752A4C760FBA3 /* Pods-SMSFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.release.xcconfig"; path = "Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory.release.xcconfig"; sourceTree = "<group>"; };
-		61865E46618956F148587785 /* Pods-Text_Attendant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text_Attendant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant.debug.xcconfig"; sourceTree = "<group>"; };
-		6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanConnectNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E7D3F96FF619A8C225DF0A4 /* Pods_TextingLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextingLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		333846545214FF9602B4CFF6 /* Pods_FanConnectNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FanConnectNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45853419E462BFF5B50808D2 /* Pods-FanConnectNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.release.xcconfig"; path = "Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.release.xcconfig"; sourceTree = "<group>"; };
+		4B57C016DEDF2998F7317965 /* Pods_SMSFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMSFactory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		750EFFE41FCF05E600B38AA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		750EFFE61FCF05F200B38AA5 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		750EFFE91FCF07B400B38AA5 /* SearchViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewProtocol.swift; sourceTree = "<group>"; };
@@ -859,17 +967,10 @@
 		75E7A8401F4F2EB100E9764C /* ComposeMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeMessageViewController.swift; sourceTree = "<group>"; };
 		75E7A8421F4F2FAB00E9764C /* ComposeMessage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ComposeMessage.storyboard; sourceTree = "<group>"; };
 		75F731E51F389B3D00DBDA84 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		93D8088CD9C4151380AC32D6 /* Pods-TextingLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextingLine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine.debug.xcconfig"; sourceTree = "<group>"; };
-		93E0DEB10B45741B928CADBD /* Pods-PhotoTextingLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTextingLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine.release.xcconfig"; sourceTree = "<group>"; };
-		986670B7C2F51A1E23F2614C /* Pods-FanConnectNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.debug.xcconfig"; sourceTree = "<group>"; };
-		A1291FB4F6C49F14C71431B5 /* Pods-TextingLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextingLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine.release.xcconfig"; sourceTree = "<group>"; };
-		AE567C720718B220C71EF699 /* Pods_TextingLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextingLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B155FA4EF345C6D991098844 /* Pods_Text_Attendant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Attendant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5193E471D8D240CAFEDB027 /* Pods-SMSFactory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory.debug.xcconfig"; sourceTree = "<group>"; };
-		B546EF74728C733417FD8470 /* Pods-Text_Attendant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text_Attendant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant.release.xcconfig"; sourceTree = "<group>"; };
-		B72314BB1AAA85BDC9C0DA7D /* Pods-PhotoTextingLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoTextingLine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine.debug.xcconfig"; sourceTree = "<group>"; };
-		CF5EADEE16B9EB0544D935B0 /* Pods_PhotoTextingLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoTextingLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4E3FD0550C4D5FBB19D94D5 /* Pods-FanConnectNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FanConnectNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow.release.xcconfig"; sourceTree = "<group>"; };
+		97E3EDD72590E475D5668571 /* Pods_Text_Attendant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Attendant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8473AB888ADD76985E83C60 /* Pods-Text_Attendant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text_Attendant.debug.xcconfig"; path = "Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant.debug.xcconfig"; sourceTree = "<group>"; };
+		DC5A39E4650A864699976083 /* Pods-SMSFactory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.debug.xcconfig"; path = "Target Support Files/Pods-SMSFactory/Pods-SMSFactory.debug.xcconfig"; sourceTree = "<group>"; };
+		F8E1ABFEC4B8D2F44514014F /* Pods-TextingLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextingLine.release.xcconfig"; path = "Target Support Files/Pods-TextingLine/Pods-TextingLine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -882,7 +983,7 @@
 				753684141F03F59300D24264 /* CoreGraphics.framework in Frameworks */,
 				753684121F03F58A00D24264 /* Foundation.framework in Frameworks */,
 				29955C67213A8A1D000B733F /* Fabric.framework in Frameworks */,
-				89924ED1ADE889382741FD35 /* Pods_TextingLine.framework in Frameworks */,
+				4A0CF74CF8894CCF2EC7ECD0 /* Pods_TextingLine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,7 +996,7 @@
 				290BEDE020E697EC00F30BAA /* CoreGraphics.framework in Frameworks */,
 				290BEDE120E697EC00F30BAA /* Foundation.framework in Frameworks */,
 				29955C68213A8A1D000B733F /* Fabric.framework in Frameworks */,
-				AED556EA294AF518847BD8B5 /* Pods_SMSFactory.framework in Frameworks */,
+				6AAD5607A26D9FC591F1B6BE /* Pods_SMSFactory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,7 +1009,7 @@
 				299DC98F21FB9906001F2861 /* CoreGraphics.framework in Frameworks */,
 				299DC99021FB9906001F2861 /* Foundation.framework in Frameworks */,
 				299DC99121FB9906001F2861 /* Fabric.framework in Frameworks */,
-				7E51E1EF27B7FAB457FA6A5D /* Pods_Text_Attendant.framework in Frameworks */,
+				AE0FE8B008469B0961CC58EE /* Pods_Text_Attendant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,8 +1022,7 @@
 				29FD0F7A21160D0500062362 /* CoreGraphics.framework in Frameworks */,
 				29FD0F7B21160D0500062362 /* Foundation.framework in Frameworks */,
 				29955C69213A8A1D000B733F /* Fabric.framework in Frameworks */,
-				6B42F88795B04544C9CD2061 /* Pods_FanConnectNow.framework in Frameworks */,
-				21CD709A973E54127EC07FE2 /* Pods_FanConnectNow.framework in Frameworks */,
+				3FC36C2D37C7F1E74B6CC2DC /* Pods_FanConnectNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,7 +1035,7 @@
 				29FD0FEF21160D1000062362 /* CoreGraphics.framework in Frameworks */,
 				29FD0FF021160D1000062362 /* Foundation.framework in Frameworks */,
 				29955C6A213A8A1D000B733F /* Fabric.framework in Frameworks */,
-				A677810F0B6C875EA4DA2892 /* Pods_PhotoTextingLine.framework in Frameworks */,
+				C1D5501DB7FC0D49DB7AC512 /* Pods_PhotoTextingLine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,6 +1056,75 @@
 				046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		04B3BD6523648527005ABDA4 /* Contacts Listing View */ = {
+			isa = PBXGroup;
+			children = (
+				0440EB7C2366163900B8D738 /* Contacts.storyboard */,
+				0440EB7B2366163900B8D738 /* ContactsListViewController.swift */,
+				04B3BD8623648653005ABDA4 /* Contact List Cell */,
+				04B3BD932364866D005ABDA4 /* Upload Contacts View */,
+				04B3BD7323648602005ABDA4 /* Tag Creation Popup */,
+				04B3BD9A236486A0005ABDA4 /* Contat Detail View */,
+			);
+			name = "Contacts Listing View";
+			sourceTree = "<group>";
+		};
+		04B3BD7323648602005ABDA4 /* Tag Creation Popup */ = {
+			isa = PBXGroup;
+			children = (
+				0440EBA02366167800B8D738 /* CreateTagView.swift */,
+				0440EB9F2366167800B8D738 /* CreateTagView.xib */,
+			);
+			name = "Tag Creation Popup";
+			sourceTree = "<group>";
+		};
+		04B3BD8623648653005ABDA4 /* Contact List Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0440EB872366164900B8D738 /* Contact.swift */,
+				0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */,
+			);
+			name = "Contact List Cell";
+			sourceTree = "<group>";
+		};
+		04B3BD932364866D005ABDA4 /* Upload Contacts View */ = {
+			isa = PBXGroup;
+			children = (
+				0440EB932366165C00B8D738 /* ContactsManager.swift */,
+				0440EB942366165C00B8D738 /* UploadContactViewController.swift */,
+			);
+			name = "Upload Contacts View";
+			sourceTree = "<group>";
+		};
+		04B3BD9A236486A0005ABDA4 /* Contat Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				0440EBAB2366168300B8D738 /* ContactDetailViewController.swift */,
+				04B3BDA1236486AF005ABDA4 /* Table Cell */,
+				04B3BDAE236486C6005ABDA4 /* Tage View */,
+			);
+			name = "Contat Detail View";
+			sourceTree = "<group>";
+		};
+		04B3BDA1236486AF005ABDA4 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0440EBB12366169600B8D738 /* ContactNameTableViewCell.swift */,
+				0440EBB22366169700B8D738 /* ContactTagTableViewCell.swift */,
+			);
+			name = "Table Cell";
+			sourceTree = "<group>";
+		};
+		04B3BDAE236486C6005ABDA4 /* Tage View */ = {
+			isa = PBXGroup;
+			children = (
+				0440EBBE236616A100B8D738 /* CloseButton.swift */,
+				0440EBBD236616A100B8D738 /* TagListView.swift */,
+				0440EBBF236616A100B8D738 /* TagView.swift */,
+			);
+			name = "Tage View";
 			sourceTree = "<group>";
 		};
 		04EC9FB51FC3722600F3C42A /* Libraries */ = {
@@ -986,6 +1155,23 @@
 			name = Checkbox;
 			sourceTree = "<group>";
 		};
+		066CDF5C2E8BE12545E56266 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				127E4818CF49A8DF6F6A730A /* Pods-FanConnectNow.debug.xcconfig */,
+				45853419E462BFF5B50808D2 /* Pods-FanConnectNow.release.xcconfig */,
+				06D6DF71CBC9CD9681829E72 /* Pods-PhotoTextingLine.debug.xcconfig */,
+				25D2249FA21DE007C06003C5 /* Pods-PhotoTextingLine.release.xcconfig */,
+				DC5A39E4650A864699976083 /* Pods-SMSFactory.debug.xcconfig */,
+				012D4F6358948843A7AC0535 /* Pods-SMSFactory.release.xcconfig */,
+				D8473AB888ADD76985E83C60 /* Pods-Text_Attendant.debug.xcconfig */,
+				249FF3B1B1DFE31795EB2398 /* Pods-Text_Attendant.release.xcconfig */,
+				0B86E61F86D166061BDBD1C5 /* Pods-TextingLine.debug.xcconfig */,
+				F8E1ABFEC4B8D2F44514014F /* Pods-TextingLine.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		1A34751E2062CA4600FA0FFB /* Calendar  */ = {
 			isa = PBXGroup;
 			children = (
@@ -1011,7 +1197,7 @@
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
 				1ADE9F7B1EF98E48006C2CAC /* Products */,
 				753684101F03F58900D24264 /* Frameworks */,
-				F58ACF3025347E3570B418EF /* Pods */,
+				066CDF5C2E8BE12545E56266 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1209,6 +1395,7 @@
 				1AFB4A5C1FC32FFD001EC4D5 /* Home.storyboard */,
 				2932C2CC217230FE00D2A299 /* ProfileViewController.swift */,
 				1ADE9FA11EF99688006C2CAC /* Conversation Listing View */,
+				04B3BD6523648527005ABDA4 /* Contacts Listing View */,
 			);
 			name = "Home View";
 			sourceTree = "<group>";
@@ -1339,11 +1526,11 @@
 				753684151F03F59F00D24264 /* UIKit.framework */,
 				753684131F03F59300D24264 /* CoreGraphics.framework */,
 				753684111F03F58A00D24264 /* Foundation.framework */,
-				6583368AEFDA89DB346BD1FD /* Pods_FanConnectNow.framework */,
-				CF5EADEE16B9EB0544D935B0 /* Pods_PhotoTextingLine.framework */,
-				5047AC12F48C3F95D5DEB50F /* Pods_SMSFactory.framework */,
-				AE567C720718B220C71EF699 /* Pods_TextingLine.framework */,
-				B155FA4EF345C6D991098844 /* Pods_Text_Attendant.framework */,
+				333846545214FF9602B4CFF6 /* Pods_FanConnectNow.framework */,
+				1388859DEC779BECABBA8D09 /* Pods_PhotoTextingLine.framework */,
+				4B57C016DEDF2998F7317965 /* Pods_SMSFactory.framework */,
+				97E3EDD72590E475D5668571 /* Pods_Text_Attendant.framework */,
+				2E7D3F96FF619A8C225DF0A4 /* Pods_TextingLine.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1380,6 +1567,8 @@
 				04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */,
 				295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */,
 				295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */,
+				0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */,
+				0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */,
 			);
 			name = Persistent;
 			sourceTree = "<group>";
@@ -1392,6 +1581,7 @@
 				75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */,
 				755C665A1EFA897800A3F74A /* MessagesParser.swift */,
 				295EA2972120518700C1EAB2 /* UserContactsParser.swift */,
+				0440EB752366098F00B8D738 /* ContactTagParser.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1435,23 +1625,6 @@
 			name = ComposeMessage;
 			sourceTree = "<group>";
 		};
-		F58ACF3025347E3570B418EF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B72314BB1AAA85BDC9C0DA7D /* Pods-PhotoTextingLine.debug.xcconfig */,
-				93E0DEB10B45741B928CADBD /* Pods-PhotoTextingLine.release.xcconfig */,
-				B5193E471D8D240CAFEDB027 /* Pods-SMSFactory.debug.xcconfig */,
-				51802A377AA752A4C760FBA3 /* Pods-SMSFactory.release.xcconfig */,
-				93D8088CD9C4151380AC32D6 /* Pods-TextingLine.debug.xcconfig */,
-				A1291FB4F6C49F14C71431B5 /* Pods-TextingLine.release.xcconfig */,
-				986670B7C2F51A1E23F2614C /* Pods-FanConnectNow.debug.xcconfig */,
-				E4E3FD0550C4D5FBB19D94D5 /* Pods-FanConnectNow.release.xcconfig */,
-				61865E46618956F148587785 /* Pods-Text_Attendant.debug.xcconfig */,
-				B546EF74728C733417FD8470 /* Pods-Text_Attendant.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1459,13 +1632,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ADE9F8F1EF98E4A006C2CAC /* Build configuration list for PBXNativeTarget "TextingLine" */;
 			buildPhases = (
-				CF093952516EB96CCC61D660 /* [CP] Check Pods Manifest.lock */,
+				9A069660AFD8904CB0AAAAF1 /* [CP] Check Pods Manifest.lock */,
 				1ADE9F761EF98E48006C2CAC /* Sources */,
 				1ADE9F771EF98E48006C2CAC /* Frameworks */,
 				1ADE9F781EF98E48006C2CAC /* Resources */,
 				759C5BD61FC60BB5007889E7 /* Embed Frameworks */,
 				29955C64213A89E1000B733F /* ShellScript */,
-				E2349B096DDA888D8E04ADE7 /* [CP] Embed Pods Frameworks */,
+				D67E4F7A79EFA3E210829CFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1480,13 +1653,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 290BEDF820E697EC00F30BAA /* Build configuration list for PBXNativeTarget "SMSFactory" */;
 			buildPhases = (
-				7F000DC766992EE8F849B65E /* [CP] Check Pods Manifest.lock */,
+				81712A587910E99C08C50B5A /* [CP] Check Pods Manifest.lock */,
 				290BED8D20E697EC00F30BAA /* Sources */,
 				290BEDDE20E697EC00F30BAA /* Frameworks */,
 				290BEDE220E697EC00F30BAA /* Resources */,
 				290BEDF720E697EC00F30BAA /* Embed Frameworks */,
 				29CE4294214D936F008D0CD8 /* ShellScript */,
-				8F5FF404845E1005AE6F5B8D /* [CP] Embed Pods Frameworks */,
+				41F85B94A2836420C1B5F41F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1501,13 +1674,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 299DC9B121FB9906001F2861 /* Build configuration list for PBXNativeTarget "Text_Attendant" */;
 			buildPhases = (
-				F56D66C855754DD3AF4DFF9B /* [CP] Check Pods Manifest.lock */,
+				BB5B79DBC2F45EFA0D7C1BC1 /* [CP] Check Pods Manifest.lock */,
 				299DC93D21FB9906001F2861 /* Sources */,
 				299DC98C21FB9906001F2861 /* Frameworks */,
 				299DC99321FB9906001F2861 /* Resources */,
 				299DC9AE21FB9906001F2861 /* Embed Frameworks */,
 				299DC9AF21FB9906001F2861 /* ShellScript */,
-				B53E8C8F4CEA74479F11DC57 /* [CP] Embed Pods Frameworks */,
+				6BDF497E29BC20F8DC7DF788 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1522,13 +1695,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29FD0F9621160D0500062362 /* Build configuration list for PBXNativeTarget "FanConnectNow" */;
 			buildPhases = (
-				D36DD14A2DEA31AAE2DD5207 /* [CP] Check Pods Manifest.lock */,
+				AFF9CB295422545157B8C5ED /* [CP] Check Pods Manifest.lock */,
 				29FD0F2721160D0500062362 /* Sources */,
 				29FD0F7821160D0500062362 /* Frameworks */,
 				29FD0F7C21160D0500062362 /* Resources */,
 				29FD0F9521160D0500062362 /* Embed Frameworks */,
 				297122A3214EE80300DDDF21 /* ShellScript */,
-				E731911F26389E7C411F9C8F /* [CP] Embed Pods Frameworks */,
+				05696F8A7A8EF93C844F3CFC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1543,13 +1716,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29FD100B21160D1000062362 /* Build configuration list for PBXNativeTarget "PhotoTextingLine" */;
 			buildPhases = (
-				F4E672468DAD80D21E85DA6D /* [CP] Check Pods Manifest.lock */,
+				046F53F290A7885ED624212E /* [CP] Check Pods Manifest.lock */,
 				29FD0F9C21160D1000062362 /* Sources */,
 				29FD0FED21160D1000062362 /* Frameworks */,
 				29FD0FF121160D1000062362 /* Resources */,
 				29FD100A21160D1000062362 /* Embed Frameworks */,
 				29DF6ADB214FED6500DC404C /* ShellScript */,
-				778B9C4AA0A83E4272753A13 /* [CP] Embed Pods Frameworks */,
+				5A903B23EC1C70069BEE3F78 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1572,7 +1745,7 @@
 				TargetAttributes = {
 					1ADE9F791EF98E48006C2CAC = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = TWA5JJ29B2;
+						DevelopmentTeam = 2NBTB656XQ;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -1665,6 +1838,7 @@
 				294433022295E09700370FF3 /* SF-Pro-Display-LightItalic.otf in Resources */,
 				1ADE9F881EF98E4A006C2CAC /* TextingLine.xcassets in Resources */,
 				2944330C2295E09700370FF3 /* SF-Pro-Display-MediumItalic.otf in Resources */,
+				0440EB822366163900B8D738 /* Contacts.storyboard in Resources */,
 				294432EE2295E09700370FF3 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				294433342295E09700370FF3 /* SF-Pro-Display-Regular.otf in Resources */,
 				294432D52295E09700370FF3 /* SF-Pro-Display-ThinItalic.otf in Resources */,
@@ -1684,6 +1858,7 @@
 				294432FD2295E09700370FF3 /* SF-Pro-Display-Heavy.otf in Resources */,
 				294433072295E09700370FF3 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				292CCE5021C462F600996BF5 /* GoogleService-Info.plist in Resources */,
+				0440EBA12366167800B8D738 /* CreateTagView.xib in Resources */,
 				752CE43F1F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */,
 				294432F32295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
@@ -1714,6 +1889,7 @@
 				294433032295E09700370FF3 /* SF-Pro-Display-LightItalic.otf in Resources */,
 				290BEDE520E697EC00F30BAA /* TextingLine.xcassets in Resources */,
 				2944330D2295E09700370FF3 /* SF-Pro-Display-MediumItalic.otf in Resources */,
+				0440EB832366163900B8D738 /* Contacts.storyboard in Resources */,
 				294432EF2295E09700370FF3 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				294433352295E09700370FF3 /* SF-Pro-Display-Regular.otf in Resources */,
 				294432D62295E09700370FF3 /* SF-Pro-Display-ThinItalic.otf in Resources */,
@@ -1733,6 +1909,7 @@
 				294432FE2295E09700370FF3 /* SF-Pro-Display-Heavy.otf in Resources */,
 				294433082295E09700370FF3 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				290BEDEC20E697EC00F30BAA /* Login.storyboard in Resources */,
+				0440EBA22366167800B8D738 /* CreateTagView.xib in Resources */,
 				29FD0F222114C2A400062362 /* Fanconnect.xcassets in Resources */,
 				290BEDED20E697EC00F30BAA /* IQButtonBarArrowLeft@3x.png in Resources */,
 				294432F42295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
@@ -1767,6 +1944,7 @@
 				299DC99721FB9906001F2861 /* SmsFactory.xcassets in Resources */,
 				299DC99821FB9906001F2861 /* IQButtonBarArrowUp@3x.png in Resources */,
 				299DC99921FB9906001F2861 /* Home.storyboard in Resources */,
+				0440EB862366163900B8D738 /* Contacts.storyboard in Resources */,
 				29DA419422E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				299DC99A21FB9906001F2861 /* PhotoTexting.xcassets in Resources */,
 				294433102295E09700370FF3 /* SF-Pro-Display-MediumItalic.otf in Resources */,
@@ -1786,6 +1964,7 @@
 				299DC9A221FB9906001F2861 /* Fanconnect.xcassets in Resources */,
 				299DC9A321FB9906001F2861 /* IQButtonBarArrowLeft@3x.png in Resources */,
 				294432DE2295E09700370FF3 /* SF-Pro-Display-Light.otf in Resources */,
+				0440EBA52366167800B8D738 /* CreateTagView.xib in Resources */,
 				299DC9A421FB9906001F2861 /* ComposeMessage.storyboard in Resources */,
 				299DC9A521FB9906001F2861 /* IQButtonBarArrowRight@3x.png in Resources */,
 				294433012295E09700370FF3 /* SF-Pro-Display-Heavy.otf in Resources */,
@@ -1818,6 +1997,7 @@
 				29FD0F7E21160D0500062362 /* ConversationDetail.storyboard in Resources */,
 				29FD0F7F21160D0500062362 /* TextingLine.xcassets in Resources */,
 				29FD0F8021160D0500062362 /* SmsFactory.xcassets in Resources */,
+				0440EB842366163900B8D738 /* Contacts.storyboard in Resources */,
 				29FD0F8121160D0500062362 /* IQButtonBarArrowUp@3x.png in Resources */,
 				29FD0F8221160D0500062362 /* Home.storyboard in Resources */,
 				29DA419222E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
@@ -1825,6 +2005,7 @@
 				29FD0F8321160D0500062362 /* PhotoTexting.xcassets in Resources */,
 				29FD0F8421160D0500062362 /* ConversationListing.storyboard in Resources */,
 				2952C1B7215301C600C7C084 /* FanConnectNow copy-Info.plist in Resources */,
+				0440EBA32366167800B8D738 /* CreateTagView.xib in Resources */,
 				29FD0F8521160D0500062362 /* IQButtonBarArrowDown@2x.png in Resources */,
 				29FD0F8621160D0500062362 /* Splash.storyboard in Resources */,
 				294DD87721C4698D004536D8 /* GoogleService-Info_Fan.plist in Resources */,
@@ -1889,7 +2070,9 @@
 				294432BA2295E09700370FF3 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
 				294432F62295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
 				294432CE2295E09700370FF3 /* SF-Pro-Display-Black.otf in Resources */,
+				0440EB852366163900B8D738 /* Contacts.storyboard in Resources */,
 				29FD100121160D1000062362 /* IQButtonBarArrowRight@3x.png in Resources */,
+				0440EBA42366167800B8D738 /* CreateTagView.xib in Resources */,
 				294432C92295E09700370FF3 /* SF-Pro-Display-Bold.otf in Resources */,
 				29FD100221160D1000062362 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				2944330F2295E09700370FF3 /* SF-Pro-Display-MediumItalic.otf in Resources */,
@@ -1911,6 +2094,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		046F53F290A7885ED624212E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoTextingLine-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		05696F8A7A8EF93C844F3CFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyContacts/SwiftyContacts.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyContacts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		297122A3214EE80300DDDF21 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1976,35 +2207,79 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bce2d39d12be4c08933d7fa6caeba25179c955bb 50df64abfa599eacc5d2a28e7ea06c29db6b0d75b4ea8f628f7f3c5c8a47203c\n";
 		};
-		778B9C4AA0A83E4272753A13 /* [CP] Embed Pods Frameworks */ = {
+		41F85B94A2836420C1B5F41F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7F000DC766992EE8F849B65E /* [CP] Check Pods Manifest.lock */ = {
+		5A903B23EC1C70069BEE3F78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.0/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BDF497E29BC20F8DC7DF788 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81712A587910E99C08C50B5A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2026,63 +2301,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8F5FF404845E1005AE6F5B8D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B53E8C8F4CEA74479F11DC57 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CF093952516EB96CCC61D660 /* [CP] Check Pods Manifest.lock */ = {
+		9A069660AFD8904CB0AAAAF1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2104,7 +2323,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D36DD14A2DEA31AAE2DD5207 /* [CP] Check Pods Manifest.lock */ = {
+		AFF9CB295422545157B8C5ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2126,85 +2345,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E2349B096DDA888D8E04ADE7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextingLine/Pods-TextingLine-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E731911F26389E7C411F9C8F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F4E672468DAD80D21E85DA6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PhotoTextingLine-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F56D66C855754DD3AF4DFF9B /* [CP] Check Pods Manifest.lock */ = {
+		BB5B79DBC2F45EFA0D7C1BC1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2226,6 +2367,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D67E4F7A79EFA3E210829CFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TextingLine/Pods-TextingLine-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.0/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TextingLine/Pods-TextingLine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2233,11 +2398,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0440EB762366099000B8D738 /* ContactTagParser.swift in Sources */,
 				1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */,
 				752CE4441F27E24900FCC976 /* IQKeyboardManagerConstants.swift in Sources */,
 				752CE44A1F27E24900FCC976 /* IQTitleBarButtonItem.swift in Sources */,
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
+				0440EBA62366167800B8D738 /* CreateTagView.swift in Sources */,
 				759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */,
+				0440EB9A2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				752CE4461F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				1A3475252062CA6100FA0FFB /* GCCalendarDayView.swift in Sources */,
 				752CE4501F27E24900FCC976 /* IQUIViewController+Additions.swift in Sources */,
@@ -2246,6 +2414,7 @@
 				75A06F2C1F3B41FE004EEDF1 /* LoginParser.swift in Sources */,
 				75E7A8411F4F2EB100E9764C /* ComposeMessageViewController.swift in Sources */,
 				1AFB4A581FC32F1E001EC4D5 /* ConversationDetailViewController.swift in Sources */,
+				0440EB7D2366163900B8D738 /* ContactsListViewController.swift in Sources */,
 				752CE44F1F27E24900FCC976 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				752CE4431F27E24900FCC976 /* IQKeyboardManager.swift in Sources */,
 				752CE44E1F27E24900FCC976 /* IQUIView+Hierarchy.swift in Sources */,
@@ -2254,8 +2423,10 @@
 				755C665B1EFA897800A3F74A /* MessagesParser.swift in Sources */,
 				1A3475262062CA6100FA0FFB /* GCCalendarView.swift in Sources */,
 				1A3475282062CA6100FA0FFB /* GCCalendarConfiguration.swift in Sources */,
+				0440EBAC2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
+				0440EB8E2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506222947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2268,7 +2439,9 @@
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
 				759BD35C204077F400832092 /* Mappings.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
+				0440EB70236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
 				2932C2D7217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				0440EBC0236616A100B8D738 /* TagListView.swift in Sources */,
 				759BD35D204077F400832092 /* Deprecated.swift in Sources */,
 				756615CF203941670087CB9D /* CodePointSet.swift in Sources */,
 				754085FC1F1671AF00CDB81F /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2278,9 +2451,12 @@
 				752CE4451F27E24900FCC976 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				1ADE9F9E1EF98F8E006C2CAC /* LoginViewController.swift in Sources */,
 				1ADE9F861EF98E49006C2CAC /* Inbox.xcdatamodeld in Sources */,
+				0440EBB82366169700B8D738 /* ContactTagTableViewCell.swift in Sources */,
 				04EC9FBE1FC373C500F3C42A /* Conversation+CoreDataProperties.swift in Sources */,
+				0440EBCA236616A100B8D738 /* TagView.swift in Sources */,
 				752CE4481F27E24900FCC976 /* IQPreviousNextView.swift in Sources */,
 				04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */,
+				0440EB952366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				04EC9FC01FC373D200F3C42A /* Checkbox.swift in Sources */,
 				046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */,
@@ -2295,10 +2471,13 @@
 				1ADE9F991EF98EBB006C2CAC /* SplashViewController.swift in Sources */,
 				754085FB1F1671AF00CDB81F /* ProcessingIndicatorView.swift in Sources */,
 				1A3475272062CA6100FA0FFB /* GCCalendarViewDelegate.swift in Sources */,
+				0440EBB32366169700B8D738 /* ContactNameTableViewCell.swift in Sources */,
 				04EC9FBA1FC373C500F3C42A /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D2217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				752CE4471F27E24900FCC976 /* IQNSArray+Sort.swift in Sources */,
 				1AE37F3A206017BB009C4625 /* ScheduleAppointmentViewController.swift in Sources */,
+				0440EB6B236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
+				0440EB892366164A00B8D738 /* Contact.swift in Sources */,
 				29E5E14321767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
@@ -2310,6 +2489,7 @@
 				75A06F2A1F3B2F7C004EEDF1 /* ConversationParser.swift in Sources */,
 				29C820502141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				752CE44C1F27E24900FCC976 /* IQUIScrollView+Additions.swift in Sources */,
+				0440EBC5236616A100B8D738 /* CloseButton.swift in Sources */,
 				754085FF1F16743000CDB81F /* Constants.swift in Sources */,
 				750EFFEA1FCF07B400B38AA5 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2319,11 +2499,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0440EB772366099000B8D738 /* ContactTagParser.swift in Sources */,
 				290BED8E20E697EC00F30BAA /* WebManager.swift in Sources */,
 				290BED8F20E697EC00F30BAA /* IQKeyboardManagerConstants.swift in Sources */,
 				290BED9120E697EC00F30BAA /* IQTitleBarButtonItem.swift in Sources */,
 				290BED9220E697EC00F30BAA /* InboxTableViewCellProtocol.swift in Sources */,
+				0440EBA72366167800B8D738 /* CreateTagView.swift in Sources */,
 				290BED9320E697EC00F30BAA /* ComposeMessageProtocol.swift in Sources */,
+				0440EB9B2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				290BED9420E697EC00F30BAA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				290BED9520E697EC00F30BAA /* GCCalendarDayView.swift in Sources */,
 				290BED9620E697EC00F30BAA /* IQUIViewController+Additions.swift in Sources */,
@@ -2332,6 +2515,7 @@
 				290BED9A20E697EC00F30BAA /* LoginParser.swift in Sources */,
 				290BED9C20E697EC00F30BAA /* ComposeMessageViewController.swift in Sources */,
 				290BED9D20E697EC00F30BAA /* ConversationDetailViewController.swift in Sources */,
+				0440EB7E2366163900B8D738 /* ContactsListViewController.swift in Sources */,
 				290BED9E20E697EC00F30BAA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				290BED9F20E697EC00F30BAA /* IQKeyboardManager.swift in Sources */,
 				290BEDA020E697EC00F30BAA /* IQUIView+Hierarchy.swift in Sources */,
@@ -2340,8 +2524,10 @@
 				290BEDA320E697EC00F30BAA /* MessagesParser.swift in Sources */,
 				290BEDA420E697EC00F30BAA /* GCCalendarView.swift in Sources */,
 				290BEDA520E697EC00F30BAA /* GCCalendarConfiguration.swift in Sources */,
+				0440EBAD2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
 				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
+				0440EB8F2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506322947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2354,7 +2540,9 @@
 				290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */,
 				290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */,
 				290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */,
+				0440EB71236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
 				2932C2D8217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				0440EBC1236616A100B8D738 /* TagListView.swift in Sources */,
 				290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */,
 				290BEDB320E697EC00F30BAA /* CodePointSet.swift in Sources */,
 				290BEDB520E697EC00F30BAA /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2364,9 +2552,12 @@
 				290BEDB820E697EC00F30BAA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				290BEDBA20E697EC00F30BAA /* LoginViewController.swift in Sources */,
 				290BEDBB20E697EC00F30BAA /* Inbox.xcdatamodeld in Sources */,
+				0440EBB92366169700B8D738 /* ContactTagTableViewCell.swift in Sources */,
 				290BEDBC20E697EC00F30BAA /* Conversation+CoreDataProperties.swift in Sources */,
+				0440EBCB236616A100B8D738 /* TagView.swift in Sources */,
 				290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */,
 				290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */,
+				0440EB962366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */,
 				290BEDC220E697EC00F30BAA /* ConversationDetailViewControllerProtocol.swift in Sources */,
@@ -2381,10 +2572,13 @@
 				290BEDCD20E697EC00F30BAA /* SplashViewController.swift in Sources */,
 				290BEDCE20E697EC00F30BAA /* ProcessingIndicatorView.swift in Sources */,
 				290BEDCF20E697EC00F30BAA /* GCCalendarViewDelegate.swift in Sources */,
+				0440EBB42366169700B8D738 /* ContactNameTableViewCell.swift in Sources */,
 				290BEDD020E697EC00F30BAA /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D3217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */,
 				290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */,
+				0440EB6C236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
+				0440EB8A2366164A00B8D738 /* Contact.swift in Sources */,
 				29E5E14421767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */,
 				290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */,
@@ -2396,6 +2590,7 @@
 				290BEDDA20E697EC00F30BAA /* ConversationParser.swift in Sources */,
 				29C820512141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				290BEDDB20E697EC00F30BAA /* IQUIScrollView+Additions.swift in Sources */,
+				0440EBC6236616A100B8D738 /* CloseButton.swift in Sources */,
 				290BEDDC20E697EC00F30BAA /* Constants.swift in Sources */,
 				290BEDDD20E697EC00F30BAA /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2405,11 +2600,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0440EB7A2366099000B8D738 /* ContactTagParser.swift in Sources */,
 				299DC93E21FB9906001F2861 /* WebManager.swift in Sources */,
 				299DC93F21FB9906001F2861 /* IQKeyboardManagerConstants.swift in Sources */,
 				299DC94121FB9906001F2861 /* IQTitleBarButtonItem.swift in Sources */,
 				299DC94221FB9906001F2861 /* InboxTableViewCellProtocol.swift in Sources */,
+				0440EBAA2366167800B8D738 /* CreateTagView.swift in Sources */,
 				299DC94321FB9906001F2861 /* ComposeMessageProtocol.swift in Sources */,
+				0440EB9E2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				299DC94421FB9906001F2861 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				299DC94521FB9906001F2861 /* GCCalendarDayView.swift in Sources */,
 				299DC94621FB9906001F2861 /* IQUIViewController+Additions.swift in Sources */,
@@ -2418,6 +2616,7 @@
 				299DC94921FB9906001F2861 /* LoginParser.swift in Sources */,
 				299DC94A21FB9906001F2861 /* ComposeMessageViewController.swift in Sources */,
 				299DC94B21FB9906001F2861 /* ConversationDetailViewController.swift in Sources */,
+				0440EB812366163900B8D738 /* ContactsListViewController.swift in Sources */,
 				299DC94C21FB9906001F2861 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				299DC94D21FB9906001F2861 /* IQKeyboardManager.swift in Sources */,
 				299DC94E21FB9906001F2861 /* IQUIView+Hierarchy.swift in Sources */,
@@ -2426,8 +2625,10 @@
 				299DC95121FB9906001F2861 /* MessagesParser.swift in Sources */,
 				299DC95221FB9906001F2861 /* GCCalendarView.swift in Sources */,
 				299DC95321FB9906001F2861 /* GCCalendarConfiguration.swift in Sources */,
+				0440EBB02366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				299DC95421FB9906001F2861 /* IQUIWindow+Hierarchy.swift in Sources */,
 				299DC95521FB9906001F2861 /* UnderlinedTextField.swift in Sources */,
+				0440EB922366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				299DC95621FB9906001F2861 /* CopyableLabel.swift in Sources */,
 				298F506622947DEA001414EC /* GradientButton.swift in Sources */,
 				299DC95721FB9906001F2861 /* FloatLabelTextView.swift in Sources */,
@@ -2440,7 +2641,9 @@
 				299DC95E21FB9906001F2861 /* IQBarButtonItem.swift in Sources */,
 				299DC95F21FB9906001F2861 /* Mappings.swift in Sources */,
 				299DC96021FB9906001F2861 /* MessageTableViewDataSource.swift in Sources */,
+				0440EB74236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
 				299DC96121FB9906001F2861 /* VerifyCodeViewController.swift in Sources */,
+				0440EBC4236616A100B8D738 /* TagListView.swift in Sources */,
 				299DC96221FB9906001F2861 /* Deprecated.swift in Sources */,
 				299DC96321FB9906001F2861 /* CodePointSet.swift in Sources */,
 				299DC96421FB9906001F2861 /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2450,9 +2653,12 @@
 				299DC96821FB9906001F2861 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				299DC96921FB9906001F2861 /* LoginViewController.swift in Sources */,
 				299DC96A21FB9906001F2861 /* Inbox.xcdatamodeld in Sources */,
+				0440EBBC2366169700B8D738 /* ContactTagTableViewCell.swift in Sources */,
 				299DC96B21FB9906001F2861 /* Conversation+CoreDataProperties.swift in Sources */,
+				0440EBCE236616A100B8D738 /* TagView.swift in Sources */,
 				299DC96C21FB9906001F2861 /* IQPreviousNextView.swift in Sources */,
 				299DC96D21FB9906001F2861 /* Message+CoreDataClass.swift in Sources */,
+				0440EB992366165C00B8D738 /* ContactsManager.swift in Sources */,
 				299DC96E21FB9906001F2861 /* UserContact+CoreDataClass.swift in Sources */,
 				299DC96F21FB9906001F2861 /* Checkbox.swift in Sources */,
 				299DC97021FB9906001F2861 /* ConversationDetailViewControllerProtocol.swift in Sources */,
@@ -2467,10 +2673,13 @@
 				299DC97921FB9906001F2861 /* SplashViewController.swift in Sources */,
 				299DC97A21FB9906001F2861 /* ProcessingIndicatorView.swift in Sources */,
 				299DC97B21FB9906001F2861 /* GCCalendarViewDelegate.swift in Sources */,
+				0440EBB72366169700B8D738 /* ContactNameTableViewCell.swift in Sources */,
 				299DC97C21FB9906001F2861 /* Message+CoreDataProperties.swift in Sources */,
 				299DC97D21FB9906001F2861 /* ForgetPasswordViewController.swift in Sources */,
 				299DC97E21FB9906001F2861 /* IQNSArray+Sort.swift in Sources */,
 				299DC97F21FB9906001F2861 /* ScheduleAppointmentViewController.swift in Sources */,
+				0440EB6F236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
+				0440EB8D2366164A00B8D738 /* Contact.swift in Sources */,
 				299DC98021FB9906001F2861 /* FloatLabelTextField.swift in Sources */,
 				299DC98121FB9906001F2861 /* SearchView.swift in Sources */,
 				299DC98221FB9906001F2861 /* Reachability.swift in Sources */,
@@ -2482,6 +2691,7 @@
 				299DC98721FB9906001F2861 /* ConversationParser.swift in Sources */,
 				299DC98821FB9906001F2861 /* UILabel+Copyable.m in Sources */,
 				299DC98921FB9906001F2861 /* IQUIScrollView+Additions.swift in Sources */,
+				0440EBC9236616A100B8D738 /* CloseButton.swift in Sources */,
 				299DC98A21FB9906001F2861 /* Constants.swift in Sources */,
 				299DC98B21FB9906001F2861 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2491,11 +2701,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0440EB782366099000B8D738 /* ContactTagParser.swift in Sources */,
 				29FD0F2821160D0500062362 /* WebManager.swift in Sources */,
 				29FD0F2921160D0500062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0F2B21160D0500062362 /* IQTitleBarButtonItem.swift in Sources */,
 				29FD0F2C21160D0500062362 /* InboxTableViewCellProtocol.swift in Sources */,
+				0440EBA82366167800B8D738 /* CreateTagView.swift in Sources */,
 				29FD0F2D21160D0500062362 /* ComposeMessageProtocol.swift in Sources */,
+				0440EB9C2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				29FD0F2E21160D0500062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				29FD0F2F21160D0500062362 /* GCCalendarDayView.swift in Sources */,
 				29FD0F3021160D0500062362 /* IQUIViewController+Additions.swift in Sources */,
@@ -2504,6 +2717,7 @@
 				29FD0F3421160D0500062362 /* LoginParser.swift in Sources */,
 				29FD0F3621160D0500062362 /* ComposeMessageViewController.swift in Sources */,
 				29FD0F3721160D0500062362 /* ConversationDetailViewController.swift in Sources */,
+				0440EB7F2366163900B8D738 /* ContactsListViewController.swift in Sources */,
 				29FD0F3821160D0500062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				29FD0F3921160D0500062362 /* IQKeyboardManager.swift in Sources */,
 				29FD0F3A21160D0500062362 /* IQUIView+Hierarchy.swift in Sources */,
@@ -2512,8 +2726,10 @@
 				29FD0F3D21160D0500062362 /* MessagesParser.swift in Sources */,
 				29FD0F3E21160D0500062362 /* GCCalendarView.swift in Sources */,
 				29FD0F3F21160D0500062362 /* GCCalendarConfiguration.swift in Sources */,
+				0440EBAE2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
+				0440EB902366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506422947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2526,7 +2742,9 @@
 				29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0F4A21160D0500062362 /* Mappings.swift in Sources */,
 				29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */,
+				0440EB72236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
 				2932C2D9217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				0440EBC2236616A100B8D738 /* TagListView.swift in Sources */,
 				29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */,
 				29FD0F4D21160D0500062362 /* CodePointSet.swift in Sources */,
 				29FD0F4F21160D0500062362 /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2536,9 +2754,12 @@
 				29FD0F5221160D0500062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				29FD0F5421160D0500062362 /* LoginViewController.swift in Sources */,
 				29FD0F5521160D0500062362 /* Inbox.xcdatamodeld in Sources */,
+				0440EBBA2366169700B8D738 /* ContactTagTableViewCell.swift in Sources */,
 				29FD0F5621160D0500062362 /* Conversation+CoreDataProperties.swift in Sources */,
+				0440EBCC236616A100B8D738 /* TagView.swift in Sources */,
 				29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */,
+				0440EB972366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA29121204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */,
 				29FD0F5C21160D0500062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
@@ -2553,10 +2774,13 @@
 				29FD0F6721160D0500062362 /* SplashViewController.swift in Sources */,
 				29FD0F6821160D0500062362 /* ProcessingIndicatorView.swift in Sources */,
 				29FD0F6921160D0500062362 /* GCCalendarViewDelegate.swift in Sources */,
+				0440EBB52366169700B8D738 /* ContactNameTableViewCell.swift in Sources */,
 				29FD0F6A21160D0500062362 /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D4217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				0440EB6D236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
+				0440EB8B2366164A00B8D738 /* Contact.swift in Sources */,
 				29E5E14521767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				29FD0F6F21160D0500062362 /* SearchView.swift in Sources */,
 				29FD0F7021160D0500062362 /* Reachability.swift in Sources */,
@@ -2568,6 +2792,7 @@
 				29FD0F7421160D0500062362 /* ConversationParser.swift in Sources */,
 				29C820522141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				29FD0F7521160D0500062362 /* IQUIScrollView+Additions.swift in Sources */,
+				0440EBC7236616A100B8D738 /* CloseButton.swift in Sources */,
 				29FD0F7621160D0500062362 /* Constants.swift in Sources */,
 				29FD0F7721160D0500062362 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2577,11 +2802,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0440EB792366099000B8D738 /* ContactTagParser.swift in Sources */,
 				29FD0F9D21160D1000062362 /* WebManager.swift in Sources */,
 				29FD0F9E21160D1000062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0FA021160D1000062362 /* IQTitleBarButtonItem.swift in Sources */,
 				29FD0FA121160D1000062362 /* InboxTableViewCellProtocol.swift in Sources */,
+				0440EBA92366167800B8D738 /* CreateTagView.swift in Sources */,
 				29FD0FA221160D1000062362 /* ComposeMessageProtocol.swift in Sources */,
+				0440EB9D2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				29FD0FA321160D1000062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				29FD0FA421160D1000062362 /* GCCalendarDayView.swift in Sources */,
 				29FD0FA521160D1000062362 /* IQUIViewController+Additions.swift in Sources */,
@@ -2590,6 +2818,7 @@
 				29FD0FA921160D1000062362 /* LoginParser.swift in Sources */,
 				29FD0FAB21160D1000062362 /* ComposeMessageViewController.swift in Sources */,
 				29FD0FAC21160D1000062362 /* ConversationDetailViewController.swift in Sources */,
+				0440EB802366163900B8D738 /* ContactsListViewController.swift in Sources */,
 				29FD0FAD21160D1000062362 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				29FD0FAE21160D1000062362 /* IQKeyboardManager.swift in Sources */,
 				29FD0FAF21160D1000062362 /* IQUIView+Hierarchy.swift in Sources */,
@@ -2598,8 +2827,10 @@
 				29FD0FB221160D1000062362 /* MessagesParser.swift in Sources */,
 				29FD0FB321160D1000062362 /* GCCalendarView.swift in Sources */,
 				29FD0FB421160D1000062362 /* GCCalendarConfiguration.swift in Sources */,
+				0440EBAF2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
+				0440EB912366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820472141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506522947DEA001414EC /* GradientButton.swift in Sources */,
 				29E5E14221767A5E00BF642C /* FloatLabelTextView.swift in Sources */,
@@ -2612,7 +2843,9 @@
 				29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0FBF21160D1000062362 /* Mappings.swift in Sources */,
 				29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */,
+				0440EB73236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
 				2932C2DA217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
+				0440EBC3236616A100B8D738 /* TagListView.swift in Sources */,
 				29FD0FC121160D1000062362 /* Deprecated.swift in Sources */,
 				29FD0FC221160D1000062362 /* CodePointSet.swift in Sources */,
 				29FD0FC421160D1000062362 /* ProcessingIndicatorProtocol.swift in Sources */,
@@ -2622,9 +2855,12 @@
 				29FD0FC721160D1000062362 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				29FD0FC921160D1000062362 /* LoginViewController.swift in Sources */,
 				29FD0FCA21160D1000062362 /* Inbox.xcdatamodeld in Sources */,
+				0440EBBB2366169700B8D738 /* ContactTagTableViewCell.swift in Sources */,
 				29FD0FCB21160D1000062362 /* Conversation+CoreDataProperties.swift in Sources */,
+				0440EBCD236616A100B8D738 /* TagView.swift in Sources */,
 				29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */,
+				0440EB982366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA29221204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				29FD0FD021160D1000062362 /* Checkbox.swift in Sources */,
 				29FD0FD121160D1000062362 /* ConversationDetailViewControllerProtocol.swift in Sources */,
@@ -2639,10 +2875,13 @@
 				29FD0FDC21160D1000062362 /* SplashViewController.swift in Sources */,
 				29FD0FDD21160D1000062362 /* ProcessingIndicatorView.swift in Sources */,
 				29FD0FDE21160D1000062362 /* GCCalendarViewDelegate.swift in Sources */,
+				0440EBB62366169700B8D738 /* ContactNameTableViewCell.swift in Sources */,
 				29FD0FDF21160D1000062362 /* Message+CoreDataProperties.swift in Sources */,
 				2932C2D5217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */,
+				0440EB6E236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
+				0440EB8C2366164A00B8D738 /* Contact.swift in Sources */,
 				29E5E14621767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				29FD0FE421160D1000062362 /* SearchView.swift in Sources */,
 				29FD0FE521160D1000062362 /* Reachability.swift in Sources */,
@@ -2654,6 +2893,7 @@
 				29FD0FE921160D1000062362 /* ConversationParser.swift in Sources */,
 				29C820532141CD2F00A47752 /* UILabel+Copyable.m in Sources */,
 				29FD0FEA21160D1000062362 /* IQUIScrollView+Additions.swift in Sources */,
+				0440EBC8236616A100B8D738 /* CloseButton.swift in Sources */,
 				29FD0FEB21160D1000062362 /* Constants.swift in Sources */,
 				29FD0FEC21160D1000062362 /* SearchViewProtocol.swift in Sources */,
 			);
@@ -2783,17 +3023,17 @@
 		};
 		1ADE9F901EF98E4A006C2CAC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D8088CD9C4151380AC32D6 /* Pods-TextingLine.debug.xcconfig */;
+			baseConfigurationReference = 0B86E61F86D166061BDBD1C5 /* Pods-TextingLine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TextingLine.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = 2NBTB656XQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2802,11 +3042,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 3.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.debug;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4f1ee7cd-44af-4b3e-b6a4-b6309861a03a";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStore;
+				PROVISIONING_PROFILE_SPECIFIER = Netsol_Enterprise_Development_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2817,16 +3057,16 @@
 		};
 		1ADE9F911EF98E4A006C2CAC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1291FB4F6C49F14C71431B5 /* Pods-TextingLine.release.xcconfig */;
+			baseConfigurationReference = F8E1ABFEC4B8D2F44514014F /* Pods-TextingLine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TextingLine.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4.0;
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = 2NBTB656XQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2835,11 +3075,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 3.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.debug;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4f1ee7cd-44af-4b3e-b6a4-b6309861a03a";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStore;
+				PROVISIONING_PROFILE_SPECIFIER = Netsol_Enterprise_Development_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -2849,7 +3089,7 @@
 		};
 		290BEDF920E697EC00F30BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5193E471D8D240CAFEDB027 /* Pods-SMSFactory.debug.xcconfig */;
+			baseConfigurationReference = DC5A39E4650A864699976083 /* Pods-SMSFactory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = smsAppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2879,7 +3119,7 @@
 		};
 		290BEDFA20E697EC00F30BAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51802A377AA752A4C760FBA3 /* Pods-SMSFactory.release.xcconfig */;
+			baseConfigurationReference = 012D4F6358948843A7AC0535 /* Pods-SMSFactory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = smsAppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2908,7 +3148,7 @@
 		};
 		299DC9B221FB9906001F2861 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61865E46618956F148587785 /* Pods-Text_Attendant.debug.xcconfig */;
+			baseConfigurationReference = D8473AB888ADD76985E83C60 /* Pods-Text_Attendant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2938,7 +3178,7 @@
 		};
 		299DC9B321FB9906001F2861 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B546EF74728C733417FD8470 /* Pods-Text_Attendant.release.xcconfig */;
+			baseConfigurationReference = 249FF3B1B1DFE31795EB2398 /* Pods-Text_Attendant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Text_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2967,7 +3207,7 @@
 		};
 		29FD0F9721160D0500062362 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 986670B7C2F51A1E23F2614C /* Pods-FanConnectNow.debug.xcconfig */;
+			baseConfigurationReference = 127E4818CF49A8DF6F6A730A /* Pods-FanConnectNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2997,7 +3237,7 @@
 		};
 		29FD0F9821160D0500062362 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4E3FD0550C4D5FBB19D94D5 /* Pods-FanConnectNow.release.xcconfig */;
+			baseConfigurationReference = 45853419E462BFF5B50808D2 /* Pods-FanConnectNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Fan_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3026,7 +3266,7 @@
 		};
 		29FD100C21160D1000062362 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B72314BB1AAA85BDC9C0DA7D /* Pods-PhotoTextingLine.debug.xcconfig */;
+			baseConfigurationReference = 06D6DF71CBC9CD9681829E72 /* Pods-PhotoTextingLine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Photo_AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3056,7 +3296,7 @@
 		};
 		29FD100D21160D1000062362 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93E0DEB10B45741B928CADBD /* Pods-PhotoTextingLine.release.xcconfig */;
+			baseConfigurationReference = 25D2249FA21DE007C06003C5 /* Pods-PhotoTextingLine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = Photo_AppIcon;
 				CLANG_ENABLE_MODULES = YES;

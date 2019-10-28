@@ -21,7 +21,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
     
     var tickBox:Checkbox? = nil
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
         
         if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
@@ -73,6 +74,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             // Fallback on earlier versions
         }
         
+        serialTextField.text = "8443712030"
+        
+        udidTextField.text   = "lime123"
+
         switch environment {
         case .texting_Line:
             loginImageView.image = UIImage(named: "ChatLogo")
@@ -360,12 +365,7 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 //*******************************************************************//
                                 //*******************************************************************//
-                                ProcessingIndicator.hide()
-                                
-                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
-                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                                self.navigationController?.pushViewController(homeViewController, animated: true)
-                                
+                                self.getAllTags()
                             }
                             else
                             {
@@ -397,9 +397,7 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 ProcessingIndicator.hide()
                                 
-                                let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
-                                let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
-                                self.navigationController?.pushViewController(homeViewController, animated: true)
+                                self.getAllTags()
                             }
                     }
             }
@@ -419,7 +417,24 @@ extension LoginViewController {
     //******************************************************************************************************************//
     
 }
+extension LoginViewController
+{
+    func getAllTags()
+    {
+        
+    }
+    
+    func loadHomeView()
+    {
+        ProcessingIndicator.hide()
 
+        let homeStoryboard = UIStoryboard(name:"Home", bundle: nil)
+        
+        let homeViewController: HomeViewController = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController")as! HomeViewController
+        
+        self.navigationController?.pushViewController(homeViewController, animated: true)
+    }
+}
 
 extension LoginViewController {
     
