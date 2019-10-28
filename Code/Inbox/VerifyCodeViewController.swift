@@ -9,7 +9,7 @@
 import UIKit
 
 class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var numberTextField: FloatLabelTextField!
     
     @IBOutlet weak var header_Label: UILabel!
@@ -21,11 +21,11 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var codeTextField: UITextField!
     
     var randomString : String = ""
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         } else {
@@ -35,25 +35,25 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
         self.numberTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.numberTextField.delegate = self
         
-//        self.codeTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        //        self.codeTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         self.codeTextField.delegate = self
-       
+        
         self.numberTextField.text = ""
         self.codeTextField.text   = ""
         
         
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        NotificationCenter.default.removeObserver(self, name: .postNotifi, object: nil)
+        //        NotificationCenter.default.removeObserver(self, name: .postNotifi, object: nil)
     }
     
     @IBAction func doneButton_Tapped(_ sender: Any) {
         
         self.numberTextField.resignFirstResponder()
-
+        
         if (self.numberTextField.text?.isEmpty)!
         {
             let alert = UIAlertController(title:"Warning",message:"Please enter number.",preferredStyle:UIAlertControllerStyle.alert)
@@ -124,7 +124,7 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func innerDoneButton_Tapped(_ sender: Any) {
         self.codeTextField.resignFirstResponder()
-
+        
     }
     
     @IBAction func innerBackButton_Tapped(_ sender: Any) {
@@ -146,7 +146,7 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
             
             var paramsDic = Dictionary<String, Any>()
             paramsDic["mobile"] = self.numberTextField.text
-           let user = User.getLoginedUser()
+            let user = User.getLoginedUser()
             
             paramsDic["firstName"]   = user?.firstName
             paramsDic["lastName"]    = user?.lastName
@@ -166,7 +166,7 @@ class VerifyCodeViewController: UIViewController, UITextFieldDelegate {
                                 if status == true {
                                     
                                     ProcessingIndicator.hide()
-                                    let alert = UIAlertController(title: "Success", message:"Thank you, your mobile number is now confimred.", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Success", message:"Thank you, your mobile number is now confirmed.", preferredStyle: UIAlertControllerStyle.alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
                                         self.view.removeFromSuperview()
                                     }))
@@ -224,7 +224,7 @@ extension VerifyCodeViewController {
                 return false
             }
         } else if (textField == self.codeTextField) {
-           
+            
             let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
             
             let cs = NSCharacterSet(charactersIn: ACCEPTABLE_DIGITS).inverted
@@ -242,9 +242,9 @@ extension VerifyCodeViewController {
                 return false
             }
             
-//            if str.count == CODE_MAX_LENGTH {
-//                return true
-//            }
+            //            if str.count == CODE_MAX_LENGTH {
+            //                return true
+            //            }
         }
         
         return true
@@ -261,11 +261,11 @@ extension VerifyCodeViewController {
         
         if textField == self.codeTextField {
             if textField.text?.count == 6 {
-              _ = self.checkVerificationCode(inputCode: textField.text!)
+                _ = self.checkVerificationCode(inputCode: textField.text!)
             } else {
                 let alert = UIAlertController(title: "Error", message:"You have entered wrong code, please enter again.", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
