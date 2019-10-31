@@ -5,7 +5,8 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
 {
     let headerColor = UIColor.init(displayP3Red:0.96, green:0.97, blue:1.0, alpha:1.0)
 
-    var contact = Contact()
+    var contact:UserContact!
+    
     var createTageView: CreateTagView!
     
     @IBOutlet weak var headerTitleLabel: UILabel!
@@ -23,11 +24,7 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func setupControls()
     {
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
-            
-        let contact = Contact()
-        
-        contact.contacName = "Tahir"
-        
+                    
         self.headerContactNumberLabel.text = "(561) 815-4881"
     }
     

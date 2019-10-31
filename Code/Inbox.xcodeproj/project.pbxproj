@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0440EB6B236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
-		0440EB6C236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
-		0440EB6D236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
-		0440EB6E236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
-		0440EB6F236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */; };
-		0440EB70236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
-		0440EB71236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
-		0440EB72236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
-		0440EB73236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
-		0440EB74236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */; };
-		0440EB762366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
-		0440EB772366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
-		0440EB782366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
-		0440EB792366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
-		0440EB7A2366099000B8D738 /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* ContactTagParser.swift */; };
+		0440EB6B236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
+		0440EB6C236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
+		0440EB6D236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
+		0440EB6E236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
+		0440EB6F236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
+		0440EB70236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */; };
+		0440EB71236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */; };
+		0440EB72236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */; };
+		0440EB73236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */; };
+		0440EB74236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */; };
+		0440EB762366099000B8D738 /* TagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* TagParser.swift */; };
+		0440EB772366099000B8D738 /* TagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* TagParser.swift */; };
+		0440EB782366099000B8D738 /* TagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* TagParser.swift */; };
+		0440EB792366099000B8D738 /* TagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* TagParser.swift */; };
+		0440EB7A2366099000B8D738 /* TagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB752366098F00B8D738 /* TagParser.swift */; };
 		0440EB7D2366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
 		0440EB7E2366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
 		0440EB7F2366163900B8D738 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB7B2366163900B8D738 /* ContactsListViewController.swift */; };
@@ -32,11 +32,11 @@
 		0440EB842366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
 		0440EB852366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
 		0440EB862366163900B8D738 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0440EB7C2366163900B8D738 /* Contacts.storyboard */; };
-		0440EB892366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
-		0440EB8A2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
-		0440EB8B2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
-		0440EB8C2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
-		0440EB8D2366164A00B8D738 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* Contact.swift */; };
+		0440EB892366164A00B8D738 /* ContactTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* ContactTag.swift */; };
+		0440EB8A2366164A00B8D738 /* ContactTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* ContactTag.swift */; };
+		0440EB8B2366164A00B8D738 /* ContactTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* ContactTag.swift */; };
+		0440EB8C2366164A00B8D738 /* ContactTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* ContactTag.swift */; };
+		0440EB8D2366164A00B8D738 /* ContactTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB872366164900B8D738 /* ContactTag.swift */; };
 		0440EB8E2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
 		0440EB8F2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
 		0440EB902366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */; };
@@ -94,6 +94,11 @@
 		0440EBCE236616A100B8D738 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EBBF236616A100B8D738 /* TagView.swift */; };
 		046560BC1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */; };
 		046560BF1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */; };
+		048FF921236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
+		048FF922236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
+		048FF923236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
+		048FF924236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
+		048FF925236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
 		04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
 		04EC9FBA1FC373C500F3C42A /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
 		04EC9FBB1FC373C500F3C42A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
@@ -339,6 +344,11 @@
 		295EA2992120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
 		295EA29A2120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
 		295EA29B2120518700C1EAB2 /* UserContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EA2972120518700C1EAB2 /* UserContactsParser.swift */; };
+		297CE3EE236B1933004838B1 /* ContactTagMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297CE3ED236B1933004838B1 /* ContactTagMerger.swift */; };
+		297CE3EF236B1933004838B1 /* ContactTagMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297CE3ED236B1933004838B1 /* ContactTagMerger.swift */; };
+		297CE3F0236B1933004838B1 /* ContactTagMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297CE3ED236B1933004838B1 /* ContactTagMerger.swift */; };
+		297CE3F1236B1933004838B1 /* ContactTagMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297CE3ED236B1933004838B1 /* ContactTagMerger.swift */; };
+		297CE3F2236B1933004838B1 /* ContactTagMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297CE3ED236B1933004838B1 /* ContactTagMerger.swift */; };
 		298F506222947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
 		298F506322947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
 		298F506422947DEA001414EC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F506122947DEA001414EC /* GradientButton.swift */; };
@@ -791,12 +801,12 @@
 
 /* Begin PBXFileReference section */
 		012D4F6358948843A7AC0535 /* Pods-SMSFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.release.xcconfig"; path = "Target Support Files/Pods-SMSFactory/Pods-SMSFactory.release.xcconfig"; sourceTree = "<group>"; };
-		0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactTag+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0440EB752366098F00B8D738 /* ContactTagParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTagParser.swift; sourceTree = "<group>"; };
+		0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0440EB752366098F00B8D738 /* TagParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagParser.swift; sourceTree = "<group>"; };
 		0440EB7B2366163900B8D738 /* ContactsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsListViewController.swift; path = "Contacts Listing View/ContactsListViewController.swift"; sourceTree = "<group>"; };
 		0440EB7C2366163900B8D738 /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Contacts.storyboard; path = "Contacts Listing View/Contacts.storyboard"; sourceTree = "<group>"; };
-		0440EB872366164900B8D738 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = "Contacts Listing View/Contact List Cell/Contact.swift"; sourceTree = "<group>"; };
+		0440EB872366164900B8D738 /* ContactTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactTag.swift; path = "Contacts Listing View/Contact List Cell/ContactTag.swift"; sourceTree = "<group>"; };
 		0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsListTableViewCell.swift; path = "Contacts Listing View/Contact List Cell/ContactsListTableViewCell.swift"; sourceTree = "<group>"; };
 		0440EB932366165C00B8D738 /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsManager.swift; path = "Contacts Listing View/Upload Contact View/ContactsManager.swift"; sourceTree = "<group>"; };
 		0440EB942366165C00B8D738 /* UploadContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadContactViewController.swift; path = "Contacts Listing View/Upload Contact View/UploadContactViewController.swift"; sourceTree = "<group>"; };
@@ -810,6 +820,7 @@
 		0440EBBF236616A100B8D738 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagView.swift; path = "Contacts Listing View/Contact Detail View/Table View Cells/Tag List View/TagView.swift"; sourceTree = "<group>"; };
 		046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailViewControllerProtocol.swift; sourceTree = "<group>"; };
 		046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListingViewControllerProtocol.swift; sourceTree = "<group>"; };
+		048FF920236B59E70076B18E /* ContactTagParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTagParser.swift; sourceTree = "<group>"; };
 		04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -894,6 +905,7 @@
 		295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataProperties.swift"; path = "../UserContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		295EA2972120518700C1EAB2 /* UserContactsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContactsParser.swift; sourceTree = "<group>"; };
 		2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FanConnect.entitlements; sourceTree = "<group>"; };
+		297CE3ED236B1933004838B1 /* ContactTagMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTagMerger.swift; sourceTree = "<group>"; };
 		2981430E2200E230007D4495 /* Text_Attendant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Text_Attendant.entitlements; sourceTree = "<group>"; };
 		298F506122947DEA001414EC /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		29955C65213A8A1C000B733F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -1083,7 +1095,6 @@
 		04B3BD8623648653005ABDA4 /* Contact List Cell */ = {
 			isa = PBXGroup;
 			children = (
-				0440EB872366164900B8D738 /* Contact.swift */,
 				0440EB882366164A00B8D738 /* ContactsListTableViewCell.swift */,
 			);
 			name = "Contact List Cell";
@@ -1567,8 +1578,9 @@
 				04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */,
 				295EA28D21204FB800C1EAB2 /* UserContact+CoreDataClass.swift */,
 				295EA28E21204FB800C1EAB2 /* UserContact+CoreDataProperties.swift */,
-				0440EB69236608CD00B8D738 /* ContactTag+CoreDataClass.swift */,
-				0440EB6A236608CE00B8D738 /* ContactTag+CoreDataProperties.swift */,
+				0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */,
+				0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */,
+				0440EB872366164900B8D738 /* ContactTag.swift */,
 			);
 			name = Persistent;
 			sourceTree = "<group>";
@@ -1581,7 +1593,9 @@
 				75A06F291F3B2F7C004EEDF1 /* ConversationParser.swift */,
 				755C665A1EFA897800A3F74A /* MessagesParser.swift */,
 				295EA2972120518700C1EAB2 /* UserContactsParser.swift */,
-				0440EB752366098F00B8D738 /* ContactTagParser.swift */,
+				0440EB752366098F00B8D738 /* TagParser.swift */,
+				048FF920236B59E70076B18E /* ContactTagParser.swift */,
+				297CE3ED236B1933004838B1 /* ContactTagMerger.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2398,12 +2412,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0440EB762366099000B8D738 /* ContactTagParser.swift in Sources */,
+				0440EB762366099000B8D738 /* TagParser.swift in Sources */,
 				1ADE9FBC1EF9AA84006C2CAC /* WebManager.swift in Sources */,
 				752CE4441F27E24900FCC976 /* IQKeyboardManagerConstants.swift in Sources */,
 				752CE44A1F27E24900FCC976 /* IQTitleBarButtonItem.swift in Sources */,
 				755C665E1EFADE7300A3F74A /* InboxTableViewCellProtocol.swift in Sources */,
 				0440EBA62366167800B8D738 /* CreateTagView.swift in Sources */,
+				048FF921236B59E70076B18E /* ContactTagParser.swift in Sources */,
 				759C5BD11FC605E0007889E7 /* ComposeMessageProtocol.swift in Sources */,
 				0440EB9A2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				752CE4461F27E24900FCC976 /* IQKeyboardReturnKeyHandler.swift in Sources */,
@@ -2439,7 +2454,7 @@
 				752CE43B1F27E24900FCC976 /* IQBarButtonItem.swift in Sources */,
 				759BD35C204077F400832092 /* Mappings.swift in Sources */,
 				1ADE9FB81EF9A5AE006C2CAC /* MessageTableViewDataSource.swift in Sources */,
-				0440EB70236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
+				0440EB70236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */,
 				2932C2D7217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				0440EBC0236616A100B8D738 /* TagListView.swift in Sources */,
 				759BD35D204077F400832092 /* Deprecated.swift in Sources */,
@@ -2456,6 +2471,7 @@
 				0440EBCA236616A100B8D738 /* TagView.swift in Sources */,
 				752CE4481F27E24900FCC976 /* IQPreviousNextView.swift in Sources */,
 				04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */,
+				297CE3EE236B1933004838B1 /* ContactTagMerger.swift in Sources */,
 				0440EB952366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA28F21204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				04EC9FC01FC373D200F3C42A /* Checkbox.swift in Sources */,
@@ -2476,8 +2492,8 @@
 				2932C2D2217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				752CE4471F27E24900FCC976 /* IQNSArray+Sort.swift in Sources */,
 				1AE37F3A206017BB009C4625 /* ScheduleAppointmentViewController.swift in Sources */,
-				0440EB6B236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
-				0440EB892366164A00B8D738 /* Contact.swift in Sources */,
+				0440EB6B236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */,
+				0440EB892366164A00B8D738 /* ContactTag.swift in Sources */,
 				29E5E14321767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				750EFFE51FCF05E600B38AA5 /* SearchView.swift in Sources */,
 				75E35F101F05853500B96018 /* Reachability.swift in Sources */,
@@ -2499,12 +2515,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0440EB772366099000B8D738 /* ContactTagParser.swift in Sources */,
+				0440EB772366099000B8D738 /* TagParser.swift in Sources */,
 				290BED8E20E697EC00F30BAA /* WebManager.swift in Sources */,
 				290BED8F20E697EC00F30BAA /* IQKeyboardManagerConstants.swift in Sources */,
 				290BED9120E697EC00F30BAA /* IQTitleBarButtonItem.swift in Sources */,
 				290BED9220E697EC00F30BAA /* InboxTableViewCellProtocol.swift in Sources */,
 				0440EBA72366167800B8D738 /* CreateTagView.swift in Sources */,
+				048FF922236B59E70076B18E /* ContactTagParser.swift in Sources */,
 				290BED9320E697EC00F30BAA /* ComposeMessageProtocol.swift in Sources */,
 				0440EB9B2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				290BED9420E697EC00F30BAA /* IQKeyboardReturnKeyHandler.swift in Sources */,
@@ -2540,7 +2557,7 @@
 				290BEDAE20E697EC00F30BAA /* IQBarButtonItem.swift in Sources */,
 				290BEDB020E697EC00F30BAA /* Mappings.swift in Sources */,
 				290BEDB120E697EC00F30BAA /* MessageTableViewDataSource.swift in Sources */,
-				0440EB71236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
+				0440EB71236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */,
 				2932C2D8217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				0440EBC1236616A100B8D738 /* TagListView.swift in Sources */,
 				290BEDB220E697EC00F30BAA /* Deprecated.swift in Sources */,
@@ -2557,6 +2574,7 @@
 				0440EBCB236616A100B8D738 /* TagView.swift in Sources */,
 				290BEDBD20E697EC00F30BAA /* IQPreviousNextView.swift in Sources */,
 				290BEDBE20E697EC00F30BAA /* Message+CoreDataClass.swift in Sources */,
+				297CE3EF236B1933004838B1 /* ContactTagMerger.swift in Sources */,
 				0440EB962366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA29021204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				290BEDC120E697EC00F30BAA /* Checkbox.swift in Sources */,
@@ -2577,8 +2595,8 @@
 				2932C2D3217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				290BEDD220E697EC00F30BAA /* IQNSArray+Sort.swift in Sources */,
 				290BEDD320E697EC00F30BAA /* ScheduleAppointmentViewController.swift in Sources */,
-				0440EB6C236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
-				0440EB8A2366164A00B8D738 /* Contact.swift in Sources */,
+				0440EB6C236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */,
+				0440EB8A2366164A00B8D738 /* ContactTag.swift in Sources */,
 				29E5E14421767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				290BEDD520E697EC00F30BAA /* SearchView.swift in Sources */,
 				290BEDD620E697EC00F30BAA /* Reachability.swift in Sources */,
@@ -2600,12 +2618,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0440EB7A2366099000B8D738 /* ContactTagParser.swift in Sources */,
+				0440EB7A2366099000B8D738 /* TagParser.swift in Sources */,
 				299DC93E21FB9906001F2861 /* WebManager.swift in Sources */,
 				299DC93F21FB9906001F2861 /* IQKeyboardManagerConstants.swift in Sources */,
 				299DC94121FB9906001F2861 /* IQTitleBarButtonItem.swift in Sources */,
 				299DC94221FB9906001F2861 /* InboxTableViewCellProtocol.swift in Sources */,
 				0440EBAA2366167800B8D738 /* CreateTagView.swift in Sources */,
+				048FF925236B59E70076B18E /* ContactTagParser.swift in Sources */,
 				299DC94321FB9906001F2861 /* ComposeMessageProtocol.swift in Sources */,
 				0440EB9E2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				299DC94421FB9906001F2861 /* IQKeyboardReturnKeyHandler.swift in Sources */,
@@ -2641,7 +2660,7 @@
 				299DC95E21FB9906001F2861 /* IQBarButtonItem.swift in Sources */,
 				299DC95F21FB9906001F2861 /* Mappings.swift in Sources */,
 				299DC96021FB9906001F2861 /* MessageTableViewDataSource.swift in Sources */,
-				0440EB74236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
+				0440EB74236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */,
 				299DC96121FB9906001F2861 /* VerifyCodeViewController.swift in Sources */,
 				0440EBC4236616A100B8D738 /* TagListView.swift in Sources */,
 				299DC96221FB9906001F2861 /* Deprecated.swift in Sources */,
@@ -2658,6 +2677,7 @@
 				0440EBCE236616A100B8D738 /* TagView.swift in Sources */,
 				299DC96C21FB9906001F2861 /* IQPreviousNextView.swift in Sources */,
 				299DC96D21FB9906001F2861 /* Message+CoreDataClass.swift in Sources */,
+				297CE3F2236B1933004838B1 /* ContactTagMerger.swift in Sources */,
 				0440EB992366165C00B8D738 /* ContactsManager.swift in Sources */,
 				299DC96E21FB9906001F2861 /* UserContact+CoreDataClass.swift in Sources */,
 				299DC96F21FB9906001F2861 /* Checkbox.swift in Sources */,
@@ -2678,8 +2698,8 @@
 				299DC97D21FB9906001F2861 /* ForgetPasswordViewController.swift in Sources */,
 				299DC97E21FB9906001F2861 /* IQNSArray+Sort.swift in Sources */,
 				299DC97F21FB9906001F2861 /* ScheduleAppointmentViewController.swift in Sources */,
-				0440EB6F236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
-				0440EB8D2366164A00B8D738 /* Contact.swift in Sources */,
+				0440EB6F236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */,
+				0440EB8D2366164A00B8D738 /* ContactTag.swift in Sources */,
 				299DC98021FB9906001F2861 /* FloatLabelTextField.swift in Sources */,
 				299DC98121FB9906001F2861 /* SearchView.swift in Sources */,
 				299DC98221FB9906001F2861 /* Reachability.swift in Sources */,
@@ -2701,12 +2721,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0440EB782366099000B8D738 /* ContactTagParser.swift in Sources */,
+				0440EB782366099000B8D738 /* TagParser.swift in Sources */,
 				29FD0F2821160D0500062362 /* WebManager.swift in Sources */,
 				29FD0F2921160D0500062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0F2B21160D0500062362 /* IQTitleBarButtonItem.swift in Sources */,
 				29FD0F2C21160D0500062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				0440EBA82366167800B8D738 /* CreateTagView.swift in Sources */,
+				048FF923236B59E70076B18E /* ContactTagParser.swift in Sources */,
 				29FD0F2D21160D0500062362 /* ComposeMessageProtocol.swift in Sources */,
 				0440EB9C2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				29FD0F2E21160D0500062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
@@ -2742,7 +2763,7 @@
 				29FD0F4821160D0500062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0F4A21160D0500062362 /* Mappings.swift in Sources */,
 				29FD0F4B21160D0500062362 /* MessageTableViewDataSource.swift in Sources */,
-				0440EB72236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
+				0440EB72236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */,
 				2932C2D9217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				0440EBC2236616A100B8D738 /* TagListView.swift in Sources */,
 				29FD0F4C21160D0500062362 /* Deprecated.swift in Sources */,
@@ -2759,6 +2780,7 @@
 				0440EBCC236616A100B8D738 /* TagView.swift in Sources */,
 				29FD0F5721160D0500062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0F5821160D0500062362 /* Message+CoreDataClass.swift in Sources */,
+				297CE3F0236B1933004838B1 /* ContactTagMerger.swift in Sources */,
 				0440EB972366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA29121204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				29FD0F5B21160D0500062362 /* Checkbox.swift in Sources */,
@@ -2779,8 +2801,8 @@
 				2932C2D4217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0F6C21160D0500062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0F6D21160D0500062362 /* ScheduleAppointmentViewController.swift in Sources */,
-				0440EB6D236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
-				0440EB8B2366164A00B8D738 /* Contact.swift in Sources */,
+				0440EB6D236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */,
+				0440EB8B2366164A00B8D738 /* ContactTag.swift in Sources */,
 				29E5E14521767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				29FD0F6F21160D0500062362 /* SearchView.swift in Sources */,
 				29FD0F7021160D0500062362 /* Reachability.swift in Sources */,
@@ -2802,12 +2824,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0440EB792366099000B8D738 /* ContactTagParser.swift in Sources */,
+				0440EB792366099000B8D738 /* TagParser.swift in Sources */,
 				29FD0F9D21160D1000062362 /* WebManager.swift in Sources */,
 				29FD0F9E21160D1000062362 /* IQKeyboardManagerConstants.swift in Sources */,
 				29FD0FA021160D1000062362 /* IQTitleBarButtonItem.swift in Sources */,
 				29FD0FA121160D1000062362 /* InboxTableViewCellProtocol.swift in Sources */,
 				0440EBA92366167800B8D738 /* CreateTagView.swift in Sources */,
+				048FF924236B59E70076B18E /* ContactTagParser.swift in Sources */,
 				29FD0FA221160D1000062362 /* ComposeMessageProtocol.swift in Sources */,
 				0440EB9D2366165C00B8D738 /* UploadContactViewController.swift in Sources */,
 				29FD0FA321160D1000062362 /* IQKeyboardReturnKeyHandler.swift in Sources */,
@@ -2843,7 +2866,7 @@
 				29FD0FBD21160D1000062362 /* IQBarButtonItem.swift in Sources */,
 				29FD0FBF21160D1000062362 /* Mappings.swift in Sources */,
 				29FD0FC021160D1000062362 /* MessageTableViewDataSource.swift in Sources */,
-				0440EB73236608CE00B8D738 /* ContactTag+CoreDataProperties.swift in Sources */,
+				0440EB73236608CE00B8D738 /* Tag+CoreDataProperties.swift in Sources */,
 				2932C2DA217237AA00D2A299 /* VerifyCodeViewController.swift in Sources */,
 				0440EBC3236616A100B8D738 /* TagListView.swift in Sources */,
 				29FD0FC121160D1000062362 /* Deprecated.swift in Sources */,
@@ -2860,6 +2883,7 @@
 				0440EBCD236616A100B8D738 /* TagView.swift in Sources */,
 				29FD0FCC21160D1000062362 /* IQPreviousNextView.swift in Sources */,
 				29FD0FCD21160D1000062362 /* Message+CoreDataClass.swift in Sources */,
+				297CE3F1236B1933004838B1 /* ContactTagMerger.swift in Sources */,
 				0440EB982366165C00B8D738 /* ContactsManager.swift in Sources */,
 				295EA29221204FB800C1EAB2 /* UserContact+CoreDataClass.swift in Sources */,
 				29FD0FD021160D1000062362 /* Checkbox.swift in Sources */,
@@ -2880,8 +2904,8 @@
 				2932C2D5217235EF00D2A299 /* ForgetPasswordViewController.swift in Sources */,
 				29FD0FE121160D1000062362 /* IQNSArray+Sort.swift in Sources */,
 				29FD0FE221160D1000062362 /* ScheduleAppointmentViewController.swift in Sources */,
-				0440EB6E236608CE00B8D738 /* ContactTag+CoreDataClass.swift in Sources */,
-				0440EB8C2366164A00B8D738 /* Contact.swift in Sources */,
+				0440EB6E236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */,
+				0440EB8C2366164A00B8D738 /* ContactTag.swift in Sources */,
 				29E5E14621767A5E00BF642C /* FloatLabelTextField.swift in Sources */,
 				29FD0FE421160D1000062362 /* SearchView.swift in Sources */,
 				29FD0FE521160D1000062362 /* Reachability.swift in Sources */,

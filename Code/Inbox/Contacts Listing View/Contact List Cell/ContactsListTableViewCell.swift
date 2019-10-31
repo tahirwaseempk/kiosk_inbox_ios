@@ -12,9 +12,9 @@ class ContactsListTableViewCell: UITableViewCell
         super.awakeFromNib()
     }
     
-    func loadCell(chatModel:Contact)
+    func loadCell(chatModel:UserContact)
     {
-        self.titleLbl.text = chatModel.contacName
+        self.titleLbl.text = chatModel.firstName
     }
     
 }

@@ -75,6 +75,8 @@ class WebManager: NSObject
     static let Wrong_User_Passwprd      = "Please provide correct Username/Password."
     static let User_Not_Found           = "User Not Found"
     static let Request_Completed_Error  = "Request Not Completed Sucessfully"
+    static let Contacts_Syncing_Error  = "Failed To Sync Contacts"
+    
     override init()
     {
         super.init()
@@ -703,48 +705,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    static func getAllContacs(params: Dictionary<String,Any>,contactParser:UserContactsParser,completionBlockSuccess successBlock: @escaping ((Array<UserContact>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
-    {
-        let token:String = params["token"] as! String
-        
-        var finalUrl = ""
-        
-        switch environment {
-            
-        case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + GET_CONTACTS + CONTACTSWITHCHAT
-        case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + GET_CONTACTS + CONTACTSWITHCHAT
-        case .fan_Connect:
-            finalUrl = URL_FANCONNECT + GET_CONTACTS + CONTACTSWITHCHAT
-        case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + GET_CONTACTS + CONTACTSWITHCHAT
-        case .text_Attendant:
-            finalUrl = URL_TEXT_ATTENDANT + GET_CONTACTS + CONTACTSWITHCHAT
-
-        }
-        
-        print("\n ===== >>>>> Get Contacts URL = \(finalUrl) \n")
-        
-        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
-            
-            if (error == nil)
-            {
-                DispatchQueue.global(qos: .background).async
-                    {
-                        DispatchQueue.main.async
-                            {
-                                successBlock(contactParser.parseUserContacts(json:response as! Dictionary<String, Any>))
-                        }
-                }
-                
-            }
-            else
-            {
-                failureBlock(error)
-            }
-        })
-    }
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
@@ -1029,9 +990,8 @@ class WebManager: NSObject
     //************************************************************************************************//
     // MARK: -
     // MARK: GET ALL TAGS API
-    static func getAllTags(params: Dictionary<String,Any>,tagsParser:ContactTagParser, completionBlockSuccess successBlock: @escaping ((Array<ContactTag>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func getAllTags(params: Dictionary<String,Any>,tagsParser:TagParser, completionBlockSuccess successBlock: @escaping ((Array<Tag>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        
         let token:String = params["token"] as! String
         
         var finalUrl = ""
@@ -1048,25 +1008,24 @@ class WebManager: NSObject
             finalUrl = URL_PHOTO_TEXTING + GET_ALL_TAGS_DETAIL
         case .text_Attendant:
             finalUrl = URL_TEXT_ATTENDANT + GET_ALL_TAGS_DETAIL
-            
         }
         
         print("\n ===== >>>>> Get All Tags URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters:params, httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
-                            {
+                        {
                                 let responseDict = response as! Dictionary<String,Any>
                                 if responseDict["statusCode"] != nil {
                                     let errorMessage = responseDict["message"] as! String
                                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:errorMessage]))
                                 } else {
-                                    successBlock(tagsParser.parseContactTag(json:response as! Dictionary<String, Any>))
+                                    successBlock(tagsParser.parseAllTags(json:response as! Dictionary<String, Any>))
                                 }
                         }
                 }
@@ -1083,9 +1042,8 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
    // MARK: GET ALL CONTACTS TAGS API
-    static func getContactsTags(params: Dictionary<String,Any>,contactTagsParser:ConversationParser, completionBlockSuccess successBlock: @escaping ((Array<Conversation>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func getContactsTags(params: Dictionary<String,Any>,contactTagsParser:ContactTagParser, completionBlockSuccess successBlock: @escaping ((Array<ContactTag>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        
         let token:String = params["token"] as! String
         
         var finalUrl = ""
@@ -1107,7 +1065,7 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> Get Contacts Tags URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters:params, httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -1120,10 +1078,59 @@ class WebManager: NSObject
                                     let errorMessage = responseDict["message"] as! String
                                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:errorMessage]))
                                 } else {
-                                    successBlock(contactTagsParser.parseConversations(json:response as! Dictionary<String, Any>))
+                                    successBlock(contactTagsParser.parseContactTag(json:response as! Dictionary<String, Any>))
                                 }
                         }
                 }
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
+    }
+    
+     //************************************************************************************************//
+     //------------------------------------------------------------------------------------------------//
+     //------------------------------------------------------------------------------------------------//
+     //------------------------------------------------------------------------------------------------//
+     //************************************************************************************************//
+    // MARK: Get All Contacts
+    static func getAllContacs(params: Dictionary<String,Any>,contactParser:UserContactsParser,completionBlockSuccess successBlock: @escaping ((Array<UserContact>) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        let token:String = params["token"] as! String
+        
+        var finalUrl = ""
+        
+        switch environment {
+            
+        case .texting_Line:
+            finalUrl = URL_TEXTING_LINE + GET_CONTACTS + CONTACTSWITHCHAT
+        case .sms_Factory:
+            finalUrl = URL_SMS_FACTORY + GET_CONTACTS + CONTACTSWITHCHAT
+        case .fan_Connect:
+            finalUrl = URL_FANCONNECT + GET_CONTACTS + CONTACTSWITHCHAT
+        case .photo_Texting:
+            finalUrl = URL_PHOTO_TEXTING + GET_CONTACTS + CONTACTSWITHCHAT
+        case .text_Attendant:
+            finalUrl = URL_TEXT_ATTENDANT + GET_CONTACTS + CONTACTSWITHCHAT
+
+        }
+        
+        print("\n ===== >>>>> Get Contacts URL = \(finalUrl) \n")
+        
+        callNewWebService(urlStr: finalUrl, parameters:params, httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+            
+            if (error == nil)
+            {
+                DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                            {
+                                successBlock(contactParser.parseUserContacts(json:response as! Dictionary<String, Any>))
+                        }
+                }
+                
             }
             else
             {
@@ -1360,6 +1367,7 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
+   // MARK: MAIN API CALLING METHOD
     internal static func callNewWebService(urlStr: String, parameters: Dictionary<String,Any>, httpMethod: String, httpHeaderKey: String, httpHeaderValue: String, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void)))
     {
         

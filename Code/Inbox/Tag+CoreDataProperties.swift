@@ -1,11 +1,11 @@
 import Foundation
 import CoreData
 
-extension ContactTag
+extension Tag
 {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ContactTag>
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Tag>
     {
-        return NSFetchRequest<ContactTag>(entityName: "ContactTag")
+        return NSFetchRequest<Tag>(entityName: "Tag")
     }
 
     @NSManaged public var tagId: Int64
@@ -13,7 +13,7 @@ extension ContactTag
     @NSManaged public var userContact: NSSet?
 }
 
-extension ContactTag
+extension Tag
 {
     @objc(addUserContactsObject:)
     @NSManaged public func addToUserContacts(_ value: UserContact)

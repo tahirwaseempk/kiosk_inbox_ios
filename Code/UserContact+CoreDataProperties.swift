@@ -26,14 +26,14 @@ extension UserContact
 extension UserContact
 {
     @objc(addContactTagsObject:)
-    @NSManaged public func addToContactTags(_ value: ContactTag)
+    @NSManaged public func addToTags(_ value: Tag)
 
     @objc(removeContactTagsObject:)
-    @NSManaged public func removeFromContactTags(_ value: ContactTag)
+    @NSManaged public func removeFromTags(_ value: Tag)
 
     @objc(addContactTags:)
-    @NSManaged public func addToContactTags(_ values: NSSet)
+    @NSManaged public func addToTags(_ values: NSSet)
 
     @objc(removeContactTags:)
-    @NSManaged public func removeFromContactTags(_ values: NSSet)
+    @NSManaged public func removeFromTags(_ values: NSSet)
 }

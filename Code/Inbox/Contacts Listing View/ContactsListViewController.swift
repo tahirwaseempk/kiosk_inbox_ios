@@ -7,8 +7,8 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
 
     let alphabets = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"]
     
-    var contacts = Array<Contact>()
-    var filteredContacts = Array<Contact>()
+    var contacts = Array<UserContact>()
+    var filteredContacts = Array<UserContact>()
     var selectedItems = Set<Int>()
     var isSelectionModeOn = false
     var createTageView: CreateTagView!
@@ -32,13 +32,6 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func setupControls()
     {
-        contacts.append(Contact.dummyContact())
-        contacts.append(Contact.dummyContact())
-        contacts.append(Contact.dummyContact())
-        contacts.append(Contact.dummyContact())
-        contacts.append(Contact.dummyContact())
-        contacts.append(Contact.dummyContact())
-        
         self.filteredContacts = self.contacts
         
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
@@ -329,7 +322,13 @@ extension ContactsListViewController:UISearchBarDelegate
             self.filteredContacts.removeAll()
 
             self.filteredContacts = self.contacts.filter({ (contact) -> Bool in
-                return contact.contacName.contains(searchText)
+                
+                if let name = contact.firstName
+                {
+                    return name.contains(searchText)
+                }
+                
+                return false
             })
         }
         

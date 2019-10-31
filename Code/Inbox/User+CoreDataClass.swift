@@ -1199,6 +1199,8 @@ extension User
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     @discardableResult
+    // MARK: -
+    // MARK: CONTACT CONVERSATION ASSIGNMENT
     func updateConversations() -> Bool
     {
         // Fetch all conversations

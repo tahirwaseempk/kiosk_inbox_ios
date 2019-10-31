@@ -338,7 +338,6 @@ extension LoginViewController {
                     DispatchQueue.main.async
                         {
                             if status == true {
-                                ProcessingIndicator.hide()
                                 
                                 UserDefaults.standard.set("YES", forKey: "THEME")
                                 UserDefaults.standard.synchronize()
@@ -365,12 +364,10 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 //*******************************************************************//
                                 //*******************************************************************//
-                                self.getAllTags()
+                                self.syncTags()
                             }
                             else
                             {
-                                ProcessingIndicator.hide()
-                                
                                 //*******************************************************************//
                                 //*******************************************************************//
                                 //*******************************************************************//
@@ -395,20 +392,19 @@ extension LoginViewController {
                                 //*******************************************************************//
                                 //*******************************************************************//
                                 //*******************************************************************//
-                                ProcessingIndicator.hide()
                                 
-                                self.getAllTags()
+                                self.syncTags()
                             }
                     }
             }
         }, andFailureBlock: { (error: Error?) -> (Void) in
             
             DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
                 {
-                    DispatchQueue.main.async
-                        {
-                            ProcessingIndicator.hide()
-                    }
+                    ProcessingIndicator.hide()
+                }
             }
         })
     }
@@ -419,9 +415,46 @@ extension LoginViewController {
 }
 extension LoginViewController
 {
-    func getAllTags()
+    func syncTags()
     {
-        
+        Tag.syncTags(completionBlockSuccess: { () -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    self.loadHomeView()
+                }
+            }
+            
+        }) { (error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    ProcessingIndicator.hide()
+                    
+                    let alert = UIAlertController(title:"Error",message:error?.localizedDescription,preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let okAction = UIAlertAction(title:"Try Again", style:.default) { (action:UIAlertAction) in
+                        
+                        self.syncTags()
+                    }
+                    
+                    let cancelAction = UIAlertAction(title:"Continue Without Syncing", style:.default) { (action:UIAlertAction) in
+                        
+                        self.loadHomeView()
+                    }
+                    
+                    alert.addAction(okAction)
+                    
+                    alert.addAction(cancelAction)
+
+                    self.present(alert,animated:true,completion:nil)
+                }
+            }
+        }
     }
     
     func loadHomeView()
