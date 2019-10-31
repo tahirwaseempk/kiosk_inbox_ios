@@ -10,7 +10,7 @@ extension Tag
 
     @NSManaged public var tagId: Int64
     @NSManaged public var tagName: String?
-    @NSManaged public var userContact: NSSet?
+    @NSManaged public var userContacts: NSSet?
 }
 
 extension Tag
@@ -25,5 +25,6 @@ extension Tag
     @NSManaged public func addToUserContacts(_ values: NSSet)
 
     @objc(removeUserContacts:)
-    @NSManaged public func removeFromContactTags(_ values: NSSet)
+    @NSManaged public func removeFromUserContacts(_ values: NSSet)
 }
+

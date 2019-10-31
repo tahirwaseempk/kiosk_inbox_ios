@@ -20,29 +20,20 @@ class ContactTagParser: NSObject
         }
         else
         {
-            let tagsArray = json["tags"] as! Array<Dictionary<String,Any>>
+            let tagsArray = json["tagsContacts"] as! Array<Dictionary<String,Any>>
             
-//            for dic in tagsArray
-//            {
-//                if let tagId = dic["id"], let tag_ID = tagId as? Int64
-//                {
-//                    if let tagName = dic["name"] as? String
-//                    {
-//                        var contactTag: ContactTag? = ContactTag.getContactTagFromID(tagID:tag_ID)
-//                        
-//                        if contactTag == nil
-//                        {
-//                            contactTag = ContactTag.create(context:DEFAULT_CONTEXT, tagName_:tagName, tagId_:tag_ID)
-//                        }
-//                        else
-//                        {
-//                            contactTag?.update(tagName_:tagName, tagId_:tag_ID)
-//                        }
-//
-//                        contactTagsArr.append(contactTag!)
-//                    }
-//                }
-//            }
+            for dic in tagsArray
+            {
+                if let tagId = dic["contactId"] as? Int64
+                {
+                    if let contactId = dic["contactId"] as? Int64
+                    {
+                        let contactTag = ContactTag.init(contactId_:contactId, tagId_:tagId)
+
+                        contactTagsArr.append(contactTag)
+                    }
+                }
+            }
         }
         
         return contactTagsArr

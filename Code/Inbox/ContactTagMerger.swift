@@ -6,7 +6,7 @@ class ContactTagMerger: NSObject
     {
         for contact in contacts
         {
-            contact.addToTags(NSSet())
+            contact.tags = NSSet()
         }
         
         for contact in contacts

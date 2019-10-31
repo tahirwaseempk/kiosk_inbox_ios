@@ -23,10 +23,10 @@
         <attribute name="senderId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="messages" inverseEntity="Conversation"/>
     </entity>
-    <entity name="Tag" representedClassName=".ContactTag" syncable="YES">
+    <entity name="Tag" representedClassName=".Tag" syncable="YES">
         <attribute name="tagId" attributeType="Integer 64" minValueString="0" defaultValueString="-1" usesScalarValueType="YES"/>
         <attribute name="tagName" optional="YES" attributeType="String"/>
-        <relationship name="userContact" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserContact" inverseName="tags" inverseEntity="UserContact"/>
+        <relationship name="userContacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserContact" inverseName="tags" inverseEntity="UserContact"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String"/>
@@ -64,12 +64,12 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
         <attribute name="state" optional="YES" attributeType="String"/>
         <attribute name="zipCode" optional="YES" attributeType="String"/>
-        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="userContact" inverseEntity="Tag"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="userContacts" inverseEntity="Tag"/>
     </entity>
     <elements>
-        <element name="Tag" positionX="-459" positionY="81" width="128" height="88"/>
         <element name="Conversation" positionX="-453.12109375" positionY="-68.8984375" width="128" height="210"/>
         <element name="Message" positionX="-292.97265625" positionY="-68.5546875" width="128" height="165"/>
+        <element name="Tag" positionX="-459" positionY="81" width="128" height="88"/>
         <element name="User" positionX="-631.11328125" positionY="-42.171875" width="128" height="358"/>
         <element name="UserContact" positionX="-452.7265625" positionY="160.6875" width="128" height="238"/>
     </elements>

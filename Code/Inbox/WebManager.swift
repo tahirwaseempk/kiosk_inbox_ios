@@ -1012,7 +1012,7 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> Get All Tags URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters:params, httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters:Dictionary<String,Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -1065,7 +1065,7 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> Get Contacts Tags URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters:params, httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters:Dictionary<String,Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
@@ -1119,7 +1119,7 @@ class WebManager: NSObject
         
         print("\n ===== >>>>> Get Contacts URL = \(finalUrl) \n")
         
-        callNewWebService(urlStr: finalUrl, parameters:params, httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+        callNewWebService(urlStr: finalUrl, parameters:Dictionary<String,Any>(), httpMethod: "GET", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
             if (error == nil)
             {
