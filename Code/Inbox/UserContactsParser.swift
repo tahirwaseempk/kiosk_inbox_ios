@@ -83,6 +83,11 @@ class UserContactsParser: NSObject
                                                      contactId_: contactId)
                         
                         contactsArr.append(contact!)
+                        
+                        let currentUser = User.loginedUser
+                        
+                        currentUser?.addToUserContacts(contact!)
+
                     }
                     else
                     {
@@ -104,6 +109,7 @@ class UserContactsParser: NSObject
                 }
             }
             
+            /*
             //----- Check Login User Contact Start-----//
             let currentUser = User.loginedUser
             var currentContact: UserContact? = UserContact.getContactFromID(conID: (currentUser?.userId)!)
@@ -142,7 +148,7 @@ class UserContactsParser: NSObject
                 
                 contactsArr.append(currentContact!)
             }
-            //----- Check Login User Contact End -----//
+            //----- Check Login User Contact End -----// */
         }
         
         return contactsArr

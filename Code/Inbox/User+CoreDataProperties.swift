@@ -18,7 +18,8 @@ extension User {
     @nonobjc static var loginedUser:User? = nil
 
     @NSManaged public var conversations: NSSet?
-    
+    @NSManaged public var userContacts: NSSet?
+
     @NSManaged public var isRemember: Bool
     // New Work //
     @NSManaged public var token: String?
@@ -57,4 +58,19 @@ extension User {
     @objc(removeConversations:)
     @NSManaged public func removeFromConversations(_ values: NSSet)
 
+}
+
+extension User
+{
+    @objc(addUserContactsObject:)
+    @NSManaged public func addToUserContacts(_ value: UserContact)
+
+    @objc(removeUserContactsObject:)
+    @NSManaged public func removeFromUserContacts(_ value: UserContact)
+
+    @objc(addUserContacts:)
+    @NSManaged public func addToUserContacts(_ values: NSSet)
+
+    @objc(removeUserContacts:)
+    @NSManaged public func removeFromUserContacts(_ values: NSSet)
 }

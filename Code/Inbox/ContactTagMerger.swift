@@ -21,6 +21,8 @@ class ContactTagMerger: NSObject
                         {
                             contact.addToTags(tag)
                             
+                            tag.addToUserContacts(contact)
+                            
                             break
                         }
                     }

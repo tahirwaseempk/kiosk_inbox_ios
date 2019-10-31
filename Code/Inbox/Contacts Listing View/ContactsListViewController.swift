@@ -32,6 +32,12 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func setupControls()
     {
+        
+        if let cont = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
+        {
+            self.contacts = cont
+        }
+        
         self.filteredContacts = self.contacts
         
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)

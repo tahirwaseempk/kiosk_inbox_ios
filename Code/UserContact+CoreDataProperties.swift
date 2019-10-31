@@ -8,6 +8,7 @@ extension UserContact
         return NSFetchRequest<UserContact>(entityName: "UserContact")
     }
 
+    @NSManaged public var user: User?
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
     @NSManaged public var phoneNumber: String?
@@ -25,15 +26,15 @@ extension UserContact
 
 extension UserContact
 {
-    @objc(addContactTagsObject:)
+    @objc(addTagsObject:)
     @NSManaged public func addToTags(_ value: Tag)
 
-    @objc(removeContactTagsObject:)
+    @objc(removeTagsObject:)
     @NSManaged public func removeFromTags(_ value: Tag)
 
-    @objc(addContactTags:)
+    @objc(addTags:)
     @NSManaged public func addToTags(_ values: NSSet)
 
-    @objc(removeContactTags:)
+    @objc(removeTags:)
     @NSManaged public func removeFromTags(_ values: NSSet)
 }
