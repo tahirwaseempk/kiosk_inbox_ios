@@ -1215,7 +1215,7 @@ class WebManager: NSObject
 
         }
         
-        print("\n ===== >>>>> Create Tag URL = \(finalUrl) \n")
+        print("\n ===== >>>>> Add Tag To Contact URL = \(finalUrl) \n")
         
         callNewWebService(urlStr: finalUrl, parameters: Dictionary<String, Any>(), httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             
@@ -1502,6 +1502,34 @@ class WebManager: NSObject
             }
             
             let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
+            
+            if (responseStrInISOLatin == ""){
+              
+                if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                    var statusDict = Dictionary<String, Any>()
+                    statusDict["statusCode"] = httpResponse.statusCode
+                    statusDict["errorCode"] = httpResponse.statusCode
+                    statusDict["name"] = "RequestCompletedSucessfully"
+                    statusDict["message"] = "Request Completed Sucessfully"
+                    completion(nil,statusDict as NSDictionary)
+                    return
+                    
+                } else if httpResponse.statusCode == 400 {
+                    var statusDict = Dictionary<String, Any>()
+                    statusDict["statusCode"] = httpResponse.statusCode
+                    statusDict["errorCode"] = httpResponse.statusCode
+                    statusDict["name"] = "BadRequestError"
+                    statusDict["message"] = "Request Not Completed Sucessfully"
+                    completion(nil,statusDict as NSDictionary)
+                    return
+                }
+                else {
+                    completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Json_Parameters_Error]),nil)
+                    return
+                }
+                }
+            }
             
             guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8)
                 else
