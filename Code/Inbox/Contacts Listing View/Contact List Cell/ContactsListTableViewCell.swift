@@ -17,4 +17,11 @@ class ContactsListTableViewCell: UITableViewCell
         self.titleLbl.text = (chatModel.firstName ?? "") + " " + (chatModel.lastName ?? "")
     }
     
+    func reset()
+    {
+        self.titleLbl.text = ""
+        
+        self.selectionImageView?.isHighlighted = false
+    }
+    
 }

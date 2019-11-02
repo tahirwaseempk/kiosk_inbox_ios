@@ -55,7 +55,6 @@ extension UserContact
 
      func update(firstName_: String,lastName_: String, phoneNumber_: String, gender_: String, country_: String, zipCode_: String, address_: String, city_: String, state_: String, birthDate_: Date, email_: String, contactId_: Int64)
      {
-         
          self.firstName = firstName_
          self.lastName = lastName_
          self.phoneNumber = phoneNumber_
@@ -68,10 +67,8 @@ extension UserContact
          self.birthDate = birthDate_
          self.email = email_
          self.contactId = contactId_
-         
      }
 
-     
     static func updateTags(context: NSManagedObjectContext, cTags_:NSSet) -> UserContact
     {
         let contact = UserContact(context: context)
@@ -80,7 +77,6 @@ extension UserContact
          
         return contact
     }
-     
      
     static func getAllContacts(completionBlockSuccess successBlock:@escaping ((Array<UserContact>) -> (Void)), andFailureBlock failureBlock:@escaping ((Error?) -> (Void)))
     {
@@ -91,6 +87,82 @@ extension UserContact
             paramsDic["token"] = user.token
                        
             WebManager.getAllContacs(params: paramsDic, contactParser:UserContactsParser(), completionBlockSuccess: successBlock, andFailureBlock:failureBlock)
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    
+    static func assignTagToContacts(tag:Tag, contacts:Array<UserContact> ,completionBlockSuccess successBlock:@escaping ((Bool) -> (Void)), andFailureBlock failureBlock:@escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["token"] = user.token
+            
+            paramsDic["tagId"] = String(tag.tagId)
+            
+            paramsDic["contactsID"] = (contacts.map { String($0.contactId)}).joined(separator:",")
+            
+            WebManager.addTagToContact(params:paramsDic, completionBlockSuccess: { (response:Dictionary<String, Any>?) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                    {
+                        for contact in contacts
+                        {
+                            contact.addToTags(tag)
+                            
+                            tag.addToUserContacts(contact)
+                        }
+                        
+                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
+                        successBlock(true)
+                    }
+                }
+                
+            }, andFailureBlock:failureBlock)
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    
+    static func deleteContacts(contacts:Array<UserContact> ,completionBlockSuccess successBlock:@escaping ((Bool) -> (Void)), andFailureBlock failureBlock:@escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["token"] = user.token
+                        
+            paramsDic["contactId"] = (contacts.map { String($0.contactId)}).joined(separator:",")
+            
+            WebManager.deleteContact(params:paramsDic, completionBlockSuccess: { (response:Dictionary<String, Any>?) -> (Void) in
+                
+                DispatchQueue.global(qos: .background).async
+                {
+                    DispatchQueue.main.async
+                    {
+                        for contact in contacts
+                        {
+                            user.removeFromUserContacts(contact)
+                            
+                            contact.managedObjectContext?.delete(contact)
+                        }
+                        
+                        CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
+                        successBlock(true)
+                    }
+                }
+                
+            }, andFailureBlock:failureBlock)
         }
         else
         {

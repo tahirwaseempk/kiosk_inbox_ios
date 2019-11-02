@@ -119,12 +119,8 @@ extension Tag
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-     
-    
-    //************************************************************************************************//
-    //------------------------------------------------------------------------------------------------//
-    //************************************************************************************************//
-    static func createTagAPI(tagName: String, autoResponse: String, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+
+    static func createTagAPI(tagName:String, contacts:Array<UserContact>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         if let user = User.getLoginedUser()
         {
@@ -132,13 +128,15 @@ extension Tag
             
             paramsDic["token"] = user.token
             
-            if (tagName != ""){
+            if (tagName != "")
+            {
                 paramsDic["tagName"] = tagName
             }
             
-            if (autoResponse != ""){
-                paramsDic["autoResponse"] = autoResponse
-            }
+            //if (autoResponse != "")
+            //{
+                //paramsDic["autoResponse"] = autoResponse
+            //}
                             
                 WebManager.createTag(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                                     
@@ -152,30 +150,31 @@ extension Tag
                     tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int
                     
                     let messageStr =  tempDictionary["message"] as! String
+                    
                     failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageStr]))
                 }
-                else {
-                    
+                else
+                {
                     DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
                         {
-                            DispatchQueue.main.async
-                                {
-                                    successBlock(true)
-                            }
+                            let tagId = jsonDict["id"] as! Int64
+                            
+                            let tag = Tag.create(context:DEFAULT_CONTEXT, tagName_:tagName, tagId_:tagId)
+
+                            CoreDataManager.coreDataManagerSharedInstance.saveContext()
+
+                            UserContact.assignTagToContacts(tag:tag, contacts:contacts, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
+                        }
                     }
                 }
-            }, andFailureBlock: { (error) -> (Void) in
-                failureBlock(error)
-            })
-            
+            }, andFailureBlock:failureBlock)
         }
-        else {
+        else
+        {
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
-       //************************************************************************************************//
-       //------------------------------------------------------------------------------------------------//
-       //************************************************************************************************//
-    
 }
 

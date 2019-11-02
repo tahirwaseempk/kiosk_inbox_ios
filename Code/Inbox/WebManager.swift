@@ -1195,6 +1195,7 @@ class WebManager: NSObject
         let token:String = params["token"] as! String
                 
         let tagId:String = params["tagId"] as! String
+        
         let contactIds:String = params["contactsID"] as! String
         
         var finalUrl = ""

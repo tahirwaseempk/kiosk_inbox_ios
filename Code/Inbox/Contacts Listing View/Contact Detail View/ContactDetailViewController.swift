@@ -25,7 +25,14 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     {
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
                     
-        self.headerContactNumberLabel.text = "(561) 815-4881"
+        self.loadData()
+    }
+    
+    func loadData()
+    {
+        self.headerContactNumberLabel.text = self.contact.phoneNumber
+        
+        self.tableView.reloadData()
     }
     
     override func viewDidLayoutSubviews()
@@ -121,31 +128,37 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
             {
                 cell.headerLbl.text = "First Name"
                 
-                cell.titleLbl.text = "Steven"
+                cell.titleLbl.text = self.contact.firstName
             }
             else if indexPath.row == 1
             {
                 cell.headerLbl.text = "Last Name"
                 
-                cell.titleLbl.text = "Rogers"
+                cell.titleLbl.text = self.contact.lastName
             }
             else if indexPath.row == 2
             {
                 cell.headerLbl.text = "Email"
                 
-                cell.titleLbl.text = "Steven@gmail.com"
+                cell.titleLbl.text = self.contact.email
             }
             else if indexPath.row == 3
             {
                 cell.headerLbl.text = "Date Of Birth"
                 
-                cell.titleLbl.text = "04/23/1990"
+                let dateFormatter =  DateFormatter()
+                
+                dateFormatter.dateFormat = DOB_FORMATE
+                
+                let birthDate = dateFormatter.string(from:self.contact.birthDate!)
+
+                cell.titleLbl.text = birthDate
             }
             else if indexPath.row == 4
             {
                 cell.headerLbl.text = "Gender"
                 
-                cell.titleLbl.text = "M"
+                cell.titleLbl.text = self.contact.gender
             }
 
             return cell
@@ -158,19 +171,19 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
             {
                 cell.headerLbl.text = "Address"
                 
-                cell.titleLbl.text = "Lahore Netsol"
+                cell.titleLbl.text = self.contact.address
             }
             else if indexPath.row == 1
             {
                 cell.headerLbl.text = "State"
                 
-                cell.titleLbl.text = "FL"
+                cell.titleLbl.text = self.contact.country
             }
             else if indexPath.row == 2
             {
                 cell.headerLbl.text = "ZipCode"
                 
-                cell.titleLbl.text = "123123"
+                cell.titleLbl.text = self.contact.zipCode
             }
             
             return cell
@@ -180,6 +193,8 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
             let cell:ContactTagTableViewCell =  tableView.dequeueReusableCell(withIdentifier:"ContactTagTableViewCell", for:indexPath) as! ContactTagTableViewCell
             
             cell.delegate = self
+            
+            cell.loadCell(fromContact:self.contact)
             
             return cell
         }
@@ -195,9 +210,9 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
 
 extension ContactDetailViewController:CreateTagViewDelegate
 {
-    func applyTagButton_Tapped()
+    func tagCreated()
     {
-        
+        self.loadData()
     }
 }
 
@@ -206,6 +221,8 @@ extension ContactDetailViewController:ContactTagTableViewCellDelegate
     func addTagTapped()
     {
         self.createTageView.frame = self.view.bounds
+        
+        self.createTageView.contacts = [self.contact]
         
         self.view.addSubview(self.createTageView)
     }

@@ -291,3 +291,17 @@ extension TimeInterval {
     
 }
 
+extension Dictionary
+{
+    func allKeysSortedAlphabetically() -> Array<String>?
+    {
+        if var keys = Array(self.keys) as? Array<String>
+        {
+            keys = keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+            
+            return keys;
+        }
+        
+        return nil
+    }
+}

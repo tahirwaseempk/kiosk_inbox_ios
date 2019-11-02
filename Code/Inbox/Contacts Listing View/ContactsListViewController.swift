@@ -7,9 +7,8 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
 
     let alphabets = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"]
     
-    var contacts = Array<UserContact>()
-    var filteredContacts = Array<UserContact>()
-    var selectedItems = Set<Int>()
+    var filteredContacts = Dictionary<String,Array<UserContact>>()
+    var selectedItems = Set<UserContact>()
     var isSelectionModeOn = false
     var createTageView: CreateTagView!
     var currentNavigationController:UINavigationController!
@@ -32,19 +31,64 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func setupControls()
     {
-        
-        if let cont = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
-        {
-            self.contacts = cont
-        }
-        
-        self.filteredContacts = self.contacts
+        self.fetchData()
         
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
         
         self.addGesture()
         
         self.disableBottomView()
+    }
+    
+    func fetchData()
+    {
+        if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
+        {
+            loadDataFromList(contactsList:contactsList)
+        }
+    }
+    
+    func loadDataFromList(contactsList:Array<UserContact>)
+    {
+        //let alphabetical = Dictionary(grouping: contactsList) { $0.((contact.firstName ?? "") + (contact.lastName ?? "")).first! }
+     
+        self.filteredContacts.removeAll()
+        
+        for contact in contactsList
+        {
+            let name = (contact.firstName ?? "") + (contact.lastName ?? "")
+            
+            var firstCharacterStr = ""
+            
+            if let firstCharacter = name.first
+            {
+                firstCharacterStr = String(firstCharacter).uppercased()
+            }
+            else
+            {
+                firstCharacterStr = "#"
+            }
+            
+            if firstCharacterStr == "" || firstCharacterStr == " " || alphabets.contains(firstCharacterStr) == false
+            {
+                firstCharacterStr = "#"
+            }
+            
+            if var arrayOfSameNameContacts = self.filteredContacts[firstCharacterStr]
+            {
+                arrayOfSameNameContacts.append(contact)
+                
+                self.filteredContacts[firstCharacterStr] = arrayOfSameNameContacts
+            }
+            else
+            {
+                var arrayOfSameNameContacts = Array<UserContact>()
+                
+                arrayOfSameNameContacts.append(contact)
+                
+                self.filteredContacts[firstCharacterStr] = arrayOfSameNameContacts
+            }
+        }
     }
     
     func cornerRadius()
@@ -123,15 +167,11 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
 
         self.createTageView.frame = self.view.bounds
         
+        self.createTageView.contacts = Array(self.selectedItems)
+        
         self.view.addSubview(self.createTageView)
     }
-    
-    @IBAction func deleteTagButton_Tapped(_ sender: Any)
-    {
-        self.resignAllControls()
-
-    }
-    
+        
     @IBAction func navBarTagButtonTapped(_ sender:UIButton)
     {
         self.resignAllControls()
@@ -155,9 +195,12 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         }
         else
         {
-            for i in 0 ..< self.contacts.count
+            for (_,contacts) in self.filteredContacts
             {
-                selectedItems.insert(i)
+                for contact in contacts
+                {
+                    self.selectedItems.insert(contact)
+                }
             }
         }
         
@@ -187,7 +230,10 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
 
                     selectedItems.removeAll()
                     
-                    selectedItems.insert(indexPath.row)
+                    if let contact = self.getContactAtIndex(row:indexPath.row, section:indexPath.section)
+                    {
+                        selectedItems.insert(contact)
+                    }
                     
                     self.isSelectionModeOn = true
                     
@@ -199,16 +245,29 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return self.filteredContacts .count
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 3
+        if let sortedKeys = self.filteredContacts.allKeysSortedAlphabetically()
+        {
+            return sortedKeys.count
+        }
+        
+        return 0
     }
-    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        if let sortedKeys = self.filteredContacts.allKeysSortedAlphabetically()
+        {
+            if let cotactsArray = self.filteredContacts[sortedKeys[section]]
+            {
+                return cotactsArray.count
+            }
+        }
+        
+        return 0
+    }
+        
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
         return 30.0
@@ -224,8 +283,15 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         
         titleLabel.font = UIFont.boldSystemFont(ofSize:17.0)
         
-        titleLabel.text = alphabets[section]
-        
+        if let sortedKeys = self.filteredContacts.allKeysSortedAlphabetically()
+        {
+            titleLabel.text = sortedKeys[section]
+        }
+        else
+        {
+            titleLabel.text = ""
+        }
+                
         header.addSubview(titleLabel)
         
         return header
@@ -233,20 +299,30 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]?
     {
-        return alphabets
+        if let sortedKeys = self.filteredContacts.allKeysSortedAlphabetically()
+        {
+            return sortedKeys
+        }
+        
+        return Array<String>()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell:ContactsListTableViewCell = tableView.dequeueReusableCell(withIdentifier:"ContactsListTableViewCell") as! ContactsListTableViewCell
 
-        let contact = self.filteredContacts[indexPath.row]
+        if let contact = self.getContactAtIndex(row:indexPath.row, section:indexPath.section)
+        {
+            cell.loadCell(chatModel:contact)
+            
+            cell.selectionImageView?.isHighlighted = self.selectedItems.contains(contact)
+        }
+        else
+        {
+            cell.reset()
+        }
         
-        cell.loadCell(chatModel:contact)
-
         cell.selectionImageView?.isHidden = !self.isSelectionModeOn
-        
-        cell.selectionImageView?.isHighlighted = self.selectedItems.contains(indexPath.row)
 
         cell.titleLeadingConstraintWithImage.isActive = self.isSelectionModeOn
         
@@ -259,31 +335,55 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     {
         if self.isSelectionModeOn == true
         {
-            if self.selectedItems.contains(indexPath.row)
+            if let contact = self.getContactAtIndex(row:indexPath.row, section:indexPath.section)
             {
-                self.selectedItems.remove(indexPath.row)
-            }
-            else
-            {
-                self.selectedItems.insert(indexPath.row)
+                if self.selectedItems.contains(contact)
+                {
+                    self.selectedItems.remove(contact)
+                }
+                else
+                {
+                    self.selectedItems.insert(contact)
+                }
             }
             
             self.tableView.reloadData()
         }
         else
         {
-            let viewController:UIViewController = UIStoryboard(name:"Contacts", bundle: nil).instantiateViewController(withIdentifier:"ContactDetailViewController") as! ContactDetailViewController
-            
-            self.currentNavigationController.pushViewController(viewController, animated:true)
+            if let contact = self.getContactAtIndex(row:indexPath.row, section:indexPath.section)
+            {
+                let viewController:ContactDetailViewController = UIStoryboard(name:"Contacts", bundle: nil).instantiateViewController(withIdentifier:"ContactDetailViewController") as! ContactDetailViewController
+
+                viewController.contact = contact
+                
+                self.currentNavigationController.pushViewController(viewController, animated:true)
+            }
         }
+    }
+}
+
+extension ContactsListViewController
+{
+    func getContactAtIndex(row:Int, section:Int) -> UserContact?
+    {
+        if let sortedKeys = self.filteredContacts.allKeysSortedAlphabetically()
+        {
+            if let cotactsArray = self.filteredContacts[sortedKeys[section]]
+            {
+                return cotactsArray[row]
+            }
+        }
+        
+        return nil
     }
 }
 
 extension ContactsListViewController:CreateTagViewDelegate
 {
-    func applyTagButton_Tapped()
+    func tagCreated()
     {
-        
+        self.tableView.reloadData()
     }
 }
 
@@ -291,12 +391,12 @@ extension ContactsListViewController:UISearchBarDelegate
 {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
     {
-        
+        searchBar.showsCancelButton = false
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
     {
-        
+        searchBar.showsCancelButton = false
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
@@ -321,21 +421,48 @@ extension ContactsListViewController:UISearchBarDelegate
         
         if searchText.count < 1
         {
-            self.filteredContacts = self.contacts
+            if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
+            {
+                loadDataFromList(contactsList:contactsList)
+            }
+            else
+            {
+                loadDataFromList(contactsList:Array<UserContact>())
+            }
         }
         else
         {
             self.filteredContacts.removeAll()
 
-            self.filteredContacts = self.contacts.filter({ (contact) -> Bool in
+            if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
+            {
+                let contacts_filtered_local = contactsList.filter({ (contact) -> Bool in
+                                        
+                    if let firstName = contact.firstName
+                    {
+                        if let lastName = contact.lastName
+                        {
+                            return (firstName + " " + lastName).lowercased().contains(searchText.lowercased())
+                        }
+                        else
+                        {
+                            return firstName.lowercased().contains(searchText.lowercased())
+                        }
+                    }
+                    else if let lastName = contact.lastName
+                    {
+                        return lastName.lowercased().contains(searchText.lowercased())
+                    }
+                    
+                    return false
+                })
                 
-                if let name = contact.firstName
-                {
-                    return name.contains(searchText)
-                }
-                
-                return false
-            })
+                loadDataFromList(contactsList:contacts_filtered_local)
+            }
+            else
+            {
+                loadDataFromList(contactsList:Array<UserContact>())
+            }
         }
         
         self.tableView.reloadData()
@@ -350,3 +477,15 @@ extension ContactsListViewController:UISearchBarDelegate
         self.saerchBar.showsCancelButton = false
     }
 }
+
+extension ContactsListViewController
+{
+    @IBAction func deleteTagButton_Tapped(_ sender: Any)
+    {
+        self.resignAllControls()
+        
+        
+
+    }
+}
+

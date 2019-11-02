@@ -1073,8 +1073,8 @@
 		04B3BD6523648527005ABDA4 /* Contacts Listing View */ = {
 			isa = PBXGroup;
 			children = (
-				0440EB7C2366163900B8D738 /* Contacts.storyboard */,
 				0440EB7B2366163900B8D738 /* ContactsListViewController.swift */,
+				0440EB7C2366163900B8D738 /* Contacts.storyboard */,
 				04B3BD8623648653005ABDA4 /* Contact List Cell */,
 				04B3BD932364866D005ABDA4 /* Upload Contacts View */,
 				04B3BD7323648602005ABDA4 /* Tag Creation Popup */,
