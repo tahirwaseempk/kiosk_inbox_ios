@@ -1280,7 +1280,7 @@ class WebManager: NSObject
     {
         let token:String = params["token"] as! String
         
-        var paramsDictionary = Dictionary<String, Any>()
+        let paramsDictionary = Dictionary<String, Any>()
         
         //paramsDictionary["text"] = params["contactsCSV"] as! String
         

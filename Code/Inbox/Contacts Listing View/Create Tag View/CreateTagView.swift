@@ -24,6 +24,8 @@ class CreateTagView: UIView, UITextFieldDelegate
         } else {
             // Fallback on earlier versions
         }
+        
+        tagNameTextField.text = ""
     }
     
     class func instanceFromNib(delegate delegate_:CreateTagViewDelegate) -> CreateTagView

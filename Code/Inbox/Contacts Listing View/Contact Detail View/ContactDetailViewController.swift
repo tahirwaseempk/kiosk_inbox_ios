@@ -141,12 +141,20 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 cell.headerLbl.text = "Date Of Birth"
                 
                 let dateFormatter =  DateFormatter()
-                
                 dateFormatter.dateFormat = DOB_FORMATE
+                let outStr = dateFormatter.string(from: (self.contact.birthDate!))
                 
-                let birthDate = dateFormatter.string(from:self.contact.birthDate!)
-
-                cell.titleLbl.text = birthDate
+                if (outStr == "07/10/68000") {
+                    cell.titleLbl.text = ""
+                } else {
+                    cell.titleLbl.text = outStr
+                }
+                    
+//                let dateFormatter =  DateFormatter()
+//                dateFormatter.dateFormat = DOB_FORMATE
+//                let birthDate = dateFormatter.string(from:self.contact.birthDate!)
+//                cell.titleLbl.text = birthDate
+                
             }
             else if indexPath.row == 4
             {
