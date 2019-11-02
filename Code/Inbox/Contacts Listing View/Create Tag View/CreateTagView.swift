@@ -15,6 +15,17 @@ class CreateTagView: UIView, UITextFieldDelegate
 
     var delegate:CreateTagViewDelegate?
     
+    override func awakeFromNib()
+    {
+        super.awakeFromNib()
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
     class func instanceFromNib(delegate delegate_:CreateTagViewDelegate) -> CreateTagView
     {
         let view = UINib(nibName: "CreateTagView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! CreateTagView

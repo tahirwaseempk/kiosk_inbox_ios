@@ -1,6 +1,11 @@
 import UIKit
 import Foundation
 
+protocol ContactDetailViewControllerDelegate
+{
+    func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
+}
+
 class ContactsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     let headerColor = UIColor.init(displayP3Red:0.96, green:0.97, blue:1.0, alpha:1.0)
@@ -12,6 +17,7 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     var isSelectionModeOn = false
     var createTageView: CreateTagView!
     var currentNavigationController:UINavigationController!
+    var delegate:ContactListViewControllerDelegate?
     
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var menuContainerView: UIView!
@@ -31,6 +37,12 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func setupControls()
     {
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
+        
         self.fetchData()
         
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
@@ -89,6 +101,8 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
                 self.filteredContacts[firstCharacterStr] = arrayOfSameNameContacts
             }
         }
+        
+        self.tableView.reloadData()
     }
     
     func cornerRadius()
@@ -357,6 +371,8 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
 
                 viewController.contact = contact
                 
+                viewController.delegate = self
+
                 self.currentNavigationController.pushViewController(viewController, animated:true)
             }
         }
@@ -432,8 +448,6 @@ extension ContactsListViewController:UISearchBarDelegate
         }
         else
         {
-            self.filteredContacts.removeAll()
-
             if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
             {
                 let contacts_filtered_local = contactsList.filter({ (contact) -> Bool in
@@ -478,14 +492,111 @@ extension ContactsListViewController:UISearchBarDelegate
     }
 }
 
-extension ContactsListViewController
+extension ContactsListViewController: ContactDetailViewControllerDelegate
 {
     @IBAction func deleteTagButton_Tapped(_ sender: Any)
     {
+        if self.selectedItems.count > 0
+        {
+            let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete these contact ", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                
+                self.deleteContacts()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Alert", message: "Selected atleast one contact to delete", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+        }
+    }
+    
+    func deleteContacts()
+    {
+        ProcessingIndicator.show()
+
         self.resignAllControls()
         
-        
+        UserContact.deleteContacts(contacts:Array(self.selectedItems), completionBlockSuccess: { (status:Bool) -> (Void) in
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    self.deleteContactsFromLocalArrays(contactsToRemove:Array(self.selectedItems))
 
+                    ProcessingIndicator.hide()
+                       
+                    let alert = UIAlertController(title:"Contacts Deleted ",message:"Selected contacts delted successfully",preferredStyle: UIAlertControllerStyle.alert)
+                       
+                    let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
+                           
+                    }
+                               
+                    alert.addAction(okAction)
+                               
+                    self.present(alert,animated:true,completion:nil)
+                }
+            }
+        }) { (error:Error?) -> (Void) in
+         
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    ProcessingIndicator.hide()
+                    
+                    let alert = UIAlertController(title:"Error",message:error?.localizedDescription,preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
+                        
+                    }
+                    
+                    alert.addAction(okAction)
+                    
+                    self.present(alert,animated:true,completion:nil)
+                }
+            }
+        }
+    }
+    
+    func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
+    {
+        if let delegate = self.delegate
+        {
+            delegate.contactsDeleted(contactsToRemove: contactsToRemove)
+        }
+        
+        for contact in contactsToRemove
+        {
+            self.selectedItems.remove(contact)
+        }
+        
+        self.resignAllControls()
+
+        selectedItems.removeAll()
+                                                      
+        self.isSelectionModeOn = false
+                                                      
+        self.updateBottomView()
+        
+        self.saerchBar.text = nil
+        
+        if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
+        {
+            loadDataFromList(contactsList:contactsList)
+        }
+        else
+        {
+            loadDataFromList(contactsList:Array<UserContact>())
+        }
     }
 }
 

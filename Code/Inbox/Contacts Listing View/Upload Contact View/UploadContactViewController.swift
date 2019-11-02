@@ -17,7 +17,11 @@ class UploadContactViewController: UIViewController
     
     func setupControls()
     {
-        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func viewDidLayoutSubviews()
@@ -65,7 +69,6 @@ class UploadContactViewController: UIViewController
     
     func fetchPhoneBookContacts()
     {
-        
       fetchContacts(ContactsSortorder: .givenName) { (result) in
          
           switch result
@@ -88,23 +91,63 @@ class UploadContactViewController: UIViewController
     {
         contactsToVCardConverter(contacts:contacts) { (result) in
             
-               switch result
-               {
-                   case .success(response: let data): //.vcf File
-                       
-                       self.uploadContacts(contactsVCFData:data)
-                       break
-                
-                   case .failure(error: let error):
-                       self.showContactFetchingError(errorMsg:error.localizedDescription)
-                       break
-               }
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                   switch result
+                    {
+                        case .success(response: let data): //.vcf File
+                            
+                            self.uploadContacts(contactsVCFData:data)
+                            break
+                     
+                        case .failure(error: let error):
+                            self.showContactFetchingError(errorMsg:error.localizedDescription)
+                            break
+                    }
+                }
+            }
+               
            }
     }
     
     func uploadContacts(contactsVCFData:Data)
     {
-        self.contactUploadedSuccessfullyView()
+        ProcessingIndicator.show()
+
+        UserContact.uploadContacts(contactsCSVData:contactsVCFData, completionBlockSuccess:
+        { (status:Bool) -> (Void) in
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    self.contactUploadedSuccessfullyView()
+
+                    ProcessingIndicator.hide()
+                }
+            }
+            
+        }) { (error:Error?) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    ProcessingIndicator.hide()
+                    
+                    let alert = UIAlertController(title:"Error",message:error?.localizedDescription,preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
+                        
+                    }
+                    
+                    alert.addAction(okAction)
+                    
+                    self.present(alert,animated:true,completion:nil)
+                }
+            }
+        }
     }
     
     func contactUploadedSuccessfullyView()

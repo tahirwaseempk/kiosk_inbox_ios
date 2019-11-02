@@ -1237,8 +1237,8 @@ class WebManager: NSObject
     // MARK: DELETE TAGS API
     static func deleteTags(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?)  -> (Void)), andFailureBlock: @escaping ((Error?) -> (Void)))
     {
-        
         let token:String = params["token"] as! String
+        
         let tagId:String = params["tagId"] as! String
         
         var finalUrl = ""
@@ -1254,7 +1254,6 @@ class WebManager: NSObject
             finalUrl =  URL_PHOTO_TEXTING + DELETE_TAG + tagId
         case .text_Attendant:
             finalUrl =  URL_TEXT_ATTENDANT + DELETE_TAG + tagId
-
         }
         
         print("\n ===== >>>>> Delete Tags URL = \(finalUrl) \n")
@@ -1277,13 +1276,13 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
     // MARK: UPLOAD CONTACTS API
-    static func uploadContacts(params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    static func uploadContacts(contactsCSVData:Data, params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
         let token:String = params["token"] as! String
         
         var paramsDictionary = Dictionary<String, Any>()
         
-        paramsDictionary["text"] = params["contactsCSV"] as! String
+        //paramsDictionary["text"] = params["contactsCSV"] as! String
         
         var finalUrl = ""
         

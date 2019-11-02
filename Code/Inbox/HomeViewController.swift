@@ -1,5 +1,10 @@
 import UIKit
 
+protocol ContactListViewControllerDelegate
+{
+    func contactsDeleted(contactsToRemove:Array<UserContact>)
+}
+
 class HomeViewController: UIViewController
 {
     @IBOutlet weak var signOutButton: UIButton!
@@ -473,6 +478,8 @@ extension HomeViewController
         
         self.contactsListViewController.currentNavigationController = self.navigationController
         
+        self.contactsListViewController.delegate = self
+
         self.view.addSubview(self.contactsListViewController.view)
         
         self.contactsListViewController.view.frame = self.view.bounds
@@ -488,3 +495,10 @@ extension HomeViewController
     }
 }
 
+extension HomeViewController:ContactListViewControllerDelegate
+{
+    func contactsDeleted(contactsToRemove:Array<UserContact>)
+    {
+        self.conversationListingViewController.conversationListUpdated()
+    }
+}

@@ -176,5 +176,52 @@ extension Tag
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
+    
+    static func deleteTag(tagToDelete:Tag, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["token"] = user.token
+            
+            paramsDic["tagId"] = tagToDelete.tagId
+
+            WebManager.deleteTags(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                                    
+                var tempDictionary = Dictionary<String,Any>()
+                
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil
+                {
+                    tempDictionary["name"] = jsonDict["name"] as! String
+                    tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int
+                    tempDictionary["message"] = jsonDict["message"] as! String
+                    tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int
+                    
+                    let messageStr =  tempDictionary["message"] as! String
+                    
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageStr]))
+                }
+                else
+                {
+                    DispatchQueue.global(qos: .background).async
+                    {
+                        DispatchQueue.main.async
+                        {
+                            tagToDelete.managedObjectContext?.delete(tagToDelete)
+                            
+                            CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                        }
+                    }
+                }
+            }, andFailureBlock:failureBlock)
+        }
+        else
+        {
+        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
 }
 

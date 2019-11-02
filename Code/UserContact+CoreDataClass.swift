@@ -169,4 +169,26 @@ extension UserContact
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
+    
+    static func uploadContacts(contactsCSVData:Data ,completionBlockSuccess successBlock:@escaping ((Bool) -> (Void)), andFailureBlock failureBlock:@escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = Dictionary<String, Any>()
+            
+            paramsDic["token"] = user.token
+                        
+            //paramsDic["contactId"] = contactsCSVData
+            
+            WebManager.uploadContacts(contactsCSVData:contactsCSVData, params: paramsDic, completionBlockSuccess: { (response:Dictionary<String, Any>?) -> (Void) in
+                
+                successBlock(true)
+
+            }, andFailureBlock: failureBlock)
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
 }

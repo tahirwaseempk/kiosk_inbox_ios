@@ -5,7 +5,7 @@ let ADD_TAG_TITLE = "Add"
 protocol ContactTagTableViewCellDelegate
 {
     func addTagTapped()
-    func deleteTagTapped(_ tagToDelete:String)
+    func deleteTagTapped(_ tagToDelete:Tag)
 }
 
 class ContactTagTableViewCell: UITableViewCell, TagListViewDelegate
@@ -58,9 +58,17 @@ class ContactTagTableViewCell: UITableViewCell, TagListViewDelegate
         }
         else
         {
-            if let delegate = self.delegate
+            if let delegate = self.delegate, let tags = self.contact.tags
             {
-                delegate.deleteTagTapped(title)
+                for tag in tags
+                {
+                    if title == (tag as! Tag).tagName
+                    {
+                        delegate.deleteTagTapped((tag as! Tag))
+                        
+                        break
+                    }
+                }
             }
         }
     }
