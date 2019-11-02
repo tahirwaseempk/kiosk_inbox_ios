@@ -76,15 +76,11 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
-  - SwiftyContacts (3.0.11):
-    - SwiftyContacts/Core (= 3.0.11)
-  - SwiftyContacts/Core (3.0.11)
   - SwiftyPickerPopover (6.6.6)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
-  - SwiftyContacts
   - SwiftyPickerPopover
 
 SPEC REPOS:
@@ -103,7 +99,6 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - Protobuf
-    - SwiftyContacts
     - SwiftyPickerPopover
 
 SPEC CHECKSUMS:
@@ -121,9 +116,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
-  SwiftyContacts: 3b38d400d2480e8a2323194f3f8fcf6b317d8147
   SwiftyPickerPopover: a402960a6687c911ffcb4e9fb282a1bc61186ab4
 
-PODFILE CHECKSUM: 2e933aad2e95ec21dba591c097b21ad650a9b354
+PODFILE CHECKSUM: 45fcc982ac24fcd41aa494a1f473de961590bc0a
 
 COCOAPODS: 1.8.4

@@ -163,14 +163,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyContacts/SwiftyContacts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyContacts/SwiftyContacts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework"
 fi

@@ -9,7 +9,6 @@ target 'FanConnectNow' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'SwiftyPickerPopover'
-  pod 'SwiftyContacts'
 
 end
 
