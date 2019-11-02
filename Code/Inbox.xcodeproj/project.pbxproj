@@ -2137,10 +2137,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FanConnectNow/Pods-FanConnectNow-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2226,10 +2226,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SMSFactory/Pods-SMSFactory-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2250,10 +2250,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PhotoTextingLine/Pods-PhotoTextingLine-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.0/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2274,10 +2274,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Text_Attendant/Pods-Text_Attendant-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.1/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.1/protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.1/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.1/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2386,10 +2386,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TextingLine/Pods-TextingLine-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS11.0/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf-iOS11.0/protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover-iOS11.0/SwiftyPickerPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS11.0/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -3125,7 +3125,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SMSFactory copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3155,7 +3155,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SMSFactory copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3184,7 +3184,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TextAttendant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.textattendant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3214,7 +3214,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TextAttendant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.textattendant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3243,7 +3243,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "SMSFactory copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnecnow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3273,7 +3273,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "SMSFactory copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.fanconnecnow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
