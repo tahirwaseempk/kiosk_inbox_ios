@@ -222,7 +222,7 @@ extension ContactDetailViewController:ContactTagTableViewCellDelegate
 
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
 
-            self.deleteTag()
+            self.deleteTag(tagToDelete)
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
@@ -230,11 +230,14 @@ extension ContactDetailViewController:ContactTagTableViewCellDelegate
         self.present(alert, animated: true)
     }
     
-    func deleteTag()
+    func deleteTag(_ tagObj: Tag)
     {
         ProcessingIndicator.show()
 
-        UserContact.deleteContacts(contacts:[self.contact], completionBlockSuccess: { (status:Bool) -> (Void) in
+      //  UserContact.deleteContacts(contacts:[self.contact], completionBlockSuccess: { (status:Bool) -> (Void) in
+        
+        Tag.deleteTag(tagToDelete: tagObj, completionBlockSuccess: { (status: Bool) -> (Void) in
+    
             DispatchQueue.global(qos: .background).async
             {
                 DispatchQueue.main.async
