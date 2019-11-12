@@ -1,5 +1,6 @@
 import UIKit
 import Foundation
+import SwiftyPickerPopover
 
 class ContactDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -16,6 +17,22 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var saveDetailButton: UIButton!
     
+    var FirstNameValue = ""
+    
+    var LastNameValue = ""
+    
+    var EmailValue = ""
+    
+    var DOBValue:Date?
+    
+    var GenderValue = ""
+    
+    var AddressValue = ""
+    
+    var StateValue = ""
+    
+    var ZipCodeValue = ""
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -25,10 +42,9 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     func setupControls()
     {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, *)
+        {
             overrideUserInterfaceStyle = .light
-        } else {
-            // Fallback on earlier versions
         }
         
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
@@ -38,6 +54,43 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     func loadData()
     {
+        if let firstName = self.contact.firstName
+        {
+            self.FirstNameValue = firstName
+        }
+
+        if let lastName = self.contact.lastName
+        {
+            self.LastNameValue = lastName
+        }
+
+        if let email = self.contact.email
+        {
+            self.EmailValue = email
+        }
+
+        self.DOBValue = self.contact.birthDate
+
+        if let gender = self.contact.gender
+        {
+            self.GenderValue = gender
+        }
+
+        if let address = self.contact.address
+        {
+            self.AddressValue = address
+        }
+
+        if let state = self.contact.state
+        {
+            self.StateValue = state
+        }
+
+        if let zipCode = self.contact.zipCode
+        {
+            self.ZipCodeValue = zipCode
+        }
+
         self.headerContactNumberLabel.text = self.contact.phoneNumber
         
         self.tableView.reloadData()
@@ -59,6 +112,8 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func backButtonTapped(_ sender: Any)
     {
+        self.view.endEditing(true)
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -114,80 +169,12 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if indexPath.section == 0
-        {
-            let cell:ContactNameTableViewCell = tableView.dequeueReusableCell(withIdentifier:"ContactsListTableViewCell", for:indexPath) as! ContactNameTableViewCell
-            
-            if indexPath.row == 0
-            {
-                cell.headerLbl.text = "First Name"
-                
-                cell.titleLbl.text = self.contact.firstName
-            }
-            else if indexPath.row == 1
-            {
-                cell.headerLbl.text = "Last Name"
-                
-                cell.titleLbl.text = self.contact.lastName
-            }
-            else if indexPath.row == 2
-            {
-                cell.headerLbl.text = "Email"
-                
-                cell.titleLbl.text = self.contact.email
-            }
-            else if indexPath.row == 3
-            {
-                cell.headerLbl.text = "Date Of Birth"
-                
-                let dateFormatter =  DateFormatter()
-                dateFormatter.dateFormat = DOB_FORMATE
-                let outStr = dateFormatter.string(from: (self.contact.birthDate!))
-                
-                if (outStr == "07/10/68000") {
-                    cell.titleLbl.text = ""
-                } else {
-                    cell.titleLbl.text = outStr
-                }
-                    
-//                let dateFormatter =  DateFormatter()
-//                dateFormatter.dateFormat = DOB_FORMATE
-//                let birthDate = dateFormatter.string(from:self.contact.birthDate!)
-//                cell.titleLbl.text = birthDate
-                
-            }
-            else if indexPath.row == 4
-            {
-                cell.headerLbl.text = "Gender"
-                
-                cell.titleLbl.text = self.contact.gender
-            }
-
-            return cell
-        }
-        else if indexPath.section == 1
+        if indexPath.section == 0 || indexPath.section == 1
         {
             let cell:ContactNameTableViewCell =  tableView.dequeueReusableCell(withIdentifier:"ContactsListTableViewCell", for:indexPath) as! ContactNameTableViewCell
             
-            if indexPath.row == 0
-            {
-                cell.headerLbl.text = "Address"
-                
-                cell.titleLbl.text = self.contact.address
-            }
-            else if indexPath.row == 1
-            {
-                cell.headerLbl.text = "State"
-                
-                cell.titleLbl.text = self.contact.country
-            }
-            else if indexPath.row == 2
-            {
-                cell.headerLbl.text = "ZipCode"
-                
-                cell.titleLbl.text = self.contact.zipCode
-            }
-            
+            cell.loadCell(FirstNameValue:self.FirstNameValue, LastNameValue:self.LastNameValue, EmailValue:self.EmailValue, DOBValue:self.DOBValue, GenderValue:self.GenderValue, AddressValue:self.AddressValue, StateValue:self.StateValue, ZipCodeValue:self.ZipCodeValue, indexPath:indexPath, delegate:self)
+
             return cell
         }
         else if indexPath.section == 2
@@ -370,4 +357,182 @@ extension ContactDetailViewController
             delegate.deleteContactsFromLocalArrays(contactsToRemove:[contactToRemove])
         }
     }
+}
+
+extension ContactDetailViewController : ContactNameTableViewCellDelegate
+{
+    func updatedFirstNameField(_ newValue:String)
+    {
+        self.FirstNameValue = newValue
+        
+        self.tableView.reloadData()
+        
+        self.refreshData()
+    }
+    
+    func updatedLastNameField(_ newValue:String)
+    {
+        self.LastNameValue = newValue
+        
+        self.refreshData()
+    }
+    
+    func updatedEmailField(_ newValue:String)
+    {
+        self.EmailValue = newValue
+        
+        self.refreshData()
+    }
+    
+    func updatedDOBField(_ newValue:Date)
+    {
+        self.DOBValue = newValue
+        
+        self.refreshData()
+    }
+    
+    func updatedGenderField(_ newValue:String)
+    {
+        self.GenderValue = newValue
+        
+        self.refreshData()
+    }
+    
+    func updatedAddressField(_ newValue:String)
+    {
+        self.AddressValue = newValue
+        
+        self.refreshData()
+    }
+    
+    func updatedStateField(_ newValue:String)
+    {
+        self.StateValue = newValue
+        
+        self.refreshData()
+    }
+    
+    func updatedZipCodeField(_ newValue:String)
+    {
+        self.ZipCodeValue = newValue
+        
+        self.refreshData()
+    }
+    
+    func refreshData()
+    {
+        self.tableView.reloadData()
+    }
+}
+
+extension ContactDetailViewController
+{
+    @IBAction func saveContactDetailButton_Tapped(_ sender: Any)
+    {
+        if self.validateInputs() == true
+        {
+            self.saveProfileData()
+        }
+    }
+
+    func validateInputs() -> Bool
+    {
+        if let firstName = self.contact.firstName, firstName.isEmpty == true
+        {
+            let alert = UIAlertController(title:"Warning",message:"Please enter first name.",preferredStyle:UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title:"OK",style:UIAlertActionStyle.default,handler:nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+
+        return true
+    }
+    
+    func saveProfileData()
+    {
+        ProcessingIndicator.show()
+        
+        var paramsDic = Dictionary<String,Any>()
+        
+        paramsDic["contactID"] = String(contact.contactId)
+
+        paramsDic["firstName"] = self.FirstNameValue
+
+        paramsDic["lastName"] = self.LastNameValue
+
+        paramsDic["gender"] = self.GenderValue
+
+        paramsDic["email"] = self.EmailValue
+
+        paramsDic["address"] = self.AddressValue
+
+        paramsDic["state"] = self.StateValue
+
+        paramsDic["zipCode"] = self.ZipCodeValue
+
+        if let dob = contact.birthDate
+        {
+            let utcFormatter = DateFormatter()
+              
+            utcFormatter.dateFormat = UTC_DATE_TIME_APPOINTMENT
+              
+            utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
+              
+            let utcTimeZoneStr = utcFormatter.string(from:dob)
+              
+            paramsDic["birthDate"]   = utcTimeZoneStr
+        }
+        else
+        {
+            paramsDic["birthDate"] = ""
+        }
+        
+        User.updateContact(contact:self.contact, userDic:paramsDic, completionBlockSuccess: { (status: Bool) -> (Void) in
+            
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    if status == true
+                    {
+                      ProcessingIndicator.hide()
+                      
+                      let alert = UIAlertController(title:"Success", message:"Contact updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
+            
+                      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                      
+                      self.present(alert, animated: true, completion: nil)
+                    }
+                    else
+                    {
+                      ProcessingIndicator.hide()
+                        
+                      let alert = UIAlertController(title:"Error", message:"Some error occured, please try again later.", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                      alert.addAction(UIAlertAction(title:"OK", style: UIAlertActionStyle.default, handler: nil))
+                        
+                      self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+          }, andFailureBlock: { (error: Error?) -> (Void) in
+              
+            DispatchQueue.global(qos: .background).async
+            {
+                DispatchQueue.main.async
+                {
+                    ProcessingIndicator.hide()
+                    
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        })
+      }
 }

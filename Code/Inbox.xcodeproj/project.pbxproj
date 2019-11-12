@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0416DAFD237A2BF4002A1222 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416DAFC237A2BF4002A1222 /* LocalData.swift */; };
+		0416DAFE237A2BF4002A1222 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416DAFC237A2BF4002A1222 /* LocalData.swift */; };
+		0416DAFF237A2BF4002A1222 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416DAFC237A2BF4002A1222 /* LocalData.swift */; };
+		0416DB00237A2BF4002A1222 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416DAFC237A2BF4002A1222 /* LocalData.swift */; };
+		0416DB01237A2BF4002A1222 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416DAFC237A2BF4002A1222 /* LocalData.swift */; };
 		0440EB6B236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
 		0440EB6C236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
 		0440EB6D236608CE00B8D738 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */; };
@@ -801,6 +806,7 @@
 
 /* Begin PBXFileReference section */
 		012D4F6358948843A7AC0535 /* Pods-SMSFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMSFactory.release.xcconfig"; path = "Target Support Files/Pods-SMSFactory/Pods-SMSFactory.release.xcconfig"; sourceTree = "<group>"; };
+		0416DAFC237A2BF4002A1222 /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0440EB752366098F00B8D738 /* TagParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagParser.swift; sourceTree = "<group>"; };
@@ -1076,9 +1082,9 @@
 				0440EB7B2366163900B8D738 /* ContactsListViewController.swift */,
 				0440EB7C2366163900B8D738 /* Contacts.storyboard */,
 				04B3BD8623648653005ABDA4 /* Contact List Cell */,
+				04B3BD9A236486A0005ABDA4 /* Contat Detail View */,
 				04B3BD932364866D005ABDA4 /* Upload Contacts View */,
 				04B3BD7323648602005ABDA4 /* Tag Creation Popup */,
-				04B3BD9A236486A0005ABDA4 /* Contat Detail View */,
 			);
 			name = "Contacts Listing View";
 			sourceTree = "<group>";
@@ -1581,6 +1587,7 @@
 				0440EB69236608CD00B8D738 /* Tag+CoreDataClass.swift */,
 				0440EB6A236608CE00B8D738 /* Tag+CoreDataProperties.swift */,
 				0440EB872366164900B8D738 /* ContactTag.swift */,
+				0416DAFC237A2BF4002A1222 /* LocalData.swift */,
 			);
 			name = Persistent;
 			sourceTree = "<group>";
@@ -1759,7 +1766,7 @@
 				TargetAttributes = {
 					1ADE9F791EF98E48006C2CAC = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = TWA5JJ29B2;
+						DevelopmentTeam = 2NBTB656XQ;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -2479,6 +2486,7 @@
 				1ADE9F7E1EF98E48006C2CAC /* AppDelegate.swift in Sources */,
 				04EC9FBB1FC373C500F3C42A /* User+CoreDataClass.swift in Sources */,
 				1AFB4A551FC32EED001EC4D5 /* ConversationListingViewController.swift in Sources */,
+				0416DAFD237A2BF4002A1222 /* LocalData.swift in Sources */,
 				1ADE9FBA1EF9A821006C2CAC /* InboxTableViewDataSource.swift in Sources */,
 				754085FD1F1671AF00CDB81F /* ProcessingIndicatorHandler.swift in Sources */,
 				752CE44B1F27E24900FCC976 /* IQToolbar.swift in Sources */,
@@ -2582,6 +2590,7 @@
 				290BEDC520E697EC00F30BAA /* AppDelegate.swift in Sources */,
 				290BEDC620E697EC00F30BAA /* User+CoreDataClass.swift in Sources */,
 				290BEDC720E697EC00F30BAA /* ConversationListingViewController.swift in Sources */,
+				0416DAFE237A2BF4002A1222 /* LocalData.swift in Sources */,
 				290BEDC820E697EC00F30BAA /* InboxTableViewDataSource.swift in Sources */,
 				290BEDCA20E697EC00F30BAA /* ProcessingIndicatorHandler.swift in Sources */,
 				290BEDCC20E697EC00F30BAA /* IQToolbar.swift in Sources */,
@@ -2685,6 +2694,7 @@
 				299DC97321FB9906001F2861 /* AppDelegate.swift in Sources */,
 				299DC97421FB9906001F2861 /* User+CoreDataClass.swift in Sources */,
 				299DC97521FB9906001F2861 /* ConversationListingViewController.swift in Sources */,
+				0416DB01237A2BF4002A1222 /* LocalData.swift in Sources */,
 				299DC97621FB9906001F2861 /* InboxTableViewDataSource.swift in Sources */,
 				299DC97721FB9906001F2861 /* ProcessingIndicatorHandler.swift in Sources */,
 				299DC97821FB9906001F2861 /* IQToolbar.swift in Sources */,
@@ -2788,6 +2798,7 @@
 				29FD0F5F21160D0500062362 /* AppDelegate.swift in Sources */,
 				29FD0F6021160D0500062362 /* User+CoreDataClass.swift in Sources */,
 				29FD0F6121160D0500062362 /* ConversationListingViewController.swift in Sources */,
+				0416DAFF237A2BF4002A1222 /* LocalData.swift in Sources */,
 				29FD0F6221160D0500062362 /* InboxTableViewDataSource.swift in Sources */,
 				29FD0F6421160D0500062362 /* ProcessingIndicatorHandler.swift in Sources */,
 				29FD0F6621160D0500062362 /* IQToolbar.swift in Sources */,
@@ -2891,6 +2902,7 @@
 				29FD0FD421160D1000062362 /* AppDelegate.swift in Sources */,
 				29FD0FD521160D1000062362 /* User+CoreDataClass.swift in Sources */,
 				29FD0FD621160D1000062362 /* ConversationListingViewController.swift in Sources */,
+				0416DB00237A2BF4002A1222 /* LocalData.swift in Sources */,
 				29FD0FD721160D1000062362 /* InboxTableViewDataSource.swift in Sources */,
 				29FD0FD921160D1000062362 /* ProcessingIndicatorHandler.swift in Sources */,
 				29FD0FDB21160D1000062362 /* IQToolbar.swift in Sources */,
@@ -3050,12 +3062,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TextingLine.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = 2NBTB656XQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3064,16 +3076,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 3.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.debug;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4f1ee7cd-44af-4b3e-b6a4-b6309861a03a";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStore;
+				PROVISIONING_PROFILE_SPECIFIER = Netsol_Enterprise_Development_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3084,11 +3096,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TextingLine.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0;
-				DEVELOPMENT_TEAM = TWA5JJ29B2;
+				DEVELOPMENT_TEAM = 2NBTB656XQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3097,15 +3109,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 3.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.inbox.chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netsoltech.debug;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4f1ee7cd-44af-4b3e-b6a4-b6309861a03a";
-				PROVISIONING_PROFILE_SPECIFIER = InboxMessageAppStore;
+				PROVISIONING_PROFILE_SPECIFIER = Netsol_Enterprise_Development_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Inbox/Inbox-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

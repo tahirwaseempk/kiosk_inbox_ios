@@ -1041,6 +1041,115 @@ extension User
             failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
         }
     }
+    
+    static func updateContact(contact:UserContact, userDic:Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Bool) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
+    {
+        if let user = User.getLoginedUser()
+        {
+            var paramsDic = userDic
+                
+            paramsDic["token"] = user.token
+            
+            WebManager.putContact(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
+                
+                var tempDictionary = Dictionary<String,Any>()
+                
+                let jsonDict: Dictionary<String, Any> = response!
+                
+                if jsonDict["statusCode"] != nil
+                {
+                    if jsonDict["errorCode"] as! Int == 200
+                    {
+                        DispatchQueue.global(qos: .background).async
+                        {
+                            DispatchQueue.main.async
+                            {
+                                if let firstName = paramsDic["firstName"] as? String
+                                {
+                                    contact.firstName = firstName
+                                }
+                                
+                                if let lastName = paramsDic["lastName"] as? String
+                                {
+                                    contact.lastName = lastName
+                                }
+                                
+                                if let email = paramsDic["email"] as? String
+                                {
+                                    contact.email = email
+                                }
+                                
+                                if let gender = paramsDic["gender"] as? String
+                                {
+                                    contact.gender = gender
+                                }
+                                
+                                if let birthDate = paramsDic["birthDate"] as? String
+                                {
+                                    var birth_Date = Date(timeIntervalSinceReferenceDate:-2209014432000)
+                                    
+                                    let dateFormatter = DateFormatter()
+                                            
+                                    dateFormatter.dateFormat = UTC_DATE_TIME_TZ
+                                            
+                                    birth_Date = dateFormatter.date(from: birthDate)!
+                                    
+                                    contact.birthDate = birth_Date
+                                }
+                                                                            
+                                if let address = paramsDic["address"] as? String
+                                {
+                                    contact.address = address
+                                }
+                            
+                                if let state = paramsDic["state"] as? String
+                                {
+                                    contact.state = state
+                                }
+                            
+                                if let zipCode = paramsDic["zipCode"] as? String
+                                {
+                                    contact.zipCode = zipCode
+                                }
+
+                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                
+                                successBlock(true)
+                        }
+                        }
+                    }
+                    else if jsonDict["errorCode"] as! Int == 400
+                    {
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:jsonDict["message"] as! String]))
+                        
+                    }
+                    else
+                    {
+                        tempDictionary["name"] = jsonDict["name"] as! String
+                        
+                        tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int
+                        
+                        tempDictionary["message"] = jsonDict["message"] as! String
+                        
+                        tempDictionary["errorCode"] = jsonDict["statusCode"] as! Int
+                        
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Invalid_Token]))
+                    }
+                }
+                else
+                {
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Request_Completed_Error]))
+                }
+            }, andFailureBlock: { (error) -> (Void) in
+                failureBlock(error)
+            })
+        }
+        else
+        {
+            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+        }
+    }
+    
     //************************************************************************************************//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//

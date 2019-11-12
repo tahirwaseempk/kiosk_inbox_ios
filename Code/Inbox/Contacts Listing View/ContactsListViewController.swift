@@ -165,7 +165,15 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     {
         if self.isSelectionModeOn == true
         {
-            self.navBarTagButtonTapped(sender)
+            self.resignAllControls()
+
+            selectedItems.removeAll()
+                                                          
+            self.isSelectionModeOn = false
+                               
+            self.tableView.reloadData()
+                               
+            self.updateBottomView()
         }
         else
         {
@@ -186,19 +194,6 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         self.view.addSubview(self.createTageView)
     }
         
-    @IBAction func navBarTagButtonTapped(_ sender:UIButton)
-    {
-        self.resignAllControls()
-
-        selectedItems.removeAll()
-                                                      
-        self.isSelectionModeOn = false
-                           
-        self.tableView.reloadData()
-                           
-        self.updateBottomView()
-    }
-    
     @IBAction func selectAllButton_Tapped(_ sender:UIButton)
     {
         self.resignAllControls()
@@ -597,6 +592,19 @@ extension ContactsListViewController: ContactDetailViewControllerDelegate
         {
             loadDataFromList(contactsList:Array<UserContact>())
         }
+    }
+}
+
+extension ContactsListViewController
+{
+    @IBAction func navBarTagButtonTapped(_ sender:UIButton)
+    {
+        self.applyTagFilter()
+    }
+    
+    func applyTagFilter()
+    {
+        
     }
 }
 

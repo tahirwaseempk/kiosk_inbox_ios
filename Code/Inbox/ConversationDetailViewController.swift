@@ -297,8 +297,7 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         tableView.clipsToBounds = false
         
         header_View.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.9).enable()
-        // closeView.blurView.setup(style: UIBlurEffectStyle.extraLight, alpha: 0.5).enable()
-        
+
         
         
         sendTextField.inputAccessoryView = UIView()

@@ -37,49 +37,38 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         //self.reloadControls()
     }
     
-    func reloadControls() {
-        
-        //************************************************************************************************//
-        //------------------------------------------------------------------------------------------------//
-        //************************************************************************************************//
+    func reloadControls()
+    {
         filteredConversations = filteredConversations.sorted(by: { (conversation1, conversation2) -> Bool in
-            
-            //print(conversation1.isRead, conversation2.isRead)
-            //            if conversation1.isRead == conversation2.isRead {
-            
-            if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedDescending
-            {
-                return true
-            }
-            else if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedAscending
-            {
-                return false
-            }
-            else
-            {
-                return false
-            }
-            //            }
-            //            else  {
-            //                return conversation1.isRead
-            //            }
-        })
-        //************************************************************************************************//
-        //------------------------------------------------------------------------------------------------//
-        //************************************************************************************************//
-        
+                    
+        if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedDescending
+        {
+            return true
+        }
+        else if conversation1.timeStamp.compare(conversation2.timeStamp) == .orderedAscending
+        {
+            return false
+        }
+        else
+        {
+            return false
+        }
+     })
+
         self.targetedTableView.reloadData()
         
-        if selectedConversation != nil {
-            
+        if selectedConversation != nil
+        {
             let index = filteredConversations.index(of: selectedConversation)
+            
             let indexPath = IndexPath(row:index!, section: 0)
             
             targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
-        else {
-            
+        else
+        {
             let indexPath = IndexPath(row:-1, section: 0)
+            
             targetedTableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
     }
