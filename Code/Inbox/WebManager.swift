@@ -1280,9 +1280,9 @@ class WebManager: NSObject
     {
         let token:String = params["token"] as! String
         
-        let paramsDictionary = Dictionary<String, Any>()
+        var paramsDictionary = Dictionary<String, Any>()
         
-        //paramsDictionary["text"] = params["contactsCSV"] as! String
+        paramsDictionary["formData"] = params["contactsCSV"] as! Data
         
         var finalUrl = ""
         
@@ -1301,7 +1301,7 @@ class WebManager: NSObject
 
         }
         
-        print("\n ===== >>>>> Send Message URL = \(finalUrl) \n")
+        print("\n ===== >>>>> Upload Contacts URL = \(finalUrl) \n")
         
         callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
             

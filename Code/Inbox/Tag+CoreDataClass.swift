@@ -203,7 +203,7 @@ extension Tag
             
             paramsDic["token"] = user.token
             
-            paramsDic["tagId"] = tagToDelete.tagId
+            paramsDic["tagId"] = String(tagToDelete.tagId)
 
             WebManager.deleteTags(params: paramsDic, completionBlockSuccess: { (response) -> (Void) in
                                     

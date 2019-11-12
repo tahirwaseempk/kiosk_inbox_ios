@@ -44,9 +44,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         
         //        switch environment {
         //        case .texting_Line:
-                    serialTextField.text = "8443712030"
-//                    serialTextField.text = "8006999130"
-                    udidTextField.text = "lime123"
+        
+        serialTextField.text = "8443712030"
+        udidTextField.text = "lime123"
+        
+        //                    serialTextField.text = "8006999130"
+        //                    udidTextField.text = "muffin123"
+        
+        
         //        case .sms_Factory:
         //            serialTextField.text = ""
         //            udidTextField.text   = ""
@@ -59,8 +64,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         //            serialTextField.text = "8885117033"
         //            udidTextField.text   = "lime123"
         //        case .text_Attendant:
-//                    serialTextField.text = "8558687830"
-//                    udidTextField.text   = "lime123"
+        //                    serialTextField.text = "8558687830"
+        //                    udidTextField.text   = "lime123"
         //        }
     }
     

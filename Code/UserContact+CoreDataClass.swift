@@ -178,7 +178,7 @@ extension UserContact
             
             paramsDic["token"] = user.token
                         
-            //paramsDic["contactId"] = contactsCSVData
+            paramsDic["contactsCSV"] = contactsCSVData
             
             WebManager.uploadContacts(contactsCSVData:contactsCSVData, params: paramsDic, completionBlockSuccess: { (response:Dictionary<String, Any>?) -> (Void) in
                 
