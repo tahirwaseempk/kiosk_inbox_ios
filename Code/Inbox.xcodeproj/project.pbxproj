@@ -839,6 +839,7 @@
 		048FF920236B59E70076B18E /* ContactTagParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTagParser.swift; sourceTree = "<group>"; };
 		049833B4237A3C5800248FC7 /* FilterTagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterTagView.xib; sourceTree = "<group>"; };
 		049833B5237A3C5900248FC7 /* FilterTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTagView.swift; sourceTree = "<group>"; };
+		049833C0237A651500248FC7 /* Inbox2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Inbox2.xcdatamodel; sourceTree = "<group>"; };
 		04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -3452,9 +3453,10 @@
 		1ADE9F841EF98E49006C2CAC /* Inbox.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				049833C0237A651500248FC7 /* Inbox2.xcdatamodel */,
 				1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */,
 			);
-			currentVersion = 1ADE9F851EF98E49006C2CAC /* Inbox.xcdatamodel */;
+			currentVersion = 049833C0237A651500248FC7 /* Inbox2.xcdatamodel */;
 			name = Inbox.xcdatamodeld;
 			path = Inbox/Inbox.xcdatamodeld;
 			sourceTree = "<group>";
