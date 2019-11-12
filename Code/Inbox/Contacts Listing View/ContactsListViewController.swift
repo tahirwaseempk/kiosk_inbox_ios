@@ -16,9 +16,11 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     var selectedItems = Set<UserContact>()
     var isSelectionModeOn = false
     var createTageView: CreateTagView!
+    var filterTagView: FilterTagView?
     var currentNavigationController:UINavigationController!
     var delegate:ContactListViewControllerDelegate?
-    
+    var selectedTags = Set<String>()
+
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var menuContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -37,16 +39,15 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func setupControls()
     {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, *)
+        {
             overrideUserInterfaceStyle = .light
-        } else {
-            // Fallback on earlier versions
         }
         
         self.fetchData()
         
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
-        
+                
         self.addGesture()
         
         self.disableBottomView()
@@ -68,6 +69,33 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         
         for contact in contactsList
         {
+            if self.selectedTags.count > 0
+            {
+                if let contactTags = contact.tags
+                {
+                    var tagMatched = false
+                    
+                    for contactTag in contactTags
+                    {
+                        if let tagName = (contactTag as! Tag).tagName, self.selectedTags.contains(tagName)
+                        {
+                            tagMatched = true
+                            
+                            break
+                        }
+                    }
+                    
+                    if tagMatched == false
+                    {
+                        continue
+                    }
+                }
+                else
+                {
+                    continue
+                }
+            }
+            
             let name = (contact.firstName ?? "") + (contact.lastName ?? "")
             
             var firstCharacterStr = ""
@@ -429,16 +457,21 @@ extension ContactsListViewController:UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
     {
         searchBar.showsCancelButton = true
+                
+        let filteredContactsList = getFilteredContactsListAgainstSearchText(searchText)
         
+        loadDataFromList(contactsList:filteredContactsList)
+
+        self.tableView.reloadData()
+    }
+    
+    func getFilteredContactsListAgainstSearchText(_ searchText:String)-> Array<UserContact>
+    {
         if searchText.count < 1
         {
             if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
             {
-                loadDataFromList(contactsList:contactsList)
-            }
-            else
-            {
-                loadDataFromList(contactsList:Array<UserContact>())
+                return contactsList
             }
         }
         else
@@ -466,15 +499,11 @@ extension ContactsListViewController:UISearchBarDelegate
                     return false
                 })
                 
-                loadDataFromList(contactsList:contacts_filtered_local)
-            }
-            else
-            {
-                loadDataFromList(contactsList:Array<UserContact>())
+                return contacts_filtered_local
             }
         }
         
-        self.tableView.reloadData()
+        return Array<UserContact>()
     }
     
     func resignAllControls()
@@ -595,7 +624,7 @@ extension ContactsListViewController: ContactDetailViewControllerDelegate
     }
 }
 
-extension ContactsListViewController
+extension ContactsListViewController:FilterTagViewDelegate
 {
     @IBAction func navBarTagButtonTapped(_ sender:UIButton)
     {
@@ -604,7 +633,29 @@ extension ContactsListViewController
     
     func applyTagFilter()
     {
+        self.resignAllControls()
+
+        if self.filterTagView == nil
+        {
+            self.filterTagView = FilterTagView.instanceFromNib(delegate:self)
+        }
         
+        self.filterTagView!.frame = self.view.bounds
+        
+        self.filterTagView!.selectedTags = self.selectedTags
+        
+        self.view.addSubview(self.filterTagView!)
+    }
+    
+    func tagFiltered(tagsList: Set<String>)
+    {
+        self.selectedTags = tagsList
+        
+        let filteredContactsList = getFilteredContactsListAgainstSearchText(self.saerchBar.text ?? "")
+        
+        loadDataFromList(contactsList:filteredContactsList)
+
+        self.tableView.reloadData()
     }
 }
 

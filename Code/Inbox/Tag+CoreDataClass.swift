@@ -29,6 +29,24 @@ public class Tag: NSManagedObject
         
         return nil;
     }
+    
+    static func getAllTags() -> Array<Tag>
+    {
+       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
+       
+       do
+       {
+           let result = try DEFAULT_CONTEXT.fetch(request) as! Array<Tag>
+           
+           return result
+       }
+       catch let error as NSError
+       {
+           print("Could not fetch \(error), \(error.userInfo)")
+       }
+       
+       return Array<Tag>()
+    }
 }
 
 extension Tag

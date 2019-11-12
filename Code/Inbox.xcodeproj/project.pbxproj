@@ -104,6 +104,16 @@
 		048FF923236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
 		048FF924236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
 		048FF925236B59E70076B18E /* ContactTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FF920236B59E70076B18E /* ContactTagParser.swift */; };
+		049833B6237A3C5900248FC7 /* FilterTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049833B4237A3C5800248FC7 /* FilterTagView.xib */; };
+		049833B7237A3C5900248FC7 /* FilterTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049833B4237A3C5800248FC7 /* FilterTagView.xib */; };
+		049833B8237A3C5900248FC7 /* FilterTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049833B4237A3C5800248FC7 /* FilterTagView.xib */; };
+		049833B9237A3C5900248FC7 /* FilterTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049833B4237A3C5800248FC7 /* FilterTagView.xib */; };
+		049833BA237A3C5900248FC7 /* FilterTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049833B4237A3C5800248FC7 /* FilterTagView.xib */; };
+		049833BB237A3C5900248FC7 /* FilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049833B5237A3C5900248FC7 /* FilterTagView.swift */; };
+		049833BC237A3C5900248FC7 /* FilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049833B5237A3C5900248FC7 /* FilterTagView.swift */; };
+		049833BD237A3C5900248FC7 /* FilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049833B5237A3C5900248FC7 /* FilterTagView.swift */; };
+		049833BE237A3C5900248FC7 /* FilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049833B5237A3C5900248FC7 /* FilterTagView.swift */; };
+		049833BF237A3C5900248FC7 /* FilterTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049833B5237A3C5900248FC7 /* FilterTagView.swift */; };
 		04EC9FB91FC373BD00F3C42A /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB31FC371F000F3C42A /* Message+CoreDataClass.swift */; };
 		04EC9FBA1FC373C500F3C42A /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB41FC371F000F3C42A /* Message+CoreDataProperties.swift */; };
 		04EC9FBB1FC373C500F3C42A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */; };
@@ -827,6 +837,8 @@
 		046560BB1FC4B1D80010B037 /* ConversationDetailViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailViewControllerProtocol.swift; sourceTree = "<group>"; };
 		046560BE1FC4B3EB0010B037 /* ConversationListingViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListingViewControllerProtocol.swift; sourceTree = "<group>"; };
 		048FF920236B59E70076B18E /* ContactTagParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTagParser.swift; sourceTree = "<group>"; };
+		049833B4237A3C5800248FC7 /* FilterTagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterTagView.xib; sourceTree = "<group>"; };
+		049833B5237A3C5900248FC7 /* FilterTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTagView.swift; sourceTree = "<group>"; };
 		04EC9FAF1FC371C000F3C42A /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04EC9FB01FC371C000F3C42A /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04EC9FB11FC371D300F3C42A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -1076,6 +1088,15 @@
 			name = Protocol;
 			sourceTree = "<group>";
 		};
+		049833B3237A3C2D00248FC7 /* Filter Tag Popup */ = {
+			isa = PBXGroup;
+			children = (
+				049833B5237A3C5900248FC7 /* FilterTagView.swift */,
+				049833B4237A3C5800248FC7 /* FilterTagView.xib */,
+			);
+			name = "Filter Tag Popup";
+			sourceTree = "<group>";
+		};
 		04B3BD6523648527005ABDA4 /* Contacts Listing View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1085,6 +1106,7 @@
 				04B3BD9A236486A0005ABDA4 /* Contat Detail View */,
 				04B3BD932364866D005ABDA4 /* Upload Contacts View */,
 				04B3BD7323648602005ABDA4 /* Tag Creation Popup */,
+				049833B3237A3C2D00248FC7 /* Filter Tag Popup */,
 			);
 			name = "Contacts Listing View";
 			sourceTree = "<group>";
@@ -1875,6 +1897,7 @@
 				04EC9FBF1FC373CA00F3C42A /* Default-568h@2x.png in Resources */,
 				1ADE9FA01EF98F9E006C2CAC /* Login.storyboard in Resources */,
 				294432DA2295E09700370FF3 /* SF-Pro-Display-Light.otf in Resources */,
+				049833B6237A3C5900248FC7 /* FilterTagView.xib in Resources */,
 				29FD0F1E2114BADF00062362 /* GenericImages.xcassets in Resources */,
 				294432FD2295E09700370FF3 /* SF-Pro-Display-Heavy.otf in Resources */,
 				294433072295E09700370FF3 /* SF-Pro-Display-BoldItalic.otf in Resources */,
@@ -1926,6 +1949,7 @@
 				290BEDE920E697EC00F30BAA /* IQButtonBarArrowDown@2x.png in Resources */,
 				290BEDEA20E697EC00F30BAA /* Splash.storyboard in Resources */,
 				294432DB2295E09700370FF3 /* SF-Pro-Display-Light.otf in Resources */,
+				049833B7237A3C5900248FC7 /* FilterTagView.xib in Resources */,
 				290BEDEB20E697EC00F30BAA /* Default-568h@2x.png in Resources */,
 				294432FE2295E09700370FF3 /* SF-Pro-Display-Heavy.otf in Resources */,
 				294433082295E09700370FF3 /* SF-Pro-Display-BoldItalic.otf in Resources */,
@@ -1960,6 +1984,7 @@
 				299DC99421FB9906001F2861 /* InboxTableViewCell.xib in Resources */,
 				2944331F2295E09700370FF3 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				299DC99521FB9906001F2861 /* ConversationDetail.storyboard in Resources */,
+				049833BA237A3C5900248FC7 /* FilterTagView.xib in Resources */,
 				299DC99621FB9906001F2861 /* TextingLine.xcassets in Resources */,
 				294432D92295E09700370FF3 /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				299DC99721FB9906001F2861 /* SmsFactory.xcassets in Resources */,
@@ -2019,6 +2044,7 @@
 				29FD0F7F21160D0500062362 /* TextingLine.xcassets in Resources */,
 				29FD0F8021160D0500062362 /* SmsFactory.xcassets in Resources */,
 				0440EB842366163900B8D738 /* Contacts.storyboard in Resources */,
+				049833B8237A3C5900248FC7 /* FilterTagView.xib in Resources */,
 				29FD0F8121160D0500062362 /* IQButtonBarArrowUp@3x.png in Resources */,
 				29FD0F8221160D0500062362 /* Home.storyboard in Resources */,
 				29DA419222E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
@@ -2099,6 +2125,7 @@
 				2944330F2295E09700370FF3 /* SF-Pro-Display-MediumItalic.otf in Resources */,
 				294433052295E09700370FF3 /* SF-Pro-Display-LightItalic.otf in Resources */,
 				29FD100321160D1000062362 /* SearchView.xib in Resources */,
+				049833B9237A3C5900248FC7 /* FilterTagView.xib in Resources */,
 				2944334B2295E09700370FF3 /* SF-Pro-Display-Medium.otf in Resources */,
 				2944330A2295E09700370FF3 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				29FD100521160D1000062362 /* IQButtonBarArrowDown@3x.png in Resources */,
@@ -2446,6 +2473,7 @@
 				0440EBAC2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				752CE4511F27E24900FCC976 /* IQUIWindow+Hierarchy.swift in Sources */,
 				1AF3E5BB2018D7BA00A5A35F /* UnderlinedTextField.swift in Sources */,
+				049833BB237A3C5900248FC7 /* FilterTagView.swift in Sources */,
 				0440EB8E2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820442141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506222947DEA001414EC /* GradientButton.swift in Sources */,
@@ -2550,6 +2578,7 @@
 				0440EBAD2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				290BEDA620E697EC00F30BAA /* IQUIWindow+Hierarchy.swift in Sources */,
 				290BEDA720E697EC00F30BAA /* UnderlinedTextField.swift in Sources */,
+				049833BC237A3C5900248FC7 /* FilterTagView.swift in Sources */,
 				0440EB8F2366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820452141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506322947DEA001414EC /* GradientButton.swift in Sources */,
@@ -2654,6 +2683,7 @@
 				0440EBB02366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				299DC95421FB9906001F2861 /* IQUIWindow+Hierarchy.swift in Sources */,
 				299DC95521FB9906001F2861 /* UnderlinedTextField.swift in Sources */,
+				049833BF237A3C5900248FC7 /* FilterTagView.swift in Sources */,
 				0440EB922366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				299DC95621FB9906001F2861 /* CopyableLabel.swift in Sources */,
 				298F506622947DEA001414EC /* GradientButton.swift in Sources */,
@@ -2758,6 +2788,7 @@
 				0440EBAE2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				29FD0F4021160D0500062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0F4121160D0500062362 /* UnderlinedTextField.swift in Sources */,
+				049833BD237A3C5900248FC7 /* FilterTagView.swift in Sources */,
 				0440EB902366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820462141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506422947DEA001414EC /* GradientButton.swift in Sources */,
@@ -2862,6 +2893,7 @@
 				0440EBAF2366168400B8D738 /* ContactDetailViewController.swift in Sources */,
 				29FD0FB521160D1000062362 /* IQUIWindow+Hierarchy.swift in Sources */,
 				29FD0FB621160D1000062362 /* UnderlinedTextField.swift in Sources */,
+				049833BE237A3C5900248FC7 /* FilterTagView.swift in Sources */,
 				0440EB912366164A00B8D738 /* ContactsListTableViewCell.swift in Sources */,
 				29C820472141CC3C00A47752 /* CopyableLabel.swift in Sources */,
 				298F506522947DEA001414EC /* GradientButton.swift in Sources */,
