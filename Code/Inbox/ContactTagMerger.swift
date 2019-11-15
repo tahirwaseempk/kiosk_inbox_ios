@@ -11,13 +11,15 @@ class ContactTagMerger: NSObject
         
         for contact in contacts
         {
-            for contactTag in contactTags
+            for contactTagMango in contactTags
             {
-                if contactTag.contactId == contact.contactId
+                if contactTagMango.contactId == contact.contactId
                 {
                     for tag in tags
                     {
-                        if tag.tagId == contactTag.tagId
+                        print(tag.tagId)
+
+                        if tag.tagId == contactTagMango.tagId
                         {
                             contact.addToTags(tag)
                             
@@ -26,8 +28,6 @@ class ContactTagMerger: NSObject
                             break
                         }
                     }
-                    
-                    break;
                 }
             }
         }

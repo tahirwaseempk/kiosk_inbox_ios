@@ -24,13 +24,13 @@ class ContactTagParser: NSObject
             
             for dic in tagsArray
             {
-                if let tagId = dic["contactId"] as? Int64
+                if let tagId_ = dic["tagId"] as? Int64
                 {
-                    if let contactId = dic["contactId"] as? Int64
+                    if let contactId_ = dic["contactId"] as? Int64
                     {
-                        let contactTag = ContactTag.init(contactId_:contactId, tagId_:tagId)
+                        let contact_Tag = ContactTag.init(contactId_:contactId_, tagId_:tagId_)
 
-                        contactTagsArr.append(contactTag)
+                        contactTagsArr.append(contact_Tag)
                     }
                 }
             }
