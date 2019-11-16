@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyPickerPopover
 
 protocol FilterTagViewDelegate
 {
@@ -9,13 +10,26 @@ class FilterTagView: UIView
 {
     @IBOutlet weak var createTagAlertView: UIView!
     @IBOutlet weak var applyButton: UIButton!
-    @IBOutlet weak var tagListView: TagListView!
+    @IBOutlet weak var tagTextView: UITextView!
 
     var selectedTags = Set<String>()
 
     var delegate:FilterTagViewDelegate?
     
-    let tags = Tag.getAllTags()
+    var tagsList = Array<Tag>()
+
+    lazy var tagNames:Array<String> =
+    {
+        self.tagsList = Tag.getAllTags()
+        
+        let tagNamesList = self.tagsList.map({ (tag) -> String in
+            
+            return tag.tagName ?? ""
+        })
+                
+        return tagNamesList
+    }()
+    
     
     override func awakeFromNib()
     {
@@ -26,36 +40,31 @@ class FilterTagView: UIView
             overrideUserInterfaceStyle = .light
         }
         
-        self.loadAllTags()
+        self.loadSelectedTags()
     }
     
-    func loadAllTags()
+    func loadSelectedTags()
     {
-        tagListView.removeAllTags()
+        var text = ""
         
-        tagListView.addTag(ADD_TAG_TITLE)
-        
-        for tag in self.tags
+        for tagName in selectedTags
         {
-            if let tagName = tag.tagName
+            if text == ""
             {
-                let tagView = tagListView.addTag(tagName)
-                
-                if self.selectedTags.contains(tagName)
-                {
-                    tagView.isSelected = true
-                }
-                else
-                {
-                    tagView.isSelected = false
-                }
+                text = tagName
+            }
+            else
+            {
+                text = text + "," + tagName
             }
         }
+        
+        self.tagTextView.text = text
     }
     
     class func instanceFromNib(delegate delegate_:FilterTagViewDelegate) -> FilterTagView
     {
-        let filterTagView = UINib(nibName: "FilterTagView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! FilterTagView
+        let filterTagView = UINib(nibName:"FilterTagView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! FilterTagView
         
         filterTagView.delegate = delegate_
                 
@@ -68,8 +77,17 @@ class FilterTagView: UIView
       {
         delegate.tagFiltered(tagsList:self.selectedTags)
       }
-   }
     
+      self.dismissView()
+   }
+
+    @IBAction func clearButton_Tapped(_ sender: Any)
+    {
+        self.selectedTags.removeAll()
+        
+        self.loadSelectedTags()
+    }
+
    @IBAction func dismissTagAlertButton_Tapped(_ sender: Any)
    {
        self.dismissView()
@@ -93,21 +111,46 @@ class FilterTagView: UIView
     }
 }
 
-extension FilterTagView:TagListViewDelegate
+extension FilterTagView:UITextViewDelegate
 {
-    func tagPressed(_ title: String, tagView: TagView, sender: TagListView)
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
-        if self.selectedTags.contains(title)
-        {
-            self.selectedTags.remove(title)
+        self.presentPopoverFromView(textView)
+        
+        return false
+    }
+    
+    func presentPopoverFromView(_ textView: UITextView)
+    {
+        let picker = StringPickerPopover(title:"Select Tag", choices:self.tagNames)
+        
+        _ = picker.setValueChange(action: { _, _, selectedString in
             
-            tagView.isSelected = false
-        }
-        else
-        {
-            self.selectedTags.insert(title)
+        })
+             
+        _ = picker.setDoneButton(action: { popover, selectedRow, selectedString in
+                
+            self.selectedTags.insert(selectedString)
+
+            self.loadSelectedTags()
+
+            return
             
-            tagView.isSelected = true
-        }
+            if self.selectedTags.contains(selectedString)
+            {
+                self.selectedTags.remove(selectedString)
+            }
+            else
+            {
+                self.selectedTags.insert(selectedString)
+            }
+            
+            self.loadSelectedTags()
+        })
+            
+        _ = picker.setCancelButton(action: {_, _, _ in})
+        
+        picker.appear(originView:textView, baseViewController:(self.delegate as! UIViewController))
     }
 }

@@ -7,7 +7,7 @@
 		<key>FanConnectNow.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>23</integer>
+			<integer>22</integer>
 		</dict>
 		<key>Inbox.xcscheme</key>
 		<dict>
@@ -27,7 +27,7 @@
 		<key>SMSFactory.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>22</integer>
+			<integer>23</integer>
 		</dict>
 		<key>Text_Attendant.xcscheme_^#shared#^_</key>
 		<dict>
