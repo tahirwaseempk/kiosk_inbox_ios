@@ -20,7 +20,7 @@ class ContactTagTableViewCell: UITableViewCell, TagListViewDelegate
     {
         super.awakeFromNib()
         
-        tagListView.textFont = UIFont.systemFont(ofSize: 24)
+        tagListView.textFont = UIFont.systemFont(ofSize:18)
         
         tagListView.alignment = .left
         
@@ -41,7 +41,9 @@ class ContactTagTableViewCell: UITableViewCell, TagListViewDelegate
             {
                 if let tagName = (tag as! Tag).tagName
                 {
-                    tagListView.addTag(tagName)
+                    let tag = tagListView.addTag(tagName)
+                    
+                   // tag.enableRemoveButton =  true
                 }
             }
         }

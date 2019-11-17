@@ -526,6 +526,16 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
             //                self.profileHeadingLabel.text = ""
             //            }
             
+            
+            self.loadProfileView()
+            
+            return
+            
+            
+            
+            
+            
+            
             self.profileUsernameLabel.text = (self.selectedConversation.receiver?.phoneNumber)!
             
             self.profileEmailTextField.text = self.selectedConversation.receiver?.email
@@ -1186,5 +1196,27 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
                     }
             }
         }
+    }
+}
+
+extension ConversationDetailViewController:ContactDetailViewControllerDelegate
+{
+    func loadProfileView()
+    {
+        if let contact = self.selectedConversation.receiver
+        {
+            let viewController:ContactDetailViewController = UIStoryboard(name:"Contacts", bundle: nil).instantiateViewController(withIdentifier:"ContactDetailViewController") as! ContactDetailViewController
+
+            viewController.contact = contact
+            
+            viewController.delegate = self
+
+            self.navigationController?.pushViewController(viewController, animated:true)
+        }
+    }
+    
+    func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
+    {
+        
     }
 }

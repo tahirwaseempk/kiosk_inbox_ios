@@ -152,7 +152,7 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func enableBottomView()
     {
-        self.menuAddButton.setTitle("X", for:.normal)
+        self.menuAddButton.isSelected = true
         
         self.bottomViewHeightConstraint.constant = 60
         
@@ -161,7 +161,7 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     func disableBottomView()
     {
-        self.menuAddButton.setTitle("+", for:.normal)
+        self.menuAddButton.isSelected = false
 
         self.bottomViewHeightConstraint.constant = 0
         
