@@ -69,7 +69,12 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
             self.EmailValue = email
         }
 
-        self.DOBValue = self.contact.birthDate
+        if let cDoB = self.contact.birthDate
+        {
+            self.DOBValue = cDoB
+        }
+        
+        //self.DOBValue = self.contact.birthDate
 
         if let gender = self.contact.gender
         {
@@ -245,8 +250,8 @@ extension ContactDetailViewController:ContactTagTableViewCellDelegate
                     self.tableView.reloadData()
                     
                     ProcessingIndicator.hide()
-                       
-                    let alert = UIAlertController(title:"Tag Deleted ",message:"Contact delted successfully",preferredStyle: UIAlertControllerStyle.alert)
+                                           
+                    let alert = UIAlertController(title:"Tag Deleted ",message:"Contact deleted successfully.",preferredStyle: UIAlertControllerStyle.alert)
                        
                     let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
                         self.navigationController?.popViewController(animated:true)
@@ -476,17 +481,15 @@ extension ContactDetailViewController
 
         paramsDic["zipCode"] = self.ZipCodeValue
 
-        if let dob = contact.birthDate
+        if let dob = self.DOBValue
         {
+            /////////////////////////////////////////////////
             let utcFormatter = DateFormatter()
-              
             utcFormatter.dateFormat = UTC_DATE_TIME_APPOINTMENT
-              
             utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
-              
-            let utcTimeZoneStr = utcFormatter.string(from:dob)
-              
-            paramsDic["birthDate"]   = utcTimeZoneStr
+            let utcTimeZoneStr = utcFormatter.string(from: dob)
+            paramsDic["birthDate"] = utcTimeZoneStr
+            /////////////////////////////////////////////////
         }
         else
         {

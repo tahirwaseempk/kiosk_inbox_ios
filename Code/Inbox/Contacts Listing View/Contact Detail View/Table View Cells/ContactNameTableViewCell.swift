@@ -215,22 +215,35 @@ class ContactNameTableViewCell: UITableViewCell, UITextFieldDelegate
     
     func loadDatePickerFromTextField(_ textField:UITextField)
     {
-        let picker = DatePickerPopover(title: "")
-            
-         _ = picker.setDateMode(.date)
+        ///////////////////////////////////////////////////////////////
+        let dateFormatter =  DateFormatter()
+        dateFormatter.dateFormat = DOB_FORMATE
+        let outStr = dateFormatter.string(from:self.DOBValue ?? Date())
+        ///////////////////////////////////////////////////////////////
         
-         _ = picker.setDoneButton(action: { (popOver, selectDate) in
-
+        let picker = DatePickerPopover(title: "")
+        
+        _ = picker.setDateMode(.date)
+        ///////////////////////////////////////////////////////////////
+        if (outStr == "07/10/68000") {
+            _ = picker.setSelectedDate( Date())
+        } else {
+            _ = picker.setSelectedDate(self.DOBValue ?? Date())
+        }
+        ///////////////////////////////////////////////////////////////
+        
+        _ = picker.setDoneButton(action: { (popOver, selectDate) in
+            
             self.DOBValue = selectDate
             
             self.delegate.updatedDOBField(selectDate)
-         })
+        })
         
-         _ = picker.setCancelButton(action: { _, _ in print("cancel")})
+        _ = picker.setCancelButton(action: { _, _ in print("cancel")})
         
-         _ = picker.setSelectedDate(self.DOBValue ?? Date())
-
-         picker.appear(originView:textField, baseViewController:(self.delegate as! UIViewController))
+        //_ = picker.setSelectedDate(self.DOBValue ?? Date())
+        
+        picker.appear(originView:textField, baseViewController:(self.delegate as! UIViewController))
     }
          
      func loadGenderPickerFromTextField(_ textField:UITextField)

@@ -45,8 +45,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         //        switch environment {
         //        case .texting_Line:
         
-        serialTextField.text = "8443712030"
-        udidTextField.text = "lime123"
+//        serialTextField.text = "8443712030"
+//        udidTextField.text = "lime123"
         
         //                    serialTextField.text = "8006999130"
         //                    udidTextField.text = "muffin123"
