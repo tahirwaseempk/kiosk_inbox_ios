@@ -220,7 +220,14 @@ extension Tag
                     
                     let messageStr =  tempDictionary["message"] as! String
                     
-                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageStr]))
+                    if (jsonDict["errorCode"] as! Int == 200) {
+
+                        successBlock(true)
+                    }
+                    else {
+                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:messageStr]))
+                    }
+                    
                 }
                 else
                 {
