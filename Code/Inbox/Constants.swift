@@ -68,7 +68,7 @@ let EMOJI = "true"
 let EMOJI_MESSAGES = "true"
 let INDEX_FROM_MESSAGES = "Old"
 
-let CONTACTSWITHCHAT = "true"
+let CONTACTSWITHCHAT = "false"
 
 var IS_LISTING_SERVICE_CALLED = false
 
