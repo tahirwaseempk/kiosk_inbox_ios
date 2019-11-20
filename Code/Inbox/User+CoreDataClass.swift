@@ -1087,38 +1087,60 @@ extension User
                                     contact.gender = gender
                                 }
                                 
-                                if let birthDate = paramsDic["birthDate"] as? String
+                                if let birthDateStr = paramsDic["birthDate"] as? String
                                 {
-                                    var birth_Date = Date(timeIntervalSinceReferenceDate:-2209014432000)
                                     
-                                    let dateFormatter = DateFormatter()
-                                            
-                                    dateFormatter.dateFormat = UTC_DATE_TIME_TZ
-                                            
-                                    birth_Date = dateFormatter.date(from: birthDate)!
+                                    var birth_Date = Date(timeIntervalSinceReferenceDate: -2209014432000)
                                     
+                                    if birthDateStr.count > 0 {
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = UTC_DATE_TIME_TZ
+                                        birth_Date = dateFormatter.date(from: birthDateStr)!
+                                    }
                                     contact.birthDate = birth_Date
+                                    
+                                    
+                                    //                                    let dateFormatter = DateFormatter()
+                                    //                                    dateFormatter.dateFormat = UTC_DATE_TIME_TZ
+                                    //
+                                    //                                    if birthDate == "" {
+                                    //                                        var birth_Date = Date(timeIntervalSinceReferenceDate:-2209014432000)
+                                    //                                        birth_Date = dateFormatter.date(from: birthDate)!
+                                    //                                        contact.birthDate = birth_Date
+                                    //                                    } else {
+                                    //                                        let dateFormatter = DateFormatter()
+                                    //                                        dateFormatter.dateFormat = UTC_DATE_TIME_TZ
+                                    //                                        birth_Date = dateFormatter.date(from: birthDate)!
+                                    //                                        contact.birthDate = birth_Date
+                                    //
+                                    //                                    }
+                                    //
+                                    //                                    var birth_Date = Date(timeIntervalSinceReferenceDate:-2209014432000)
+                                    //                                    let dateFormatter = DateFormatter()
+                                    //                                    dateFormatter.dateFormat = UTC_DATE_TIME_TZ
+                                    //                                    birth_Date = dateFormatter.date(from: birthDate)!
+                                    //                                    contact.birthDate = birth_Date
                                 }
-                                                                            
-                                if let address = paramsDic["address"] as? String
-                                {
-                                    contact.address = address
+                                    
+                                    if let address = paramsDic["address"] as? String
+                                    {
+                                        contact.address = address
+                                    }
+                                    
+                                    if let state = paramsDic["state"] as? String
+                                    {
+                                        contact.state = state
+                                    }
+                                    
+                                    if let zipCode = paramsDic["zipCode"] as? String
+                                    {
+                                        contact.zipCode = zipCode
+                                    }
+                                    
+                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                    
+                                    successBlock(true)
                                 }
-                            
-                                if let state = paramsDic["state"] as? String
-                                {
-                                    contact.state = state
-                                }
-                            
-                                if let zipCode = paramsDic["zipCode"] as? String
-                                {
-                                    contact.zipCode = zipCode
-                                }
-
-                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                
-                                successBlock(true)
-                        }
                         }
                     }
                     else if jsonDict["errorCode"] as! Int == 400

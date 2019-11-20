@@ -17,7 +17,7 @@ class ContactTagMerger: NSObject
                 {
                     for tag in tags
                     {
-                        print(tag.tagId)
+                       // print(tag.tagId)
 
                         if tag.tagId == contactTagMango.tagId
                         {

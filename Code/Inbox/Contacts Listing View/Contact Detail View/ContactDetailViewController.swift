@@ -483,13 +483,16 @@ extension ContactDetailViewController
 
         if let dob = self.DOBValue
         {
-            /////////////////////////////////////////////////
             let utcFormatter = DateFormatter()
             utcFormatter.dateFormat = UTC_DATE_TIME_APPOINTMENT
             utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
             let utcTimeZoneStr = utcFormatter.string(from: dob)
-            paramsDic["birthDate"] = utcTimeZoneStr
-            /////////////////////////////////////////////////
+           
+            if  utcTimeZoneStr == "68000-07-10T08:00:00Z"{
+                paramsDic["birthDate"] = ""
+            } else {
+                paramsDic["birthDate"] = utcTimeZoneStr
+            }
         }
         else
         {

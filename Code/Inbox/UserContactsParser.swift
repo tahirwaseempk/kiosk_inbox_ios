@@ -60,7 +60,7 @@ class UserContactsParser: NSObject
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = UTC_DATE_TIME_TZ
                             birth_Date = dateFormatter.date(from: dateStr)!
-                            print(birth_Date)
+                            //print(birth_Date)
                         }
                     } else {
 //                       birth_Date = nil
