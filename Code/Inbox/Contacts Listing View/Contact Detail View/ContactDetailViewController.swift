@@ -545,3 +545,15 @@ extension ContactDetailViewController
         })
       }
 }
+
+extension ContactDetailViewController
+{
+    @IBAction func startConversationButton_Tapped(_ sender: Any)
+    {
+        let alert = UIAlertController(title: "Alert", message:"Message Work is in progress", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}

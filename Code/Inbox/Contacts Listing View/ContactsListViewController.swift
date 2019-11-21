@@ -635,16 +635,13 @@ extension ContactsListViewController:FilterTagViewDelegate
     {
         self.resignAllControls()
 
-        if self.filterTagView == nil
-        {
-            self.filterTagView = FilterTagView.instanceFromNib(delegate:self)
-        }
-        
+        self.filterTagView = FilterTagView.instanceFromNib(delegate:self, selectedTags:self.selectedTags)
+
         self.filterTagView!.frame = self.view.bounds
-        
-        self.filterTagView!.selectedTags = self.selectedTags
-        
+
         self.view.addSubview(self.filterTagView!)
+        
+        self.filterTagView!.loadSelectedTags()
     }
     
     func tagFiltered(tagsList: Set<String>)
