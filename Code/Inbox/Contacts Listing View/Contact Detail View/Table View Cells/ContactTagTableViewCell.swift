@@ -1,6 +1,6 @@
 import UIKit
 
-let ADD_TAG_TITLE = "Add"
+let ADD_TAG_TITLE = "Add Tag"
 
 protocol ContactTagTableViewCellDelegate
 {
@@ -33,7 +33,9 @@ class ContactTagTableViewCell: UITableViewCell, TagListViewDelegate
 
         tagListView.removeAllTags()
         
-        tagListView.addTag(ADD_TAG_TITLE)
+        let addtag = tagListView.addTag(ADD_TAG_TITLE)
+        addtag.selectedBackgroundColor = UIColor.blue
+        addtag.isSelected = true
 
         if let tags = fromContact.tags
         {
@@ -41,7 +43,7 @@ class ContactTagTableViewCell: UITableViewCell, TagListViewDelegate
             {
                 if let tagName = (tag as! Tag).tagName
                 {
-                    let tag = tagListView.addTag(tagName)
+                    let _ = tagListView.addTag(tagName)
                     
                    // tag.enableRemoveButton =  true
                 }

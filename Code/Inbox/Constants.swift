@@ -28,8 +28,6 @@ let sendMessageMaxLength = 250
 let PHONENUMBER_MAX_LENGTH = 15
 let CODE_MAX_LENGTH = 6
 
-let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?><' \""
-let ACCEPTABLE_DIGITS = "0123456789"
 
 enum environmentType {
     case texting_Line,
@@ -40,6 +38,16 @@ enum environmentType {
 }
 
 let environment:environmentType = .texting_Line
+
+let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-[]{};:,./?><' \""
+let ACCEPTABLE_DIGITS = "0123456789"
+
+let States = ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"]
+
+
+let Countries = ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"]
+
+
 
 var AppBlueColor       = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor        = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
