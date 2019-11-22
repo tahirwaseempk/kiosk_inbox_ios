@@ -1,6 +1,8 @@
 import UIKit
 import SwiftyPickerPopover
 
+let textViewPlaceholder = "Tap to select"
+
 protocol FilterTagViewDelegate
 {
     func tagFiltered(tagsList:Set<String>)
@@ -22,11 +24,13 @@ class FilterTagView: UIView
     {
         self.tagsList = Tag.getAllTags()
         
-        let tagNamesList = self.tagsList.map({ (tag) -> String in
+        var tagNamesList = self.tagsList.map({ (tag) -> String in
             
-            return tag.tagName ?? ""
+            return (tag.tagName ?? "").capitalized
         })
-                
+        
+        tagNamesList = tagNamesList.sorted(by: { $0 < $1 })
+        
         return tagNamesList
     }()
     
@@ -40,7 +44,7 @@ class FilterTagView: UIView
             overrideUserInterfaceStyle = .light
         }
         
-        self.loadSelectedTags()
+        //self.loadSelectedTags()
     }
     
     func loadSelectedTags()
@@ -59,15 +63,22 @@ class FilterTagView: UIView
             }
         }
         
+        if text == "" || text.count < 1
+        {
+            text = textViewPlaceholder
+        }
+        
         self.tagTextView.text = text
     }
     
-    class func instanceFromNib(delegate delegate_:FilterTagViewDelegate) -> FilterTagView
+    class func instanceFromNib(delegate delegate_:FilterTagViewDelegate, selectedTags:Set<String>) -> FilterTagView
     {
         let filterTagView = UINib(nibName:"FilterTagView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! FilterTagView
         
         filterTagView.delegate = delegate_
-                
+        
+        filterTagView.selectedTags = selectedTags
+        
         return filterTagView
     }
     
@@ -113,7 +124,6 @@ class FilterTagView: UIView
 
 extension FilterTagView:UITextViewDelegate
 {
-    
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
         self.presentPopoverFromView(textView)
