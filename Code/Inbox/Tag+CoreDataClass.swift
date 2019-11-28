@@ -78,28 +78,57 @@ extension Tag
             
             Tag.getContactsTags(completionBlockSuccess: { (contactTags:Array<ContactTag>) -> (Void) in
                 
-                UserContact.getAllContacts(completionBlockSuccess: { (contacts:Array<UserContact>) -> (Void) in
-                      
-                    let doesContactsMerged = ContactTagMerger.merge(contacts:contacts, tags:tags, contactTags:contactTags)
-                    
-                    if doesContactsMerged == true
+                var doesContactsMerged = false
+                
+                if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
+                {
+                    doesContactsMerged = ContactTagMerger.merge(contacts:contactsList, tags:tags, contactTags:contactTags)
+                }
+                                    
+                if doesContactsMerged == true
+                {
+                    DispatchQueue.global(qos: .background).async
                     {
-                        DispatchQueue.global(qos: .background).async
+                        DispatchQueue.main.async
                         {
-                            DispatchQueue.main.async
-                            {
-                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                
-                                successBlock()
-                            }
+                            CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                            
+                            successBlock()
                         }
                     }
-                    else
-                    {
-                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Contacts_Syncing_Error]))
-                    }
-                                        
-                }, andFailureBlock:failureBlock)
+                }
+                else
+                {
+                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Contacts_Syncing_Error]))
+                }
+                
+//                UserContact.getAllContacts(completionBlockSuccess: { (contacts:Array<UserContact>) -> (Void) in
+//
+//                    var doesContactsMerged = false
+//
+//                    if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
+//                    {
+//                        doesContactsMerged = ContactTagMerger.merge(contacts:contactsList, tags:tags, contactTags:contactTags)
+//                    }
+//
+//                    if doesContactsMerged == true
+//                    {
+//                        DispatchQueue.global(qos: .background).async
+//                        {
+//                            DispatchQueue.main.async
+//                            {
+//                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+//
+//                                successBlock()
+//                            }
+//                        }
+//                    }
+//                    else
+//                    {
+//                        failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Contacts_Syncing_Error]))
+//                    }
+//
+//                }, andFailureBlock:failureBlock)
                 
             }, andFailureBlock:failureBlock)
             

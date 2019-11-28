@@ -174,6 +174,20 @@ class ProfileViewController: UIViewController {
 //        }
         
     }
+    
+    override func viewDidLayoutSubviews()
+     {
+         super.viewDidLayoutSubviews()
+         
+         cornerRadius()
+     }
+     
+     func cornerRadius()
+     {
+         self.profileDoneButton.layer.cornerRadius = self.profileDoneButton.bounds.size.height / 2.0
+         
+         //self.createTagAlertView.layer.cornerRadius = 5.0
+     }
 
     // MARK: Actions
     @IBAction func doneButton_Tapped(_ sender: Any) {

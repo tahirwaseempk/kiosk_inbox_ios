@@ -825,12 +825,12 @@ extension User
             var paramsDic = Dictionary<String, Any>()
             paramsDic["token"] = user.token
             
-            //            WebManager.getAllContacs(params: paramsDic, contactParser: UserContactsParser(), completionBlockSuccess:{(response:Array<UserContact>?) -> (Void) in
+                        WebManager.getAllContacs(params: paramsDic, contactParser: UserContactsParser(), completionBlockSuccess:{(response:Array<UserContact>?) -> (Void) in
             
-            //                DispatchQueue.global(qos: .background).async
-            //                    {
-            //                        DispatchQueue.main.async
-            //                            {
+                            DispatchQueue.global(qos: .background).async
+                                {
+                                    DispatchQueue.main.async
+                                        {
             self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
@@ -850,12 +850,12 @@ extension User
                 failureBlock(error)
             })
             
-            //                        }
-            //                    }
-            //            }) { (error: Error?) -> (Void) in
-            //
-            //                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
-            //            }
+                                    }
+                                }
+                        }) { (error: Error?) -> (Void) in
+            
+                            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+                        }
         }
         else
         {

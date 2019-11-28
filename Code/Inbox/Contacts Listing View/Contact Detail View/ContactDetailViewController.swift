@@ -293,7 +293,7 @@ extension ContactDetailViewController
         {
             let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete these contact ", preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
                 
                 self.deleteContacts()
             }))
@@ -310,6 +310,7 @@ extension ContactDetailViewController
 
             self.present(alert, animated: true)
         }
+        
     }
     
     func deleteContacts()
@@ -325,7 +326,7 @@ extension ContactDetailViewController
 
                     ProcessingIndicator.hide()
                        
-                    let alert = UIAlertController(title:"Contact Deleted ",message:"Contact delted successfully",preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title:"Contact Deleted ",message:"Contact deleted successfully",preferredStyle: UIAlertControllerStyle.alert)
                        
                     let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
                         self.navigationController?.popViewController(animated:true)

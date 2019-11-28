@@ -499,7 +499,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0yb-3A-zzP" secondAttribute="height" multiplier="1:1" id="lux-fs-LfT"/>
                                         </constraints>
-                                        <state key="normal" image="compose_blue"/>
+                                        <state key="normal" image="profile_compose"/>
                                         <connections>
                                             <action selector="startConversationButton_Tapped:" destination="N5x-Tl-azL" eventType="touchUpInside" id="JzN-1U-UYc"/>
                                         </connections>
@@ -524,10 +524,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjD-aQ-MbP" userLabel="Body View">
-                                <rect key="frame" x="0.0" y="172" width="414" height="607"/>
+                                <rect key="frame" x="0.0" y="172" width="414" height="614"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Abv-5R-dHL">
-                                        <rect key="frame" x="0.0" y="10" width="414" height="597"/>
+                                        <rect key="frame" x="0.0" y="10" width="414" height="604"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactsListTableViewCell" rowHeight="85" id="fsj-Rv-n94" customClass="ContactNameTableViewCell" customModule="FanConnectNow" customModuleProvider="target">
@@ -692,14 +692,15 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgW-AE-YiI" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                                <rect key="frame" x="0.0" y="786" width="414" height="76"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cko-bO-3ba">
-                                        <rect key="frame" x="20" y="15" width="374" height="58"/>
+                                        <rect key="frame" x="20" y="15" width="374" height="51"/>
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Cko-bO-3ba" secondAttribute="height" multiplier="110:17" id="0EE-G7-aMT"/>
+                                            <constraint firstAttribute="width" secondItem="Cko-bO-3ba" secondAttribute="height" multiplier="110:15" id="0EE-G7-aMT"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
                                         <state key="normal" title="Save Details"/>
                                         <connections>
                                             <action selector="saveContactDetailButton_Tapped:" destination="N5x-Tl-azL" eventType="touchUpInside" id="0VQ-QP-1uj"/>
@@ -745,13 +746,13 @@
     </scenes>
     <resources>
         <image name="backIcon" width="48" height="48"/>
-        <image name="compose_blue" width="68" height="68"/>
         <image name="contact_selected" width="48" height="48"/>
         <image name="contact_unselected" width="48" height="48"/>
-        <image name="crossIcon" width="20" height="20"/>
-        <image name="deleteIcon" width="48" height="48"/>
+        <image name="crossIcon" width="30" height="30"/>
+        <image name="deleteIcon" width="30" height="30"/>
         <image name="person.crop.circle.badge.plus" catalog="system" width="64" height="50"/>
         <image name="personIcon" width="214" height="240"/>
+        <image name="profile_compose" width="30" height="30"/>
         <image name="tagIcon" width="87" height="54"/>
         <image name="uploadContact" width="48" height="48"/>
         <image name="uploadIcon" width="220" height="246"/>
