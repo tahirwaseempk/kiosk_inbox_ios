@@ -34,7 +34,7 @@ class ContactTagTableViewCell: UITableViewCell, TagListViewDelegate
         tagListView.removeAllTags()
         
         let addtag = tagListView.addTag(ADD_TAG_TITLE)
-        addtag.selectedBackgroundColor = UIColor.blue
+        addtag.selectedBackgroundColor = AppThemeColor
         addtag.isSelected = true
 
         if let tags = fromContact.tags

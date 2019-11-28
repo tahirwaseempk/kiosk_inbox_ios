@@ -475,7 +475,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Contact Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMZ-zL-8iK">
-                                    <rect key="frame" x="51.000000000000014" y="18.333333333333336" width="182.33333333333337" height="31.333333333333336"/>
+                                    <rect key="frame" x="50.999999999999986" y="19" width="178.66666666666663" height="30.333333333333329"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="26"/>
                                     <nil key="textColor"/>
