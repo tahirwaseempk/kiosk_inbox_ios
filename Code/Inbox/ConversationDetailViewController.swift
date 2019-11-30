@@ -3,7 +3,7 @@ import SwiftyPickerPopover
 
 class ConversationDetailViewController: UIViewController, ConversationListingTableCellProtocol
 {
-    @IBOutlet weak var sendTextField: UITextField!
+    @IBOutlet weak var sendTextField: UITextView!
     @IBOutlet weak var messageFromLabel: UILabel!
     @IBOutlet weak var messageNumberLabel: UILabel!
     @IBOutlet weak var shortCodeLabel: UILabel!
@@ -42,7 +42,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @IBOutlet weak var profileAddressTextField: FloatLabelTextField!
     @IBOutlet weak var profileStateTextField: FloatLabelTextField!
     @IBOutlet weak var profileZipCodeTextField: FloatLabelTextField!
-    // for keeping selectedRow
+    
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+
     private var selectedRow: Int = 0
     var profileDateOfBirth = Date()
     
@@ -380,7 +382,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.sendTextField.delegate = self
         self.chawalView.layer.cornerRadius =  self.chawalView.bounds.height/2
         
-        
+        self.sendTextField.text = "Please enter message here"
+        self.sendTextField.textColor = UIColor.lightGray
         ////////////////////////////////////////////////////////////////////////////////////////
         //refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
         //tableView.refreshControl = refreshControl
@@ -426,6 +429,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         self.profileStateTextField.isEnabled     = false
         self.profileZipCodeTextField.isEnabled   = true
         //////////////////////////////////////////////////////////////////////
+        
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -737,18 +742,22 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
         else
         {
-            if (self.sendTextField.text?.isEmpty == false)
-            {
-                ProcessingIndicator.show()
-                
-                _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: self.sendTextField.text!, imageType: "", imageString: "")
-            } else
+            if (self.sendTextField.text?.isEmpty == true ||
+                self.sendTextField.text == "Please enter message here" ||
+                self.sendTextField.text.count == 0 ||
+                self.sendTextField.textColor == UIColor.lightGray)
             {
                 let alert = UIAlertController(title: "Send Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 
                 self.present(alert, animated: true, completion: nil)
+               
+            } else
+            {
+                ProcessingIndicator.show()
+                               
+                _ = self.sendMessageToConversation(conversation: self.selectedConversation, message: self.sendTextField.text!, imageType: "", imageString: "")
             }
         }
     }
@@ -990,8 +999,7 @@ extension ConversationDetailViewController {
                         {
                             ProcessingIndicator.hide()
                             
-                            self.sendTextField.text = ""
-                            self.inputCharacterCountLabel.text = "Character Count 0/250"
+                            self.clearTextField()
                             
                             _ = self.tableViewDataSource?.reloadControls()
                     }
@@ -1005,7 +1013,7 @@ extension ConversationDetailViewController {
                         {
                             ProcessingIndicator.hide()
                             
-                            self.sendTextField.text = ""
+                            self.clearTextField()
                             
                             let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -1018,49 +1026,90 @@ extension ConversationDetailViewController {
     }
 }
 
+
 // MARK: - UITextFieldDelegate Methods
-extension ConversationDetailViewController:UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        sendTextField.resignFirstResponder()
-        
-        return true;
+extension ConversationDetailViewController:UITextViewDelegate
+{
+    func clearTextField()
+    {
+        self.sendTextField.text = "Please enter message here"
+
+        self.inputCharacterCountLabel.text = "Character Count 0/250"
+
+        self.sendTextField.textColor = UIColor.lightGray
     }
+        func textViewDidChange(_ textView: UITextView)
+        {
+            self.textViewHeightConstraint.constant = textView.sizeThatFits(CGSize(width:textView.frame.size.width, height:CGFloat.greatestFiniteMagnitude)).height
+            
+            textView.layoutIfNeeded()
+            
+            textView.setNeedsDisplay()
+        }
+        
+        
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            
+            if textView.textColor == UIColor.lightGray {
+                textView.text = nil
+                textView.textColor = UIColor.black
+            }
+        }
+        
+        func textViewDidEndEditing(_ textView: UITextView) {
+            
+            if textView.text.isEmpty {
+                textView.text = "Please enter message here"
+                textView.textColor = UIColor.lightGray
+            }
+        }
+        
+        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+        {
+            if (text == "\n") {
+               textView.resignFirstResponder()
+               return false
+                
+            }
+            
+            let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+            
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = text.components(separatedBy: cs).joined(separator: "")
+            let isAllowed = (text == filtered)
+            
+            if isAllowed == false {
+                return false
+            }
+            
+            let reminingCount = sendMessageMaxLength - str.count
+            
+            if reminingCount >= 0 {
+                self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
+            }
+            
+    //        var frame = self.messageTextView.frame
+    //        frame.size.height = self.messageTextView.contentSize.height
+            //       self.textViewHeightConstraint = frame.size.height
+
+    //        if str.count == 25 {
+    //        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height + 35
+    //        }
+    //        self.messageTextView.setNeedsLayout()
+            
+            if str.count > sendMessageMaxLength {
+                return false
+            }
+            
+            return true
+        }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        
-        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
-        let filtered = string.components(separatedBy: cs).joined(separator: "")
-        let isAllowed = (string == filtered)
-        
-        if isAllowed == false {
-            return false
-        }
-        
-        //        if str.count > sendMessageMaxLength {
-        //            return false
-        //        }
-        
-        let reminingCount = sendMessageMaxLength - str.count
-        
-        if reminingCount >= 0 {
-            self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
-        }
-        
-        if str.count > sendMessageMaxLength {
-            return false
-        }
-//        if (str == "\""){
-//            
-//            textField.text = str.replaceDotsWithAllowableString()
-//        }
-        
-        return true
-    }
-    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//
+//        sendTextField.resignFirstResponder()
+//
+//        return true;
+//    }
 }
 
 extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
@@ -1211,6 +1260,8 @@ extension ConversationDetailViewController:ContactDetailViewControllerDelegate
             
             viewController.delegate = self
 
+            viewController.shouldShowComposeButton = false
+            
             self.navigationController?.pushViewController(viewController, animated:true)
         }
     }

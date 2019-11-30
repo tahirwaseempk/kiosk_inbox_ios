@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyPickerPopover
 
 protocol CreateTagViewDelegate
 {
@@ -10,10 +11,26 @@ class CreateTagView: UIView, UITextFieldDelegate
     @IBOutlet weak var createTagAlertView: UIView!
     @IBOutlet weak var tagNameTextField: UITextField!
     @IBOutlet weak var applyButton: UIButton!
+    @IBOutlet weak var dropDownButton: UIButton!
     
     var contacts = Array<UserContact>()
 
     var delegate:CreateTagViewDelegate?
+    
+    lazy var tagNames:Array<String> =
+    {
+        let tagsList = Tag.getAllTags()
+        
+        var tagNamesList = tagsList.map({ (tag) -> String in
+            
+            return (tag.tagName ?? "").capitalized
+        })
+        
+        tagNamesList = tagNamesList.sorted(by: { $0 < $1 })
+        
+        return tagNamesList
+    }()
+
     
     override func awakeFromNib()
     {
@@ -26,6 +43,26 @@ class CreateTagView: UIView, UITextFieldDelegate
         }
         
         tagNameTextField.text = ""
+    }
+    
+    @IBAction func dropDownButton_Tapped(_ sender: UIButton)
+    {
+        
+        let picker = StringPickerPopover(title:"Select Tag", choices:self.tagNames)
+           
+           _ = picker.setValueChange(action: { _, _, selectedString in
+               
+           })
+                
+           _ = picker.setDoneButton(action: { popover, selectedRow, selectedString in
+                
+            self.tagNameTextField.text = selectedString
+
+           })
+               
+           _ = picker.setCancelButton(action: {_, _, _ in})
+           
+           picker.appear(originView:sender, baseViewController:(self.delegate as! UIViewController))
     }
     
     class func instanceFromNib(delegate delegate_:CreateTagViewDelegate) -> CreateTagView
@@ -47,7 +84,7 @@ class CreateTagView: UIView, UITextFieldDelegate
       {
           let alert = UIAlertController(title:"Tage Name Missing",message:"Please enter valid tag name",preferredStyle: UIAlertControllerStyle.alert)
           
-          let okAction = UIAlertAction(title:"Ok", style:.default) { (action:UIAlertAction) in
+          let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
               
           }
           
@@ -76,7 +113,7 @@ class CreateTagView: UIView, UITextFieldDelegate
 
                         ProcessingIndicator.hide()
                         
-                        let alert = UIAlertController(title:"Success",message:"Tag Created & Assigned To Selected Contacts",preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title:"Success",message:"Tag assigned successfully",preferredStyle: UIAlertControllerStyle.alert)
                         
                         let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
                             

@@ -17,6 +17,7 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var saveDetailButton: UIButton!
     
+    @IBOutlet weak var composeMessageButton: UIButton!
     var FirstNameValue = ""
     
     var LastNameValue = ""
@@ -33,6 +34,10 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     var ZipCodeValue = ""
     
+    var shouldShowComposeButton = true
+    
+    var composeMessageViewController:ComposeMessageViewController!
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -45,6 +50,11 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
         if #available(iOS 13.0, *)
         {
             overrideUserInterfaceStyle = .light
+        }
+        
+        if shouldShowComposeButton == false
+        {
+            self.composeMessageButton.isHidden = true
         }
         
         self.createTageView = CreateTagView.instanceFromNib(delegate:self)
@@ -551,10 +561,25 @@ extension ContactDetailViewController
 {
     @IBAction func startConversationButton_Tapped(_ sender: Any)
     {
-        let alert = UIAlertController(title: "Alert", message:"Message Work is in progress", preferredStyle: UIAlertControllerStyle.alert)
+        let storyboard = UIStoryboard.init(name: "ComposeMessage", bundle: nil)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.composeMessageViewController = (storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController)
         
-        self.present(alert, animated: true, completion: nil)
+        self.composeMessageViewController.delegate  = self
+        
+        self.view.addSubview(self.composeMessageViewController.view)
+    }
+    
+    
+}
+
+extension ContactDetailViewController: ComposeMessageProtocol
+{
+    func newMessageAdded()
+    {
+        if let delegate = self.delegate
+        {
+            delegate.newMessageAdded()
+        }
     }
 }

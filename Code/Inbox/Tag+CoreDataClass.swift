@@ -30,6 +30,33 @@ public class Tag: NSManagedObject
         return nil;
     }
     
+    static func getTagFromName(_ tagName: String) -> Tag?
+     {
+         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
+         
+         let predicate = NSPredicate(format: "tagName contains[c] %@",tagName)
+         
+         request.predicate = predicate
+         
+         request.fetchLimit = 1
+         
+         do
+         {
+             let result = try DEFAULT_CONTEXT.fetch(request) as! Array<Tag>
+             
+             if(result.count > 0)
+             {
+                 return result.first
+             }
+         }
+         catch let error as NSError
+         {
+             print("Could not fetch \(error), \(error.userInfo)")
+         }
+         
+         return nil;
+     }
+
     static func getAllTags() -> Array<Tag>
     {
        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
@@ -190,7 +217,18 @@ extension Tag
                 var tempDictionary = Dictionary<String,Any>()
                 let jsonDict: Dictionary<String, Any> = response!
                 
-                if jsonDict["statusCode"] != nil {
+                var isTagAlreadyCreated = false
+                    
+                if let statusCode = jsonDict["statusCode"] as? Int,
+                        statusCode == 400,
+                        let errorCode = jsonDict["errorCode"] as? Int,
+                    errorCode == 2003
+                    {
+                        isTagAlreadyCreated = true
+                    }
+                    
+                    
+                if isTagAlreadyCreated == false && jsonDict["statusCode"] != nil {
                     tempDictionary["name"] = jsonDict["name"] as! String
                     tempDictionary["errorCode"] = jsonDict["errorCode"] as! Int
                     tempDictionary["message"] = jsonDict["message"] as! String
@@ -206,12 +244,21 @@ extension Tag
                     {
                         DispatchQueue.main.async
                         {
-                            let tagId = jsonDict["id"] as! Int64
+                            var tag:Tag!
                             
-                            let tag = Tag.create(context:DEFAULT_CONTEXT, tagName_:tagName, tagId_:tagId)
+                            if isTagAlreadyCreated == true
+                            {
+                                tag = Tag.getTagFromName(tagName)
+                            }
+                            else
+                            {
+                                let tagId = jsonDict["id"] as! Int64
+                                
+                                tag = Tag.create(context:DEFAULT_CONTEXT, tagName_:tagName, tagId_:tagId)
 
-                            CoreDataManager.coreDataManagerSharedInstance.saveContext()
-
+                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                            }
+                            
                             UserContact.assignTagToContacts(tag:tag, contacts:contacts, completionBlockSuccess:successBlock, andFailureBlock:failureBlock)
                         }
                     }

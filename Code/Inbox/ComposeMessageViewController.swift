@@ -126,8 +126,8 @@ class ComposeMessageViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        else if ((messageTextView.text == "Enter your message here") ||
-            (messageTextView.text.count == 0)) {
+        else if ((messageTextView.text == "Please enter message here") ||
+            (messageTextView.text.count == 0) || messageTextView.textColor == UIColor.lightGray) {
             
             let alert = UIAlertController(title: "Compose Message", message: "Please enter message.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -245,18 +245,11 @@ extension String {
 extension ComposeMessageViewController : UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        self.textViewHeightConstraint.constant = textView.contentSize.height
-        updateHeight()
-    }
-    
-    func updateHeight() {
-         var newFrame = messageTextView.frame
-         
-         let fixedWidth = messageTextView.frame.size.width
-         let newSize = messageTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-         
-         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-         self.messageTextView.frame = newFrame
+        self.textViewHeightConstraint.constant = messageTextView.sizeThatFits(CGSize(width: messageTextView.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
+        
+        textView.layoutIfNeeded()
+        
+        textView.setNeedsDisplay()
     }
     
     
@@ -278,6 +271,7 @@ extension ComposeMessageViewController : UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
+        
         let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
         
         let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted

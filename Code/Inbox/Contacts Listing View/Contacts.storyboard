@@ -733,6 +733,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dea-MK-cji"/>
                     <connections>
+                        <outlet property="composeMessageButton" destination="0yb-3A-zzP" id="N5G-LE-7vt"/>
                         <outlet property="headerContactNumberLabel" destination="4HL-ya-vWz" id="4Pr-Ma-O4Q"/>
                         <outlet property="headerTitleLabel" destination="1OW-80-NF4" id="9Go-Eu-yw2"/>
                         <outlet property="saveDetailButton" destination="Cko-bO-3ba" id="QwH-5g-rYq"/>

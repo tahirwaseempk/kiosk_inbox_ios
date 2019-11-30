@@ -4,6 +4,20 @@ import Foundation
 protocol ContactDetailViewControllerDelegate
 {
     func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
+    func newMessageAdded()
+}
+
+extension ContactDetailViewControllerDelegate
+{
+    func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
+    {
+        // Default Implementation
+    }
+    
+    func newMessageAdded()
+    {
+        // Default Implementation
+    }
 }
 
 class ContactsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource

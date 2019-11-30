@@ -144,19 +144,6 @@ extension FilterTagView:UITextViewDelegate
             self.selectedTags.insert(selectedString)
 
             self.loadSelectedTags()
-
-            return
-            
-            if self.selectedTags.contains(selectedString)
-            {
-                self.selectedTags.remove(selectedString)
-            }
-            else
-            {
-                self.selectedTags.insert(selectedString)
-            }
-            
-            self.loadSelectedTags()
         })
             
         _ = picker.setCancelButton(action: {_, _, _ in})

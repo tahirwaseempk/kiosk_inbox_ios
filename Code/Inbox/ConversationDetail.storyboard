@@ -184,20 +184,25 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEa-K9-Oat" userLabel="ChawalView">
                                         <rect key="frame" x="4" y="0.0" width="406" height="45"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your message here" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-vj-aG3">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Please enter message here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nr8-jc-PhV">
                                                 <rect key="frame" x="12" y="3" width="341" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="WKy-eh-ygp"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="nXl-5u-ZEJ" id="Uh9-bQ-Jba"/>
+                                                    <outlet property="delegate" destination="nXl-5u-ZEJ" id="0gE-o7-hYY"/>
                                                 </connections>
-                                            </textField>
+                                            </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-9z-iaV">
-                                                <rect key="frame" x="368" y="6" width="28" height="28"/>
+                                                <rect key="frame" x="368" y="8.6666666666666288" width="28" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="q2D-9z-iaV" secondAttribute="height" multiplier="1:1" id="MKk-tV-7MN"/>
+                                                    <constraint firstAttribute="height" constant="28" id="itg-sx-EwJ"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="send-message">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -209,13 +214,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="g4e-vj-aG3" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="top" constant="3" id="4Mo-o0-x5x"/>
-                                            <constraint firstItem="q2D-9z-iaV" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="top" constant="6" id="6Sw-Ch-hLh"/>
+                                            <constraint firstItem="nr8-jc-PhV" firstAttribute="leading" secondItem="XEa-K9-Oat" secondAttribute="leading" constant="12" id="6yZ-ez-gao"/>
+                                            <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="nr8-jc-PhV" secondAttribute="trailing" constant="15" id="7f1-BO-Tkj"/>
+                                            <constraint firstItem="nr8-jc-PhV" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="top" constant="3" id="Gea-4e-kDZ"/>
                                             <constraint firstAttribute="trailing" secondItem="q2D-9z-iaV" secondAttribute="trailing" constant="10" id="L9u-2H-gHS"/>
-                                            <constraint firstItem="q2D-9z-iaV" firstAttribute="leading" secondItem="g4e-vj-aG3" secondAttribute="trailing" constant="15" id="adx-sP-2Ax"/>
-                                            <constraint firstAttribute="bottom" secondItem="q2D-9z-iaV" secondAttribute="bottom" constant="11" id="fhH-0u-M1Z"/>
-                                            <constraint firstAttribute="bottom" secondItem="g4e-vj-aG3" secondAttribute="bottom" constant="2" id="g0h-ds-EwL"/>
-                                            <constraint firstItem="g4e-vj-aG3" firstAttribute="leading" secondItem="XEa-K9-Oat" secondAttribute="leading" constant="12" id="j8z-sC-ovh"/>
+                                            <constraint firstAttribute="bottom" secondItem="nr8-jc-PhV" secondAttribute="bottom" constant="2" id="Q06-mP-t3f"/>
+                                            <constraint firstItem="q2D-9z-iaV" firstAttribute="centerY" secondItem="XEa-K9-Oat" secondAttribute="centerY" id="caq-dQ-hz2"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max character 250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-Pf-o8n">
@@ -240,9 +244,8 @@
                                     <constraint firstItem="s5D-Pf-o8n" firstAttribute="top" secondItem="XEa-K9-Oat" secondAttribute="bottom" id="OpG-b9-ZhH"/>
                                     <constraint firstAttribute="trailing" secondItem="XEa-K9-Oat" secondAttribute="trailing" constant="4" id="Vod-L2-lyu"/>
                                     <constraint firstItem="XEa-K9-Oat" firstAttribute="top" secondItem="A4c-qG-2Lb" secondAttribute="top" id="e9F-9u-Fms"/>
-                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="trailing" secondItem="g4e-vj-aG3" secondAttribute="trailing" id="fSO-pK-xrp"/>
+                                    <constraint firstItem="s5D-Pf-o8n" firstAttribute="trailing" secondItem="nr8-jc-PhV" secondAttribute="trailing" id="jPw-kv-2yP"/>
                                     <constraint firstItem="XEa-K9-Oat" firstAttribute="leading" secondItem="A4c-qG-2Lb" secondAttribute="leading" constant="4" id="n4s-fZ-jaR"/>
-                                    <constraint firstAttribute="height" constant="55" id="vOS-Sv-PLR"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -299,8 +302,9 @@
                         <outlet property="profileZipCodeTextField" destination="ICD-Oh-j5C" id="qZa-zb-hbu"/>
                         <outlet property="scrollButton" destination="vLW-4u-Xo0" id="npl-9k-cyp"/>
                         <outlet property="sendButton" destination="q2D-9z-iaV" id="FIH-1O-bY9"/>
-                        <outlet property="sendTextField" destination="g4e-vj-aG3" id="KGG-Lg-kXR"/>
+                        <outlet property="sendTextField" destination="nr8-jc-PhV" id="sRK-qe-0KQ"/>
                         <outlet property="tableView" destination="WR1-rU-Qz7" id="T9b-C1-luR"/>
+                        <outlet property="textViewHeightConstraint" destination="WKy-eh-ygp" id="eLC-xP-wHI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzO-cc-tx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -475,7 +479,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Contact Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMZ-zL-8iK">
-                                    <rect key="frame" x="50.999999999999986" y="19" width="178.66666666666663" height="30.333333333333329"/>
+                                    <rect key="frame" x="51.000000000000014" y="18.333333333333336" width="182.33333333333337" height="31.333333333333336"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="26"/>
                                     <nil key="textColor"/>
