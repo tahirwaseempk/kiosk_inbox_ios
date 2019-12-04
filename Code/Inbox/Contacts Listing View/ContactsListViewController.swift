@@ -5,7 +5,19 @@ protocol ContactDetailViewControllerDelegate
 {
     func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
     func newMessageAdded()
-    func loadNewMessageScreen()
+}
+
+extension ContactDetailViewControllerDelegate
+{
+    func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
+    {
+        // Default Implementation
+    }
+    
+    func newMessageAdded()
+    {
+        // Default Implementation
+    }
 }
 
 class ContactsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
@@ -193,8 +205,6 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func menuOptionButton_Tapped(_ sender:UIButton)
     {
-        self.uploadContacts_Tapped(self.menuAddButton)
-                
         if self.isSelectionModeOn == true
         {
             self.resignAllControls()
@@ -211,7 +221,7 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         {
             self.resignAllControls()
 
-            //self.menuContainerView.isHidden = false
+            self.menuContainerView.isHidden = false
         }
     }
     
@@ -522,26 +532,13 @@ extension ContactsListViewController:UISearchBarDelegate
 
 extension ContactsListViewController: ContactDetailViewControllerDelegate
 {
-    func newMessageAdded()
-    {
-        
-    }
-    
-    func loadNewMessageScreen()
-    {
-        if let delegate = self.delegate
-        {
-            delegate.loadNewMessageScreen()
-        }
-    }
-    
     @IBAction func deleteTagButton_Tapped(_ sender: Any)
     {
         if self.selectedItems.count > 0
         {
-            let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete contact(s)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete these contact ", preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 
                 self.deleteContacts()
             }))
@@ -575,7 +572,7 @@ extension ContactsListViewController: ContactDetailViewControllerDelegate
 
                     ProcessingIndicator.hide()
                        
-                    let alert = UIAlertController(title:"Contacts Deleted ",message:"Selected contacts deleted successfully",preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title:"Contacts Deleted ",message:"Selected contacts delted successfully",preferredStyle: UIAlertControllerStyle.alert)
                        
                     let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
                            
@@ -672,3 +669,4 @@ extension ContactsListViewController:FilterTagViewDelegate
         self.tableView.reloadData()
     }
 }
+
