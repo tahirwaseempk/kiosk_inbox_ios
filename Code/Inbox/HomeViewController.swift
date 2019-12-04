@@ -3,6 +3,7 @@ import UIKit
 protocol ContactListViewControllerDelegate
 {
     func contactsDeleted(contactsToRemove:Array<UserContact>)
+    func loadNewMessageScreen()
 }
 
 class HomeViewController: UIViewController
@@ -500,5 +501,18 @@ extension HomeViewController:ContactListViewControllerDelegate
     func contactsDeleted(contactsToRemove:Array<UserContact>)
     {
         self.conversationListingViewController.conversationListUpdated()
+    }
+    
+    func loadNewMessageScreen()
+    {
+        let storyboard = UIStoryboard.init(name: "ComposeMessage", bundle: nil)
+        
+        self.composeMessageViewController = (storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController)
+        
+        self.composeMessageViewController.delegate  = self
+        
+        self.view.addSubview(self.composeMessageViewController.view)
+        
+        self.navigationController?.popToRootViewController(animated:false)
     }
 }

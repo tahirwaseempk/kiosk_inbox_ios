@@ -185,8 +185,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7a-JA-HS7" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tc5-yp-VZW" userLabel="Delete COntact">
-                                        <rect key="frame" x="187" y="10" width="40" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tc5-yp-VZW" userLabel="Delete Contact">
+                                        <rect key="frame" x="182" y="5" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tc5-yp-VZW" secondAttribute="height" multiplier="1:1" id="gLf-P5-tJT"/>
                                         </constraints>
@@ -196,14 +196,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVC-ZY-T0F">
-                                        <rect key="frame" x="20" y="10" width="65" height="40"/>
+                                        <rect key="frame" x="20" y="5" width="77" height="50"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <state key="normal" title="Select All"/>
                                         <connections>
                                             <action selector="selectAllButton_Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fjt-iL-Z3O"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQu-6f-Tpm">
-                                        <rect key="frame" x="312" y="10" width="82" height="40"/>
+                                        <rect key="frame" x="296" y="5" width="98" height="50"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <state key="normal" title="Create Tags"/>
                                         <connections>
                                             <action selector="createTagButton_Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n0v-mc-BUs"/>
@@ -214,10 +216,10 @@
                                 <constraints>
                                     <constraint firstItem="tc5-yp-VZW" firstAttribute="centerX" secondItem="p7a-JA-HS7" secondAttribute="centerX" id="4N0-fV-RqA"/>
                                     <constraint firstAttribute="height" constant="60" id="6oz-vY-vTK"/>
-                                    <constraint firstItem="tc5-yp-VZW" firstAttribute="top" secondItem="p7a-JA-HS7" secondAttribute="top" constant="10" id="AIv-ns-TOd"/>
+                                    <constraint firstItem="tc5-yp-VZW" firstAttribute="top" secondItem="p7a-JA-HS7" secondAttribute="top" constant="5" id="AIv-ns-TOd"/>
                                     <constraint firstItem="mQu-6f-Tpm" firstAttribute="bottom" secondItem="tc5-yp-VZW" secondAttribute="bottom" id="SGZ-je-mMf"/>
                                     <constraint firstAttribute="trailing" secondItem="mQu-6f-Tpm" secondAttribute="trailing" constant="20" id="U99-Tk-sWc"/>
-                                    <constraint firstAttribute="bottom" secondItem="tc5-yp-VZW" secondAttribute="bottom" constant="10" id="bb2-R4-hwL"/>
+                                    <constraint firstAttribute="bottom" secondItem="tc5-yp-VZW" secondAttribute="bottom" constant="5" id="bb2-R4-hwL"/>
                                     <constraint firstItem="ZVC-ZY-T0F" firstAttribute="top" secondItem="tc5-yp-VZW" secondAttribute="top" id="g3G-iR-z2o"/>
                                     <constraint firstItem="ZVC-ZY-T0F" firstAttribute="bottom" secondItem="tc5-yp-VZW" secondAttribute="bottom" id="mtj-TM-y66"/>
                                     <constraint firstItem="mQu-6f-Tpm" firstAttribute="top" secondItem="tc5-yp-VZW" secondAttribute="top" id="ss4-cA-lN0"/>
@@ -230,6 +232,7 @@
                                     <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7O-49-JaW">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <connections>
                                             <action selector="dismissMenu_Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubR-GM-OyW"/>
                                         </connections>
