@@ -225,6 +225,7 @@ extension Tag
                     errorCode == 2003
                     {
                         isTagAlreadyCreated = true
+                        print("===== >>>>> TAG ALREADY EXISTS <<<<< =====")
                     }
                     
                     

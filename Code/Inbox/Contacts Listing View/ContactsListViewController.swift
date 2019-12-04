@@ -536,9 +536,9 @@ extension ContactsListViewController: ContactDetailViewControllerDelegate
     {
         if self.selectedItems.count > 0
         {
-            let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete these contact ", preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete contact(s)", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
                 
                 self.deleteContacts()
             }))
@@ -572,8 +572,8 @@ extension ContactsListViewController: ContactDetailViewControllerDelegate
 
                     ProcessingIndicator.hide()
                        
-                    let alert = UIAlertController(title:"Contacts Deleted ",message:"Selected contacts delted successfully",preferredStyle: UIAlertControllerStyle.alert)
-                       
+                    let alert = UIAlertController(title:"Contacts Deleted ",message:"Selected contacts deleted successfully",preferredStyle: UIAlertControllerStyle.alert)
+                    
                     let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
                            
                     }

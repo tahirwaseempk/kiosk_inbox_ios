@@ -235,7 +235,7 @@ extension ContactDetailViewController:ContactTagTableViewCellDelegate
     {
         let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to delete the tag: " + tagToDelete.tagName!, preferredStyle: .alert)
 
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
 
             self.deleteTag(tagToDelete)
         }))
@@ -566,6 +566,7 @@ extension ContactDetailViewController
         self.composeMessageViewController = (storyboard.instantiateViewController(withIdentifier: "ComposeMessageViewController") as! ComposeMessageViewController)
         
         self.composeMessageViewController.delegate  = self
+        self.composeMessageViewController.mobileNumber = self.contact.phoneNumber ?? ""
         
         self.view.addSubview(self.composeMessageViewController.view)
     }

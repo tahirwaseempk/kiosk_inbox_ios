@@ -31,6 +31,7 @@ class ComposeMessageViewController: UIViewController {
     
     @IBOutlet weak var chawalView: UIView!
 
+    var mobileNumber = ""
     
     var delegate : ComposeMessageProtocol? = nil
     
@@ -90,7 +91,7 @@ class ComposeMessageViewController: UIViewController {
     }
  */
     
-        mobileTextField.text = ""
+        mobileTextField.text = mobileNumber
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
 
@@ -388,6 +389,8 @@ extension ComposeMessageViewController {
                     DispatchQueue.main.async
                         {
                             if status == true {
+                                
+                                ProcessingIndicator.hide()
                                 
                                 self.hideComposeMessageView()
                                 
