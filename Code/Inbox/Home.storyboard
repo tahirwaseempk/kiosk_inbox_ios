@@ -271,7 +271,7 @@
                                         <constraint firstAttribute="width" constant="38" id="W28-xV-p8c"/>
                                         <constraint firstAttribute="width" secondItem="uSd-8T-Pqw" secondAttribute="height" multiplier="1:1" id="clu-5I-Z1i"/>
                                     </constraints>
-                                    <state key="normal" image="close-ios-black">
+                                    <state key="normal" image="crossIcon">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <variation key="default">
@@ -346,7 +346,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agA-qb-cDj" userLabel="Profile View">
                             <rect key="frame" x="174" y="57" width="185" height="50"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-nj-h5Y">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-nj-h5Y">
                                     <rect key="frame" x="5" y="10" width="29" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="fIV-nj-h5Y" secondAttribute="height" multiplier="33:34" id="gYp-wG-mmV"/>
@@ -390,7 +390,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K84-qg-50t" userLabel="Contacts View">
                             <rect key="frame" x="174" y="108" width="185" height="50"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-aj-rLB">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_contact_icon" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-aj-rLB">
                                     <rect key="frame" x="5" y="10" width="29" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="iaf-aj-rLB" secondAttribute="height" multiplier="33:34" id="B9P-sH-rIJ"/>
@@ -432,7 +432,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FB4-eL-FJD" userLabel="Signout View">
                             <rect key="frame" x="174" y="159" width="185" height="50"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crossIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wCk-gP-2ht">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_singout_icon" translatesAutoresizingMaskIntoConstraints="NO" id="wCk-gP-2ht">
                                     <rect key="frame" x="5" y="10" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="wCk-gP-2ht" secondAttribute="height" multiplier="1:1" id="1jX-cE-WSk"/>
@@ -939,10 +939,11 @@
     </scenes>
     <resources>
         <image name="black" width="48" height="48"/>
-        <image name="close-ios-black" width="48" height="48"/>
         <image name="composeIconNew" width="140" height="41"/>
-        <image name="contactIcon" width="38" height="22"/>
-        <image name="crossIcon" width="20" height="20"/>
-        <image name="profile_black" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="crossIcon" width="48" height="48"/>
+        <image name="menu_contact_icon" width="48" height="48"/>
+        <image name="menu_profile_icon" width="48" height="48"/>
+        <image name="menu_singout_icon" width="48" height="48"/>
+        <image name="profile_black" width="48" height="48"/>
     </resources>
 </document>

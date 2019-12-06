@@ -3,6 +3,7 @@ import UIKit
 protocol ContactListViewControllerDelegate
 {
     func contactsDeleted(contactsToRemove:Array<UserContact>)
+    func newMessageAdded()
 }
 
 class HomeViewController: UIViewController

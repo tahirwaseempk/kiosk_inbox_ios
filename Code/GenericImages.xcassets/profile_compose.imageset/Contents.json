@@ -2,17 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "profile-compose-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "profile-compose-1.png",
+      "filename" : "96x96-compose.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "profile-compose.png",
+      "filename" : "144x144-compose.png",
       "scale" : "3x"
     }
   ],

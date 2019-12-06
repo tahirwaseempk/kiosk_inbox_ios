@@ -7,19 +7,6 @@ protocol ContactDetailViewControllerDelegate
     func newMessageAdded()
 }
 
-extension ContactDetailViewControllerDelegate
-{
-    func deleteContactsFromLocalArrays(contactsToRemove:Array<UserContact>)
-    {
-        // Default Implementation
-    }
-    
-    func newMessageAdded()
-    {
-        // Default Implementation
-    }
-}
-
 class ContactsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     let headerColor = UIColor.init(displayP3Red:0.96, green:0.97, blue:1.0, alpha:1.0)
@@ -221,7 +208,9 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         {
             self.resignAllControls()
 
-            self.menuContainerView.isHidden = false
+            self.uploadContacts_Tapped(self.menuAddButton)
+
+           // self.menuContainerView.isHidden = false
         }
     }
     
@@ -635,6 +624,16 @@ extension ContactsListViewController: ContactDetailViewControllerDelegate
         {
             loadDataFromList(contactsList:Array<UserContact>())
         }
+    }
+    
+    func newMessageAdded()
+    {
+        if let delegate = self.delegate
+               {
+                   delegate.newMessageAdded()
+               }
+        
+        self.view.removeFromSuperview()
     }
 }
 

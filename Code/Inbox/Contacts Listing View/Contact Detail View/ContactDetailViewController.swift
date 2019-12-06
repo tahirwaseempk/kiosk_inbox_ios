@@ -570,14 +570,19 @@ extension ContactDetailViewController
         
         self.view.addSubview(self.composeMessageViewController.view)
     }
-    
-    
 }
 
 extension ContactDetailViewController: ComposeMessageProtocol
 {
     func newMessageAdded()
     {
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: HomeViewController.self) {
+                self.navigationController!.popToViewController(controller, animated: false)
+                break
+            }
+        }
+        
         if let delegate = self.delegate
         {
             delegate.newMessageAdded()

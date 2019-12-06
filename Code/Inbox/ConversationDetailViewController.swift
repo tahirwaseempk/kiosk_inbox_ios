@@ -1250,6 +1250,10 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
 
 extension ConversationDetailViewController:ContactDetailViewControllerDelegate
 {
+    func newMessageAdded() {
+        
+    }
+    
     func loadProfileView()
     {
         if let contact = self.selectedConversation.receiver

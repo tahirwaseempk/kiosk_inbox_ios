@@ -66,7 +66,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="cBo-Yx-4m2" secondAttribute="height" multiplier="1:1" id="91L-1j-Yzk"/>
                             </constraints>
-                            <state key="normal" image="arrow_drop_black"/>
+                            <state key="normal" image="dropdown_icon"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yP-T6-jTW" userLabel="DropDOwnButton">
                             <rect key="frame" x="295" y="74" width="40" height="45"/>
@@ -122,6 +122,6 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow_drop_black" width="48" height="48"/>
+        <image name="dropdown_icon" width="48" height="48"/>
     </resources>
 </document>
