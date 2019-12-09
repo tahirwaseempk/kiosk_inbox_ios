@@ -1278,12 +1278,6 @@ class WebManager: NSObject
     // MARK: UPLOAD CONTACTS API
     static func uploadContacts(contactsCSVData:Data, params: Dictionary<String,Any>, completionBlockSuccess successBlock: @escaping ((Dictionary<String, Any>?) -> (Void)), andFailureBlock failureBlock: @escaping ((Error?) -> (Void)))
     {
-        let token:String = params["token"] as! String
-        
-        var paramsDictionary = Dictionary<String, Any>()
-        
-        paramsDictionary["formData"] = params["contactsCSV"] as! Data
-        
         var finalUrl = ""
         
         switch environment {
@@ -1298,33 +1292,30 @@ class WebManager: NSObject
             finalUrl = URL_PHOTO_TEXTING + UPLOAD_CONTACTS
         case .text_Attendant:
             finalUrl = URL_TEXT_ATTENDANT + UPLOAD_CONTACTS
-
         }
+               
+        var paramsDictionary = Dictionary<String, Any>()
         
-        print("\n ===== >>>>> Upload Contacts URL = \(finalUrl) \n")
+        paramsDictionary["finalUrl"]  = finalUrl
 
-        if let response:Bool = uploadContacts(paramsDictionary){
-            
-            if response == true {
-                successBlock(response as? Dictionary)
-                
-            } else {
-               // successBlock(response as? Dictionary)
-
-            }
+        paramsDictionary["formData"] = params["contactsCSV"] as! Data
+        
+        if let user = User.getLoginedUser()
+        {
+            paramsDictionary["token"] = user.token
         }
-        
-//        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
-//
-//            if (error == nil)
-//            {
-//                successBlock(response as? Dictionary)
-//            }
-//            else
-//            {
-//                failureBlock(error)
-//            }
-//        })
+
+        uploadContacts(paramsDictionary, completionBlock: {(error, response) -> (Void) in
+                   
+                   if (error == nil)
+                   {
+                       successBlock(response as? Dictionary<String, Any>)
+                   }
+                   else
+                   {
+                       failureBlock(error)
+                   }
+               })
     }
     
     //************************************************************************************************//
@@ -1590,34 +1581,121 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-    internal static func uploadContacts(_ parameters: Dictionary<String,Any>) ->  Bool {
+    internal static func uploadContacts(_ parameters: Dictionary<String,Any>, completionBlock completion: @escaping ((_ error : Error?, _ response : NSDictionary?) -> (Void))) {
+        
+        let url:String = parameters["finalUrl"] as? String ?? "https://services.textingline.com/api/v1/contacts/upload"
+               
+        let token:String = parameters["token"] as? String ?? ""
+
+        let csvData:Data = parameters["formData"] as! Data
         
         let headers = [
-            "Content-Type": "text/csv",
-            "authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJVU0VSIiwicHJpdmlsZWdlcyI6eyJBTEwiOiJPV05FUiJ9LCJ1c2VyIjp7ImlkIjo0MTQsImVtYWlsIjoiZGVubmlzQHNtc2ZhY3RvcnkuY29tIn0sImlhdCI6MTU3NTkwMTkzMiwiZXhwIjoxNTc2NTA2NzMyfQ.IvPQM_XU69mQa671FUPTQ1KeX2dK-awt-Fueb_nsKRJ92bv0Yfbf_tdPmGTC6-9OPuR2B902BHQH5lQncH2NzOvcephlf7xbDCA1_XA6qPkzc-moxtqYh9_PTwPxtoGzN7wAYcmjPSjdTfDMVlQ_dIskNP4gjIgQANIV4AZKVcoms6y5RkF8Go5Tz-bTuznVaf379clxN0VPF-9LPYOCcvuynwHaYMWN6ZmgpNL7gOeeXfPGJrLEXDTG31daEKrMPwV4-0hjt0ahDH3LlfCeC7A4NE3w5Qg2RG8mdJMK_VUvzT559jzSvwxk6cbFYq4_QrscDLJQb8UhMkeSaWbmx7GS4JaKCij-rxF77pGI7EglOZL0SmmHYBhGKcEsPVIhrBBdOjSgupf8XymrOGtwy-eSS7CcUiTWOOihRRaZAnWwvjRpUq07WWmEG7rqqJZV1jxHvIFceNj753jLvXP_cVuPYC1w8dfsiYI4av1CAkGb8944na-RqUNhHvXJbde4mN3D_uLYpVPTYqHLIywZ72zdhRgwPKgi4xzbysXWhcwG4sM_HDX1MFnjQTGL_-6KMk7FXH4gnL9pJOfMQf4pk2c2EW39XwymKPYLDf0MFLhgenPTg87w5OmdJ6fkZURPSSYA7S8oXv3GSPqHA1A-0HZ7499yyjrrpbBixNsXSKE",
-            "Accept": "application/json",
-           
+          "Content-Type": "text/csv",
+          "authorization":token,
+          "Accept": "application/json",
+          "User-Agent": "PostmanRuntime/7.18.0",
+          "Cache-Control": "no-cache",
+          "Postman-Token": "1109ca7c-a429-434f-bc9e-3c27fd2845d2,1227c70f-d9dc-41c4-8c62-1881c3ab08c5",
+          "Host": "services.textingline.com",
+          "Accept-Encoding": "gzip, deflate",
+          "Cookie": "JSESSIONID=B730EECA8E46E98154B641318586D3D5",
+          "Content-Length": "1049",
+          "Connection": "keep-alive",
+          "cache-control": "no-cache"
         ]
+
+        let request = NSMutableURLRequest(url: NSURL(string:url)! as URL,cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10.0)
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://services.textingline.com/api/v1/contacts/upload")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
         request.httpMethod = "POST"
+        
         request.allHTTPHeaderFields = headers
         
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse)
+        request.httpBody = csvData
+        
+        let dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+         
+            guard error == nil else
+            {
+                completion(NSError(domain: "com.chat.sms", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+
+                return
+            }
+            
+            guard let data = data else
+            {
+                completion(NSError(domain: "com.chat.sms", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+
+                return
+            }
+                                    
+            let responseStrInISOLatin = String(data: data, encoding: String.Encoding.isoLatin1)
+            
+            if (responseStrInISOLatin == ""){
+              
+                if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                    var statusDict = Dictionary<String, Any>()
+                    statusDict["statusCode"] = httpResponse.statusCode
+                    statusDict["errorCode"] = httpResponse.statusCode
+                    statusDict["name"] = "RequestCompletedSucessfully"
+                    statusDict["message"] = "Request Completed Sucessfully"
+                    completion(nil,statusDict as NSDictionary)
+                    return
+                    
+                } else if httpResponse.statusCode == 400 {
+                    var statusDict = Dictionary<String, Any>()
+                    statusDict["statusCode"] = httpResponse.statusCode
+                    statusDict["errorCode"] = httpResponse.statusCode
+                    statusDict["name"] = "BadRequestError"
+                    statusDict["message"] = "Request Not Completed Sucessfully"
+                    completion(nil,statusDict as NSDictionary)
+                    return
+                }
+                else {
+                    completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Json_Parameters_Error]),nil)
+                    return
+                }
+                }
+            }
+            
+            guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8)
+                else
+            {
+                completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                print("could not convert data to UTF-8 format")
+                return
+            }
+            
+            do
+            {
+                if let responseJSONDict = try JSONSerialization.jsonObject(with: modifiedDataInUTF8Format) as? [String: Any]
+                {
+                    completion(nil,responseJSONDict as NSDictionary)
+                }
+                else
+                {
+                    completion(NSError(domain: "com.chat.sms", code: 400, userInfo: [NSLocalizedDescriptionKey : WebManager.Server_Not_Responding]),nil)
+                }
+            }
+            catch
+            {
+                print(error.localizedDescription)
+                
+                let code = (error as NSError).code
+                
+                if(code == 3840)
+                {
+                    
+                    completion(NSError(domain: "com.chat.sms", code: 3840, userInfo: [NSLocalizedDescriptionKey : WebManager.Invalid_Json_Format]),nil)
+                }
+                else
+                {
+                    completion(error,nil);
+                }
             }
         })
-        
+
         dataTask.resume()
-        
-        return true
     }
 }
 //************************************************************************************************//

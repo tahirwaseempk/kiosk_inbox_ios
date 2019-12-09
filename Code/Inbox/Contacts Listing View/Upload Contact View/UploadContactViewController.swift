@@ -75,7 +75,10 @@ class UploadContactViewController: UIViewController
     func fetchPhoneBookContacts()
     {
       fetchContacts(ContactsSortorder: .givenName) { (result) in
-         
+         DispatchQueue.global(qos: .background).async
+         {
+             DispatchQueue.main.async
+             {
           switch result
           {
               case .success(response: let contacts):
@@ -88,33 +91,74 @@ class UploadContactViewController: UIViewController
               case .failure(error: let error):
                   self.showContactFetchingError(errorMsg:error.localizedDescription)
                   break
-          }
+          
+                }
+            }
+        }
       }
     }
     
     func convertToCSV(_ contacts:Array<CNContact>)
     {
-        contactsToVCardConverter(contacts:contacts) { (result) in
+        var csvString = "Phone Number (mandatory),First Name (optional),Last Name (optional),Gender (optional),Date of Birth MM/DD/YYYY (optional),Email Address (optional),Zip Code (optional),Address (optional),City (optional),State (optional)"
+                
+        for contact in contacts
+        {
+            csvString = csvString + "\n"
+         
+            var contactNumber = ""
             
-            DispatchQueue.global(qos: .background).async
+            for number in contact.phoneNumbers
             {
-                DispatchQueue.main.async
+                if contactNumber == ""
                 {
-                   switch result
-                    {
-                        case .success(response: let data): //.vcf File
-                            
-                            self.uploadContacts(contactsVCFData:data)
-                            break
-                     
-                        case .failure(error: let error):
-                            self.showContactFetchingError(errorMsg:error.localizedDescription)
-                            break
-                    }
+                    contactNumber = CNPhoneNumberToString(CNPhoneNumber: number.value)
                 }
             }
-               
-           }
+            
+            if contactNumber == ""
+            {
+                contactNumber = "111111111"
+            }
+
+            csvString = csvString + contactNumber + ","
+
+            csvString = csvString + contact.givenName + ","
+            
+            csvString = csvString + contact.familyName + ","
+
+            csvString = csvString + "" + ","
+
+            csvString = csvString + "" + ","
+
+            csvString = csvString + "" + ","
+
+            csvString = csvString + "" + ","
+
+            csvString = csvString + "" + ","
+
+            csvString = csvString + "" + ","
+
+            csvString = csvString + "" + ","
+
+        }
+        
+        let csvData = Data(csvString.utf8)
+
+        self.uploadContacts(contactsVCFData:csvData)
+//
+//        let fileManager = FileManager.default
+//
+//        do {
+//
+//        let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil , create: false )
+//
+//        let fileURL = path.appendingPathComponent("TrailTime.csv")
+//
+//        try csvString.write(to: fileURL, atomically: true , encoding: .utf8)
+//        } catch {
+//
+//        }
     }
     
     func uploadContacts(contactsVCFData:Data)
@@ -167,9 +211,9 @@ class UploadContactViewController: UIViewController
     func showContactFetchingError(errorMsg:String)
     {
         let alert = UIAlertController(title:"Error!", message:errorMsg, preferredStyle: .alert)
-      
-        alert.addAction(UIAlertAction(title:"OK", style:.cancel, handler:nil))
+        
+          alert.addAction(UIAlertAction(title:"OK", style:.cancel, handler:nil))
 
-        self.present(alert, animated: true)
+          self.present(alert, animated: true)
     }
 }
