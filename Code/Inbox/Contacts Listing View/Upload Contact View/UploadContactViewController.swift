@@ -5,7 +5,7 @@ class UploadContactViewController: UIViewController
 {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var continueButton: GradientButton!
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad()
@@ -33,7 +33,7 @@ class UploadContactViewController: UIViewController
        
     func cornerRadius()
     {
-        self.continueButton.layer.cornerRadius = self.continueButton.bounds.size.height / 2.0
+        //self.continueButton.layer.cornerRadius = self.continueButton.bounds.size.height / 2.0
     }
     
     @IBAction func backButton_Tapped(_ sender: UIButton)
@@ -41,16 +41,21 @@ class UploadContactViewController: UIViewController
         self.navigationController?.popViewController(animated:true)
     }
     
-    @IBAction func continueButon_Tapped(_ sender: UIButton)
+    @IBAction func continueButon_Tapped(_ sender: GradientButton)
     {
-        if sender.tag == 0
-        {
-            self.uploadContacts()
-        }
-        else
-        {
-            self.backButton_Tapped(self.backButton)
-        }
+//        let alert = UIAlertController(title: "Information", message: "Coming Soon.", preferredStyle: UIAlertControllerStyle.alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+//        /*
+         if sender.tag == 0
+         {
+         self.uploadContacts()
+         }
+         else
+         {
+         self.backButton_Tapped(self.backButton)
+         }
+//         */
     }
     
     func uploadContacts()

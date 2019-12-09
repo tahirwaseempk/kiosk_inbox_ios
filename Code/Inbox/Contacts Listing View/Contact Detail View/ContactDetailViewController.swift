@@ -15,9 +15,10 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var headerContactNumberLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var saveDetailButton: UIButton!
+    @IBOutlet weak var saveDetailButton: GradientButton!
     
     @IBOutlet weak var composeMessageButton: UIButton!
+    
     var FirstNameValue = ""
     
     var LastNameValue = ""
@@ -120,7 +121,7 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     func cornerRadius()
     {
-        self.saveDetailButton.layer.cornerRadius = self.saveDetailButton.bounds.size.height / 2.0
+        //self.saveDetailButton.layer.cornerRadius = self.saveDetailButton.bounds.size.height / 2.0
         
         //self.createTagAlertView.layer.cornerRadius = 5.0
     }

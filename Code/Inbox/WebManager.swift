@@ -1302,18 +1302,29 @@ class WebManager: NSObject
         }
         
         print("\n ===== >>>>> Upload Contacts URL = \(finalUrl) \n")
-        
-        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+
+        if let response:Bool = uploadContacts(paramsDictionary){
             
-            if (error == nil)
-            {
+            if response == true {
                 successBlock(response as? Dictionary)
+                
+            } else {
+               // successBlock(response as? Dictionary)
+
             }
-            else
-            {
-                failureBlock(error)
-            }
-        })
+        }
+        
+//        callNewWebService(urlStr: finalUrl, parameters: paramsDictionary, httpMethod: "POST", httpHeaderKey: "authorization", httpHeaderValue: token, completionBlock: {(error, response) -> (Void) in
+//
+//            if (error == nil)
+//            {
+//                successBlock(response as? Dictionary)
+//            }
+//            else
+//            {
+//                failureBlock(error)
+//            }
+//        })
     }
     
     //************************************************************************************************//
@@ -1579,7 +1590,35 @@ class WebManager: NSObject
     //------------------------------------------------------------------------------------------------//
     //------------------------------------------------------------------------------------------------//
     //************************************************************************************************//
-
+    internal static func uploadContacts(_ parameters: Dictionary<String,Any>) ->  Bool {
+        
+        let headers = [
+            "Content-Type": "text/csv",
+            "authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJVU0VSIiwicHJpdmlsZWdlcyI6eyJBTEwiOiJPV05FUiJ9LCJ1c2VyIjp7ImlkIjo0MTQsImVtYWlsIjoiZGVubmlzQHNtc2ZhY3RvcnkuY29tIn0sImlhdCI6MTU3NTkwMTkzMiwiZXhwIjoxNTc2NTA2NzMyfQ.IvPQM_XU69mQa671FUPTQ1KeX2dK-awt-Fueb_nsKRJ92bv0Yfbf_tdPmGTC6-9OPuR2B902BHQH5lQncH2NzOvcephlf7xbDCA1_XA6qPkzc-moxtqYh9_PTwPxtoGzN7wAYcmjPSjdTfDMVlQ_dIskNP4gjIgQANIV4AZKVcoms6y5RkF8Go5Tz-bTuznVaf379clxN0VPF-9LPYOCcvuynwHaYMWN6ZmgpNL7gOeeXfPGJrLEXDTG31daEKrMPwV4-0hjt0ahDH3LlfCeC7A4NE3w5Qg2RG8mdJMK_VUvzT559jzSvwxk6cbFYq4_QrscDLJQb8UhMkeSaWbmx7GS4JaKCij-rxF77pGI7EglOZL0SmmHYBhGKcEsPVIhrBBdOjSgupf8XymrOGtwy-eSS7CcUiTWOOihRRaZAnWwvjRpUq07WWmEG7rqqJZV1jxHvIFceNj753jLvXP_cVuPYC1w8dfsiYI4av1CAkGb8944na-RqUNhHvXJbde4mN3D_uLYpVPTYqHLIywZ72zdhRgwPKgi4xzbysXWhcwG4sM_HDX1MFnjQTGL_-6KMk7FXH4gnL9pJOfMQf4pk2c2EW39XwymKPYLDf0MFLhgenPTg87w5OmdJ6fkZURPSSYA7S8oXv3GSPqHA1A-0HZ7499yyjrrpbBixNsXSKE",
+            "Accept": "application/json",
+           
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://services.textingline.com/api/v1/contacts/upload")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+            }
+        })
+        
+        dataTask.resume()
+        
+        return true
+    }
 }
 //************************************************************************************************//
 //------------------------------------------------------------------------------------------------//

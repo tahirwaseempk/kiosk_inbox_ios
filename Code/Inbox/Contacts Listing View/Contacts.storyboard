@@ -355,9 +355,9 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfH-Ym-VgF">
-                                        <rect key="frame" x="10" y="5" width="80" height="50"/>
+                                        <rect key="frame" x="10" y="10" width="43.5" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="gfH-Ym-VgF" secondAttribute="height" multiplier="8:5" id="McN-wh-Gtv"/>
+                                            <constraint firstAttribute="width" secondItem="gfH-Ym-VgF" secondAttribute="height" multiplier="38:35" id="McN-wh-Gtv"/>
                                         </constraints>
                                         <state key="normal" image="black"/>
                                         <connections>
@@ -367,8 +367,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.96598488090000001" green="0.97633177039999997" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="gfH-Ym-VgF" firstAttribute="top" secondItem="SYC-Ne-NkW" secondAttribute="top" constant="5" id="E09-mt-BtY"/>
-                                    <constraint firstAttribute="bottom" secondItem="gfH-Ym-VgF" secondAttribute="bottom" constant="5" id="OS2-Ws-LgO"/>
+                                    <constraint firstItem="gfH-Ym-VgF" firstAttribute="top" secondItem="SYC-Ne-NkW" secondAttribute="top" constant="10" id="E09-mt-BtY"/>
+                                    <constraint firstAttribute="bottom" secondItem="gfH-Ym-VgF" secondAttribute="bottom" constant="10" id="OS2-Ws-LgO"/>
                                     <constraint firstAttribute="height" constant="60" id="bk7-AF-Qhp"/>
                                     <constraint firstItem="gfH-Ym-VgF" firstAttribute="leading" secondItem="SYC-Ne-NkW" secondAttribute="leading" constant="10" id="eYB-bO-3f1"/>
                                 </constraints>
@@ -377,30 +377,42 @@
                                 <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8W-u7-Q8D" userLabel="Alert View">
-                                        <rect key="frame" x="41.5" y="242.5" width="331" height="273"/>
+                                        <rect key="frame" x="41.5" y="243" width="331" height="272"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import your sim contacts to your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bY-Hm-ppw">
-                                                <rect key="frame" x="5" y="152.5" width="321" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="5" y="152" width="321" height="20"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadIcon" highlightedImage="personIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BFD-gM-vOz">
-                                                <rect key="frame" x="99.5" y="0.0" width="132" height="132.5"/>
+                                                <rect key="frame" x="99.5" y="0.0" width="132" height="132"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BFD-gM-vOz" secondAttribute="height" multiplier="1:1" id="hIS-Gp-KnP"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UL-iG-Kgt">
-                                                <rect key="frame" x="75.5" y="193" width="180" height="60"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UL-iG-Kgt" customClass="GradientButton" customModule="FanConnectNow" customModuleProvider="target">
+                                                <rect key="frame" x="75.5" y="192" width="180" height="60"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="2UL-iG-Kgt" secondAttribute="height" multiplier="3:1" id="0Wm-g5-fAa"/>
                                                     <constraint firstAttribute="width" constant="180" id="y7h-th-oED"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
                                                 <state key="normal" title="Continue">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.61568627450000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                        <color key="value" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="applyTagButton_Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LXt-E7-xmq"/>
                                                     <action selector="continueButon_Tapped:" destination="2ls-Mu-ptK" eventType="touchUpInside" id="GWR-X6-JXv"/>
@@ -694,7 +706,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgW-AE-YiI" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="786" width="414" height="76"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cko-bO-3ba">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cko-bO-3ba" customClass="GradientButton" customModule="FanConnectNow" customModuleProvider="target">
                                         <rect key="frame" x="20" y="15" width="374" height="51"/>
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -702,6 +714,17 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="18"/>
                                         <state key="normal" title="Save Details"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                <color key="value" red="0.28627450980000002" green="0.61568627450000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                <color key="value" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="saveContactDetailButton_Tapped:" destination="N5x-Tl-azL" eventType="touchUpInside" id="0VQ-QP-1uj"/>
                                         </connections>
