@@ -118,7 +118,7 @@ class UploadContactViewController: UIViewController
             
             if contactNumber == ""
             {
-                contactNumber = "111111111"
+                contactNumber = "0"
             }
 
             csvString = csvString + contactNumber + ","

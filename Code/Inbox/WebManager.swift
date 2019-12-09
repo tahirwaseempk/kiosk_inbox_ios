@@ -1293,29 +1293,29 @@ class WebManager: NSObject
         case .text_Attendant:
             finalUrl = URL_TEXT_ATTENDANT + UPLOAD_CONTACTS
         }
-               
+        
         var paramsDictionary = Dictionary<String, Any>()
         
         paramsDictionary["finalUrl"]  = finalUrl
-
+        
         paramsDictionary["formData"] = params["contactsCSV"] as! Data
         
         if let user = User.getLoginedUser()
         {
             paramsDictionary["token"] = user.token
         }
-
+        
         uploadContacts(paramsDictionary, completionBlock: {(error, response) -> (Void) in
-                   
-                   if (error == nil)
-                   {
-                       successBlock(response as? Dictionary<String, Any>)
-                   }
-                   else
-                   {
-                       failureBlock(error)
-                   }
-               })
+            
+            if (error == nil)
+            {
+                successBlock(response as? Dictionary<String, Any>)
+            }
+            else
+            {
+                failureBlock(error)
+            }
+        })
     }
     
     //************************************************************************************************//
