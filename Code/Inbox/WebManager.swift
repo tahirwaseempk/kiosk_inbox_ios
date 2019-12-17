@@ -42,6 +42,7 @@ let BYPASS_MESSAGE = "/api/v1/messages/byPass"
 let PUT_CONTACT = "/api/v1/contacts/"
 let THEME_COLOR = "/api/v1/themes/whiteLabel/"
 
+//hello
 
 //OCTOBER START HERE..
 let GET_CONTACTS = "/api/v1/contacts/?onlyWithChat="
@@ -575,15 +576,15 @@ class WebManager: NSObject
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + CREATE_NEW_TAG
+            finalUrl = URL_TEXTING_LINE + SEND_MESSAGE
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + CREATE_NEW_TAG
+            finalUrl = URL_SMS_FACTORY + SEND_MESSAGE
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT + CREATE_NEW_TAG
+            finalUrl = URL_FANCONNECT + SEND_MESSAGE
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + CREATE_NEW_TAG
+            finalUrl = URL_PHOTO_TEXTING + SEND_MESSAGE
         case .text_Attendant:
-            finalUrl = URL_TEXT_ATTENDANT + CREATE_NEW_TAG
+            finalUrl = URL_TEXT_ATTENDANT + SEND_MESSAGE
 
         }
         

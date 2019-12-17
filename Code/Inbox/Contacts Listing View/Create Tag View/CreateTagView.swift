@@ -41,9 +41,10 @@ class CreateTagView: UIView, UITextFieldDelegate
         } else {
             // Fallback on earlier versions
         }
-        
         tagNameTextField.text = ""
+        tagNameTextField.placeholder = "Tap to create or select from dropdown"
     }
+    
     
     @IBAction func dropDownButton_Tapped(_ sender: UIButton)
     {
@@ -116,7 +117,7 @@ class CreateTagView: UIView, UITextFieldDelegate
                         let alert = UIAlertController(title:"Success",message:"Tag assigned successfully",preferredStyle: UIAlertControllerStyle.alert)
                         
                         let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
-                            
+                                                        
                             self.dismissView()
                         }
                         
@@ -138,6 +139,9 @@ class CreateTagView: UIView, UITextFieldDelegate
                         
                         let okAction = UIAlertAction(title:"OK", style:.default) { (action:UIAlertAction) in
                             
+                            self.tagNameTextField.text = ""
+                            self.tagNameTextField.placeholder = "Tap to create or select from dropdown"
+
                         }
                         
                         alert.addAction(okAction)
@@ -156,6 +160,9 @@ class CreateTagView: UIView, UITextFieldDelegate
    
     func dismissView()
     {
+        self.tagNameTextField.text = ""
+        self.tagNameTextField.placeholder = "Tap to create or select from dropdown"
+
         self.removeFromSuperview()
     }
     

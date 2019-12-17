@@ -115,6 +115,7 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
                 firstCharacterStr = "#"
             }
             
+            
             if var arrayOfSameNameContacts = self.filteredContacts[firstCharacterStr]
             {
                 arrayOfSameNameContacts.append(contact)
@@ -208,9 +209,9 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         {
             self.resignAllControls()
 
-            self.uploadContacts_Tapped(self.menuAddButton)
+//            self.uploadContacts_Tapped(self.menuAddButton)
 
-           // self.menuContainerView.isHidden = false
+            self.menuContainerView.isHidden = false
         }
     }
     
@@ -482,7 +483,20 @@ extension ContactsListViewController:UISearchBarDelegate
             if let contactsList = User.loginedUser?.userContacts?.allObjects as? Array<UserContact>
             {
                 let contacts_filtered_local = contactsList.filter({ (contact) -> Bool in
-                                        
+             
+                    if let _phonenumber = contact.phoneNumber
+                    {
+                        let phoneNumber = removeSpecialCharsFromString(_phonenumber)
+                        
+                        let result =  phoneNumber.lowercased().contains(searchText.lowercased())
+                                                   
+                           if result == true {
+                               
+                               return result
+                        }
+                    }
+                    
+                    
                     if let firstName = contact.firstName
                     {
                         if let lastName = contact.lastName
@@ -498,6 +512,8 @@ extension ContactsListViewController:UISearchBarDelegate
                     {
                         return lastName.lowercased().contains(searchText.lowercased())
                     }
+                    
+                
                     
                     return false
                 })
