@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7b-9t-oZ5" userLabel="HeaderView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="131"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDQ-cw-CwP">
                                         <rect key="frame" x="10" y="24" width="28" height="28"/>
@@ -45,7 +44,6 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYP-xP-H0N" customClass="FloatLabelTextField" customModule="FanConnectNow" customModuleProvider="target">
                                         <rect key="frame" x="52.5" y="77" width="217.5" height="36"/>
                                         <color key="backgroundColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
@@ -98,10 +96,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-05-YoR" userLabel="Body View">
-                                <rect key="frame" x="0.0" y="151" width="320" height="329"/>
+                                <rect key="frame" x="0.0" y="131" width="320" height="349"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-Qf-MNQ" userLabel="BottomView">
-                                        <rect key="frame" x="4" y="278" width="312" height="43"/>
+                                        <rect key="frame" x="4" y="298" width="312" height="43"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ug-oL-tYW">
                                                 <rect key="frame" x="12" y="5" width="258" height="30"/>
@@ -178,6 +176,7 @@
                         <outlet property="backView" destination="b5P-05-YoR" id="Muf-uv-069"/>
                         <outlet property="cancelButton" destination="RDQ-cw-CwP" id="Xw8-q9-bhY"/>
                         <outlet property="chawalView" destination="j8D-Qf-MNQ" id="8cb-S0-EkY"/>
+                        <outlet property="contactsButton" destination="Axl-Ib-aja" id="0tp-PA-Sal"/>
                         <outlet property="headerView" destination="Z7b-9t-oZ5" id="9cI-xx-FpS"/>
                         <outlet property="header_label" destination="FiW-Yh-tms" id="TEy-s1-4JL"/>
                         <outlet property="inputCharacterCountLabel" destination="DYb-kZ-VHO" id="Ibg-Dt-A6x"/>
@@ -193,7 +192,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="black" width="72" height="72"/>
+        <image name="black" width="48" height="48"/>
         <image name="person_add_black" width="48" height="48"/>
         <image name="send-message" width="32" height="32"/>
     </resources>

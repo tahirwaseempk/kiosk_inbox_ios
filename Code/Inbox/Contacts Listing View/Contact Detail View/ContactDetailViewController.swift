@@ -457,7 +457,7 @@ extension ContactDetailViewController
 
     func validateInputs() -> Bool
     {
-        if let firstName = self.contact.firstName, firstName.isEmpty == true
+        if self.FirstNameValue.isEmpty == true
         {
             let alert = UIAlertController(title:"Warning",message:"Please enter first name.",preferredStyle:UIAlertControllerStyle.alert)
             
@@ -568,6 +568,7 @@ extension ContactDetailViewController
         
         self.composeMessageViewController.delegate  = self
         self.composeMessageViewController.mobileNumber = self.contact.phoneNumber ?? ""
+        self.composeMessageViewController.shouldShowContactsButton = false
         
         self.view.addSubview(self.composeMessageViewController.view)
     }

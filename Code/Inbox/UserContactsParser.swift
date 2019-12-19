@@ -36,7 +36,7 @@ class UserContactsParser: NSObject
             {
                 if dic.count > 0
                 {
-                    var fName = checkStringForNull(value: (dic["firstName"] as AnyObject)).trimmingCharacters(in: .whitespaces).capitalized
+                    let fName = checkStringForNull(value: (dic["firstName"] as AnyObject)).trimmingCharacters(in: .whitespaces).capitalized
                     let lName = checkStringForNull(value: (dic["lastName"] as AnyObject)).trimmingCharacters(in: .whitespaces).capitalized
                     let phoneNo = checkStringForNull(value: (dic["phoneNumber"] as AnyObject))
                     let gender = checkStringForNull(value: (dic["gender"] as AnyObject))
@@ -66,17 +66,17 @@ class UserContactsParser: NSObject
 //                       birth_Date = nil
                     }
                     
-                    if (fName + lName).trimmingCharacters(in: .whitespaces).count < 1
-                    {
-                        if phoneNo.trimmingCharacters(in: .whitespaces).count > 1
-                        {
-                            fName = phoneNo
-                        }
-                        else if email.trimmingCharacters(in: .whitespaces).count > 1
-                        {
-                             fName = email
-                        }
-                    }
+//                    if (fName + lName).trimmingCharacters(in: .whitespaces).count < 1
+//                    {
+//                        if phoneNo.trimmingCharacters(in: .whitespaces).count > 1
+//                        {
+//                            fName = phoneNo
+//                        }
+//                        else if email.trimmingCharacters(in: .whitespaces).count > 1
+//                        {
+//                             fName = email
+//                        }
+//                    }
                     
                     
                     if contact == nil {

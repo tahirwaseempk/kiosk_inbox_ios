@@ -38,6 +38,14 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         self.setupControls()
     }
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        self.setupControls()
+        
+    }
+    
     func setupControls()
     {
         if #available(iOS 13.0, *)
@@ -209,9 +217,9 @@ class ContactsListViewController: UIViewController, UITableViewDelegate, UITable
         {
             self.resignAllControls()
 
-//            self.uploadContacts_Tapped(self.menuAddButton)
+            self.uploadContacts_Tapped(self.menuAddButton)
 
-            self.menuContainerView.isHidden = false
+//            self.menuContainerView.isHidden = false
         }
     }
     

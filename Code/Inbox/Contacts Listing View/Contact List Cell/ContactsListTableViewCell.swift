@@ -14,7 +14,11 @@ class ContactsListTableViewCell: UITableViewCell
     
     func loadCell(chatModel:UserContact)
     {
-        self.titleLbl.text = (chatModel.firstName ?? "") + " " + (chatModel.lastName ?? "")
+        if (chatModel.firstName == "" && chatModel.lastName == ""){
+            self.titleLbl.text = chatModel.phoneNumber
+        } else {
+            self.titleLbl.text = (chatModel.firstName ?? "") + " " + (chatModel.lastName ?? "")
+        }
     }
     
     func reset()

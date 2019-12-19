@@ -1595,14 +1595,14 @@ class WebManager: NSObject
           "authorization":token,
           "Accept": "application/json",
           "User-Agent": "PostmanRuntime/7.18.0",
-          "Cache-Control": "no-cache",
-          "Postman-Token": "1109ca7c-a429-434f-bc9e-3c27fd2845d2,1227c70f-d9dc-41c4-8c62-1881c3ab08c5",
-          "Host": "services.textingline.com",
+          //"Cache-Control": "no-cache",
+          //"Postman-Token": "1109ca7c-a429-434f-bc9e-3c27fd2845d2,1227c70f-d9dc-41c4-8c62-1881c3ab08c5",
+          //"Host": "services.textingline.com",
           "Accept-Encoding": "gzip, deflate",
-          "Cookie": "JSESSIONID=B730EECA8E46E98154B641318586D3D5",
-          "Content-Length": "1049",
-          "Connection": "keep-alive",
-          "cache-control": "no-cache"
+          //"Cookie": "JSESSIONID=B730EECA8E46E98154B641318586D3D5",
+          //"Content-Length": "1049",
+          //"Connection": "keep-alive",
+          //"cache-control": "no-cache"
         ]
 
         let request = NSMutableURLRequest(url: NSURL(string:url)! as URL,cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10.0)

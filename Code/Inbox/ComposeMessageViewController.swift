@@ -25,7 +25,9 @@ class ComposeMessageViewController: UIViewController {
     
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
 
-    
+    @IBOutlet weak var contactsButton: UIButton!
+    var shouldShowContactsButton = true
+
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var mobileNumberView: UIView!
     
@@ -44,6 +46,12 @@ class ComposeMessageViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        
+        if shouldShowContactsButton == false
+        {
+            self.contactsButton.isHidden = true
+        }
+        
         
         //headerView.backgroundColor = AppThemeColor
        // mobileNumberView.backgroundColor = AppThemeColor

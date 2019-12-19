@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,9 +44,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AH-eQ-z4N" userLabel="Tag Button">
-                                        <rect key="frame" x="295.5" y="25" width="53.5" height="40"/>
+                                        <rect key="frame" x="309" y="25" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="5AH-eQ-z4N" secondAttribute="height" multiplier="2:1.5" id="caF-Pu-SBU"/>
+                                            <constraint firstAttribute="height" constant="40" id="buc-uq-zz9"/>
+                                            <constraint firstAttribute="width" secondItem="5AH-eQ-z4N" secondAttribute="height" multiplier="1:1" id="caF-Pu-SBU"/>
                                         </constraints>
                                         <state key="normal" image="tagIcon"/>
                                         <connections>

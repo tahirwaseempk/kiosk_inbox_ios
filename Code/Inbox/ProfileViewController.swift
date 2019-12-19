@@ -184,7 +184,7 @@ class ProfileViewController: UIViewController {
      
      func cornerRadius()
      {
-         self.profileDoneButton.layer.cornerRadius = self.profileDoneButton.bounds.size.height / 2.0
+         //self.profileDoneButton.layer.cornerRadius = self.profileDoneButton.bounds.size.height / 2.0
          
          //self.createTagAlertView.layer.cornerRadius = 5.0
      }
