@@ -78,21 +78,21 @@ extension UserContact
         return contact
     }
      
-    static func getAllContacts(completionBlockSuccess successBlock:@escaping ((Array<UserContact>) -> (Void)), andFailureBlock failureBlock:@escaping ((Error?) -> (Void)))
-    {
-        if let user = User.getLoginedUser()
-        {
-            var paramsDic = Dictionary<String, Any>()
-            
-            paramsDic["token"] = user.token
-                       
-            WebManager.getAllContacs(params: paramsDic, contactParser:UserContactsParser(), completionBlockSuccess: successBlock, andFailureBlock:failureBlock)
-        }
-        else
-        {
-            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
-        }
-    }
+//    static func getAllContacts(completionBlockSuccess successBlock:@escaping ((Array<UserContact>) -> (Void)), andFailureBlock failureBlock:@escaping ((Error?) -> (Void)))
+//    {
+//        if let user = User.getLoginedUser()
+//        {
+//            var paramsDic = Dictionary<String, Any>()
+//            
+//            paramsDic["token"] = user.token
+//                       
+//            WebManager.getAllContacs(params: paramsDic, contactParser:UserContactsParser(), completionBlockSuccess: successBlock, andFailureBlock:failureBlock)
+//        }
+//        else
+//        {
+//            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+//        }
+//    }
     
     static func assignTagToContacts(tag:Tag, contacts:Array<UserContact> ,completionBlockSuccess successBlock:@escaping ((Bool) -> (Void)), andFailureBlock failureBlock:@escaping ((Error?) -> (Void)))
     {

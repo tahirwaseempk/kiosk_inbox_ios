@@ -825,37 +825,37 @@ extension User
             var paramsDic = Dictionary<String, Any>()
             paramsDic["token"] = user.token
             
-                        WebManager.getAllContacs(params: paramsDic, contactParser: UserContactsParser(), completionBlockSuccess:{(response:Array<UserContact>?) -> (Void) in
-            
-                            DispatchQueue.global(qos: .background).async
-                                {
-                                    DispatchQueue.main.async
-                                        {
-            self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
+            WebManager.getAllContacs(params: paramsDic, contactParser: UserContactsParser(), completionBlockSuccess:{(response:Array<UserContact>?) -> (Void) in
                 
                 DispatchQueue.global(qos: .background).async
                     {
                         DispatchQueue.main.async
                             {
-                                CoreDataManager.coreDataManagerSharedInstance.saveContext()
-                                successBlock()
+                                self.getLatestConversations(completionBlockSuccess: { (conversations: Array<Conversation>?) -> (Void) in
+                                    
+                                    DispatchQueue.global(qos: .background).async
+                                        {
+                                            DispatchQueue.main.async
+                                                {
+                                                    CoreDataManager.coreDataManagerSharedInstance.saveContext()
+                                                    successBlock()
+                                            }
+                                    }
+                                    
+                                }, andFailureBlock: { (error: Error?) -> (Void) in
+                                    
+                                    failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Request_Completed_Error]))
+                                    
+                                    
+                                    failureBlock(error)
+                                })
+                                
                         }
                 }
+            }) { (error: Error?) -> (Void) in
                 
-            }, andFailureBlock: { (error: Error?) -> (Void) in
-                
-                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.Request_Completed_Error]))
-                
-                
-                failureBlock(error)
-            })
-            
-                                    }
-                                }
-                        }) { (error: Error?) -> (Void) in
-            
-                            failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
-                        }
+                failureBlock(NSError(domain:"com.inbox.amir",code:400,userInfo:[NSLocalizedDescriptionKey:WebManager.User_Not_Logined]))
+            }
         }
         else
         {

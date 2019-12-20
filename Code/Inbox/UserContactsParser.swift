@@ -19,6 +19,8 @@ class UserContactsParser: NSObject
     //************************************************************************************************//
     func parseUserContacts(json:Dictionary<String,Any>) -> Array<UserContact>
     {
+        let contactsListOld:Array<UserContact> = (User.loginedUser?.userContacts?.allObjects as? Array<UserContact>)!
+
         var contactsArr = Array<UserContact>()
         
         var tempDictionary = Dictionary<String,Any>()
@@ -50,7 +52,10 @@ class UserContactsParser: NSObject
                     let state = checkStringForNull(value: (locationDict["state"] as AnyObject))
                     //let birth_Date = checkStringForNull(value: (locationDict["birthDate"] as AnyObject))
                     
+                    
+                    
                     var contact: UserContact? = UserContact.getContactFromID(conID: contactId)
+                    
                     
                     var birth_Date = Date(timeIntervalSinceReferenceDate: -2209014432000) // Feb 2, 1997, 10:26 AM
                     
@@ -164,6 +169,24 @@ class UserContactsParser: NSObject
             //----- Check Login User Contact End -----// */
         }
         
+        for contactOld in contactsListOld
+        {
+            var isFound = false
+
+            for contactRcvd in contactsArr
+            {
+                if contactRcvd.contactId == contactOld.contactId
+                {
+                    isFound = true
+                }
+            }
+            
+            if isFound == false
+            {
+                contactOld.managedObjectContext?.delete(contactOld)
+            }
+        }
+
         return contactsArr
     }
     //************************************************************************************************//
