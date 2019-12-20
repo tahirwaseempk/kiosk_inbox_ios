@@ -3098,7 +3098,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 13.0;
+				CURRENT_PROJECT_VERSION = 14.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TWA5JJ29B2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3132,7 +3132,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 13.0;
+				CURRENT_PROJECT_VERSION = 14.0;
 				DEVELOPMENT_TEAM = TWA5JJ29B2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
