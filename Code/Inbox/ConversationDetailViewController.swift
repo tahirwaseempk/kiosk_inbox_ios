@@ -5,51 +5,15 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
 {
     @IBOutlet weak var sendTextField: UITextView!
     @IBOutlet weak var messageFromLabel: UILabel!
-    @IBOutlet weak var messageNumberLabel: UILabel!
-    @IBOutlet weak var shortCodeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var closeView: UIView!
-    
     
     @IBOutlet weak var scrollButton: UIButton!
 
     @IBOutlet weak var inputCharacterCountLabel: UILabel!
     
     @IBOutlet weak var chawalView: UIView!
-    /////////////////////////////////////////////////
-    @IBOutlet weak var cross_Button: UIButton!
-    @IBOutlet weak var Optout_Button: UIButton! // Profile View
-    @IBOutlet weak var schedule_Button: UIButton!
     
     @IBOutlet weak var sendButton: UIButton!
-    
-    // MARK: - Profile View Outlets
-    
-    @IBOutlet var profileV: UIView!
-    @IBOutlet weak var profileNavView: UIView!
-    
-    @IBOutlet weak var profileHeadingLabel: UILabel!
-    @IBOutlet weak var profileUsernameLabel: UILabel!
-    
-    @IBOutlet weak var delete_Button: UIButton!
-    
-    @IBOutlet weak var profileSaveButton: UIButton!
-    @IBOutlet weak var profileEmailTextField: FloatLabelTextField!
-    @IBOutlet weak var profileFirstNameTextField: FloatLabelTextField!
-    @IBOutlet weak var profileLastNameTextField: FloatLabelTextField!
-    @IBOutlet weak var profileDOBTextField: FloatLabelTextField!
-    @IBOutlet weak var profileGenderTextField: FloatLabelTextField!
-    @IBOutlet weak var profileAddressTextField: FloatLabelTextField!
-    @IBOutlet weak var profileStateTextField: FloatLabelTextField!
-    @IBOutlet weak var profileZipCodeTextField: FloatLabelTextField!
-    
-    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
-
-    private var selectedRow: Int = 0
-    var profileDateOfBirth = Date()
-    
-    // MARK: -
-    /////////////////////////////////////////////////
     
     @IBOutlet weak var header_View: UIView!
     var scheduleAppointmentViewController:ScheduleAppointmentViewController!
@@ -60,227 +24,15 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     var selectedConversation:Conversation! = nil
     
-    //    var scrollListener:PaginatedTableScrollListener!
-    
-    var isShowActivityIndicator:Bool = false
     
     let imagePicker = UIImagePickerController()
     
     let refreshControl = UIRefreshControl()
     
-    /////////////////////////////////////////////////
-    // MARK: - Profile View Methods
-    @IBAction func profileBackButtonTapped(_ sender: Any) {
-        
-        self.profileV.removeFromSuperview()
-        
-        //self.profileHeadingLabel.text = ""
-        self.profileUsernameLabel.text = ""
-        
-        self.profileEmailTextField.text = ""
-        self.profileFirstNameTextField.text = ""
-        self.profileLastNameTextField.text = ""
-        self.profileDOBTextField.text = ""
-        self.profileGenderTextField.text = ""
-        self.profileAddressTextField.text = ""
-        self.profileStateTextField.text = ""
-        self.profileZipCodeTextField.text = ""
-        
-    }
-    
-    func updateFirstLastName (_ convObj: Conversation)-> Bool{
-        
-        let headingStr = (convObj.receiver?.firstName)! + " " + (convObj.receiver?.lastName)!
-        //headingStr = headingStr.uppercased()
-        //self.profileHeadingLabel.text = headingStr
-        self.messageFromLabel.text = headingStr
-        
-        return true
-    }
-    
-    
-    @IBAction func profileDoneButton_Tapped(_ sender: Any) {
-        
-        self.profileEmailTextField.resignFirstResponder()
-        self.profileFirstNameTextField.resignFirstResponder()
-        self.profileLastNameTextField.resignFirstResponder()
-        self.profileDOBTextField.resignFirstResponder()
-        self.profileGenderTextField.resignFirstResponder()
-        self.profileAddressTextField.resignFirstResponder()
-        self.profileStateTextField.resignFirstResponder()
-        self.profileZipCodeTextField.resignFirstResponder()
-        
-        ProcessingIndicator.show()
-        
-        var paramsDic = Dictionary<String, Any>()
-        paramsDic["firstName"]   = self.profileFirstNameTextField.text
-        paramsDic["lastName"]    = self.profileLastNameTextField.text
-        /////////////////////////////////////////////////
-        if let dateStr:String = self.profileDOBTextField.text {
-            /////////////////////////////////////////////////
-            if dateStr.count > 0 {
-                let utcFormatter = DateFormatter()
-                utcFormatter.dateFormat = UTC_DATE_TIME_APPOINTMENT
-                utcFormatter.timeZone = TimeZone(abbreviation: "UTC")
-                let utcTimeZoneStr = utcFormatter.string(from: self.profileDateOfBirth)
-                paramsDic["birthDate"]   = utcTimeZoneStr
-            }
-            /////////////////////////////////////////////////
-        }
-        /////////////////////////////////////////////////
-        paramsDic["gender"]      = self.profileGenderTextField.text
-        paramsDic["email"]       = self.profileEmailTextField.text
-        paramsDic["address"]     = self.profileAddressTextField.text
-        paramsDic["state"]       = self.profileStateTextField.text
-        paramsDic["zipCode"]     = self.profileZipCodeTextField.text
-        /////////////////////////////////////////////////
-        paramsDic["contactID"]   = String((self.selectedConversation.receiver?.contactId)!)
-        /////////////////////////////////////////////////
-        User.updateContact(params:paramsDic, conversationObj: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            if status == true {
-                                
-                                ProcessingIndicator.hide()
-                                
-                                //                                self.selectedConversation.receiver.
-                                if self.selectedConversation != nil {
-                                    
-                                    _ =  self.updateFirstLastName(self.selectedConversation)
-                                    
-                                }
-                                
-                                let alert = UIAlertController(title: "Success", message: "Contact updated sucessfully.", preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                
-                                self.present(alert, animated: true, completion: nil)
-                            }
-                            else
-                            {
-                                ProcessingIndicator.hide()
-                                let alert = UIAlertController(title: "Error", message: "Some error occured, please try again later.", preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                            }
-                    }
-            }
-        }, andFailureBlock: { (error: Error?) -> (Void) in
-            
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            ProcessingIndicator.hide()
-                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                    }
-            }
-        })
-    }
-    
-    @IBAction func profileDOBButton_Tapped(_ sender: UIButton) {
-        
-        self.view.endEditing(true)
-        
-        DatePickerPopover(title: "")
-            .setDateMode(.date)
-            .setSelectedDate(self.profileDateOfBirth)
-            .setDoneButton(action: { (popOver, selectDate) in
-                print(selectDate)
-                
-                self.profileDateOfBirth = selectDate
-                
-                let dateFormatter =  DateFormatter()
-                dateFormatter.dateFormat = DOB_FORMATE
-                self.profileDOBTextField.text = dateFormatter.string(from: selectDate)
-                
-            })
-            .setCancelButton(action: { _, _ in print("cancel")})
-            .appear(originView: sender, baseViewController: self)
-        
-        
-        
-        
-        DatePickerPopover(title: "")
-            .setDateMode(.time)
-            .setMinuteInterval(1)
-            .setPermittedArrowDirections(.down)
-            .setValueChange(action: { _, selectedDate in
-                print(selectedDate)
-                
-                self.profileDateOfBirth = selectedDate
-                
-                let dateFormatter =  DateFormatter()
-                dateFormatter.dateFormat = DOB_FORMATE
-                self.profileDOBTextField.text = dateFormatter.string(from: selectedDate)
-                
-            })
-            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")} )
-            .setCancelButton(action: { _, _ in print("cancel")})
-            .appear(originView: sender, baseViewController: self)
-        
-    }
-    
-    
-    @IBAction func profileGenderButton_Tapped(_ sender: UIButton) {
-        
-        self.view.endEditing(true)
-        
-        
-        /// Create StringPickerPopover:
-        let p = StringPickerPopover(title: "Select Gender", choices: ["M","F"])
-            //.setDisplayStringFor(displayStringFor)
-            .setValueChange(action: { _, _, selectedString in
-                print("current string: \(selectedString)")
-            })
-            //.setFontSize(16)
-            .setDoneButton(
-                action: { popover, selectedRow, selectedString in
-                    print("done row \(selectedRow) \(selectedString)")
-                    self.selectedRow = selectedRow
-                    self.profileGenderTextField.text = selectedString
-                    
-            })
-            .setCancelButton(action: {_, _, _ in
-                print("cancel") })
-            .setSelectedRow(selectedRow)
-        p.appear(originView: sender, baseViewController: self)
-        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
-    }
-    
-    
-    @IBAction func profileStateButton_Tapped(_ sender: UIButton) {
-        
-        self.view.endEditing(true)
-        
-        /// Create StringPickerPopover:
-        let p = StringPickerPopover(title: "Select State", choices: ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC","DE","FM","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MP","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"])
-            // .setDisplayStringFor(displayStringFor)
-            .setValueChange(action: { _, _, selectedString in
-                print("current string: \(selectedString)")
-            })
-            //.setFontSize(16)
-            .setDoneButton(
-                action: { popover, selectedRow, selectedString in
-                    print("done row \(selectedRow) \(selectedString)")
-                    self.selectedRow = selectedRow
-                    self.profileStateTextField.text = selectedString
-                    
-            })
-            .setCancelButton(action: {_, _, _ in
-                print("cancel") })
-            .setSelectedRow(selectedRow)
-        p.appear(originView: sender, baseViewController: self)
-        p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
-        
-    }
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: -
-    /////////////////////////////////////////////////
-    // MARK: - MAIN VIEW CONTROLLER STARTS HERE
+    // MARK: Main View Controllers Methods
     
     override func viewDidLoad() {
         
@@ -324,7 +76,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         //sendButton.layer.borderColor =  UIColor.white.cgColor
         
         
-        profileSaveButton.layer.cornerRadius = profileSaveButton.bounds.height/BUTTON_RADIUS
         
         /*
          switch environment {
@@ -409,28 +160,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         {
             _ = self.conversationSelected(conversation: self.selectedConversation)
         }
-        
-        //////////////////////////////////////////////////////////////////////
-        self.profileEmailTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
-        self.profileFirstNameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        self.profileLastNameTextField.layer.sublayerTransform  = CATransform3DMakeTranslation(8, 0, 0)
-        self.profileDOBTextField.layer.sublayerTransform       = CATransform3DMakeTranslation(8, 0, 0)
-        self.profileGenderTextField.layer.sublayerTransform    = CATransform3DMakeTranslation(8, 0, 0)
-        self.profileAddressTextField.layer.sublayerTransform   = CATransform3DMakeTranslation(8, 0, 0)
-        self.profileStateTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
-        self.profileZipCodeTextField.layer.sublayerTransform   = CATransform3DMakeTranslation(8, 0, 0)
-        
-        self.profileEmailTextField.isEnabled     = true
-        self.profileFirstNameTextField.isEnabled = true
-        self.profileLastNameTextField.isEnabled  = true
-        self.profileDOBTextField.isEnabled       = false
-        self.profileGenderTextField.isEnabled    = false
-        self.profileAddressTextField.isEnabled   = true
-        self.profileStateTextField.isEnabled     = false
-        self.profileZipCodeTextField.isEnabled   = true
-        //////////////////////////////////////////////////////////////////////
-        
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -453,26 +182,10 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     @objc func refreshListingTable(refreshControl: UIRefreshControl) {
         
         self.callAdhocMessagesWebService("")
-        
-        // self.selectedConversation.messages.a
     }
     
-    
-    
-    
-    
-    // MARK: - Button Tapped Methods
-    
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        
-        self.closeView.frame = self.view.bounds
-        
-        self.view.addSubview(self.closeView)
-    }
-    
-    @IBAction func closeViewDismisssButtonTapped(_ sender: Any) {
-        self.closeView.removeFromSuperview()
-    }
+    // MARK: -
+    // MARK: Button Tapped Actions
     
     @IBAction func backButton_Tapped(_ sender: Any) {
         
@@ -489,7 +202,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
         else
         {
-            self.closeView.removeFromSuperview()
             self.scheduleAppointmentViewController = UIStoryboard(name: "ScheduleAppointment", bundle: nil).instantiateViewController(withIdentifier: "ScheduleAppointmentViewController") as? ScheduleAppointmentViewController
             
             
@@ -517,216 +229,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         }
         else
         {
-            self.closeView.removeFromSuperview()
-            
-            
-            //            if (self.selectedConversation.receiver?.firstName?.isEmpty == false &&
-            //                self.selectedConversation.receiver?.lastName?.isEmpty == false)
-            //            {
-            //                let headingStr = (self.selectedConversation.receiver?.firstName)! + " " + (self.selectedConversation.receiver?.lastName)!
-            //                headingStr = headingStr.uppercased()
-            //                self.profileHeadingLabel.text = headingStr
-            //            }
-            //            else {
-            //                self.profileHeadingLabel.text = ""
-            //            }
-            
-            
             self.loadProfileView()
-            
             return
-            
-            
-            
-            
-            
-            
-            self.profileUsernameLabel.text = (self.selectedConversation.receiver?.phoneNumber)!
-            
-            self.profileEmailTextField.text = self.selectedConversation.receiver?.email
-            self.profileFirstNameTextField.text = self.selectedConversation.receiver?.firstName
-            self.profileLastNameTextField.text = self.selectedConversation.receiver?.lastName
-            
-            
-            
-            //    "birthDate": "1990-06-13T17:00:00Z",
-            
-            let dateFormatter =  DateFormatter()
-            dateFormatter.dateFormat = DOB_FORMATE
-            let outStr = dateFormatter.string(from: (self.selectedConversation.receiver?.birthDate)!)
-            
-            if (outStr == "07/10/68000") {
-                self.profileDOBTextField.text = ""
-            } else {
-                self.profileDOBTextField.text = outStr
-                self.profileDateOfBirth = (self.selectedConversation.receiver?.birthDate)!
-            }
-            //            if ((self.selectedConversation.receiver?.birthDate)
-            //            {
-            //                //-----------------------------------------------------------//
-            //                //-----------------------------------------------------------//
-            //                let dateFormatter =  DateFormatter()
-            //                //dateFormatter.timeZone = TimeZone.current
-            //                dateFormatter.dateFormat = DOB_FORMATE
-            //                let outStr = dateFormatter.string(from: (self.selectedConversation.receiver?.birthDate)!)
-            //                //-----------------------------------------------------------//
-            //            //    "birthDate": "1990-06-13T17:00:00Z",
-            //
-            //                //-----------------------------------------------------------//
-            //                self.profileDOBTextField.text = outStr
-            //                self.profileDobDate = (self.selectedConversation.receiver?.birthDate)!
-            //            }
-            //            else {
-            //                self.profileDOBTextField.text = ""
-            //            }
-            
-            self.profileGenderTextField.text = self.selectedConversation.receiver?.gender
-            self.profileAddressTextField.text = self.selectedConversation.receiver?.address
-            self.profileStateTextField.text = self.selectedConversation.receiver?.state
-            self.profileZipCodeTextField.text = self.selectedConversation.receiver?.zipCode
-            
-            
-            self.profileV.frame = self.view.bounds
-            
-            self.view.addSubview(self.profileV)
-            
-            //
-            //            let alert = UIAlertController(title: "Message", message: "Opt Out functionality is coming soon.", preferredStyle: UIAlertControllerStyle.alert)
-            //            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            //            self.present(alert, animated: true, completion: nil)
-            //            return
-            
-            /*
-             ProcessingIndicator.show()
-             
-             User.optOutFromConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-             
-             DispatchQueue.global(qos: .background).async
-             {
-             DispatchQueue.main.async
-             {
-             ProcessingIndicator.hide()
-             
-             if status == true
-             {
-             let alert = UIAlertController(title: "Message", message: "Number has been successfully been opted out.", preferredStyle: UIAlertControllerStyle.alert)
-             
-             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-             
-             self.present(alert, animated: true, completion: nil)
-             }
-             else if status == false
-             {
-             let alert = UIAlertController(title: "Error", message: "Number failed to opt out from list.", preferredStyle: UIAlertControllerStyle.alert)
-             
-             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-             
-             self.present(alert, animated: true, completion: nil)
-             }
-             }
-             }
-             }, andFailureBlock: { (error: Error?) -> (Void) in
-             
-             DispatchQueue.global(qos: .background).async
-             {
-             DispatchQueue.main.async
-             {
-             ProcessingIndicator.hide()
-             
-             let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-             
-             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-             
-             self.present(alert, animated: true, completion: nil)
-             }
-             }
-             })
-             */
-        }
-    }
-    func deleteMessageFromConverstaion() {
-        
-        ProcessingIndicator.show()
-        
-        User.deleteLocalConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
-            
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            ProcessingIndicator.hide()
-                            
-                            if status == true
-                            {
-                                
-                                if let delegate = self.delegate
-                                {
-                                    delegate.conversationRemoved()
-                                }
-                                
-                                self.navigationController?.popViewController(animated: true)
-                            }
-                            else if status == false
-                            {
-                                let alert = UIAlertController(title: "Error", message: "Conversation has been failed to be deleted.", preferredStyle: UIAlertControllerStyle.alert)
-                                
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                
-                                self.present(alert, animated: true, completion: nil)
-                            }
-                    }
-            }
-        }, andFailureBlock: { (error: Error?) -> (Void) in
-            
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            ProcessingIndicator.hide()
-                            
-                            if error != nil{
-                                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                                
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                                
-                                self.present(alert, animated: true, completion: nil)
-                                
-                            } else {
-                                
-                                if let delegate = self.delegate
-                                {
-                                    delegate.conversationRemoved()
-                                }
-                                self.navigationController?.popViewController(animated: true)
-                            }
-                    }
-            }
-        })
-    }
-    
-    @IBAction func deleteMessage_Tapped(_ sender: Any) {
-        
-        if (self.selectedConversation == nil)
-        {
-            let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-        else
-        {
-            
-            let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete this contact?", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler: { (_) in
-                self.deleteMessageFromConverstaion()
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-            
-            self.present(alert, animated: true, completion: nil)
-            
         }
     }
     
@@ -1033,83 +537,101 @@ extension ConversationDetailViewController:UITextViewDelegate
     func clearTextField()
     {
         self.sendTextField.text = "Please enter message here"
-
+        
         self.inputCharacterCountLabel.text = "Character Count 0/250"
-
+        
         self.sendTextField.textColor = UIColor.lightGray
     }
-        func textViewDidChange(_ textView: UITextView)
-        {
-            self.textViewHeightConstraint.constant = textView.sizeThatFits(CGSize(width:textView.frame.size.width, height:CGFloat.greatestFiniteMagnitude)).height
-            
-            textView.layoutIfNeeded()
-            
-            textView.setNeedsDisplay()
-        }
-        
-        
-        func textViewDidBeginEditing(_ textView: UITextView) {
-            
-            if textView.textColor == UIColor.lightGray {
-                textView.text = nil
-                textView.textColor = UIColor.black
-            }
-        }
-        
-        func textViewDidEndEditing(_ textView: UITextView) {
-            
-            if textView.text.isEmpty {
-                textView.text = "Please enter message here"
-                textView.textColor = UIColor.lightGray
-            }
-        }
-        
-        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
-        {
-            if (text == "\n") {
-               textView.resignFirstResponder()
-               return false
-                
-            }
-            
-            let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
-            
-            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
-            let filtered = text.components(separatedBy: cs).joined(separator: "")
-            let isAllowed = (text == filtered)
-            
-            if isAllowed == false {
-                return false
-            }
-            
-            let reminingCount = sendMessageMaxLength - str.count
-            
-            if reminingCount >= 0 {
-                self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
-            }
-            
-    //        var frame = self.messageTextView.frame
-    //        frame.size.height = self.messageTextView.contentSize.height
-            //       self.textViewHeightConstraint = frame.size.height
-
-    //        if str.count == 25 {
-    //        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height + 35
-    //        }
-    //        self.messageTextView.setNeedsLayout()
-            
-            if str.count > sendMessageMaxLength {
-                return false
-            }
-            
-            return true
-        }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//
-//        sendTextField.resignFirstResponder()
-//
-//        return true;
-//    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        self.updateTextViewHeight()
+    }
+    
+    func updateTextViewHeight()
+    {
+        let height = sendTextField.sizeThatFits(CGSize(width:sendTextField.frame.size.width, height:CGFloat.greatestFiniteMagnitude)).height
+        
+        if height > 100
+        {
+            self.sendTextField.isScrollEnabled = true
+        }
+        else
+        {
+            self.textViewHeightConstraint.constant = height
+            
+            self.sendTextField.layoutIfNeeded()
+            
+            self.sendTextField.setNeedsDisplay()
+            
+            self.sendTextField.isScrollEnabled = false
+        }
+    }
+    
+        
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if textView.text.isEmpty {
+            textView.text = "Please enter message here"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+            
+        }
+        
+        let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+        
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = text.components(separatedBy: cs).joined(separator: "")
+        let isAllowed = (text == filtered)
+        
+        if isAllowed == false {
+            return false
+        }
+        
+        let reminingCount = sendMessageMaxLength - str.count
+        
+        if reminingCount >= 0 {
+            self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
+        }
+        
+        //        var frame = self.messageTextView.frame
+        //        frame.size.height = self.messageTextView.contentSize.height
+        //       self.textViewHeightConstraint = frame.size.height
+        
+        //        if str.count == 25 {
+        //        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height + 35
+        //        }
+        //        self.messageTextView.setNeedsLayout()
+        
+        if str.count > sendMessageMaxLength {
+            return false
+        }
+        
+        return true
+    }
+    
+    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //
+    //        sendTextField.resignFirstResponder()
+    //
+    //        return true;
+    //    }
 }
 
 extension ConversationDetailViewController:MessageTableViewDataSourceProtocol

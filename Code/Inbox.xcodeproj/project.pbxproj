@@ -912,7 +912,6 @@
 		294432AD2295E09600370FF3 /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
 		294432B22295E09700370FF3 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		294432B62295E09700370FF3 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
-		29472EFC2137190500DC2747 /* TextingLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
 		2949C60120C3196B000A4BB8 /* PhoneNumberKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PhoneNumberKit; path = "../../../../../../../Users/amir/Desktop/PhoneNumberKit-master/PhoneNumberKit"; sourceTree = "<group>"; };
 		294DD87421C4697E004536D8 /* GoogleService-Info_Photo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info_Photo.plist"; path = "../APNS/PhotoTextingLine/GoogleService-Info_Photo.plist"; sourceTree = "<group>"; };
 		294DD87621C4698D004536D8 /* GoogleService-Info_Fan.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info_Fan.plist"; path = "../APNS/FanConnectNow/GoogleService-Info_Fan.plist"; sourceTree = "<group>"; };
@@ -940,6 +939,7 @@
 		29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		29E5E13E21767A5E00BF642C /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		29F0506323C6749A0054B82D /* TextingLine.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
 		29FD0F1D2114BADF00062362 /* GenericImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GenericImages.xcassets; sourceTree = "<group>"; };
 		29FD0F202114C2A400062362 /* Fanconnect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fanconnect.xcassets; sourceTree = "<group>"; };
 		29FD0F232114C30600062362 /* PhotoTexting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotoTexting.xcassets; sourceTree = "<group>"; };
@@ -1230,8 +1230,8 @@
 			children = (
 				2981430E2200E230007D4495 /* Text_Attendant.entitlements */,
 				2934F3922191776F003ACE4E /* PhotoTextingLine.entitlements */,
-				29472EFC2137190500DC2747 /* TextingLine.entitlements */,
 				2960E1C82116F3B500F85ED0 /* FanConnect.entitlements */,
+				29F0506323C6749A0054B82D /* TextingLine.entitlements */,
 				29017325211666B600D00E06 /* SMSFactory.entitlements */,
 				1ADE9F7C1EF98E48006C2CAC /* Classes */,
 				1ADE9F921EF98E5E006C2CAC /* Resources */,
@@ -3098,7 +3098,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14.0;
+				CURRENT_PROJECT_VERSION = 16.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TWA5JJ29B2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3132,7 +3132,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SMS Factory inc (TWA5JJ29B2)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14.0;
+				CURRENT_PROJECT_VERSION = 16.0;
 				DEVELOPMENT_TEAM = TWA5JJ29B2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

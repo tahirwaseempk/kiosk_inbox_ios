@@ -53,56 +53,62 @@ class ComposeMessageViewController: UIViewController {
         }
         
         
+        //IQKeyboardManager.sharedManager().enable = false
+        
         //headerView.backgroundColor = AppThemeColor
-       // mobileNumberView.backgroundColor = AppThemeColor
+        // mobileNumberView.backgroundColor = AppThemeColor
         
         //sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-       // sendButton.tintColor = AppThemeColor
-       // sendButton.layer.borderColor = AppThemeColor.cgColor
-       
+        // sendButton.tintColor = AppThemeColor
+        // sendButton.layer.borderColor = AppThemeColor.cgColor
+        
         self.chawalView.layer.cornerRadius =  self.chawalView.bounds.height/2
-
+        
         /*
-        switch environment {
-
-        case .texting_Line:
-        headerView.backgroundColor = AppThemeColor
-        mobileNumberView.backgroundColor = AppThemeColor
-
-        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = AppThemeColor
-        sendButton.layer.borderColor = AppThemeColor.cgColor
-
-        case .sms_Factory:
-        headerView.backgroundColor = AppThemeColor
-        mobileNumberView.backgroundColor = AppThemeColor
+         switch environment {
          
-        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = AppThemeColor
-        sendButton.layer.borderColor = AppThemeColor.cgColor
+         case .texting_Line:
+         headerView.backgroundColor = AppThemeColor
+         mobileNumberView.backgroundColor = AppThemeColor
+         
+         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         sendButton.tintColor = AppThemeColor
+         sendButton.layer.borderColor = AppThemeColor.cgColor
+         
+         case .sms_Factory:
+         headerView.backgroundColor = AppThemeColor
+         mobileNumberView.backgroundColor = AppThemeColor
+         
+         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         sendButton.tintColor = AppThemeColor
+         sendButton.layer.borderColor = AppThemeColor.cgColor
+         
+         case .fan_Connect:
+         headerView.backgroundColor = AppThemeColor
+         mobileNumberView.backgroundColor = AppThemeColor
+         
+         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         sendButton.tintColor = AppThemeColor
+         sendButton.layer.borderColor = AppThemeColor.cgColor
+         
+         case .photo_Texting:
+         headerView.backgroundColor = AppThemeColor
+         mobileNumberView.backgroundColor = AppThemeColor
+         
+         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+         sendButton.tintColor = AppThemeColor
+         sendButton.layer.borderColor = AppThemeColor.cgColor
+         }
+         */
+        
+        if (mobileNumber.count > 0) {
             
-        case .fan_Connect:
-        headerView.backgroundColor = AppThemeColor
-        mobileNumberView.backgroundColor = AppThemeColor
-
-        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = AppThemeColor
-        sendButton.layer.borderColor = AppThemeColor.cgColor
+            mobileTextField.text = mobileNumber
             
-        case .photo_Texting:
-        headerView.backgroundColor = AppThemeColor
-        mobileNumberView.backgroundColor = AppThemeColor
-
-        sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        sendButton.tintColor = AppThemeColor
-        sendButton.layer.borderColor = AppThemeColor.cgColor
-    }
- */
-    
-        mobileTextField.text = mobileNumber
+        }
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-
+        
         
         //backView.layer.cornerRadius = 5;
         self.view.addSubview(backView)
@@ -118,7 +124,7 @@ class ComposeMessageViewController: UIViewController {
     }
     
     @IBAction func cancel_Tapped(_ sender: Any) {
-        
+       
         self.hideComposeMessageView()
     }
     
@@ -154,12 +160,14 @@ class ComposeMessageViewController: UIViewController {
     
     func hideComposeMessageView() {
         
+        self.view.endEditing(true)
         self.view.removeFromSuperview()
         
     }
     
     @IBAction func contactsButton_Tapped(_ sender: Any) {
-        
+        self.view.endEditing(true)
+
         let cnPicker = CNContactPickerViewController()
         cnPicker.delegate = self
         cnPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
@@ -254,13 +262,29 @@ extension String {
 extension ComposeMessageViewController : UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        self.textViewHeightConstraint.constant = messageTextView.sizeThatFits(CGSize(width: messageTextView.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
         
-        textView.layoutIfNeeded()
-        
-        textView.setNeedsDisplay()
+        self.updateTextViewHeight()
     }
     
+    func updateTextViewHeight()
+    {
+        let height = messageTextView.sizeThatFits(CGSize(width:messageTextView.frame.size.width, height:CGFloat.greatestFiniteMagnitude)).height
+        
+        if height > 100
+        {
+            self.messageTextView.isScrollEnabled = true
+        }
+        else
+        {
+            self.textViewHeightConstraint.constant = height
+            
+            self.messageTextView.layoutIfNeeded()
+            
+            self.messageTextView.setNeedsDisplay()
+            
+            self.messageTextView.isScrollEnabled = false
+        }
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
@@ -278,9 +302,21 @@ extension ComposeMessageViewController : UITextViewDelegate {
         }
     }
     
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+ 
+        return false;
+    }
+
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
         
+//        if (text == "\n") {
+//
+//            textView.text = textView.text + "\n"
+//            return true
+//        }
+//
         let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
         
         let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
@@ -297,14 +333,14 @@ extension ComposeMessageViewController : UITextViewDelegate {
             self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
         }
         
-//        var frame = self.messageTextView.frame
-//        frame.size.height = self.messageTextView.contentSize.height
+        //        var frame = self.messageTextView.frame
+        //        frame.size.height = self.messageTextView.contentSize.height
         //       self.textViewHeightConstraint = frame.size.height
-
-//        if str.count == 25 {
-//        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height + 35
-//        }
-//        self.messageTextView.setNeedsLayout()
+        
+        //        if str.count == 25 {
+        //        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height + 35
+        //        }
+        //        self.messageTextView.setNeedsLayout()
         
         if str.count > sendMessageMaxLength {
             return false
