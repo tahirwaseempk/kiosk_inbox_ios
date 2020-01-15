@@ -51,8 +51,7 @@ class ComposeMessageViewController: UIViewController {
         {
             self.contactsButton.isHidden = true
         }
-        
-        
+    
         //IQKeyboardManager.sharedManager().enable = false
         
         //headerView.backgroundColor = AppThemeColor
@@ -123,8 +122,17 @@ class ComposeMessageViewController: UIViewController {
         self.inputCharacterCountLabel.text = "Character Count 0/250"
     }
     
+    
+    @IBAction func backGroudCancelTapped(_ sender: Any) {
+      
+//        self.view.endEditing(true)
+        self.chawalView.endEditing(true)
+//        self.messageTextView.endEditing(true)
+
+    }
+    
     @IBAction func cancel_Tapped(_ sender: Any) {
-       
+
         self.hideComposeMessageView()
     }
     
@@ -166,6 +174,7 @@ class ComposeMessageViewController: UIViewController {
     }
     
     @IBAction func contactsButton_Tapped(_ sender: Any) {
+       
         self.view.endEditing(true)
 
         let cnPicker = CNContactPickerViewController()
@@ -270,7 +279,7 @@ extension ComposeMessageViewController : UITextViewDelegate {
     {
         let height = messageTextView.sizeThatFits(CGSize(width:messageTextView.frame.size.width, height:CGFloat.greatestFiniteMagnitude)).height
         
-        if height > 100
+        if height > 500
         {
             self.messageTextView.isScrollEnabled = true
         }
@@ -302,21 +311,20 @@ extension ComposeMessageViewController : UITextViewDelegate {
         }
     }
     
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
- 
-        return false;
-    }
+//    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+// 
+//        return false;
+//    }
 
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
         
-//        if (text == "\n") {
-//
-//            textView.text = textView.text + "\n"
-//            return true
-//        }
-//
+        if (text == "\n") {
+            textView.text = textView.text + "\n"
+            return true
+        }
+        
         let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
         
         let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted

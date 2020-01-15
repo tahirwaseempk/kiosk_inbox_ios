@@ -189,11 +189,15 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBAction func backButton_Tapped(_ sender: Any) {
         
+        self.view.endEditing(true)
+
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func scheduleAppointment_Tapped(_ sender: Any) {
         
+        self.view.endEditing(true)
+
         if (self.selectedConversation == nil)
         {
             let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
@@ -221,6 +225,8 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     
     @IBAction func profileButton_Tapped(_ sender: Any) {
         
+        self.view.endEditing(true)
+
         if (self.selectedConversation == nil)
         {
             let alert = UIAlertController(title: "Warning", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
@@ -235,7 +241,9 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
     }
     
     @IBAction func sendMessage_Tapped(_ sender: Any) {
-        
+
+        self.view.endEditing(true)
+
         if (self.selectedConversation == nil)
         {
             let alert = UIAlertController(title: "Send Message", message: "Please select conversation first.", preferredStyle: UIAlertControllerStyle.alert)
@@ -541,6 +549,11 @@ extension ConversationDetailViewController:UITextViewDelegate
         self.inputCharacterCountLabel.text = "Character Count 0/250"
         
         self.sendTextField.textColor = UIColor.lightGray
+        
+        self.updateTextViewHeight()
+
+        self.view.endEditing(true)
+
     }
     
     
@@ -589,9 +602,8 @@ extension ConversationDetailViewController:UITextViewDelegate
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
         if (text == "\n") {
-            textView.resignFirstResponder()
-            return false
-            
+            textView.text = textView.text + "\n"
+            return true
         }
         
         let str = (textView.text! as NSString).replacingCharacters(in: range, with: text)
@@ -610,28 +622,12 @@ extension ConversationDetailViewController:UITextViewDelegate
             self.inputCharacterCountLabel.text = "Character Count " + String(str.count) + "/250"
         }
         
-        //        var frame = self.messageTextView.frame
-        //        frame.size.height = self.messageTextView.contentSize.height
-        //       self.textViewHeightConstraint = frame.size.height
-        
-        //        if str.count == 25 {
-        //        self.textViewHeightConstraint.constant = self.messageTextView.contentSize.height + 35
-        //        }
-        //        self.messageTextView.setNeedsLayout()
-        
         if str.count > sendMessageMaxLength {
             return false
         }
         
         return true
     }
-    
-    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    //
-    //        sendTextField.resignFirstResponder()
-    //
-    //        return true;
-    //    }
 }
 
 extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
@@ -648,16 +644,7 @@ extension ConversationDetailViewController:MessageTableViewDataSourceProtocol
     
     @IBAction func scrollButtonTapped(_ sender: Any)
     {
-//        if let lastRow = self.selectedConversation.messages?.count, (lastRow - 1 ) > 0
-//        {
-//            //            self.tableView.scrollToRow(at: IndexPath(row:lastRow-1, section:0), at: .bottom, animated:true)
-//            //            DispatchQueue.main.async {
-//            let indexPath = IndexPath(row: 0, section: 0)
-//            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//
-//            //            }
-//        }
-        
+
         self.tableViewDataSource?.scrollTableViewtoBottom()
         self.scrollButton.isHidden = true
     }

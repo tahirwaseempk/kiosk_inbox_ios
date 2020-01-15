@@ -98,6 +98,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-05-YoR" userLabel="Body View">
                                 <rect key="frame" x="0.0" y="131" width="320" height="349"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w88-gy-RiQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="283"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="backGroudCancelTapped:" destination="AKq-vz-dqd" eventType="touchUpInside" id="KT9-sl-zN8"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-Qf-MNQ" userLabel="BottomView">
                                         <rect key="frame" x="4" y="298" width="312" height="43"/>
                                         <subviews>
@@ -152,8 +159,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.97647058823529409" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="w88-gy-RiQ" firstAttribute="top" secondItem="b5P-05-YoR" secondAttribute="top" id="88b-lB-pwI"/>
+                                    <constraint firstItem="j8D-Qf-MNQ" firstAttribute="top" secondItem="w88-gy-RiQ" secondAttribute="bottom" constant="15" id="Bo2-aH-fQD"/>
+                                    <constraint firstItem="w88-gy-RiQ" firstAttribute="leading" secondItem="b5P-05-YoR" secondAttribute="leading" id="LMF-4d-e6S"/>
                                     <constraint firstAttribute="trailing" secondItem="j8D-Qf-MNQ" secondAttribute="trailing" constant="4" id="Z5J-0z-7bU"/>
                                     <constraint firstItem="j8D-Qf-MNQ" firstAttribute="leading" secondItem="b5P-05-YoR" secondAttribute="leading" constant="4" id="foV-gS-jTr"/>
+                                    <constraint firstAttribute="trailing" secondItem="w88-gy-RiQ" secondAttribute="trailing" id="hJg-9F-A9e"/>
                                     <constraint firstAttribute="bottom" secondItem="j8D-Qf-MNQ" secondAttribute="bottom" constant="8" id="q7X-Yg-p35"/>
                                 </constraints>
                             </view>
