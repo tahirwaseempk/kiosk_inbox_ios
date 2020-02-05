@@ -54,62 +54,30 @@ class ComposeMessageViewController: UIViewController {
     
         //IQKeyboardManager.sharedManager().enable = false
         
-        //headerView.backgroundColor = AppThemeColor
-        // mobileNumberView.backgroundColor = AppThemeColor
-        
-        //sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        // sendButton.tintColor = AppThemeColor
-        // sendButton.layer.borderColor = AppThemeColor.cgColor
-        
+        if environment == .text_Attendant {
+                sendButton.layer.cornerRadius = sendButton.bounds.height/2
+                sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+                sendButton.backgroundColor =  TextAttendantColor
+                sendButton.tintColor = UIColor.white
+                sendButton.layer.borderColor =  UIColor.white.cgColor
+                
+            } else {
+                sendButton.layer.cornerRadius = sendButton.bounds.height/2
+                sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+                sendButton.backgroundColor =  UIColor.black //AppThemeColor
+                sendButton.tintColor = UIColor.white
+                sendButton.layer.borderColor =  UIColor.white.cgColor
+            }
+               
         self.chawalView.layer.cornerRadius =  self.chawalView.bounds.height/2
         
-        /*
-         switch environment {
-         
-         case .texting_Line:
-         headerView.backgroundColor = AppThemeColor
-         mobileNumberView.backgroundColor = AppThemeColor
-         
-         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-         sendButton.tintColor = AppThemeColor
-         sendButton.layer.borderColor = AppThemeColor.cgColor
-         
-         case .sms_Factory:
-         headerView.backgroundColor = AppThemeColor
-         mobileNumberView.backgroundColor = AppThemeColor
-         
-         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-         sendButton.tintColor = AppThemeColor
-         sendButton.layer.borderColor = AppThemeColor.cgColor
-         
-         case .fan_Connect:
-         headerView.backgroundColor = AppThemeColor
-         mobileNumberView.backgroundColor = AppThemeColor
-         
-         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-         sendButton.tintColor = AppThemeColor
-         sendButton.layer.borderColor = AppThemeColor.cgColor
-         
-         case .photo_Texting:
-         headerView.backgroundColor = AppThemeColor
-         mobileNumberView.backgroundColor = AppThemeColor
-         
-         sendButton.setImage(UIImage(named: "new_Send")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-         sendButton.tintColor = AppThemeColor
-         sendButton.layer.borderColor = AppThemeColor.cgColor
-         }
-         */
-        
         if (mobileNumber.count > 0) {
-            
             mobileTextField.text = mobileNumber
-            
         }
+        
         mobileTextField.delegate = self
         mobileTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
-        
-        
-        //backView.layer.cornerRadius = 5;
+                
         self.view.addSubview(backView)
         
         messageTextView.delegate = self

@@ -22,18 +22,31 @@ class UploadContactViewController: UIViewController
         } else {
             // Fallback on earlier versions
         }
+
+        switch environment {
+          case .texting_Line:
+              continueButton.topGradientColor = TextAttendantColor
+              continueButton.bottomGradientColor = TextAttendantColor
+          case .sms_Factory:
+              continueButton.topGradientColor = TextAttendantColor
+              continueButton.bottomGradientColor = TextAttendantColor
+          case .fan_Connect:
+              continueButton.topGradientColor = TextAttendantColor
+              continueButton.bottomGradientColor = TextAttendantColor
+          case .photo_Texting:
+              continueButton.topGradientColor = TextAttendantColor
+              continueButton.bottomGradientColor = TextAttendantColor
+          case .text_Attendant:
+              continueButton.topGradientColor = TextAttendantColor
+              continueButton.bottomGradientColor = TextAttendantColor
+          }
+        
     }
     
     override func viewDidLayoutSubviews()
     {
         super.viewDidLayoutSubviews()
         
-        cornerRadius()
-    }
-       
-    func cornerRadius()
-    {
-        //self.continueButton.layer.cornerRadius = self.continueButton.bounds.size.height / 2.0
     }
     
     @IBAction func backButton_Tapped(_ sender: UIButton)

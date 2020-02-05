@@ -44,6 +44,26 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         
         self.setupControls()
+        
+        
+        switch environment {
+        case .texting_Line:
+            saveDetailButton.topGradientColor = TextAttendantColor
+            saveDetailButton.bottomGradientColor = TextAttendantColor
+        case .sms_Factory:
+            saveDetailButton.topGradientColor = TextAttendantColor
+            saveDetailButton.bottomGradientColor = TextAttendantColor
+        case .fan_Connect:
+            saveDetailButton.topGradientColor = TextAttendantColor
+            saveDetailButton.bottomGradientColor = TextAttendantColor
+        case .photo_Texting:
+            saveDetailButton.topGradientColor = TextAttendantColor
+            saveDetailButton.bottomGradientColor = TextAttendantColor
+        case .text_Attendant:
+            saveDetailButton.topGradientColor = TextAttendantColor
+            saveDetailButton.bottomGradientColor = TextAttendantColor
+        }
+        
     }
     
     func setupControls()
@@ -115,15 +135,6 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLayoutSubviews()
     {
         super.viewDidLayoutSubviews()
-        
-        cornerRadius()
-    }
-    
-    func cornerRadius()
-    {
-        //self.saveDetailButton.layer.cornerRadius = self.saveDetailButton.bounds.size.height / 2.0
-        
-        //self.createTagAlertView.layer.cornerRadius = 5.0
     }
     
     @IBAction func backButtonTapped(_ sender: Any)

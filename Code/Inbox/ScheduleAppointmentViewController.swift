@@ -74,11 +74,6 @@ class ScheduleAppointmentViewController: UIViewController
         
         self.calendarLabel.text = dateFormatter.string(from: currentDate)
         
-        //scheduleAppointmentButton.layer.cornerRadius = scheduleAppointmentButton.frame.size.height / 2.0
-
-        //self.scheduleAppointmentButton.backgroundColor = AppThemeColor
-       //self.scheduleAppointmentButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-    
         self.messageTextView.delegate = self
         self.messageTextView.text = "Enter your message"
         self.messageTextView.textColor = UIColor.lightGray
@@ -96,16 +91,34 @@ class ScheduleAppointmentViewController: UIViewController
         self.selectedMins = String(minutes)
         self.hourLabel.text = self.convertTimeInto12Hours(str: String(hour))
         self.minuteLabel.text = String(minutes)
+        
+        switch environment {
+          case .texting_Line:
+              scheduleAppointmentButton.topGradientColor = TextAttendantColor
+              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
+          case .sms_Factory:
+              scheduleAppointmentButton.topGradientColor = TextAttendantColor
+              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
+          case .fan_Connect:
+              scheduleAppointmentButton.topGradientColor = TextAttendantColor
+              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
+          case .photo_Texting:
+              scheduleAppointmentButton.topGradientColor = TextAttendantColor
+              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
+          case .text_Attendant:
+              scheduleAppointmentButton.topGradientColor = TextAttendantColor
+              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
+//              scheduleAppointmentButton.cornerRadius = 0
+
+          }
 
     }
     
     override func viewDidLayoutSubviews() {
+        
         super.viewDidLayoutSubviews()
-        
-      //  self.scheduleAppointmentButton.layer.cornerRadius = self.scheduleAppointmentButton.frame.size.height / 25.0
-
-        
     }
+    
     func convertTimeInto12Hours(str: String) -> String {
         
         if (str == "12"){

@@ -110,7 +110,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         case .text_Attendant:
             loginImageView.image = UIImage(named: "Login_Page_Logo")
             self.view.backgroundColor = UIColor.white
-            //loginButton.backgroundColor = TextAttendantColor
             loginButton.topGradientColor = TextAttendantColor
             loginButton.bottomGradientColor = TextAttendantColor
             loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)

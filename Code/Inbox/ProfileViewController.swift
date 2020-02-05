@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var zipCodeTextField: FloatLabelTextField!
     @IBOutlet weak var countryTextField: FloatLabelTextField!
     
-    @IBOutlet weak var profileDoneButton: UIButton!
+    @IBOutlet weak var profileDoneButton: GradientButton!
     @IBOutlet weak var profileNavHeaderLabel: UILabel!    
     @IBOutlet weak var profileBackButton: UIButton!
     @IBOutlet weak var profileNavView: UIView!
@@ -110,9 +110,6 @@ class ProfileViewController: UIViewController {
         timeZones[6] = "Hawaiian Time"
         timeZones[7] = "Arizona Time"
         
-       // profileDoneButton.layer.cornerRadius = profileDoneButton.bounds.height/BUTTON_RADIUS
-
-        
         if let user = User.getLoginedUser()
         {
             self.usernameLabel.text        = user.formattedUsername!
@@ -143,51 +140,35 @@ class ProfileViewController: UIViewController {
         self.stateTextField.layer.sublayerTransform       = CATransform3DMakeTranslation(8, 0, 0)
         self.zipCodeTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
         self.countryTextField.layer.sublayerTransform     = CATransform3DMakeTranslation(8, 0, 0)
-
+        
         self.timeZoneTextField.isEnabled = false
         self.stateTextField.isEnabled    = false
         self.countryTextField.isEnabled  = false
-        
-        
-        
-        //self.view.backgroundColor = AppThemeColor
-       // self.profileNavView.backgroundColor = AppThemeColor
-        
-        
-//                switch environment {
-//                case .texting_Line:
-//                    self.view.backgroundColor = AppThemeColor
-//                    profileBackButton.setTitleColor(.white, for: .normal)
-//                case .sms_Factory:
-//                    self.view.backgroundColor = AppThemeColor
-//                    profileBackButton.setTitleColor(.white, for: .normal)
-//                case .fan_Connect:
-//                    self.view.backgroundColor = AppThemeColor
-//                    profileBackButton.setTitleColor(.white, for: .normal)
-//                case .photo_Texting:
-//                    self.view.backgroundColor = AppThemeColor
-//                    profileBackButton.setTitleColor(.white, for: .normal)
-//                case .text_Attendant:
-//                    self.view.backgroundColor = AppThemeColor
-//                    profileBackButton.setTitleColor(.white, for: .normal)
-//
-//        }
+
+        switch environment {
+        case .texting_Line:
+            profileDoneButton.topGradientColor = TextAttendantColor
+            profileDoneButton.bottomGradientColor = TextAttendantColor
+        case .sms_Factory:
+            profileDoneButton.topGradientColor = TextAttendantColor
+            profileDoneButton.bottomGradientColor = TextAttendantColor
+        case .fan_Connect:
+            profileDoneButton.topGradientColor = TextAttendantColor
+            profileDoneButton.bottomGradientColor = TextAttendantColor
+        case .photo_Texting:
+            profileDoneButton.topGradientColor = TextAttendantColor
+            profileDoneButton.bottomGradientColor = TextAttendantColor
+        case .text_Attendant:
+            profileDoneButton.topGradientColor = TextAttendantColor
+            profileDoneButton.bottomGradientColor = TextAttendantColor
+        }
         
     }
     
     override func viewDidLayoutSubviews()
      {
          super.viewDidLayoutSubviews()
-         
-         cornerRadius()
-     }
-     
-     func cornerRadius()
-     {
-         //self.profileDoneButton.layer.cornerRadius = self.profileDoneButton.bounds.size.height / 2.0
-         
-         //self.createTagAlertView.layer.cornerRadius = 5.0
-     }
+    }
 
     // MARK: Actions
     @IBAction func doneButton_Tapped(_ sender: Any) {

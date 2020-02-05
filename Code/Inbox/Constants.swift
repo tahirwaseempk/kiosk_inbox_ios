@@ -37,7 +37,7 @@ enum environmentType {
     text_Attendant
 }
 
-let environment:environmentType = .texting_Line
+let environment:environmentType = .text_Attendant
 
 let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-$[]{};:,./?><' \""
 let ACCEPTABLE_DIGITS = "0123456789"
@@ -55,6 +55,7 @@ let FanAppColor        = UIColor(red: 87/256, green: 179/256, blue: 181/256, alp
 let PhotoAppColor      = UIColor(red: 21/256, green: 144/256, blue: 211/256, alpha: 1.0)
 
 let TextAttendantColor = UIColor(red: 255/256, green: 80/256, blue: 1/256, alpha: 1.0)
+//let TextAttendantColor = UIColor(red: 0/256, green: 0/256, blue: 0/256, alpha: 1.0)
 
 let GrayHeaderColor = UIColor(red: 206/256, green: 205/256, blue: 210/256, alpha: 1.0)
 

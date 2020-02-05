@@ -56,74 +56,28 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         sendTextField.inputAccessoryView = UIView()
         ////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////
         if UIDevice.current.userInterfaceIdiom == .pad {
             //            header_View.backgroundColor = GrayHeaderColor
         } else {
             //            header_View.backgroundColor = AppThemeColor
         }
-        //profileNavView.backgroundColor = AppThemeColor
-        //  cross_Button.backgroundColor = AppThemeColor
-        //  delete_Button.backgroundColor = AppThemeColor
-        // Optout_Button.backgroundColor = AppThemeColor
-        // schedule_Button.backgroundColor = AppThemeColor
-        ////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////
+
         
-        //sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-        //sendButton.backgroundColor = AppThemeColor
-        //sendButton.tintColor = UIColor.white
-        //sendButton.layer.borderColor =  UIColor.white.cgColor
+        if environment == .text_Attendant {
+            sendButton.layer.cornerRadius = sendButton.bounds.height/2
+            sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            sendButton.backgroundColor =  TextAttendantColor
+            sendButton.tintColor = UIColor.white
+            sendButton.layer.borderColor =  UIColor.white.cgColor
+            
+        } else {
+            sendButton.layer.cornerRadius = sendButton.bounds.height/2
+            sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            sendButton.backgroundColor =  UIColor.black //AppThemeColor
+            sendButton.tintColor = UIColor.white
+            sendButton.layer.borderColor =  UIColor.white.cgColor
+        }
         
-        
-        
-        /*
-         switch environment {
-         case .texting_Line:
-         if UIDevice.current.userInterfaceIdiom == .pad {
-         header_View.backgroundColor = GrayHeaderColor
-         } else {
-         header_View.backgroundColor = AppThemeColor
-         }
-         cross_Button.backgroundColor = AppThemeColor
-         delete_Button.backgroundColor = AppThemeColor
-         Optout_Button.backgroundColor = AppThemeColor
-         schedule_Button.backgroundColor = AppThemeColor
-         
-         case .sms_Factory:
-         if UIDevice.current.userInterfaceIdiom == .pad {
-         header_View.backgroundColor = GrayHeaderColor
-         } else {
-         header_View.backgroundColor = AppThemeColor
-         }
-         cross_Button.backgroundColor = AppThemeColor
-         delete_Button.backgroundColor = AppThemeColor
-         Optout_Button.backgroundColor = AppThemeColor
-         schedule_Button.backgroundColor = AppThemeColor
-         
-         case .fan_Connect:
-         if UIDevice.current.userInterfaceIdiom == .pad {
-         header_View.backgroundColor = GrayHeaderColor
-         } else {
-         header_View.backgroundColor = AppThemeColor
-         }
-         cross_Button.backgroundColor = AppThemeColor
-         delete_Button.backgroundColor = AppThemeColor
-         Optout_Button.backgroundColor = AppThemeColor
-         schedule_Button.backgroundColor = AppThemeColor
-         
-         case .photo_Texting:
-         if UIDevice.current.userInterfaceIdiom == .pad {
-         header_View.backgroundColor = GrayHeaderColor
-         } else {
-         header_View.backgroundColor = AppThemeColor
-         }
-         cross_Button.backgroundColor = AppThemeColor
-         delete_Button.backgroundColor = AppThemeColor
-         Optout_Button.backgroundColor = AppThemeColor
-         schedule_Button.backgroundColor = AppThemeColor
-         }
-         */
         
         self.inputCharacterCountLabel.text = "Character Count 0/250"
         
