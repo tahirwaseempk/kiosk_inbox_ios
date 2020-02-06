@@ -132,6 +132,12 @@ enum LINE_POSITION {
 
 let TEXTFIELD_LINE_WIDTH = 0.5
 
+//enum UIUserInterfaceIdiom : Int {
+//    case unspecified
+//    case phone // iPhone and iPod touch style UI
+//    case pad   // iPad style UI (also includes macOS Catalyst)
+//}
+
 
 func updateBadgeCount()
 {

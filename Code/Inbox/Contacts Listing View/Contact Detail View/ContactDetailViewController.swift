@@ -140,8 +140,21 @@ class ContactDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func backButtonTapped(_ sender: Any)
     {
         self.view.endEditing(true)
-        
-        self.navigationController?.popViewController(animated: true)
+                
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            self.navigationController?.popViewController(animated: true)
+        case .pad:
+            self.view.removeFromSuperview()
+       case .unspecified:
+            break
+        case .tv:
+            break
+            //
+        case .carPlay:
+            break
+            //
+        }
     }
     
     @IBAction func createTagButton_Tapped(_ sender: Any)

@@ -728,8 +728,24 @@ extension ConversationDetailViewController:ContactDetailViewControllerDelegate
             viewController.delegate = self
 
             viewController.shouldShowComposeButton = false
+
             
-            self.navigationController?.pushViewController(viewController, animated:true)
+            switch UIDevice.current.userInterfaceIdiom {
+            case .phone:
+                self.navigationController?.pushViewController(viewController, animated:true)
+            case .pad:
+                self.view.addSubview(viewController.view)
+                viewController.view.frame = self.view.bounds
+            case .unspecified:
+                break
+            case .tv:
+                break
+                //
+            case .carPlay:
+                break
+                //
+            }
+            
         }
     }
     
