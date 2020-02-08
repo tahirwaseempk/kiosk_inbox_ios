@@ -485,6 +485,8 @@
 		299DC9AC21FB9906001F2861 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 750FE3D21F28775D0018E863 /* IQButtonBarArrowRight@2x.png */; };
 		299DC9AD21FB9906001F2861 /* GenericImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FD0F1D2114BADF00062362 /* GenericImages.xcassets */; };
 		299DC9B721FB9A3E001F2861 /* TextAttendant.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299DC9B621FB9A3E001F2861 /* TextAttendant.xcassets */; };
+		29BE296223EEAECE00BABBDD /* Launch_TextAttendant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BE296123EEAECE00BABBDD /* Launch_TextAttendant.storyboard */; };
+		29BE296423EEAF5B00BABBDD /* Launch_TextingLine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BE296323EEAF5B00BABBDD /* Launch_TextingLine.storyboard */; };
 		29C5259421A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259521A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
 		29C5259621A5D4BB00A63FC6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */; };
@@ -502,11 +504,6 @@
 		29C820512141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
 		29C820522141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
 		29C820532141CD2F00A47752 /* UILabel+Copyable.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */; };
-		29DA419022E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
-		29DA419122E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
-		29DA419222E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
-		29DA419322E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
-		29DA419422E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */; };
 		29E5E13F21767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
 		29E5E14021767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
 		29E5E14121767A5E00BF642C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */; };
@@ -931,12 +928,13 @@
 		299DC9B421FB9906001F2861 /* Text_Attendant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Text_Attendant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		299DC9B521FB9906001F2861 /* TextAttendant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TextAttendant-Info.plist"; path = "/Volumes/Data HD/Personal Data Amir/Current Working/Sir Wahab/June/Code/TextAttendant-Info.plist"; sourceTree = "<absolute>"; };
 		299DC9B621FB9A3E001F2861 /* TextAttendant.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TextAttendant.xcassets; sourceTree = "<group>"; };
+		29BE296123EEAECE00BABBDD /* Launch_TextAttendant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch_TextAttendant.storyboard; sourceTree = "<group>"; };
+		29BE296323EEAF5B00BABBDD /* Launch_TextingLine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch_TextingLine.storyboard; sourceTree = "<group>"; };
 		29C5259321A5D4BA00A63FC6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		29C7254422934E8F00BE41B3 /* UIView+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		29C820432141CC3C00A47752 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		29C8204E2141CD2F00A47752 /* UILabel+Copyable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Copyable.h"; sourceTree = "<group>"; };
 		29C8204F2141CD2F00A47752 /* UILabel+Copyable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Copyable.m"; sourceTree = "<group>"; };
-		29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E5E13D21767A5E00BF642C /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		29E5E13E21767A5E00BF642C /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		29F0506323C6749A0054B82D /* TextingLine.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TextingLine.entitlements; sourceTree = "<group>"; };
@@ -1329,9 +1327,10 @@
 		1ADE9F971EF98E90006C2CAC /* Splash View */ = {
 			isa = PBXGroup;
 			children = (
+				29BE296323EEAF5B00BABBDD /* Launch_TextingLine.storyboard */,
+				29BE296123EEAECE00BABBDD /* Launch_TextAttendant.storyboard */,
 				1ADE9F981EF98EBB006C2CAC /* SplashViewController.swift */,
 				1ADE9F9A1EF98ED9006C2CAC /* Splash.storyboard */,
-				29DA418F22E6F5150067A0A5 /* LaunchScreen.storyboard */,
 				1ADE9F9C1EF98F5C006C2CAC /* Login  View */,
 			);
 			name = "Splash View";
@@ -1905,6 +1904,7 @@
 				292CCE5021C462F600996BF5 /* GoogleService-Info.plist in Resources */,
 				0440EBA12366167800B8D738 /* CreateTagView.xib in Resources */,
 				752CE43F1F27E24900FCC976 /* IQButtonBarArrowLeft@3x.png in Resources */,
+				29BE296423EEAF5B00BABBDD /* Launch_TextingLine.storyboard in Resources */,
 				75E7A8431F4F2FAB00E9764C /* ComposeMessage.storyboard in Resources */,
 				294432F32295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
 				294432B72295E09700370FF3 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
@@ -1919,7 +1919,6 @@
 				752CE43D1F27E24900FCC976 /* IQButtonBarArrowDown@3x.png in Resources */,
 				2944331B2295E09700370FF3 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				752CE4411F27E24900FCC976 /* IQButtonBarArrowUp@2x.png in Resources */,
-				29DA419022E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				1AE37F3C206017D0009C4625 /* ScheduleAppointment.storyboard in Resources */,
 				750FE3D31F28775D0018E863 /* IQButtonBarArrowRight@2x.png in Resources */,
 			);
@@ -1971,7 +1970,6 @@
 				290BEDF420E697EC00F30BAA /* IQButtonBarArrowUp@2x.png in Resources */,
 				2944331C2295E09700370FF3 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				290BEDF520E697EC00F30BAA /* ScheduleAppointment.storyboard in Resources */,
-				29DA419122E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				290BEDF620E697EC00F30BAA /* IQButtonBarArrowRight@2x.png in Resources */,
 				29FD0F1F2114BADF00062362 /* GenericImages.xcassets in Resources */,
 			);
@@ -1992,7 +1990,6 @@
 				299DC99821FB9906001F2861 /* IQButtonBarArrowUp@3x.png in Resources */,
 				299DC99921FB9906001F2861 /* Home.storyboard in Resources */,
 				0440EB862366163900B8D738 /* Contacts.storyboard in Resources */,
-				29DA419422E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				299DC99A21FB9906001F2861 /* PhotoTexting.xcassets in Resources */,
 				294433102295E09700370FF3 /* SF-Pro-Display-MediumItalic.otf in Resources */,
 				299DC99B21FB9906001F2861 /* ConversationListing.storyboard in Resources */,
@@ -2022,6 +2019,7 @@
 				294432CA2295E09700370FF3 /* SF-Pro-Display-Bold.otf in Resources */,
 				299DC9A621FB9906001F2861 /* IQButtonBarArrowLeft@2x.png in Resources */,
 				299DC9A721FB9906001F2861 /* SearchView.xib in Resources */,
+				29BE296223EEAECE00BABBDD /* Launch_TextAttendant.storyboard in Resources */,
 				294432F72295E09700370FF3 /* SF-Pro-Display-Semibold.otf in Resources */,
 				294432CF2295E09700370FF3 /* SF-Pro-Display-Black.otf in Resources */,
 				299DC9A921FB9906001F2861 /* IQButtonBarArrowDown@3x.png in Resources */,
@@ -2048,7 +2046,6 @@
 				049833B8237A3C5900248FC7 /* FilterTagView.xib in Resources */,
 				29FD0F8121160D0500062362 /* IQButtonBarArrowUp@3x.png in Resources */,
 				29FD0F8221160D0500062362 /* Home.storyboard in Resources */,
-				29DA419222E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				294433362295E09700370FF3 /* SF-Pro-Display-Regular.otf in Resources */,
 				29FD0F8321160D0500062362 /* PhotoTexting.xcassets in Resources */,
 				29FD0F8421160D0500062362 /* ConversationListing.storyboard in Resources */,
@@ -2107,7 +2104,6 @@
 				29FD0FF921160D1000062362 /* ConversationListing.storyboard in Resources */,
 				29FD0FFA21160D1000062362 /* IQButtonBarArrowDown@2x.png in Resources */,
 				29FD0FFB21160D1000062362 /* Splash.storyboard in Resources */,
-				29DA419322E6F5150067A0A5 /* LaunchScreen.storyboard in Resources */,
 				29FD0FFC21160D1000062362 /* Default-568h@2x.png in Resources */,
 				294432E22295E09700370FF3 /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				29FD0FFD21160D1000062362 /* Login.storyboard in Resources */,

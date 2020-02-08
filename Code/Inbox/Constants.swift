@@ -37,7 +37,7 @@ enum environmentType {
     text_Attendant
 }
 
-let environment:environmentType = .text_Attendant
+let environment:environmentType = .texting_Line
 
 let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#%^&*()_+=-$[]{};:,./?><' \""
 let ACCEPTABLE_DIGITS = "0123456789"
