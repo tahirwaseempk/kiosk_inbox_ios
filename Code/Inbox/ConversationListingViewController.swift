@@ -2,22 +2,14 @@ import UIKit
 
 class ConversationListingViewController: UIViewController, ConversationListingTableCellProtocol
 {
-    //    @IBOutlet weak var counterLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
-    //    @IBOutlet weak var markAllAsRead_Btn: UIButton!
-    
     var selectedConversation:Conversation! = nil
-    
     var tableViewDataSource:InboxTableViewDataSource? = nil
-    
     var delegate:ConversationListingViewControllerProtocol? = nil
     
-    //    @IBOutlet weak var header_View: UIView!
-    
     @IBOutlet weak var nomessageImage: UIImageView!
-    
     
     
     @objc func willEnterForeground() {
@@ -27,7 +19,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
             callLastConversationsUpdate()
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,7 +35,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         }
         
     }
-    
     
     override func viewDidLoad()
     {
@@ -69,20 +59,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         tableView.refreshControl = refreshControl
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
-        // header_View.backgroundColor = AppThemeColor
-        /*
-         switch environment {
-         case .texting_Line:
-         header_View.backgroundColor = AppThemeColor
-         case .sms_Factory:
-         header_View.backgroundColor = AppThemeColor
-         case .fan_Connect:
-         header_View.backgroundColor = AppThemeColor
-         case .photo_Texting:
-         header_View.backgroundColor = AppThemeColor
-         }
-         
-         */
+        
         self.initiateMessageCall()
     }
     
@@ -92,6 +69,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         
         refreshControl.endRefreshing()
     }
+    
     func setupControls()
     {
         self.setupTableView()
@@ -106,48 +84,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
         self.tableView.tableFooterView = UIView()
     }
     
-    @IBAction func refresh_Tapped(_ sender: Any)
-    {
-        self.callLastConversationsUpdate()
-        
-    }
-    
-    @IBAction func markAllRead_Tapped(_ sender: Any)
-    {
-        ProcessingIndicator.show()
-        
-        User.setReadAllConversations(conversations: (User.getLoginedUser()?.conversations)!, index: 0, completionBlockSuccess: { (status:Bool) -> (Void) in
-            
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            self.tableViewDataSource?.reloadControls()
-                            
-                            self.refreshUnReadCount()
-                            
-                            ProcessingIndicator.hide()
-                    }
-            }
-            
-        }) { (error:Error?) -> (Void) in
-            
-            DispatchQueue.global(qos: .background).async
-                {
-                    DispatchQueue.main.async
-                        {
-                            ProcessingIndicator.hide()
-                            
-                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                            
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                            
-                            self.present(alert, animated: true, completion: nil)
-                    }
-            }
-        }
-    }
-    
     func conversationSelected(conversation:Conversation?) -> Bool
     {
         self.selectedConversation = conversation
@@ -159,11 +95,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
     func callMessagesWebService () {
         
         User.getMessageForConversation(conversation:self.selectedConversation, lastMessageId:"", completionBlockSuccess: {(messages:Array<Message>?) -> (Void) in
-            
-            //            DispatchQueue.global(qos:.background).async
-            //                {
-            //                    DispatchQueue.main.async
-            //                        {
+ 
             if self.selectedConversation.unreadMessages == true
             {
                 User.setReadConversation(conversation: self.selectedConversation, completionBlockSuccess: { (status: Bool) -> (Void) in
@@ -208,8 +140,6 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
                 ProcessingIndicator.hide()
                 self.selectedConversationUpdated()
             }
-            //                    }
-            //            }
             
         }) {(error:Error?) -> (Void) in
             
@@ -235,10 +165,7 @@ class ConversationListingViewController: UIViewController, ConversationListingTa
 extension ConversationListingViewController
 {
     func refreshUnReadCount ()
-    {
-        //        self.counterLabel.text = "-"
-        //        self.counterLabel.text = "(\(self.showUnReadConversationCount(User.getLoginedUser()?.conversations)))"
-        
+    {        
         if (User.getLoginedUser()?.conversations)!.count > 0
         {
             self.nomessageImage.isHidden = true
@@ -308,7 +235,7 @@ extension ConversationListingViewController
                                 }
                                 ProcessingIndicator.hide()
                                 IS_LISTING_SERVICE_CALLED = false
-
+                                
                         }
                 }
                 

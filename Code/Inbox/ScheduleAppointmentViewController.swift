@@ -94,22 +94,20 @@ class ScheduleAppointmentViewController: UIViewController
         
         switch environment {
           case .texting_Line:
-              scheduleAppointmentButton.topGradientColor = TextAttendantColor
-              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
+              scheduleAppointmentButton.topGradientColor = AppThemeColor
+              scheduleAppointmentButton.bottomGradientColor = AppThemeColor
           case .sms_Factory:
+              scheduleAppointmentButton.topGradientColor = AppThemeColor
+              scheduleAppointmentButton.bottomGradientColor = AppThemeColor
+        case .fan_Connect:
+              scheduleAppointmentButton.topGradientColor = AppThemeColor
+              scheduleAppointmentButton.bottomGradientColor = AppThemeColor
+        case .photo_Texting:
+              scheduleAppointmentButton.topGradientColor = AppThemeColor
+              scheduleAppointmentButton.bottomGradientColor = AppThemeColor
+        case .text_Attendant:
               scheduleAppointmentButton.topGradientColor = TextAttendantColor
               scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
-          case .fan_Connect:
-              scheduleAppointmentButton.topGradientColor = TextAttendantColor
-              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
-          case .photo_Texting:
-              scheduleAppointmentButton.topGradientColor = TextAttendantColor
-              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
-          case .text_Attendant:
-              scheduleAppointmentButton.topGradientColor = TextAttendantColor
-              scheduleAppointmentButton.bottomGradientColor = TextAttendantColor
-//              scheduleAppointmentButton.cornerRadius = 0
-
           }
 
     }

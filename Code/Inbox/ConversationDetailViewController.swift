@@ -56,28 +56,45 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         sendTextField.inputAccessoryView = UIView()
         ////////////////////////////////////////////////////////
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            //            header_View.backgroundColor = GrayHeaderColor
-        } else {
-            //            header_View.backgroundColor = AppThemeColor
-        }
+        
+        
+        switch environment {
+        case .texting_Line:
+            sendButton.layer.cornerRadius = sendButton.bounds.height/2
+              sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+              sendButton.backgroundColor =  UIColor.black //AppThemeColor
+              sendButton.tintColor = UIColor.white
+              sendButton.layer.borderColor =  UIColor.white.cgColor
 
-        
-        if environment == .text_Attendant {
+        case .sms_Factory:
             sendButton.layer.cornerRadius = sendButton.bounds.height/2
-            sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            sendButton.backgroundColor =  TextAttendantColor
-            sendButton.tintColor = UIColor.white
-            sendButton.layer.borderColor =  UIColor.white.cgColor
-            
-        } else {
+              sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+              sendButton.backgroundColor =  UIColor.black //AppThemeColor
+              sendButton.tintColor = UIColor.white
+              sendButton.layer.borderColor =  UIColor.white.cgColor
+
+        case .fan_Connect:
             sendButton.layer.cornerRadius = sendButton.bounds.height/2
-            sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            sendButton.backgroundColor =  UIColor.black //AppThemeColor
-            sendButton.tintColor = UIColor.white
-            sendButton.layer.borderColor =  UIColor.white.cgColor
+              sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+              sendButton.backgroundColor =  UIColor.black //AppThemeColor
+              sendButton.tintColor = UIColor.white
+              sendButton.layer.borderColor =  UIColor.white.cgColor
+
+        case .photo_Texting:
+            sendButton.layer.cornerRadius = sendButton.bounds.height/2
+              sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+              sendButton.backgroundColor =  UIColor.black //AppThemeColor
+              sendButton.tintColor = UIColor.white
+              sendButton.layer.borderColor =  UIColor.white.cgColor
+
+        case .text_Attendant:
+
+            sendButton.layer.cornerRadius = sendButton.bounds.height/2
+             sendButton.setImage(UIImage(named:"send-message")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+             sendButton.backgroundColor =  TextAttendantColor
+             sendButton.tintColor = UIColor.white
+             sendButton.layer.borderColor =  UIColor.white.cgColor
         }
-        
         
         self.inputCharacterCountLabel.text = "Character Count 0/250"
         
@@ -89,24 +106,6 @@ class ConversationDetailViewController: UIViewController, ConversationListingTab
         
         self.sendTextField.text = "Please enter message here"
         self.sendTextField.textColor = UIColor.lightGray
-        ////////////////////////////////////////////////////////////////////////////////////////
-        //refreshControl.addTarget(self, action: #selector(refreshListingTable), for: .valueChanged)
-        //tableView.refreshControl = refreshControl
-        ////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////
-        // header_View.backgroundColor = AppThemeColor
-        /*
-         switch environment {
-         case .texting_Line:
-         header_View.backgroundColor = AppThemeColor
-         case .sms_Factory:
-         header_View.backgroundColor = AppThemeColor
-         case .fan_Connect:
-         header_View.backgroundColor = AppThemeColor
-         case .photo_Texting:
-         header_View.backgroundColor = AppThemeColor
-         }
-         */
         
         tableViewDataSource = MessageTableViewDataSource(tableview: tableView, delegate_:self)
         

@@ -50,8 +50,12 @@ let GET_ALL_TAGS_DETAIL = "/api/v1/tags/"
 let GET_ALL_CONTACTS_TAGS = "/api/v1/contacts/tags/"
 let CREATE_NEW_TAG = "/api/v1/tags/"
 
-let ADD_TAG_TO_CONTACTS = "/api/v1/tags/"
-let ADD_TAG_TO_CONTACTS_2 = "/contacts/"
+//let ADD_TAG_TO_CONTACTS = "/api/v1/tags/"
+//let ADD_TAG_TO_CONTACTS_2 = "/contacts/"
+
+let ADD_TAG_TO_CONTACTS = "/api/v1/contacts/"
+let ADD_TAG_TO_CONTACTS_2 = "/tags/"
+
 let DELETE_TAG = "/api/v1/tags/"
 let UPLOAD_CONTACTS = "/api/v1/contacts/upload"
 let DELETE_CONTACT = "/api/v1/contacts/"
@@ -1204,16 +1208,15 @@ class WebManager: NSObject
         switch environment {
             
         case .texting_Line:
-            finalUrl = URL_TEXTING_LINE + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+            finalUrl = URL_TEXTING_LINE + ADD_TAG_TO_CONTACTS + contactIds + ADD_TAG_TO_CONTACTS_2 + tagId
         case .sms_Factory:
-            finalUrl = URL_SMS_FACTORY + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+            finalUrl = URL_SMS_FACTORY + ADD_TAG_TO_CONTACTS + contactIds + ADD_TAG_TO_CONTACTS_2 + tagId
         case .fan_Connect:
-            finalUrl = URL_FANCONNECT + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+            finalUrl = URL_FANCONNECT + ADD_TAG_TO_CONTACTS + contactIds + ADD_TAG_TO_CONTACTS_2 + tagId
         case .photo_Texting:
-            finalUrl = URL_PHOTO_TEXTING + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
+            finalUrl = URL_PHOTO_TEXTING + ADD_TAG_TO_CONTACTS + contactIds + ADD_TAG_TO_CONTACTS_2 + tagId
         case .text_Attendant:
-            finalUrl = URL_TEXT_ATTENDANT + ADD_TAG_TO_CONTACTS + tagId + ADD_TAG_TO_CONTACTS_2 + contactIds
-
+            finalUrl = URL_TEXT_ATTENDANT + ADD_TAG_TO_CONTACTS + contactIds + ADD_TAG_TO_CONTACTS_2 + tagId
         }
         
         print("\n ===== >>>>> Add Tag To Contact URL = \(finalUrl) \n")

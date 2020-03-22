@@ -54,40 +54,65 @@ class HomeViewController: UIViewController
         }
         
         let user = User.getLoginedUser()
-
+        
         if (user?.mobile?.isEmpty)!{
-             
-             self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
-             
-             self.view.addSubview(self.verifyCodeViewController.view)
-             self.verifyCodeViewController.view.frame = self.view.bounds
-         }
+            
+            self.verifyCodeViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "VerifyCodeViewController") as? VerifyCodeViewController
+            
+            self.view.addSubview(self.verifyCodeViewController.view)
+            self.verifyCodeViewController.view.frame = self.view.bounds
+        }
         
         /////////////////////////////////////////////////////
-        if environment == .text_Attendant {
+        switch environment {
+        case .texting_Line:
+            compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
+            compose_Button.setBackgroundImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.backgroundColor = AppBlueColor
+            compose_Button.tintColor = UIColor.white
+            compose_Button.layer.borderColor =  UIColor.white.cgColor
+            compose_Button.setTitleColor(.white, for: .normal)
+            compose_Button.setTitle("New Message", for: .normal)
             
+        case .sms_Factory:
+            compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
+            compose_Button.setBackgroundImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.backgroundColor =  AppBlueColor
+            compose_Button.tintColor = UIColor.white
+            compose_Button.layer.borderColor =  UIColor.white.cgColor
+            compose_Button.setTitleColor(.white, for: .normal)
+            compose_Button.setTitle("New Message", for: .normal)
+            
+        case .fan_Connect:
+            compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
+            compose_Button.setBackgroundImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.backgroundColor = AppBlueColor
+            compose_Button.tintColor = UIColor.white
+            compose_Button.layer.borderColor =  UIColor.white.cgColor
+            compose_Button.setTitleColor(.white, for: .normal)
+            compose_Button.setTitle("New Message", for: .normal)
+            
+        case .photo_Texting:
+            compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
+            compose_Button.setBackgroundImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
+            compose_Button.backgroundColor = AppBlueColor
+            compose_Button.tintColor = UIColor.white
+            compose_Button.layer.borderColor =  UIColor.white.cgColor
+            compose_Button.setTitleColor(.white, for: .normal)
+            compose_Button.setTitle("New Message", for: .normal)
+            
+        case .text_Attendant:
             compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
             compose_Button.setBackgroundImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
             compose_Button.backgroundColor =  TextAttendantColor
             compose_Button.tintColor = UIColor.white
             compose_Button.layer.borderColor =  UIColor.white.cgColor
-            
-            compose_Button.setTitleColor(.white, for: .normal)
-            compose_Button.setTitle("New Message", for: .normal)
-            
-        } else {
-            compose_Button.layer.cornerRadius = compose_Button.bounds.height/2
-            compose_Button.setBackgroundImage(UIImage(named: "composeIconNew")?.withRenderingMode(.alwaysTemplate), for: UIControlState.normal)
-            compose_Button.backgroundColor =  UIColor.red
-            compose_Button.tintColor = UIColor.white
-            compose_Button.layer.borderColor =  UIColor.white.cgColor
-            
             compose_Button.setTitleColor(.white, for: .normal)
             compose_Button.setTitle("New Message", for: .normal)
         }
         /////////////////////////////////////////////////////
         self.setupControls()
-         
+        
     }
     
     func setupControls()
@@ -117,7 +142,7 @@ class HomeViewController: UIViewController
             //                {
             //                    DispatchQueue.main.async
             //                        {
-            ////                            ProcessingIndicator.hide()
+            //                            ProcessingIndicator.hide()
             //
             //                    }
             //            }
@@ -128,7 +153,7 @@ class HomeViewController: UIViewController
             //                {
             //                    DispatchQueue.main.async
             //                        {
-            ////                            ProcessingIndicator.hide()
+            //                            ProcessingIndicator.hide()
             //                    }
             //            }
             

@@ -30,11 +30,8 @@ class InboxTableViewDataSource:NSObject,UITableViewDelegate,UITableViewDataSourc
         self.targetedTableView.dataSource = self
         self.targetedTableView.delegate = self
         self.targetedTableView.register(UINib(nibName:"InboxTableViewCell",bundle:nil),forCellReuseIdentifier:"InboxTableViewCell")
-        
-        // self.targetedTableView.register(UINib(nibName: "SearchView", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchView")
-        
+                
         self.applySearchFiltersForSearchText("")
-        //self.reloadControls()
     }
     
     func reloadControls()

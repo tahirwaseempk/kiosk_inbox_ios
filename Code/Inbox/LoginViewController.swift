@@ -45,8 +45,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         //        switch environment {
         //        case .texting_Line:
         
-//        serialTextField.text = "5617753113"
-//        udidTextField.text = "ozhh3f"
+        serialTextField.text = "5617753113"
+        udidTextField.text = "ozhh3f"
         
         //                    serialTextField.text = "8006999130"
         //                    udidTextField.text = "muffin123"
@@ -82,7 +82,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         case .texting_Line:
             loginImageView.image = UIImage(named: "ChatLogo")
             self.view.backgroundColor = UIColor.white
-            //loginButton.backgroundColor = AppBlueColor
+            loginButton.topGradientColor = AppBlueColor
+            loginButton.bottomGradientColor = AppBlueColor
             loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
             serialLabel.textColor = AppBlueColor
             udidLabel.textColor = AppBlueColor
@@ -117,7 +118,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate
             udidLabel.textColor = TextAttendantColor
         }
         
-        self.udidTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        self.udidTextField.layer.sublayerTransform   = CATransform3DMakeTranslation(8, 0, 0)
         self.serialTextField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
         
         self.serialTextField.isEnabled = true
@@ -126,11 +127,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate
         self.udidTextField.delegate    = self
         
         self.rememberMeButton.backgroundColor = UIColor.clear
-        
-        //self.loginButton.clipsToBounds = true
-       // self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height / 2.0
-        
-//        loginButton.layer.cornerRadius = loginButton.bounds.height/BUTTON_RADIUS
 
         if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) != nil) {
             if ((UserDefaults.standard.object(forKey:"isAutoKey") as? Bool) == true) {

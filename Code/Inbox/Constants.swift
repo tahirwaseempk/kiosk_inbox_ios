@@ -51,32 +51,18 @@ let Countries = ["FL","AA","AE","AK","AL","AP","AR","AS","AZ","CA","CO","CT","DC
 
 var AppBlueColor       = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 let FanAppColor        = UIColor(red: 87/256, green: 179/256, blue: 181/256, alpha: 1.0)
-//let PhotoAppColor      = UIColor(red: 141/256, green: 143/256, blue: 199/256, alpha: 1.0)
 let PhotoAppColor      = UIColor(red: 21/256, green: 144/256, blue: 211/256, alpha: 1.0)
-
 let TextAttendantColor = UIColor(red: 255/256, green: 80/256, blue: 1/256, alpha: 1.0)
-//let TextAttendantColor = UIColor(red: 0/256, green: 0/256, blue: 0/256, alpha: 1.0)
+var AppThemeColor      = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
 
-let GrayHeaderColor = UIColor(red: 206/256, green: 205/256, blue: 210/256, alpha: 1.0)
+var AppThemeHex = "007AFF"
 
-var AppThemeColor = UIColor(red: 74/256, green: 144/256, blue: 226/256, alpha: 1.0)
-
-var BubbleColor = UIColor(red: 98/256, green: 189/256, blue: 225/256, alpha: 1.0)
-var BubbleColor2 = UIColor(red: 73/256, green: 157/256, blue: 255/256, alpha: 1.0)
-
-var AppThemeHex   = "007AFF"
-
-var TextingHex  = "007AFF"
-let FanHex      = "56B3B5"
-let PhotoHex    = "1590D3"//"8D8FC7"
-let ReceiverHex = "DFDEE5"
 
 let LIMIT = "0"
 let LIMIT_MESSAGES = "50"
 let EMOJI = "true"
 let EMOJI_MESSAGES = "true"
 let INDEX_FROM_MESSAGES = "Old"
-
 let CONTACTSWITHCHAT = "false"
 
 var IS_LISTING_SERVICE_CALLED = false
